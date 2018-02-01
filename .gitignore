@@ -1,2 +1,8 @@
+<<<<<<< HEAD
 
 runtime/
+=======
+*.log
+
+runtime/
+>>>>>>> 0b6f00a5f4842987d036a52f75d39972e0e9dc68
