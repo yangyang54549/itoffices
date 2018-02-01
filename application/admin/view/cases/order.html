@@ -1,0 +1,34 @@
+{extend name="template/base" /}
+{block name="content"}
+<div class="page-container">
+    {include file="form" /}
+    <table class="table table-border table-bordered table-hover table-bg mt-20">
+        <thead>
+        <tr class="text-c">
+            <th width="25"><input type="checkbox"></th>
+            <th width="">案例id</th>
+            <th width="">案例名称</th>
+            <th width="">案例说明</th>
+            <th width="">用户名称</th>
+            <th width="">微信号</th>
+            <th width="">联系电话</th>
+        </tr>
+        </thead>
+        <tbody>
+        {volist name="list" id="vo"}
+        <tr class="text-c">
+            <td><input type="checkbox" name="id[]" value="{$vo.id}"></td>
+            <td>{$vo.cases_id}</td>
+            <td>{$vo.name}</td>
+            <td>{$vo.remark}</td>
+            <td>{$vo.username}</td>
+            <td>{$vo.wxchat}</td>
+            <td>{$vo.phone}</td>
+        </tr>
+        {/volist}
+        </tbody>
+    </table>
+    <div class="page-bootstrap">{$page ?? ''}</div>
+</div>
+{/block}
+

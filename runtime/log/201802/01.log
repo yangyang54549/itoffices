@@ -1,0 +1,218 @@
+[ 2018-02-01T09:05:17+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/index/index.html
+[ log ] itoffice.com/admin/index/index.html [运行时间：0.197817s][吞吐率：5.06req/s] [内存消耗：6,074.98kb] [文件加载：69]
+[ info ] [ LANG ] E:\GitHub\itoffice\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'pgv_pvi=7370713088; Huiskin=blue',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://itoffice.com/admin/pub/login.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.78 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'itoffice.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run \app\common\behavior\WebLog @module_init [ RunTime:0.045187s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run \app\common\behavior\WebLog @app_end [ RunTime:0.050634s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001887s ] mysql:dbname=itoffice;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_web_log_all` [ RunTime:0.031559s ]
+[ sql ] [ SQL ] INSERT INTO `tp_web_log_all` (`uid` , `ip` , `location` , `os` , `browser` , `url` , `module` , `controller` , `action` , `method` , `data` , `create_at`) VALUES (0 , '127.0.0.1' , '本机地址 本机地址  ' , 'Windows 10' , 'Chrome(60.0.3112.78)' , 'http://itoffice.com/admin/index/index.html' , 'admin' , 'Index' , 'index' , 'GET' , 'a:0:{}' , 1517447117) [ RunTime:0.001499s ]
+
+---------------------------------------------------------------
+[ 2018-02-01T09:05:17+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/pub/login.html
+[ log ] itoffice.com/admin/pub/login.html [运行时间：0.116636s][吞吐率：8.57req/s] [内存消耗：6,105.32kb] [文件加载：69]
+[ info ] [ LANG ] E:\GitHub\itoffice\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'pub',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'pgv_pvi=7370713088; Huiskin=blue; PHPSESSID=97pn0v0c68b85va0dt25i9mvm0',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://itoffice.com/admin/pub/login.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.78 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'itoffice.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run \app\common\behavior\WebLog @module_init [ RunTime:0.013505s ]
+[ info ] [ RUN ] app\admin\controller\Pub->login[ E:\GitHub\itoffice\application\admin\controller\Pub.php ]
+[ info ] [ VIEW ] E:\GitHub\itoffice\public/../application/admin\view\pub\login.html [ array (
+) ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run \app\common\behavior\WebLog @app_end [ RunTime:0.031360s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000787s ] mysql:dbname=itoffice;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_web_log_all` [ RunTime:0.016548s ]
+[ sql ] [ SQL ] INSERT INTO `tp_web_log_all` (`uid` , `ip` , `location` , `os` , `browser` , `url` , `module` , `controller` , `action` , `method` , `data` , `create_at`) VALUES (0 , '127.0.0.1' , '本机地址 本机地址  ' , 'Windows 10' , 'Chrome(60.0.3112.78)' , 'http://itoffice.com/admin/pub/login.html' , 'admin' , 'Pub' , 'login' , 'GET' , 'a:0:{}' , 1517447117) [ RunTime:0.000305s ]
+
+---------------------------------------------------------------
+[ 2018-02-01T09:05:17+08:00 ] 127.0.0.1 127.0.0.1 GET /captcha.html
+[ log ] itoffice.com/captcha.html [运行时间：0.080124s][吞吐率：12.48req/s] [内存消耗：1,051.09kb] [文件加载：41]
+[ info ] [ LANG ] E:\GitHub\itoffice\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'pgv_pvi=7370713088; Huiskin=blue; PHPSESSID=97pn0v0c68b85va0dt25i9mvm0',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://itoffice.com/admin/pub/login.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.78 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'itoffice.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '',
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ E:\GitHub\itoffice\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-02-01T09:05:18+08:00 ] 127.0.0.1 127.0.0.1 GET /index/cases/index/ty/0
+[ log ] itoffice.com/index/cases/index/ty/0 [运行时间：0.225841s][吞吐率：4.43req/s] [内存消耗：2,217.39kb] [文件加载：63]
+[ info ] [ LANG ] E:\GitHub\itoffice\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'cases',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'pgv_pvi=7370713088; Huiskin=blue; PHPSESSID=97pn0v0c68b85va0dt25i9mvm0',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://itoffice.com/index/cases/index/xiao/12',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.78 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'itoffice.com',
+)
+[ info ] [ PARAM ] array (
+  'ty' => '0',
+)
+[ info ] [ RUN ] app\index\controller\Cases->index[ E:\GitHub\itoffice\application\index\controller\Cases.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\GitHub\itoffice\public/../application/index\view\cases\index.html [ array (
+  0 => 'type',
+  1 => 'specific',
+  2 => 'system',
+  3 => 'where',
+  4 => 'cases',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003930s ] mysql:dbname=itoffice;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_type` [ RunTime:0.018260s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_type` [ RunTime:0.000679s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_specific` [ RunTime:0.018396s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_specific` [ RunTime:0.000805s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_system` [ RunTime:0.025870s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_system` [ RunTime:0.000761s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_cases` [ RunTime:0.030547s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cases` ORDER BY create_time desc LIMIT 0,10 [ RunTime:0.001614s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_type` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.000217s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_specific` WHERE  `id` = 12 LIMIT 1 [ RunTime:0.000129s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_system` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000241s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_system` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000287s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_system` WHERE  `id` = 4 LIMIT 1 [ RunTime:0.000250s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_type` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.000161s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_specific` WHERE  `id` = 12 LIMIT 1 [ RunTime:0.000190s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_system` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.001644s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_system` WHERE  `id` = 4 LIMIT 1 [ RunTime:0.000949s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_type` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.001153s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_specific` WHERE  `id` = 9 LIMIT 1 [ RunTime:0.002299s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_system` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.001514s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_system` WHERE  `id` = 4 LIMIT 1 [ RunTime:0.000600s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_type` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000174s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_specific` WHERE  `id` = 9 LIMIT 1 [ RunTime:0.000218s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_system` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.000127s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_system` WHERE  `id` = 4 LIMIT 1 [ RunTime:0.000191s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_type` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000173s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_specific` WHERE  `id` = 9 LIMIT 1 [ RunTime:0.000203s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_system` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.000210s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_system` WHERE  `id` = 4 LIMIT 1 [ RunTime:0.000160s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_type` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000311s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_specific` WHERE  `id` = 9 LIMIT 1 [ RunTime:0.000722s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_system` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.000544s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_system` WHERE  `id` = 4 LIMIT 1 [ RunTime:0.000455s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_type` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.002346s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_specific` WHERE  `id` = 9 LIMIT 1 [ RunTime:0.001334s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_system` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.000464s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_system` WHERE  `id` = 4 LIMIT 1 [ RunTime:0.000525s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_type` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000361s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_specific` WHERE  `id` = 9 LIMIT 1 [ RunTime:0.000261s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_system` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.000272s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_system` WHERE  `id` = 4 LIMIT 1 [ RunTime:0.000132s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_type` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000140s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_specific` WHERE  `id` = 9 LIMIT 1 [ RunTime:0.000154s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_system` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.000233s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_system` WHERE  `id` = 4 LIMIT 1 [ RunTime:0.000317s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_type` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000252s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_specific` WHERE  `id` = 9 LIMIT 1 [ RunTime:0.000118s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_system` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.000097s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_system` WHERE  `id` = 4 LIMIT 1 [ RunTime:0.000162s ]
+
+---------------------------------------------------------------

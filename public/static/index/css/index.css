@@ -1,0 +1,236 @@
+.clear{display:block;content:"";clear:both;}
+	#choice{    width: 75%;
+    margin: 0px auto;
+    min-width: 1080px; margin:50px auto;box-sizing:border-box;padding:0px 56px;box-shadow:0 2px 12px 2px rgba(28,57,81,0.18);}
+	.page-content{min-width:1080px;}
+	.choice_kind{padding:28px 0px 0px;}
+	.choice_kind:nth-of-type(1){border-bottom:1px dashed rgba(0,0,0,0.14);}
+	.choice_kind span:nth-child(1){display:block;width:120px;line-height:28px;font-size:14px;color:#3a4455;float:left;height:100%;}
+	.choice_kind ul{float:left;width: 100%;padding-left: 120px;box-sizing: border-box;margin-left: -120px;}
+	.choice_kind ul li{cursor:pointer;display:block;height:28px;line-height:28px;font-size:14px;color:#3a4455;float:left;padding:0px 22px;margin-bottom:20px;}
+	.choice_kind .active{background:#ff5454;color:#fff;border-radius:14px;}
+	.more_choice{float:right;line-height:28px;color:#f00;padding:0px 10px;font-size: 14px;}
+	.more_choice img{float:right;margin-top: 12px;margin-left: 10px;cursor:pointer;}
+	.clear{display:block;content:"";clear:both;}
+	.demandlist .content h3{display:block;width:100%;box-sizing:border-box;}
+	.demandlist ul:after{display:block;content:"";clear:both;}
+	.demandlist ul li{width:30%;margin-right:5%;position:relative;}
+	.demandlist ul li{padding-bottom:0px;box-sizing:border-box;}
+	/* .demandlist .content{text-align:left;}
+	.demandlist .content .img_pos{top:-1px;position:absolute;right:20px;line-height:44px;text-align:center;width:54px;height:56px;background:url("https://www.315pr.com:443/resources/bootstrap/resetImg/demand_status_f00.png") no-repeat;}
+	.demandlist .content .img_pos_f00{color:#fff;background:url("https://www.315pr.com:443/resources/bootstrap/resetImg/demand_status_f00.png") no-repeat;background-size:54px 56px;}
+	.demandlist .content .img_pos_000{color:#fff;background:url("https://www.315pr.com:443/resources/bootstrap/resetImg/demand_status_000.png") no-repeat;background-size:54px 56px;}
+	.demandlist .content .img_pos_green{color:#fff;background:url("https://www.315pr.com:443/resources/bootstrap/resetImg/demand_status_yellow.png") no-repeat;background-size:54px 56px;}
+	.demandlist .content .img_pos_ccc{color:rgba(58,68,85,0.60);;background:url("https://www.315pr.com:443/resources/bootstrap/resetImg/demand_status_ccc.png") no-repeat;background-size:54px 56px;}
+	.demandlist .content h3{padding: 33px 53px 20px 33px;   font-size: 20px;white-space: nowrap;overflow: hidden;color: #3a4455;   text-overflow: ellipsis;}
+	.demandlist .content .end_time{color:rgba(58,68,85,0.60);font-size:12px;padding:0px 33px;}
+	.demandlist .demandlist-d{padding:0px 33px;height:30px;overflow:hidden;}
+	.demandlist .demandlist-date{text-align:left;font-size:14px;font-weight:500;margin:0px;padding:0;line-height:18px;overflow:inherit;padding:0px 33px;}
+	.demandlist .demandlist-d span{border:1px solid #afafaf;font-size:12px;color:#3a4455;background:#fff;line-height:28px;border-radius:14px;padding:0 8px;margin:0;margin-right:4px;}
+	.demandlist .demandlist-p{font-size:22px;color:#ff5454;margin:20px 0 15px;padding:0px 20px;}
+	.demandlist .demandlist-c{background:#f5f5f5;line-height:36px;}
+	.demandlist .demandlist-c:after{border:none;} */
+	.demandBox{
+	cursor:pointer;
+	position: relative;
+	float: left;
+	margin-right:5%;
+    width: 30%;
+    background: #FFF;
+    box-shadow:0 4px 12px 0 rgba(28,57,81,0.1);
+    margin-bottom:50px;
+}
+}
+
+.demandlist ul .demandBox:nth-of-type(3n) {
+    margin-right: 0;
+}
+	.marking{
+	position: absolute;
+	top: 0;
+	right: 14px;
+	width: 47px;
+	height: 50px;
+	line-height: 46px;
+	text-align: center;
+	background: url(../resetImg/ico22.png);
+	background-size:47px 50px; 
+	font-size: 12px;
+	color: #fff;
+}
+.demandTitle{
+	padding:33px 53px 20px 33px;
+	font-size:20px;
+	white-space: nowrap;
+    overflow: hidden;
+	color:#3a4455;
+    text-overflow: ellipsis; 
+}
+.accomplishDate{
+	padding: 0 33px;
+}
+.accomplishDate span{
+	display: block;
+	padding-bottom: 6px;
+}
+.accomplishDate span:nth-child(1){
+	font-size: 12px;
+	color: #a3a7af;
+}
+
+.abbreviationBox{
+	height:38px;overflow:hidden;
+	margin-top: 16px;
+	padding-left: 22px;
+	padding-right:33px;
+}
+.abbreviationBox span{
+	display: block;
+	float: left;
+	margin-left: 11px;
+	margin-bottom: 10px;
+	padding: 5px 10px;
+	border:solid 1px #dfdfdf;
+	-moz-border-radius: 11px;
+	-khtml-border-radius: 11px;
+	-webkit-border-radius: 11px;
+	border-radius: 11px;
+}
+.unitPriceBox{
+	padding: 29px 33px;
+	width: 80%;
+	font-size:20px;
+	color:#ff5454;
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.bottomColor{
+	width: 100%;
+}
+.bottomColor div{
+	float: left;
+	width: 50%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	font-size: 12px;
+	background: #f5f5f5;
+}
+	.demandlist,.demandlist ul{overflow:visible;}
+	.demandlist ul .demandBox{box-shadow: 0 4px 12px 0 rgba(28,57,81,0.16);border:none;}
+	.demandlist ul .demandBox:hover{box-shadow: 0 8px 20px 0 rgba(28,57,81,0.24);}
+	
+.contactUs span a{color:#fff;}
+.fixed span{display:block;width:80px;height:80px;position:relative;}
+		.fixed span a{display:block;width:100%;height:100%;box-sizing:border-box;padding-top:10px;position:absolute;z-index:1000;}
+		.fixed span a img{display:block;margin:0px auto;width: 70px;}
+		.fix_pos{display:none;width:200px;height:150px;background:url("https://www.315pr.com:443/resources/bootstrap/resetImg/tel_bg2.png") no-repeat;background-size:100%;position:absolute;bottom:0px;right:10px;box-sizing:border-box;padding:20px  0 0 18px;}
+		.fix_pos div{width:100px;height:100px;line-height:10px;text-align:center;font-size:14px;color:#3a4455;}
+		.fix_pos div img{display:block;width:100px;height:100px;}
+		.box .text{font-size:16px;margin-top:15px;}
+		.fix_pos1 div{height:80px;margin-bottom:10px;}
+		.fix_pos1 div img{width:80px;margin:0 auto;height:80px;}
+
+
+.round{
+	float: left;	
+    position: relative;  
+   width: 30%;
+   margin-bottom: 20px;
+   margin-right: 5%;
+    height: 600px;
+    overflow: hidden;   	
+}
+
+.round .proImg{
+	width: 100%;
+    height: 600px;
+}
+.picList{
+	position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 10px 30px 20px;
+    width: 100%;
+    min-height: 314px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.95);
+        margin: 0;
+        box-sizing: border-box;
+        z-index: 20;
+    	transition:bottom 0.5s;
+}
+.round:hover .picList{
+	bottom: -400px;
+}
+.picList:hover{
+	bottom: 0;
+}
+.picList .similarity-title{
+	 margin-bottom: 20px;
+    padding: 20px 0;
+    color: #333;
+    font-size: 22px;
+    border-bottom: 1px solid #ccc;
+}
+ .similarity_label{
+ 	    width: 100%;
+    overflow: hidden;
+    color: #999;
+    margin-bottom: 5px;
+ } 
+ .similarity_label span {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 4px;
+    text-align: center; 
+    }
+    .similarity_label {
+    width: 100%;
+    overflow: hidden;
+    color: #999;
+    margin-bottom: 5px;
+}
+.similarity-intro {
+    margin-top: 15px;
+    margin-bottom: 40px;
+   word-break:break-all;
+								display:-webkit-box;
+								-webkit-line-clamp:3;
+								-webkit-box-orient:vertical;
+								overflow:hidden;
+    line-height: 20px;
+    color: #333;
+    font-size: 16px;
+}
+
+.similarity-price {
+    margin: 0;
+    margin-bottom: 10px;
+    color: #e61515;
+    font-size: 24px;
+    border: none;
+}
+span.price {
+    color: #e61515;
+    font-size: 32px;
+}
+.photograph {
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    height: 64px;
+    width: 64px;
+    text-align: center;
+    background: #fff;
+}
+.photograph img {
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    vertical-align: inherit;
+}
+ ul.project-list li:nth-of-type(3n) {
+    margin-right: 0;
+}

@@ -1,0 +1,479 @@
+.userProjectDel .userProjectState {
+				position: absolute;
+				right: 4%;
+				top: 0%;
+				width: 3.9%;
+				z-index: 1000;
+			}
+			
+			.clear {
+				display: block;
+				clear: both;
+			}
+			
+			h2 {
+				font-size: 24px;
+				font-weight: 600;
+				color: #3a4455;
+			}
+			
+			#page-content {
+				min-width: 1080px;
+				width: 80%;
+				margin: 0 auto;
+				box-shadow: 0 6px 18px 0 rgba(28, 57, 81, 0.16);
+				padding: 40px 0px;
+				margin-bottom: 80px;
+				position: relative;
+				margin-top: 60px;
+			}
+			
+			.content-status-pos {
+				width: 64px;
+				height: 56px;
+				line-height: 40px;
+				position: absolute;
+				right: 90px;
+				top: 0px;
+				color: #fff;
+				text-align: center;
+				f
+			}
+			
+			.content-bg-f00 {
+				background: url("https://www.315pr.com:443/resources/bootstrap/resetImg/demand_status_f00.png") no-repeat;
+			}
+			
+			.content-bg-000 {
+				background: url("https://www.315pr.com:443/resources/bootstrap/resetImg/demand_status_000.png") no-repeat;
+			}
+			
+			.content-bg-fff {
+				background: url("https://www.315pr.com:443/resources/bootstrap/resetImg/demand_status_ccc.png") no-repeat;
+			}
+			
+			.content-bg-yellow {
+				background: url("https://www.315pr.com:443/resources/bootstrap/resetImg/demand_status_yellow.png") no-repeat;
+			}
+			
+			.content-info-left {
+				width: 64%;
+				border-right: 1px dashed rgba(0, 0, 0, 0.14);
+				float: left;
+			}
+			
+			.content-info-left div {
+				margin: 18px 0px;
+			}
+			
+			.content-info-left div span {
+				display: block;
+				font-size: 14px;
+				color: #3a4455;
+				float: left;
+			}
+			
+			.content-info-left div span:nth-child(1) {
+				width: 30%;
+			}
+			
+			.content-info-left div span:nth-child(2) {
+				width: 65%;
+				color: black;
+			}
+			
+			.content-info-right {
+				padding: 0px 0px 0px 65px;
+				float: left;
+				width: 35%;
+				box-sizing: border-box;
+				border-left: 1px dashed rgba(0, 0, 0, 0.14);
+				margin-left: -1px;
+			}
+			
+			.content-info-right h3 {
+				font-size: 26px;
+				margin: 0;
+			}
+			
+			.content-info-right .count div {
+				float: left;
+				width: 50%;
+			}
+			
+			.content-info-right-red {
+				color: #ff5454;
+			}
+			
+			.content-info-right-p {
+				margin: 0;
+				font-size: 14px;
+				color: #79808C;
+				letter-spacing: 1px;
+			}
+			
+			.content-info-right-p:nth-of-type(2) {
+				margin-top: 15px;
+			}
+			
+			.content-info-right .count {
+				margin-top: 20px;
+			}
+			
+			.content-info-right .count div span:nth-child(2) {
+				display: block;
+				font-size: 26px;
+				line-height: 31px;
+				margin-top: 10px;
+			}
+			
+			.content-info-right .count div span:nth-child(2) img {
+				float: left;
+			}
+			
+			#content-sq {
+				width: 100%;
+				background: #ff5454;
+				color: #fff;
+				display: block;
+				margin: 0 auto;
+				font-size: 20px;
+				line-height: 40px;
+				border-radius: 20px;
+				margin-top: 30px;
+			}
+			
+			#content-sq a {
+				color: #fff;
+			}
+			
+			.demand-related {
+				clear: both;
+				box-sizing: border-box;
+				margin: 0 auto;
+				width: 80%;
+				box-shadow: 0 6px 18px 0 rgba(28, 57, 81, 0.16);
+				padding: 40px 40px;
+				margin-bottom: 80px;
+				position: relative;
+				margin-top: 60px;
+			}
+			
+			.related-head {
+				border-bottom: 1px dashed rgba(0, 0, 0, 0.12);
+			}
+			
+			.related-head h1 {
+				float: left;
+			}
+			
+			.related-head a {
+				float: right;
+				line-height: 51px;
+				color: #f00;
+			}
+			
+			.status_num {
+				margin-top: 30px;
+				padding-bottom: 30px;
+			}
+			
+			.status_num span {
+				display: block;
+				width: 33%;
+				height: 6px;
+				float: left;
+				background: #ccc;
+				position: relative;
+			}
+			
+			.status_num span i {
+				z-index: 9;
+				white-space: nowrap;
+				line-height: 50px;
+				float: right;
+				display: block;
+				width: 12px;
+				height: 12px;
+				position: relative;
+				top: -3px;
+				border-radius: 50%;
+				background: #ccc;
+			}
+			
+			.status_num span i em {
+				margin-left: -12px;
+			}
+			
+			.status_num .fff {
+				background: #ff5454;
+			}
+			
+			.status_num .fff:after {
+				content: '';
+				display: block;
+				position: absolute;
+				width: 6px;
+				height: 6px;
+				left: 3px;
+				top: 3px;
+				background: #fff;
+				border-radius: 50%;
+			}
+			
+			.status_num span i:nth-child(2) {
+				left: 0px;
+				float: left;
+			}
+			
+			.status_num .f00 {
+				background: #ff5454;
+				width: 16px;
+				height: 16px;
+				top: -5px;
+				margin-right: -5px;
+			}
+			
+			.recommend-a {
+				display: block;
+				float: left;
+				width: 22%;
+				margin-right: 3%;
+			}
+			
+			.recommend-a:nth-of-type(4) {
+				margin: 0px;
+			}
+			
+			.recommend-a div:nth-child(1) {
+				width: 80px;
+				height: 80px;
+				background: #000;
+				float: left;
+				border-radius: 50%;
+				color: #fff;
+				text-align: center;
+				line-height: 80px;
+				font-size: 16px;
+			}
+			
+			.demand-recommend {
+				margin-top: 30px;
+			}
+			
+			.recommend-a div:nth-child(2) {
+				font-size: 14px;
+				line-height: 30px;
+				margin-left: 10px;
+				float: left;
+				width: 100%;
+				padding-left: 90px;
+				margin-left: -80px;
+				box-sizing: border-box;
+			}
+			
+			.recommend-a div:nth-child(2) p {
+				display: block;
+				margin-top: 10px;
+				height: 30px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				width: 100%;
+			}
+			
+			.recommend-a div:nth-child(2) p:nth-child(1) {
+				margin-top: 5px;
+			}
+			
+			.page-content {
+				min-width: auto;
+			}
+			
+/*某电力公司线上广告投放*/.spimg {
+				overflow: hidden;
+			}
+			
+			.spimg p {
+				float: left;
+				margin-top: 0;
+				margin-left: 5px;
+				line-height: 40px;
+				width: auto;
+			}
+			
+			.pimg {
+				float: left;
+			}
+			
+			#pg {
+				margin: 0;
+				padding: 0;
+				height: 37px;
+				margin-left: -7px;
+				width: 100%;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
+			}
+			
+			#pg>div {
+				float: left;
+				width: 40px;
+				margin: 0;
+				padding: 0;
+			}
+			
+			.pimg>div>img {
+				width: 25px;
+				margin-left: 7px;
+			}
+			
+			#pg>div>span {
+				display: block;
+				width: 40px;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				text-align: center;
+				font-size: 10px;
+				transform: scale(0.7)
+			}
+			
+			.content-info-left div span:nth-child(1) {
+				overflow: hidden;
+			}
+			
+			.content-info-left div span:nth-child(1) img {
+				float: left;
+				width: 20px;
+				margin-right: 5px;
+				opacity: 0.7;
+			}
+			
+			.content-info-left div span:nth-child(1) span {
+				float: left;
+			}
+.img {
+				height: 30px;
+			}
+			
+			.beijin {
+				width: 100vw;
+				height: 100vh;
+				background-color: rgba(0, 0, 0, 0.5);
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 200;
+				display: none;
+			}
+			
+			.good {
+				margin: 30vh auto;
+				padding: 50px;
+				width: 400px;
+				background-color: white;
+				border-radius:10px ;
+			}
+			
+			.good h5,
+			.good p {
+				width: 100%;
+				text-align: center;
+			}
+			
+			.good h5 {
+				font-size: 16px;
+				margin: 0;
+				margin-bottom: 20px;
+			}
+			
+			.good p {
+				font-size: 15px;
+				font-weight: 600;
+			}
+			
+			.qud {
+				border: 1px solid red;
+				color: red;
+				border-radius: 10px;
+				padding: 10px 0;
+				margin-top: 20px;
+			}
+/*表单*/
+			
+			.jing {
+				width: 100vw;
+				height: 100vh;
+				position: fixed;
+				top: 0;
+				left: 0;
+				background-color: rgba(0, 0, 0, 0.5);
+				z-index: 900;
+			}
+			
+			.coment {
+				width: 1024px;
+				margin: 64px auto;
+				padding-top: 40px;
+				
+				overflow: hidden;
+			}
+			
+			.demand-block-hr {
+				width: 900px;
+				height: 4px;
+				margin: 0 auto;
+				margin-top: 50px;
+			}
+			
+			.demand-block-hr span {
+				width: 300px;
+				height: 4px;
+				background: #e0e0e0;
+				position: relative;
+				float: left;
+			}
+			
+			.demand-block-hr span i {
+				display: block;
+				color: #000;
+				width: 309px;
+				text-align: center;
+				position: absolute;
+				top: -54px;
+				font-style: normal;
+				font-size: 16px;
+			}
+			
+			.demand-block-hr span em {
+				width: 16px;
+				height: 16px;
+				background: #e0e0e0;
+				margin: 0 auto;
+				position: absolute;
+				left: 50%;
+				border-radius: 50%;
+				margin: -6px 0 0 -12px;
+			}
+			
+			.demand-block-hr .active {
+				background: #ff5454;
+			}
+			
+			.demand-block-hr .active em {
+				background: #ff5454;
+				width: 24px;
+				height: 24px;
+				margin-top: -10px;
+			}
+			
+			.demand-block-hr .active i {
+				color: #ff5454;
+			}
+			/**/
+			body{
+				background-color: #FAFAFA;
+				
+			}
