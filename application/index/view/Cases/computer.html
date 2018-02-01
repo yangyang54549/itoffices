@@ -934,6 +934,7 @@
         <script src="__INDEX__/js/form.js" type="text/javascript" charset="utf-8"></script>
         <script type="text/javascript">
             $("#Xname").val($(".center .right h4").text());
+            $("#Xname").focus(function(){this.blur()});
             $(".submits").click(function() {
                 $(".forms").css("display", "block");
             })
