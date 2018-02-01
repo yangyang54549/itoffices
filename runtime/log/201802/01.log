@@ -581,3 +581,252 @@
 [ sql ] [ SQL ] SELECT * FROM `tp_cases` WHERE  `id` = 2029 LIMIT 1 [ RunTime:0.000730s ]
 
 ---------------------------------------------------------------
+[ 2018-02-01T11:13:08+08:00 ] 127.0.0.1 127.0.0.1 GET /index/cases/inside/id/2029.html
+[ log ] itoffices.com/index/cases/inside/id/2029.html [运行时间：0.149218s][吞吐率：6.70req/s] [内存消耗：2,189.81kb] [文件加载：63]
+[ info ] [ LANG ] E:\GitHub\itoffices\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'cases',
+    2 => 'inside',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=ci6a5e8lts0gm4b6mhomon7kr6',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://itoffices.com/index/cases',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.78 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'itoffices.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '2029',
+)
+[ info ] [ RUN ] app\index\controller\Cases->inside[ E:\GitHub\itoffices\application\index\controller\Cases.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\GitHub\itoffices\public/../application/index\view\cases\phone.html [ array (
+  0 => 'cases',
+  1 => 'system_type',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001252s ] mysql:dbname=itoffice;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_cases` [ RunTime:0.014671s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cases` WHERE  `id` = 2029 LIMIT 1 [ RunTime:0.000496s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_type` [ RunTime:0.012130s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_type` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.000152s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_specific` [ RunTime:0.015148s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_specific` WHERE  `id` = 12 LIMIT 1 [ RunTime:0.000174s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_system` [ RunTime:0.014589s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_system` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000173s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_system` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000132s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_system` WHERE  `id` = 4 LIMIT 1 [ RunTime:0.000122s ]
+
+---------------------------------------------------------------
+[ 2018-02-01T11:13:08+08:00 ] 127.0.0.1 127.0.0.1 GET /index/cases/phones/id/2029.html
+[ log ] itoffices.com/index/cases/phones/id/2029.html [运行时间：0.152366s][吞吐率：6.56req/s] [内存消耗：2,243.58kb] [文件加载：62]
+[ info ] [ LANG ] E:\GitHub\itoffices\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'cases',
+    2 => 'phones',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=ci6a5e8lts0gm4b6mhomon7kr6',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://itoffices.com/index/cases/inside/id/2029.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.78 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'itoffices.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '2029',
+)
+[ info ] [ RUN ] app\index\controller\Cases->phones[ E:\GitHub\itoffices\application\index\controller\Cases.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\GitHub\itoffices\public/../application/index\view\cases\phones.html [ array (
+  0 => 'images',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004272s ] mysql:dbname=itoffice;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_cases` [ RunTime:0.024237s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cases` WHERE  `id` = 2029 LIMIT 1 [ RunTime:0.000654s ]
+
+---------------------------------------------------------------
+[ 2018-02-01T11:13:11+08:00 ] 127.0.0.1 127.0.0.1 GET /index/cases/inside/id/5.html
+[ log ] itoffices.com/index/cases/inside/id/5.html [运行时间：0.167230s][吞吐率：5.98req/s] [内存消耗：2,439.34kb] [文件加载：66]
+[ info ] [ LANG ] E:\GitHub\itoffices\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'cases',
+    2 => 'inside',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=ci6a5e8lts0gm4b6mhomon7kr6',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://itoffices.com/index/cases',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.78 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'itoffices.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '5',
+)
+[ info ] [ RUN ] app\index\controller\Cases->inside[ E:\GitHub\itoffices\application\index\controller\Cases.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\GitHub\itoffices\public/../application/index\view\cases\computer.html [ array (
+  0 => 'cases',
+  1 => 'system_type',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001217s ] mysql:dbname=itoffice;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_cases` [ RunTime:0.007275s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cases` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.000255s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_type` [ RunTime:0.004824s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_type` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000153s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_specific` [ RunTime:0.004730s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_specific` WHERE  `id` = 9 LIMIT 1 [ RunTime:0.000668s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_system` [ RunTime:0.029729s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_system` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.001720s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_system` WHERE  `id` = 4 LIMIT 1 [ RunTime:0.005023s ]
+
+---------------------------------------------------------------
+[ 2018-02-01T11:13:11+08:00 ] 127.0.0.1 127.0.0.1 GET /index/cases/computers/id/5.html
+[ log ] itoffices.com/index/cases/computers/id/5.html [运行时间：0.190079s][吞吐率：5.26req/s] [内存消耗：2,227.50kb] [文件加载：62]
+[ info ] [ LANG ] E:\GitHub\itoffices\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'cases',
+    2 => 'computers',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=ci6a5e8lts0gm4b6mhomon7kr6',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://itoffices.com/index/cases/inside/id/5.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.78 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'itoffices.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '5',
+)
+[ info ] [ RUN ] app\index\controller\Cases->computers[ E:\GitHub\itoffices\application\index\controller\Cases.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\GitHub\itoffices\public/../application/index\view\cases\computers.html [ array (
+  0 => 'images',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007536s ] mysql:dbname=itoffice;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_cases` [ RunTime:0.022503s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cases` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.000588s ]
+
+---------------------------------------------------------------
+[ 2018-02-01T11:13:13+08:00 ] 127.0.0.1 127.0.0.1 GET /index/cases/inside/id/5.html
+[ log ] itoffices.com/index/cases/inside/id/5.html [运行时间：0.182716s][吞吐率：5.47req/s] [内存消耗：2,198.89kb] [文件加载：63]
+[ info ] [ LANG ] E:\GitHub\itoffices\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'cases',
+    2 => 'inside',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=ci6a5e8lts0gm4b6mhomon7kr6',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://itoffices.com/index/cases',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.78 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'itoffices.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '5',
+)
+[ info ] [ RUN ] app\index\controller\Cases->inside[ E:\GitHub\itoffices\application\index\controller\Cases.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\GitHub\itoffices\public/../application/index\view\cases\computer.html [ array (
+  0 => 'cases',
+  1 => 'system_type',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000879s ] mysql:dbname=itoffice;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_cases` [ RunTime:0.016154s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cases` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.001058s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_type` [ RunTime:0.014101s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_type` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000154s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_specific` [ RunTime:0.014172s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_specific` WHERE  `id` = 9 LIMIT 1 [ RunTime:0.000178s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_system` [ RunTime:0.015413s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_system` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.001104s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_system` WHERE  `id` = 4 LIMIT 1 [ RunTime:0.000736s ]
+
+---------------------------------------------------------------
+[ 2018-02-01T11:13:13+08:00 ] 127.0.0.1 127.0.0.1 GET /index/cases/computers/id/5.html
+[ log ] itoffices.com/index/cases/computers/id/5.html [运行时间：0.130747s][吞吐率：7.65req/s] [内存消耗：2,060.74kb] [文件加载：59]
+[ info ] [ LANG ] E:\GitHub\itoffices\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'cases',
+    2 => 'computers',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; PHPSESSID=ci6a5e8lts0gm4b6mhomon7kr6',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://itoffices.com/index/cases/inside/id/5.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.78 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'itoffices.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '5',
+)
+[ info ] [ RUN ] app\index\controller\Cases->computers[ E:\GitHub\itoffices\application\index\controller\Cases.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\GitHub\itoffices\public/../application/index\view\cases\computers.html [ array (
+  0 => 'images',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001767s ] mysql:dbname=itoffice;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `tp_cases` [ RunTime:0.023818s ]
+[ sql ] [ SQL ] SELECT * FROM `tp_cases` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.002251s ]
+
+---------------------------------------------------------------
