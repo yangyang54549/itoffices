@@ -873,37 +873,37 @@
                     </li>
                     <li class="item-li" style="margin-top: 80px">
                         <div class="item-name">项目名称：</div>
-                        <div class="item-input"><input type="text" class="" id="Xname" placeholder="仅需对接平台"><span></span>
+                        <div class="item-input"><input type="text" class="" id="Xname" placeholder="仅需对接平台" readonly="readonly" ><span></span>
 
                         </div>
                     </li>
                     <li class="item-li">
                         <div class="item-name">补充说明：</div>
-                        <div class="item-input"><textarea placeholder="可以将您不同于此项目的功能或者需求特别说明的事项写在这里..." id="brief" class=""></textarea><span></span>
+                        <div class="item-input"><textarea placeholder="可以将您不同于此项目的功能或者需求特别说明的事项写在这里（限制140字）" id="brief" class="" maxlength="140"></textarea><span></span>
 
                         </div>
                     </li>
                     <li class="item-li">
                         <div class="item-name">您的姓名：</div>
-                        <div class="item-input"><input type="text" class="" id="names" placeholder="请输入您的姓名"><span></span>
+                        <div class="item-input"><input type="text" class="" id="names" placeholder="请输入您的姓名（限制6字）" maxlength="6"><span></span>
 
                         </div>
                     </li>
                     <li class="item-li">
                         <div class="item-name">微信：</div>
-                        <div class="item-input"><input type="text" class="" id="weixin" placeholder="请输入微信号"><span></span>
+                        <div class="item-input"><input type="text" class="" id="weixin" placeholder="请输入微信号" ><span></span>
 
                         </div>
                     </li>
                     <li class="item-li">
                         <div class="item-name">手机：</div>
-                        <div class="item-input"><input type="text" class="" id="ph" placeholder="请输入手机号" maxlength="11"><span></span>
+                        <div class="item-input"><input type="tel" class="" id="ph" placeholder="请输入手机号（限制11位）" maxlength="11"><span></span>
 
                         </div>
                     </li>
                     <li class="item-li">
                         <div class="item-name">邮箱：</div>
-                        <div class="item-input"><input type="text" class="" id="mail" placeholder="请输入邮箱"><span></span>
+                        <div class="item-input"><input type="tel" class="" id="mail" placeholder="请输入邮箱 （限制20字）" maxlength="20"><span></span>
 
                         </div>
                     </li>
@@ -934,7 +934,7 @@
         <script src="__INDEX__/js/form.js" type="text/javascript" charset="utf-8"></script>
         <script type="text/javascript">
             $("#Xname").val($(".center .right h4").text());
-            $("#Xname").focus(function(){this.blur()});
+          
             $(".submits").click(function() {
                 $(".forms").css("display", "block");
             })
@@ -953,62 +953,59 @@
             var mail = document.getElementById("mail");
 
             yanZheng(xname, /^[\s\S]*.*[^\s][\s\S]*$/);
-            yanZheng(brief, /^[\s\S]*.*[^\s][\s\S]*$/);
-            yanZheng(names, /^[\s\S]*.*[^\s][\s\S]*$/);
-            yanZheng(wei, /^[a-z_\d]+$/);
-            yanZheng(phs, /^[\s\S]*.*[^\s][\s\S]*$/);
-            yanZheng(mail, /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/);
-            $(".btn").click(function() {
-                yanz(xname, /^[\s\S]*.*[^\s][\s\S]*$/);
-                yanz(brief, /^[\s\S]*.*[^\s][\s\S]*$/);
-                yanz(names, /^[\s\S]*.*[^\s][\s\S]*$/);
-                yanz(wei, /^[a-z_\d]+$/);
-                yanz(phs, /^[\s\S]*.*[^\s][\s\S]*$/);
-                yanz(mail, /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/);
+			yanZheng(brief, /^[\s\S]*.*[^\s][\s\S]*$/);
+			yanZheng(names, /^[\s\S]*.*[^\s][\s\S]*$/);
+			/*yanZheng(wei, /^[a-z_\d]+$/);*/
+			yanZheng(phs, /^[\s\S]*.*[^\s][\s\S]*$/);
+			/*yanZheng(mail, /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/);*/
+			$(".btn").click(function() {
+				yanz(xname, /^[\s\S]*.*[^\s][\s\S]*$/);
+				yanz(brief, /^[\s\S]*.*[^\s][\s\S]*$/);
+				yanz(names, /^[\s\S]*.*[^\s][\s\S]*$/);
+				/*yanz(wei, /^[a-z_\d]+$/);*/
+				yanz(phs, /^[\s\S]*.*[^\s][\s\S]*$/);
+				/*yanz(mail, /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/);*/
+				if(xname.value == "") {
+					alert("请输入项目名称")
+				} else {
+					if(brief.value == "") {
+						alert("请输入补充说明")
+					} else {
+						if(names.value == "") {
+							alert("请输入您的姓名")
+						} else {
+							/*if(weixin.value == "") {
+								alert("请输入微信号")
+							} else {*/
+								if(phs.value == "") {
+									alert("请输入手机号")
+								} else {
+									if(!(/^1[3456789]\d{9}$/.test(phs.value))) {
 
-                var id = {$cases.id};
-                var name = xname.value;
-                var remark = brief.value;
-                var username = names.value;
-                var wxchat = weixin.value;
-                var phone = ph.value;
-                var email = mail.value;
+										alert("手机号错误，请重新输入")
+									} else {
+										if(mail.value == "") {
+											/*alert("请输入邮箱")*/
+											$(".forms").css("display", "none");
+												$(".beijin").css("display", "block");
+										} else {
+											/*     /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+        //邮箱正则表达式对象*/
+											if(!(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/.test(mail.value))) {
 
-                if(xname.value == "") {
-                    alert("请输入项目名称")
-                } else {
-                    if(brief.value == "") {
-                        alert("请输入补充说明")
-                    } else {
-                        if(names.value == "") {
-                            alert("请输入您的姓名")
-                        } else {
-                            if(weixin.value == "") {
-                                alert("请输入微信号")
-                            } else {
-                                if(ph.value == "") {
-                                    alert("请输入手机号")
-                                } else {
-                                    if(mail.value == "") {
-                                        alert("请输入邮箱")
-                                    } else {
-                                        $(".forms").css("display", "none");
-                                        $(".beijin").css("display", "block");
-
-                                        alert(phone);
-                                        $.post(
-                                            "{:url('cases/order')}",
-                                            {id:id,name:name,remark:remark,username:username,wxchat:wxchat,phone:phone,email:email},
-                                            function(data) {
-                                                alert(data.msg)
-                                            })
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            })
+												alert("邮箱错误，请重新输入")
+											} else {
+												$(".forms").css("display", "none");
+												$(".beijin").css("display", "block");
+											}
+										}
+									}
+								}
+							/*}*/
+						}
+					}
+				}
+			}) 
         </script>
         <script type="text/javascript">
             $("input").onmouseover = function() {
