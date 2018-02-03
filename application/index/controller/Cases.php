@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-31 18:09:16
+ * @Last Modified time: 2018-02-02 16:02:54
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -147,6 +147,8 @@ class Cases extends Yang
      */
     public function order()
     {
+
+        //return json('fjjj');
         $data = input();
         $result = CO::insert($data);
         if ($result) {

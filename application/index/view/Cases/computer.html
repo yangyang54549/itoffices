@@ -934,7 +934,7 @@
         <script src="__INDEX__/js/form.js" type="text/javascript" charset="utf-8"></script>
         <script type="text/javascript">
             $("#Xname").val($(".center .right h4").text());
-          
+
             $(".submits").click(function() {
                 $(".forms").css("display", "block");
             })
@@ -984,28 +984,40 @@
 
 										alert("手机号错误，请重新输入")
 									} else {
-										if(mail.value == "") {
-											/*alert("请输入邮箱")*/
-											$(".forms").css("display", "none");
-												$(".beijin").css("display", "block");
-										} else {
-											/*     /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
-        //邮箱正则表达式对象*/
-											if(!(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/.test(mail.value))) {
-
-												alert("邮箱错误，请重新输入")
-											} else {
-												$(".forms").css("display", "none");
-												$(".beijin").css("display", "block");
-											}
+										if(mail.value != "") {
+                                            if(!(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/.test(mail.value))) {
+                                                alert("邮箱错误，请重新输入");return false;
+                                            }
 										}
+
+                                                var cases_id = {$cases.id};
+                                                var name = xname.value;
+                                                var remark = brief.value;
+                                                var username = names.value;
+                                                var wxchat = weixin.value;
+                                                var phone = phs.value;
+                                                var email = mail.value;
+
+                                                $.post(
+                                                    "{:url('cases/order')}",
+                                                    {cases_id:cases_id,name:name,remark:remark,username:username,wxchat:wxchat,phone:phone,email:email},
+                                                    function(data){
+                                                        if (data.code==1) {
+                                                            $(".forms").css("display", "none");
+                                                            $(".beijin").css("display", "block");
+                                                        }else{
+                                                            alert(data.msg);
+                                                        }
+                                                       }
+                                                    )
+
 									}
 								}
 							/*}*/
 						}
 					}
 				}
-			}) 
+			})
         </script>
         <script type="text/javascript">
             $("input").onmouseover = function() {
