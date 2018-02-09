@@ -210,8 +210,8 @@
 			</div>
 		</div>
 		<form action="" method="post">
-			
-			
+
+
 		<div id="app">
 			<div class="publish-type">
 
@@ -334,7 +334,7 @@
 					<ul>
 						<li class="item-li">
 							<div class="item-name">公司名称</div>
-							<div class="item-input"><input type="text" name="" placeholder="请输入您的公司名称" class="" id="company"><span></span>
+							<div class="item-input"><input type="text" name="gosss" placeholder="请输入您的公司名称" class="" id="company"><span></span>
 								<div class="is-danger" style="display: none;"></div>
 							</div>
 						</li>
@@ -539,8 +539,14 @@
 												if(note.value ==""){
 													alert("请重新输入短信验证")
 												}else{
+
+												var formData = $("form").serializeArray();
+												console.log(formData);
+												alert(typeof(formData)+formData.gosss);return false;
+
 														$(".beijin").css("display","block");
-													/*window.location.href="index.html";*/
+
+
 												}
 											}
 										}
