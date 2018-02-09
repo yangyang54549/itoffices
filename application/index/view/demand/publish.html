@@ -487,10 +487,10 @@ var hy;
 				var an = 0;
 				var an1;
 				$(".item-input .urgency").click(function() {
-					var ts = $(".item-input .urgency")[tt];
+					var ts = $(".item-input .urgency")[an];
 					ts.className = "urgency";
-					tt = $(".item-input .urgency").index($(this));
-					var tts = $(".item-input .urgency")[tt];
+					an = $(".item-input .urgency").index($(this));
+					var tts = $(".item-input .urgency")[an];
 					tts.className = "selected urgency";
 					an1 = tts.innerText;
 				});
