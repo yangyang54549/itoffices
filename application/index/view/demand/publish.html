@@ -494,7 +494,7 @@ var hys;
 					tt2 = $(".time .item-time").index($(this));
 					var tts = $(".time .item-time")[tt2];
 					tts.className = "selected item-time";
-					lei2s = $(this).data('type');
+					lei2s = $(this).data('term');
 					lei2 = tts.innerText;
 
 				});
@@ -508,7 +508,7 @@ var hys;
 					an = $(".item-input .urgency").index($(this));
 					var tts = $(".item-input .urgency")[an];
 					tts.className = "selected urgency";
-					an1s = $(this).data('type');
+					an1s = $(this).data('jinji');
 					an1 = tts.innerText;
 				});
 
@@ -593,7 +593,7 @@ var hys;
 												$(".overtop").text("请选择项目外包周期");
 												overtop();
 											} else {
-												if(company.value == "") {
+												if(company.value == "") {   
 													$(".overtop").text("公司名为空,请填写完整");
 													overtop();
 												} else {
@@ -618,6 +618,7 @@ var hys;
 															/*项目紧急程度*/
 															an1;
 															/*项目名称*/
+															alert(lei1+" /"+lei1s+" /"+lei2+" /"+lei2s+"/ "+hy+"/"+hys+"/"+an1+"/"+an1s)
 															var xname = project.value;
 															/*项目简介*/
 															var jbrief = brief.value;
