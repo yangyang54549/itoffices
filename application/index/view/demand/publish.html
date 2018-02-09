@@ -188,6 +188,10 @@
 			transition: opacity 1s;
 			line-height:50px ;
 		}
+		.publish-more .content .form-more .item-input .urgency {
+    
+    margin-right: 20px !important; 
+}
 	</style>
 
 	<body style="background-color: white;">
@@ -258,7 +262,7 @@
 						<div class="box industry">
 							<div class="item-name">项目所属行业</div>
 							<div class="item-value">
-								<select>
+								<select id="select">
 									{volist name="demandtrade" id="vos"}
 									<option value="{$vos.id}">{$vos.name}</option>
 									{/volist}
@@ -435,16 +439,22 @@
 				var tt1 = 0;
 				var lei1;
 				var lei2;
+				var lei1s;
+				var lei2s;
 				$(".type .item-type").click(function() {
 					var ts = $(".type .item-type")[tt1];
 					ts.className = "item-type";
 					tt1 = $(".type .item-type").index($(this));
 					var tts = $(".type .item-type")[tt1];
 					tts.className = "selected item-type";
+					
+					lei1s = $(this).data('type');
 					lei1 = tts.innerText;
+					
 				});
 /*下一步*/
 var hy;
+var hys;
 				$(".btn").click(function() {
 					if($(".type .selected").text() == "") {
 						$(".overtop").text("请选择项目类型");
@@ -458,6 +468,8 @@ var hy;
 							$(".publish-more").css("display", "block");
 							/*项目行业*/
 							hy = $(".item-value").find("option:selected").text();
+							hys = $(".item-value").find("option:selected").val();
+							
 						}
 						/*alert($(".item-value").find("option:selected").text())		*/
 					}
@@ -482,18 +494,21 @@ var hy;
 					tt2 = $(".time .item-time").index($(this));
 					var tts = $(".time .item-time")[tt2];
 					tts.className = "selected item-time";
+					lei2s = $(this).data('type');
 					lei2 = tts.innerText;
 
 				});
 				/*项目紧急程度*/
 				var an = 0;
 				var an1;
+				var an1s;
 				$(".item-input .urgency").click(function() {
 					var ts = $(".item-input .urgency")[an];
 					ts.className = "urgency";
 					an = $(".item-input .urgency").index($(this));
 					var tts = $(".item-input .urgency")[an];
 					tts.className = "selected urgency";
+					an1s = $(this).data('type');
 					an1 = tts.innerText;
 				});
 
