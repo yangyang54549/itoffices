@@ -334,15 +334,15 @@
 				</div>
 				<div class="h2-title">您期望的项目外包周期是多久？</div>
 				<div class="time box">
-					<div data-term="1" class="item-time"><i class="iconfont icon-month2"></i>
+					<div data-term="5" class="item-time"><i class="iconfont icon-month2"></i>
 						<div class="name">超过6个月</div> <i class="iconfont icon-selected"></i></div>
-					<div data-term="2" class="item-time"><i class="iconfont icon--month3"></i>
+					<div data-term="4" class="item-time"><i class="iconfont icon--month3"></i>
 						<div class="name">3-6个月</div> <i class="iconfont icon-selected"></i></div>
 					<div data-term="3" class="item-time"><i class="iconfont icon--month4"></i>
 						<div class="name">1-3个月</div> <i class="iconfont icon-selected"></i></div>
-					<div data-term="4" class="item-time"><i class="iconfont icon-month1"></i>
+					<div data-term="2" class="item-time"><i class="iconfont icon-month1"></i>
 						<div class="name">少于1个月</div> <i class="iconfont icon-selected"></i></div>
-					<div data-term="5" class="item-time"><i class="iconfont icon-week"></i>
+					<div data-term="1" class="item-time"><i class="iconfont icon-week"></i>
 						<div class="name">少于1周</div> <i class="iconfont icon-selected"></i></div>
 				</div>
 				<div class="is-danger" style="display: none;"></div>
@@ -351,7 +351,7 @@
 					<ul>
 						<li class="item-li">
 							<div class="item-name">公司名称</div>
-							<div class="item-input"><input type="text" name="gosss" placeholder="请输入您的公司名称" class="" id="company"><span></span>
+							<div class="item-input"><input type="text" name="" placeholder="请输入您的公司名称" class="" id="company"><span></span>
 								<div class="is-danger" style="display: none;"></div>
 							</div>
 						</li>
@@ -549,7 +549,7 @@
 						$(".overtop").text("项目简介为空,请填写完整");overtop();
 					}else{
 						if(reference.value == ""){
-							$(".overtop").text("参考网站/项目为空,请填写完整")overtop();
+							$(".overtop").text("参考网站/项目为空,请填写完整");overtop();
 						}else{
 							if(budget.value == ""){
 								$(".overtop").text("项目预算为空,请填写完整");overtop();
@@ -570,9 +570,8 @@
 												if(note.value ==""){
 													$(".overtop").text("请重新输入短信验证");overtop();
 												}else{
-												var formData = $("form").serializeArray();
-												console.log(formData);
-												alert(typeof(formData)+formData.gosss);return false;
+
+
 
 														$(".beijin").css("display","block");
 
