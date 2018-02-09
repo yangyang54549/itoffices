@@ -171,12 +171,13 @@
 		
 		.overtop {
 			position: fixed;
-			top: 13.5rem;
+			top: 50%;
 			left: 50%;
-			margin-left: -40vw;
+			margin-left: -250px;
+			margin-top: -25px;
 			border-radius: 1.5rem;
-			width: 80vw;
-			height: 3rem;
+			width: 500px;
+			height: 50px;
 			background-color: rgba(0, 0, 0, 0.5);
 			color: white;
 			line-height: 3rem;
@@ -185,6 +186,7 @@
 			z-index: 1000;
 			opacity: 1;
 			transition: opacity 1s;
+			line-height:50px ;
 		}
 	</style>
 
@@ -381,8 +383,8 @@
 						</ul>
 					</div>
 					<div class="btn-box">
-						<!--<div wbds-event-name="发布项目按钮" class="btn btn-fabu">发布项目</div>-->
-						<input type="submit" wbds-event-name="发布项目按钮" class="btn btn-fabu" value="发布项目" style="line-height: 12px;" />
+						<div wbds-event-name="发布项目按钮" class="btn btn-fabu">发布项目</div>
+						<!--<input type="submit" wbds-event-name="发布项目按钮" class="btn btn-fabu" value="发布项目" style="line-height: 12px;" />-->
 						<p class="btn-pre">上一步</p>
 					</div>
 
@@ -427,26 +429,33 @@
 				}
 				/*项目类型*/
 				$(".publish-more").css("display", "none");
-				var tt = 0;
+				
+				var tt1 = 0;
+				var lei1;
+				var lei2;
 				$(".type .item-type").click(function() {
-					var ts = $(".type .item-type")[tt];
+					var ts = $(".type .item-type")[tt1];
 					ts.className = "item-type";
-					tt = $(".type .item-type").index($(this));
-					var tts = $(".type .item-type")[tt];
+					tt1 = $(".type .item-type").index($(this));
+					var tts = $(".type .item-type")[tt1];
 					tts.className = "selected item-type";
-
+					lei1 = tts.innerText;
 				});
-
+/*下一步*/
+var hy;
 				$(".btn").click(function() {
 					if($(".type .selected").text() == "") {
 						$(".overtop").text("请选择项目类型");
 						overtop();
 					} else {
 						if($(".item-value").find("option:selected").text() == "请选择") {
-							$(".overtop").text("请选择项目所属行业")
+							$(".overtop").text("请选择项目所属行业");
+							overtop();
 						} else {
 							$("#app").css("display", "none");
 							$(".publish-more").css("display", "block");
+							/*项目行业*/
+							hy = $(".item-value").find("option:selected").text();
 						}
 						/*alert($(".item-value").find("option:selected").text())		*/
 					}
@@ -463,22 +472,27 @@
 				})
 
 				$(".head .nav li:eq(3) a").addClass("active")
-				var tt = 0;
+				/*您期望的项目外包周期*/
+				var tt2 = 0;
 				$(".time .item-time").click(function() {
-					var ts = $(".time .item-time")[tt];
+					var ts = $(".time .item-time")[tt2];
 					ts.className = "item-time";
-					tt = $(".time .item-time").index($(this));
-					var tts = $(".time .item-time")[tt];
+					tt2 = $(".time .item-time").index($(this));
+					var tts = $(".time .item-time")[tt2];
 					tts.className = "selected item-time";
+					lei2 = tts.innerText;
 
 				});
+				/*项目紧急程度*/
 				var an = 0;
+				var an1;
 				$(".item-input .urgency").click(function() {
 					var ts = $(".item-input .urgency")[tt];
 					ts.className = "urgency";
 					tt = $(".item-input .urgency").index($(this));
 					var tts = $(".item-input .urgency")[tt];
 					tts.className = "selected urgency";
+					an1 = tts.innerText;
 				});
 
 				$(".beijin").click(function() {
@@ -560,7 +574,6 @@
 											if($(".time .selected").text() == "") {
 												$(".overtop").text("请选择项目外包周期");
 												overtop();
-
 											} else {
 												if(company.value == "") {
 													$(".overtop").text("公司名为空,请填写完整");
@@ -578,7 +591,31 @@
 																$(".overtop").text("请重新输入短信验证");
 																overtop();
 															} else {
-
+																/*项目类型*/
+															lei1
+															/*项目外包周期*/
+															lei2
+																/*项目行业*/
+															hy
+															/*项目紧急程度*/
+															an1;
+															/*项目名称*/
+															var xname = project.value;
+															/*项目简介*/
+															var jbrief = brief.value;
+															/*参考网站/项目*/
+															var ck = reference.value;
+															/*项目预算*/
+															var ys = budget.value;
+															/*公司名*/
+															var comp = company.value;
+															/*姓名*/
+															var gname = Name.value;
+															/*手机号*/
+															var p1 = phone.value;
+															/*短信验证*/
+															var notes = note.value;
+															
 																$(".beijin").css("display", "block");
 
 															}
@@ -589,6 +626,7 @@
 										}
 									}
 								}
+							}
 							});
 			</script>
 
