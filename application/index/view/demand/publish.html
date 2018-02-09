@@ -169,6 +169,23 @@
 			background-size: 100%;
 			/*background-color: #ff5454;*/
 		}
+		.overtop {
+    position: fixed;
+    top: 13.5rem;
+    left: 50%;
+    margin-left: -40vw;
+    border-radius: 1.5rem;
+    width: 80vw;
+    height: 3rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    line-height: 3rem;
+    text-align: center;
+    display: none;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 1s;
+}
 	</style>
 
 	<body style="background-color: white;">
@@ -365,7 +382,7 @@
 				</div>
 				<div class="btn-box">
 					<!--<div wbds-event-name="发布项目按钮" class="btn btn-fabu">发布项目</div>-->
-					<input type="submit" wbds-event-name="发布项目按钮" class="btn btn-fabu" value="发布项目"/>
+					<input type="submit" wbds-event-name="发布项目按钮" class="btn btn-fabu" value="发布项目" style="line-height: 12px;"/>
 					<p  class="btn-pre">上一步</p>
 				</div>
 
@@ -386,6 +403,7 @@
 				<p class="qud" id="qd">确定</p>
 			</div>
 		</div>
+		<p class="overtop"></p>
 		<div class="footer_bg">
 			<div class="footer" style="background-color: #1e2831; ">
 				<div class="center">
@@ -398,6 +416,17 @@
 自媒体营销、事件话题营销、软文发布、百科/问答、 SEO/快照、微信微博代运营、新闻撰稿/专访、危机公关、-->
 <script src="__INDEX__/js/form.js" type="text/javascript" charset="utf-8"></script>
 			<script type="text/javascript">
+				function overtop() {
+				$("form>div:nth-child(1)").after($("body>p.overtop").clone(true));
+				var ss1 = $("formr .overtop");
+				$("form .overtop").css("background-color","rgba(0,0,0,0.7)");
+				ss1.css("display", "block");
+				ss1.css("opacity", "1");
+				setTimeout(function() {
+					ss1.css("opacity", "0");
+					ss1.remove();
+				}, 1000);
+			}
 				/*项目类型*/
 				$(".publish-more").css("display","none");
 				var tt = 0;
@@ -407,14 +436,16 @@
 					tt = $(".type .item-type").index($(this));
 					var tts = $(".type .item-type")[tt];
 					tts.className = "selected item-type";
+
 				});
 
 				$(".btn").click(function() {
 					if($(".type .selected").text() == "") {
-						alert("请选择项目类型")
+						$(".overtop").text("请选择项目类型");
+						overtop();
 					} else {
 						if($(".item-value").find("option:selected").text() == "请选择") {
-							alert("请选择项目所属行业")
+							$(".overtop").text("请选择项目所属行业")
 						} else {
 							$("#app").css("display","none");
 							$(".publish-more").css("display","block");
@@ -512,40 +543,38 @@
 				 kk(Name);
 				 kk(project);
 				if(project.value ==""){
-					alert("项目名为空,请填写完整");
+					$(".overtop").text("项目名为空,请填写完整");overtop();
 				}else{
 					if(brief.value == ""){
-						alert("项目简介为空,请填写完整");
+						$(".overtop").text("项目简介为空,请填写完整");overtop();
 					}else{
 						if(reference.value == ""){
-							alert("参考网站/项目为空,请填写完整")
+							$(".overtop").text("参考网站/项目为空,请填写完整")overtop();
 						}else{
 							if(budget.value == ""){
-								alert("项目预算为空,请填写完整")
+								$(".overtop").text("项目预算为空,请填写完整");overtop();
 							}else{
 								if($(".time .selected").text()==""){
-									alert("请选择项目外包周期")
+									$(".overtop").text("请选择项目外包周期");overtop();
 
 								}else{
 									if(company.value ==""){
-										alert("公司名为空,请填写完整")
+										$(".overtop").text("公司名为空,请填写完整");overtop();
 									}else{
 										if(Name.value ==""){
-											alert("姓名为空，请输入")
+											$(".overtop").text("姓名为空，请输入");overtop();
 										}else{
 											if(phone.value =="" ){
-												alert("请重新输入手机号")
+												$(".overtop").text("请重新输入手机号");overtop();
 											}else{
 												if(note.value ==""){
-													alert("请重新输入短信验证")
+													$(".overtop").text("请重新输入短信验证");overtop();
 												}else{
-
 												var formData = $("form").serializeArray();
 												console.log(formData);
 												alert(typeof(formData)+formData.gosss);return false;
 
 														$(".beijin").css("display","block");
-
 
 												}
 											}
