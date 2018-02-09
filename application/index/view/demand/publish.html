@@ -22,48 +22,48 @@
 			-moz-box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
 			margin-bottom: 20px;
 		}
-		
+
 		.content:hover {
 			box-shadow: 0 10px 30px 6px rgba(28, 57, 81, 0.18);
 			-webkit-box-shadow: 0 10px 30px 6px rgba(28, 57, 81, 0.18);
 			-moz-box-shadow: 0 10px 30px 6px rgba(28, 57, 81, 0.18);
 		}
-		
+
 		#app {
 			padding: 50px 0;
 		}
-		
+
 		.type {
 			box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
 			-webkit-box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
 			-moz-box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
 		}
-		
+
 		.type:hover {
 			box-shadow: 0 10px 30px 6px rgba(28, 57, 81, 0.18);
 			-webkit-box-shadow: 0 10px 30px 6px rgba(28, 57, 81, 0.18);
 			-moz-box-shadow: 0 10px 30px 6px rgba(28, 57, 81, 0.18);
 		}
-		
+
 		.demand-block-hr span {
 			width: 450px;
 		}
-		
+
 		.demand-block-hr span i {
 			width: 450px;
 			text-align: center;
 		}
-		
+
 		.navs {
 			width: 90%;
 			margin: 0 auto;
 			padding: 10px;
 		}
-		
+
 		.navs li {
 			float: left;
 		}
-		
+
 		.navs .is {
 			display: block;
 			width: 90px;
@@ -74,26 +74,26 @@
 			color: black;
 			z-index: 100;
 		}
-		
+
 		.navs a:hover {
 			color: #fff !important;
 			background: url(__INDEX__/img/navBg.png);
 			background-size: 100%;
 			/*background-color: #ff5454;*/
 		}
-		
+
 		.actives {
 			color: #fff !important;
 			background: url(__INDEX__/img/navBg.png);
 			background-size: 100%;
 			/*background-color: #ff5454;*/
 		}
-		
+
 		.div-phone div input {
 			width: 400px;
 			float: left;
 		}
-		
+
 		.div-phone div a {
 			display: block;
 			float: left;
@@ -104,46 +104,46 @@
 			color: #f4370b;
 			border: 1px solid #ededed;
 		}
-		
+
 		.div-phone div a:hover {
 			border-color: #ccc;
 		}
-		
+
 		.div-phone .error {
 			line-height: 50px;
 			height: 50px;
 		}
-		
+
 		.publish-more {
 			padding: 50px 0;
 		}
 		/*移除 input type="number" 时浏览器自带的上下箭头？*/
-		
+
 		input::-webkit-outer-spin-button,
 		input::-webkit-inner-spin-button {
 			-webkit-appearance: none !important;
 			margin: 0;
 		}
-		
+
 		.demand-block-hr span {
 			width: 450px;
 		}
-		
+
 		.demand-block-hr span i {
 			width: 450px;
 			text-align: center;
 		}
-		
+
 		.navs {
 			width: 90%;
 			margin: 0 auto;
 			padding: 10px;
 		}
-		
+
 		.navs li {
 			float: left;
 		}
-		
+
 		.navs .is {
 			display: block;
 			width: 90px;
@@ -154,21 +154,21 @@
 			color: black;
 			z-index: 100;
 		}
-		
+
 		.navs a:hover {
 			color: #fff !important;
 			background: url(__INDEX__/img/navBg.png);
 			background-size: 100%;
 			/*background-color: #ff5454;*/
 		}
-		
+
 		.actives {
 			color: #fff !important;
 			background: url(__INDEX__/img/navBg.png);
 			background-size: 100%;
 			/*background-color: #ff5454;*/
 		}
-		
+
 		.overtop {
 			position: fixed;
 			top: 50%;
@@ -324,11 +324,13 @@
 							<li class="item-li">
 								<div class="item-name">项目紧急程度</div>
 								<div class="item-input">
-									<div class="urgency selected"><i class="iconfont icon-radio-active"></i> <i class="iconfont icon-radio-inactive"></i> 不紧急
+									<div class="urgency selected" data-jinji="1"><i class="iconfont icon-radio-active"></i> <i class="iconfont icon-radio-inactive"></i> 不紧急
 									</div>
-									<div class="urgency"><i class="iconfont icon-radio-active"></i> <i class="iconfont icon-radio-inactive"></i> 一般
+									<div class="urgency" data-jinji="2"><i class="iconfont icon-radio-active"></i> <i class="iconfont icon-radio-inactive"></i> 一般
 									</div>
-									<div class="urgency"><i class="iconfont icon-radio-active"></i> <i class="iconfont icon-radio-inactive"></i> 非常紧急
+									<div class="urgency" data-jinji="3"><i class="iconfont icon-radio-active"></i> <i class="iconfont icon-radio-inactive"></i> 比较紧急
+									</div>
+									<div class="urgency" data-jinji="4"><i class="iconfont icon-radio-active"></i> <i class="iconfont icon-radio-inactive"></i> 非常紧急
 									</div>
 								</div>
 							</li>
@@ -429,7 +431,7 @@
 				}
 				/*项目类型*/
 				$(".publish-more").css("display", "none");
-				
+
 				var tt1 = 0;
 				var lei1;
 				var lei2;
@@ -499,6 +501,7 @@ var hy;
 					$(".beijin").css("display", "none");
 					window.location.href = "index.html";
 				})
+
 				/*上一步*/
 				$(".btn-pre").click(function() {
 					$("#app").css("display", "block");
@@ -615,12 +618,13 @@ var hy;
 															var p1 = phone.value;
 															/*短信验证*/
 															var notes = note.value;
-															
+
 																$(".beijin").css("display", "block");
 
 															}
 														}
 													}
+
 												}
 											}
 										}
