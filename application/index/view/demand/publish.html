@@ -103,7 +103,6 @@
 			text-align: center;
 			color: #f4370b;
 			border: 1px solid #ededed;
-
 		}
 
 		.div-phone div a:hover {
@@ -169,23 +168,26 @@
 			background-size: 100%;
 			/*background-color: #ff5454;*/
 		}
+
 		.overtop {
-    position: fixed;
-    top: 13.5rem;
-    left: 50%;
-    margin-left: -40vw;
-    border-radius: 1.5rem;
-    width: 80vw;
-    height: 3rem;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    line-height: 3rem;
-    text-align: center;
-    display: none;
-    z-index: 1000;
-    opacity: 1;
-    transition: opacity 1s;
-}
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			margin-left: -250px;
+			margin-top: -25px;
+			border-radius: 1.5rem;
+			width: 500px;
+			height: 50px;
+			background-color: rgba(0, 0, 0, 0.5);
+			color: white;
+			line-height: 3rem;
+			text-align: center;
+			display: none;
+			z-index: 1000;
+			opacity: 1;
+			transition: opacity 1s;
+			line-height:50px ;
+		}
 	</style>
 
 	<body style="background-color: white;">
@@ -226,174 +228,174 @@
 				<div style="clear:both"></div>
 			</div>
 		</div>
-		<form action="" method="post">
+		<form action="" method="post" id="form">
 
+			<div id="app">
+				<div class="publish-type">
 
-		<div id="app">
-			<div class="publish-type">
-
-				<div class="content">
-					<div class="demand-block-hr" style="margin-bottom: 20px;">
-						<span class="active" id="x1">
+					<div class="content">
+						<div class="demand-block-hr" style="margin-bottom: 20px;">
+							<span class="active" id="x1">
 		       				<i>项目类型</i>
 		       				<em></em>
 		       			</span>
-						<span class="demand-block-hr-span" id="x2">
+							<span class="demand-block-hr-span" id="x2">
 		       				<i>项目信息</i>
 		       				<em></em>
 		       			</span>
 
-					</div>
-					<div class="title">提交一个外包项目</div>
+						</div>
+						<div class="title">提交一个外包项目</div>
 
-					<div class="h2-title">您的项目是什么类型？</div>
-					<div class="type">
-						{volist name="demandtype" id="vo"}
-						<div data-type="{$vo.id}" class="item-type" id="type1"><img src="{$vo.img}">
-							<div class="name">{$vo.name}</div> <i class="iconfont icon-selected"></i></div>
-						{/volist}
+						<div class="h2-title">您的项目是什么类型？</div>
+						<div class="type">
+							{volist name="demandtype" id="vo"}
+							<div data-type="{$vo.id}" class="item-type" id="type1"><img src="{$vo.img}">
+								<div class="name">{$vo.name}</div> <i class="iconfont icon-selected"></i></div>
+							{/volist}
+						</div>
+						<div class="h2-title">项目所属什么行业？</div>
+						<div class="box industry">
+							<div class="item-name">项目所属行业</div>
+							<div class="item-value">
+								<select>
+									{volist name="demandtrade" id="vos"}
+									<option value="{$vos.id}">{$vos.name}</option>
+									{/volist}
+								</select>
+							</div>
+						</div>
+						<div class="btn">下一步</div>
 					</div>
-					<div class="h2-title">项目所属什么行业？</div>
-					<div class="box industry">
-						<div class="item-name">项目所属行业</div>
-						<div class="item-value">
-							<select>
-						{volist name="demandtrade" id="vos"}
-								<option value="{$vos.id}">{$vos.name}</option>
-						{/volist}
-							</select>
+
+				</div>
+				<div>
+					<div class="dialog" style="display: none;">
+						<div class="dialog-content box"><i class="iconfont icon-error-tip"></i> <i class="iconfont icon-nav-close close"></i>
+							<div class="dialog-text"></div>
 						</div>
 					</div>
-					<div class="btn">下一步</div>
-				</div>
-
-			</div>
-			<div>
-				<div class="dialog" style="display: none;">
-					<div class="dialog-content box"><i class="iconfont icon-error-tip"></i> <i class="iconfont icon-nav-close close"></i>
-						<div class="dialog-text"></div>
-					</div>
 				</div>
 			</div>
-		</div>
-		<div class="publish-more">
-			<div class="content">
-				<div class="demand-block-hr" style="margin-bottom: 20px;">
-					<span class="demand-block-hr-span" id="x1">
+			<div class="publish-more">
+				<div class="content">
+					<div class="demand-block-hr" style="margin-bottom: 20px;">
+						<span class="demand-block-hr-span" id="x1">
 		       				<i>项目类型</i>
 		       				<em></em>
 		       			</span>
-					<span class="active" id="x2">
+						<span class="active" id="x2">
 		       				<i>项目信息</i>
 		       				<em></em>
 		       			</span>
 
-				</div>
-				<div class="title">告诉我们更多关于项目的信息</div>
-				<!---->
-				<div class="h2-title">您的项目需求描述</div>
-				<div class="box form-more">
-					<ul>
-						<li class="item-li">
-							<div class="item-name">项目名称</div>
-							<div class="item-input"><input type="text" name="" placeholder="项目名称。例如：滴滴打车Android客户端开发" id="project" class=""><span></span>
-								<div class="is-danger" style="display: none;"></div>
-							</div>
-						</li>
-						<li class="item-li">
-							<div class="item-name">项目简介</div>
-							<div class="item-input"><textarea placeholder="项目简介。例如：打算开发一个微信应用，市面上可参考的产品是 XXX，针对 XXX 领域和人群，主要目的是为了 XXX ..." id="brief" class=""></textarea><span></span>
-								<div class="is-danger" style="display: none;"></div>
-							</div>
-						</li>
-						<li class="item-li">
-							<div class="item-name">参考网站/产品</div>
-							<div class="item-input"><input type="text" name="" placeholder="参考网站/产品" id="reference" class=""><span></span>
-								<div class="is-danger" style="display: none;"></div>
-							</div>
-						</li>
-						<li class="item-li">
-							<div class="item-name">项目预算</div>
-							<div class="item-input" style="position: relative;"><input type="number" name="" placeholder="预算" class="" id="budget"><span></span>
-								<div class="wan" style="position: absolute; top: 15px;left: 470px;">元</div>
-								<div class="is-danger" style="display: none;"></div>
-							</div>
-						</li>
-						<li class="item-li">
-							<div class="item-name">项目紧急程度</div>
-							<div class="item-input">
-								<div class="urgency selected"><i class="iconfont icon-radio-active"></i> <i class="iconfont icon-radio-inactive"></i> 不紧急
+					</div>
+					<div class="title">告诉我们更多关于项目的信息</div>
+					<!---->
+					<div class="h2-title">您的项目需求描述</div>
+					<div class="box form-more">
+						<ul>
+							<li class="item-li">
+								<div class="item-name">项目名称</div>
+								<div class="item-input"><input type="text" name="" placeholder="项目名称。例如：滴滴打车Android客户端开发" id="project" class=""><span></span>
+									<div class="is-danger" style="display: none;"></div>
 								</div>
-								<div class="urgency"><i class="iconfont icon-radio-active"></i> <i class="iconfont icon-radio-inactive"></i> 一般
+							</li>
+							<li class="item-li">
+								<div class="item-name">项目简介</div>
+								<div class="item-input"><textarea placeholder="项目简介。例如：打算开发一个微信应用，市面上可参考的产品是 XXX，针对 XXX 领域和人群，主要目的是为了 XXX ..." id="brief" class=""></textarea><span></span>
+									<div class="is-danger" style="display: none;"></div>
 								</div>
-								<div class="urgency"><i class="iconfont icon-radio-active"></i> <i class="iconfont icon-radio-inactive"></i> 非常紧急
+							</li>
+							<li class="item-li">
+								<div class="item-name">参考网站/产品</div>
+								<div class="item-input"><input type="text" name="" placeholder="参考网站/产品" id="reference" class=""><span></span>
+									<div class="is-danger" style="display: none;"></div>
 								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-				<div class="h2-title">您期望的项目外包周期是多久？</div>
-				<div class="time box">
-					<div data-term="5" class="item-time"><i class="iconfont icon-month2"></i>
-						<div class="name">超过6个月</div> <i class="iconfont icon-selected"></i></div>
-					<div data-term="4" class="item-time"><i class="iconfont icon--month3"></i>
-						<div class="name">3-6个月</div> <i class="iconfont icon-selected"></i></div>
-					<div data-term="3" class="item-time"><i class="iconfont icon--month4"></i>
-						<div class="name">1-3个月</div> <i class="iconfont icon-selected"></i></div>
-					<div data-term="2" class="item-time"><i class="iconfont icon-month1"></i>
-						<div class="name">少于1个月</div> <i class="iconfont icon-selected"></i></div>
-					<div data-term="1" class="item-time"><i class="iconfont icon-week"></i>
-						<div class="name">少于1周</div> <i class="iconfont icon-selected"></i></div>
-				</div>
-				<div class="is-danger" style="display: none;"></div>
-				<div class="h2-title">您的联系方式</div>
-				<div class="box form-call">
-					<ul>
-						<li class="item-li">
-							<div class="item-name">公司名称</div>
-							<div class="item-input"><input type="text" name="" placeholder="请输入您的公司名称" class="" id="company"><span></span>
-								<div class="is-danger" style="display: none;"></div>
-							</div>
-						</li>
-						<li class="item-li">
-							<div class="item-name">姓名</div>
-							<div class="item-input"><input type="text" name="" placeholder="姓名" class="" id="Name"><span></span>
-								<div class="is-danger" style="display: none;"></div>
-							</div>
-						</li>
-						<li class="item-li div-phone">
 
-							<div class="item-name">手机</div>
+							</li>
+							<li class="item-li">
+								<div class="item-name">项目预算</div>
+								<div class="item-input" style="position: relative;"><input type="number" name="" placeholder="预算" class="" id="budget"><span></span>
+									<div class="wan" style="position: absolute; top: 15px;left: 470px;">元</div>
+									<div class="is-danger" style="display: none;"></div>
+								</div>
+							</li>
+							<li class="item-li">
+								<div class="item-name">项目紧急程度</div>
+								<div class="item-input">
+									<div class="urgency selected"><i class="iconfont icon-radio-active"></i> <i class="iconfont icon-radio-inactive"></i> 不紧急
+									</div>
+									<div class="urgency"><i class="iconfont icon-radio-active"></i> <i class="iconfont icon-radio-inactive"></i> 一般
+									</div>
+									<div class="urgency"><i class="iconfont icon-radio-active"></i> <i class="iconfont icon-radio-inactive"></i> 非常紧急
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="h2-title">您期望的项目外包周期是多久？</div>
+					<div class="time box">
+						<div data-term="1" class="item-time"><i class="iconfont icon-month2"></i>
+							<div class="name">超过6个月</div> <i class="iconfont icon-selected"></i></div>
+						<div data-term="2" class="item-time"><i class="iconfont icon--month3"></i>
+							<div class="name">3-6个月</div> <i class="iconfont icon-selected"></i></div>
+						<div data-term="3" class="item-time"><i class="iconfont icon--month4"></i>
+							<div class="name">1-3个月</div> <i class="iconfont icon-selected"></i></div>
+						<div data-term="4" class="item-time"><i class="iconfont icon-month1"></i>
+							<div class="name">少于1个月</div> <i class="iconfont icon-selected"></i></div>
+						<div data-term="5" class="item-time"><i class="iconfont icon-week"></i>
+							<div class="name">少于1周</div> <i class="iconfont icon-selected"></i></div>
+					</div>
+					<div class="is-danger" style="display: none;"></div>
+					<div class="h2-title">您的联系方式</div>
+					<div class="box form-call">
+						<ul>
+							<li class="item-li">
+								<div class="item-name">公司名称</div>
+								<div class="item-input"><input type="text" name="" placeholder="请输入您的公司名称" class="" id="company"><span></span>
+									<div class="is-danger" style="display: none;"></div>
+								</div>
+							</li>
+							<li class="item-li">
+								<div class="item-name">姓名</div>
+								<div class="item-input"><input type="text" name="" placeholder="姓名" class="" id="Name"><span></span>
+									<div class="is-danger" style="display: none;"></div>
+								</div>
+							</li>
+							<li class="item-li div-phone">
 
-							<div class="item-input">
-								<input type="number" id="phone" class="infos" placeholder="请输入手机" maxlength="11" /><span></span>
-								<a href="javascript:;" class="send1" onclick="sends.send();">发送验证码</a>
-							</div>
+								<div class="item-name">手机</div>
 
-						</li>
-						<li class="item-li">
-							<div class="item-name">短信验证码</div>
-							<div class="item-input">
-								<input type="number" name="" placeholder="验证码" maxlength="8" class="code" id="note" style="width: 500px;"><span></span>
-								<div class="is-danger" style="display: none;"></div>
-							</div>
-						</li>
-					</ul>
+								<div class="item-input">
+									<input type="number" id="phone" class="infos" placeholder="请输入手机" maxlength="11" /><span></span>
+									<a href="javascript:;" class="send1" onclick="sends.send();">发送验证码</a>
+								</div>
+
+							</li>
+							<li class="item-li">
+								<div class="item-name">短信验证码</div>
+								<div class="item-input">
+									<input type="number" name="" placeholder="验证码" maxlength="8" class="code" id="note" style="width: 500px;"><span></span>
+									<div class="is-danger" style="display: none;"></div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="btn-box">
+						<div wbds-event-name="发布项目按钮" class="btn btn-fabu">发布项目</div>
+						<!--<input type="submit" wbds-event-name="发布项目按钮" class="btn btn-fabu" value="发布项目" style="line-height: 12px;" />-->
+						<p class="btn-pre">上一步</p>
+					</div>
+
 				</div>
-				<div class="btn-box">
-					<!--<div wbds-event-name="发布项目按钮" class="btn btn-fabu">发布项目</div>-->
-					<input type="submit" wbds-event-name="发布项目按钮" class="btn btn-fabu" value="发布项目" style="line-height: 12px;"/>
-					<p  class="btn-pre">上一步</p>
+				<div class="dialogImgCode" style="display: none;">
+					<div class="dialogImgCode-content box"><i class="iconfont icon-nav-close close"></i>
+						<div class="dialogImgCode-text">请输入验证码</div> <img src="" class="dialogImgCode-img"> <input type="number" class="dialogImgCode-input" maxlength="8">
+						<div class="btn">提交</div>
+					</div>
 				</div>
-
 			</div>
-			<div class="dialogImgCode" style="display: none;">
-				<div class="dialogImgCode-content box"><i class="iconfont icon-nav-close close"></i>
-					<div class="dialogImgCode-text">请输入验证码</div> <img src="" class="dialogImgCode-img"> <input type="number" class="dialogImgCode-input" maxlength="8">
-					<div class="btn">提交</div>
-				</div>
-			</div>
-		</div>
 
 		</form>
 		<div class="beijin">
@@ -414,41 +416,46 @@
 
 
 自媒体营销、事件话题营销、软文发布、百科/问答、 SEO/快照、微信微博代运营、新闻撰稿/专访、危机公关、-->
-<script src="__INDEX__/js/form.js" type="text/javascript" charset="utf-8"></script>
+			<script src="__INDEX__/js/form.js" type="text/javascript" charset="utf-8"></script>
 			<script type="text/javascript">
 				function overtop() {
-				$("form>div:nth-child(1)").after($("body>p.overtop").clone(true));
-				var ss1 = $("formr .overtop");
-				$("form .overtop").css("background-color","rgba(0,0,0,0.7)");
-				ss1.css("display", "block");
-				ss1.css("opacity", "1");
-				setTimeout(function() {
-					ss1.css("opacity", "0");
-					ss1.remove();
-				}, 1000);
-			}
+					$("#form>div:nth-child(1)").after($("body>p.overtop").clone(true));
+					$("#form .overtop").css("background-color", "rgba(0,0,0,0.7)");
+					$("#form .overtop").css("display", "block");
+					setTimeout(function() {
+						$("#form .overtop").css("opacity", "0");
+						$("#form .overtop").remove();
+					}, 1000);
+				}
 				/*项目类型*/
-				$(".publish-more").css("display","none");
-				var tt = 0;
+				$(".publish-more").css("display", "none");
+
+				var tt1 = 0;
+				var lei1;
+				var lei2;
 				$(".type .item-type").click(function() {
-					var ts = $(".type .item-type")[tt];
+					var ts = $(".type .item-type")[tt1];
 					ts.className = "item-type";
-					tt = $(".type .item-type").index($(this));
-					var tts = $(".type .item-type")[tt];
+					tt1 = $(".type .item-type").index($(this));
+					var tts = $(".type .item-type")[tt1];
 					tts.className = "selected item-type";
-
+					lei1 = tts.innerText;
 				});
-
+/*下一步*/
+var hy;
 				$(".btn").click(function() {
 					if($(".type .selected").text() == "") {
 						$(".overtop").text("请选择项目类型");
 						overtop();
 					} else {
 						if($(".item-value").find("option:selected").text() == "请选择") {
-							$(".overtop").text("请选择项目所属行业")
+							$(".overtop").text("请选择项目所属行业");
+							overtop();
 						} else {
-							$("#app").css("display","none");
-							$(".publish-more").css("display","block");
+							$("#app").css("display", "none");
+							$(".publish-more").css("display", "block");
+							/*项目行业*/
+							hy = $(".item-value").find("option:selected").text();
 						}
 						/*alert($(".item-value").find("option:selected").text())		*/
 					}
@@ -465,113 +472,156 @@
 				})
 
 				$(".head .nav li:eq(3) a").addClass("active")
-			var tt = 0;
-			$(".time .item-time").click(function() {
-				var ts = $(".time .item-time")[tt];
-				ts.className = "item-time";
-				tt = $(".time .item-time").index($(this));
-				var tts = $(".time .item-time")[tt];
-				tts.className = "selected item-time";
+				/*您期望的项目外包周期*/
+				var tt2 = 0;
+				$(".time .item-time").click(function() {
+					var ts = $(".time .item-time")[tt2];
+					ts.className = "item-time";
+					tt2 = $(".time .item-time").index($(this));
+					var tts = $(".time .item-time")[tt2];
+					tts.className = "selected item-time";
+					lei2 = tts.innerText;
 
-			});
-			var an = 0;
-			$(".item-input .urgency").click(function() {
-				var ts = $(".item-input .urgency")[tt];
-				ts.className = "urgency";
-				tt = $(".item-input .urgency").index($(this));
-				var tts = $(".item-input .urgency")[tt];
-				tts.className = "selected urgency";
-			});
+				});
+				/*项目紧急程度*/
+				var an = 0;
+				var an1;
+				$(".item-input .urgency").click(function() {
+					var ts = $(".item-input .urgency")[tt];
+					ts.className = "urgency";
+					tt = $(".item-input .urgency").index($(this));
+					var tts = $(".item-input .urgency")[tt];
+					tts.className = "selected urgency";
+					an1 = tts.innerText;
+				});
 
-			$(".beijin").click(function() {
-				$(".beijin").css("display", "none");
-			window.location.href="index.html";
-			})
-			/*上一步*/
-		$(".btn-pre").click(function(){
-			$("#app").css("display","block");
-							$(".publish-more").css("display","none");
-		})
-			/*验证*/
-			var phone = document.getElementById("phone"); //手机号
-			var Name = document.getElementById("Name"); //姓名
-			var note = document.getElementById("note"); //短信验证
-			var company = document.getElementById("company"); //公司名称
-			var budget = document.getElementById("budget"); //项目预算
-			var reference = document.getElementById("reference"); //参考网站
-			var brief = document.getElementById("brief"); //项目简介
-			var project = document.getElementById("project"); //项目名称
-
-			yanZheng(phone, /^[\s\S]*.*[^\s][\s\S]*$/);
-
-			yanZheng(Name, /^[\s\S]*.*[^\s][\s\S]*$/);
-
-			yanZheng(note, /\d{6}/);
-
-			yanZheng(budget, /^[\s\S]*.*[^\s][\s\S]*$/);
-			yanZheng(project, /^[\s\S]*.*[^\s][\s\S]*$/);
-			yanZheng(reference, /^[\s\S]*.*[^\s][\s\S]*$/);
-			yanZheng(company, /^[\s\S]*.*[^\s][\s\S]*$/);
-			yanZheng(project,/^[\s\S]*.*[^\s][\s\S]*$/);
-			yanZheng(project, /^[\s\S]*.*[^\s][\s\S]*$/);
-			yanZheng(project,/^[\s\S]*.*[^\s][\s\S]*$/);
-
-			$('#brief').focus(
-				$('#brief').blur(function() {
-					if(this.value == "") {
-						this.nextSibling.innerHTML = "必填项";
-						this.style.borderColor = "red";
-						this.nextSibling.style.color = "red";
-						this.nextSibling.style.marginLeft = "15px";
-					} else {
-						this.style.borderColor = "#f5f5f5";
-						this.nextSibling.innerHTML = "正确";
-						this.nextSibling.style.color = "white";
-					}
+				$(".beijin").click(function() {
+					$(".beijin").css("display", "none");
+					window.location.href = "index.html";
 				})
-			);
-			$(".btn-fabu").click(function(){
-				/*手机号*/
-				yanz(phone, /^[\s\S]*.*[^\s][\s\S]*$/);
-					/*短信验证*/
-					yanz(note, /\d{6}/);
-				 kk(budget);
-				 kk(project);
-				 kk(reference);
-				 kk(company);
-				 kk(brief);
-				 kk(Name);
-				 kk(project);
-				if(project.value ==""){
-					$(".overtop").text("项目名为空,请填写完整");overtop();
-				}else{
-					if(brief.value == ""){
-						$(".overtop").text("项目简介为空,请填写完整");overtop();
-					}else{
-						if(reference.value == ""){
-							$(".overtop").text("参考网站/项目为空,请填写完整");overtop();
-						}else{
-							if(budget.value == ""){
-								$(".overtop").text("项目预算为空,请填写完整");overtop();
-							}else{
-								if($(".time .selected").text()==""){
-									$(".overtop").text("请选择项目外包周期");overtop();
 
-								}else{
-									if(company.value ==""){
-										$(".overtop").text("公司名为空,请填写完整");overtop();
-									}else{
-										if(Name.value ==""){
-											$(".overtop").text("姓名为空，请输入");overtop();
-										}else{
-											if(phone.value =="" ){
-												$(".overtop").text("请重新输入手机号");overtop();
-											}else{
-												if(note.value ==""){
-													$(".overtop").text("请重新输入短信验证");overtop();
-												}else{
+				/*上一步*/
+				$(".btn-pre").click(function() {
+					$("#app").css("display", "block");
+					$(".publish-more").css("display", "none");
+				})
+				/*验证*/
+				var phone = document.getElementById("phone"); //手机号
+				var Name = document.getElementById("Name"); //姓名
+				var note = document.getElementById("note"); //短信验证
+				var company = document.getElementById("company"); //公司名称
+				var budget = document.getElementById("budget"); //项目预算
+				var reference = document.getElementById("reference"); //参考网站
+				var brief = document.getElementById("brief"); //项目简介
+				var project = document.getElementById("project"); //项目名称
 
-														$(".beijin").css("display","block");
+				yanZheng(phone, /^[\s\S]*.*[^\s][\s\S]*$/);
+
+				yanZheng(Name, /^[\s\S]*.*[^\s][\s\S]*$/);
+
+				yanZheng(note, /\d{6}/);
+
+				yanZheng(budget, /^[\s\S]*.*[^\s][\s\S]*$/);
+				yanZheng(project, /^[\s\S]*.*[^\s][\s\S]*$/);
+				yanZheng(reference, /^[\s\S]*.*[^\s][\s\S]*$/);
+				yanZheng(company, /^[\s\S]*.*[^\s][\s\S]*$/);
+				yanZheng(project, /^[\s\S]*.*[^\s][\s\S]*$/);
+				yanZheng(project, /^[\s\S]*.*[^\s][\s\S]*$/);
+				yanZheng(project, /^[\s\S]*.*[^\s][\s\S]*$/);
+
+				$('#brief').focus(
+					$('#brief').blur(function() {
+						if(this.value == "") {
+							this.nextSibling.innerHTML = "必填项";
+							this.style.borderColor = "red";
+							this.nextSibling.style.color = "red";
+							this.nextSibling.style.marginLeft = "15px";
+						} else {
+							this.style.borderColor = "#f5f5f5";
+							this.nextSibling.innerHTML = "正确";
+							this.nextSibling.style.color = "white";
+						}
+					})
+				);
+				$(".btn-fabu").click(function() {
+							/*手机号*/
+							yanz(phone, /^[\s\S]*.*[^\s][\s\S]*$/);
+							/*短信验证*/
+							yanz(note, /\d{6}/);
+
+							kk(budget);
+							kk(project);
+							kk(reference);
+							kk(company);
+							kk(brief);
+							kk(Name);
+							kk(project);
+							if(project.value == "") {
+								$(".overtop").text("项目名为空,请填写完整");
+								overtop();
+							} else {
+								if(brief.value == "") {
+									$(".overtop").text("项目简介为空,请填写完整");
+									overtop();
+								} else {
+									if(reference.value == "") {
+										$(".overtop").text("参考网站/项目为空,请填写完整");
+										overtop();
+									} else {
+										if(budget.value == "") {
+											$(".overtop").text("项目预算为空,请填写完整");
+											overtop();
+										} else {
+											if($(".time .selected").text() == "") {
+												$(".overtop").text("请选择项目外包周期");
+												overtop();
+											} else {
+												if(company.value == "") {
+													$(".overtop").text("公司名为空,请填写完整");
+													overtop();
+												} else {
+													if(Name.value == "") {
+														$(".overtop").text("姓名为空，请输入");
+														overtop();
+													} else {
+														if(phone.value == "") {
+															$(".overtop").text("请重新输入手机号");
+															overtop();
+														} else {
+															if(note.value == "") {
+																$(".overtop").text("请重新输入短信验证");
+																overtop();
+															} else {
+																/*项目类型*/
+															lei1
+															/*项目外包周期*/
+															lei2
+																/*项目行业*/
+															hy
+															/*项目紧急程度*/
+															an1;
+															/*项目名称*/
+															var xname = project.value;
+															/*项目简介*/
+															var jbrief = brief.value;
+															/*参考网站/项目*/
+															var ck = reference.value;
+															/*项目预算*/
+															var ys = budget.value;
+															/*公司名*/
+															var comp = company.value;
+															/*姓名*/
+															var gname = Name.value;
+															/*手机号*/
+															var p1 = phone.value;
+															/*短信验证*/
+															var notes = note.value;
+
+																$(".beijin").css("display", "block");
+
+															}
+														}
+													}
 
 												}
 											}
@@ -579,10 +629,7 @@
 									}
 								}
 							}
-						}
-					}
-				}
-			});
+							});
 			</script>
 
 	</body>
