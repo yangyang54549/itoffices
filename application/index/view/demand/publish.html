@@ -310,6 +310,7 @@
 								<div class="item-input"><input type="text" name="" placeholder="参考网站/产品" id="reference" class=""><span></span>
 									<div class="is-danger" style="display: none;"></div>
 								</div>
+
 							</li>
 							<li class="item-li">
 								<div class="item-name">项目预算</div>
@@ -416,9 +417,9 @@
 			<script src="__INDEX__/js/form.js" type="text/javascript" charset="utf-8"></script>
 			<script type="text/javascript">
 				function overtop() {
-					$("#form>div:nth-child(1)").after($("body>p.overtop").clone(true));					
+					$("#form>div:nth-child(1)").after($("body>p.overtop").clone(true));
 					$("#form .overtop").css("background-color", "rgba(0,0,0,0.7)");
-					$("#form .overtop").css("display", "block");					
+					$("#form .overtop").css("display", "block");
 					setTimeout(function() {
 						$("#form .overtop").css("opacity", "0");
 						$("#form .overtop").remove();
@@ -528,67 +529,67 @@
 					})
 				);
 				$(".btn-fabu").click(function() {
-					/*手机号*/
-					yanz(phone, /^[\s\S]*.*[^\s][\s\S]*$/);
-					/*短信验证*/
-					yanz(note, /\d{6}/);
-					kk(budget);
-					kk(project);
-					kk(reference);
-					kk(company);
-					kk(brief);
-					kk(Name);
-					kk(project);
-					if(project.value == "") {
-						$(".overtop").text("项目名为空,请填写完整");
-						overtop();
-					} else {
-						if(brief.value == "") {
-							$(".overtop").text("项目简介为空,请填写完整");
-							overtop();
-						} else {
-							if(reference.value == "") {
-								$(".overtop").text("参考网站/项目为空,请填写完整");
+							/*手机号*/
+							yanz(phone, /^[\s\S]*.*[^\s][\s\S]*$/);
+							/*短信验证*/
+							yanz(note, /\d{6}/);
+
+							kk(budget);
+							kk(project);
+							kk(reference);
+							kk(company);
+							kk(brief);
+							kk(Name);
+							kk(project);
+							if(project.value == "") {
+								$(".overtop").text("项目名为空,请填写完整");
 								overtop();
 							} else {
-								if(budget.value == "") {
-									$(".overtop").text("项目预算为空,请填写完整");
+								if(brief.value == "") {
+									$(".overtop").text("项目简介为空,请填写完整");
 									overtop();
 								} else {
-									if($(".time .selected").text() == "") {
-										$(".overtop").text("请选择项目外包周期");
+									if(reference.value == "") {
+										$(".overtop").text("参考网站/项目为空,请填写完整");
 										overtop();
-
 									} else {
-										if(company.value == "") {
-											$(".overtop").text("公司名为空,请填写完整");
+										if(budget.value == "") {
+											$(".overtop").text("项目预算为空,请填写完整");
 											overtop();
 										} else {
-											if(Name.value == "") {
-												$(".overtop").text("姓名为空，请输入");
+											if($(".time .selected").text() == "") {
+												$(".overtop").text("请选择项目外包周期");
 												overtop();
+
 											} else {
-												if(phone.value == "") {
-													$(".overtop").text("请重新输入手机号");
+												if(company.value == "") {
+													$(".overtop").text("公司名为空,请填写完整");
 													overtop();
 												} else {
-													if(note.value == "") {
-														$(".overtop").text("请重新输入短信验证");
+													if(Name.value == "") {
+														$(".overtop").text("姓名为空，请输入");
 														overtop();
 													} else {
-														$(".beijin").css("display", "block");
-														overtop();
-														/*window.location.href="index.html";*/
+														if(phone.value == "") {
+															$(".overtop").text("请重新输入手机号");
+															overtop();
+														} else {
+															if(note.value == "") {
+																$(".overtop").text("请重新输入短信验证");
+																overtop();
+															} else {
+
+																$(".beijin").css("display", "block");
+
+															}
+														}
 													}
 												}
 											}
 										}
 									}
 								}
-							}
-						}
-					}
-				});
+							});
 			</script>
 
 	</body>
