@@ -189,8 +189,8 @@
 			line-height:50px ;
 		}
 		.publish-more .content .form-more .item-input .urgency {
-    
-    margin-right: 20px !important; 
+
+    margin-right: 20px !important;
 }
 	</style>
 
@@ -447,10 +447,10 @@
 					tt1 = $(".type .item-type").index($(this));
 					var tts = $(".type .item-type")[tt1];
 					tts.className = "selected item-type";
-					
+
 					lei1s = $(this).data('type');
 					lei1 = tts.innerText;
-					
+
 				});
 /*下一步*/
 var hy;
@@ -469,7 +469,7 @@ var hys;
 							/*项目行业*/
 							hy = $(".item-value").find("option:selected").text();
 							hys = $(".item-value").find("option:selected").val();
-							
+
 						}
 						/*alert($(".item-value").find("option:selected").text())		*/
 					}
@@ -610,13 +610,13 @@ var hys;
 																overtop();
 															} else {
 																/*项目类型*/
-															lei1
+															lei1s
 															/*项目外包周期*/
-															lei2
+															lei2s
 																/*项目行业*/
-															hy
+															hys
 															/*项目紧急程度*/
-															an1;
+															an1s;
 															/*项目名称*/
 															var xname = project.value;
 															/*项目简介*/

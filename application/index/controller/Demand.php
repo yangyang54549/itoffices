@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-09 11:52:52
+ * @Last Modified time: 2018-02-09 16:56:26
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -24,11 +24,15 @@ class Demand extends Yang
 {
     public function publish()
     {
-        $demandtrade = DTR::select();
-        $demandtype = DT::select();
-        $this->assign('demandtrade',$demandtrade);
-        $this->assign('demandtype',$demandtype);
-        return $this->fetch();
+        if ($this->request->isAjax()) {
+
+        }else{
+            $demandtrade = DTR::select();
+            $demandtype = DT::select();
+            $this->assign('demandtrade',$demandtrade);
+            $this->assign('demandtype',$demandtype);
+            return $this->fetch();
+        }
     }
 
 }
