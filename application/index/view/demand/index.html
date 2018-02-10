@@ -251,10 +251,10 @@
 		<div id="choice" class="choice_top">
 			<div class="choice_kind">
 				<span text="所有类型：">所有类型：</span>
-				<ul>
-					<li class="active" data="">不限</li>
+				<ul class="ty">
+					<li class="active" data-id="0">不限</li>
 				{volist name="demandtype" id="vo" }
-					<li data-type="{$vo.id}">{$vo.name}</li>
+					<li data-id="{$vo.id}">{$vo.name}</li>
 				{/volist}
 					<!-- <li data="131" class="freeman_none" style="display:none;">危机公关</li> -->
 
@@ -263,12 +263,12 @@
 			</div>
 			<div class="choice_kind">
 				<span text="所有进度：" data="">所有进度：</span>
-				<ul>
-					<li data="" class="active">不限</li>
-					<li data="1">招募中</li>
-					<li data="2">对接中</li>
-					<li data="3">执行中</li>
-					<li data="4">已完成</li>
+				<ul class="jd">
+					<li data-id="0" class="active">不限</li>
+					<li data-id="1">招募中</li>
+					<li data-id="2">对接中</li>
+					<li data-id="3">执行中</li>
+					<li data-id="4">已完成</li>
 					<i class="clear"></i>
 				</ul>
 				<i class="clear"></i>
@@ -358,14 +358,22 @@
 
 				var cla = $(this).parent().attr('class');
 				var id = $(this).attr('data-id');
-				//alert(id);
-				host = window.location.host
 				if (cla=='ty') {
-					window.location.href='http://'+host+'/index/Demand/index/ty/'+id;
-				}else if(cla=='xiao'){
-					window.location.href='http://'+host+'/index/Demand/index/xiao/'+id;
-				}else if(cla=='sys'){
-					window.location.href='http://'+host+'/index/Demand/index/sys/'+id;
+                    $.post(
+                        "{:url('demand/index')}",
+                        {type:id},
+                        function(data){
+
+                           }
+                        )
+				}else if(cla=='jd'){
+                    $.post(
+                        "{:url('demand/index')}",
+                        {schedule:id},
+                        function(data){
+
+                           }
+                        )
 				}else{
 					window.location.href='';
 				}
