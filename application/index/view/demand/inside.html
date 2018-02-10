@@ -322,7 +322,17 @@
 			</div>
 		</div>
 		<div id="page-content">
-			<div class="content-status-pos content-bg-fff4">对接中</div>
+			<div class="content-status-pos content-bg-fff{$demand.schedule}">
+					{if condition="$demand.schedule eq 1"}
+					招募中
+					{elseif condition="$demand.schedule eq 2" /}
+					对接中
+					{elseif condition="$demand.schedule eq 3" /}
+					执行中
+					{else /}
+					已完成
+					{/if}
+			</div>
 			<div class="page-content">
 				<h2>某电力公司线上广告投放</h2>
 				<div class="content-info">
@@ -340,7 +350,6 @@
 						</div>
 						<div>
 							<span><img src="__INDEX__/img/icon/xi13.png"/><span>开发周期</span></span>
-
 							<span>
 							{if condition="$demand.period eq 1"}
 							少于1周
@@ -470,7 +479,7 @@
 					</div>
 					<i class="clear"></i>
 				</div>
-				<div class="status_num status_num2">
+				<div class="status_num status_num{$demand.schedule}">
 					<span><i style="margin-right:-5px;" ><em>对接中</em></i><i ><em>招募中</em></i></span>
 					<span><i><em>执行中</em></i></span>
 					<span><i><em>已完成</em></i></span>
