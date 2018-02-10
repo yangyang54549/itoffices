@@ -205,6 +205,22 @@
 .demandlist ul{
 	padding: 20px;
 }
+.content-bg-fff1 {
+			background-image: url(__INDEX__/img/demand_status_f00.png);
+		}
+		
+		.content-bg-fff2 {
+			background-image: url(__INDEX__/img/demand_status_yellow.png);
+		}
+		
+		.content-bg-fff3 {
+			background-image: url(__INDEX__/img/demand_status_000.png);
+		}
+		
+		.content-bg-fff4 {
+			background-image: url(__INDEX__/img/demand_status_ccc.png);
+			color: black;
+		}
 	</style>
 
 	<body>
@@ -270,7 +286,7 @@
 				{volist name="demand" id="vos" }
 
 					<div class="demandBox" tid="799" onclick="window.location.href='{:url("demand/inside",["id"=>$vos.id])}'">
-						<div class="marking" style="background-image:url(__INDEX__/img/demand_status_yellow.png)">
+						<div class="marking .content-bg-fff2" >
 							{if condition="$vos.schedule eq 1"}
 							招募中
 							{elseif condition="$vos.schedule eq 2" /}
