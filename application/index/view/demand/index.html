@@ -270,7 +270,7 @@
 				{volist name="demand" id="vos" }
 
 					<div class="demandBox" tid="799" onclick="window.location.href='{:url("demand/inside",["id"=>$vos.id])}'">
-						<div class="marking" style="background-image:url(https://www.315pr.com/resources/bootstrap/reset/img/demand_status_yellow.png)">
+						<div class="marking" style="background-image:url(__INDEX__/img/demand_status_yellow.png)">
 							{if condition="$vos.schedule eq 1"}
 							招募中
 							{elseif condition="$vos.schedule eq 2" /}

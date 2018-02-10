@@ -125,10 +125,10 @@ function yanz(tag, reg) {
 				var tab = document.getElementById("filetable");
 				tab.deleteRow(rowNum);
 			}
-/**/
-$(document).bind("contextmenu copy selectstart", function(){
+
+			/*$(document).bind("contextmenu copy selectstart", function(){
 				return false;
-			});
+			})*/
 			/*禁用ctrl+c ctrl+v*/
 			$(document).keydown(function(e){
 				if(e.ctrlKey &&(e.keyCode ==65|| e.keyCode ==67)){
