@@ -593,7 +593,7 @@ var hys;
 												$(".overtop").text("请选择项目外包周期");
 												overtop();
 											} else {
-												if(company.value == "") {   
+												if(company.value == "") {
 													$(".overtop").text("公司名为空,请填写完整");
 													overtop();
 												} else {
@@ -609,34 +609,43 @@ var hys;
 																$(".overtop").text("请重新输入短信验证");
 																overtop();
 															} else {
-																/*项目类型*/
-															lei1s
-															/*项目外包周期*/
-															lei2s
-																/*项目行业*/
-															hys
-															/*项目紧急程度*/
-															an1s;
-															/*项目名称*/
-															alert(lei1+" /"+lei1s+" /"+lei2+" /"+lei2s+"/ "+hy+"/"+hys+"/"+an1+"/"+an1s)
-															var xname = project.value;
-															/*项目简介*/
-															var jbrief = brief.value;
-															/*参考网站/项目*/
-															var ck = reference.value;
-															/*项目预算*/
-															var ys = budget.value;
-															/*公司名*/
-															var comp = company.value;
-															/*姓名*/
-															var gname = Name.value;
-															/*手机号*/
-															var p1 = phone.value;
-															/*短信验证*/
-															var notes = note.value;
 
-																$(".beijin").css("display", "block");
+															lei1s/*项目类型*/
 
+															lei2s/*项目外包周期*/
+
+															hys/*项目行业*/
+
+															an1s;/*项目紧急程度*/
+
+															var xname = project.value;/*项目名称*/
+
+															var jbrief = brief.value;/*项目简介*/
+
+															var ck = reference.value;/*参考网站/项目*/
+
+															var ys = budget.value;/*项目预算*/
+
+															var comp = company.value;/*公司名*/
+
+															var gname = Name.value;/*姓名*/
+
+															var p1 = phone.value;/*手机号*/
+
+															var notes = note.value;/*短信验证*/
+
+			                                            $.post(
+			                                                "{:url('demand/publish')}",
+			                                                {name:xname,money:ys,industry:hys,type:lei1s,period:lei2s,urgency:an1s,info:jbrief,reference:ck,company_name:comp,user_name:gname,mobile:p1},
+			                                                function(data){
+			  														if (data.code==1) {
+																		$(".beijin").css("display", "block");
+			  														}else{
+																		$(".overtop").text("提交失败");
+																		overtop();
+			  														}
+			                                                   }
+			                                                )
 															}
 														}
 													}

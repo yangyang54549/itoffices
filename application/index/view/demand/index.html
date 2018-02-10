@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>IT联合办公</title>
+		<link rel="stylesheet" href="__INDEX__/css/header.css" />
+		<link rel="stylesheet" href="__INDEX__/css/index.css" />
+		<link rel="stylesheet" href="__INDEX__/css/restre.css" />
+		<link rel="stylesheet" href="__INDEX__/css/style.css" />
+		<!--<link rel="shortcut icon" href="https://www.315pr.com:443/resources/bootstrap/__INDEX__/img/sdyk.ico">-->
+		<script src="__INDEX__/js/js/jquery-2.1.3.min.js"></script>
+	</head>
+	<style type="text/css">
+		.logo,
+		.logo a,
+		.logo a img {
+			margin: 0;
+			padding: 0;
+		}
+
+		.logo a img {
+			height: 64px;
+		}
+
+		.nav li a {
+			color: white;
+		}
+
+		.sou {
+			width: 100%;
+			background-image: url(__INDEX__/img/index.jpg);
+			filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+			-moz-background-size: 100% 100%;
+			background-size: 100% 100%;
+			padding: 1px 0;
+			position: relative;
+			top: 0;
+			left: 0;
+		}
+
+		.search {
+			width: 100%;
+			padding: 0;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			margin-top: -30px;
+		}
+
+		.search1 {
+			height: 60px;
+			width: 600px;
+			line-height: 65px;
+			position: relative;
+			top: 0;
+			left: 0;
+			background-color: white;
+			margin: 5px auto;
+			border-radius: 5px;
+			box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
+		}
+
+		.search1:hover {
+			box-shadow: 0 10px 30px 6px rgba(28, 57, 81, 0.18);
+		}
+
+		.search1 input {
+			width: 450px;
+			height: 56px;
+			line-height: 56px;
+			border: none;
+			margin-left: 50px;
+			margin-top: -2px;
+		}
+
+		.search1 img {
+			width: 30px;
+			position: absolute;
+			top: 17px;
+			left: 13px;
+		}
+
+		.search1 button {
+			width: 80px;
+			height: 56px;
+			position: absolute;
+			top: 2px;
+			right: 2px;
+			border-radius: 5px;
+			background-color: #0d80dd;
+			color: white;
+			font-size: 16px;
+		}
+
+		.search1 span {
+			position: absolute;
+			top: 0px;
+			right: -40px;
+			color: white;
+			font-size: 15px;
+			font-weight: bold;
+		}
+
+		.search1 p {
+			width: 120px;
+			height: 56px;
+			text-align: center;
+			border-radius: 5px;
+			position: absolute;
+			right: -170px;
+			font-size: 16px;
+			background-color: #0d80dd;
+			color: white;
+			font-weight: bold;
+			top: 3px;
+			line-height: 56px;
+			box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
+			/*background: -webkit-linear-gradient(left,  #f2f2ef, white);*/
+			/* Safari 5.1 - 6.0 */
+			/*background: -o-linear-gradient(right,  #f2f2ef, white);*/
+			/* Opera 11.1 - 12.0 */
+			/*background: -moz-linear-gradient(right, #f2f2ef, white);*/
+			/* Firefox 3.6 - 15 */
+			/*background: linear-gradient(to right, #f2f2ef, white);*/
+			/* 标准的语法（必须放在最后） */
+		}
+
+		.search1 p:hover {
+			box-shadow: 0 10px 30px 6px rgba(28, 57, 81, 0.18);
+		}
+		/*下一页*/
+
+		#page-box {
+			position: relative;
+			top: 0;
+			left: 0;
+		}
+
+		.page-div {
+			position: absolute;
+			right: 0;
+			box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
+		}
+
+		.page-div h3 {
+			width: 100%;
+			height: 100px;
+			font-size: 40px;
+			line-height: 100px;
+			position: absolute;
+			top: 50%;
+			left: 0;
+			margin-top: -50px;
+		}
+
+		.page-div:hover {
+			box-shadow: 0 10px 30px 6px rgba(28, 57, 81, 0.18);
+		}
+		/*nav*/
+			.navs{
+				position: absolute;
+				top: -45px;
+				left: 0;
+				width: 600px;
+				height: 40px;
+				overflow: hidden;
+				background-color: rgba(0,0,0,0.1);
+			}
+			.navs .is{
+				float: left;
+				width: 90px;
+				height: 38px;
+				text-align: center;
+				line-height: 40px;
+				font-size: 14px;
+				color: white;
+				z-index: 100;
+
+				/*background: url(__INDEX__/img/navBg1.png);*/
+			}
+			.navs i:hover{
+				color: #fff !important;
+				background: url(__INDEX__/img/navBg.png);
+				background-size: 100%;
+				/*background-color: #ff5454;*/
+			}
+			.actives {
+				color: #fff !important;
+				background: url(__INDEX__/img/navBg.png);
+				background-size: 100%;
+				/*background-color: #ff5454;*/
+
+			}
+	/*文字*/
+	.accomplishDate span{
+		font-size: 14px;
+	}
+	.abbreviationBox span {
+
+    padding: 6px 15px;
+ font-size: 14px;
+}
+
+.demandlist ul{
+	padding: 20px;
+}
+	</style>
+
+	<body>
+
+		<div class="sou">
+			<div class="head_img" style="width: 70px; position: absolute; left: 50%; top: 15px ;margin-left: -50px;" onclick="window.location='essential1.html'">
+				<img src="__INDEX__/img/bai.png" style="width: 70px;"/>
+				<p style="width: 100%; text-align: center;color: white; font-size: 15px;">硅谷</p>
+			</div>
+			<div class="search">
+
+				<div class="search1">
+					<div class="navs">
+						<i class="is ">IT联合办公</i>
+						<i  class="is actives">需求</i>
+						<i class="is">案例</i>
+						<i class="is">人才</i>
+					</div>
+					<input type="text" name="" id="" value="" placeholder="搜索..." />
+					<img src="__INDEX__/img/icon/fda.png" />
+					<button onclick="one();">搜索</button>
+					<p onclick="window.location.href='epiboly1.html'">免费发需求</p>
+					<span>或者</span>
+				</div>
+
+			</div>
+		</div>
+		<div id="choice" class="choice_top">
+			<div class="choice_kind">
+				<span text="所有类型：">所有类型：</span>
+				<ul>
+					<li class="active" data="">不限</li>
+				{volist name="demandtype" id="vo" }
+					<li data-type="{$vo.id}">{$vo.name}</li>
+				{/volist}
+					<!-- <li data="131" class="freeman_none" style="display:none;">危机公关</li> -->
+
+				</ul>
+				<i class="clear"></i>
+			</div>
+			<div class="choice_kind">
+				<span text="所有进度：" data="">所有进度：</span>
+				<ul>
+					<li data="" class="active">不限</li>
+					<li data="1">招募中</li>
+					<li data="2">对接中</li>
+					<li data="3">执行中</li>
+					<li data="4">已完成</li>
+					<i class="clear"></i>
+				</ul>
+				<i class="clear"></i>
+			</div>
+		</div>
+		<!--end-->
+		<style type="text/css">
+			.demandlist ul .demandBox:nth-of-type(3n) {
+				margin-right: 0;
+			}
+		</style>
+		<div class="page-content" style="margin-top: 0">
+			<div class="demandlist">
+				<ul id="demandlist-ul1">
+				{volist name="demand" id="vos" }
+
+					<div class="demandBox" tid="799" onclick="window.location.href='{:url("demand/inside",["id"=>$vos.id])}'">
+						<div class="marking" style="background-image:url(https://www.315pr.com/resources/bootstrap/reset/img/demand_status_yellow.png)">
+							{if condition="$vos.schedule eq 1"}
+							招募中
+							{elseif condition="$vos.schedule eq 2" /}
+							对接中
+							{elseif condition="$vos.schedule eq 3" /}
+							执行中
+							{else /}
+							已完成
+							{/if}
+						</div>
+						<div class="demandTitle">{$vos.name}</div>
+						<div class="accomplishDate"><span>发布时间</span><span>{$vos.create_time|date="y-m-d h:i:s",###}</span></div>
+						<div class="abbreviationBox"><span>{$vos.industry}</span><span>{$vos.type}</span><em class="clear"></em></div>
+						<div class="unitPriceBox">{$vos.money}</div>
+						<div class="bottomColor">
+							<div class="applyFor">已申请{$vos.apply}人</div>
+							<div class="lookOver">已浏览{$vos.browse}人</div>
+						</div>
+					</div>
+				{/volist}
+
+				</ul>
+				<div id="page-box">
+					<div class="page-div" onclick="xia();" style="background-color: rgba(0,0,0,0.1);">
+						<h3>下一页</h3>
+					</div>
+					<input type="hidden" name="pageInput" value="52">
+					<div class="page">
+						<a class="" style="color:#b43d3d ;">1</a>
+						<a href="javascript:;" data-page="2">2</a>
+
+						<a href="javascript:;" class="page_next" onclick="xia();">下页</a>
+					</div>
+					<em><span class="now">1</span>/<span class="num">2</span>页&nbsp;&nbsp;共<span class="total">2</span>条</em>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+		</script>
+		<div class="footer" style="background-color: #1e2831;">
+			<div class="center">
+				<p>2014-2017 汇谷电子科技有限公司 版权所有：ICP备12027515号-1</p>
+			</div>
+		</div>
+
+		<div class="fixedTop" style="position:relative">
+		</div>
+
+		<!--请将以下码嵌入到您网页源代码的最后面，通常是</body></HTML>之后,这样在服务器升级维护的时候也不会影响您的网页打开呈现速度。-->
+
+		<!-- <script src="__INDEX__/js/demand.js" type="text/javascript" charset="utf-8"></script> -->
+
+		<script src="__INDEX__/js/main.js" type="text/javascript" charset="utf-8"></script>
+
+		<script>
+
+
+
+	$('.choice_kind li').click(function(){
+		$("#page-box .now").text('1')
+		$(this).parents(".choice_kind").find("li").removeClass("active").end().find(".freeman_none").css("display",'none');
+		$(this).addClass("active");
+		$(this).parent().find(".more_choice").css('display','block');
+		if($(this).attr("class").indexOf("freeman_none")>-1){
+			$(this).parents(".choice_kind").find("span:eq(0)").html($(this).text()+":").css("color",'#ff5454').attr("data",$(this).attr('data'))
+		}else{
+			$(this).parents(".choice_kind").find("span:eq(0)").html($(this).parents(".choice_kind").find("span:eq(0)").attr("text")).css("color",'#333').attr("data",$(this).attr('data'))
+		}
+
+				var cla = $(this).parent().attr('class');
+				var id = $(this).attr('data-id');
+				//alert(id);
+				host = window.location.host
+				if (cla=='ty') {
+					window.location.href='http://'+host+'/index/Demand/index/ty/'+id;
+				}else if(cla=='xiao'){
+					window.location.href='http://'+host+'/index/Demand/index/xiao/'+id;
+				}else if(cla=='sys'){
+					window.location.href='http://'+host+'/index/Demand/index/sys/'+id;
+				}else{
+					window.location.href='';
+				}
+
+	})
+
+
+
+
+
+
+			$(function() {
+				demandlist()
+			})
+			$(".head .nav li:eq(0) a").addClass("active");
+			var heg = $(".sou").width() * 0.53 / 2;
+			$(".sou").height(heg);
+			$(document).bind("contextmenu copy selectstart", function() {
+				return false;
+			});
+			/*禁用ctrl+c ctrl+v*/
+			$(document).keydown(function(e) {
+				if(e.ctrlKey && (e.keyCode == 65 || e.keyCode == 67)) {
+					return false;
+				}
+			})
+			/*$(".choice_top .choice_kind ul li").click(function() {
+				if($(this).text() == "定制开发") {
+					$(".choice_bottom").css("display", "block");
+				} else {
+					$(".choice_bottom").css("display", "none");
+				}
+			})*/
+			var he = $(".demandBox").height() + 50;
+			$(".page-div").width($(".demandBox").width());
+			$(".page-div").height($(".demandBox").height())
+			$(".page-div").css("top", "-" + he + "px");
+
+			function xia() {
+				var pl1 = document.getElementById("demandlist-ul1")
+				if(pl1.style.display == "none") {
+					alert("当前为最后一页")
+				} else {
+					$("#demandlist-ul1").css("display", "none");
+					$("#demandlist-ul2").css("display", "block");
+					$(".page a:nth-child(2)").css("color", "#b43d3d");
+					$(".page a:nth-child(1)").css("color", "black");
+				}
+			}
+			$(".page a").click(function() {
+				if($(this).text() == "1") {
+					$(".page a:nth-child(1)").css("color", "#b43d3d");
+					$(".page a:nth-child(2)").css("color", "black");
+					$(".demandlist ul:nth-child(1)").css("display", "block");
+					$(".demandlist ul:nth-child(2)").css("display", "none");
+				} else if($(this).text() == "2") {
+					$(".demandlist ul:nth-child(1)").css("display", "none");
+					$(".demandlist ul:nth-child(2)").css("display", "block");
+					$(".page a:nth-child(2)").css("color", "#b43d3d");
+					$(".page a:nth-child(1)").css("color", "black");
+				}
+			})
+
+/*nav 点击变色*/
+			$(".navs i").click(function() {
+				$(".navs i").removeClass("actives");
+				tt = $(".navs i").index($(this));
+				var tts = $(".navs i")[tt];
+				tts.className = "actives is";
+			});
+			function one() {
+				if($(".navs .actives").text() == "需求") {
+					window.location.href = "index.html";
+				} else if($(".navs .actives").text() == "案例") {
+					window.location.href = "indexs2.html";
+				}else if($(".navs .actives").text() == "IT联合办公"){
+					window.location.href = "it.html";
+				}
+			}
+		</script>
+		<!--<script type="text/javascript" src="//s.union.360.cn/164203.js" async defer></script>-->
+	</body>
+
+</html>

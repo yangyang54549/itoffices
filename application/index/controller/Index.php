@@ -1,10 +1,11 @@
 <?php
 namespace app\index\controller;
+use app\admin\Controller;
 
-class Index
+class Index  extends Yang
 {
     public function index()
     {
-        echo "hello";
+        $this->redirect('Demand/index');
     }
 }
