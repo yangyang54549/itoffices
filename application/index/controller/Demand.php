@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-11 10:53:44
+ * @Last Modified time: 2018-02-11 14:24:41
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -56,6 +56,7 @@ class Demand extends Yang
 
             $type = input('type');
             $schedule = input('schedule');
+            $industry = input('industry');
             $where = [];
 
             if (isset($type)) {
@@ -63,16 +64,23 @@ class Demand extends Yang
                     $where['type']=$type;
                 }
             }
+
             if(isset($schedule)){
                 if ($schedule!=0) {
-                    $where['specific']=$schedule;
+                    $where['schedule']=$schedule;
+                }
+            }
+
+            if (isset($industry)) {
+                if ($industry!=0) {
+                    $where['industry']=$industry;
                 }
             }
 
             $str = '';
-            $demand = D::where($where)->select();
+            $demand = D::where($where)->order('create_time desc')->select();
 
-            if (isset($demand)) {
+            if (!empty($demand)) {
 
                 foreach ($demand as $k => $v) {
 
@@ -80,21 +88,22 @@ class Demand extends Yang
                     $demand[$k]['type'] = $dt['name'];
                     $dtr = DTR::where(['id'=>$v['industry']])->find();
                     $demand[$k]['industry'] = $dtr['name'];
+                    $schedule = '';
                     if ($v['schedule']==1) {
-                        $v['schedule'] = "招募中";
+                        $schedule = "招募中";
                     }elseif($v['schedule']==2){
-                        $v['schedule'] = "对接中";
+                        $schedule = "对接中";
                     }elseif($v['schedule']==3){
-                        $v['schedule'] = "执行中";
+                        $schedule = "执行中";
                     }else{
-                        $v['schedule'] = "已完成";
+                        $schedule = "已完成";
                     }
-
-                    $str .= '<div class="demandBox" tid="799" onclick="window.open('.url("Demand/inside",["id"=>$v["id"]]).')">
-                        <div class="marking" style="background-image:url(https://www.315pr.com/resources/bootstrap/reset/img/demand_status_yellow.png)">'.$v['schedule'].'
+                    $url = url("Demand/inside",["id"=>$v["id"]]);
+                    $str .= '<div class="demandBox" tid="799" onclick="window.open('."'".$url."'".')">
+                        <div class="marking content-bg-fff'.$v["schedule"].'">'.$schedule.'
                         </div>
                         <div class="demandTitle">'.$v['name'].'</div>
-                        <div class="accomplishDate"><span>发布时间</span><span>'.date($v['create_time']).'</span></div>
+                        <div class="accomplishDate"><span>发布时间</span><span>'.date('y-m-d h:i:s',$v['create_time']).'</span></div>
                         <div class="abbreviationBox"><span>'.$v['industry'].'</span><span>'.$v['type'].'</span><em class="clear"></em></div>
                         <div class="unitPriceBox">'.$v['money'].'</div>
                         <div class="bottomColor">
@@ -108,11 +117,13 @@ class Demand extends Yang
                 $this->ret['data'] = $str;
                 return json($this->ret);
             }
+            $this->ret['data'] = '暂无更多数据';
             $this->ret['msg'] = '暂无更多数据';
             return json($this->ret);
         }else{
             $demandtype = DT::select();
             $demand = D::select();
+            $demandtrade = DTR::select();
             foreach ($demand as $k => $v) {
                 $dt = DT::where(['id'=>$v['type']])->find();
                 $demand[$k]['type'] = $dt['name'];
@@ -122,6 +133,7 @@ class Demand extends Yang
             $this->assign('url',LUR);
             $this->assign('demandtype',$demandtype);
             $this->assign('demand',$demand);
+            $this->assign('demandtrade',$demandtrade);
             return $this->fetch();
         }
     }

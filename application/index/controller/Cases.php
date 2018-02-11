@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-02 16:02:54
+ * @Last Modified time: 2018-02-11 14:50:38
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -22,77 +22,107 @@ class Cases extends Yang
 {
     public function index()
     {
-        $type_id = input('ty');
-        $specific_id = input('xiao');
-        $system_id = input('sys');
-        $types_id = Session::get('where.system_type');
+        if ($this->request->isAjax()) {
 
-        $where=Session::get('where');
-        if (isset($type_id)) {
-            if ($type_id!=0) {
-                $where['type']=$type_id;
-                unset($where['specific']);
-                Session::set('father_id',$type_id);
-            }else{
-                Session::delete('where');
-                Session::delete('father_id');
-                $where=null;
+            $type = input('type');
+            $schedule = input('schedule');
+            $industry = input('industry');
+            $where = [];
+
+            if (isset($type)) {
+                if ($type!=0) {
+                    $where['type']=$type;
+                }
             }
 
-        }elseif(isset($specific_id)){
-            if ($specific_id!=0) {
-                $specifics = S::where(['id'=>$specific_id])->find();
-                Session::set('father_id',$specifics['father_id']);
-                $where['specific']=$specific_id;
-                $where['type'] = $specifics['father_id'];
-            }else{
-                unset($where['specific']);
+            if(isset($schedule)){
+                if ($schedule!=0) {
+                    $where['schedule']=$schedule;
+                }
             }
 
-        }elseif(isset($system_id)){
-            if ($system_id!=0) {
-                $types_id = $system_id;
-                $where['system_type']=$system_id;
-            }else{
-                $types_id = 0;
-                unset($where['system_type']);
+            if (isset($industry)) {
+                if ($industry!=0) {
+                    $where['industry']=$industry;
+                }
             }
 
+            $str = '';
+            $demand = D::where($where)->order('create_time desc')->select();
+
+            if (!empty($demand)) {
+
+                foreach ($demand as $k => $v) {
+
+                    $dt = DT::where(['id'=>$v['type']])->find();
+                    $demand[$k]['type'] = $dt['name'];
+                    $dtr = DTR::where(['id'=>$v['industry']])->find();
+                    $demand[$k]['industry'] = $dtr['name'];
+                    $schedule = '';
+                    if ($v['schedule']==1) {
+                        $schedule = "招募中";
+                    }elseif($v['schedule']==2){
+                        $schedule = "对接中";
+                    }elseif($v['schedule']==3){
+                        $schedule = "执行中";
+                    }else{
+                        $schedule = "已完成";
+                    }
+                    $url = url("Demand/inside",["id"=>$v["id"]]);
+                    $str .= '<div class="demandBox" tid="799" onclick="window.open('."'".$url."'".')">
+                        <div class="marking content-bg-fff'.$v["schedule"].'">'.$schedule.'
+                        </div>
+                        <div class="demandTitle">'.$v['name'].'</div>
+                        <div class="accomplishDate"><span>发布时间</span><span>'.date('y-m-d h:i:s',$v['create_time']).'</span></div>
+                        <div class="abbreviationBox"><span>'.$v['industry'].'</span><span>'.$v['type'].'</span><em class="clear"></em></div>
+                        <div class="unitPriceBox">'.$v['money'].'</div>
+                        <div class="bottomColor">
+                            <div class="applyFor">已申请'.$v['apply'].'人</div>
+                            <div class="lookOver">已浏览'.$v['browse'].'人</div>
+                        </div>
+                    </div>';
+
+                }
+
+                $this->ret['data'] = $str;
+                return json($this->ret);
+            }
+            $this->ret['data'] = '暂无更多数据';
+            $this->ret['msg'] = '暂无更多数据';
+            return json($this->ret);
+
+        }else{
+            $types = T::select();
+            $specifics = S::select();
+            $systems = SY::select();
+            $cases = C::order('create_time desc')->page(1,10)->select();
+            $arr = $cases;
+            foreach ($cases as $key => $value) {
+                $system_type = explode(',' , $value['system_type']);
+                // if (!empty($types_id) && !in_array($types_id,$system_type)) {
+                //     unset($arr[$key]);
+                //     continue;
+                // }
+
+                $type = T::where(['id'=>$value['type']])->find();
+                $arr[$key]['type'] = $type['name'];
+                $specific = S::where(['id'=>$value['specific']])->find();
+                $arr[$key]['specific'] = $specific['name'];
+
+                for ($i=0; $i < count($system_type); $i++) {
+                    $system = SY::where(['id'=>$system_type[$i]])->find();
+                    $system_type[$i] = $system['name'];
+                }
+                $arr[$key]['system_type'] = $system_type;
+            }
+
+            $this->view->assign("type", $types);
+            $this->view->assign("specific", $specifics);
+            $this->view->assign("system", $systems);
+            //var_dump($arr);die;
+            $this->view->assign("cases", $arr);
+            return $this->fetch();
         }
-
-        Session::set('where',$where);
-        unset($where['system_type']);
-        $types = T::select();
-        $specifics = S::select();
-        $systems = SY::select();
-        $cases = C::where($where)->order('create_time desc')->page(1,10)->select();
-        $arr = $cases;
-        foreach ($cases as $key => $value) {
-            $system_type = explode(',' , $value['system_type']);
-            if (!empty($types_id) && !in_array($types_id,$system_type)) {
-                unset($arr[$key]);
-                continue;
-            }
-
-            $type = T::where(['id'=>$value['type']])->find();
-            $arr[$key]['type'] = $type['name'];
-            $specific = S::where(['id'=>$value['specific']])->find();
-            $arr[$key]['specific'] = $specific['name'];
-
-            for ($i=0; $i < count($system_type); $i++) {
-                $system = SY::where(['id'=>$system_type[$i]])->find();
-                $system_type[$i] = $system['name'];
-            }
-            $arr[$key]['system_type'] = $system_type;
-        }
-
-        $this->view->assign("type", $types);
-        $this->view->assign("specific", $specifics);
-        $this->view->assign("system", $systems);
-        $this->view->assign("where", $where);
-        //var_dump($arr);die;
-        $this->view->assign("cases", $arr);
-        return $this->fetch();
     }
 
     public function inside()

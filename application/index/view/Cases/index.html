@@ -267,21 +267,10 @@ height: 680px;
 			<div class="choice_kind">
 				<span text="产品类型：">产品类型：</span>
 				<ul class="ty">
-				{if condition="$where.type?? ''"}
-					<li data-id="0">不限</li>
-                    {volist name="type" id="vos"}
-                    	{if condition="$where.type eq $vos.id"}
-                        <li class="active" data-id="{$vos.id}">{$vos.name}</li>
-                        {else /}
-                        <li data-id="{$vos.id}">{$vos.name}</li>
-                    	{/if}
-                    {/volist}
-				{else /}
 					<li class="active" data-id="0">不限</li>
                     {volist name="type" id="vos"}
                         <li data-id="{$vos.id}">{$vos.name}</li>
                     {/volist}
-				{/if}
 					<!-- <li data="9" class="freeman_none" style="display:none;">直销系统类</li> -->
 					<!-- <i class="more_choice">更多 <img src="https://www.315pr.com:443/resources/bootstrap/reset/img/ico68.png"></i> -->
 					<i class="clear"></i>
@@ -289,74 +278,28 @@ height: 680px;
 				<i class="clear"></i>
 			</div>
 <!--不限-->
-			{if condition="session('father_id')"}
-				{volist name="type" id="ty"}
-				<div class="choice_kind main abc{$ty.id}" data-id="{$ty.id}"  {$ty.id==session('father_id') ? 'style="border-bottom: 1px dashed rgba(0,0,0,0.14);"' : 'style="border-bottom: 1px dashed rgba(0,0,0,0.14);display: none;"'}>
-					<span text="主要功能：">主要功能：</span><!--游戏-->
-					<ul class="xiao">
-					{if condition="session('where.specific')"}
-						<li data-id="0">不限</li>
-					{else /}
-						<li class="active" data-id="0">不限</li>
-					{/if}
 
-						{volist name="specific" id="sp"}
-						{if condition="$ty.id eq $sp.father_id"}
-							{if condition="$sp.id eq session('where.specific')"}
-								<li class="active" data-id="{$sp.id}">{$sp.name}</li>
-							{else /}
-								<li data-id="{$sp.id}">{$sp.name}</li>
-							{/if}
-						{/if}
-						{/volist}
-						<!-- <li data="7" class="freeman_none" style="display:none;">牌九</li>
-						<i class="more_choice">更多 <img src="https://www.315pr.com:443/resources/bootstrap/reset/img/ico68.png"></i> -->
-						<i class="clear"></i>
-					</ul>
+			<div class="choice_kind" style="border-bottom: 1px dashed rgba(0,0,0,0.14);">
+				<span text="主要功能：">主要功能：</span>
+				<ul class="xiao">
+					<li class="active nuxian" data="0">不限</li>
+                    {volist name="specific" id="voss"}
+						<li class="ccc{$voss.father_id} ccc" data-id="{$voss.id}">{$voss.name}</li>
+					{/volist}
 					<i class="clear"></i>
-				</div>
-				{/volist}
-			{else /}
-				<div class="choice_kind main unlimited abc0" style="border-bottom: 1px dashed rgba(0,0,0,0.14);">
-					<span text="主要功能：">主要功能：</span>
-					<ul class="xiao">
-						<li class="active" data-id="0">不限</li>
-	                        {volist name="specific" id="voss"}
-	                            <li data-id="{$voss.id}">{$voss.name}</li>
-	                        {/volist}
-						<!-- <li data="7" class="freeman_none" style="display:none;">共享会议室</li>
-						<li data="8" class="freeman_none" style="display:none;">共享衣服</li>
-						<i class="more_choice">更多 <img src="https://www.315pr.com:443/resources/bootstrap/reset/img/ico68.png"></i> -->
-						<i class="clear"></i>
-					</ul>
-
-					<i class="clear"></i>
-				</div>
-			{/if}
+				</ul>
+				<i class="clear"></i>
+			</div>
 
 <!--全部-->	<div class="choice_kind system share">
 				<span text="系统类型：" data="">系统类型：</span>
 				<ul class="sys">
-
-				{if condition="session('where.system_type')?? ''"}
-					<li data-id="0">不限</li>
-					{volist name="system" id="vosss"}
-	                	{if condition="session('where.system_type') eq $vosss.id"}
-	                    <li data-id="{$vosss.id}" class="active">{$vosss.name}</li>
-	                    {else /}
-	                    <li data-id="{$vosss.id}">{$vosss.name}</li>
-	                	{/if}
-                	{/volist}
-					<!-- <i class="more_choice">更多 <img src="https://www.315pr.com:443/resources/bootstrap/reset__INDEX__/img/ico68.png"></i> -->
-					<i class="clear"></i>
-				{else /}
 					<li data-id="0" class="active">不限</li>
                         {volist name="system" id="vosss"}
                             <li data-id="{$vosss.id}">{$vosss.name}</li>
                         {/volist}
 					<!-- <i class="more_choice">更多 <img src="https://www.315pr.com:443/resources/bootstrap/reset__INDEX__/img/ico68.png"></i> -->
 					<i class="clear"></i>
-				{/if}
 				</ul>
 
 				<i class="clear"></i>
@@ -433,19 +376,32 @@ height: 680px;
 					$(this).parents(".choice_kind").find("span:eq(0)").html($(this).parents(".choice_kind").find("span:eq(0)").attr("text")).css("color",'#333').attr("data",$(this).attr('data'))
 				}
 
+
 				var cla = $(this).parent().attr('class');
 				var id = $(this).attr('data-id');
-				//alert(id);
-				host = window.location.host
+
 				if (cla=='ty') {
-					window.location.href='http://'+host+'/index/cases/index/ty/'+id;
+					if (id==0) {
+						$('.xiao .ccc').css('display','block');
+						$('.xiao .nuxian').addClass("active");
+						$('.xiao .ccc').removeClass("active");
+					}else{
+						var claa = 'ccc'+id;
+						$('.xiao .ccc').css('display','none');
+						$('.xiao .'+claa).css('display','block');
+					}
+
 				}else if(cla=='xiao'){
-					window.location.href='http://'+host+'/index/cases/index/xiao/'+id;
+
 				}else if(cla=='sys'){
-					window.location.href='http://'+host+'/index/cases/index/sys/'+id;
-				}else{
-					window.location.href='';
+
 				}
+
+
+				// $.post("{:url('demand/index')}",{type:type,industry:industry,schedule:schedule},function(data) {
+
+				// 	$("#demandlist-ul1").replaceWith('<ul id="demandlist-ul1">'+data.data+'</ul>');
+				// })
 
 			})
 			$(".more_choice").click(function(){

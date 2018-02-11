@@ -264,11 +264,12 @@
 
 				</ul>
 				<i class="clear"></i>
-			</div><div class="choice_kind" style="    border-bottom: 1px dashed rgba(0,0,0,0.14);">
+			</div>
+			<div class="choice_kind" style="border-bottom: 1px dashed rgba(0,0,0,0.14);">
 				<span text="所属行业：">所属行业：</span>
-				<ul class="ty">
+				<ul class="tyr">
 					<li class="active" data-id="0">不限</li>
-					{volist name="demandtype" id="vo" }
+					{volist name="demandtrade" id="vo" }
 					<li data-id="{$vo.id}">{$vo.name}</li>
 					{/volist}
 					<!-- <li data="131" class="freeman_none" style="display:none;">危机公关</li> -->
@@ -279,12 +280,11 @@
 			<div class="choice_kind">
 				<span text="所有进度：" data="">所有进度：</span>
 				<ul class="jd">
-					<li data-id="0" class="active">不限</li>
+					<li class="active" data-id="0">不限</li>
 					<li data-id="1">招募中</li>
 					<li data-id="2">对接中</li>
 					<li data-id="3">执行中</li>
 					<li data-id="4">已完成</li>
-					<i class="clear"></i>
 				</ul>
 				<i class="clear"></i>
 			</div>
@@ -360,12 +360,26 @@
 					$(this).parents(".choice_kind").find("span:eq(0)").html($(this).parents(".choice_kind").find("span:eq(0)").attr("text")).css("color", '#333').attr("data", $(this).attr('data'))
 				}
 				var type = $('.ty .active').data('id');
+				var industry = $('.tyr .active').data('id');
 				var schedule = $('.jd .active').data('id');
 
-				$.post("{:url('demand/index')}",{type:type,schedule:schedule},function(data) {
+				$.post("{:url('demand/index')}",{type:type,industry:industry,schedule:schedule},function(data) {
 
 					$("#demandlist-ul1").replaceWith('<ul id="demandlist-ul1">'+data.data+'</ul>');
 				})
+
+				// $.ajax({
+				// 	type: "POST", //提交方式
+				// 	url: "{:url('Demand/index')}", //路径
+				// 	data: {type:type,schedule:schedule,industry:industry},
+				// 	dataType: "json", //数据，这里使用的是Json格式进行传输
+				// 	success: function(data) {
+				// 		alert(data.msg);
+				// 	}
+				// });
+
+
+
 			})
 
 			$(".head .nav li:eq(0) a").addClass("active");
