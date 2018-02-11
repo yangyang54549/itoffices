@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-11 14:50:38
+ * @Last Modified time: 2018-02-11 17:35:30
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -25,8 +25,8 @@ class Cases extends Yang
         if ($this->request->isAjax()) {
 
             $type = input('type');
-            $schedule = input('schedule');
-            $industry = input('industry');
+            $specific = input('specific');
+            $types_id = input('system_type');
             $where = [];
 
             if (isset($type)) {
@@ -35,53 +35,68 @@ class Cases extends Yang
                 }
             }
 
-            if(isset($schedule)){
-                if ($schedule!=0) {
-                    $where['schedule']=$schedule;
+            if(isset($specific)){
+                if ($specific!=0) {
+                    $where['specific']=$specific;
                 }
             }
 
-            if (isset($industry)) {
-                if ($industry!=0) {
-                    $where['industry']=$industry;
-                }
-            }
-
+            // if (isset($types_id)) {
+            //     if ($types_id!=0) {
+            //         $where['system_type']=$types_id;
+            //     }
+            // }
+                // $this->ret['data'] = $types_id;
+                // return json($this->ret);
             $str = '';
-            $demand = D::where($where)->order('create_time desc')->select();
+            $cases = C::where($where)->order('create_time desc')->select();
 
-            if (!empty($demand)) {
+            if (!empty($cases)) {
 
-                foreach ($demand as $k => $v) {
+                foreach ($cases as $k => $v) {
 
-                    $dt = DT::where(['id'=>$v['type']])->find();
-                    $demand[$k]['type'] = $dt['name'];
-                    $dtr = DTR::where(['id'=>$v['industry']])->find();
-                    $demand[$k]['industry'] = $dtr['name'];
-                    $schedule = '';
-                    if ($v['schedule']==1) {
-                        $schedule = "招募中";
-                    }elseif($v['schedule']==2){
-                        $schedule = "对接中";
-                    }elseif($v['schedule']==3){
-                        $schedule = "执行中";
-                    }else{
-                        $schedule = "已完成";
+                    $system_type = explode(',' , $v['system_type']);
+                    if ($types_id!=0 && !in_array($types_id,$system_type)) {
+                        continue;
                     }
-                    $url = url("Demand/inside",["id"=>$v["id"]]);
-                    $str .= '<div class="demandBox" tid="799" onclick="window.open('."'".$url."'".')">
-                        <div class="marking content-bg-fff'.$v["schedule"].'">'.$schedule.'
-                        </div>
-                        <div class="demandTitle">'.$v['name'].'</div>
-                        <div class="accomplishDate"><span>发布时间</span><span>'.date('y-m-d h:i:s',$v['create_time']).'</span></div>
-                        <div class="abbreviationBox"><span>'.$v['industry'].'</span><span>'.$v['type'].'</span><em class="clear"></em></div>
-                        <div class="unitPriceBox">'.$v['money'].'</div>
-                        <div class="bottomColor">
-                            <div class="applyFor">已申请'.$v['apply'].'人</div>
-                            <div class="lookOver">已浏览'.$v['browse'].'人</div>
-                        </div>
-                    </div>';
 
+                    $images = explode('@' , $v['images']);
+                    $v['images'] = $images[1];
+
+                    $type = T::where(['id'=>$v['type']])->find();
+                    $v['type'] = $type['name'];
+                    $specific = S::where(['id'=>$v['specific']])->find();
+                    $v['specific'] = $specific['name'];
+
+                    for ($i=0; $i < count($system_type); $i++) {
+                        $system = SY::where(['id'=>$system_type[$i]])->find();
+                        $system_type[$i] = $system['name'];
+                    }
+                    $srr = implode(",",$system_type);
+                    $url = url("cases/inside",["id"=>$v["id"]]);
+
+                    $str .= '<li class="round">
+                        <div class="rounds">
+                            <a href="'.$url.'" target="_blank">
+                            <img class="proImg" src="'.$v['images'].'" alt="">
+                            <div class="picList">
+                                <div class="similarity-title">'.$v['case_name'].'</div>
+                                <div class="similarity_label">产品类型:<span>'.$v['type'].'</span></div>
+                                <div class="similarity_label">主要功能:<span>'.$v['specific'].'</span></div>
+                                <div class="similarity_label functionNames">系统类型:
+                                    <span>'.$srr.'</span>
+                                </div>
+                                <div class="similarity-intro">'.$v['brief'].'</div>
+                                <div class="similarity-price"> ￥<span class="price">'.$v['money'].'</span></div>
+                                <div class="photograph"> <img src="/static/index/img/sj.png" alt=""> </div>
+                            </div>
+                        </a>
+                        </div>
+                    </li>';
+
+                }
+                if ($str=='') {
+                    $str = '暂无更多数据';
                 }
 
                 $this->ret['data'] = $str;
@@ -99,10 +114,9 @@ class Cases extends Yang
             $arr = $cases;
             foreach ($cases as $key => $value) {
                 $system_type = explode(',' , $value['system_type']);
-                // if (!empty($types_id) && !in_array($types_id,$system_type)) {
-                //     unset($arr[$key]);
-                //     continue;
-                // }
+
+                $images = explode('@' , $value['images']);
+                $arr[$key]['images'] = $images[1];
 
                 $type = T::where(['id'=>$value['type']])->find();
                 $arr[$key]['type'] = $type['name'];

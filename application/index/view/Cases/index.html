@@ -282,7 +282,7 @@ height: 680px;
 			<div class="choice_kind" style="border-bottom: 1px dashed rgba(0,0,0,0.14);">
 				<span text="主要功能：">主要功能：</span>
 				<ul class="xiao">
-					<li class="active nuxian" data="0">不限</li>
+					<li class="active nuxian" data-id="0">不限</li>
                     {volist name="specific" id="voss"}
 						<li class="ccc{$voss.father_id} ccc" data-id="{$voss.id}">{$voss.name}</li>
 					{/volist}
@@ -313,7 +313,7 @@ height: 680px;
 					<li class="round">
 						<div class="rounds">
 							<a href="{:url('cases/inside',['id'=>$vo.id])}" target="_blank">
-							<img class="proImg" src="__INDEX__/img/index/18001.jpg" alt="">
+							<img class="proImg" src="{$vo.images}" alt="">
 							<div class="picList">
 								<div class="similarity-title">{$vo.case_name}</div>
 								<div class="similarity_label">产品类型:<span>{$vo.type}</span></div>
@@ -328,15 +328,13 @@ height: 680px;
 							</div>
 						</a>
 						</div>
-
 					</li>
 				{/volist}
-					<i class="clear"></i>
 				</ul>
-				<div id="page-box" style="width: 1200px;margin: 0 auto;">
-<!-- 					<div class="page-div" onclick="xia();">
+				<!-- <div id="page-box" style="width: 1200px;margin: 0 auto;">
+					<div class="page-div" onclick="xia();">
 						<h3>下一页</h3>
-					</div> -->
+					</div>
 					<input type="hidden" name="pageInput" value="52">
 					<div class="page">
 						<a class="" style="color:#b43d3d ;">1</a>
@@ -345,7 +343,7 @@ height: 680px;
 						<a href="javascript:;" class="page_next" onclick="xia();">下页</a>
 					</div>
 					<em><span class="now">1</span>/<span class="num">2</span>页&nbsp;&nbsp;共<span class="total">2</span>条</em>
-				</div>
+				</div> -->
 			</div>
 		</div>
 		<script type="text/javascript">
@@ -379,32 +377,38 @@ height: 680px;
 
 				var cla = $(this).parent().attr('class');
 				var id = $(this).attr('data-id');
+				var type = 0;
+				var specific = 0;
+				var system_type = $('.sys .active').attr('data-id');
 
 				if (cla=='ty') {
 					if (id==0) {
 						$('.xiao .ccc').css('display','block');
-						removeClass("active");
 						$('.xiao .ccc').removeClass("active");
+						$('.xiao .nuxian').addClass("active");
 					}else{
 						var claa = 'ccc'+id;
 						$('.xiao .ccc').css('display','none');
 						$('.xiao .'+claa).css('display','block');
 						$('.xiao li').removeClass("active");
 						$('.xiao li:nth-child(1)').addClass("active");
-						
+
 					}
+
 
 				}else if(cla=='xiao'){
 
-				}else if(cla=='sys'){
-
 				}
 
+				type = $('.ty .active').attr('data-id');
+				specific = $('.xiao .active').attr('data-id');
+				// alert(type);
+				// alert(specific);
+				// alert(system_type);
+				$.post("{:url('cases/index')}",{type:type,specific:specific,system_type:system_type},function(data) {
 
-				// $.post("{:url('demand/index')}",{type:type,industry:industry,schedule:schedule},function(data) {
-
-				// 	$("#demandlist-ul1").replaceWith('<ul id="demandlist-ul1">'+data.data+'</ul>');
-				// })
+					$("#project-list1").replaceWith('<ul class="project-list"  id="project-list1">'+data.data+'</ul>');
+				})
 
 			})
 			$(".more_choice").click(function(){
@@ -475,7 +479,7 @@ height: 680px;
 				}else if($(".navs .actives").text() == "人才"){
 					/*window.location.href = "essential2.html";*/
 				}else if($(".navs .actives").text() == "IT联合办公"){
-					window.location.href = "it.html";
+					window.location.href = "{:url('index/index')}";
 				}
 			}
 			$("#choice .choice_kind:nth-child(1) ul li").click(function() {

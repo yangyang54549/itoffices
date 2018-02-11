@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>IT联合办公</title>
+
+		<link rel="stylesheet" href="__INDEX__/css/index.css" />
+		<link rel="stylesheet" href="__INDEX__/css/restre.css" />
+		<link rel="stylesheet" href="__INDEX__/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="__INDEX__/css/sub.css"/>
+		<link rel="stylesheet" type="text/css" href="__INDEX__/css/header.css"/>
+		<script src="__INDEX__/js/js/jquery-2.1.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.logo,
+		.logo a,
+		.logo a img {
+			margin: 0;
+			padding: 0;
+		}
+
+		.logo a img {
+			height: 64px;
+		}
+
+		.nav li a {
+			color: white;
+		}
+
+		.sou {
+			width: 100%;
+			background-image: url(__INDEX__/img/index.jpg);
+			filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+			-moz-background-size: 100% 100%;
+			background-size: 100% 100%;
+			padding: 1px 0;
+			position: relative;
+			top: 0;
+			left: 0;
+		}
+
+		.search {
+			width: 100%;
+			padding: 0;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			margin-top: -30px;
+		}
+
+		.search1 {
+			height: 60px;
+			width: 600px;
+			line-height: 65px;
+			position: relative;
+			top: 0;
+			left: 0;
+			background-color: white;
+			margin: 5px auto;
+			border-radius: 5px;
+			box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
+		}
+
+		.search1:hover {
+			box-shadow: 0 10px 30px 6px rgba(28, 57, 81, 0.18);
+		}
+
+		.search1 input {
+			width: 450px;
+			height: 56px;
+			line-height: 56px;
+			border: none;
+			margin-left: 50px;
+			margin-top: -2px;
+		}
+
+		.search1 img {
+			width: 30px;
+			position: absolute;
+			top: 17px;
+			left: 13px;
+		}
+
+		.search1 button {
+			width: 80px;
+			height: 56px;
+			position: absolute;
+			top: 2px;
+			right: 2px;
+			border-radius: 5px;
+			background-color: #0d80dd;
+			color: white;
+			font-size: 16px;
+		}
+
+		.search1 span {
+			position: absolute;
+			top: 0px;
+			right: -40px;
+			color: white;
+			font-size: 15px;
+			font-weight: bold;
+		}
+
+		.search1 p {
+			width: 120px;
+			height: 56px;
+			text-align: center;
+			border-radius: 5px;
+			position: absolute;
+			right: -170px;
+			font-size: 16px;
+			background-color: #0d80dd;
+			color: white;
+			font-weight: bold;
+			top: 3px;
+			line-height: 56px;
+			box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
+			/*background: -webkit-linear-gradient(left,  #f2f2ef, white);*/
+			/* Safari 5.1 - 6.0 */
+			/*background: -o-linear-gradient(right,  #f2f2ef, white);*/
+			/* Opera 11.1 - 12.0 */
+			/*background: -moz-linear-gradient(right, #f2f2ef, white);*/
+			/* Firefox 3.6 - 15 */
+			/*background: linear-gradient(to right, #f2f2ef, white);*/
+			/* 标准的语法（必须放在最后） */
+		}
+
+		.search1 p:hover {
+			box-shadow: 0 10px 30px 6px rgba(28, 57, 81, 0.18);
+		}
+		/*nav*/
+			.navs{
+				position: absolute;
+				top: -45px;
+				left: 0;
+				width: 600px;
+				height: 40px;
+				overflow: hidden;
+				background-color: rgba(0,0,0,0.1);
+			}
+			.navs .is{
+				float: left;
+				width: 90px;
+				height: 38px;
+				text-align: center;
+				line-height: 40px;
+				font-size: 14px;
+				color: white;
+				z-index: 100;
+
+				/*background: url(__INDEX__/img/navBg1.png);*/
+			}
+			.navs i:hover{
+				color: #fff !important;
+				background: url(__INDEX__/img/navBg.png);
+				background-size: 100%;
+				/*background-color: #ff5454;*/
+			}
+			.actives {
+				color: #fff !important;
+				background: url(__INDEX__/img/navBg.png);
+				background-size: 100%;
+				/*background-color: #ff5454;*/
+
+			}
+			.container{
+				width: 100%;
+
+			}
+			.container .con_top{
+				width: 1200px;
+				margin: 20px  auto;
+				overflow: hidden;
+			}
+			.con_top_left{
+				float: left;
+				width: 800px;
+				box-sizing: border-box;
+				padding: 10px;
+			}
+			.con_top_left h2 , .con_top_left p{
+				box-sizing: border-box;
+				padding: 10px;
+			}
+			.con_top_left h2{
+				text-align: center;
+				font-size: 24px;
+			}
+			.con_top_left p{
+				color: #666;
+    font-size: .875rem;
+    line-height: 1.875rem;
+    padding: 5px 10px;
+}
+			.con_top_left>img{
+				width: 100%;
+			}
+			.con_lefe_d{
+				width: 100%;
+				overflow: hidden;
+				margin: 20px 0;
+			}
+			.con_lefe_d .cd_l{
+				float: left;
+				width: 150px;
+				height: 150px;
+				border-radius:50% ;
+				overflow: hidden;
+				margin: 15px 30px;
+			}
+			.con_lefe_d .cd_l img{
+				width: 100%;
+			}
+			.con_lefe_d .cd_r{
+				float: right;
+				width: 65%;
+			}
+
+			/*.con_lefe_d .cd_r span:nth-child(1){
+				font-size: 16px;
+				margin: 0 50px;
+			}*/
+			.con_lefe_d .cd_r p:nth-child(2){
+				overflow: hidden;
+				padding: 0;
+				margin: 0;
+			}
+			.con_lefe_d .cd_r p:nth-child(2) span{
+				float: right;
+				margin: 0 30px;
+				font-size: 14px;
+				font-weight: 600;
+			}
+
+			.con_top_right{
+				float: right;
+				width: 400px;
+				box-sizing: border-box;
+				padding: 20px 15px;
+			    border: .0625rem solid #ccc;
+			    margin-top: 80px;
+			}
+			.con_top_right>div,.con_top_right>p,.con_top_right>h2{
+				width: 100%;
+
+			}
+			.con_top_right>p,.con_top_right>h2{
+				text-align: center;
+				margin: 10px 0;
+			}
+			.con_top_right>p{    color: #555;
+    font-size: 15px;}
+    .btns {
+    	overflow: hidden;
+    	margin: 20px  0;
+    }
+    .btns span{
+    	float: left;
+    	    width: 140px;
+    height: 32px;
+    line-height: 30px;
+    font-size: 14px;
+    text-align: center;
+        border-radius: 5px;
+        border: 1px solid  gray;
+        margin-left: 29px;
+    }
+    .btns span:nth-child(2){
+    	border-color: #ea5514;
+    	background-color:  #ea5514;
+    	color: white;
+    }
+     .btns span:nth-child(1):hover{
+     	border-color: #ea5514;
+     	color:  #ea5514;;
+     }
+     .d_img div{
+     	width: 110px;
+     	height: 110px;
+
+     }
+     .d_img div img{
+     	width: 100%;
+     }
+      .d_img p{
+      	text-align: center;
+      	font-size: 14px;
+      }
+      .d_img i{
+      	display: block;
+      	width: 70%;
+      	margin: 10px  auto;
+      	font-size: 14px;
+      }
+      .top_b {
+      	overflow: hidden;
+      	position: relative;
+      	top: 0;
+      	left: 0;
+      }
+      .top_b span{
+      	display: block;
+      	width: 25px;
+      	height: 40px;
+      	line-height: 40px;
+      	text-align: center;
+      	font-size: 40px;
+      	border-radius:5px ;
+      	color: black;
+      	background-color: rgba(166,166,166,0.4);
+      /*	border: 1px solid gray;*/
+      	position: absolute;
+      	top: 50%;
+      	margin-top: -25px;
+      	opacity: 0;
+      }
+      .top_b span:nth-child(1){
+      	left: 0px;
+      } .top_b span:nth-child(2){
+      	right: 0px;
+      }
+      /*.top_b:hover span{
+      	opacity: 1;
+      }*/
+      .top_b>div{
+      	float: left;
+      	width: 30%;
+      	margin-left: 2.5%;
+      }
+      .top_b>div>div{
+      	width: 90px;
+      	height: 90px;
+
+      }
+      .top_b>div>div img{
+      	width: 100%;
+      }
+       .top_b>div p{
+       	width: 100%;
+       	text-align: center;
+       }
+       .img_ra{
+       	margin: 10px  auto;
+      	border-radius:50% ;
+     	overflow: hidden;
+       }
+      /* .img_ra img{
+       	cursor: pointer;
+                transition: all 0.6s;
+       }
+       .img_ra:hover img{
+       	 transform: scale(1.3);
+       }*/
+       .price,.q3{
+       	width: 1200px;
+       	margin: 10px auto;
+       	overflow: hidden;
+       	padding: 10px;
+       }
+       .h2s{
+       	width: 200px;
+       	border: 1px solid gainsboro;
+       	padding: 5px 0;
+       	text-align: center;
+       	margin: 30px  auto;
+       }
+       .price_left{
+       float: left;}
+       .price_right{
+       float: right;}
+       .price_right,.price_left{
+       	width: 550px;
+       	box-shadow: 0 5px 15px 3px rgba(28, 57, 81, 0.18);
+       }
+       .price_right img,.price_left img,.price_right p,.price_left p{
+       	width: 100%;
+       	overflow: hidden;
+       }
+       .price_right p span,.price_left p span{
+       color: #fa9016;
+       	height: 50px;
+       	line-height: 50px;
+       	margin: 0 20px;
+       }
+       .price_right p span:nth-child(1),.price_left p span:nth-child(1){
+       	float: left;
+       	font-size: 18px;
+
+       }
+       .price_right p span:nth-child(2),.price_left p span:nth-child(2){
+       	float: right;
+       	font-size: 14px;
+       }
+       .div_icon{
+       	width: 100%;
+       padding: 20px  0;
+       	display: flex;
+       	justify-content:space-around;
+       }
+       .tu{
+       width: auto;
+       	display: flex;
+       }
+
+       .tu p{
+       	color: #ffa335;
+       	font-size: 17px;
+       	line-height: 60px;
+       	margin-left: 10px;
+       }
+       .em2{
+       	text-indent:2em;
+       }
+       .xinxi{
+       	width: 800px;
+       	position: fixed;
+       	top: 50%;
+       	left: 50%;
+       	margin-left: -400px;
+       	background-color: rgba(255,255,255,0.9);
+       display: none;
+       z-index: 100;
+       }
+       .xinxi h1,.xinxi h4{
+       	width: 100%;
+       	text-align: center;
+       padding-bottom: 20px;
+       font-size: 20px;
+       }
+       .xinxi h1{
+       	padding: 20px 0;
+       	font-size: 24px;
+       	font-weight: 600;
+       }
+        .xinxi div{
+        	width: 70%;
+        	margin: 0  auto;
+        	padding: 10px 0;
+        }
+        .xinxi div input{
+        	width: 100%;
+        	    border: 1px solid #444;
+        	    color: #444;
+        	    	/*background-color: rgba(161,165,156,0.5);*/
+    font-weight: 600;
+    font-size: 21px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    border-radius:5px ;
+        }
+        .xinxi div span{
+
+        }
+         .xinxi p{
+         	width: 200px;
+         	border-radius:10px ;
+         	height: 40px;
+         	line-height: 40px;
+         	text-align: center;
+         	margin: 20px  auto;
+         	background-color: #e40037 ;
+         	font-size: 18px;
+         	color: white;
+         }
+		</style>
+	</head>
+	<body>
+		<div class="sou">
+			<div class="search">
+
+				<div class="search1">
+					<div class="navs">
+						<i class="is actives">IT联合办公</i>
+						<i  class="is">需求</i>
+						<i class="is">案例</i>
+						<i class="is">人才</i>
+					</div>
+					<input type="text" name="" id="" value="" placeholder="搜索..." />
+					<img src="__INDEX__/img/icon/fda.png" />
+					<button onclick="one();">搜索</button>
+					<p onclick="window.location.href='{:url("demand/publish")}'">免费发需求</p>
+					<span>或者</span>
+				</div>
+
+			</div>
+		</div>
+		<div class="container">
+			<div class="con_top">
+				<div class="con_top_left">
+					<h2>欢迎入驻————IT联合办公</h2>
+					<p class="em2">IT团队及个人免费入驻—IT联合办公公社，我们是一家免费入驻的公社，我们不做二房东，大家只需要平坦出来300元/月每人费用，这个费用 用来缴纳每月的水、电、物业费等办公杂费，在工作上我们是联合办公,联合发展的模式，我们提倡共享团队发展理念从推广到技术开发到售后服务都是联合共享模式，发展的道路上需要抱团取暖降低成本，各自发挥自己的优势,弥补双方的不足来应对残酷的外部环境，我们希望与大家一起打造，我们的公益免费IT联合办公公社，欢迎程序员回家。</p>
+					<img src="__INDEX__/img/20171201191040.png"/>
+					<div class="con_lefe_d">
+						<div class="cd_l">
+							<img src="__INDEX__/img/bai.png"/>
+						</div>
+						<div class="cd_r">
+							<p class="em2"> 如果大环境小环境都自己去建设的话，我自身的能力、实力不具备。所以当时我们只有一个简单的想法，就是我把自己有限的资本或者力量聚焦到一个核心——如何去塑造品牌，把相关的交给社会来完成,  如果10%的利润是合理的，11%的利润是可以的，那我只拿9%。</p>
+							<p><span>  汇谷电子科技有限公司</span><span style="font-size: 16px;">王总   </span></p>
+						</div>
+					</div>
+				</div>
+				<div class="con_top_right">
+					<h2>与我们的团队取得联系</h2>
+					<p>联系电话：15544161088</p>
+					<div class="btns">
+						<span id="">
+							预约参观
+						</span>
+						<span id="">
+							申请入驻
+						</span>
+					</div>
+					<div class="d_img">
+						<div class="img_ra">
+							<img src="__INDEX__/img/avatar/12.jpg"/>
+						</div>
+						<p>李俪</p>
+						<p>社区经理</p>
+						<i class="em2">
+                                      业务模式它当然是很容易拷贝的。问题是我们怎么去理解自己的企业，你到底是一种纯粹业务模式的优势，还是有业务模式之外的优势？企业的竞争力，不是简单的一种业务模式就可以取得一切，需要从内质上细化上去挖掘，才有可能保持持续增长和发展
+                                    </i>
+					</div>
+					<div class="top_b">
+						<span><</span>
+						<span>></span>
+						<div class="">
+							<div class="img_ra">
+								<img src="__INDEX__/img/avatar/2.jpg"/>
+							</div>
+							<p>剑玺</p>
+						<p>社区经理</p>
+						</div>
+						<div class="">
+							<div class="img_ra">
+								<img src="__INDEX__/img/avatar/3.jpg"/>
+							</div>
+							<p>贾剑</p>
+						<p>社区经理</p>
+						</div>
+						<div class="">
+							<div class="img_ra">
+								<img src="__INDEX__/img/avatar/6.jpg"/>
+							</div>
+							<p>贾玺</p>
+						<p>社区经理</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="price">
+				<h2 class="h2s">价格</h2>
+				<div class="price_left">
+					<img src="__INDEX__/img/1450337324824.jpg"/>
+					<p><span>办公桌</span> <span>￥300/人/月</span></p>
+				</div>
+				<div class="price_right">
+					<img src="__INDEX__/img/1450337314356.jpg"/>
+					<p><span>独立办公室</span> <span>￥650/人/周</span></p>
+				</div>
+
+			</div>
+			<div class="q3">
+				<h2 class="h2s">设施</h2>
+				<div class="div_icon">
+					<div class="tu">
+						<img src="__INDEX__/img/icon/it-1.png"/>
+						<p>会议室</p>
+					</div><div class="tu">
+						<img src="__INDEX__/img/icon/it-2.png"/>
+						<p>免费WiFi</p>
+					</div>
+					<div class="tu">
+						<img src="__INDEX__/img/icon/it-3.png"/>
+						<p>休闲区</p>
+					</div>
+					<div class="tu">
+						<img src="__INDEX__/img/icon/it-4.png"/>
+						<p>活动</p>
+					</div>
+				</div>
+				<div class="div_icon" style="width: 80%; margin: 30px  auto;">
+					<div class="tu">
+						<img src="__INDEX__/img/icon/it-5.png"/>
+						<p>免费咖啡</p>
+					</div><div class="tu">
+						<img src="__INDEX__/img/icon/it-6.png"/>
+						<p>电话间</p>
+					</div>
+					<div class="tu" style="opacity: 0;">
+						<img src="__INDEX__/img/icon/it-1.png"/>
+						<p>sas</p>
+					</div>
+
+
+
+				</div>
+
+			</div>
+		</div>
+		<div class="beijin">
+			<div class="good">
+				<h5>申请成功！</h5>
+				<p>我们尽快与您联系，请保持手机通畅</p>
+				<p class="qud" id="qd">确定</p>
+			</div>
+		</div>
+		<div class="jing" style="width: 100vw;height: 100vh; background-color: rgba(0,0,0,0.5); position: fixed;top: 0;left: 0; display: none; z-index: 50;">
+
+		</div>
+		<div class="xinxi">
+			<h1>预约入驻</h1>
+			<h4>我们在此等候您多时了，欢迎来到IT联合办公公社</h4>
+			<div class="">
+				<input type="" name="" id="names" value="" placeholder="请输入姓名"/><span ></span>
+
+			</div>
+			<!--<div class="">
+				<input type="" name="" id="" value="" placeholder="请输入邮箱"/>
+				<span ></span>
+			</div>-->
+			<div class="">
+				<input type="" name="" id="phone" value="" placeholder="请输入手机" maxlength="11" /><span ></span>
+
+			</div><div class="">
+				<textarea name="" id="xinxi" rows="2" cols=""placeholder="请提供与您的咨询有关的详细信息" style="  border: 1px solid #444; width: 100%;  line-height: 40px; font-size: 18px;box-sizing: border-box;padding: 10px;"></textarea><span ></span>
+
+
+			</div>
+			<p id="btn_su">提交</p>
+		</div>
+		<div class="footer" style="background-color: #1e2831;">
+			<div class="center">
+				<p>2014-2017 汇谷电子科技有限公司 版权所有：ICP备12027515号-1</p>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+				$(document).bind("contextmenu copy selectstart", function(){
+				return false;
+			});
+			/*禁用ctrl+c ctrl+v*/
+			$(document).keydown(function(e){
+				if(e.ctrlKey &&(e.keyCode ==65|| e.keyCode ==67)){
+					return false;
+				}
+			})
+			$(".head .nav li:eq(0) a").addClass("active");
+			var heg = $(".sou").width() * 0.53 / 2;
+			$(".sou").height(heg);
+			/*nav 点击变色*/
+			$(".navs i").click(function() {
+				$(".navs i").removeClass("actives");
+				tt = $(".navs i").index($(this));
+				var tts = $(".navs i")[tt];
+				tts.className = "actives is";
+			});
+			function one() {
+				if($(".navs .actives").text() == "需求") {
+					window.location.href = "{:url('demand/index')}";
+				} else if($(".navs .actives").text() == "案例") {
+					window.location.href = "{:url('cases/index')}";
+				}else if($(".navs .actives").text() == "人才"){
+
+				}else if($(".navs .actives").text() == "IT联合办公"){
+					window.location.href = "{:url('index/index')}";
+				}
+			}
+			/*$(".xinxi").height()/2;*/
+			$(".xinxi").css("margin-top","-"+$(".xinxi").height()/2+"px");
+
+
+			$(".btns span").click(function(){
+				$(".xinxi").css("display","block");
+				$(".jing").css("display","block");
+
+			})
+			$(".jing").click(function(){
+				$(".xinxi").css("display","none");
+				$(".jing").css("display","none");
+
+			})
+
+			function yanZheng(tag, reg) {
+				tag.onblur = function() {
+					if(reg.test(this.value)) {
+						this.style.borderColor = "#444";
+						this.nextSibling.innerHTML = "";
+						this.nextSibling.style.color = "white";
+					} else {
+						this.style.borderColor = "red";
+						this.nextSibling.style.color = "red";
+						this.nextSibling.style.marginLeft = "15px";
+						if(this.value == "") {
+							this.nextSibling.innerHTML = "必填项";
+						} else {
+							this.nextSibling.innerHTML = "输入有误";
+						}
+					}
+				};
+			}
+						function kk(ss){
+					var ks =  /^[\s\S]*.*[^\s][\s\S]*$/
+					if(ks.test(ss.value)) {
+						ss.style.borderColor = "#444";
+						ss.nextSibling.innerHTML = "";
+						ss.nextSibling.style.color = "white";
+					} else {
+						ss.style.borderColor = "red";
+						ss.nextSibling.style.color = "red";
+						ss.nextSibling.style.marginLeft = "15px";
+						if(ss.value == "") {
+							ss.nextSibling.innerHTML = "必填项"
+
+						} else {
+							ss.nextSibling.innerHTML = "输入有误"
+
+						}
+					}
+				}
+/*正则验证*/
+function yanz(tag, reg) {
+			if(reg.test(tag.value)) {
+				tag.style.borderColor = "#444";
+				tag.nextSibling.innerHTML = "";
+				tag.nextSibling.style.color = "#ffffff";
+
+			} else {
+				tag.style.borderColor = "red";
+				tag.nextSibling.style.color = "red";
+				tag.nextSibling.style.marginLeft = "15px";
+				if(tag.value == "") {
+					tag.nextSibling.innerHTML = "必填项";
+				} else {
+					tag.nextSibling.innerHTML = "输入有误";
+				}
+
+			}
+}
+			var names = document.getElementById("names");
+			var phone = document.getElementById("phone");
+			var xin = document.getElementById("xinxi");
+			yanZheng(names, /^[\s\S]*.*[^\s][\s\S]*$/);
+			yanZheng(phone, /^[\s\S]*.*[^\s][\s\S]*$/);
+			yanZheng(xin, /^[\s\S]*.*[^\s][\s\S]*$/);
+			$("#btn_su").click(function(){
+						yanz(names, /^[\s\S]*.*[^\s][\s\S]*$/);
+						yanz(phone, /^[\s\S]*.*[^\s][\s\S]*$/);
+						yanz(xin, /^[\s\S]*.*[^\s][\s\S]*$/);
+						if(names.value == ""){
+							alert("请输入姓名");
+						}else{
+							if(phone.value == ""){
+								alert("请输入手机号")
+							}else{
+								if(xin.value ==""){
+									alert("请提供与您的咨询有关的详细信息")
+								}else{
+									$(".beijin").css("display","block");
+									$(".xinxi").css("display","none");
+				$(".jing").css("display","none");
+								}
+							}
+						}
+			})
+			$(".beijin").click(function(){
+					$(".beijin").css("display","none");
+					names.value = "";
+					phone.value = "";
+					xin.value ="";
+			})
+		</script>
+	</body>
+</html>
