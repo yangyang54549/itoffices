@@ -383,12 +383,15 @@ height: 680px;
 				if (cla=='ty') {
 					if (id==0) {
 						$('.xiao .ccc').css('display','block');
-						$('.xiao .nuxian').addClass("active");
+						removeClass("active");
 						$('.xiao .ccc').removeClass("active");
 					}else{
 						var claa = 'ccc'+id;
 						$('.xiao .ccc').css('display','none');
 						$('.xiao .'+claa).css('display','block');
+						$('.xiao li').removeClass("active");
+						$('.xiao li:nth-child(1)').addClass("active");
+						
 					}
 
 				}else if(cla=='xiao'){
