@@ -348,16 +348,13 @@
 				} else {
 					$(this).parents(".choice_kind").find("span:eq(0)").html($(this).parents(".choice_kind").find("span:eq(0)").attr("text")).css("color", '#333').attr("data", $(this).attr('data'))
 				}
-				var cla = $(this).parent().attr('class');
-				var id = $(this).attr('data-id');
-				if(cla == 'ty') {
-					$.post("{:url('demand/index')}", {type: id},function(data) {})
-				} else if(cla == 'jd') {
-					$.post(
-						"{:url('demand/index')}", {schedule: id},function(data) {})
-				} else {
-					window.location.href = '';
-				}
+				var type = $('.ty .active').data('id');
+				var schedule = $('.jd .active').data('id');
+
+				$.post("{:url('demand/index')}",{type:type,schedule:schedule},function(data) {
+
+					$("#demandlist-ul1").replaceWith('<ul id="demandlist-ul1">'+data.data+'</ul>');
+				})
 			})
 
 			$(".head .nav li:eq(0) a").addClass("active");

@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-11 10:26:24
+ * @Last Modified time: 2018-02-11 10:53:44
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -69,9 +69,11 @@ class Demand extends Yang
                 }
             }
 
+            $str = '';
             $demand = D::where($where)->select();
+
             if (isset($demand)) {
-                $str = '反反复复';
+
                 foreach ($demand as $k => $v) {
 
                     $dt = DT::where(['id'=>$v['type']])->find();
@@ -88,7 +90,7 @@ class Demand extends Yang
                         $v['schedule'] = "已完成";
                     }
 
-                    $str += '<div class="demandBox" tid="799" onclick="window.open('.url("Demand/inside",["id"=>$v["id"]]).')">
+                    $str .= '<div class="demandBox" tid="799" onclick="window.open('.url("Demand/inside",["id"=>$v["id"]]).')">
                         <div class="marking" style="background-image:url(https://www.315pr.com/resources/bootstrap/reset/img/demand_status_yellow.png)">'.$v['schedule'].'
                         </div>
                         <div class="demandTitle">'.$v['name'].'</div>
@@ -100,9 +102,10 @@ class Demand extends Yang
                             <div class="lookOver">已浏览'.$v['browse'].'人</div>
                         </div>
                     </div>';
+
                 }
 
-                $this->ret['msg'] = $str;
+                $this->ret['data'] = $str;
                 return json($this->ret);
             }
             $this->ret['msg'] = '暂无更多数据';
