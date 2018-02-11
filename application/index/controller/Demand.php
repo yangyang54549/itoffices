@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-10 11:54:03
+ * @Last Modified time: 2018-02-11 10:26:24
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -116,6 +116,7 @@ class Demand extends Yang
                 $dtr = DTR::where(['id'=>$v['industry']])->find();
                 $demand[$k]['industry'] = $dtr['name'];
             }
+            $this->assign('url',LUR);
             $this->assign('demandtype',$demandtype);
             $this->assign('demand',$demand);
             return $this->fetch();

@@ -257,7 +257,7 @@ height: 680px;
 					<input type="text" name="" id="" value="" placeholder="搜索..." />
 					<img src="__INDEX__/img/icon/fda.png" />
 					<button onclick="one();">搜索</button>
-					<p onclick="window.location.href='epiboly1.html'">免费发需求</p>
+					<p onclick="window.location.href='{:url("demand/publish")}'">免费发需求</p>
 					<span>或者</span>
 				</div>
 
@@ -510,9 +510,9 @@ height: 680px;
 
 			function one() {
 				if($(".navs .actives").text() == "需求") {
-					window.location.href = "index.html";
+					window.location.href = "{:url('demand/index')}";
 				} else if($(".navs .actives").text() == "案例") {
-					window.location.href = "indexs2.html";
+					window.location.href = "{:url('cases/index')}";
 				}else if($(".navs .actives").text() == "人才"){
 					/*window.location.href = "essential2.html";*/
 				}else if($(".navs .actives").text() == "IT联合办公"){

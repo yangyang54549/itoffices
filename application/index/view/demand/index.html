@@ -18,15 +18,15 @@
 			margin: 0;
 			padding: 0;
 		}
-		
+
 		.logo a img {
 			height: 64px;
 		}
-		
+
 		.nav li a {
 			color: white;
 		}
-		
+
 		.sou {
 			width: 100%;
 			background-image: url(__INDEX__/img/index.jpg);
@@ -38,7 +38,7 @@
 			top: 0;
 			left: 0;
 		}
-		
+
 		.search {
 			width: 100%;
 			padding: 0;
@@ -47,7 +47,7 @@
 			top: 50%;
 			margin-top: -30px;
 		}
-		
+
 		.search1 {
 			height: 60px;
 			width: 600px;
@@ -60,11 +60,11 @@
 			border-radius: 5px;
 			box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
 		}
-		
+
 		.search1:hover {
 			box-shadow: 0 10px 30px 6px rgba(28, 57, 81, 0.18);
 		}
-		
+
 		.search1 input {
 			width: 450px;
 			height: 56px;
@@ -73,14 +73,14 @@
 			margin-left: 50px;
 			margin-top: -2px;
 		}
-		
+
 		.search1 img {
 			width: 30px;
 			position: absolute;
 			top: 17px;
 			left: 13px;
 		}
-		
+
 		.search1 button {
 			width: 80px;
 			height: 56px;
@@ -92,7 +92,7 @@
 			color: white;
 			font-size: 16px;
 		}
-		
+
 		.search1 span {
 			position: absolute;
 			top: 0px;
@@ -101,7 +101,7 @@
 			font-size: 15px;
 			font-weight: bold;
 		}
-		
+
 		.search1 p {
 			width: 120px;
 			height: 56px;
@@ -125,24 +125,24 @@
 			/*background: linear-gradient(to right, #f2f2ef, white);*/
 			/* 标准的语法（必须放在最后） */
 		}
-		
+
 		.search1 p:hover {
 			box-shadow: 0 10px 30px 6px rgba(28, 57, 81, 0.18);
 		}
 		/*下一页*/
-		
+
 		#page-box {
 			position: relative;
 			top: 0;
 			left: 0;
 		}
-		
+
 		.page-div {
 			position: absolute;
 			right: 0;
 			box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
 		}
-		
+
 		.page-div h3 {
 			width: 100%;
 			height: 100px;
@@ -153,12 +153,12 @@
 			left: 0;
 			margin-top: -50px;
 		}
-		
+
 		.page-div:hover {
 			box-shadow: 0 10px 30px 6px rgba(28, 57, 81, 0.18);
 		}
 		/*nav*/
-		
+
 		.navs {
 			position: absolute;
 			top: -45px;
@@ -168,7 +168,7 @@
 			overflow: hidden;
 			background-color: rgba(0, 0, 0, 0.1);
 		}
-		
+
 		.navs .is {
 			float: left;
 			width: 90px;
@@ -180,14 +180,14 @@
 			z-index: 100;
 			/*background: url(__INDEX__/img/navBg1.png);*/
 		}
-		
+
 		.navs i:hover {
 			color: #fff !important;
 			background: url(__INDEX__/img/navBg.png);
 			background-size: 100%;
 			/*background-color: #ff5454;*/
 		}
-		
+
 		.actives {
 			color: #fff !important;
 			background: url(__INDEX__/img/navBg.png);
@@ -195,20 +195,20 @@
 			/*background-color: #ff5454;*/
 		}
 		/*文字*/
-		
+
 		.accomplishDate span {
 			font-size: 14px;
 		}
-		
+
 		.abbreviationBox span {
 			padding: 6px 15px;
 			font-size: 14px;
 		}
-		
+
 		.demandlist ul {
 			padding: 20px;
 		}
-		
+
 		.content-bg-fff1 {
 			background-image: url(__INDEX__/img/demand_status_f00.png);
 		}
@@ -246,7 +246,7 @@
 					<input type="text" name="" id="" value="" placeholder="搜索..." />
 					<img src="__INDEX__/img/icon/fda.png" />
 					<button onclick="one();">搜索</button>
-					<p onclick="window.location.href='epiboly1.html'">免费发需求</p>
+					<p onclick="window.location.href='{:url("demand/publish")}'">免费发需求</p>
 					<span>或者</span>
 				</div>
 
@@ -290,7 +290,7 @@
 					{volist name="demand" id="vos" }
 
 					<div class="demandBox" tid="799" onclick="window.location.href='{:url("demand/inside",["id"=>$vos.id])}'">
-						<div class="marking content-bg-fff2">
+						<div class="marking content-bg-fff{$vos.schedule}">
 							{if condition="$vos.schedule eq 1"} 招募中 {elseif condition="$vos.schedule eq 2"/} 对接中 {elseif condition="$vos.schedule eq 3"/} 执行中 {else /} 已完成 {/if}
 						</div>
 						<div class="demandTitle">{$vos.name}</div>
@@ -418,9 +418,9 @@
 
 			function one() {
 				if($(".navs .actives").text() == "需求") {
-					window.location.href = "index.html";
+					window.location.href = "{:url('demand/index')}";
 				} else if($(".navs .actives").text() == "案例") {
-					window.location.href = "indexs2.html";
+					window.location.href = "{:url('cases/index')}";
 				} else if($(".navs .actives").text() == "IT联合办公") {
 					window.location.href = "it.html";
 				}
