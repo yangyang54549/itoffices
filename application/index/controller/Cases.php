@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-11 17:35:30
+ * @Last Modified time: 2018-02-23 14:26:34
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -74,6 +74,11 @@ class Cases extends Yang
                     }
                     $srr = implode(",",$system_type);
                     $url = url("cases/inside",["id"=>$v["id"]]);
+                    if ($v['is_pp']==1) {
+                        $v['is_pp']='sj';
+                    }else{
+                        $v['is_pp']='diannao';
+                    }
 
                     $str .= '<li class="round">
                         <div class="rounds">
@@ -88,7 +93,7 @@ class Cases extends Yang
                                 </div>
                                 <div class="similarity-intro">'.$v['brief'].'</div>
                                 <div class="similarity-price"> ￥<span class="price">'.$v['money'].'</span></div>
-                                <div class="photograph"> <img src="/static/index/img/sj.png" alt=""> </div>
+                                <div class="photograph"> <img src="/static/index/img/'.$v['is_pp'].'.png" alt=""> </div>
                             </div>
                         </a>
                         </div>

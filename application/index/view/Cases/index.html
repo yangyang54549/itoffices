@@ -324,14 +324,20 @@ height: 680px;
 								</div>
 								<div class="similarity-intro">{$vo.brief}</div>
 								<div class="similarity-price"> ￥<span class="price">{$vo.money}</span> </div>
-								<div class="photograph"> <img src="__INDEX__/img/sj.png" alt=""> </div>
+								<div class="photograph">
+								{if condition="$vo.is_pp eq 1"}
+								<img src="__INDEX__/img/sj.png" alt="">
+								{else /}
+								<img src="__INDEX__/img/diannao.png" alt="">
+								{/if}
+								</div>
 							</div>
 						</a>
 						</div>
 					</li>
 				{/volist}
 				</ul>
-				<!-- <div id="page-box" style="width: 1200px;margin: 0 auto;">
+				<div id="page-box" style="width: 1200px;margin: 0 auto;">
 					<div class="page-div" onclick="xia();">
 						<h3>下一页</h3>
 					</div>
@@ -343,7 +349,7 @@ height: 680px;
 						<a href="javascript:;" class="page_next" onclick="xia();">下页</a>
 					</div>
 					<em><span class="now">1</span>/<span class="num">2</span>页&nbsp;&nbsp;共<span class="total">2</span>条</em>
-				</div> -->
+				</div>
 			</div>
 		</div>
 		<script type="text/javascript">
