@@ -347,21 +347,19 @@
 				<div id="page-box" style="width: 1200px;margin: 0 auto;">
 
 
-					<input type="hidden" name="pageInput" value="52"><a href="javascript:;" class="page_next" onclick="shang();">上页</a>
+					<!-- <a href="javascript:;" class="page_next" onclick="shang();">上页</a> -->
 
 					<div class="page">
-
-						<a  href="javascript:;" data-page="2" class="atcives">1</a>
-						<a href="javascript:;" data-page="2">2</a>
-
-
+						{for start="1" end="$page.num+2" comparison="lt" step="1" name="n"}
+							{if condition = "$n eq $page.num"}
+							<a  href="javascript:;" class="atcives">{$n}</a>
+							{else /}
+							<a  href="javascript:;">{$n}</a>
+							{/if}
+						{/for}
 					</div>
-
 					<a href="javascript:;" class="page_next" onclick="xia();">下页</a>
 					<em><span class="now">{$page.num}</span>/<span class="num">{$page.page}</span>页&nbsp;&nbsp;共<span class="total">{$page.count}</span>条</em>
-
-					<!-- <a href="javascript:;" class="page_next" onclick="xia();">下页</a>
-					<em><span class="now">1</span>/<span class="num">2</span>页</em> -->
 
 				</div>
 			</div>
@@ -400,6 +398,7 @@
 				var type = 0;
 				var specific = 0;
 				var system_type = $('.sys .active').attr('data-id');
+				var page = 1;
 
 				if (cla=='ty') {
 					if (id==0) {
@@ -412,9 +411,7 @@
 						$('.xiao .'+claa).css('display','block');
 						$('.xiao li').removeClass("active");
 						$('.xiao li:nth-child(1)').addClass("active");
-
 					}
-
 
 				}else if(cla=='xiao'){
 
@@ -422,12 +419,31 @@
 
 				type = $('.ty .active').attr('data-id');
 				specific = $('.xiao .active').attr('data-id');
-				// alert(type);
-				// alert(specific);
-				// alert(system_type);
-				$.post("{:url('cases/index')}",{type:type,specific:specific,system_type:system_type},function(data) {
 
-					$("#project-list1").replaceWith('<ul class="project-list"  id="project-list1">'+data.data+'</ul>');
+				$.post("{:url('cases/index')}",{type:type,specific:specific,system_type:system_type,page:page},function(data) {
+
+					$("#project-list1").html(data.data);
+
+					if (data.page.page<=1) {
+						$("#page-box").html('');
+					}else{
+
+						var st = '';
+						for (var i=1;i<data.page.page+1;i++)
+						{
+							if (i==data.page.num) {
+								st +='<a  href="javascript:;" class="atcives">'+i+'</a>';
+							}else{
+								st +='<a  href="javascript:;">'+i+'</a>';
+							}
+						}
+
+						var str = '<div class="page">'+st+
+						'</div><a href="javascript:;" class="page_next" onclick="xia();">下页</a><em><span class="now">'+data.page.num+
+						'</span>/<span class="num">'+data.page.page+
+						'</span>页&nbsp;&nbsp;共<span class="total">'+data.page.count+'</span>条</em>';
+						$("#page-box").html(str);
+					}
 				})
 
 			})
@@ -435,10 +451,6 @@
 				$(this).parent().find(".freeman_none").css("display",'block')
 				$(this).css("display",'none')
 			})
-			// $(function() {
-			// 	demandlist()
-			// })
-			/*nav 点击变色*/
 
 			$(".navs i").click(function() {
 				$(".navs i").removeClass("actives");
@@ -459,10 +471,6 @@
 				}
 			})
 
-			/*var he = $(".round").height() + 50;
-			$(".page-div").width($(".round").width());
-			$(".page-div").height($(".round").height())
-			$(".page-div").css("top", "-" + he + "px");*/
 
 			function xia() {
 				var pl1 = document.getElementById("project-list1");
@@ -477,19 +485,46 @@
 				}
 			}
 			$(".page a").click(function() {
+				var page = $(this).text();
+				$(".page a").removeClass('atcives');
+				$(this).addClass('atcives');
+				$('.now').text(page);
 
-				if($(this).text() == "1") {
-					$(".page a:nth-child(1)").css("color", "#b43d3d");
-					$(".page a:nth-child(2)").css("color", "black");
-					$(".project-list:nth-child(1)").css("display", "block");
-					$(".project-list:nth-child(2)").css("display", "none");
-				} else if($(this).text() == "2") {
-					$(".page a:nth-child(2)").css("color", "#b43d3d");
-					$(".page a:nth-child(1)").css("color", "black");
-					$(".project-list:nth-child(1)").css("display", "none");
-					$(".project-list:nth-child(2)").css("display", "block");
+				var cla = $(this).parent().attr('class');
+				var id = $(this).attr('data-id');
+				var type = 0;
+				var specific = 0;
+				var system_type = $('.sys .active').attr('data-id');
+
+				if (cla=='ty') {
+					if (id==0) {
+						$('.xiao .ccc').css('display','block');
+						$('.xiao .ccc').removeClass("active");
+						$('.xiao .nuxian').addClass("active");
+					}else{
+						var claa = 'ccc'+id;
+						$('.xiao .ccc').css('display','none');
+						$('.xiao .'+claa).css('display','block');
+						$('.xiao li').removeClass("active");
+						$('.xiao li:nth-child(1)').addClass("active");
+					}
+
+				}else if(cla=='xiao'){
+
 				}
+
+				type = $('.ty .active').attr('data-id');
+				specific = $('.xiao .active').attr('data-id');
+
+				$.post("{:url('cases/index')}",{type:type,specific:specific,system_type:system_type,page:page},function(data) {
+
+					$("#project-list1").html(data.data);
+
+				})
+
 			})
+
+
 
 			function one() {
 				if($(".navs .actives").text() == "需求") {
