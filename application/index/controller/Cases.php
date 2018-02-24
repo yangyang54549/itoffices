@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-24 14:45:30
+ * @Last Modified time: 2018-02-24 17:04:14
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -107,7 +107,7 @@ class Cases extends Yang
 
                 $page['count'] = C::where($where)->count();//总条数
                 $page['page'] = ceil($page['count']/8);//总共几页
-                $page['num'] = 1;//当前处于第几页
+                $page['num'] = $pages;//当前处于第几页
                 $this->ret['data'] = $str;
                 $this->ret['page'] = $page;
                 return json($this->ret);

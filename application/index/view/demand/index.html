@@ -343,9 +343,7 @@
 		</div>
 
 		<!--请将以下码嵌入到您网页源代码的最后面，通常是</body></HTML>之后,这样在服务器升级维护的时候也不会影响您的网页打开呈现速度。-->
-
 		<!-- <script src="__INDEX__/js/demand.js" type="text/javascript" charset="utf-8"></script> -->
-
 		<script src="__INDEX__/js/main.js" type="text/javascript" charset="utf-8"></script>
 
 		<script>
@@ -362,12 +360,9 @@
 				var type = $('.ty .active').data('id');
 				var industry = $('.tyr .active').data('id');
 				var schedule = $('.jd .active').data('id');
-
 				$.post("{:url('demand/index')}",{type:type,industry:industry,schedule:schedule},function(data) {
-
 					$("#demandlist-ul1").replaceWith('<ul id="demandlist-ul1">'+data.data+'</ul>');
 				})
-
 				// $.ajax({
 				// 	type: "POST", //提交方式
 				// 	url: "{:url('Demand/index')}", //路径
@@ -377,9 +372,6 @@
 				// 		alert(data.msg);
 				// 	}
 				// });
-
-
-
 			})
 
 			$(".head .nav li:eq(0) a").addClass("active");
@@ -394,13 +386,7 @@
 					return false;
 				}
 			})
-			/*$(".choice_top .choice_kind ul li").click(function() {
-				if($(this).text() == "定制开发") {
-					$(".choice_bottom").css("display", "block");
-				} else {
-					$(".choice_bottom").css("display", "none");
-				}
-			})*/
+
 			var he = $(".demandBox").height() + 50;
 			$(".page-div").width($(".demandBox").width());
 			$(".page-div").height($(".demandBox").height())
@@ -448,7 +434,5 @@
 				}
 			}
 		</script>
-		<!--<script type="text/javascript" src="//s.union.360.cn/164203.js" async defer></script>-->
 	</body>
-
 </html>
