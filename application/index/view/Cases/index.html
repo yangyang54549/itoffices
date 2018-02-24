@@ -238,6 +238,12 @@
 				width: 40px;
 				height: 40px;
 			}
+			.atcives{
+				color:#b43d3d ;
+			}
+			.page a {
+				padding: 0 10px !important;
+			}-
 		</style>
 	</head>
 
@@ -341,14 +347,16 @@
 				</ul>
 				<div id="page-box" style="width: 1200px;margin: 0 auto;">
 					
-					<input type="hidden" name="pageInput" value="52">
+					<input type="hidden" name="pageInput" value="52"><a href="javascript:;" class="page_next" onclick="shang();">上页</a>
 					<div class="page">
-						<a class="" style="color:#b43d3d ;">1</a>
+						
+						<a  href="javascript:;" data-page="2" class="atcives">1</a>
 						<a href="javascript:;" data-page="2">2</a>
 
-						<a href="javascript:;" class="page_next" onclick="xia();">下页</a>
+						
 					</div>
-					<em><span class="now">1</span>/<span class="num">2</span>页&nbsp;&nbsp;共<span class="total">2</span>条</em>
+					<a href="javascript:;" class="page_next" onclick="xia();">下页</a>
+					<em><span class="now">1</span>/<span class="num">2</span>页</em>
 				</div>
 			</div>
 		</div>
