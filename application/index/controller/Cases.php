@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-24 11:07:33
+ * @Last Modified time: 2018-02-24 11:21:54
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -104,6 +104,7 @@ class Cases extends Yang
 
         }else{
             $types = T::select();
+            //dump($types);die;
             $specifics = S::select();
             $systems = SY::select();
             $cases = C::order('create_time desc')->page('1,8')->select();
@@ -116,12 +117,26 @@ class Cases extends Yang
 
                 $images = explode('@' , $value['images']);
                 $arr[$key]['images'] = $images[1];
-                $type = T::where(['id'=>$value['type']])->find();
-                $arr[$key]['type'] = $type['name'];
-                $specific = S::where(['id'=>$value['specific']])->find();
-                $arr[$key]['specific'] = $specific['name'];
-                $system_type = SY::where(['id'=>$value['system_type']])->find();
-                $arr[$key]['system_type'] = $system_type['name'];
+
+                foreach ($types as $k => $v) {
+                    if($v['id'] == $value['type']){
+                         $arr[$key]['type'] = $v['name'];
+                         break;
+                    }
+                }
+                foreach ($specifics as $a => $b) {
+                    if($b['id'] == $value['specific']){
+                         $arr[$key]['specific'] = $b['name'];
+                         break;
+                    }
+                }
+                foreach ($systems as $c => $d) {
+                    if($d['id'] == $value['system_type']){
+                         $arr[$key]['system_type'] = $d['name'];
+                         break;
+                    }
+                }
+
             }
 
             $this->view->assign("type", $types);
