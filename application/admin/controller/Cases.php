@@ -35,7 +35,6 @@ class Cases extends Controller
             $info = $_POST['info'];
             $data['info'] = $info;
             $data['create_time'] = time();
-            $data['system_type'] = implode(',' , $data['system_type']);
             // 验证
             if (class_exists($validateClass = Loader::parseClass(Config::get('app.validate_path'), 'validate', $controller))) {
                 $validate = new $validateClass();
@@ -98,7 +97,6 @@ class Cases extends Controller
             $info = $_POST['info'];
             $data['info'] = $info;
             $data['create_time'] = time();
-            $data['system_type'] = implode(',' , $data['system_type']);
             // 验证
             if (class_exists($validateClass = Loader::parseClass(Config::get('app.validate_path'), 'validate', $controller))) {
                 $validate = new $validateClass();
@@ -149,11 +147,9 @@ class Cases extends Controller
             $this->view->assign("type", $type);
             $this->view->assign("specific", $specific);
             $this->view->assign("system", $system);
-            $vo['system_type'] = explode(',' , $vo['system_type']);
             $image = $vo['images'];
             $vo['images'] = substr($vo['images'],1);
             $vo['images'] = explode('@', $vo['images']);
-            //var_dump($vo['images']);die;
             $this->view->assign("vo", $vo);
             $this->view->assign("image", $image);
 

@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-23 14:26:34
+ * @Last Modified time: 2018-02-24 11:07:33
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -41,24 +41,18 @@ class Cases extends Yang
                 }
             }
 
-            // if (isset($types_id)) {
-            //     if ($types_id!=0) {
-            //         $where['system_type']=$types_id;
-            //     }
-            // }
-                // $this->ret['data'] = $types_id;
-                // return json($this->ret);
+            if(isset($types_id)){
+                if ($types_id!=0) {
+                    $where['system_type']=$types_id;
+                }
+            }
+
             $str = '';
             $cases = C::where($where)->order('create_time desc')->select();
 
             if (!empty($cases)) {
 
                 foreach ($cases as $k => $v) {
-
-                    $system_type = explode(',' , $v['system_type']);
-                    if ($types_id!=0 && !in_array($types_id,$system_type)) {
-                        continue;
-                    }
 
                     $images = explode('@' , $v['images']);
                     $v['images'] = $images[1];
@@ -67,12 +61,9 @@ class Cases extends Yang
                     $v['type'] = $type['name'];
                     $specific = S::where(['id'=>$v['specific']])->find();
                     $v['specific'] = $specific['name'];
+                    $system_type = SY::where(['id'=>$v['system_type']])->find();
+                    $v['system_type'] = $system_type['name'];
 
-                    for ($i=0; $i < count($system_type); $i++) {
-                        $system = SY::where(['id'=>$system_type[$i]])->find();
-                        $system_type[$i] = $system['name'];
-                    }
-                    $srr = implode(",",$system_type);
                     $url = url("cases/inside",["id"=>$v["id"]]);
                     if ($v['is_pp']==1) {
                         $v['is_pp']='sj';
@@ -89,7 +80,7 @@ class Cases extends Yang
                                 <div class="similarity_label">产品类型:<span>'.$v['type'].'</span></div>
                                 <div class="similarity_label">主要功能:<span>'.$v['specific'].'</span></div>
                                 <div class="similarity_label functionNames">系统类型:
-                                    <span>'.$srr.'</span>
+                                    <span>'.$v['system_type'].'</span>
                                 </div>
                                 <div class="similarity-intro">'.$v['brief'].'</div>
                                 <div class="similarity-price"> ￥<span class="price">'.$v['money'].'</span></div>
@@ -115,31 +106,29 @@ class Cases extends Yang
             $types = T::select();
             $specifics = S::select();
             $systems = SY::select();
-            $cases = C::order('create_time desc')->page(1,10)->select();
+            $cases = C::order('create_time desc')->page('1,8')->select();
             $arr = $cases;
+            $page = [];
+            $page['count'] = C::count();//总条数
+            $page['page'] = ceil($page['count']/8);//总共几页
+            $page['num'] = 1;//当前处于第几页
             foreach ($cases as $key => $value) {
-                $system_type = explode(',' , $value['system_type']);
 
                 $images = explode('@' , $value['images']);
                 $arr[$key]['images'] = $images[1];
-
                 $type = T::where(['id'=>$value['type']])->find();
                 $arr[$key]['type'] = $type['name'];
                 $specific = S::where(['id'=>$value['specific']])->find();
                 $arr[$key]['specific'] = $specific['name'];
-
-                for ($i=0; $i < count($system_type); $i++) {
-                    $system = SY::where(['id'=>$system_type[$i]])->find();
-                    $system_type[$i] = $system['name'];
-                }
-                $arr[$key]['system_type'] = $system_type;
+                $system_type = SY::where(['id'=>$value['system_type']])->find();
+                $arr[$key]['system_type'] = $system_type['name'];
             }
 
             $this->view->assign("type", $types);
             $this->view->assign("specific", $specifics);
             $this->view->assign("system", $systems);
-            //var_dump($arr);die;
             $this->view->assign("cases", $arr);
+            $this->view->assign("page", $page);
             return $this->fetch();
         }
     }
