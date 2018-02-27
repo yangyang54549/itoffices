@@ -31,16 +31,43 @@
 			}
 	}
 }
+	function times(){
+				if($("#phone").val() == "") {
+                   $("#wit").text("请输入手机号")
+                }  else {
+                	if(!(/^1[3456789]\d{9}$/.test($("#phone").val()))) {
+						$("#wit").text("手机号码有误，请重填")
+						
+						
+					} else {
+						
+						
+                    
+						var s = 60;
+						var j = setInterval(function() {
+							s = s - 1;
+							$(".send1").html(s + "秒");
+							if(s == 0) {
+								
+								
+								clearInterval(j);
+								$('send1').html("请重新获取");
+							}
+						}, 1000)
+					}
+				}
+	}
 /*正则验证  失去焦点*/
 			function yanZheng(tag, reg) {
 				tag.onblur = function() {					
 					if(reg.test(this.value)) {
 						this.style.borderColor = "#f5f5f5";
 						this.nextSibling.innerHTML = "";
-						this.nextSibling.style.color = "white";						
+						this.nextSibling.removeClass("reds");		
+						/*$(".default").addClass("with");*/
 					} else {
 						this.style.borderColor = "red";
-						this.nextSibling.style.color = "red";
+						this.nextSibling.addClass("reds");
 						this.nextSibling.style.marginLeft = "15px";
 						if(this.value == "") {
 							this.nextSibling.innerHTML = "必填项";
@@ -57,10 +84,10 @@
 					if(ks.test(ss.value)) {
 						ss.style.borderColor = "#f5f5f5";
 						ss.nextSibling.innerHTML = "";
-						ss.nextSibling.style.color = "white";											
+						ss.nextSibling.removeClass("reds");											
 					} else {
 						ss.style.borderColor = "red";
-						ss.nextSibling.style.color = "red";
+						ss.nextSibling.addClass("reds");
 						ss.nextSibling.style.marginLeft = "15px";						
 						if(ss.value == "") {
 							ss.nextSibling.innerHTML = "必填项"
