@@ -330,3 +330,9 @@ body {
 				-o-user-select:none;/*Opera 私有属性*/
 				user-select:none; /*css3 属性*/
 			}
+			.with{
+				color: white;
+			}
+			.reds{
+				    color: red;
+			}

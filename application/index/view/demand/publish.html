@@ -301,26 +301,26 @@
 						<ul>
 							<li class="item-li">
 								<div class="item-name">项目名称</div>
-								<div class="item-input"><input type="text" name="" placeholder="项目名称。例如：滴滴打车Android客户端开发" id="project" class=""><span></span>
+								<div class="item-input"><input type="text" name="" placeholder="项目名称。例如：滴滴打车Android客户端开发" id="project" class=""><span class="with"></span>
 									<div class="is-danger" style="display: none;"></div>
 								</div>
 							</li>
 							<li class="item-li">
 								<div class="item-name">项目简介</div>
-								<div class="item-input"><textarea placeholder="项目简介。例如：打算开发一个微信应用，市面上可参考的产品是 XXX，针对 XXX 领域和人群，主要目的是为了 XXX ..." id="brief" class=""></textarea><span></span>
+								<div class="item-input"><textarea placeholder="项目简介。例如：打算开发一个微信应用，市面上可参考的产品是 XXX，针对 XXX 领域和人群，主要目的是为了 XXX ..." id="brief" class=""></textarea><span class="with"></span>
 									<div class="is-danger" style="display: none;"></div>
 								</div>
 							</li>
 							<li class="item-li">
 								<div class="item-name">参考网站/产品</div>
-								<div class="item-input"><input type="text" name="" placeholder="参考网站/产品" id="reference" class=""><span></span>
+								<div class="item-input"><input type="text" name="" placeholder="参考网站/产品" id="reference" class=""><span class="with"></span>
 									<div class="is-danger" style="display: none;"></div>
 								</div>
 
 							</li>
 							<li class="item-li">
 								<div class="item-name">项目预算</div>
-								<div class="item-input" style="position: relative;"><input type="number" name="" placeholder="预算" class="" id="budget"><span></span>
+								<div class="item-input" style="position: relative;"><input type="number" name="" placeholder="预算" class="" id="budget"><span class="with"></span>
 									<div class="wan" style="position: absolute; top: 15px;left: 470px;">元</div>
 									<div class="is-danger" style="display: none;"></div>
 								</div>
@@ -359,13 +359,13 @@
 						<ul>
 							<li class="item-li">
 								<div class="item-name">公司名称</div>
-								<div class="item-input"><input type="text" name="" placeholder="请输入您的公司名称" class="" id="company"><span></span>
+								<div class="item-input"><input type="text" name="" placeholder="请输入您的公司名称" class="" id="company"><span class="with"></span>
 									<div class="is-danger" style="display: none;"></div>
 								</div>
 							</li>
 							<li class="item-li">
 								<div class="item-name">姓名</div>
-								<div class="item-input"><input type="text" name="" placeholder="姓名" class="" id="Name"><span></span>
+								<div class="item-input"><input type="text" name="" placeholder="姓名" class="" id="Name"><span class="with"></span>
 									<div class="is-danger" style="display: none;"></div>
 								</div>
 							</li>
@@ -374,7 +374,7 @@
 								<div class="item-name">手机</div>
 
 								<div class="item-input">
-									<input type="number" id="phone" class="infos" placeholder="请输入手机" maxlength="11" /><span></span>
+									<input type="number" id="phone" class="infos" placeholder="请输入手机" maxlength="11" oninput="if(value.length>11)value=value.slice(0,11)"/><span class="with"></span>
 									<a href="javascript:;" class="send1" onclick="sends.send();">发送验证码</a>
 								</div>
 
@@ -382,7 +382,7 @@
 							<li class="item-li">
 								<div class="item-name">短信验证码</div>
 								<div class="item-input">
-									<input type="number" name="" placeholder="验证码" maxlength="8" class="code" id="note" style="width: 500px;"><span></span>
+									<input type="number" name="" placeholder="验证码" maxlength="8"oninput="if(value.length>8)value=value.slice(0,8)" class="code" id="note" style="width: 500px;"><span class="with"></span>
 									<div class="is-danger" style="display: none;"></div>
 								</div>
 							</li>
