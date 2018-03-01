@@ -273,12 +273,15 @@
 				<span text="产品类型：">产品类型：</span>
 				<ul class="ty">
 					<li class="active" data-id="0">不限</li>
-                    {volist name="type" id="vos"}
+                    {volist name="type" id="vos" key="k"}
+                    {if condition="$k lt 9"}
                         <li data-id="{$vos.id}">{$vos.name}</li>
+                    {else /}
+                        <li data-id="{$vos.id}" class="freeman_none" style="display:none;">{$vos.name}</li>
+                    {/if}
                     {/volist}
 					<!-- <li data="9" class="freeman_none" style="display:none;">直销系统类</li> -->
-					<!-- <i class="more_choice">更多 <img src="https://www.315pr.com:443/resources/bootstrap/reset/img/ico68.png"></i> -->
-					<i class="more_choice" id="more_choice1">更多>><img src="#"></i>
+					<i class="more_choice" id="more_choice1">更多>></i>
 					<i class="clear"></i>
 				</ul>
 				<i class="clear"></i>
@@ -289,10 +292,16 @@
 				<span text="主要功能：">主要功能：</span>
 				<ul class="xiao">
 					<li class="active nuxian" data-id="0">不限</li>
-                    {volist name="specific" id="voss"}
-						<li class="ccc{$voss.father_id} ccc" data-id="{$voss.id}">{$voss.name}</li>
+                    {volist name="specific" id="voss" key="n"}
+	                    {if condition="$n lt 9"}
+	                        <li data-id="{$voss.id}" class="ccc{$voss.father_id} ccc">{$voss.name}</li>
+	                    {else /}
+	                        <li data-id="{$voss.id}" class="ccc{$voss.father_id} ccc freeman_none" style="display:none;">{$voss.name}</li>
+	                    {/if}
+
+<!-- 						<li class="ccc{$voss.father_id} ccc" data-id="{$voss.id}">{$voss.name}</li> -->
 					{/volist}
-					<i class="more_choice" id="more_choice2">更多>> <img src="#"></i>
+					<i class="more_choice" id="more_choice2">更多>></i>
 					<i class="clear"></i>
 				</ul>
 				<i class="clear"></i>
@@ -382,15 +391,15 @@
 		<script src="__INDEX__/js/main.js" type="text/javascript" charset="utf-8"></script>
 		<script src="__INDEX__/js/js/jquery.js" type="text/javascript" charset="utf-8"></script>
 		<script>
-			/*$(function(){ 
-    $(".ty li").hide().slice(0,7).show();//默认显示6条评论 
-     $(".xiao li").hide().slice(0,7).show();//默认显示6条评论 
-    $("#more_choice1").click(function(){ 
-        $(".ty li").slice(5).show();//显示第6条后的所有评论 
-    })  
+			/*$(function(){
+    $(".ty li").hide().slice(0,7).show();//默认显示6条评论
+     $(".xiao li").hide().slice(0,7).show();//默认显示6条评论
+    $("#more_choice1").click(function(){
+        $(".ty li").slice(5).show();//显示第6条后的所有评论
+    })
     $("#more_choice2").click(function(){
-        $(".xiao li").slice(5).show();//显示第6条后的所有评论 
-    }) 
+        $(".xiao li").slice(5).show();//显示第6条后的所有评论
+    })
 }) */
 
 			$('.choice_kind li').click(function(){
