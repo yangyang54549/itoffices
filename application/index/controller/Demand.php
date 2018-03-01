@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-11 14:24:41
+ * @Last Modified time: 2018-02-24 19:00:58
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -57,6 +57,7 @@ class Demand extends Yang
             $type = input('type');
             $schedule = input('schedule');
             $industry = input('industry');
+            $pages = input('page');
             $where = [];
 
             if (isset($type)) {
@@ -78,7 +79,7 @@ class Demand extends Yang
             }
 
             $str = '';
-            $demand = D::where($where)->order('create_time desc')->select();
+            $demand = D::where($where)->order('create_time desc')->page("$pages,9")->select();
 
             if (!empty($demand)) {
 
@@ -111,18 +112,27 @@ class Demand extends Yang
                             <div class="lookOver">已浏览'.$v['browse'].'人</div>
                         </div>
                     </div>';
-
                 }
-
+                $page['count'] = D::where($where)->count();//总条数
+                $page['page'] = ceil($page['count']/9);//总共几页
+                $page['num'] = $pages;//当前处于第几页
+                $this->ret['page'] = $page;
                 $this->ret['data'] = $str;
                 return json($this->ret);
             }
+            $page['count'] = 0;//总条数
+            $page['page'] = 0;//总共几页
+            $page['num'] = 1;//当前处于第几页
+            $this->ret['page'] = $page;
             $this->ret['data'] = '暂无更多数据';
             $this->ret['msg'] = '暂无更多数据';
             return json($this->ret);
         }else{
+            $page['count'] = D::count();//总条数
+            $page['page'] = ceil($page['count']/9);//总共几页
+            $page['num'] = 1;//当前处于第几页
             $demandtype = DT::select();
-            $demand = D::select();
+            $demand = D::page('1,9')->select();
             $demandtrade = DTR::select();
             foreach ($demand as $k => $v) {
                 $dt = DT::where(['id'=>$v['type']])->find();
@@ -134,6 +144,7 @@ class Demand extends Yang
             $this->assign('demandtype',$demandtype);
             $this->assign('demand',$demand);
             $this->assign('demandtrade',$demandtrade);
+            $this->view->assign("page", $page);
             return $this->fetch();
         }
     }
