@@ -225,6 +225,10 @@
 			background-image: url(__INDEX__/img/demand_status_ccc.png);
 			color: black;
 		}
+
+		.atcives{
+			color:#b43d3d ;
+		}
 	</style>
 
 	<body>
@@ -317,17 +321,19 @@
 
 				</ul>
 				<div id="page-box">
-					<div class="page-div" onclick="xia();" style="background-color: rgba(0,0,0,0.1); opacity: 0;">
-						<h3>下一页</h3>
-					</div>
-					<input type="hidden" name="pageInput" value="52">
-					<div class="page" >
-						<a class="" style="color:#b43d3d ;">1</a>
-						<a href="javascript:;" data-page="2">2</a>
 
-						<a href="javascript:;" class="page_next" onclick="xia();">下页</a>
+					<div class="page">
+						{for start="1" end="$page.page+1" comparison="lt" step="1" name="n"}
+							{if condition = "$n eq $page.num"}
+							<a  href="javascript:;" class="atcives abc{$n}" onclick="pagess({$n});">{$n}</a>
+							{else /}
+							<a  href="javascript:;" class="abc{$n}" onclick="pagess({$n});">{$n}</a>
+							{/if}
+						{/for}
 					</div>
-					<em><span class="now">1</span>/<span class="num">2</span>页&nbsp;&nbsp;共<span class="total">2</span>条</em>
+					<a href="javascript:;" class="page_next" onclick="xia();">下页</a>
+					<em><span class="now">{$page.num}</span>/<span class="num">{$page.page}</span>页&nbsp;&nbsp;共<span class="total">{$page.count}</span>条</em>
+
 				</div>
 			</div>
 		</div>
@@ -360,18 +366,30 @@
 				var type = $('.ty .active').data('id');
 				var industry = $('.tyr .active').data('id');
 				var schedule = $('.jd .active').data('id');
-				$.post("{:url('demand/index')}",{type:type,industry:industry,schedule:schedule},function(data) {
-					$("#demandlist-ul1").replaceWith('<ul id="demandlist-ul1">'+data.data+'</ul>');
+				var page = 1;
+				$.post("{:url('demand/index')}",{type:type,industry:industry,schedule:schedule,page:page},function(data) {
+					$("#demandlist-ul1").html(data.data);
+
+					if (data.page.page<=1) {
+						$("#page-box").html('');
+					}else{
+						var st = '';
+						for (var i=1;i<data.page.page+1;i++)
+						{
+							if (i==data.page.num) {
+								st +='<a  href="javascript:;" class="atcives abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
+							}else{
+								st +='<a  href="javascript:;" class="abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
+							}
+						}
+
+						var str = '<div class="page">'+st+
+						'</div><a href="javascript:;" class="page_next" onclick="xia();">下页</a><em><span class="now">'+data.page.num+
+						'</span>/<span class="num">'+data.page.page+
+						'</span>页&nbsp;&nbsp;共<span class="total">'+data.page.count+'</span>条</em>';
+						$("#page-box").html(str);
+					}
 				})
-				// $.ajax({
-				// 	type: "POST", //提交方式
-				// 	url: "{:url('Demand/index')}", //路径
-				// 	data: {type:type,schedule:schedule,industry:industry},
-				// 	dataType: "json", //数据，这里使用的是Json格式进行传输
-				// 	success: function(data) {
-				// 		alert(data.msg);
-				// 	}
-				// });
 			})
 
 			$(".head .nav li:eq(0) a").addClass("active");
@@ -393,29 +411,42 @@
 			$(".page-div").css("top", "-" + he + "px");
 
 			function xia() {
-				var pl1 = document.getElementById("demandlist-ul1")
-				if(pl1.style.display == "none") {
-					alert("当前为最后一页")
-				} else {
-					$("#demandlist-ul1").css("display", "none");
-					$("#demandlist-ul2").css("display", "block");
-					$(".page a:nth-child(2)").css("color", "#b43d3d");
-					$(".page a:nth-child(1)").css("color", "black");
+				var page = $('.now').text();//当前页码数
+					page = parseInt(page);
+					page = page+1;
+				var num = $('.num').text();//总页码数
+				if (page>num) {
+					alert('暂无数据');return false;
 				}
+				var	clas = 'abc'+page;
+					$(".page a").removeClass('atcives');
+					$('.'+clas).addClass('atcives');
+					$('.now').text(page);
+
+				var type = $('.ty .active').data('id');
+				var industry = $('.tyr .active').data('id');
+				var schedule = $('.jd .active').data('id');
+
+				$.post("{:url('demand/index')}",{type:type,industry:industry,schedule:schedule,page:page},function(data) {
+					$("#demandlist-ul1").html(data.data);
+				})
 			}
-			$(".page a").click(function() {
-				if($(this).text() == "1") {
-					$(".page a:nth-child(1)").css("color", "#b43d3d");
-					$(".page a:nth-child(2)").css("color", "black");
-					$(".demandlist ul:nth-child(1)").css("display", "block");
-					$(".demandlist ul:nth-child(2)").css("display", "none");
-				} else if($(this).text() == "2") {
-					$(".demandlist ul:nth-child(1)").css("display", "none");
-					$(".demandlist ul:nth-child(2)").css("display", "block");
-					$(".page a:nth-child(2)").css("color", "#b43d3d");
-					$(".page a:nth-child(1)").css("color", "black");
-				}
-			})
+			function pagess(page) {
+				$(".page a").removeClass('atcives');
+				var	clas = 'abc'+page;
+				$('.'+clas).addClass('atcives');
+				$('.now').text(page);
+
+
+				var type = $('.ty .active').data('id');
+				var industry = $('.tyr .active').data('id');
+				var schedule = $('.jd .active').data('id');
+
+				$.post("{:url('demand/index')}",{type:type,industry:industry,schedule:schedule,page:page},function(data) {
+
+					$("#demandlist-ul1").html(data.data);
+				})
+			}
 			/*nav 点击变色*/
 			$(".navs i").click(function() {
 				$(".navs i").removeClass("actives");

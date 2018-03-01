@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-24 17:04:14
+ * @Last Modified time: 2018-02-24 19:01:22
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -55,9 +55,6 @@ class Cases extends Yang
 
                 foreach ($cases as $k => $v) {
 
-                    $images = explode('@' , $v['images']);
-                    $v['images'] = $images[1];
-
                     foreach ($types as $e => $f) {
                         if($f['id'] == $v['type']){
                              $v['type'] = $f['name'];
@@ -87,7 +84,7 @@ class Cases extends Yang
                     $str .= '<li class="round">
                         <div class="rounds">
                             <a href="'.$url.'" target="_blank">
-                            <img class="proImg" src="'.$v['images'].'" alt="">
+                            <img class="proImg" src="'.$v['img'].'" alt="">
                             <div class="picList">
                                 <div class="similarity-title">'.$v['case_name'].'</div>
                                 <div class="similarity_label">产品类型:<span>'.$v['type'].'</span></div>
@@ -102,7 +99,6 @@ class Cases extends Yang
                         </a>
                         </div>
                     </li>';
-
                 }
 
                 $page['count'] = C::where($where)->count();//总条数
@@ -112,6 +108,10 @@ class Cases extends Yang
                 $this->ret['page'] = $page;
                 return json($this->ret);
             }
+            $page['count'] = 0;//总条数
+            $page['page'] = 0;//总共几页
+            $page['num'] = 1;//当前处于第几页
+            $this->ret['page'] = $page;
             $this->ret['data'] = '暂无更多数据';
             $this->ret['msg'] = '暂无更多数据';
             return json($this->ret);
@@ -125,9 +125,6 @@ class Cases extends Yang
             $page['page'] = ceil($page['count']/8);//总共几页
             $page['num'] = 1;//当前处于第几页
             foreach ($cases as $key => $value) {
-
-                $images = explode('@' , $value['images']);
-                $arr[$key]['images'] = $images[1];
 
                 foreach ($types as $k => $v) {
                     if($v['id'] == $value['type']){
