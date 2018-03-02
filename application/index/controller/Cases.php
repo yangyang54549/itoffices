@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-24 19:01:22
+ * @Last Modified time: 2018-03-01 17:42:55
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -22,9 +22,9 @@ class Cases extends Yang
 {
     public function index()
     {
-        $types = T::select();
-        $specifics = S::select();
-        $systems = SY::select();
+        $types = T::order('id desc')->select();
+        $specifics = S::order('father_id desc,id desc')->select();
+        $systems = SY::order('id desc')->select();
 
         if ($this->request->isAjax()) {
 
