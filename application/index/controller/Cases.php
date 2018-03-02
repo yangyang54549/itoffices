@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-03-01 17:42:55
+ * @Last Modified time: 2018-03-02 09:25:53
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -50,7 +50,7 @@ class Cases extends Yang
                 }
             }
             $str = '';
-            $cases = C::where($where)->order('create_time desc')->page("$pages,8")->select();
+            $cases = C::where($where)->order('id desc')->page("$pages,8")->select();
             if (!empty($cases)) {
 
                 foreach ($cases as $k => $v) {
