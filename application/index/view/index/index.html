@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="__INDEX__/css/style.css" />
 		<link rel="stylesheet" type="text/css" href="__INDEX__/css/sub.css"/>
 		<link rel="stylesheet" type="text/css" href="__INDEX__/css/header.css"/>
+		<link href="__INDEX__/css/index_style.css" rel="stylesheet" type="text/css">
 		<script src="__INDEX__/js/js/jquery-2.1.3.min.js" type="text/javascript" charset="utf-8"></script>
 		<style type="text/css">
 			.logo,
@@ -28,11 +29,12 @@
 
 		.sou {
 			width: 100%;
-			background-image: url(__INDEX__/img/index.jpg);
+			height: 640px;
+			/*background-image: url(__INDEX__/img/index.jpg);
 			filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
 			-moz-background-size: 100% 100%;
 			background-size: 100% 100%;
-			padding: 1px 0;
+			padding: 1px 0;*/
 			position: relative;
 			top: 0;
 			left: 0;
@@ -462,18 +464,35 @@
          	font-size: 18px;
          	color: white;
          }
+        #demo{
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: -1;
+		height: 640px;
+		overflow: hidden;
+	}
+	#demo .canvaszz{
+		height: 640px;
+		
+	}
+	#canvas{
+		height: 640px;
+		
+	}
 		</style>
 	</head>
 	<body>
 		<div class="sou">
+			
 			<div class="search">
 
 				<div class="search1">
 					<div class="navs">
 						<i class="is actives">IT联合办公</i>
-						<i  class="is">需求</i>
+						<!--<i  class="is">需求</i>-->
 						<i class="is">案例</i>
-						<i class="is">人才</i>
+						<!--<i class="is">人才</i>-->
 					</div>
 					<input type="text" name="" id="" value="" placeholder="搜索..." />
 					<img src="__INDEX__/img/icon/fda.png" />
@@ -484,6 +503,29 @@
 
 			</div>
 		</div>
+		<div class="header" id="demo">
+	<!--<div class="top_logo"></div> --> 
+     
+	<!--<div class="topcn" style="font:20px/18px 'microsoft yahei'; color:#0FF;text-align:center;">
+	  <p>&nbsp;</p>
+	  <p>内容区域</p>
+	  <p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+	  <p>来源：<a href="http://sc.chinaz.com/" target="_blank">站长素材</a></p>
+	</div>
+    
+    <div class="nav">
+    	<a class="gv" href="#">建站服务</a>
+        <a class="gv" href="#">仿站技术</a>
+        <a class="gv" href="#">作品案例</a>
+        <a class="gv" href="#">工 作 站</a>
+        <a class="gv" href="#">资讯中心</a>
+        <a class="gv" href="#">在线帮助</a>
+   </div>-->
+    
+  <div class="canvaszz"> </div>
+  <canvas id="canvas"></canvas> 
+</div>
+<script src="__INDEX__/js/script.js" ></script>
 		<div class="container">
 			<div class="con_top">
 				<div class="con_top_left">
@@ -646,8 +688,7 @@
 				}
 			})
 			$(".head .nav li:eq(0) a").addClass("active");
-			var heg = $(".sou").width() * 0.53 / 2;
-			$(".sou").height(heg);
+			
 			/*nav 点击变色*/
 			$(".navs i").click(function() {
 				$(".navs i").removeClass("actives");
