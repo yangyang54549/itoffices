@@ -433,6 +433,8 @@
 		<script src="__INDEX__/js/main.js" type="text/javascript" charset="utf-8"></script>
 		<script src="__INDEX__/js/js/jquery.js" type="text/javascript" charset="utf-8"></script>
 		<script>
+		var pagenum = {$page.page};
+
 			$('.choice_kind li').click(function(){
 				$("#page-box .now").text('1')
 				$(this).parents(".choice_kind").find("li").removeClass("active").end().find(".freeman_none").css("display",'none');
@@ -492,7 +494,7 @@
 						}
 				}
 				$.post("{:url('cases/index')}",{type:type,specific:specific,system_type:system_type,page:page},function(data) {
-
+					pagenum = data.page.page;
 					$("#project-list1").html(data.data);
 
 					if (data.page.page<=1) {
@@ -542,13 +544,20 @@
 			})
 
 			function xia() {
-				var page = $('.now').text();//当前页码数
+				var page = 0;
+				var num = 0;
+					page = $('.now').text();//当前页码数
 					page = parseInt(page);
 					page = page+1;
-				var num = $('.num').text();//总页码数
+					num = $('.num').text();//总页码数
+
+				if (pagenum<=1) {
+					alert('当前是最后一页');return false;
+				}
 				if (page>num) {
 					alert('当前是最后一页');return false;
 				}
+
 				var	clas = 'abc'+page;
 					$(".page a").removeClass('atcives');
 					$('.'+clas).addClass('atcives');
@@ -585,6 +594,9 @@
 				})
 			}
 			function pagess(page) {
+				if (pagenum<=1) {
+					alert('当前是最后一页');return false;
+				}
 				$(".page a").removeClass('atcives');
 				var	clas = 'abc'+page;
 				$('.'+clas).addClass('atcives');
@@ -592,12 +604,9 @@
 				var type = 0;
 				var specific = 0;
 				var system_type = $('.sys .active').attr('data-id');
-
 				type = $('.ty .active').attr('data-id');
 				specific = $('.xiao .active').attr('data-id');
-
 				$.post("{:url('cases/index')}",{type:type,specific:specific,system_type:system_type,page:page},function(data) {
-
 					$("#project-list1").html(data.data);
 					// if (data.page.num<data.page.page) {
 						// $("#project-list1").append('<li class="page-div" onclick="xia();"><h3>下一页</h3></li>');
