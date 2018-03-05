@@ -11,7 +11,7 @@
 		<link href="__INDEX__/css/index_style.css" rel="stylesheet" type="text/css">
 		<!--<link rel="shortcut icon" href="https://www.315pr.com:443/resources/bootstrap/__INDEX__/img/sdyk.ico">-->
 		<script src="__INDEX__/js/js/jquery-2.1.3.min.js"></script>
-		
+
 		<style type="text/css">
 			.nav li a {
 				color: white;
@@ -19,9 +19,9 @@
 
 			.sou {
 				width: 100%;
-				
+
 				height: 640px;
-				
+
 				/*background-image: url(__INDEX__/img/index.jpg);
 				filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
 				-moz-background-size: 100% 100%;
@@ -262,11 +262,11 @@
 	}
 	#demo .canvaszz{
 		height: 640px;
-		
+
 	}
 	#canvas{
 		height: 640px;
-		
+
 	}
 		</style>
 	</head>
@@ -274,7 +274,7 @@
 	<body>
 
 		<div class="sou " >
-			
+
 
 			<div class="search">
 
@@ -296,15 +296,15 @@
 			</div>
 		</div>
 		<div class="header" id="demo">
-	<!--<div class="top_logo"></div> --> 
-     
+	<!--<div class="top_logo"></div> -->
+
 	<!--<div class="topcn" style="font:20px/18px 'microsoft yahei'; color:#0FF;text-align:center;">
 	  <p>&nbsp;</p>
 	  <p>内容区域</p>
 	  <p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
 	  <p>来源：<a href="http://sc.chinaz.com/" target="_blank">站长素材</a></p>
 	</div>
-    
+
     <div class="nav">
     	<a class="gv" href="#">建站服务</a>
         <a class="gv" href="#">仿站技术</a>
@@ -313,9 +313,9 @@
         <a class="gv" href="#">资讯中心</a>
         <a class="gv" href="#">在线帮助</a>
    </div>-->
-    
+
   <div class="canvaszz"> </div>
-  <canvas id="canvas"></canvas> 
+  <canvas id="canvas"></canvas>
 </div>
 <script src="__INDEX__/js/script.js" ></script>
 		<div id="choice">
@@ -324,14 +324,11 @@
 				<ul class="ty">
 					<li class="active" data-id="0">不限</li>
                     {volist name="type" id="vos" key="k"}
-                    {if condition="$k lt 9"}
-                        <li data-id="{$vos.id}">{$vos.name}</li>
-                    {else /}
-                        <li data-id="{$vos.id}" class="freeman_none" style="display:none;">{$vos.name}</li>
-                    {/if}
+                        <li data-id="{$vos.id}" class="">{$vos.name}</li>
+                        <!-- <li data-id="{$vos.id}" class="freeman_none" style="display:none;"></li> -->
                     {/volist}
 					<!-- <li data="9" class="freeman_none" style="display:none;">直销系统类</li> -->
-					<i class="more_choice" id="more_choice1">更多>></i>
+					<!-- <i class="more_choice" id="more_choice1">更多>></i> -->
 					<i class="clear"></i>
 				</ul>
 				<i class="clear"></i>
@@ -339,17 +336,16 @@
 <!--不限-->
 
 			<div class="choice_kind" style="border-bottom: 1px dashed rgba(0,0,0,0.14);">
-				<span text="主要功能：">主要功能：</span>
+				<span text="主要功能：" class="hhh">主要功能：</span>
 				<ul class="xiao">
-					<li class="active nuxian" data-id="0">不限</li>
+					<li class="active nuxian" data-id="0" id="fun">不限</li>
                     {volist name="specific" id="voss" key="n"}
 	                    {if condition="$n lt 9"}
-	                        <li data-id="{$voss.id}" class="ccc{$voss.father_id} ccc">{$voss.name}</li>
+	                        <li data-id="{$voss.id}" class="ccc{$voss.father_id} ccc nine{$n} freeman_none" id="ccc{$voss.father_id}">{$voss.name}</li>
 	                    {else /}
-	                        <li data-id="{$voss.id}" class="ccc{$voss.father_id} ccc freeman_none" style="display:none;">{$voss.name}</li>
+	                        <li data-id="{$voss.id}" class="ccc{$voss.father_id} ccc nine{$n} freeman_none" id="ccc{$voss.father_id}" style="display:none;">{$voss.name}</li>
 	                    {/if}
-
-<!-- 						<li class="ccc{$voss.father_id} ccc" data-id="{$voss.id}">{$voss.name}</li> -->
+					<!--<li class="ccc{$voss.father_id} ccc" data-id="{$voss.id}">{$voss.name}</li> -->
 					{/volist}
 					<i class="more_choice" id="more_choice2">更多>></i>
 					<i class="clear"></i>
@@ -364,7 +360,6 @@
                         {volist name="system" id="vosss"}
                             <li data-id="{$vosss.id}">{$vosss.name}</li>
                         {/volist}
-					<!-- <i class="more_choice">更多 <img src="https://www.315pr.com:443/resources/bootstrap/reset__INDEX__/img/ico68.png"></i> -->
 					<i class="clear"></i>
 				</ul>
 
@@ -406,10 +401,7 @@
 				</li>
 				</ul>
 				<div id="page-box" style="width: 1200px;margin: 0 auto;">
-
-
 					<!-- <a href="javascript:;" class="page_next" onclick="shang();">上页</a> -->
-
 					<div class="page">
 						{for start="1" end="$page.page+1" comparison="lt" step="1" name="n"}
 							{if condition = "$n eq $page.num"}
@@ -441,16 +433,7 @@
 		<script src="__INDEX__/js/main.js" type="text/javascript" charset="utf-8"></script>
 		<script src="__INDEX__/js/js/jquery.js" type="text/javascript" charset="utf-8"></script>
 		<script>
-			/*$(function(){
-    $(".ty li").hide().slice(0,7).show();//默认显示6条评论
-     $(".xiao li").hide().slice(0,7).show();//默认显示6条评论
-    $("#more_choice1").click(function(){
-        $(".ty li").slice(5).show();//显示第6条后的所有评论
-    })
-    $("#more_choice2").click(function(){
-        $(".xiao li").slice(5).show();//显示第6条后的所有评论
-    })
-}) */
+		var pagenum = {$page.page};
 
 			$('.choice_kind li').click(function(){
 				$("#page-box .now").text('1')
@@ -458,49 +441,66 @@
 				$(this).addClass("active");
 				$(this).parent().find(".more_choice").css('display','block');
 				if($(this).attr("class").indexOf("freeman_none")>-1){
-					$(this).parents(".choice_kind").find("span:eq(0)").html($(this).text()+":").css("color",'#ff5454').attr("data",$(this).attr('data'))
+
+					$(this).parents(".choice_kind").find("span:eq(0)").html($(this).text()+":").css("color",'#ff5454').attr("data",$(this).attr('data'));
+					// $(this).parents(".choice_kind").find("span:eq(0)").html($(this).parents(".choice_kind").find("span:eq(0)").attr("text")).css("color",'#333').attr("data",$(this).attr('data'));
 				}else{
-					$(this).parents(".choice_kind").find("span:eq(0)").html($(this).parents(".choice_kind").find("span:eq(0)").attr("text")).css("color",'#333').attr("data",$(this).attr('data'))
+					$(this).parents(".choice_kind").find("span:eq(0)").html($(this).parents(".choice_kind").find("span:eq(0)").attr("text")).css("color",'#333').attr("data",$(this).attr('data'));
 				}
+				$('#more_choice2').css('display','none');
 
 
 				var cla = $(this).parent().attr('class');
 				var id = $(this).attr('data-id');
-				var type = 0;
-				var specific = 0;
+				var type = $('.ty .active').attr('data-id');
+				var specific = $('.xiao .active').attr('data-id');
 				var system_type = $('.sys .active').attr('data-id');
 				var page = 1;
 
 				if (cla=='ty') {
 					if (id==0) {
-						$('.xiao .ccc').css('display','block');
+						$('.xiao .ccc').css('display','none');
+						$('.xiao .nine1').css('display','block');
+						$('.xiao .nine2').css('display','block');
+						$('.xiao .nine3').css('display','block');
+						$('.xiao .nine4').css('display','block');
+						$('.xiao .nine5').css('display','block');
+						$('.xiao .nine6').css('display','block');
+						$('.xiao .nine7').css('display','block');
+						$('.xiao .nine8').css('display','block');
 						$('.xiao .ccc').removeClass("active");
 						$('.xiao .nuxian').addClass("active");
+						$('#more_choice2').css('display','block');
 					}else{
 						var claa = 'ccc'+id;
 						$('.xiao .ccc').css('display','none');
 						$('.xiao .'+claa).css('display','block');
 						$('.xiao li').removeClass("active");
 						$('.xiao li:nth-child(1)').addClass("active");
-						// $('#more_choice1').css('display','none');
 						$('#more_choice2').css('display','none');
 					}
+					var specific = $('.xiao .active').attr('data-id');
+					var system_type = $('.sys .active').attr('data-id');
+					$(".hhh").text('主要功能：');
+					$('.hhh').css('color','');
 
 				}else if(cla=='xiao'){
-
+						if (type==0) {
+						//类型未选择
+							$('.ccc').css('display','block');
+						}else{
+						//类型已选择
+							$('.ccc'+type).css('display','block');
+						}
 				}
-
-				type = $('.ty .active').attr('data-id');
-				specific = $('.xiao .active').attr('data-id');
-
 				$.post("{:url('cases/index')}",{type:type,specific:specific,system_type:system_type,page:page},function(data) {
-
+					pagenum = data.page.page;
 					$("#project-list1").html(data.data);
 
 					if (data.page.page<=1) {
 						$("#page-box").html('');
 					}else{
-						$("#project-list1").append('<li class="page-div" onclick="xia();"><h3>下一页</h3></li>');
+						// $("#project-list1").append('<li class="page-div" onclick="xia();"><h3>下一页</h3></li>');
 
 						var st = '';
 						for (var i=1;i<data.page.page+1;i++)
@@ -533,8 +533,6 @@
 				tts.className = "actives is";
 			});
 
-			/*var heg = $(".sou").width() * 0.53 / 2;
-			$(".sou").height(heg);*/
 			$(document).bind("contextmenu copy selectstart", function() {
 				return false;
 			});
@@ -545,15 +543,21 @@
 				}
 			})
 
-
 			function xia() {
-				var page = $('.now').text();//当前页码数
+				var page = 0;
+				var num = 0;
+					page = $('.now').text();//当前页码数
 					page = parseInt(page);
 					page = page+1;
-				var num = $('.num').text();//总页码数
-				if (page>num) {
-					alert('暂无数据');return false;
+					num = $('.num').text();//总页码数
+
+				if (pagenum<=1) {
+					alert('当前是最后一页');return false;
 				}
+				if (page>num) {
+					alert('当前是最后一页');return false;
+				}
+
 				var	clas = 'abc'+page;
 					$(".page a").removeClass('atcives');
 					$('.'+clas).addClass('atcives');
@@ -584,36 +588,32 @@
 				specific = $('.xiao .active').attr('data-id');
 				$.post("{:url('cases/index')}",{type:type,specific:specific,system_type:system_type,page:page},function(data) {
 					$("#project-list1").html(data.data);
-					if (data.page.num<data.page.page) {
-						$("#project-list1").append('<li class="page-div" onclick="xia();"><h3>下一页</h3></li>');
-					}
+					// if (data.page.num<data.page.page) {
+						// $("#project-list1").append('<li class="page-div" onclick="xia();"><h3>下一页</h3></li>');
+					// }
 				})
 			}
 			function pagess(page) {
+				if (pagenum<=1) {
+					alert('当前是最后一页');return false;
+				}
 				$(".page a").removeClass('atcives');
 				var	clas = 'abc'+page;
 				$('.'+clas).addClass('atcives');
 				$('.now').text(page);
-
-
 				var type = 0;
 				var specific = 0;
 				var system_type = $('.sys .active').attr('data-id');
-
 				type = $('.ty .active').attr('data-id');
 				specific = $('.xiao .active').attr('data-id');
-
 				$.post("{:url('cases/index')}",{type:type,specific:specific,system_type:system_type,page:page},function(data) {
-
 					$("#project-list1").html(data.data);
-					if (data.page.num<data.page.page) {
-						$("#project-list1").append('<li class="page-div" onclick="xia();"><h3>下一页</h3></li>');
-					}
+					// if (data.page.num<data.page.page) {
+						// $("#project-list1").append('<li class="page-div" onclick="xia();"><h3>下一页</h3></li>');
+					// }
 
 				})
 			}
-
-
 
 			function one() {
 				if($(".navs .actives").text() == "需求") {
@@ -626,25 +626,6 @@
 					window.location.href = "{:url('index/index')}";
 				}
 			}
-			$("#choice .choice_kind:nth-child(1) ul li").click(function() {
-				var dataid = $(this).data("id");
-				if (dataid!=0) {
-					$("#choice .main").css("display", "none");
-					$("#choice .abc"+dataid).css("display", "block");
-					$("#choice .system").css("display","none");
-					$("#choice .share").css("display", "block");
-				}else{
-					$("#choice .main").css("display", "none");
-					$("#choice .abc0").css("display", "block");
-					$("#choice .system").css("display","none");
-					$("#choice .share").css("display", "block");
-				}
-			})
-		</script>
-		<script type="text/javascript">
-
-
-
 		</script>
 	</body>
 

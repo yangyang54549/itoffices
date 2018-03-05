@@ -188,7 +188,7 @@ input,button,select,textarea{
 .header .nav .nav-btn {
     float: right;
     font-size: 1.5em;
-/*     line-height: 150%; 
+/*     line-height: 150%;
     margin-top: 10px;
 }
 .header .nav .nav-btn a {
@@ -326,7 +326,7 @@ input,button,select,textarea{
 .header .nav li {
     margin: 0 10px 0 5px;
 	padding:0 10px;
-    float: left;   
+    float: left;
     /*width: 80px;
     display: inline-block;
     font-size: 18px;
@@ -349,7 +349,7 @@ input,button,select,textarea{
     width: 100%;
     height: 2px;
     background: #e42041;
-/*     background: rgba(282, 32, 65, 0.6); 
+/*     background: rgba(282, 32, 65, 0.6);
     content: '';
     opacity: 0;
     -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
@@ -454,7 +454,7 @@ input,button,select,textarea{
     margin: 0px auto 0;
     min-width: 1080px;
     margin: 0px auto 0;
-    
+
    /* width: expression_r( document.body.clientWidth < 1080 ? "1080px" : "75%" );*/
 }
 
@@ -896,7 +896,7 @@ input,button,select,textarea{
 }
 .footer-link .fcontact .code .wechat {
 /*  background: url('../img/wcode.jpeg') no-repeat; */
-    
+
     background: url('../img/wechat.png') no-repeat;
     background-size: 100%;
 }
@@ -1349,7 +1349,7 @@ input,button,select,textarea{
     padding-top: 3.8%;
 }
 .demandlist ul li {
-    width: 28.5%;
+    width: 30%;
     margin-right: 6.9%;
     margin-bottom: 4.5%;
 	/*float: left;*/
@@ -1553,7 +1553,7 @@ input,button,select,textarea{
     -webkit-box-shadow: 0 0 10px #f7f4f4;
     -moz-box-shadow: 0 0 10px #f7f4f4;
     box-shadow: 0 0 10px #f7f4f4;*/
-    
+
     background:#e41e40;
     cursor: pointer;
     border-radius: 15px;
@@ -2041,7 +2041,7 @@ input,button,select,textarea{
 }
 /*===============      媒介smart页面 smart-block   ===============*/
 .smart-block {
-    
+
 }
 .smart-block ul{
 /*     overflow: auto; */
@@ -2446,7 +2446,7 @@ input,button,select,textarea{
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
     border-top: 8px solid #959595;
-    
+
 }
 .search_area .search_block div ul {
     position: absolute;
@@ -2462,27 +2462,27 @@ input,button,select,textarea{
     box-shadow: 0 0 18px rgba(100,100,100,.21);
     text-align: center;
     display: none;
-    transition-property:height;  
-    -moz-transition-property:height;  
-    -webkit-transition-property:height;  
-    transition-duration:1s;  
-    -moz-transition-duration:1s;  
-    -webkit-transition-duration:1s;  
-    transition-timing-funciton:ease-in-out;  
-    -webkit-transition-timing-funciton:ease-in-out;  
-    -moz-transition-timing-funciton:ease-in-out; 
+    transition-property:height;
+    -moz-transition-property:height;
+    -webkit-transition-property:height;
+    transition-duration:1s;
+    -moz-transition-duration:1s;
+    -webkit-transition-duration:1s;
+    transition-timing-funciton:ease-in-out;
+    -webkit-transition-timing-funciton:ease-in-out;
+    -moz-transition-timing-funciton:ease-in-out;
 }
 .search_area .search_block div ul.curr {
     display: block;
-    transition-property:height;  
-    -moz-transition-property:height;  
-    -webkit-transition-property:height;  
-    transition-duration:2s;  
-    -moz-transition-duration:2s;  
-    -webkit-transition-duration:2s;  
-    transition-timing-funciton:ease-in-out;  
-    -webkit-transition-timing-funciton:ease-in-out;  
-    -moz-transition-timing-funciton:ease-in-out; 
+    transition-property:height;
+    -moz-transition-property:height;
+    -webkit-transition-property:height;
+    transition-duration:2s;
+    -moz-transition-duration:2s;
+    -webkit-transition-duration:2s;
+    transition-timing-funciton:ease-in-out;
+    -webkit-transition-timing-funciton:ease-in-out;
+    -moz-transition-timing-funciton:ease-in-out;
 }
 .search_area .search_block li {
     cursor: pointer;
@@ -2738,8 +2738,8 @@ input,button,select,textarea{
     text-align: center;
     padding: 3% 5% 2.4%;
 	display:block;
-	white-space:nowrap; 
-	overflow:hidden; 
+	white-space:nowrap;
+	overflow:hidden;
 	text-overflow:ellipsis;
 }
 .usercenter_demand .user_demand .del {
@@ -4773,7 +4773,7 @@ text-overflow: ellipsis;
  }
 .addPreferentialList .img{
 	width:95% !important;
-	height:240px;    
+	height:240px;
 	padding: 2.5%;
  }
 .addPreferentialList .title{
@@ -4818,16 +4818,16 @@ text-overflow: ellipsis;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
- 
+
 .searchText{
     width: 75%;
-    height: 40px; 
+    height: 40px;
     margin: 0 auto;
  }
 .searchText label{
 	 color:#2d2d2d;
 	 font-size:14px;
-	 
+
  }
  .searchText input{
 	 padding-left:1%;
