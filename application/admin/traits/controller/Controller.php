@@ -253,11 +253,53 @@ trait Controller
         return ajax_return_adv('保存排序成功', '');
     }
 
-    /*
-     * 图片上传插件
-     */
-    public function uploadImgs()
-    {
+   /*
+    * desription 压缩图片
+    * @param sting $imgsrc 图片路径
+    * @param string $imgdst 压缩后保存路径
+    */
+    public function image_png_size_add($imgsrc,$imgdst){
+      list($width,$height,$type)=getimagesize($imgsrc);
+      //等比例缩小
 
+      $new_width = 400;
+      $new_height = $height/($width/400);
+
+      // $new_width = 200;
+      // $new_height =1500;
+
+      switch($type){
+        case 1:
+
+            $image_wp=imagecreatetruecolor($new_width, $new_height);
+            $image = imagecreatefromgif($imgsrc);
+            imagecopyresampled($image_wp, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+            imagejpeg($image_wp, $imgdst,100);
+            imagedestroy($image_wp);
+            return true;
+            break;
+        case 2:
+
+            $image_wp=imagecreatetruecolor($new_width, $new_height);
+            $image = imagecreatefromjpeg($imgsrc);
+            imagecopyresampled($image_wp, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+            imagejpeg($image_wp, $imgdst,100);
+            imagedestroy($image_wp);
+            return true;
+            break;
+        case 3:
+
+            $image_wp=imagecreatetruecolor($new_width, $new_height);
+            $image = imagecreatefrompng($imgsrc);
+            imagecopyresampled($image_wp, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+            imagejpeg($image_wp, $imgdst,100);
+            imagedestroy($image_wp);
+            return true;
+            break;
+        default:
+
+            return false;
+      }
+      return false;
     }
 }

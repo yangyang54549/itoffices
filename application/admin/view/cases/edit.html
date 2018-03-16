@@ -43,10 +43,11 @@
             <div style="display:none;">
                 <ul id="yincang">
                     {if condition="$vo?? ''"}
+                        <span style="color:red">点击图片删除</span>
                         {volist name="vo['images']" id="img" key="k"}
                             <li id="WU_FILE_{$k}" class="state-complete">
-                            <p class="title">支付目录未修改原图.jpg</p>
-                            <p class="imgWrap"><img src="{$img}"></p>
+                            <p class="title">{$k}</p>
+                            <p class="imgWrap imgWrapg"><img src="{$img}" onclick="javascript:return one(this);"></p>
                             <p class="progress"><span style="display: none; width: 0px;"></span></p>
                             <span class="success"></span>
                             </li>
@@ -54,6 +55,7 @@
                     {/if}
                 </ul>
             </div>
+
             <div><input type="hidden" id="images" name="images" value="{$image ?? ''}"></div>
             </div>
             <div class="col-xs-3 col-sm-3"></div>
@@ -145,7 +147,7 @@
             <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>首页图：</label>
             <div class="formControls col-xs-6 col-sm-6">
 
-                <input type="text" name="img" value="{$vo.img ?? ''}" class="input-text" id="uploadabc" placeholder="请点击后面的上传按钮" datatype="*" nullmsg="请上传二维码" style="width: 70%">
+                <input type="text" name="img" value="{$vo.img ?? ''}" class="input-text" id="uploadabc" placeholder="请点击后面的上传按钮" datatype="*" nullmsg="请上传首页图" style="width: 70%">
                 <button type="button" class="btn btn-primary radius" onclick="layer_open('文件上传','{:\\think\\Url::build(\'Upload/index\', [\'id\' => \'uploadabc\'])}')">上传</button>
 
                 <a onclick="$(this).attr('href', $('#uploadabc').val())" type="button" class="btn btn-success radius" data-lightbox="preview">预览</a>
@@ -154,17 +156,6 @@
             <div class="col-xs-3 col-sm-3"></div>
         </div>
 
-        <div class="row cl">
-            <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>二维码：</label>
-            <div class="formControls col-xs-6 col-sm-6">
-                <input type="text" name="code" value="{$vo.code ?? ''}" class="input-text" id="upload" placeholder="请点击后面的上传按钮" datatype="*" nullmsg="请上传二维码" style="width: 70%">
-                <button type="button" class="btn btn-primary radius" onclick="layer_open('文件上传','{:\\think\\Url::build(\'Upload/index\', [\'id\' => \'upload\'])}')">上传</button>
-
-                <a onclick="$(this).attr('href', $('#upload').val())" type="button" class="btn btn-success radius" data-lightbox="preview">预览</a>
-
-            </div>
-            <div class="col-xs-3 col-sm-3"></div>
-        </div>
         <div class="row cl">
             <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>预览url：</label>
             <div class="formControls col-xs-6 col-sm-6">
@@ -221,10 +212,29 @@
 <script type="text/javascript" src="__STATIC__/upimg/webuploader.js"></script>
 <!-- <script type="text/javascript" src="__STATIC__/upimg/upload.js"></script> -->
 
+
 <script>
 
+    function  one(e){
 
-//console.log({$vo ?? ''});
+var msg = "您真的确定要删除吗？\n\n请确认！";
+        if (confirm(msg)==true){
+            var url = $(e)[0].src;
+            var domain = 'http://'+window.location.host;
+            str = url.replace(domain,"");
+            str = str.replace(/\//g,'\\');
+            str = '@'+str;
+            var images = $("#images").val();
+            images = images.split(str).join('');
+            $("#images").val(images);
+            $(e).parent().parent().remove();
+        }else{
+            return false;
+        }
+    }
+
+
+
     $(function () {
         var ue = UE.getEditor('editor',{
             serverUrl:'{:\\think\\Url::build("Ueditor/index")}'

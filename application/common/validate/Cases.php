@@ -13,7 +13,6 @@ class Cases extends Validate
         "type|案例类型" => "require",
         "specific|案例功能" => "require",
         "system_type|案例系统类型" => "require",
-        "code|二维码" => "require",
         "preview|预览url" => "require",
         "info|案例详情" => "require",
         "status|状态" => "require",

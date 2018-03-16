@@ -35,6 +35,14 @@ class Cases extends Controller
             $info = $_POST['info'];
             $data['info'] = $info;
             $data['create_time'] = time();
+
+            //首页图缩略
+            $url = '.'.$data['img'];
+            $suo = $this->image_png_size_add($url,$url);
+
+            //二维码生成
+            $data['code'] = $this->qrcode($data['preview']);
+
             // 验证
             if (class_exists($validateClass = Loader::parseClass(Config::get('app.validate_path'), 'validate', $controller))) {
                 $validate = new $validateClass();
@@ -42,7 +50,6 @@ class Cases extends Controller
                     return ajax_return_adv_error($validate->getError());
                 }
             }
-
             // 写入数据
             if (
                 class_exists($modelClass = Loader::parseClass(Config::get('app.model_path'), 'model', $this->parseCamelCase($controller)))
@@ -97,6 +104,14 @@ class Cases extends Controller
             $info = $_POST['info'];
             $data['info'] = $info;
             $data['create_time'] = time();
+
+            //首页图缩略
+            $url = '.'.$data['img'];
+            $suo = $this->image_png_size_add($url,$url);
+
+            //二维码生成
+            $data['code'] = $this->qrcode($data['preview']);
+
             // 验证
             if (class_exists($validateClass = Loader::parseClass(Config::get('app.validate_path'), 'validate', $controller))) {
                 $validate = new $validateClass();
@@ -152,7 +167,6 @@ class Cases extends Controller
             $vo['images'] = explode('@', $vo['images']);
             $this->view->assign("vo", $vo);
             $this->view->assign("image", $image);
-
             return $this->view->fetch();
         }
     }
@@ -457,6 +471,23 @@ header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
         $casesorder = CO::select();
         $this->view->assign('list',$casesorder);
         return $this->view->fetch();
+    }
+
+    // 二维码
+    public function qrcode($url)
+    {
+        $savePath = APP_PATH . '/../Public/qrcode/';
+        $webPath = '/qrcode/';
+        $qrData = $url;
+        $qrLevel = 'H';
+        $qrSize = '6';
+        $savePrefix = 'NickBai';
+
+        if($filename = createQRcode($savePath, $qrData, $qrLevel, $qrSize, $savePrefix)){
+            $pic = $webPath . $filename;
+        }
+        //echo "<img src='".$pic."'>";
+        return $pic;
     }
 
 
