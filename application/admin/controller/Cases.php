@@ -37,6 +37,7 @@ class Cases extends Controller
             $data['create_time'] = time();
 
             //首页图缩略
+            //$url = ROOT_PATH.'public'.$data['img'];
             $url = '.'.$data['img'];
             $suo = $this->image_png_size_add($url,$url);
 
@@ -473,10 +474,17 @@ header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
         return $this->view->fetch();
     }
 
-    // 二维码
+    /**
+     * 功能：生成二维码
+     * @param string $qrData 手机扫描后要跳转的网址
+     * @param string $qrLevel 默认纠错比例 分为L、M、Q、H四个等级，H代表最高纠错能力
+     * @param string $qrSize 二维码图大小，1－10可选，数字越大图片尺寸越大
+     * @param string $savePath 图片存储路径
+     * @param string $savePrefix 图片名称前缀
+     */
     public function qrcode($url)
     {
-        $savePath = APP_PATH . '/../Public/qrcode/';
+        $savePath = ROOT_PATH  . 'public/qrcode/';
         $webPath = '/qrcode/';
         $qrData = $url;
         $qrLevel = 'H';

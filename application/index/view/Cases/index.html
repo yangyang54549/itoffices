@@ -340,7 +340,7 @@
 				<ul class="xiao">
 					<li class="active nuxian" data-id="0" id="fun">不限</li>
                     {volist name="specific" id="voss" key="n"}
-	                    {if condition="$n lt 9"}
+	                    {if condition="$n lt 7"}
 	                        <li data-id="{$voss.id}" class="ccc{$voss.father_id} ccc nine{$n} freeman_none" id="ccc{$voss.father_id}">{$voss.name}</li>
 	                    {else /}
 	                        <li data-id="{$voss.id}" class="ccc{$voss.father_id} ccc nine{$n} freeman_none" id="ccc{$voss.father_id}" style="display:none;">{$voss.name}</li>

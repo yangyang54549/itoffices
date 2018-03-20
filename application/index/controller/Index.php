@@ -6,7 +6,7 @@ class Index  extends Yang
 {
     public function index()
     {
-        $this->redirect('Cases/index');
-        // return $this->fetch();
+        //$this->redirect('Cases/index');
+         return $this->fetch();
     }
 }
