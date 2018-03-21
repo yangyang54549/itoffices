@@ -242,7 +242,7 @@
 				width:100%;
 				margin: 40px auto 30px;
 			}
-           
+
 
             /*banner*/
 
@@ -683,16 +683,16 @@
                 </div>
                 <ul class="navs">
                     <li >
-                        <a href="#" class="is">IT联合办公</a>
+                        <a href="{:url('index/index')}" class="is">首页</a>
                     </li>
                     <li>
                         <a href="#" class="is">需求</a>
                     </li>
                     <li>
-                        <a href="#" class="is actives">案例</a>
+                        <a href="{:url('cases/index')}" class="is actives">案例</a>
                     </li>
                     <li>
-                        <a href="###"class="is">人才</a>
+                        <a href="#"class="is">人才</a>
                     </li>
                     <!--<li><a href="https://www.315pr.com:443/case/page.shtml">案例</a></li>-->
                     <!-- <li><a href="https://www.315pr.com:443/smart/list.shtml">媒介</a></li> -->
@@ -936,7 +936,7 @@
         </div>
         <div class="footer" style="background-color: #1e2831;">
             <div class="center">
-                <p>2014-2017 汇谷电子科技有限公司 版权所有：ICP备12027515号-1</p>
+                <p>2014-2017 汇谷电子科技有限公司 版权所有：ICP备12027515号-1    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#0368bd" onclick="javascript:window.open('{:url("index/index_bak")}')">IT联合办公</span></p>
             </div>
         </div>
         <script src="__INDEX__/js/form.js" type="text/javascript" charset="utf-8"></script>
@@ -1013,6 +1013,12 @@
                                                         if (data.code==1) {
                                                             $(".forms").css("display", "none");
                                                             $(".beijin").css("display", "block");
+                                                            xname.value="";
+                                                            brief.value="";
+                                                            names.value="";
+                                                            weixin.value="";
+                                                            phs.value="";
+                                                            mail.value="";
                                                         }else{
                                                             alert(data.msg);
                                                         }
@@ -1118,7 +1124,7 @@
             //自动播放
             var timer = null;
 
-            timer = setInterval(play, 1500);
+            timer = setInterval(play, 8000);
 
             //移入移出
             box.onmouseover = function() {
@@ -1128,7 +1134,7 @@
 
             box.onmouseout = function() {
                 arr.style.display = "none";
-                timer = setInterval(play, 1500);
+                timer = setInterval(play, 8000);
             };
 
             function play() {

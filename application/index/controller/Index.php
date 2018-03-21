@@ -2,6 +2,7 @@
 namespace app\index\controller;
 use app\admin\Controller;
 use app\common\model\Barner as B;
+use app\common\model\Consult as C;
 
 class Index  extends Yang
 {
@@ -12,10 +13,16 @@ class Index  extends Yang
          return $this->fetch();
     }
 
+    public function consult()
+    {
+        $data = input();
+        C::insert($data);
+    }
+
     //原首页
     public function index_bak()
     {
-         $this->redirect('Cases/index');
+         //$this->redirect('Cases/index');
          return $this->fetch();
     }
 }
