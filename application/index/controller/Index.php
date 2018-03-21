@@ -1,12 +1,14 @@
 <?php
 namespace app\index\controller;
 use app\admin\Controller;
+use app\common\model\Barner as B;
 
 class Index  extends Yang
 {
     public function index()
     {
-
+         $barner = B::select();
+         $this->assign('barner',$barner);
          return $this->fetch();
     }
 

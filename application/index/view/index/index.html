@@ -512,34 +512,38 @@ s.parentNode.insertBefore(mvl, s);
 			<div id="slideBox_new" class="slideBox_new">
 				<div class="hd">
 					<ul>
+						{volist name="barner" id="vo"}
+						<li></li>
+						{/volist}
 
-						<li></li>
-
-						<li></li>
-
+						<!-- <li></li>
 						<li></li>
 						<li></li>
+						<li></li> -->
 					</ul>
 				</div>
 				<div class="bd_new">
 					<ul>
-						<li style="background-image:url(__INDEX__/hjd/images/banner5.png)">
+						{volist name="barner" id="vo"}
+							<li style="background-image:url({$vo.img})">
+								<a  href="javascript:void(0)" target="_blank"></a>
+							</li>
+						{/volist}
+						<!-- <li style="background-image:url(__INDEX__/hjd/images/banner5.png)">
 							<a  href="javascript:void(0)" target="_blank"></a>
 						</li>
 						<li style="background-image:url(__INDEX__/hjd/images/banner1.png)">
 							<a  href="javascript:void(0)" target="_blank"></a>
 						</li>
 						<li style="background-image:url(__INDEX__/hjd/images/banner4.jpg)">
-
-							<a href="/" target="_blank"></a>
+							<a href="javascript:void(0)" target="_blank"></a>
 						</li>
-
 						<li style="background-image:url(__INDEX__/hjd/images/banner2.png)">
 							<a  href="javascript:void(0)" target="_blank"></a>
 						</li>
 						<li style="background-image:url(__INDEX__/hjd/images/banner3.png)">
 							<a  href="javascript:void(0)" target="_blank"></a>
-						</li>
+						</li> -->
 
 					</ul>
 				</div>
