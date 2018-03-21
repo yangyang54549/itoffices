@@ -210,6 +210,169 @@ s.parentNode.insertBefore(mvl, s);
 		<div class="clearfix hook hook-page-header">
 			<!-- 文档开始钩子 -->
 		</div>
+		<style type="text/css">
+			* {
+				box-sizing: border-box;
+			}
+			
+			.ti {
+				position: fixed;
+				bottom: 10px;
+				left: 10px;
+				border-radius: 5px;
+				overflow: hidden;
+				background-color: #ededed;
+				width: 240px;
+				height: 350px;
+			}
+			
+			.ti .ti1,
+			.ti .ti2 {
+				width: 100%;
+				padding: 5px 10px;
+			}
+			
+			.ti .ti1 {
+				height: 35px;
+				line-height: 35px;
+				font-size: 14px;
+				background-color: #00aef3;
+				display: flex;
+				justify-content: space-between;
+				color: white;
+			}
+			
+			.ti .ti1 span {
+				line-height: 25px;
+			}
+			
+			.ti .ti2 .ins,
+			.ti .ti2 .ins textarea {
+				width: 100%;
+				border: 1px solid #d5d5d5;
+				background-color: white;
+				margin: 5px auto;
+			}
+			
+			.ti .ti2 .ins textarea {
+				height: 79px;
+				padding: 0 4px;
+				resize: none;
+				overflow: hidden;
+				border: none;
+				background-color: #fff;
+				text-align: left;
+			}
+			
+			.ti .ti2 .ins span {
+				width: 35px;
+				height: 30px;
+				display: inline-block;
+				text-align: center;
+				background-color: #fff;
+				vertical-align: top;
+				border-right: 1px solid #fff;
+			}
+			
+			.ti .ti2 .ins input {
+				height: 30px;
+				line-height: 30px;
+				border: none;
+				display: inline-block;
+			}
+			
+			.ti .ti2 .inss p {
+				height: 35px;
+				width: 90px;
+				line-height: 35px;
+				text-align: center;
+				border-radius: 2px;
+				font-size: 14px;
+				color: #fff;
+				cursor: pointer;
+				background-color: #00aef3;
+				margin-top: 10px;
+			}
+			
+			#nos {
+				height: 30px;
+				width: 34px;
+				margin-top: 2px;
+				background: transparent url(images/nodeMin.png) no-repeat;
+			}
+		</style>
+		<div class="ti" id="ti">
+			<div class="ti1">
+				<span>请您留言</span>
+				<span id="nos" style=""></span>
+			</div>
+			<div class="ti2">
+				<div class="ins">
+					<textarea id="texts" name="" rows="" cols="" placeholder="请在此输入留言内容，我们会尽快与您联系。（必填）"></textarea>
+				</div>
+				<div class="ins">
+					<span style="background: #fff url(images/user.png) no-repeat 9px center;"></span>
+					<input id="names" type="text" name="" id="" value="" placeholder="姓名"  maxlength="11"/>
+				</div>
+				<div class="ins">
+					<span style="background: #fff url(images/nodephone.png) no-repeat 9px center;"></span>
+					<input id="phone" type="number" name="" id="" value="" placeholder="手机（必填）" maxlength="11"/>
+				</div>
+				<div class="ins">
+					<span style="background: #fff url(images/nodemail.png) no-repeat 9px center;"></span>
+					<input id="mail" type="number" name="" id="" value="" placeholder="邮箱"  maxlength="11"/>
+				</div>
+				<div class="ins">
+					<span style="background: #fff url(images/nodelocation.png) no-repeat 9px center;"></span>
+					<input id="diz" type="text" name="" id="" value="" placeholder="地址"  maxlength="20"/>
+				</div>
+				<div class="inss">
+					<p id="song" onclick="nones();">发送</p>
+				</div>
+
+			</div>
+		</div>
+		<script type="text/javascript">
+			$("#nos").click(function() {
+				var theight = $("#ti").height();
+				if(theight < 350) {
+					$(this).css("background", "transparent url(images/nodeMin.png) no-repeat");
+					$("#ti").css("height", "350px");
+				} else {
+					$(this).css("background", "transparent url(images/nodeMax.png) no-repeat");
+					$("#ti").css("height", "35px");
+				}
+			})
+
+			function nones() {
+				if($("#texts").val() != "") {
+					if($("#names").val() != "") {
+						if($("#phone").val() != "") {
+							if(!(/^1[3456789]\d{9}$/.test($("#phone").val()))) {
+								alert("手机号错误，请重新输入。");
+							} else {
+								if($("#mail").val()!= ""){
+									if($("#diz").val()!= ""){
+									
+								}else{
+									alert("地址为空，请输入内容。");
+								}
+								}else{
+									alert("邮箱为空，请输入内容。");
+								}
+							}
+						} else {
+							alert("手机为空，请输入内容。");
+						}
+					} else {
+						alert("姓名为空，请输入内容。");
+					}
+				} else {
+					alert("留言内容为空，请输入内容。");
+				}
+
+			}
+		</script>
 
 		<div class="clearfix full-header">
 
