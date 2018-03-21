@@ -214,7 +214,7 @@ s.parentNode.insertBefore(mvl, s);
 			* {
 				box-sizing: border-box;
 			}
-			
+
 			.ti {
 				position: fixed;
 				bottom: 10px;
@@ -225,13 +225,13 @@ s.parentNode.insertBefore(mvl, s);
 				width: 240px;
 				height: 350px;
 			}
-			
+
 			.ti .ti1,
 			.ti .ti2 {
 				width: 100%;
 				padding: 5px 10px;
 			}
-			
+
 			.ti .ti1 {
 				height: 35px;
 				line-height: 35px;
@@ -241,11 +241,11 @@ s.parentNode.insertBefore(mvl, s);
 				justify-content: space-between;
 				color: white;
 			}
-			
+
 			.ti .ti1 span {
 				line-height: 25px;
 			}
-			
+
 			.ti .ti2 .ins,
 			.ti .ti2 .ins textarea {
 				width: 100%;
@@ -253,7 +253,7 @@ s.parentNode.insertBefore(mvl, s);
 				background-color: white;
 				margin: 5px auto;
 			}
-			
+
 			.ti .ti2 .ins textarea {
 				height: 79px;
 				padding: 0 4px;
@@ -263,7 +263,7 @@ s.parentNode.insertBefore(mvl, s);
 				background-color: #fff;
 				text-align: left;
 			}
-			
+
 			.ti .ti2 .ins span {
 				width: 35px;
 				height: 30px;
@@ -273,14 +273,14 @@ s.parentNode.insertBefore(mvl, s);
 				vertical-align: top;
 				border-right: 1px solid #fff;
 			}
-			
+
 			.ti .ti2 .ins input {
 				height: 30px;
 				line-height: 30px;
 				border: none;
 				display: inline-block;
 			}
-			
+
 			.ti .ti2 .inss p {
 				height: 35px;
 				width: 90px;
@@ -293,12 +293,12 @@ s.parentNode.insertBefore(mvl, s);
 				background-color: #00aef3;
 				margin-top: 10px;
 			}
-			
+
 			#nos {
 				height: 30px;
 				width: 34px;
 				margin-top: 2px;
-				background: transparent url(images/nodeMin.png) no-repeat;
+				background: transparent url(__INDEX__/hjd/images/nodeMin.png) no-repeat;
 			}
 		</style>
 		<div class="ti" id="ti">
@@ -311,19 +311,19 @@ s.parentNode.insertBefore(mvl, s);
 					<textarea id="texts" name="" rows="" cols="" placeholder="请在此输入留言内容，我们会尽快与您联系。（必填）"></textarea>
 				</div>
 				<div class="ins">
-					<span style="background: #fff url(images/user.png) no-repeat 9px center;"></span>
+					<span style="background: #fff url(__INDEX__/hjd/images/user.png) no-repeat 9px center;"></span>
 					<input id="names" type="text" name="" id="" value="" placeholder="姓名"  maxlength="11"/>
 				</div>
 				<div class="ins">
-					<span style="background: #fff url(images/nodephone.png) no-repeat 9px center;"></span>
+					<span style="background: #fff url(__INDEX__/hjd/images/nodephone.png) no-repeat 9px center;"></span>
 					<input id="phone" type="number" name="" id="" value="" placeholder="手机（必填）" maxlength="11"/>
 				</div>
 				<div class="ins">
-					<span style="background: #fff url(images/nodemail.png) no-repeat 9px center;"></span>
+					<span style="background: #fff url(__INDEX__/hjd/images/nodemail.png) no-repeat 9px center;"></span>
 					<input id="mail" type="number" name="" id="" value="" placeholder="邮箱"  maxlength="11"/>
 				</div>
 				<div class="ins">
-					<span style="background: #fff url(images/nodelocation.png) no-repeat 9px center;"></span>
+					<span style="background: #fff url(__INDEX__/hjd/images/nodelocation.png) no-repeat 9px center;"></span>
 					<input id="diz" type="text" name="" id="" value="" placeholder="地址"  maxlength="20"/>
 				</div>
 				<div class="inss">
@@ -336,10 +336,10 @@ s.parentNode.insertBefore(mvl, s);
 			$("#nos").click(function() {
 				var theight = $("#ti").height();
 				if(theight < 350) {
-					$(this).css("background", "transparent url(images/nodeMin.png) no-repeat");
+					$(this).css("background", "transparent url(__INDEX__/hjd/images/nodeMin.png) no-repeat");
 					$("#ti").css("height", "350px");
 				} else {
-					$(this).css("background", "transparent url(images/nodeMax.png) no-repeat");
+					$(this).css("background", "transparent url(__INDEX__/hjd/images/nodeMax.png) no-repeat");
 					$("#ti").css("height", "35px");
 				}
 			})
@@ -353,7 +353,7 @@ s.parentNode.insertBefore(mvl, s);
 							} else {
 								if($("#mail").val()!= ""){
 									if($("#diz").val()!= ""){
-									
+
 								}else{
 									alert("地址为空，请输入内容。");
 								}
