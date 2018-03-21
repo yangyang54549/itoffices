@@ -6,7 +6,14 @@ class Index  extends Yang
 {
     public function index()
     {
-        //$this->redirect('Cases/index');
+
+         return $this->fetch();
+    }
+
+    //原首页
+    public function index_bak()
+    {
+         $this->redirect('Cases/index');
          return $this->fetch();
     }
 }
