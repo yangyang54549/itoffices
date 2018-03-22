@@ -14,7 +14,7 @@
                             <option value="{$vos.id}" {if condition="$vos.id eq $vo.father_id"}selected="selected"{/if}>{$vos.name}</option>
                         {/volist}
                     {else/}
-                        {volist name="type" id="vo"}
+                        {volist name="type" id="vos"}
                             <option value="{$vos.id}">{$vos.name}</option>
                         {/volist}
                     {/if}
