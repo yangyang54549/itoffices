@@ -16,6 +16,7 @@ class Index  extends Yang
     public function consult()
     {
         $data = input();
+        $data['create_time'] = time();
         C::insert($data);
     }
 
