@@ -348,6 +348,8 @@
 					<!--<li class="ccc{$voss.father_id} ccc" data-id="{$voss.id}">{$voss.name}</li> -->
 					{/volist}
 					<i class="more_choice" id="more_choice2">更多>></i>
+					<i class="more_choices" id="more_choices" style="display:none">更多>></i>
+
 					<i class="clear"></i>
 				</ul>
 				<i class="clear"></i>
@@ -466,8 +468,6 @@
 						$('.xiao .nine4').css('display','block');
 						$('.xiao .nine5').css('display','block');
 						$('.xiao .nine6').css('display','block');
-						$('.xiao .nine7').css('display','block');
-						$('.xiao .nine8').css('display','block');
 						$('.xiao .ccc').removeClass("active");
 						$('.xiao .nuxian').addClass("active");
 						$('#more_choice2').css('display','block');
@@ -478,6 +478,16 @@
 						$('.xiao li').removeClass("active");
 						$('.xiao li:nth-child(1)').addClass("active");
 						$('#more_choice2').css('display','none');
+
+						var datas = $('.ccc'+type);
+						for(var i=0;i<datas.length;i++){
+							if (i>5) {
+								datas.eq(i).css('display','none');
+								$('#more_choice2').css('display','block');
+							}
+						}
+
+						console.log($('.ccc'+type));
 					}
 					var specific = $('.xiao .active').attr('data-id');
 					var system_type = $('.sys .active').attr('data-id');
@@ -486,11 +496,26 @@
 
 				}else if(cla=='xiao'){
 						if (type==0) {
-						//类型未选择
+							//类型未选择
 							$('.ccc').css('display','block');
+							var xiaos = $('.ccc');
+							for(var i=0;i<xiaos.length;i++){
+								if (i>5) {
+									xiaos.eq(i).css('display','none');
+									$('#more_choice2').css('display','block');
+								}
+							}
+
 						}else{
-						//类型已选择
+							//类型已选择
 							$('.ccc'+type).css('display','block');
+							var xiaos = $('.ccc'+type);
+							for(var i=0;i<xiaos.length;i++){
+								if (i>5) {
+									xiaos.eq(i).css('display','none');
+									$('#more_choice2').css('display','block');
+								}
+							}
 						}
 				}
 				$.post("{:url('cases/index')}",{type:type,specific:specific,system_type:system_type,page:page},function(data) {
@@ -521,8 +546,14 @@
 				})
 
 			})
+
 			$(".more_choice").click(function(){
-				$(this).parent().find(".freeman_none").css("display",'block')
+				typec = $('.ty .active').attr('data-id');
+				if(typec==0){
+					$(this).parent().find(".freeman_none").css("display",'block')
+				}else{
+					$('.ccc'+typec).css('display','block');
+				}
 				$(this).css("display",'none')
 			})
 

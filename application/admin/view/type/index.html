@@ -1,10 +1,10 @@
 {extend name="template/base" /}
 {block name="content"}
 <div class="page-container">
-    {include file="form" /}
+    
     <div class="cl pd-5 bg-1 bk-gray">
         <span class="l">
-            {tp:menu menu="add" /}
+            {tp:menu menu="add,saveorder" /}
         </span>
         <span class="r pt-5 pr-5">
             共有数据 ：<strong>{$count ?? '0'}</strong> 条
@@ -13,17 +13,23 @@
     <table class="table table-border table-bordered table-hover table-bg mt-20">
         <thead>
         <tr class="text-c">
-            {include file="th" /}
+            <th width="25"><input type="checkbox"></th>
+            <th width="">类型名称</th>
+            <th width="">排序</th>
             <th width="70">操作</th>
         </tr>
         </thead>
         <tbody>
         {volist name="list" id="vo"}
         <tr class="text-c">
-            {include file="td" /}
+            <td><input type="checkbox" name="id[]" value="{$vo.id}"></td>
+            <td>{$vo.name}</td>
+            <td style="padding: 0">
+    <input type="number" name="sort[{$vo.id}]" value="{$vo.sort}" style="width: 60px;"
+        class="input-text text-c order-input" data-id="{$vo.id}"></td>
             <td class="f-14">
                 {tp:menu menu='sedit' /}
-                <a href="javascript:;" onclick="del_forever(this,'{$vo.id}','/admin/type/deleteforever.html')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont"></i></a>
+                {tp:menu menu='sdeleteforever' /}
             </td>
         </tr>
         {/volist}

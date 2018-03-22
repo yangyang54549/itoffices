@@ -72,14 +72,14 @@
             <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>案例类型：</label>
             <div class="formControls col-xs-6 col-sm-6">
                 <div class="select-box">
-                    <select name="type" class="select" datatype="*" nullmsg="请选择案例类型">
+                    <select name="type" class="select types" datatype="*" nullmsg="请选择案例类型">
                         {if condition="$vo?? ''"}
                             {volist name="type" id="vos"}
                                 <option value="{$vos.id}" {if condition="$vo.type eq $vos.id"}selected="selected"{/if}>{$vos.name}</option>
                             {/volist}
                         {else/}
                             {volist name="type" id="vos"}
-                                <option value="{$vos.id}" selected="selected">{$vos.name}</option>
+                                <option value="{$vos.id}" data-id="{$vos.id}">{$vos.name}</option>
                             {/volist}
                         {/if}
                     </select>
@@ -91,14 +91,14 @@
             <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>案例功能：</label>
             <div class="formControls col-xs-6 col-sm-6">
                 <div class="select-box">
-                    <select name="specific" class="select" datatype="*" nullmsg="请选择案例功能">
+                    <select name="specific" class="select specifics" datatype="*" nullmsg="请选择案例功能">
                     {if condition="$vo?? ''"}
                         {volist name="specific" id="voss"}
-                            <option value="{$voss.id}" {if condition="$vo.specific eq $voss.id"}selected="selected"{/if}>{$voss.name}</option>
+                            <option value="{$voss.id}" {if condition="$vo.specific eq $voss.id"}selected="selected"{/if} data-id="{$voss.father_id}" class="ccc{$voss.father_id} ccc">{$voss.name}</option>
                         {/volist}
                     {else/}
                         {volist name="specific" id="voss"}
-                            <option value="{$voss.id}" selected="selected">{$voss.name}</option>
+                            <option value="{$voss.id}" data-id="{$voss.father_id}" class="ccc{$voss.father_id} ccc">{$voss.name}</option>
                         {/volist}
                     {/if}
                     </select>
@@ -214,6 +214,22 @@
 
 
 <script>
+
+        $('.types').on('change',function(){
+            types = $(this).val();
+            $(".ccc").css('display','none');
+            $(".ccc"+types).css('display','block');
+            specifics = $(".ccc"+types).eq(0).val();
+            $(".specifics").val(specifics);
+        })
+
+        $('.specifics').on('click',function(){
+            var opt = $(this).children('option:selected');
+            var data = $(opt).attr('data-id');
+            $(".types").val(data);
+        })
+
+
 
     function  one(e){
 

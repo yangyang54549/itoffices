@@ -8,9 +8,16 @@
             <div class="formControls col-xs-6 col-sm-6">
                 <div class="select-box">
                     <select name="father_id" class="select Validform_error" datatype="*" nullmsg="请选择案例类型">
-                    {volist name="type" id="vos"}
-                        <option value="{$vos.id}" selected="selected">{$vos.name}</option>
-                    {/volist}
+
+                    {if condition="$vo?? ''"}
+                        {volist name="type" id="vos"}
+                            <option value="{$vos.id}" {if condition="$vos.id eq $vo.father_id"}selected="selected"{/if}>{$vos.name}</option>
+                        {/volist}
+                    {else/}
+                        {volist name="type" id="vo"}
+                            <option value="{$vos.id}">{$vos.name}</option>
+                        {/volist}
+                    {/if}
                     </select>
                 </div>
             </div>
@@ -23,7 +30,13 @@
             </div>
             <div class="col-xs-3 col-sm-3"></div>
         </div>
-
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">排序：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <input type="number" class="input-text" placeholder="排序" name="sort" value="{$vo.sort ?? ''}" >
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
                 <button type="submit" class="btn btn-primary radius">&nbsp;&nbsp;提交&nbsp;&nbsp;</button>

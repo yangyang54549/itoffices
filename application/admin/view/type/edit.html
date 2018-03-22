@@ -4,9 +4,16 @@
     <form class="form form-horizontal" id="form" method="post" action="{:\\think\\Request::instance()->baseUrl()}">
         <input type="hidden" name="id" value="{$vo.id ?? ''}">
         <div class="row cl">
-            <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>产品类型：</label>
+            <label class="form-label col-xs-3 col-sm-3">类型名称：</label>
             <div class="formControls col-xs-6 col-sm-6">
-                <input type="text" class="input-text" placeholder="产品类型" name="name" value="{$vo.name ?? ''}"  datatype="*" nullmsg="请填写产品类型">
+                <input type="text" class="input-text" placeholder="类型名称" name="name" value="{$vo.name ?? ''}" >
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3">排序：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <input type="number" class="input-text" placeholder="排序" name="sort" value="{$vo.sort ?? ''}" >
             </div>
             <div class="col-xs-3 col-sm-3"></div>
         </div>
