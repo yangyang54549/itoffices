@@ -346,31 +346,28 @@ s.parentNode.insertBefore(mvl, s);
 			})
 
 			function nones() {
-				if($("#texts").val() != "") {
-					if($("#names").val() != "") {
-						if($("#phone").val() != "") {
-							if(!(/^1[3456789]\d{9}$/.test($("#phone").val()))) {
-								alert("手机号错误，请重新输入。");
-							} else {
-								if($("#mail").val()!= ""){
-									if($("#diz").val()!= ""){
+				var content = $("#texts").val();
+				var username = $("#names").val();
+				var phone = $("#phone").val();
+				var email = $("#mail").val();
+				var address = $("#diz").val();
 
-								}else{
-									alert("地址为空，请输入内容。");
-								}
-								}else{
-									alert("邮箱为空，请输入内容。");
-								}
-							}
-						} else {
-							alert("手机为空，请输入内容。");
-						}
-					} else {
-						alert("姓名为空，请输入内容。");
-					}
-				} else {
-					alert("留言内容为空，请输入内容。");
+				if($("#phone").val() != "") {
+
+				$.post("{:url('index/consult')}",{content:content,username:username,phone:phone,email:email,address:address},function(data) {
+
+					alert("感谢您的支持,客户经理将尽快和您联系!");
+					$("#texts").val("");
+					$("#names").val("");
+					$("#phone").val("");
+					$("#mail").val("");
+					$("#diz").val("");
+				})
+
+				}else{
+					alert("手机为空，请输入内容。");
 				}
+
 
 			}
 		</script>
@@ -584,8 +581,6 @@ s.parentNode.insertBefore(mvl, s);
 								<a  href="javascript:void(0)" class="bds_more" data-cmd="more"></a>
 								<a  href="javascript:void(0)" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
 								<a  href="javascript:void(0)" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-								<a  href="javascript:void(0)" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
-								<a  href="javascript:void(0)" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
 								<a  href="javascript:void(0)" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
 							</div>
 							<script>
@@ -613,7 +608,7 @@ s.parentNode.insertBefore(mvl, s);
 						<a  href="javascript:void(0)">首页</a>
 					</li>
 					<li>
-						<a  href="javascript:void(0)" titile="了解聚点">了解聚点</a>
+						<a  href="javascript:void(0)" titile="了解聚点">了解汇谷</a>
 						<div class="menu">
 							<ul>
 								<li>
@@ -646,7 +641,7 @@ s.parentNode.insertBefore(mvl, s);
 						</div>
 					</li>
 					<li>
-						<a  href="javascript:void(0)" titile="经典案例">经典案例</a>
+						<a  href="{:url('cases/index')}" titile="经典案例">经典案例</a>
 
 					</li>
 					<li>
