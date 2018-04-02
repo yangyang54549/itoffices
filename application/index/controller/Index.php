@@ -19,7 +19,11 @@ class Index  extends Yang
         $data['create_time'] = time();
         C::insert($data);
     }
-
+    public function lxwm()
+    {
+         //$this->redirect('Cases/index');
+         return $this->fetch();
+    }
     //原首页
     public function index_bak()
     {
