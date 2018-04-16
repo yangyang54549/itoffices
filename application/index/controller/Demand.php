@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-02-24 19:00:58
+ * @Last Modified time: 2018-04-16 18:01:51
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -132,7 +132,7 @@ class Demand extends Yang
             $page['page'] = ceil($page['count']/9);//总共几页
             $page['num'] = 1;//当前处于第几页
             $demandtype = DT::select();
-            $demand = D::page('1,9')->select();
+            $demand = D::order('create_time desc')->page('1,9')->select();
             $demandtrade = DTR::select();
             foreach ($demand as $k => $v) {
                 $dt = DT::where(['id'=>$v['type']])->find();
