@@ -1,14 +1,57 @@
 <td><input type="checkbox" name="id[]" value="{$vo.id}"></td>
 <td>{$vo.name}</td>
 <td>{$vo.money}</td>
-<td>{$vo.industry}</td>
-<td>{$vo.type}</td>
-<td>{$vo.period}</td>
-<td>{$vo.urgency}</td>
+<td>
+{volist name="trade" id="vos"}
+{if condition="$vo.industry eq $vos.id"}
+{$vos.name}
+{/if}
+{/volist}
+</td>
+<td>
+{volist name="type" id="voss"}
+{if condition="$vo.type eq $voss.id"}
+{$voss.name}
+{/if}
+{/volist}
+</td>
+<td>
+{if condition="$vo.period eq 1"}
+少于1周
+{elseif condition="$vo.period eq 2" /}
+少于1个月
+{elseif condition="$vo.period eq 3" /}
+1~3个月
+{elseif condition="$vo.period eq 4" /}
+3~6个月
+{elseif condition="$vo.period eq 5" /}
+超过6个月
+{/if}
+</td>
+<td>
+{if condition="$vo.urgency eq 1"}
+不紧急
+{elseif condition="$vo.urgency eq 2" /}
+一般
+{elseif condition="$vo.urgency eq 3" /}
+比较紧急
+{elseif condition="$vo.urgency eq 4" /}
+非常紧急
+{/if}
+</td>
 <td>{$vo.apply}</td>
 <td>{$vo.browse}</td>
-<td>{$vo.delivery_time}</td>
-<td>{$vo.schedule}</td>
+<td>
+{if condition="$vo.schedule eq 1"}
+招募中
+{elseif condition="$vo.schedule eq 2" /}
+对接中
+{elseif condition="$vo.schedule eq 3" /}
+执行中
+{elseif condition="$vo.schedule eq 4" /}
+已完成
+{/if}
+</td>
 <td>{$vo.company_name}</td>
 <td>{$vo.user_name}</td>
 <td>{$vo.mobile}</td>

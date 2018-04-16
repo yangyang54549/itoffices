@@ -348,7 +348,7 @@
 				<ul id="demandlist-ul1">
 					{volist name="demand" id="vos" }
 
-					<div class="demandBox" tid="799" onclick="window.location.href='{:url("demand/inside",["id"=>$vos.id])}'">
+					<div class="demandBox" tid="799" onclick="window.open('{:url("demand/inside",["id"=>$vos.id])}')">
 						<div class="marking content-bg-fff{$vos.schedule}">
 							{if condition="$vos.schedule eq 1"} 招募中 {elseif condition="$vos.schedule eq 2"/} 对接中 {elseif condition="$vos.schedule eq 3"/} 执行中 {else /} 已完成 {/if}
 						</div>
@@ -365,17 +365,16 @@
 
 				</ul>
 				<div id="page-box">
-
 					<div class="page">
 						{for start="1" end="$page.page+1" comparison="lt" step="1" name="n"}
 							{if condition = "$n eq $page.num"}
-							<a  href="dingdanxiangqing.html" class="atcives abc{$n}" onclick="pagess({$n});">{$n}</a>
+							<a  href="#" class="atcives abc{$n}" onclick="pagess({$n});">{$n}</a>
 							{else /}
-							<a  href="dingdanxiangqing.html" class="abc{$n}" onclick="pagess({$n});">{$n}</a>
+							<a  href="#" class="abc{$n}" onclick="pagess({$n});">{$n}</a>
 							{/if}
 						{/for}
 					</div>
-					<a href="dingdanxiangqing.html" class="page_next" onclick="xia();">下页</a>
+					<a href="#" class="page_next" onclick="xia();">下页</a>
 					<em><span class="now">{$page.num}</span>/<span class="num">{$page.page}</span>页&nbsp;&nbsp;共<span class="total">{$page.count}</span>条</em>
 
 				</div>
@@ -421,14 +420,14 @@
 						for (var i=1;i<data.page.page+1;i++)
 						{
 							if (i==data.page.num) {
-								st +='<a  href="dingdanxiangqing.html" class="atcives abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
+								st +='<a  href="#" class="atcives abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
 							}else{
-								st +='<a  href="dingdanxiangqing.html" class="abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
+								st +='<a  href="#" class="abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
 							}
 						}
 
 						var str = '<div class="page">'+st+
-						'</div><a href="dingdanxiangqing.html" class="page_next" onclick="xia();">下页</a><em><span class="now">'+data.page.num+
+						'</div><a href="#" class="page_next" onclick="xia();">下页</a><em><span class="now">'+data.page.num+
 						'</span>/<span class="num">'+data.page.page+
 						'</span>页&nbsp;&nbsp;共<span class="total">'+data.page.count+'</span>条</em>';
 						$("#page-box").html(str);

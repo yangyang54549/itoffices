@@ -40,6 +40,8 @@ class Demand extends Controller
         $this->datalist($model, $map);
         $trade = Db::table('tp_demand_trade')->select();//行业
         $type = Db::table('tp_demand_type')->select();//类型
+        $this->view->assign('trade',$trade);
+        $this->view->assign('type',$type);
 
         return $this->view->fetch();
     }

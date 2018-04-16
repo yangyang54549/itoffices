@@ -273,12 +273,8 @@ min-width: 1200px;
 	</head>
 
 	<body>
-
 		<div class="sou " >
-
-
 			<div class="search">
-
 				<div class="search1">
 					<div class="navs">
 						<!--<i class="is">IT联合办公</i>-->
@@ -293,7 +289,6 @@ min-width: 1200px;
 					<p onclick="window.location.href='{:url("demand/publish")}'">定制发需求</p>
 					<span>或者</span>
 				</div>
-
 			</div>
 		</div>
 		<div class="header" id="demo">
@@ -335,7 +330,6 @@ min-width: 1200px;
 				<i class="clear"></i>
 			</div>
 <!--不限-->
-
 			<div class="choice_kind" style="border-bottom: 1px dashed rgba(0,0,0,0.14);">
 				<span text="主要功能：" class="hhh">主要功能：</span>
 				<ul class="xiao">
@@ -365,7 +359,6 @@ min-width: 1200px;
                         {/volist}
 					<i class="clear"></i>
 				</ul>
-
 				<i class="clear"></i>
 			</div>
 		</div>
@@ -404,17 +397,16 @@ min-width: 1200px;
 				</li>
 				</ul>
 				<div id="page-box" style="width: 1200px;margin: 0 auto;">
-					<!-- <a href="dingdanxiangqing.html" class="page_next" onclick="shang();">上页</a> -->
 					<div class="page">
 						{for start="1" end="$page.page+1" comparison="lt" step="1" name="n"}
 							{if condition = "$n eq $page.num"}
-							<a  href="dingdanxiangqing.html" class="atcives abc{$n}" onclick="pagess({$n});">{$n}</a>
+							<a  href="#" class="atcives abc{$n}" onclick="pagess({$n});">{$n}</a>
 							{else /}
-							<a  href="dingdanxiangqing.html" class="abc{$n}" onclick="pagess({$n});">{$n}</a>
+							<a  href="#" class="abc{$n}" onclick="pagess({$n});">{$n}</a>
 							{/if}
 						{/for}
 					</div>
-					<a href="dingdanxiangqing.html" class="page_next" onclick="xia();">下页</a>
+					<a href="#" class="page_next" onclick="xia();">下页</a>
 					<em><span class="now">{$page.num}</span>/<span class="num">{$page.page}</span>页&nbsp;&nbsp;共<span class="total">{$page.count}</span>条</em>
 
 				</div>
