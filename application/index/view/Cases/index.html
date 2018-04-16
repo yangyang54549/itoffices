@@ -19,7 +19,7 @@
 
 			.sou {
 				width: 100%;
-
+min-width: 1200px;
 				height: 640px;
 
 				background-image: url(__INDEX__/img/index.jpg);
@@ -259,6 +259,7 @@
 				z-index: -1;
 		height: 640px;
 		overflow: hidden;
+		display: none;
 	}
 	#demo .canvaszz{
 		height: 640px;
@@ -302,7 +303,7 @@
 	  <p>&nbsp;</p>
 	  <p>内容区域</p>
 	  <p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
-	  <p>来源：<a href="http://sc.chinaz.com/" target="_blank">站长素材</a></p>
+	  <p>来源：<a href="#">站长素材</a></p>
 	</div>
 
     <div class="nav">
@@ -403,17 +404,17 @@
 				</li>
 				</ul>
 				<div id="page-box" style="width: 1200px;margin: 0 auto;">
-					<!-- <a href="javascript:;" class="page_next" onclick="shang();">上页</a> -->
+					<!-- <a href="dingdanxiangqing.html" class="page_next" onclick="shang();">上页</a> -->
 					<div class="page">
 						{for start="1" end="$page.page+1" comparison="lt" step="1" name="n"}
 							{if condition = "$n eq $page.num"}
-							<a  href="javascript:;" class="atcives abc{$n}" onclick="pagess({$n});">{$n}</a>
+							<a  href="dingdanxiangqing.html" class="atcives abc{$n}" onclick="pagess({$n});">{$n}</a>
 							{else /}
-							<a  href="javascript:;" class="abc{$n}" onclick="pagess({$n});">{$n}</a>
+							<a  href="dingdanxiangqing.html" class="abc{$n}" onclick="pagess({$n});">{$n}</a>
 							{/if}
 						{/for}
 					</div>
-					<a href="javascript:;" class="page_next" onclick="xia();">下页</a>
+					<a href="dingdanxiangqing.html" class="page_next" onclick="xia();">下页</a>
 					<em><span class="now">{$page.num}</span>/<span class="num">{$page.page}</span>页&nbsp;&nbsp;共<span class="total">{$page.count}</span>条</em>
 
 				</div>
@@ -531,14 +532,14 @@
 						for (var i=1;i<data.page.page+1;i++)
 						{
 							if (i==data.page.num) {
-								st +='<a  href="javascript:;" class="atcives abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
+								st +='<a  href="dingdanxiangqing.html" class="atcives abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
 							}else{
-								st +='<a  href="javascript:;" class="abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
+								st +='<a  href="dingdanxiangqing.html" class="abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
 							}
 						}
 
 						var str = '<div class="page">'+st+
-						'</div><a href="javascript:;" class="page_next" onclick="xia();">下页</a><em><span class="now">'+data.page.num+
+						'</div><a href="dingdanxiangqing.html" class="page_next" onclick="xia();">下页</a><em><span class="now">'+data.page.num+
 						'</span>/<span class="num">'+data.page.page+
 						'</span>页&nbsp;&nbsp;共<span class="total">'+data.page.count+'</span>条</em>';
 						$("#page-box").html(str);
