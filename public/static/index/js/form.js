@@ -95,7 +95,7 @@
 						} else {
 							ss.nextSibling.innerHTML = "输入有误"
 						
-						}
+						}    
 					}
 				}
 /*正则验证*/				
