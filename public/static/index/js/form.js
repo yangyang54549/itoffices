@@ -63,11 +63,11 @@
 					if(reg.test(this.value)) {
 						this.style.borderColor = "#f5f5f5";
 						this.nextSibling.innerHTML = "";
-						this.nextSibling.removeClass("reds");		
+						this.nextSibling.style.color = "#ffffff";
 						/*$(".default").addClass("with");*/
 					} else {
 						this.style.borderColor = "red";
-						this.nextSibling.addClass("reds");
+						this.nextSibling.style.color = "red";
 						this.nextSibling.style.marginLeft = "15px";
 						if(this.value == "") {
 							this.nextSibling.innerHTML = "必填项";
@@ -84,10 +84,10 @@
 					if(ks.test(ss.value)) {
 						ss.style.borderColor = "#f5f5f5";
 						ss.nextSibling.innerHTML = "";
-						ss.nextSibling.removeClass("reds");											
+						ss.nextSibling.style.color = "#ffffff";									
 					} else {
 						ss.style.borderColor = "red";
-						ss.nextSibling.addClass("reds");
+						ss.nextSibling.style.color = "red";
 						ss.nextSibling.style.marginLeft = "15px";						
 						if(ss.value == "") {
 							ss.nextSibling.innerHTML = "必填项"
