@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>IT联合办公</title>
+		<link rel="stylesheet" type="text/css" href="__INDEX__/css/header.css" />
+		<!--<link href="https://innsta.b0.upaiyun.com/favicon_new.ico" mce_href="https://innsta.b0.upaiyun.com/favicon.ico" rel="bookmark" type="image/x-icon">
+		<link href="https://innsta.b0.upaiyun.com/favicon_new.ico" mce_href="https://innsta.b0.upaiyun.com/favicon.ico" rel="icon" type="image/x-icon">
+		<link href="https://innsta.b0.upaiyun.com/favicon_new.ico" mce_href="https://innsta.b0.upaiyun.com/favicon.ico" rel="shortcut icon" type="image/x-icon">-->
+		<link rel="stylesheet" href="https://innsta.b0.upaiyun.com/css_v2/inn.css?_=310_13">
+		<!--<link rel="stylesheet" href="https://innsta.b0.upaiyun.com/css_v2/page/resume.css?_=310_13">-->
+		<!--<script src="//hm.baidu.com/hm.js?c92adf6182a39eb23c24cf43abc3f439"></script>
+		<script async="" charset="UTF-8" src="//eco-api.meiqia.com/dist/meiqia.js?v=1"></script>-->
+		<!--<link charset="utf-8" rel="stylesheet" href="https://innsta.b0.upaiyun.com/plugin/selectize/__INDEX__/css/selectize.css?version=310_13">
+		<link charset="utf-8" rel="stylesheet" href="https://innsta.b0.upaiyun.com/plugin/datetimepicker/jquery.datetimepicker.css?version=310_13">-->
+		<style type="text/css">
+			.fields .inline:nth-child(2) section {
+				height: ;
+			}
+
+			.fields .inline:nth-child(2) section option {
+				padding: 10px 0;
+			}
+			.navs{
+			 	width: 90%;
+			 	margin: 0 auto;
+			 	padding: 10px;
+			 }
+			 .navs li{
+			 	float: left;
+			 }
+			.navs .is{
+				display: block;
+				width: 90px;
+				height: 38px;
+				text-align: center;
+				line-height: 40px;
+				font-size: 14px;
+				color: black;
+				z-index: 100;
+			}
+			.navs a:hover{
+				color: #fff !important;
+				background: url(__INDEX__/img/navBg.png);
+				background-size: 100%;
+				/*background-color: #ff5454;*/
+			}
+			.actives {
+				color: #fff !important;
+				background: url(__INDEX__/img/navBg.png);
+				background-size: 100%;
+				/*background-color: #ff5454;*/
+
+			}
+			.beijin {
+				width: 100vw;
+				height: 100vh;
+				background-color: rgba(0, 0, 0, 0.5);
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 200;
+				display: none;
+			}
+
+			.good {
+				margin: 30vh auto;
+				padding: 50px;
+				width: 400px;
+				background-color: white;
+				border-radius:10px ;
+			}
+				.good img{
+				width: 50px;
+				height: 50px;
+				display: block;
+				margin: 10px  auto;
+
+			}
+			.good p {
+				width: 100%;
+				text-align: center;
+				font-size: 15px;
+				font-weight: 600;
+			}
+			.fields{
+				position: relative;
+				top: 0;
+				left: 0;			}
+				.plus{
+					position: absolute;
+					top: 10px;
+					right: 250px;
+
+				}
+				.trash{
+					position: absolute;
+					top: 10px;
+					right: 230px;
+
+				}
+		</style>
+	</head>
+
+	<body style="padding: 0;">
+		<div style="width:100%;box-shadow:0 2px 4px 0 rgba(58,68,85,0.16); background-color: rgba(0,0,0,0.1);">
+			<div class="head">
+				<ul class="navs">
+					<li >
+						<a href="it.html" class="is">IT联合办公</a>
+					</li>
+					<li>
+						<a href="index.html" class="is">需求</a>
+					</li>
+					<li>
+						<a href="indexs2.html" class="is">案例</a>
+					</li>
+					<li>
+						<a href="###"class="is actives">人才</a>
+					</li>
+
+
+				</ul>
+				<div style="clear:both"></div>
+			</div>
+		</div>
+		<div class="main" style="min-height: 80vh;margin: 10px  auto;">
+			<div class="ui segment header" style="text-align: center;">
+				<i class="write icon"></i>编辑个人技能
+			</div>
+			<div class="ui segment">
+				<div class="ui form">
+					<!--<span style="float:right"><a href="###" target="_blank"><i class="reply icon"></i>谁看过我</a>
+						<a href="###" target="_blank"><i class="history icon"></i>编辑历史</a>
+						<a href="###" target="_blank"><i class="help yellow circle icon"></i>如何上首页</a></span>-->
+
+					<form action="" id="resumecontentform" method="post">
+
+						<!--<div class="field hide">
+							<div class="textarea_content_div">
+								<textarea id="content" placeholder="这里输入内容" name="content">&lt;p&gt;互联网产品深度研究爱好者，对交互设计和用户分析上有较丰富经验，能准确把握需求，逻辑思维慎密，能高效完成前后台需求闭合，拥有良好的产品思维和熟悉互联网产品开发原理。主要熟悉C端产品，对产品要求极致到位。&lt;/p&gt;</textarea>
+							</div>
+						</div>-->
+
+						<h4 class="ui header"><i class="configure icon"></i>技能</h4>
+						<div class="field" data-widget="skill-editor">
+							<div class="fields J_Fields" data-role="row">
+								<span class="resume_hand_li">
+								<i class="plus icon link" title="添加" data-role="add"></i> <i class="trash icon link" data-role="delete" title="删除"></i>   </span>
+								<div class="inline field"> <label style="margin-top: 8px;">技能工具</label> </div>
+								<div class="inline field" style="width: 200px;padding-left: 0;">
+									<select name="">
+										<option value="-1">请选择技能</option>
+										<option value="0">java</option>
+										<option value="1">php</option>
+										<option value="2">html5</option>
+										<option value="3">css</option>
+										<option value="4">c++</option>
+									</select>
+								</div>
+								<div class="inline field"> <label style="margin-top: 8px;">经验自评</label> </div>
+								<div class="inline field" style="width: 200px;padding-left: 0;">
+									<select name="" class="fen">
+										<option value="-1">1分</option>
+										<option value="0">2分</option>
+										<option value="1">3分</option>
+										<option value="2">4分</option>
+										<option value="3">
+										5分</option>
+									</select>
+								</div>
+								<div class="inline field"> <label style="margin-top: 8px; color: gray;">1分为新入门，5分为满分</label> </div>
+							</div>
+						</div>
+					</form>
+
+					<div class="field" style="padding: 10px 0;">
+						<a id="resume_submit_btn_a" class="ui button blue" style="margin-left:0.5em;"><i class="write icon"></i>确定</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="beijin" >
+			<div class="good">
+				<img src="__INDEX__/img/duihao.png"/>
+				<p></p>
+			</div>
+		</div>
+		<div class="footer" style="background-color: #1e2831; ">
+			<div class="center">
+				<p>2014-2017 汇谷电子科技有限公司 版权所有：ICP备12027515号-1</p>
+			</div>
+		</div>
+		<script src="__INDEX__/js/jss/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("#resumecontentform .field .fields:nth-child(1) .resume_hand_li  .plus").click(function() {
+				$(this).parent().parent().parent().append($(this).parent().parent().clone(true));
+			})
+			$("#resumecontentform .field .fields .resume_hand_li  .trash").click(function() {
+				if($("#resumecontentform .field .fields").length>1){
+					$(this).parent().parent().remove();
+				}else{
+					$(".beijin").css("display", "block");
+					$(".beijin .good p").text("至少保留一条记录");
+					$(".beijin .good img").css("display","none");
+					$(".beijin").css("background-color","rgba(0, 0, 0, 0.5)");
+				}
+
+			})
+			$(".beijin").click(function(){
+				$(".beijin").css("display","none");
+				$(".beijin .good p").text(" ");
+
+			})
+			$("#resume_submit_btn_a").click(function() {
+				/*var is = $(".field .fields").length;
+				for(var i=0; i<is;i++){}
+				$(".beijin").css("display","block");
+				$(".beijin").css("background-color","rgba(255, 255, 255, 0.8)");
+				$(".beijin .good img").css("display","block")
+				$(".beijin .good p").text("已保存");
+				$(".beijin .good ").css("background-color","rgba(255, 255, 255, 0)");
+				setTimeout(function(){
+					window.location.href="personal2.html";
+				},1000)*/
+window.location.href="index.html";
+			})
+			/*添加*/
+		</script>
+	</body>
+
+</html>

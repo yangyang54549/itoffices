@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-17 17:25:26
+ * @Last Modified time: 2018-04-17 18:42:14
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -22,6 +22,18 @@ class User  extends Yang
         return $this->fetch();
     }
     public function order()
+    {
+        return $this->fetch();
+    }
+    public function bianji0()
+    {
+        return $this->fetch();
+    }
+    public function bianji1()
+    {
+        return $this->fetch();
+    }
+    public function bianji2()
     {
         return $this->fetch();
     }
