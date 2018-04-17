@@ -13,17 +13,17 @@ var url_resetimg = url + "/resources/bootstrap/resetImg/";
 
 
 /*     检索是否已超时         ('sessionTime')=='timeOut'   */
-$(document).ajaxComplete(function(event,request, settings){
-	if(request.responseText.indexOf('<input type="hidden" value="index"/>')>0){
-		alert("登陆已过期")
-		window.location.href=url+'/user/logout.shtml';
-	}
-	/*var data=request.responseText;
-	  if(data.indexOf("http://file.315pr.com/upload/index_banner/banner1.png")>-1 && window.location.href!=url)//根据服务器端返回的数据判断
-	  {
-		  window.location.href=url;
-	  }*/
-});
+//$(document).ajaxComplete(function(event,request, settings){
+//	/*if(request.responseText.indexOf('<input type="hidden" value="index"/>')>0){
+//		alert("登陆已过期")
+//		window.location.href=url+'/user/logout.shtml';
+//	}*/
+//	/*var data=request.responseText;
+//	  if(data.indexOf("http://file.315pr.com/upload/index_banner/banner1.png")>-1 && window.location.href!=url)//根据服务器端返回的数据判断
+//	  {
+//		  window.location.href=url;
+//	  }*/
+//});
 
 /* ============= 是否为空 ============== */
 function isEmpty(strVal){
