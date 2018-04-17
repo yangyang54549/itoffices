@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="" content="">
+		<meta name="d" content="">
+		<title>IT联合办公</title>
+
+		<link rel="stylesheet" href="__INDEX__/css/csss/style.css">
+		<link rel="stylesheet" href="__INDEX__/css/csss/user_center_reset.css">
+		<link rel="stylesheet" href="__INDEX__/css/csss/laydate.css">
+		<link rel="stylesheet" type="text/css" href="__INDEX__/css/restre.css" />
+		<!--  地区插件    -->
+		<link rel="stylesheet" type="text/css" href="__INDEX__/css/header.css" />
+		<link rel="stylesheet" href="__INDEX__/css/csss/areaselect.css">
+		<link rel="stylesheet" type="text/css" href="__INDEX__/css/csss/pretty.min.css" />
+	<!--	<link rel="stylesheet" href="__INDEX__/css/csss/inn.css">-->
+		<!--  地区插件end   -->
+		<!--<script charset="utf-8" src="https://lxbjs.baidu.com/lxb.js?sid=10694576"></script>-->
+		<!--<script charset="utf-8" src="https://tag.baidu.com/vcard/v.js?siteid=10694576&amp;url=https%3A%2F%2Fwww.315pr.com%2Fuser%2Fuser_center.shtml&amp;source=http%3A%2F%2F127.0.0.1%3A8020%2Fsan%2Findexs.html%3F__hbt%3D1511768718260&amp;rnd=1782945575&amp;hm=1"></script>-->
+		<!--<script src="https://hm.baidu.com/hm.js?c16e71335ce5575c1aab0ce71c7415ae"></script>-->
+		<script src="__INDEX__/js/js/jquery-2.1.3.min.js"></script>
+
+		<!--<script type="text/javascript" charset="utf-8" src="https://dut.zoosnet.net/js/CdCheck.aspx?id=20380941&amp;sid=1511765651350480413414&amp;d=1511768960039"></script>-->
+
+		<style type="text/css">
+			.navs {
+				width: 90%;
+				margin: 0 auto;
+				padding: 10px;
+			}
+
+			.navs li {
+				float: left;
+			}
+
+			.navs .is {
+				display: block;
+				width: 90px;
+				height: 38px;
+				text-align: center;
+				line-height: 40px;
+				font-size: 14px;
+				color: black;
+				z-index: 100;
+			}
+
+			.navs a:hover {
+				color: #fff !important;
+				background: url(__INDEX__/img/navBg.png);
+				background-size: 100%;
+				/*background-color: #ff5454;*/
+			}
+
+			.actives {
+				color: #fff !important;
+				background: url(__INDEX__/img/navBg.png);
+				background-size: 100%;
+				/*background-color: #ff5454;*/
+			}
+
+			#s_province,
+			#s_city,
+			#s_county {
+				display: block;
+				width: 32%;
+				height: 36px;
+				float: left;
+				margin-right: 1%;
+			}
+
+			.time-item {
+				overflow: hidden;
+				margin-bottom: 10px;
+			}
+
+			.time-item input {
+				width: 40%;
+				height: 36px;
+				float: left;
+				margin-right: 5%;
+			}
+			.div1-info1{    margin: 24px 0;}
+			.div1-info1 span{
+				float: left;
+			}
+			.div1-info1 span:nth-child(1){
+				width: 200px;
+				line-height: 36px;
+				font-size: 16px;
+				color: gray;
+			}
+			.div1-info span:nth-child(1){
+				color: gray;
+			}
+			.div1-info1 span:nth-child(2) div{
+				display: block;
+				line-height: 36px;
+				font-size: 16px;
+			}
+			.div1-info1 span input,.div1-info1 span label,.div1-info1 span div,.div1-info1 span select option,
+			.div1-info span input,.div1-info span label,.div1-info span div,.div1-info span select option{
+				font-size: 16px;
+			}
+			.div1-info1 span input[type=checkbox]{
+
+				width: 15px;
+				height: 15px;
+				background-color: white;
+			}
+			.div_checkbox input,.div_checkbox label{
+				float: left;
+				margin-right: 10px;
+			}
+			.div_checkbox input{
+				margin-top: 11px;
+			}
+			.div_time input,.div_time select{
+				float: left;
+
+				box-sizing: border-box;
+				    padding: 10px 5px;
+				    height: 36px;
+				    width: 150px;
+				        margin-right: 15px;
+			}
+			.div_time select{
+				padding: 0;
+			}
+			.div_time select option{
+				padding: .67861em 1em;
+				    width: 150px;
+			}
+			input[type=checkbox], input[type=radio]{
+				width: auto;
+				height: auto;
+				border-color:red ;
+			}
+			.div1-info1:nth-child(8) span:nth-child(2) input,.div1-info1:nth-child(9) span:nth-child(2) input,
+			.div1-info1:nth-child(10) span:nth-child(2) input,.div1-info1:nth-child(11) span:nth-child(2) input,
+			.div1-info1:nth-child(12) span:nth-child(2) input{
+				font-size: 15px;
+			}
+		</style>
+	</head>
+
+	<body style="padding: 0;">
+		<div style="width:100%;box-shadow:0 2px 4px 0 rgba(58,68,85,0.16);position:relative;z-index:99999;background-color: rgba(0,0,0,0.1)">
+			<div class="head">
+				<div class="logo">
+					<a href="###"></a>
+				</div>
+				<ul class="navs">
+					<li>
+						<a href="{:url('index/index')}" class="is">IT联合办公</a>
+					</li>
+					<li>
+						<a href="{:url('demand/index')}" class="is">需求</a>
+					</li>
+					<li>
+						<a href="{:url('cases/index')}" class="is ">案例</a>
+					</li>
+					<li>
+						<a href="###" class="is actives">人才</a>
+					</li>
+
+				</ul>
+				<div style="clear:both"></div>
+			</div>
+		</div>
+		<div class="page-content">
+
+			<div id="user-info">
+				<div class="info-left">
+					<a href="{:url('user/resume')}">个人主页</a>
+					<a href="{:url('user/index')}" class="active">基本信息</a>
+					<a href="{:url('user/order')}"><em></em>我的订单</a>
+
+					<!--<a href="###">我的工作</a>-->
+					<!--<a class="active" href="###">我的作品</a>-->
+					<a href="###">退出登录</a>
+				</div>
+				<div class="info-right">
+					<div class="right-bg">
+						<div class="right-head">
+							<img src="__INDEX__/img/bai.png" alt="三点一刻营销平台" class="head_img1">
+							<div class="head_div">
+								<span><h3>硅谷</h3><i>0</i><em class="clear"></em></span>
+							</div>
+							<img src="https://www.315pr.com:443/resources/bootstrap/resetimg/write_f00.png" class="head_img2">
+							<i class="clear"></i>
+						</div>
+						<div class="info-myself">
+							<h3>基本信息</h3>
+							<div>
+								<span>姓名</span>
+								<span>{$user.user_name}</span>
+								<i class="clear"></i>
+							</div>
+							<div>
+								<span>性别</span>
+								<span>{if condition="$user.gender eq 0"}男{else/}女{/if}</span>
+								<i class="clear"></i>
+							</div>
+							<div>
+								<span>所在地区</span>
+								<span>{$user.address}</span>
+								<i class="clear"></i>
+							</div>
+							<div>
+								<span>出生日期</span>
+								<span>{$user.birth}</span>
+								<i class="clear"></i>
+							</div>
+							<div>
+								<span>现在状态</span>
+								<span>{if condition="$user.user_status eq 1"}在职{elseif condition="$user.user_status eq 2" /}离职{else/}自由职业{/if}</span>
+								<i class="clear"></i>
+							</div>
+							<div>
+								<span>职业</span>
+								<span>{$user.occupation}</span>
+								<i class="clear"></i>
+							</div>
+							<div>
+								<span>工作年限</span>
+								<span>{$user.years}年</span>
+								<i class="clear"></i>
+							</div>
+							<div>
+								<span>联系方式</span>
+								<span class="contact">
+							<div>
+								<p>电话</p>
+								<p>{$user.mobile}</p>
+							</div>
+							<div>
+								<p>微信</p>
+								<p>{$user.wxchat}</p>
+							</div>
+							<div>
+								<p>邮箱</p>
+								<p>{$user.email}</p>
+							</div>
+						</span>
+								<i class="clear"></i>
+							</div>
+							<!--<div class="profile">
+								<span>自我介绍</span>
+								<span>前段</span>
+								<i class="clear"></i>
+							</div>
+							<div class="skill">
+								<span>技能标签</span>
+								<span>
+							<i>H5开发-全部</i>
+	                        </span>
+								<i class="clear"></i>
+							</div>-->
+							<div class="skill">
+								<span>关注领域</span>
+								<span>
+							<i>{$user.attention}</i>
+		                    </span>
+								<i class="clear"></i>
+							</div>
+						</div>
+					</div>
+					<div id="center">
+						<div class="center1">
+							<div class="center-div1">
+								<div class="form-sub">
+									<img alt="" src="__INDEX__/img/bai.png" id="imgHead">
+									<form id="attachForm11" method="post" action="" enctype="multipart/form-data">
+										<input type="file" accept="" class="uploadFile" name="file" id="attachFile11">
+										<input type="hidden" value="http://file.315pr.com/upload/20171116/f7d9a51a54a64ed59ffc9a50be69e827.png"></form>
+								</div>
+								<h3 class="form-sub-h3">上传头像</h3>
+								<p class="form-sub-p">＊支持JPG、PNG、JPEG等格式的图片</p>
+								<div class="center-div1-info">
+									<div class="div1-info"><span>基本信息</span><span>  号为必填</span><i class="clear"></i></div>
+									<div class="div1-info"><span>姓名  </span><span><input type="text" value="硅谷" id="name">
+											<img src="__INDEX__/img/privacy1.png" class="privacy-img" title="隐藏您的个人信息" tit="0"></span><i class="clear"></i></div>
+									<div class="div1-info">
+										<span>性别  </span>
+										<span><select id="sex" style="font-size: 16px;"><option value="1" selected="">男</option><option value="2">女</option></select></span><i class="clear"></i></div>
+									<div class="div1-info">
+										<span>所在地区  </span>
+										<span>
+				        			<div class="demo-wrap" style="overflow: hidden;">
+				        				<select id="s_province" name="s_province"style="font-size: 16px;"></select>
+										    <select id="s_city" name="s_city" style="font-size: 16px;"></select>
+										    <select id="s_county" name="s_county"style="font-size: 16px;"></select>
+										    <script class="resources library" src="area.js" type="text/javascript"></script>
+
+										    <script type="text/javascript">_init_area();</script>
+										    <script type="text/javascript">
+
+										    </script>
+
+
+						       		</div>
+						       	</span>
+										<i class="clear"></i></div>
+									<div class="div1-info"><span>现在状态  </span><span>
+				        		<select placeholder="请选择现在状态" id="workingLife1"style="font-size: 16px;">
+					        		<option selected="">自由工作</option>
+				                    <option>求职</option>
+				                    <option>正常工作</option>
+
+			                 	</select></span><i class="clear"></i></div>
+									<div class="div1-info"><span>选择职业  </span><span>
+
+						         	   <select name="" id="occupation1" style="width: 49%; height: 34px;font-size: 16px;">
+						         	   	<option value="-1">选择职业</option>
+
+						         	   </select>
+						         	  <select name="" id="occupation2" style="width: 49%; height: 34px;font-size: 16px;">
+						         	  	<option value="-1">选择职业</option>
+
+						         	  </select>
+						       		</span><i class="clear"></i>
+
+									</div>
+
+									<div class="div1-info"><span>工作年限  </span><span>
+				        		<select placeholder="请选择您的工作年限" id="workingLife"style="font-size: 16px;">
+					        		<option selected="">1-3年</option>
+				                    <option>3-5年</option>
+				                    <option>5-8年</option>
+				                    <option>8-10年</option>
+				                    <option>10年以上</option>
+			                 	</select></span><i class="clear"></i></div>
+									<div class="div1-info">
+										<span>出生日期  </span>
+										<span>
+											<!--<input type="text" readonly="readonly" id="time-init" placeholder="您的出生日期" value="1995-11-29">-->
+												<input type="text"  id="time-init" placeholder="您的出生日期例：1995-12-03" value=""maxlength="10">
+										</span><i class="clear"></i></div>
+
+									<div class="div1-info"><span>微信号  </span><span><input type="text" placeholder="请填写您的微信号" value="13203940281" id="wxNum" maxlength="20"></span><i class="clear"></i></div>
+									<div class="div1-info"><span>邮箱  </span><span><input type="text" placeholder="请填写您的邮箱" value="13203940281@163.com" id="email"></span><i class="clear"></i></div>
+									<div class="div1-info"><span>联系电话  </span><span><input type="text"  maxlength="11" placeholder="请填写您的联系电话" value="13203940281" id="mobile"></span><i class="clear"></i></div>
+									<div class="div1-info1" >
+										<span>可工作时间  </span>
+										<span>
+											<div class="div_checkbox">
+												<input type="checkbox" name="" id="" value="xifan"  id="in1"/><label>工作日</label><i class="clear"></i>
+											</div>
+
+											<div class="div_time">
+												<input class="J_WorkTime start" type="text" placeholder="开始时间：09-00"maxlength="10" value="">
+												<input class="J_WorkTime end" type="text" placeholder="结束时间：17-00" maxlength="10"value=""><i class="clear"></i>
+											</div>
+											<div class="div_checkbox">
+												<input type="checkbox" name="" id="" value="xifan"  id="in1"/><label>周末</label><i class="clear"></i>
+											</div>
+
+											<div class="div_time">
+												<input class="J_WorkTime start" type="text" placeholder="开始时间：20-00" maxlength="10" value="">
+												<input class="J_WorkTime end" type="text" placeholder="结束时间：23-00" maxlength="10"value=""><i class="clear"></i>
+											</div>
+											<i class="clear"></i>
+										</span>
+										<i class="clear"></i>
+									</div>
+									<div class="div1-info1">
+										<span>可工作区域 </span>
+										<span>
+											<div class="div_checkbox" id="checkbox1">
+												<input type="radio" name="radioday" id="" value="远程工作"  checked="checked" /><label>远程工作</label>
+												<input type="radio" name="radioday" id="" value="驻场工作"  /><label>驻场工作</label><i class="clear"></i>
+											</div>
+
+											<div class="div_time" >
+												<select name="" id="div_select1" style="font-size: 16px;">
+													<option value="-1">选择省份</option>
+												</select>
+												<select name="" id="div_select2" style="font-size: 16px;">
+													<option value="-1">选择城市  </option>
+												</select><label style="line-height: 36px; height: 36px; color: gray;">(可驻场地址)</label><i class="clear"></i>
+											</div>
+
+
+
+											<i class="clear"></i>
+										</span>
+										<i class="clear"></i>
+									</div>
+									<div class="div1-info1">
+										<span>日薪</span>
+										<span>
+											<div class="div_time">
+												<input type="number" id="" name="" value="300" style="font-size: 16px;"/>
+												<label style="line-height: 36px; height: 36px; color: gray;">元/天(8小时)</label>
+											</div>
+											<i class="clear"></i>
+										</span>
+										<i class="clear"></i>
+									</div>
+									<div class="div1-info1">
+										<span>接单状态</span>
+										<span>
+											<div class="div_checkbox" id="div_checkbox2">
+												<input type="checkbox" name="you" id="" value="显示" checked="checked" style="font-size: 16px;"/><label class="ches">接单</label><i class="clear"></i>
+											</div>
+
+											<i class="clear"></i>
+										</span>
+										<i class="clear"></i>
+									</div>
+
+								</div>
+
+								<div class="center-div1-skill">
+									<div class="skill-div1-info"><span>关注领域</span><span>（必填信息）</span><i class="clear"></i></div>
+									<div class="basic-skill gzly">
+										<span tid="1">科技/互联网</span>
+										<span tid="18">金融/财经</span>
+										<span tid="33">搞笑/段子手</span>
+										<span tid="38">营销/广告</span>
+										<span tid="42">创业</span>
+										<span tid="47">媒体/自媒体</span>
+										<span tid="2">母婴/育儿</span>
+										<span tid="3">教育</span>
+										<span tid="4">家居</span>
+										<span tid="5">零售连锁</span>
+										<span tid="6">文化传媒</span>
+										<span tid="7">旅游</span>
+										<span tid="8">汽车</span>
+										<span tid="10">地产/房产</span>
+										<span tid="11">工业</span>
+										<span tid="12">医疗/健康</span>
+										<span tid="13">美业</span>
+										<span tid="16">时尚</span>
+										<span tid="17">娱乐</span>
+										<span tid="20">体育</span>
+										<span tid="21">艺术</span>
+										<span tid="22">餐饮/食品</span>
+										<span tid="23">服务</span>
+										<span class="onstyle" tid="24">动漫/漫画/游戏</span>
+										<span tid="25">服装</span>
+										<span tid="26">新闻/资讯</span>
+										<span tid="27">创意、生活</span>
+										<span tid="28">购物</span>
+										<span tid="29">情感</span>
+										<span tid="30">宠物</span>
+										<span tid="31">百科</span>
+										<span tid="32">物流</span>
+										<span tid="34">女性</span>
+										<span tid="35">产品评测</span>
+										<span tid="36">电商</span>
+										<span tid="37">创投</span>
+										<span tid="39">管理</span>
+										<span tid="40">影视</span>
+										<span tid="41">阅读</span>
+										<span class="onstyle" tid="43">IT/数码</span>
+										<span tid="44">综合</span>
+										<span tid="45">地方</span>
+										<span tid="48">艺人/网红</span>
+										<span tid="49">公益</span>
+										<span tid="15">其它</span>
+									</div>
+								</div>
+								<button class="next1" style="font-size: 18px;">完成</button>
+								<!--onclick="edit_user();"-->
+							</div>
+						</div>
+					</div>
+				</div>
+				<i class="clear"></i>
+			</div>
+		</div>
+		<i class="clear"></i>
+		<script type="text/javascript">
+			/*选择职业 联动*/
+			var json1 = {
+				"产品经理": ["产品经理", "项目经理", "产品其他"],
+				"UI设计": ["平面设计","WEB前端设计","移动端设计","交互设计"],
+				"前端工程师": ["前端工程师"],
+				"后端工程师": ["Java", "c++", "PHP", "c", "c#", "Python", "node.js", "全栈", "Go"],
+				"测试": ["性能测试", "连接速度测试", "负载测试", "压力测试", "基本测试 ", "技术测试 "]
+			};
+			for(var i in json1) {
+				var pwd = i;
+				var op = new Option(pwd, pwd);
+				document.getElementById("occupation1").appendChild(op);
+			}
+			document.getElementById("occupation1").onchange = function() {
+				document.getElementById("occupation2").length = 1;
+				for(var i in json1) {
+
+					if(i == this.value) {
+						for(var s = 0; s < json1[i].length; s++) {
+							var pwd = json1[i][s];
+							var op = new Option(pwd, pwd);
+							document.getElementById("occupation2").appendChild(op);
+						}
+					}
+				}
+				document.getElementById("occupation2")[1].selected = true;
+			}
+
+		var json0 = {
+				"河南省": ["郑州市", "开封市", "洛阳市", "平顶山市", "焦作市", "鹤壁市", "新乡市", "安阳市","濮阳市","许昌市","漯河市","三门峡市","南阳市","商丘市","信阳市","周口市","驻马店市","济源市"],
+				"青海省": ["西宁市","格尔木","德令哈"],
+				"云南省": ["昆明市","曲靖市","玉溪市","丽江市","普洱市","保山市","昭通市","临沧市"],
+				"江苏省":["南京市","无锡市","徐州市","常州市","苏州市","南通市","连云港市","淮安市","盐城市","扬州市","镇江市","泰州市","宿迁市"]
+			};
+			for(var i in json0) {
+				var pwd = i;
+				var op = new Option(pwd, pwd);
+				document.getElementById("div_select1").appendChild(op);
+			}
+			document.getElementById("div_select1").onchange = function() {
+				document.getElementById("div_select2").length = 1;
+				for(var i in json0) {
+
+					if(i == this.value) {
+						for(var s = 0; s < json0[i].length; s++) {
+							var pwd = json0[i][s];
+							var op = new Option(pwd, pwd);
+							document.getElementById("div_select2").appendChild(op);
+						}
+					}
+				}
+				document.getElementById("div_select2")[1].selected = true;
+			}
+
+		</script>
+		<div class="footer" style="background-color: #1e2831;">
+			<div class="center">
+				<p>2014-2017 汇谷电子科技有限公司 版权所有：ICP备12027515号-1</p>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(".head_img2").click(function() {
+				$(".right-bg").css("display", "none");
+				$("#center").css("display", "block");
+			})
+			$(".next1").click(function() {
+				$(".right-bg").css("display", "block");
+				$("#center").css("display", "none");
+
+			})
+		</script>
+		<script type="text/javascript">
+			$("#div_select1").attr("disabled","disabled");
+			$("#div_select2").attr("disabled","disabled");
+
+			$("#checkbox1 input").click(function(){
+				var value="";
+				var radio=document.getElementsByName("radioday");
+				for(var i=0;i<radio.length;i++){
+					if(radio[i].checked==true){
+						value=radio[i].value;
+						break;
+					}
+				}
+				if(value=="驻场工作"){
+					document.getElementById('div_select1').disabled = false;
+					document.getElementById('div_select2').disabled = false;
+				}else if(value=="远程工作"){
+					document.getElementById('div_select1').disabled = true;
+					document.getElementById('div_select2').disabled = true;
+				}
+			})
+
+			$("#div_checkbox2 input").click(function(){
+				var value1="";
+				var radio=document.getElementsByName("you");
+				for(var i=0;i<radio.length;i++){
+					if(radio[i].checked==true){
+						value1=radio[i].value;
+						break;
+					}
+				}
+				if(value1=="显示"){
+					$(".ches").text("接单");
+				}else{
+					$(".ches").text("不接单");
+				}
+
+			})
+
+			$(".gzly span").click(function(){
+				$(this).toggleClass("onstyle");
+			})
+
+			var img = 0;
+			$(".privacy-img").click(function(){
+				img = img+1;
+				var si = img%2;
+				if(si==1){
+					 $(".privacy-img").attr("src","img/privacy0.png");
+				}else{
+					$(".privacy-img").attr("src","img/privacy1.png");
+				}
+			})
+		</script>
+
+	</body>
+
+</html>

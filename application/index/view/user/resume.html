@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>IT联合办公</title>
+
+		<link rel="stylesheet" type="text/css" href="__INDEX__/css/personal.css" />
+		<link rel="stylesheet" type="text/css" href="__INDEX__/css/header.css" />
+
+		<style type="text/css">
+			.introduce4 .center {
+				width: 460px;
+			}
+
+			.navs li {
+				padding: 0;
+			}
+
+			.navs {
+				width: 90%;
+				margin: 0 auto;
+				padding: 10px;
+			}
+
+			.navs li {
+				float: left;
+			}
+
+			.navs .is {
+				display: block;
+				width: 90px;
+				height: 38px;
+				text-align: center;
+				line-height: 40px;
+				font-size: 14px;
+				color: black;
+				z-index: 100;
+			}
+
+			.navs a:hover {
+				color: #fff !important;
+				background: url(__INDEX__/img/navBg.png);
+				background-size: 100%;
+				background-color: rgba(0, 0, 0, 0.1);
+				/*background-color: #ff5454;*/
+			}
+
+			.actives {
+				color: #fff !important;
+				background: url(__INDEX__/img/navBg.png);
+				background-size: 100%;
+				/*background-color: #ff5454;*/
+			}
+
+			ul li:hover {
+				background-color: #F7F7F7;
+			}
+
+			.introduce6 {
+				position: fixed;
+				top: 85px;
+				z-index: 100;
+				width: 660px;
+				box-sizing: border-box;
+				padding: 10px 20px;
+				display: none;
+			}
+
+			.introduce6>p {
+				padding: 10px;
+				color: #2994f2;
+				font-size: 16px;
+			}
+
+			.introduce6>p em {
+				font-style: normal;
+			}
+
+			.div1-info1 {
+				margin: 10px;
+			}
+
+			.div1-info1>label {
+				display: block;
+				font-size: 14px;
+				padding-bottom: 10px;
+				font-weight: bold;
+			}
+
+			.div1-info2 input,
+			.div1-info2 label,
+			.div1-info2 select,
+			.div1-info2 textarea {
+				float: left;
+				height: 34px;
+				line-height: 34px;
+				font-size: 14px;
+				box-sizing: border-box;
+				padding: 4px;
+				margin-bottom: 10px;
+			}
+
+			.div1-info2 input,
+			.div1-info2 select {
+				width: 200px;
+			}
+
+			.div1-info2 label {
+				margin-right: 15px;
+				margin-left: 10px;
+			}
+
+			.div1-info2 textarea {
+				width: 100%;
+				height: 144px;
+				line-height: 36px;
+			}
+
+			.ui.blue.button,
+			.ui.blue.buttons .button {
+				background-color: #2481e4;
+			}
+
+			.ui.blue.button {
+				box-shadow: 0 0 0 0 rgba(39, 41, 43, .15) inset;
+			}
+
+			.ui.blue.button,
+			.ui.blue.buttons .button {
+				color: #fff;
+				text-shadow: none;
+				background-image: none;
+			}
+
+			.ui.button,
+			.ui.buttons .button,
+			.ui.buttons .or {
+				font-size: 1rem;
+			}
+
+			.ui.button {
+				cursor: pointer;
+				display: inline-block;
+				min-height: 1em;
+				outline: 0;
+				border: none;
+				background-color: #e0e0e0;
+				color: rgba(0, 0, 0, .6);
+				margin: 0 .25em 0 0;
+				padding: .78571em 1.5em;
+				text-shadow: none;
+				line-height: 1;
+				font-style: normal;
+				text-align: center;
+				background-image: none;
+				border-radius: .2857rem;
+				box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(39, 41, 43, .15) inset;
+				user-select: none;
+				-webkit-transition: opacity .1s ease, background-color .1s ease, color .1s ease, box-shadow .1s ease, background .1s ease;
+				transition: opacity .1s ease, background-color .1s ease, color .1s ease, box-shadow .1s ease, background .1s ease;
+			}
+			/*body:nth-of-type(1)#div_select0{height: 34px;font-size: 16px; color: red;} */
+
+			#div_select0 {
+				position：absolut； top：0px； left：0px；display：inline;
+				height: 34px;
+			}
+
+			.beijin {
+				width: 100vw;
+				height: 100vh;
+				background-color: rgba(0, 0, 0, 0.5);
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 200;
+				display: none;
+			}
+
+			.good {
+				margin: 30vh auto;
+				padding: 50px;
+				width: 400px;
+				background-color: white;
+				border-radius:10px ;
+			}
+				.good img{
+				width: 50px;
+				height: 50px;
+				display: block;
+				margin: 10px  auto;
+
+			}
+			.good p {
+				width: 100%;
+				text-align: center;
+				font-size: 15px;
+				font-weight: 600;
+			}
+			.div1-info22{
+				float: left;
+				width: 200px;
+				position: relative;
+				top: 0;
+				left: 0;
+			}
+			#ul{
+				position:absolute;
+				top:20px;
+				left: 0;
+			list-style: none;
+			width: 200px;
+			border: 1px solid #2481e4;
+			box-sizing: border-box;
+			background-color: white;
+			display: none;
+		}
+		#ipt{
+			box-sizing: border-box;
+			width: 200px;
+		}
+		#ul>li{
+			display: block;
+			height: 34px;
+			width: 100%;
+			padding: 0;
+			margin: 0;
+		}
+		#ul li a{
+			display:inline-block ;
+			display: block;
+			width: 100%;
+			height: 100%;
+			line-height: 34px;
+			text-decoration: none;
+			box-sizing: border-box;
+			padding-left: 10px;
+			color: #000;
+		}
+		#ul li a:hover{
+			background-color: #2481e4;
+		}
+		</style>
+	</head>
+
+	<body>
+		<div style="width:100%;height: 63px;  box-shadow:0 2px 4px 0 rgba(58,68,85,0.16); z-index:99999; background-color: rgba(0,0,0,0.1);">
+			<div class="head">
+				<ul class="navs">
+					<li>
+						<a href="{:url('index/index')}" class="is">IT联合办公</a>
+					</li>
+					<li>
+						<a href="{:url('demand/index')}" class="is">需求</a>
+					</li>
+					<li>
+						<a href="{:url('cases/index')}" class="is">案例</a>
+					</li>
+					<li>
+						<a href="###" class="is actives">人才</a>
+					</li>
+					<!--<li><a href="https://www.315pr.com:443/case/page.shtml">案例</a></li>-->
+					<!-- <li><a href="https://www.315pr.com:443/smart/list.shtml">媒介</a></li> -->
+					<!--<li><a href="https://www.315pr.com:443/report/page.shtml">资讯</a></li>-->
+
+				</ul>
+				<div style="clear:both"></div>
+			</div>
+		</div>
+		<img src="__INDEX__/img/fan.png" class="img_one" onclick="window.history.go(-1);" />
+		<div class="container">
+			<div class="left">
+				<div class="introduce">
+					<h3 class="h3">个人介绍<span> </span><a href="bianji2.html"att><img src="__INDEX__/img/xiugai.png"class="imgs" alt="修改" title="修改"/></a></h3>
+					<p>专注UI设计7年，先后参与项目My Ninja（Facebook网页游戏）、三国战神（手游）、爱主题（日常应用）等项目UI设计工作。熟悉产品开发流程，配合团队跟进项目。</p>
+
+				</div>
+				<div class="work introduce">
+					<h3 class="h3">工作经历<span></span><a href="bianji2.html"att><img src="__INDEX__/img/xiugai.png"class="imgs" alt="修改" title="修改"/></a></h3>
+					<ul class="J_Works">
+						<li>
+							<i class="dot"><i></i></i>
+							<p class="title"><span>2016-06-15 - 至今</span><span>麦子视觉工作室</span><span>UI设计</span></p>
+							<p class="summary">主要负责移动UI设计、网页设计、游戏UI</p>
+						</li>
+						<li>
+							<i class="dot"><i></i></i>
+							<p class="title"><span>2013-04-08 - 2015-03-31</span><span>成都掌沃无限科技有限公司</span><span>UI设计</span></p>
+							<p class="summary">负责游戏UI设计 图标 及宣传海报</p>
+						</li>
+						<li>
+							<i class="dot"><i></i></i>
+							<p class="title"><span>2011-07-11 - 2013-03-31</span><span>成都摩奇信息科技有限公司</span><span>UI设计</span></p>
+							<p class="summary">在公司前期工作职责app UI icon 后期进入游戏项目组 负责游戏UI设计 </p>
+						</li>
+					</ul>
+
+				</div>
+				<div class="introduce">
+					<h3 class="h3">教育经历<span> </span><a href="bianji2.html"att><img src="__INDEX__/img/xiugai.png"class="imgs" alt="修改" title="修改"/></a></h3>
+					<ul>
+						<li>
+							<i class="dot"><i style="margin-top: 2.5px;"></i></i>
+							<p class="title"><span>2008-09-01 - 2013-06-30</span><span>中原工学院</span><span>信息与计算科学</span><span>本科</span></p>
+							<p class="summary">在中原工学院理学院完成信息与计算科学学士学位学习任务.顺利完成本科学业。 </p>
+						</li>
+
+					</ul>
+				</div>
+				<div class="introduce">
+					<h3 class="h3">技能<span> </span><a href="bianji1.html"att><img src="__INDEX__/img/xiugai.png"class="imgs" alt="修改" title="修改"/></a></h3>
+					<ul class="introduce3">
+
+						<li>
+							<p>动效</p>
+							<p class="gren_b"><span id=""></span></p>
+						</li>
+						<li>
+							<p>AI</p>
+							<p class="gren_b"><span></span></p>
+						</li>
+						<li>
+							<p>Photoshop</p>
+							<p class="gren_b"><span></span></p>
+						</li>
+						<li>
+							<p>Sketch</p>
+							<p class="gren_b"><span></span></p>
+						</li>
+						<li>
+							<p><span></span><span></span><span></span><span></span><span></span><span></span></p>
+							<p><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></p>
+						</li>
+
+					</ul>
+				</div>
+				<!--作品-->
+				<div class="introduce">
+					<h3 class="h3">作品<span> </span><a href="bianji0.html"att><img src="__INDEX__/img/xiugai.png"class="imgs" alt="修改" title="修改"/></a></h3>
+					<ul class="introduce4">
+
+						<li>
+							<!--<div class="left">
+								<p>赞</p>
+								<p>2</p>
+							</div>-->
+							<div class="right">
+								<p> <span>德古拉（app设计）</span><span>ui设计</span></p>
+								<p>移动支付产品 提供商户收款、便民服务及其他特色增值服务</p>
+							</div>
+
+							<i class="clear"></i>
+						</li>
+						<li>
+							<!--<div class="left">
+								<p>赞</p>
+								<p>2</p>
+							</div>-->
+							<div class="right">
+								<p> <span>德古拉（app设计）</span><span>ui设计</span></p>
+								<p>移动支付产品 提务及其他特色增值服务</p>
+							</div>
+
+							<i class="clear"></i>
+						</li>
+						<li>
+							<!--<div class="left">
+								<p>赞</p>
+								<p>2</p>
+							</div>-->
+							<div class="right">
+								<p> <span>德古拉</span><span>ui设计</span></p>
+								<p>移动支付产增值服务</p>
+							</div>
+
+							<i class="clear"></i>
+						</li>
+						<li>
+							<!--<div class="left">
+								<p>赞</p>
+								<p>2</p>
+							</div>-->
+							<div class="right">
+								<p> <span>德古拉（）</span><span>ui设计</span></p>
+								<p>民服务及其他特色增值服务</p>
+							</div>
+
+							<i class="clear"></i>
+						</li>
+						<li>
+							<!--<div class="left">
+								<p>赞</p>
+								<p>2</p>
+							</div>-->
+							<div class="right">
+								<p> <span>德古拉（app设计）</span><span>ui设计</span></p>
+								<p>移动支付产品 提供商户收款、便民服务及其他特色增值服务</p>
+							</div>
+
+							<i class="clear"></i>
+						</li>
+
+					</ul>
+				</div>
+
+				<div class="introduce introduce5">
+					<h3>用户评价<span> 好评度  <a href="###" class="introduce5_span">
+						<img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/>
+						<div class="">
+							<p><span >专业(强烈推荐)</span> <span ><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/></span> <i class="clear"></i></p>
+							<p><span >按时(强烈推荐)</span> <span ><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/></span> <i class="clear"></i></p>
+							<p><span >态度(强烈推荐)</span> <span ><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/></span> <i class="clear"></i></p>
+
+						</div>
+					</a> 4 人评论 </span><i class="clear"></i></h3>
+					<ul class="introduce51">
+
+						<li>
+							<div class="left">
+								<img src="__INDEX__/img/avatar/11.jpg" />
+
+							</div>
+							<div class="conte">
+								<p>
+									生于1890</p>
+								<p>完成质量很高，专业度和配合度都很好，非常满意</p>
+							</div>
+							<div class="right">
+								<p>
+									2017-06-01
+								</p>
+								<p><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /></p>
+							</div>
+							<i class="clear"></i>
+						</li>
+						<li>
+							<div class="left">
+
+								<img src="__INDEX__/img/avatar/11.jpg" />
+
+							</div>
+							<div class="conte">
+								<p>
+									生于1890</p>
+								<p>完成质量很高，专业度和配合度都很好，非常满意</p>
+							</div>
+							<div class="right">
+								<p>
+									2017-06-01
+								</p>
+								<p><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /></p>
+							</div>
+							<i class="clear"></i>
+						</li>
+						<li>
+							<div class="left">
+
+								<img src="__INDEX__/img/avatar/11.jpg" />
+
+							</div>
+							<div class="conte">
+								<p>
+									生于1890</p>
+								<p>完成质量很高，专业度和配合度都很好，非常满意</p>
+							</div>
+							<div class="right">
+								<p>
+									2017-06-01
+								</p>
+								<p><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /></p>
+							</div>
+							<i class="clear"></i>
+						</li>
+						<li>
+							<div class="left">
+
+								<img src="__INDEX__/img/avatar/11.jpg" />
+
+							</div>
+							<div class="conte">
+								<p>
+									生于1890</p>
+								<p>完成质量很高，专业度和配合度都很好，非常满意</p>
+							</div>
+							<div class="right">
+								<p>
+									2017-06-01
+								</p>
+								<p><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /></p>
+							</div>
+							<i class="clear"></i>
+						</li>
+					</ul>
+				</div>
+				<div class="introduce6">
+					<p>*总工时<em class="total_hours">80</em>小时，总金额<em class="amount">3200</em>元</p>
+					<div class="div1-info1">
+						<label>预约工作时长</label>
+						<div class="div1-info2">
+							<input type="number" name="" value="10" id="timeday" /><label>天</label>
+							<div class="div1-info22">
+								<input type="text" name="ipt" id="ipt" value="0" placeholder="0" />
+									<ul id="ul">
+										<li><a href="javascript:;">0</a></li>
+										<li><a href="javascript:;">1</a></li>
+										<li><a href="javascript:;">2</a></li>
+										<li><a href="javascript:;">3</a></li>
+										<li><a href="javascript:;">4</a></li>
+										<li><a href="javascript:;">5</a></li>
+										<li><a href="javascript:;">6</a></li><li><a href="javascript:;">7</a></li>
+									</ul>
+							</div>
+
+							<label>小时</label><i class="clear"></i>
+						</div>
+					</div>
+					<div class="div1-info1">
+						<label>开始时间</label>
+						<div class="div1-info2">
+							<input type="text" name="" id="" placeholder="2017-12-12" maxlength="10"/><label></label>
+							<i class="clear"></i>
+						</div>
+					</div>
+					<div class="div1-info1">
+						<label>具体工作地点</label>
+						<div class="div1-info2">
+							<input type="text" name="" id="" placeholder="例：河南  洛阳"maxlength="6" style="width: 100%;" />
+							<!--<label></label>-->
+							<i class="clear"></i>
+						</div>
+					</div>
+
+					<div class="div1-info1">
+						<label>工作说明</label>
+						<div class="div1-info2">
+							<textarea name="" rows="3" cols="" placeholder="工作详细说明(140字以内)" maxlength="140"></textarea>
+							<i class="clear"></i>
+						</div>
+					</div>
+					<div class="div1-info1" style="margin: 0 10px;padding: 0;">
+						<label style="color: gray;">*得到程序员确认后，才需要托管费用，双方联系</label>
+						<div class="div1-info2" style="display: none;">
+							<textarea name="" rows="3" cols="" placeholder="工作说明"></textarea><label></label>
+							<i class="clear"></i>
+						</div>
+					</div>
+					<div class="field" style="padding: 10px 0;">
+						<a id="resume_submit_btn_a" class="ui button blue" style="margin-left:0.5em;"><i class="write icon"></i>确定</a>
+					</div>
+				</div>
+			</div>
+			<div class="right" id="right">
+				<div class="right_img" >
+					<div class="top_img">
+						<img src="__INDEX__/img/bai.png" class="head_img" />
+						<div class="top_icon">
+							<img src="__INDEX__/img/icon/nv.png" class="icon" />
+						</div>
+
+					</div>
+				</div>
+				<div class="right_name">
+					<h3>格子飞</h3>
+					<div class="status"><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><span>(1)</span>
+						<div class="status_x">
+
+							<p><span>专业(强烈推荐)</span> <span><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/></span> <i class="clear"></i></p>
+							<p><span>按时(强烈推荐)</span> <span><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/></span> <i class="clear"></i></p>
+							<p><span>态度(强烈推荐)</span> <span><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/></span> <i class="clear"></i></p>
+							<p><span>重复(雇佣率)</span> <span><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/></span> <i class="clear"></i></p>
+						</div>
+					</div>
+				</div>
+				<div class="right_site">
+					<div class="">
+						<img src="__INDEX__/img/icon/weixin.png" />
+						<p class="site_top">未验证微信号</p>
+						<p class="sanjiao"></p>
+					</div>
+					<div class="">
+						<img src="__INDEX__/img/icon/app.png" />
+						<p class="site_top">未验证电话号码</p>
+						<p class="sanjiao"></p>
+					</div>
+					<div class="">
+						<img src="__INDEX__/img/144512357196727672.png" />
+						<p class="site_top">未验证邮箱地址</p>
+						<p class="sanjiao"></p>
+					</div>
+					<div class="">
+						<img src="__INDEX__/img/icon/rencai.png" />
+						<a href="essential1.html" class="site_top">未完成个人主页</a>
+						<p class="sanjiao"></p>
+					</div>
+				</div>
+				<div class="right_message">
+					<p>160元/天</p>
+					<p>可工作地点: 远程</p>
+					<p>可工作时间: 工作日09:00-21:00、周末9:00-20:00</p>
+					<div class="contact-btn">
+						<a href="###" class="ui1">雇佣我吧</a>
+					</div>
+					<div class="contact-btn" style="margin-top: 10px;">
+						<a href="###" class="ui2" style="    border: 1px solid #2481e4;">和TA聊聊
+							<img class="ui rounded image" src="__INDEX__/img/saoma.png">
+						</a>
+
+					</div>
+				</div>
+				<div class="right_attention">
+					<div class="attention_left" id="duibi">
+						<span id="">
+							<img src="__INDEX__/img/icon/fei.png" id="duibi_img" style="display: none;"/>
+						</span>
+						<span id="">
+							对比
+						</span>
+					</div>
+					<div class="attention_right" id="guanzu">
+						<span id="">
+							&omega;
+						</span>
+						<span id="guanzu_span">
+							关注
+						</span>
+						<p class="attention_right_p" id="guanzu_p">关注</p>
+					</div>
+				</div>
+				<div class="right_attention2">
+					<div class="attention_left">
+						<p>关注</p>
+						<p class="strin">6</p>
+					</div>
+					<div class="attention_right">
+						<p>粉丝</p>
+						<p class="strin">8</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer" style="background-color: #1e2831;">
+			<div class="center">
+				<p>2014-2017 汇谷电子科技有限公司 版权所有：ICP备12027515号-1</p>
+			</div>
+		</div>
+		<div class="jing" style="width: 100vw;height: 100vh; background-color: rgba(0,0,0,0.7); position: fixed;top: 0;left: 0; display: none; z-index: 50;">
+
+		</div>
+		<div class="beijin" >
+			<div class="good">
+				<img src="__INDEX__/img/duihao.png"/>
+				<p></p>
+			</div>
+		</div>
+	</body>
+	<script src="__INDEX__/js/jss/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var ss = ($(window).width() - 980) / 2;
+		$("#right").css("right", ss + "px");
+
+		$("#duibi").click(function() {
+			var di = document.getElementById("duibi_img");
+			if(di.style.display == "block") {
+				$("#duibi_img").css("display", "none")
+			} else {
+				$("#duibi_img").css("display", "block")
+			}
+		})
+		$("#guanzu").click(function() {
+			if($("#guanzu_span").text() == "已关注") {
+				$("#guanzu").css("color", "#0D80DD");
+				$("#guanzu_span").text("关注");
+				$("#guanzu_p").text("关注");
+			} else {
+				$("#guanzu").css("color", "#258fe6");
+				$("#guanzu_span").text("已关注");
+				$("#guanzu_p").text("取消关注");
+			}
+		})
+
+		/*select ul*/
+		var ipt = document.getElementById("ipt");
+			var ul = document.getElementById("ul");
+			var lis = ul.children;
+		ipt.onfocus = function(){
+				ul.style.display = "block";
+			}
+			ipt.onblur = function(){
+				setTimeout(function(){
+					ul.style.display = "none";
+				},200);
+
+			}
+			for(var i = 0 ; i < lis.length ;i++){
+					lis[i].onclick=function(){
+						ipt.value = this.innerText;
+						var times = parseInt($('#timeday').val()) * 8 + parseInt($('#ipt').val());
+							$(".total_hours").text(times)
+							$(".amount").text(parseInt(times * 20));
+					}
+				}
+		$(".ui1").click(function() {
+			$(".jing").css('display', 'block');
+			$(".introduce6").css("display", "block");
+		})
+		$(".ui2").click(function() {
+			$(".ui1").css("border-color","gray");
+			$(".ui1").css("background-color","#E8E8E8");
+			$(".ui1").css("color","gray");
+			$(".ui1").text("已被雇佣");
+		})
+		$(".jing").click(function() {
+			$(".jing").css('display', 'none');
+			$(".introduce6").css("display", "none");
+		})
+
+		$('#timeday').bind('input', function() {
+			if($(this).val() < 0) {$(this).val("0");} else {}
+			var times = parseInt($(this).val()) * 8 + parseInt($('#ipt').val());
+			$(".total_hours").text(times)
+			$(".amount").text(parseInt(times * 20));
+		});
+
+		$(".beijin").click(function(){
+				$(".beijin").css("display","none");
+				$(".beijin .good p").text("");
+		})
+		$("#resume_submit_btn_a").click(function() {
+				var is = $(".field .fields").length;
+				for(var i=0; i<is;i++){}
+						$(".jing").css('display', 'none');
+						$(".introduce6").css("display", "none");
+			})
+
+
+	</script>
+
+</html>
