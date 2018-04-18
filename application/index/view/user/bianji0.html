@@ -137,29 +137,54 @@
 
 				<h4 class="ui header" style="padding:10px 0 0 20px; margin: 0; "><i class="browser icon" style="vertical-align: middle"></i>作品</h4>
 				<div class="field" data-widget="works-editor">
+						{if condition="$production"}
+							{volist name="production" id="vo"}
+							<div class="fields worksfields" data-id="43444">
+								<span class="resume_hand_li">
+									<i class="plus icon link item_add" title="添加"></i>
+									<i class="trash icon link item_delete" title="删除"></i>
+								</span>
+								<div class="inline field" style="margin-bottom: 20px;">
+									<label>作品名称</label>
+									<input name="worksname" class="worksname" placeholder="20字以内 不能包含&amp; $ % / \ * < > ' `等特殊字符" maxlength="20" type="text" style="width: 200px;"  value="{$vo.name}"></div>
+								<div class="inline field" style="margin-bottom: 20px;margin-left: 20px;">
+									<label>职责</label> <input name="duty" class="duty" type="text" placeholder="例：PM/iOS 主程 (10字以内)" maxlength="10" style="width: 200px;"  value="{$vo.position}">
+									<div class="ui label work-error J_WorkNameTip" style="display:none;"></div>
+								</div>
+								<div class="inline field" style="margin-bottom: 20px;"> <label>作品链接</label>
+									<input name="worksurl" class="worksurl" placeholder="例: http://www.example.com,若无法提供有效链接，请添加作品截图" type="text" style="width: 462px;"  value="{$vo.url}">
+									<div class="ui label work-error J_WorkUrlTip" style="display:none;"></div>
+								</div>
+								<div class="inline field" style="margin-bottom: 20px;">
+									<label>作品简介</label>
+									<textarea name="description" class="description" type="text" placeholder="添加不超过44字的作品简介" style="width: 800px;height: 60px;min-height: auto;;" maxlength="44">{$vo.content}</textarea>
+								</div>
+							</div>
+							{/volist}
+						{else/}
+						<div class="fields worksfields" data-id="43444">
+							<span class="resume_hand_li">
+								<i class="plus icon link item_add" title="添加"></i>
+								<i class="trash icon link item_delete" title="删除"></i>
+							</span>
+							<div class="inline field" style="margin-bottom: 20px;">
+								<label>作品名称</label>
+								<input name="worksname" class="worksname" placeholder="20字以内 不能包含&amp; $ % / \ * < > ' `等特殊字符" maxlength="20" type="text" style="width: 200px;"></div>
+							<div class="inline field" style="margin-bottom: 20px;margin-left: 20px;">
+								<label>职责</label> <input name="duty" class="duty" type="text" placeholder="例：PM/iOS 主程 (10字以内)" maxlength="10" style="width: 200px;">
+								<div class="ui label work-error J_WorkNameTip" style="display:none;"></div>
+							</div>
+							<div class="inline field" style="margin-bottom: 20px;"> <label>作品链接</label>
+								<input name="worksurl" class="worksurl" placeholder="例: http://www.example.com,若无法提供有效链接，请添加作品截图" type="text" style="width: 462px;">
+								<div class="ui label work-error J_WorkUrlTip" style="display:none;"></div>
+							</div>
+							<div class="inline field" style="margin-bottom: 20px;">
+								<label>作品简介</label>
+								<textarea name="description" class="description" type="text" placeholder="添加不超过44字的作品简介" style="width: 800px;height: 60px;min-height: auto;;" maxlength="44"></textarea>
+							</div>
 
-					<div class="fields worksfields" data-id="43444">
-						<span class="resume_hand_li">
-							<i class="plus icon link item_add" title="添加"></i>
-							<i class="trash icon link item_delete" title="删除"></i>
-						</span>
-						<div class="inline field" style="margin-bottom: 20px;">
-							<label>作品名称</label>
-							<input name="worksname" class="worksname" placeholder="20字以内 不能包含&amp; $ % / \ * < > ' `等特殊字符" maxlength="20" type="text" style="width: 200px;"></div>
-						<div class="inline field" style="margin-bottom: 20px;margin-left: 20px;">
-							<label>职责</label> <input name="duty" class="duty" type="text" placeholder="例：PM/iOS 主程 (10字以内)" maxlength="10" style="width: 200px;">
-							<div class="ui label work-error J_WorkNameTip" style="display:none;"></div>
 						</div>
-						<div class="inline field" style="margin-bottom: 20px;"> <label>作品链接</label>
-							<input name="worksurl" class="worksurl" placeholder="例: http://www.example.com,若无法提供有效链接，请添加作品截图" type="text" style="width: 462px;">
-							<div class="ui label work-error J_WorkUrlTip" style="display:none;"></div>
-						</div>
-						<div class="inline field" style="margin-bottom: 20px;">
-							<label>作品简介</label>
-							<textarea name="description" class="description" type="text" placeholder="添加不超过44字的作品简介" style="width: 800px;height: 60px;min-height: auto;;" maxlength="44"></textarea>
-						</div>
-
-					</div>
+						{/if}
 				</div>
 				<div class="field">
 					<a id="resume_submit_btn_a" class="ui button blue" style="margin: 0 0 30px 88px;"><i class="write icon"></i>确定</a>
