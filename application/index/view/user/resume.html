@@ -279,7 +279,7 @@
 
 				</div>
 				<div class="work introduce">
-					<h3 class="h3">工作经历<span></span><a href="#"att><img src="__INDEX__/img/xiugai.png"class="imgs" alt="修改" title="修改"/></a></h3>
+					<h3 class="h3">工作经历<span></span><a href="bianji2.html"att><img src="__INDEX__/img/xiugai.png"class="imgs" alt="修改" title="修改"/></a></h3>
 					<ul class="J_Works">
 
 						{volist name="experience" id="vo"}
@@ -293,7 +293,7 @@
 
 				</div>
 				<div class="introduce">
-					<h3 class="h3">教育经历<span> </span><a href="#"att><img src="__INDEX__/img/xiugai.png"class="imgs" alt="修改" title="修改"/></a></h3>
+					<h3 class="h3">教育经历<span> </span><a href="bianji2.html"att><img src="__INDEX__/img/xiugai.png"class="imgs" alt="修改" title="修改"/></a></h3>
 					<ul>
 						{volist name="education" id="vos"}
 						<li>
@@ -305,14 +305,15 @@
 					</ul>
 				</div>
 				<div class="introduce">
-					<h3 class="h3">技能<span> </span><a href="#"att><img src="__INDEX__/img/xiugai.png"class="imgs" alt="修改" title="修改"/></a></h3>
+					<h3 class="h3">技能<span> </span><a href="bianji1.html"att><img src="__INDEX__/img/xiugai.png"class="imgs" alt="修改" title="修改"/></a></h3>
 					<ul class="introduce3">
 
+						{volist name="skill" id="voss"}
 						<li>
-							<p>动效</p>
-							<p class="gren_b"><span style="width:60%"></span></p>
+							<p>{$voss.skill}</p>
+							<p class="gren_b"><span style="width:{$voss.grade*20}%"></span></p>
 						</li>
-
+						{/volist}
 
 						<li class="ruler">
 							<p><span></span><span></span><span></span><span></span><span></span><span></span></p>
@@ -323,69 +324,18 @@
 				</div>
 				<!--作品-->
 				<div class="introduce">
-					<h3 class="h3">作品<span> </span><a href="#"att><img src="__INDEX__/img/xiugai.png"class="imgs" alt="修改" title="修改"/></a></h3>
+					<h3 class="h3">作品<span> </span><a href="bianji0.html"att><img src="__INDEX__/img/xiugai.png"class="imgs" alt="修改" title="修改"/></a></h3>
 					<ul class="introduce4">
 
+						{volist name="production" id="vosss"}
 						<li>
-							<!--<div class="left">
-								<p>赞</p>
-								<p>2</p>
-							</div>-->
 							<div class="right">
-								<p> <span>德古拉（app设计）</span><span>ui设计</span></p>
-								<p>移动支付产品 提供商户收款、便民服务及其他特色增值服务</p>
+								<p> <span>{$vosss.name}</span><span>{$vosss.position}</span></p>
+								<p>{$vosss.content}</p>
 							</div>
-
 							<i class="clear"></i>
 						</li>
-						<li>
-							<!--<div class="left">
-								<p>赞</p>
-								<p>2</p>
-							</div>-->
-							<div class="right">
-								<p> <span>德古拉（app设计）</span><span>ui设计</span></p>
-								<p>移动支付产品 提务及其他特色增值服务</p>
-							</div>
-
-							<i class="clear"></i>
-						</li>
-						<li>
-							<!--<div class="left">
-								<p>赞</p>
-								<p>2</p>
-							</div>-->
-							<div class="right">
-								<p> <span>德古拉</span><span>ui设计</span></p>
-								<p>移动支付产增值服务</p>
-							</div>
-
-							<i class="clear"></i>
-						</li>
-						<li>
-							<!--<div class="left">
-								<p>赞</p>
-								<p>2</p>
-							</div>-->
-							<div class="right">
-								<p> <span>德古拉（）</span><span>ui设计</span></p>
-								<p>民服务及其他特色增值服务</p>
-							</div>
-
-							<i class="clear"></i>
-						</li>
-						<li>
-							<!--<div class="left">
-								<p>赞</p>
-								<p>2</p>
-							</div>-->
-							<div class="right">
-								<p> <span>德古拉（app设计）</span><span>ui设计</span></p>
-								<p>移动支付产品 提供商户收款、便民服务及其他特色增值服务</p>
-							</div>
-
-							<i class="clear"></i>
-						</li>
+						{/volist}
 
 					</ul>
 				</div>

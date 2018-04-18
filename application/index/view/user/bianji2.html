@@ -144,11 +144,27 @@
 						<h4 class="ui header">个人介绍</h4>
 						<div class="field">
 							<div class="textarea_content_div">
-								<textarea name="" rows="4" cols="" placeholder="个人介绍(1000字以内)" maxlength="1000"></textarea>
+								<textarea name="" rows="4" cols="" placeholder="个人介绍(1000字以内)" maxlength="1000">{$user.introduce}</textarea>
 							</div>
 						</div>
 						<h4 class="ui header">工作经历</h4>
 						<div class="J_ResumeFields">
+						{if condition="$experience"}
+							{volist name="experience" id="vo"}
+							<div class="J_item mb20">
+								<div class="fields">
+									<input class="J_WorkId" type="hidden" value="24302">
+									<div class="inline field"><input type="text" class="fm-input J_StartTime" placeholder="开始时间:2015-06-06" maxlength="10" value="{$vo.start_time}"></div>
+									<div class="inline field"><input type="text" class="fm-input J_EndTime" placeholder="结束时间:2016-06-06"  maxlength="10" value="{$vo.end_time}"></div>
+									<div class="inline field"><input type="text" class="fm-input J_StartTime" placeholder="请输入公司名称(15字内)" maxlength="15" value="{$vo.company_name}"></div>
+									<div class="inline field"><input type="text" class="fm-input J_EndTime" placeholder="请输入职位(8字以内)" maxlength="8" value="{$vo.position}"></div>
+									<i class="plus icon link fm-icon J_AddResume" title="添加更多经历" ></i>
+									<i class="trash icon link fm-icon" data-role="delete" title="删除" ></i></div>
+								<div class="row"><textarea class="fm-info J_Desc" placeholder="请简单说明您的工作内容，关键成绩(90字以内)" rows="3" maxlength="90">{$vo.content}</textarea></div>
+								<!-- <div class="row" style="color: #258fe7;margin-top: 10px;"><label><input name="is_main" checked="checked" type="radio"value="1" >&nbsp;&nbsp;在个人主页优先展示该项经历</label></div> -->
+							</div>
+							{/volist}
+						{else/}
 							<div class="J_item mb20">
 								<div class="fields">
 									<input class="J_WorkId" type="hidden" value="24302">
@@ -159,11 +175,28 @@
 									<i class="plus icon link fm-icon J_AddResume" title="添加更多经历" ></i>
 									<i class="trash icon link fm-icon" data-role="delete" title="删除" ></i></div>
 								<div class="row"><textarea class="fm-info J_Desc" placeholder="请简单说明您的工作内容，关键成绩(90字以内)" rows="3" maxlength="90"></textarea></div>
-								<div class="row" style="color: #258fe7;margin-top: 10px;"><label><input name="is_main" checked="checked" type="radio"value="1" >&nbsp;&nbsp;在个人主页优先展示该项经历</label></div>
+								<!-- <div class="row" style="color: #258fe7;margin-top: 10px;"><label><input name="is_main" checked="checked" type="radio"value="1" >&nbsp;&nbsp;在个人主页优先展示该项经历</label></div> -->
 							</div>
+						{/if}
+
 						</div>
 						<h4 class="ui header">教育经历</h4>
 						<div class="J_EduFields">
+
+						{if condition="$education"}
+							{volist name="education" id="vos"}
+							<div class="J_EduItem edu-item mb20">
+								<div class="fields"><input class="J_WorkId" type="hidden" value="7103">
+									<div class="inline field"><input type="text" class="fm-input J_StartTime" placeholder="开始时间:2011-03-03 " maxlength="10"  value="{$vos.start_time}"></div>
+									<div class="inline field"><input type="text" class="fm-input J_EndTime" placeholder="结束时间:2015-03-03 " maxlength="10" value="{$vos.end_time}"></div>
+									<div class="inline field" ><input type="text" class="fm-input J_StartTime" placeholder="请输入院校名称(10字内)" maxlength="10" value="{$vos.school_name}"></div>
+									<div class="inline field"><input type="text" class="fm-input J_EndTime" placeholder="请输入专业名称(7字内)" maxlength="7"  value="{$vos.major}"></div>
+									<div class="inline field"><input type="text" class="fm-input J_EndTime" placeholder="请输入学历(5字以内)" maxlength="5" value="{$vos.xueli}"></div>
+									<i class="plus icon link fm-icon J_Add" title="添加更多经历"></i><i class="trash icon link fm-icon" data-role="delete" title="删除"></i></div>
+								<div class="row"><textarea class="fm-info J_Desc" placeholder="请说明您的成就，如获奖经历、实践经历(90字以内)" maxlength="90">{$vos.content}</textarea></div>
+							</div>
+							{/volist}
+						{else/}
 							<div class="J_EduItem edu-item mb20">
 								<div class="fields"><input class="J_WorkId" type="hidden" value="7103">
 									<div class="inline field"><input type="text" class="fm-input J_StartTime" placeholder="开始时间:2011-03-03 " maxlength="10"></div>
@@ -174,6 +207,7 @@
 									<i class="plus icon link fm-icon J_Add" title="添加更多经历"></i><i class="trash icon link fm-icon" data-role="delete" title="删除"></i></div>
 								<div class="row"><textarea class="fm-info J_Desc" placeholder="请说明您的成就，如获奖经历、实践经历(90字以内)" maxlength="90"></textarea></div>
 							</div>
+						{/if}
 						</div>
 					</form>
 					<div class="field">

@@ -145,6 +145,37 @@
 
 						<h4 class="ui header"><i class="configure icon"></i>技能</h4>
 						<div class="field" data-widget="skill-editor">
+						{if condition="$skill"}
+							{volist name="skill" id="vo"}
+							<div class="fields J_Fields" data-role="row">
+								<span class="resume_hand_li">
+								<i class="plus icon link" title="添加" data-role="add"></i> <i class="trash icon link" data-role="delete" title="删除"></i>   </span>
+								<div class="inline field"> <label style="margin-top: 8px;">技能工具</label> </div>
+								<div class="inline field" style="width: 200px;padding-left: 0;">
+									<select name="">
+										<option value="java" {if condition="$vo.skill == 'java'"}selected="selected"{/if}>java</option>
+										<option value="php" {if condition="$vo.skill == 'php'"}selected="selected"{/if}>php</option>
+										<option value="html5" {if condition="$vo.skill == 'html5'"}selected="selected"{/if}>html5</option>
+										<option value="css" {if condition="$vo.skill == 'css'"}selected="selected"{/if}>css</option>
+										<option value="go" {if condition="$vo.skill == 'go'"}selected="selected"{/if}>go</option>
+										<option value="javascript" {if condition="$vo.skill == 'javascript'"}selected="selected"{/if}>javascript</option>
+										<option value="python" {if condition="$vo.skill eq 'python'"}selected="selected"{/if}>python</option>
+									</select>
+								</div>
+								<div class="inline field"> <label style="margin-top: 8px;">经验自评</label> </div>
+								<div class="inline field" style="width: 200px;padding-left: 0;">
+									<select name="" class="fen">
+										<option value="1" {if condition="$vo.grade eq 1"}selected="selected"{/if}>1分</option>
+										<option value="2" {if condition="$vo.grade eq 2"}selected="selected"{/if}>2分</option>
+										<option value="3" {if condition="$vo.grade eq 3"}selected="selected"{/if}>3分</option>
+										<option value="5" {if condition="$vo.grade eq 4"}selected="selected"{/if}>4分</option>
+										<option value="5" {if condition="$vo.grade eq 5"}selected="selected"{/if}>5分</option>
+									</select>
+								</div>
+								<div class="inline field"> <label style="margin-top: 8px; color: gray;">1分为新入门，5分为满分</label> </div>
+							</div>
+							{/volist}
+						{else/}
 							<div class="fields J_Fields" data-role="row">
 								<span class="resume_hand_li">
 								<i class="plus icon link" title="添加" data-role="add"></i> <i class="trash icon link" data-role="delete" title="删除"></i>   </span>
@@ -172,6 +203,8 @@
 								</div>
 								<div class="inline field"> <label style="margin-top: 8px; color: gray;">1分为新入门，5分为满分</label> </div>
 							</div>
+						{/if}
+
 						</div>
 					</form>
 
