@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-17 18:38:26
+ * @Last Modified time: 2018-04-18 09:31:57
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -128,7 +128,7 @@ class Demand extends Yang
             $this->ret['msg'] = '暂无更多数据';
             return json($this->ret);
         }else{
-            $page['count'] = D::count();//总条数
+            $page['count'] = D::where(['status'=>1])->count();//总条数
             $page['page'] = ceil($page['count']/9);//总共几页
             $page['num'] = 1;//当前处于第几页
             $demandtype = DT::select();
