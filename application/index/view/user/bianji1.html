@@ -152,7 +152,7 @@
 								<i class="plus icon link" title="添加" data-role="add"></i> <i class="trash icon link" data-role="delete" title="删除"></i>   </span>
 								<div class="inline field"> <label style="margin-top: 8px;">技能工具</label> </div>
 								<div class="inline field" style="width: 200px;padding-left: 0;">
-									<select name="">
+									<select name="" class="jinen">
 										<option value="java" {if condition="$vo.skill == 'java'"}selected="selected"{/if}>java</option>
 										<option value="php" {if condition="$vo.skill == 'php'"}selected="selected"{/if}>php</option>
 										<option value="html5" {if condition="$vo.skill == 'html5'"}selected="selected"{/if}>html5</option>
@@ -181,7 +181,7 @@
 								<i class="plus icon link" title="添加" data-role="add"></i> <i class="trash icon link" data-role="delete" title="删除"></i>   </span>
 								<div class="inline field"> <label style="margin-top: 8px;">技能工具</label> </div>
 								<div class="inline field" style="width: 200px;padding-left: 0;">
-									<select name="">
+									<select name="" class="jinen">
 										<option value="-1">请选择技能</option>
 										<option value="0">java</option>
 										<option value="1">php</option>
@@ -229,7 +229,16 @@
 		<script src="__INDEX__/js/jss/jquery.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			$("#resumecontentform .field .fields:nth-child(1) .resume_hand_li  .plus").click(function() {
-				$(this).parent().parent().parent().append($(this).parent().parent().clone(true));
+				var fields = $("#resumecontentform .J_Fields").length;				
+				var jinen = $("#resumecontentform .J_Fields:nth-child(" + fields + ") .jinen option:selected").text(); /*现在状态*/
+
+				if(jinen != "请选择技能") {
+					$(this).parent().parent().parent().append($(this).parent().parent().clone(true));
+				} else {
+					alert("第" + fields + "份技能内容不完整，无法添加。");
+				}
+				
+				
 			})
 			$("#resumecontentform .field .fields .resume_hand_li  .trash").click(function() {
 				if($("#resumecontentform .field .fields").length>1){
@@ -248,6 +257,35 @@
 
 			})
 			$("#resume_submit_btn_a").click(function() {
+				var is = $("#resumecontentform .J_Fields").length;	
+				var nones = false;
+				var aCity = new Array();
+				for(var i = 0; i < is; i++) {
+					aCity[i] = new Array();
+					var jinen = $("#resumecontentform .J_Fields:nth-child(" +  (i+1) + ") .jinen option:selected").text();
+					var fen = $("#resumecontentform .J_Fields:nth-child(" +  (i+1) + ") .fen option:selected").text();
+					if(jinen!= "请选择技能") {
+						aCity[i][0]=jinen;
+						aCity[i][1]=fen;
+						if(i!=0){
+							for(var s= 0;s<i;s++){
+								aCity[i][0]=jinen;
+								if(aCity[i][0]!=aCity[s][0]){}else{
+									alert("第" + (i+1) + "份技能与第"+(s+1)+"份内容重复，无法提交。");
+									nones = true;
+								}
+							}
+						}
+					} else {
+						alert("第" + (i+1) + "份技能内容不完整，无法提交。");
+						nones = true;
+					}
+				}
+				if(nones!=false){
+					/*alert("作品内容不完整，无法提交。");*/
+				}else{
+					alert("提交成功。");
+				}
 				/*var is = $(".field .fields").length;
 				for(var i=0; i<is;i++){}
 				$(".beijin").css("display","block");
@@ -258,7 +296,7 @@
 				setTimeout(function(){
 					window.location.href="#";
 				},1000)*/
-window.location.href="#";
+
 			})
 			/*添加*/
 		</script>

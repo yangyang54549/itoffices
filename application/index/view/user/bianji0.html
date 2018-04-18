@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta http-equiv="Page-Enter" content="blendTrans(Duration=0.5)" />
-				<meta http-equiv="Page-Exit" content="blendTrans(Duration=0.5)" />
+		<meta http-equiv="Page-Exit" content="blendTrans(Duration=0.5)" />
 		<title>IT联合办公</title>
 		<link rel="stylesheet" type="text/css" href="__INDEX__/css/header.css" />
 		<!--<link href="https://innsta.b0.upaiyun.com/favicon_new.ico" mce_href="https://innsta.b0.upaiyun.com/favicon.ico" rel="bookmark" type="image/x-icon">
@@ -20,24 +20,25 @@
 
 		<style type="text/css">
 			.fields:nth-child(1) {
-				border-top:1px solid #F7F7F7 ; ;
+				border-top: 1px solid #F7F7F7;
+				;
 			}
-
+			
 			.fields {
-				border-bottom:1px solid #F7F7F7 ;
+				border-bottom: 1px solid #F7F7F7;
 				padding: 15px 0 10px 20px;
 			}
-
+			
 			.navs {
 				width: 90%;
 				margin: 0 auto;
 				padding: 10px;
 			}
-
+			
 			.navs li {
 				float: left;
 			}
-
+			
 			.navs .is {
 				display: block;
 				width: 90px;
@@ -48,21 +49,21 @@
 				color: black;
 				z-index: 100;
 			}
-
+			
 			.navs a:hover {
 				color: #fff !important;
 				background: url(__INDEX__/img/navBg.png);
 				background-size: 100%;
 				/*background-color: #ff5454;*/
 			}
-
+			
 			.actives {
 				color: #fff !important;
 				background: url(__INDEX__/img/navBg.png);
 				background-size: 100%;
 				/*background-color: #ff5454;*/
 			}
-
+			
 			.beijin {
 				width: 100vw;
 				height: 100vh;
@@ -73,7 +74,7 @@
 				z-index: 200;
 				display: none;
 			}
-
+			
 			.good {
 				margin: 30vh auto;
 				padding: 50px;
@@ -81,22 +82,24 @@
 				background-color: white;
 				border-radius: 10px;
 			}
-			.good img{
+			
+			.good img {
 				width: 50px;
 				height: 50px;
 				display: block;
-				margin: 10px  auto;
+				margin: 10px auto;
 			}
+			
 			.good p {
 				width: 100%;
 				text-align: center;
 				font-size: 18px;
 				font-weight: 600;
-
 			}
-			.main>.ui{
-				    border-radius: 2px;
-    box-shadow: 2px 2px 5px #d9d9d9;
+			
+			.main>.ui {
+				border-radius: 2px;
+				box-shadow: 2px 2px 5px #d9d9d9;
 				background-color: white;
 			}
 		</style>
@@ -137,54 +140,52 @@
 
 				<h4 class="ui header" style="padding:10px 0 0 20px; margin: 0; "><i class="browser icon" style="vertical-align: middle"></i>作品</h4>
 				<div class="field" data-widget="works-editor">
-						{if condition="$production"}
-							{volist name="production" id="vo"}
-							<div class="fields worksfields" data-id="43444">
-								<span class="resume_hand_li">
+					{if condition="$production"} {volist name="production" id="vo"}
+					<div class="fields worksfields" data-id="43444">
+						<span class="resume_hand_li">
 									<i class="plus icon link item_add" title="添加"></i>
 									<i class="trash icon link item_delete" title="删除"></i>
 								</span>
-								<div class="inline field" style="margin-bottom: 20px;">
-									<label>作品名称</label>
-									<input name="worksname" class="worksname" placeholder="20字以内 不能包含&amp; $ % / \ * < > ' `等特殊字符" maxlength="20" type="text" style="width: 200px;"  value="{$vo.name}"></div>
-								<div class="inline field" style="margin-bottom: 20px;margin-left: 20px;">
-									<label>职责</label> <input name="duty" class="duty" type="text" placeholder="例：PM/iOS 主程 (10字以内)" maxlength="10" style="width: 200px;"  value="{$vo.position}">
-									<div class="ui label work-error J_WorkNameTip" style="display:none;"></div>
-								</div>
-								<div class="inline field" style="margin-bottom: 20px;"> <label>作品链接</label>
-									<input name="worksurl" class="worksurl" placeholder="例: http://www.example.com,若无法提供有效链接，请添加作品截图" type="text" style="width: 462px;"  value="{$vo.url}">
-									<div class="ui label work-error J_WorkUrlTip" style="display:none;"></div>
-								</div>
-								<div class="inline field" style="margin-bottom: 20px;">
-									<label>作品简介</label>
-									<textarea name="description" class="description" type="text" placeholder="添加不超过44字的作品简介" style="width: 800px;height: 60px;min-height: auto;;" maxlength="44">{$vo.content}</textarea>
-								</div>
-							</div>
-							{/volist}
-						{else/}
-						<div class="fields worksfields" data-id="43444">
-							<span class="resume_hand_li">
+						<div class="inline field" style="margin-bottom: 20px;">
+							<label>作品名称</label>
+							<input name="worksname" class="worksname" placeholder="20字以内 不能包含&amp; $ % / \ * < > ' `等特殊字符" maxlength="20" type="text" style="width: 200px;" value="{$vo.name}"></div>
+						<div class="inline field" style="margin-bottom: 20px;margin-left: 20px;">
+							<label>职责</label> <input name="duty" class="duty" type="text" placeholder="例：PM/iOS 主程 (10字以内)" maxlength="10" style="width: 200px;" value="{$vo.position}">
+							<div class="ui label work-error J_WorkNameTip" style="display:none;"></div>
+						</div>
+						<div class="inline field" style="margin-bottom: 20px;"> <label>作品链接</label>
+							<input name="worksurl" class="worksurl" placeholder="例: http://www.example.com,若无法提供有效链接，请添加作品截图" type="text" style="width: 462px;" value="{$vo.url}">
+							<div class="ui label work-error J_WorkUrlTip" style="display:none;"></div>
+						</div>
+						<div class="inline field" style="margin-bottom: 20px;">
+							<label>作品简介</label>
+							<textarea name="description" class="description" type="text" placeholder="添加不超过44字的作品简介" style="width: 800px;height: 60px;min-height: auto;;" maxlength="44">{$vo.content}</textarea>
+						</div>
+					</div>
+					{/volist} {else/}
+					<div class="fields worksfields" data-id="43444">
+						<span class="resume_hand_li">
 								<i class="plus icon link item_add" title="添加"></i>
 								<i class="trash icon link item_delete" title="删除"></i>
 							</span>
-							<div class="inline field" style="margin-bottom: 20px;">
-								<label>作品名称</label>
-								<input name="worksname" class="worksname" placeholder="20字以内 不能包含&amp; $ % / \ * < > ' `等特殊字符" maxlength="20" type="text" style="width: 200px;"></div>
-							<div class="inline field" style="margin-bottom: 20px;margin-left: 20px;">
-								<label>职责</label> <input name="duty" class="duty" type="text" placeholder="例：PM/iOS 主程 (10字以内)" maxlength="10" style="width: 200px;">
-								<div class="ui label work-error J_WorkNameTip" style="display:none;"></div>
-							</div>
-							<div class="inline field" style="margin-bottom: 20px;"> <label>作品链接</label>
-								<input name="worksurl" class="worksurl" placeholder="例: http://www.example.com,若无法提供有效链接，请添加作品截图" type="text" style="width: 462px;">
-								<div class="ui label work-error J_WorkUrlTip" style="display:none;"></div>
-							</div>
-							<div class="inline field" style="margin-bottom: 20px;">
-								<label>作品简介</label>
-								<textarea name="description" class="description" type="text" placeholder="添加不超过44字的作品简介" style="width: 800px;height: 60px;min-height: auto;;" maxlength="44"></textarea>
-							</div>
-
+						<div class="inline field" style="margin-bottom: 20px;">
+							<label>作品名称</label>
+							<input name="worksname" class="worksname" placeholder="20字以内 不能包含&amp; $ % / \ * < > ' `等特殊字符" maxlength="20" type="text" style="width: 200px;"></div>
+						<div class="inline field" style="margin-bottom: 20px;margin-left: 20px;">
+							<label>职责</label> <input name="duty" class="duty" type="text" placeholder="例：PM/iOS 主程 (10字以内)" maxlength="10" style="width: 200px;">
+							<div class="ui label work-error J_WorkNameTip" style="display:none;"></div>
 						</div>
-						{/if}
+						<div class="inline field" style="margin-bottom: 20px;"> <label>作品链接</label>
+							<input name="worksurl" class="worksurl" placeholder="例: http://www.example.com,若无法提供有效链接，请添加作品截图" type="text" style="width: 462px;">
+							<div class="ui label work-error J_WorkUrlTip" style="display:none;"></div>
+						</div>
+						<div class="inline field" style="margin-bottom: 20px;">
+							<label>作品简介</label>
+							<textarea name="description" class="description" type="text" placeholder="添加不超过44字的作品简介" style="width: 800px;height: 60px;min-height: auto;;" maxlength="44"></textarea>
+						</div>
+
+					</div>
+					{/if}
 				</div>
 				<div class="field">
 					<a id="resume_submit_btn_a" class="ui button blue" style="margin: 0 0 30px 88px;"><i class="write icon"></i>确定</a>
@@ -194,7 +195,7 @@
 		<div class="beijin">
 			<div class="good">
 
-				<img src="__INDEX__/img/duihao.png"/>
+				<img src="__INDEX__/img/duihao.png" />
 				<p></p>
 			</div>
 		</div>
@@ -206,20 +207,36 @@
 		<script src="__INDEX__/js/jss/jquery.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			/*添加*/
-			$(".field .fields .resume_hand_li .plus").click(function(){
-				$(this).parent().parent().parent().append($(this).parent().parent().clone(true));
-				var lent1 = $(".field .fields").length;
-				$(".field .fields:nth-child("+lent1+") input").val("");
-				$(".field .fields:nth-child("+lent1+") textarea").val("");
+			$(".field .fields .resume_hand_li .plus").click(function() {
+				var fields = $(".field .fields").length;
+
+				//					worksname/*作品名称*/
+				//					duty/*职责*/
+				//					worksurl/*作品链接*/
+				//					description/*作品简介*/
+				var worksname = $(".field .fields:nth-child(" + fields + ") .worksname").val();
+				var duty = $(".field .fields:nth-child(" + fields + ") .duty").val();
+				var worksurl = $(".field .fields:nth-child(" + fields + ") .worksurl").val();
+				var description = $(".field .fields:nth-child(" + fields + ") .description").val();
+
+				if(worksname != "" && duty != "" && worksurl != "" && description != "") {
+					$(this).parent().parent().parent().append($(this).parent().parent().clone(true));
+					var lent1 = $(".field .fields").length;
+					$(".field .fields:nth-child(" + lent1 + ") input").val("");
+					$(".field .fields:nth-child(" + lent1 + ") textarea").val("");
+				} else {
+					alert("第" + fields + "份作品内容不完整，无法添加。");
+				}
+
 			})
 			$(".field .fields .resume_hand_li .trash").click(function() {
-				if($(".field .fields").length>1){
+				if($(".field .fields").length > 1) {
 					$(this).parent().parent().remove();
-				}else{
+				} else {
 					$(".beijin").css("display", "block");
 					$(".beijin .good p").text("至少保留一条记录");
-					$(".beijin .good img").css("display","none");
-					$(".beijin").css("background-color","rgba(0, 0, 0, 0.5)");
+					$(".beijin .good img").css("display", "none");
+					$(".beijin").css("background-color", "rgba(0, 0, 0, 0.5)");
 				}
 			})
 
@@ -227,19 +244,62 @@
 				$(".beijin").css("display", "none");
 				$(".beijin .good p").text("");
 			})
-/*提交
- */
+			/*提交
+			 */
 			$("#resume_submit_btn_a").click(function() {
 				var is = $(".field .fields").length;
-				for(var i=0; i<is;i++){}
-				$(".beijin").css("display","block");
+				var nones = false;
+				var aCity = new Array();
+				for(var i = 0; i < is; i++) {
+					aCity[i] = new Array();
+					var worksname = $(".field .fields:nth-child(" + (i+1) + ") .worksname").val();
+					var duty = $(".field .fields:nth-child(" + (i+1) + ") .duty").val();
+					var worksurl = $(".field .fields:nth-child(" + (i+1) + ") .worksurl").val();
+					var description = $(".field .fields:nth-child(" + (i+1) + ") .description").val();
+					if(worksname != "" && duty != "" && worksurl != "" && description != "") {
+						aCity[i][0]=worksname;
+						aCity[i][1]=duty;
+						aCity[i][2]=worksurl;
+						aCity[i][3]=description;
+					} else {
+						alert("第" + (i+1) + "份作品内容不完整，无法提交。");
+						nones = true;
+					}
+
+				}
+				if(nones!=false){
+					/*alert("作品内容不完整，无法提交。");*/
+				}else{
+					alert("提交成功。");
+				}
+				/*$(".beijin").css("display","block");
 				$(".beijin").css("background-color","rgba(255, 255, 255, 0.8)");
 				$(".beijin .good img").css("display","block")
 				$(".beijin .good p").text("已保存");
 				$(".beijin .good ").css("background-color","rgba(255, 255, 255, 0)");
 				setTimeout(function(){
 					window.location.href="#";
-				},1000);
+				},1000);*/
+				/*var aCity=new Array();
+aCity[0]=new Array();
+aCity[1]=new Array();
+aCity[2]=new Array();
+aCity[3]=new Array();
+//为二维数组赋值
+aCity[0][0]="--请选择--";
+aCity[1][0]="--请选择--";
+aCity[1][1]="朝阳区";
+aCity[1][2]="海淀区";
+aCity[1][3]="东城区";
+aCity[1][4]="西城区";
+aCity[2][0]="--请选择--";
+aCity[2][1]="济南市";
+aCity[2][2]="青岛市";
+aCity[2][3]="潍坊市";
+aCity[3][0]="--请选择--";
+aCity[3][1]="浦东区";
+aCity[3][2]="徐汇区";
+aCity[3][3]="虹桥";*/
 			})
 		</script>
 	</body>
