@@ -427,16 +427,16 @@ ul li:hover .dot i{
  .introduce3 li:nth-child(4) .gren_b span{
  	width: 100%;
  }
- .introduce3 li:nth-child(5) p{
+ .introduce3 .ruler p{
  	display: flex;
  	justify-content:space-between;
  	height: 5px;
  	margin-top: 10px;
  }
- .introduce3 li:nth-child(5) p:nth-child(1){
+ .introduce3 .ruler p:nth-child(1){
  	background-color: #E9E9E9;	
  }
-.introduce3 li:nth-child(5) p:nth-child(1) span{
+.introduce3 .ruler p:nth-child(1) span{
 	width: 5px ;
 	height: 10px;
 	margin-top: -5px;
