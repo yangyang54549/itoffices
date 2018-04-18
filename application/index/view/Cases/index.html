@@ -524,14 +524,14 @@ min-width: 1200px;
 						for (var i=1;i<data.page.page+1;i++)
 						{
 							if (i==data.page.num) {
-								st +='<a  href="dingdanxiangqing.html" class="atcives abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
+								st +='<a  href="#" class="atcives abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
 							}else{
-								st +='<a  href="dingdanxiangqing.html" class="abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
+								st +='<a  href="#" class="abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
 							}
 						}
 
 						var str = '<div class="page">'+st+
-						'</div><a href="dingdanxiangqing.html" class="page_next" onclick="xia();">下页</a><em><span class="now">'+data.page.num+
+						'</div><a href="#" class="page_next" onclick="xia();">下页</a><em><span class="now">'+data.page.num+
 						'</span>/<span class="num">'+data.page.page+
 						'</span>页&nbsp;&nbsp;共<span class="total">'+data.page.count+'</span>条</em>';
 						$("#page-box").html(str);
