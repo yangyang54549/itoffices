@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-18 16:10:15
+ * @Last Modified time: 2018-04-18 16:53:40
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -18,9 +18,13 @@ class User  extends Yang
 {
     public function index()
     {
-        $user = U::where('id',Session::get('user.id'))->find();
-        $this->assign('user',$user);
-        return $this->fetch();
+        if ($this->request->isAjax()) {
+
+        }else{
+            $user = U::where('id',Session::get('user.id'))->find();
+            $this->assign('user',$user);
+            return $this->fetch();
+        }
     }
     public function resume()
     {
