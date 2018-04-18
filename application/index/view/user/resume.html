@@ -279,33 +279,27 @@
 				<div class="work introduce">
 					<h3 class="h3">工作经历<span></span><a href="bianji2.html"att><img src="__INDEX__/img/xiugai.png"class="imgs" alt="修改" title="修改"/></a></h3>
 					<ul class="J_Works">
+
+						{volist name="experience" id="vo"}
 						<li>
 							<i class="dot"><i></i></i>
-							<p class="title"><span>2016-06-15 - 至今</span><span>麦子视觉工作室</span><span>UI设计</span></p>
-							<p class="summary">主要负责移动UI设计、网页设计、游戏UI</p>
+							<p class="title"><span>{$vo.start_time} - {$vo.end_time}</span><span>{$vo.company_name}</span><span>{$vo.position}</span></p>
+							<p class="summary">{$vo.content}</p>
 						</li>
-						<li>
-							<i class="dot"><i></i></i>
-							<p class="title"><span>2013-04-08 - 2015-03-31</span><span>成都掌沃无限科技有限公司</span><span>UI设计</span></p>
-							<p class="summary">负责游戏UI设计 图标 及宣传海报</p>
-						</li>
-						<li>
-							<i class="dot"><i></i></i>
-							<p class="title"><span>2011-07-11 - 2013-03-31</span><span>成都摩奇信息科技有限公司</span><span>UI设计</span></p>
-							<p class="summary">在公司前期工作职责app UI icon 后期进入游戏项目组 负责游戏UI设计 </p>
-						</li>
+						{/volist}
 					</ul>
 
 				</div>
 				<div class="introduce">
 					<h3 class="h3">教育经历<span> </span><a href="bianji2.html"att><img src="__INDEX__/img/xiugai.png"class="imgs" alt="修改" title="修改"/></a></h3>
 					<ul>
+						{volist name="education" id="vos"}
 						<li>
 							<i class="dot"><i style="margin-top: 2.5px;"></i></i>
-							<p class="title"><span>2008-09-01 - 2013-06-30</span><span>中原工学院</span><span>信息与计算科学</span><span>本科</span></p>
-							<p class="summary">在中原工学院理学院完成信息与计算科学学士学位学习任务.顺利完成本科学业。 </p>
+							<p class="title"><span>{$vos.start_time} - {$vos.end_time}</span><span>{$vos.school_name}</span><span>{$vos.major}</span><span>{$vos.xueli}</span></p>
+							<p class="summary">{$vos.content}</p>
 						</li>
-
+						{/volist}
 					</ul>
 				</div>
 				<div class="introduce">
@@ -314,20 +308,10 @@
 
 						<li>
 							<p>动效</p>
-							<p class="gren_b"><span id=""></span></p>
+							<p class="gren_b"><span style="width:70%"></span></p>
 						</li>
-						<li>
-							<p>AI</p>
-							<p class="gren_b"><span></span></p>
-						</li>
-						<li>
-							<p>Photoshop</p>
-							<p class="gren_b"><span></span></p>
-						</li>
-						<li>
-							<p>Sketch</p>
-							<p class="gren_b"><span></span></p>
-						</li>
+
+
 						<li>
 							<p><span></span><span></span><span></span><span></span><span></span><span></span></p>
 							<p><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></p>
