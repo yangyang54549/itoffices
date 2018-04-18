@@ -259,18 +259,18 @@
 			$("#resume_submit_btn_a").click(function() {
 				var is = $("#resumecontentform .J_Fields").length;	
 				var nones = false;
-				var aCity = new Array();
+				var aCity1 = new Array();
 				for(var i = 0; i < is; i++) {
-					aCity[i] = new Array();
+					aCity1[i] = new Array();
 					var jinen = $("#resumecontentform .J_Fields:nth-child(" +  (i+1) + ") .jinen option:selected").text();
 					var fen = $("#resumecontentform .J_Fields:nth-child(" +  (i+1) + ") .fen option:selected").text();
 					if(jinen!= "请选择技能") {
-						aCity[i][0]=jinen;
-						aCity[i][1]=fen;
+						aCity1[i][0]=jinen;
+						aCity1[i][1]=fen;
 						if(i!=0){
 							for(var s= 0;s<i;s++){
-								aCity[i][0]=jinen;
-								if(aCity[i][0]!=aCity[s][0]){}else{
+								aCity1[i][0]=jinen;
+								if(aCity1[i][0]!=aCity1[s][0]){}else{
 									alert("第" + (i+1) + "份技能与第"+(s+1)+"份内容重复，无法提交。");
 									nones = true;
 								}

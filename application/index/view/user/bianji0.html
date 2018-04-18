@@ -249,18 +249,18 @@
 			$("#resume_submit_btn_a").click(function() {
 				var is = $(".field .fields").length;
 				var nones = false;
-				var aCity = new Array();
+				var aCity0 = new Array();
 				for(var i = 0; i < is; i++) {
-					aCity[i] = new Array();
+					aCity0[i] = new Array();
 					var worksname = $(".field .fields:nth-child(" + (i+1) + ") .worksname").val();
 					var duty = $(".field .fields:nth-child(" + (i+1) + ") .duty").val();
 					var worksurl = $(".field .fields:nth-child(" + (i+1) + ") .worksurl").val();
 					var description = $(".field .fields:nth-child(" + (i+1) + ") .description").val();
 					if(worksname != "" && duty != "" && worksurl != "" && description != "") {
-						aCity[i][0]=worksname;
-						aCity[i][1]=duty;
-						aCity[i][2]=worksurl;
-						aCity[i][3]=description;
+						aCity0[i][0]=worksname;
+						aCity0[i][1]=duty;
+						aCity0[i][2]=worksurl;
+						aCity0[i][3]=description;
 					} else {
 						alert("第" + (i+1) + "份作品内容不完整，无法提交。");
 						nones = true;
