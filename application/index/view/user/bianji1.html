@@ -152,7 +152,8 @@
 								<i class="plus icon link" title="添加" data-role="add"></i> <i class="trash icon link" data-role="delete" title="删除"></i>   </span>
 								<div class="inline field"> <label style="margin-top: 8px;">技能工具</label> </div>
 								<div class="inline field" style="width: 200px;padding-left: 0;">
-									<select name="" class="jinen">
+									<select name="" class="jinen" text="paraText">
+										<option value="-1">请选择技能</option>
 										<option value="java" {if condition="$vo.skill == 'java'"}selected="selected"{/if}>java</option>
 										<option value="php" {if condition="$vo.skill == 'php'"}selected="selected"{/if}>php</option>
 										<option value="html5" {if condition="$vo.skill == 'html5'"}selected="selected"{/if}>html5</option>
@@ -164,7 +165,7 @@
 								</div>
 								<div class="inline field"> <label style="margin-top: 8px;">经验自评</label> </div>
 								<div class="inline field" style="width: 200px;padding-left: 0;">
-									<select name="" class="fen">
+									<select name="" class="fen" text="paraText">
 										<option value="1" {if condition="$vo.grade eq 1"}selected="selected"{/if}>1分</option>
 										<option value="2" {if condition="$vo.grade eq 2"}selected="selected"{/if}>2分</option>
 										<option value="3" {if condition="$vo.grade eq 3"}selected="selected"{/if}>3分</option>
@@ -176,12 +177,12 @@
 							</div>
 							{/volist}
 						{else/}
-							<div class="fields J_Fields" data-role="row" data-id="0">
+							<div class="fields J_Fields" data-role="row" data-id="0" >
 								<span class="resume_hand_li">
 								<i class="plus icon link" title="添加" data-role="add"></i> <i class="trash icon link" data-role="delete" title="删除"></i>   </span>
 								<div class="inline field"> <label style="margin-top: 8px;">技能工具</label> </div>
 								<div class="inline field" style="width: 200px;padding-left: 0;">
-									<select name="" class="jinen">
+									<select name="" class="jinen" text="paraText">
 										<option value="-1">请选择技能</option>
 										<option value="0">java</option>
 										<option value="1">php</option>
@@ -192,7 +193,7 @@
 								</div>
 								<div class="inline field"> <label style="margin-top: 8px;">经验自评</label> </div>
 								<div class="inline field" style="width: 200px;padding-left: 0;">
-									<select name="" class="fen">
+									<select name="" class="fen" text="paraText">
 										<option value="-1">1分</option>
 										<option value="0">2分</option>
 										<option value="1">3分</option>
@@ -228,13 +229,16 @@
 		</div>
 		<script src="__INDEX__/js/jss/jquery.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			$("#resumecontentform .field .fields:nth-child(1) .resume_hand_li  .plus").click(function() {
+			$("#resumecontentform .field .fields .resume_hand_li  .plus").click(function() {
 				var fields = $("#resumecontentform .J_Fields").length;
 				var jinen = $("#resumecontentform .J_Fields:nth-child(" + fields + ") .jinen option:selected").text(); /*现在状态*/
 
 				if(jinen != "请选择技能") {
+					
+				$(this).parent().parent().parent().append($(this).parent().parent().clone(true));
 					$("#resumecontentform .J_Fields:nth-child(" + (fields+1) + ")").attr("data-id","0");
-					$(this).parent().parent().parent().append($(this).parent().parent().clone(true));
+//					$("#resumecontentform .J_Fields:nth-child(" + (fields+1) + ") .jinen ").val() = "-1";
+
 				} else {
 					alert("第" + fields + "份技能内容不完整，无法添加。");
 				}
