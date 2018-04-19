@@ -229,7 +229,7 @@
 		<script src="__INDEX__/js/jss/jquery.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			$("#resumecontentform .field .fields:nth-child(1) .resume_hand_li  .plus").click(function() {
-				var fields = $("#resumecontentform .J_Fields").length;				
+				var fields = $("#resumecontentform .J_Fields").length;
 				var jinen = $("#resumecontentform .J_Fields:nth-child(" + fields + ") .jinen option:selected").text(); /*现在状态*/
 
 				if(jinen != "请选择技能") {
@@ -237,8 +237,8 @@
 				} else {
 					alert("第" + fields + "份技能内容不完整，无法添加。");
 				}
-				
-				
+
+
 			})
 			$("#resumecontentform .field .fields .resume_hand_li  .trash").click(function() {
 				if($("#resumecontentform .field .fields").length>1){
@@ -257,7 +257,7 @@
 
 			})
 			$("#resume_submit_btn_a").click(function() {
-				var is = $("#resumecontentform .J_Fields").length;	
+				var is = $("#resumecontentform .J_Fields").length;
 				var nones = false;
 				var aCity1 = new Array();
 				for(var i = 0; i < is; i++) {

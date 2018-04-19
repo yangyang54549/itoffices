@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-19 10:21:39
+ * @Last Modified time: 2018-04-19 14:10:36
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -49,6 +49,20 @@ class User  extends Yang
     public function bianji0()
     {
         if ($this->request->isAjax()) {
+            $data = input();
+
+            //$data['experience'] = json_decode($data['experience'],true);
+            $arr = [];
+            foreach ($data['production'] as $key => $value) {
+                $arr['name'] = $value[0];
+                $arr['position'] = $value[1];
+                $arr['url'] = $value[2];
+                $arr['content'] = $value[3];
+
+            }
+
+            return json(count($data['production']));
+            //return json($this->ret);
 
         }else{
             $UserProduction = UserProduction::where(['user_id'=>Session::get('user.id')])->select();
