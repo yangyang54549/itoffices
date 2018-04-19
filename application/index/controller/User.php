@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-19 14:10:36
+ * @Last Modified time: 2018-04-19 14:13:57
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -51,7 +51,6 @@ class User  extends Yang
         if ($this->request->isAjax()) {
             $data = input();
 
-            //$data['experience'] = json_decode($data['experience'],true);
             $arr = [];
             foreach ($data['production'] as $key => $value) {
                 $arr['name'] = $value[0];

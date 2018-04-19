@@ -151,7 +151,7 @@
 						<div class="J_ResumeFields">
 						{if condition="$experience"}
 							{volist name="experience" id="vo"}
-							<div class="J_item mb20">
+							<div class="J_item mb20" date-id="{$vo.id}">
 								<div class="fields">
 									<input class="J_WorkId" type="hidden" value="24302">
 									<div class="inline field"><input type="text" class="fm-input J_StartTime" placeholder="开始时间:2015-06-06" maxlength="10" value="{$vo.start_time}"></div>
@@ -165,7 +165,7 @@
 							</div>
 							{/volist}
 						{else/}
-							<div class="J_item mb20">
+							<div class="J_item mb20" date-id="0">
 								<div class="fields">
 									<input class="J_WorkId" type="hidden" value="24302">
 									<div class="inline field"><input type="text" class="fm-input J_StartTime" placeholder="开始时间:2015-06-06" maxlength="10"></div>
@@ -185,7 +185,7 @@
 
 						{if condition="$education"}
 							{volist name="education" id="vos"}
-							<div class="J_EduItem edu-item mb20">
+							<div class="J_EduItem edu-item mb20" date-id="{$vos.id}">
 								<div class="fields"><input class="J_WorkId" type="hidden" value="7103">
 									<div class="inline field"><input type="text" class="fm-input J_StartTime" placeholder="开始时间:2011-03-03 " maxlength="10"  value="{$vos.start_time}"></div>
 									<div class="inline field"><input type="text" class="fm-input J_EndTime" placeholder="结束时间:2015-03-03 " maxlength="10" value="{$vos.end_time}"></div>
@@ -197,7 +197,7 @@
 							</div>
 							{/volist}
 						{else/}
-							<div class="J_EduItem edu-item mb20">
+							<div class="J_EduItem edu-item mb20" date-id="0">
 								<div class="fields"><input class="J_WorkId" type="hidden" value="7103">
 									<div class="inline field"><input type="text" class="fm-input J_StartTime" placeholder="开始时间:2011-03-03 " maxlength="10"></div>
 									<div class="inline field"><input type="text" class="fm-input J_EndTime" placeholder="结束时间:2015-03-03 " maxlength="10"></div>
@@ -249,7 +249,7 @@
 					alert("第" + lent + "份工作经历不完整，无法添加。");
 				}
 			})
-			
+
 //			function gongzuo(){
 //				var item = $(".J_ResumeFields .J_item").length;
 //				var nones2 = false;
@@ -273,7 +273,7 @@
 //						nones2 = true;
 //					}
 //				}
-//				
+//
 //			}
 			$(".J_ResumeFields .J_item .fields .trash").click(function(){
 				if($(".J_ResumeFields .J_item").length>1){
@@ -304,7 +304,7 @@
 					alert("第" + lent1 + "份教育经历不完整，无法添加。");
 				}
 			})
-			
+
 			/*function jiaoyu(){
 				var duI = $(".J_EduFields .J_EduItem").length;
 var nones3 = false;
@@ -373,7 +373,7 @@ var nones3 = false;
 						nones2 = true;
 					}
 				}
-				
+
 				var duI = $(".J_EduFields .J_EduItem").length;
 var nones3 = false;
 				var aCity5 = new Array();
@@ -398,7 +398,7 @@ var nones3 = false;
 						nones3 = true;
 					}
 				}
-				
+
 					if(nones2!=true && nones3!=true){
 					/*alert("作品内容不完整，无法提交。");*/
 					console.log(aCity4);
