@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-19 09:36:26
+ * @Last Modified time: 2018-04-19 10:21:39
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -70,7 +70,9 @@ class User  extends Yang
     public function bianji2()
     {
         if ($this->request->isAjax()) {
-
+            $data = input();
+            //$data['experience'] = json_decode($data['experience'],true);
+            return json($data['experience']);
         }else{
             $user = U::where('id',Session::get('user.id'))->find();
             $UserEducation = UserEducation::where(['user_id'=>$user['id']])->select();

@@ -350,15 +350,20 @@
 				var jies = $("#jies").val();
 				if(jies != ""){
 					var aCity3 = new Array();
-					aCity3[0] = jies;
 					jiaoyu();
 					gongzuo();
 					if(nones2!=true && nones3!=true){
 					/*alert("作品内容不完整，无法提交。");*/
-					console.log(aCity3);
-					// console.log();
-					// console.log();
-					alert("提交成功")
+					console.log(aCity4);
+					aCity4 = JSON.stringify(aCity4);
+					aCity5 = JSON.stringify(aCity5);
+					console.log(jies);
+					console.log(aCity4);
+					console.log(aCity5);
+					$.post("{:url('user/bianji2')}",{introduce:jies,experience:aCity4,education:aCity5},function(data){
+						console.log(data);
+					}, "json");
+					alert("提交成功");
 
 					}else{
 						alert("填写不完整，无法添加");
