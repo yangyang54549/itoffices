@@ -151,7 +151,7 @@
 						<div class="J_ResumeFields">
 						{if condition="$experience"}
 							{volist name="experience" id="vo"}
-							<div class="J_item mb20" date-id="{$vo.id}">
+							<div class="J_item mb20" data-id="{$vo.id}">
 								<div class="fields">
 									<input class="J_WorkId" type="hidden" value="24302">
 									<div class="inline field"><input type="text" class="fm-input J_StartTime" placeholder="开始时间:2015-06-06" maxlength="10" value="{$vo.start_time}"></div>
@@ -165,7 +165,7 @@
 							</div>
 							{/volist}
 						{else/}
-							<div class="J_item mb20" date-id="0">
+							<div class="J_item mb20" data-id="0">
 								<div class="fields">
 									<input class="J_WorkId" type="hidden" value="24302">
 									<div class="inline field"><input type="text" class="fm-input J_StartTime" placeholder="开始时间:2015-06-06" maxlength="10"></div>
@@ -185,7 +185,7 @@
 
 						{if condition="$education"}
 							{volist name="education" id="vos"}
-							<div class="J_EduItem edu-item mb20" date-id="{$vos.id}">
+							<div class="J_EduItem edu-item mb20" data-id="{$vos.id}">
 								<div class="fields"><input class="J_WorkId" type="hidden" value="7103">
 									<div class="inline field"><input type="text" class="fm-input J_StartTime" placeholder="开始时间:2011-03-03 " maxlength="10"  value="{$vos.start_time}"></div>
 									<div class="inline field"><input type="text" class="fm-input J_EndTime" placeholder="结束时间:2015-03-03 " maxlength="10" value="{$vos.end_time}"></div>
@@ -197,7 +197,7 @@
 							</div>
 							{/volist}
 						{else/}
-							<div class="J_EduItem edu-item mb20" date-id="0">
+							<div class="J_EduItem edu-item mb20" data-id="0">
 								<div class="fields"><input class="J_WorkId" type="hidden" value="7103">
 									<div class="inline field"><input type="text" class="fm-input J_StartTime" placeholder="开始时间:2011-03-03 " maxlength="10"></div>
 									<div class="inline field"><input type="text" class="fm-input J_EndTime" placeholder="结束时间:2015-03-03 " maxlength="10"></div>
@@ -242,7 +242,7 @@
 				var fminfo = $(".J_ResumeFields .J_item:nth-child("+lent+") .row textarea.fm-info").val();
 				if(EndTime0 !="" && EndTime1 !="" && EndTime2 !="" && EndTime3 !="" && fminfo !="" ) {
 					$(this).parent().parent().parent().append($(this).parent().parent().clone(true));
-					$(".J_ResumeFields .J_item:nth-child("+(lent+1)+")").attr("data-id","0");
+					$(".J_ResumeFields .J_item:nth-child("+(lent+1)+")").attr("data-id","2");
 					$(".J_ResumeFields .J_item:nth-child("+(lent+1)+") .inline input").val("");
 					$(".J_ResumeFields .J_item:nth-child("+(lent+1)+") .row textarea.fm-info").val("");
 					$(".J_ResumeFields .J_item:nth-child("+(lent+1)+") .row input").val(lent);
@@ -299,7 +299,7 @@
 				if(End0 !="" && End1 !="" && End2 !="" && End3 !="" && End4 !="" && fminfo1 !="" ) {
 					$(this).parent().parent().parent().append($(this).parent().parent().clone(true));
 					var lents = $(".J_EduFields .J_EduItem").length;
-					$(".J_EduFields .J_EduItem:nth-child("+lents+")").attr("data-id","0");
+					$(".J_EduFields .J_EduItem:nth-child("+lents+")").attr("data-id","2");
 					$(".J_EduFields .J_EduItem:nth-child("+lents+") .inline input").val("");
 					$(".J_EduFields .J_EduItem:nth-child("+lents+") .row textarea").val("");
 				} else {

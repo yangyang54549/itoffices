@@ -147,7 +147,7 @@
 						<div class="field" data-widget="skill-editor">
 						{if condition="$skill"}
 							{volist name="skill" id="vo"}
-							<div class="fields J_Fields" data-role="row" date-id="{$vo.id}">
+							<div class="fields J_Fields" data-role="row" data-id="{$vo.id}">
 								<span class="resume_hand_li">
 								<i class="plus icon link" title="添加" data-role="add"></i> <i class="trash icon link" data-role="delete" title="删除"></i>   </span>
 								<div class="inline field"> <label style="margin-top: 8px;">技能工具</label> </div>
@@ -176,7 +176,7 @@
 							</div>
 							{/volist}
 						{else/}
-							<div class="fields J_Fields" data-role="row" date-id="0">
+							<div class="fields J_Fields" data-role="row" data-id="0">
 								<span class="resume_hand_li">
 								<i class="plus icon link" title="添加" data-role="add"></i> <i class="trash icon link" data-role="delete" title="删除"></i>   </span>
 								<div class="inline field"> <label style="margin-top: 8px;">技能工具</label> </div>
