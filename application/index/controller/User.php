@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-19 14:43:13
+ * @Last Modified time: 2018-04-19 15:07:57
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -61,6 +61,7 @@ class User  extends Yang
                 $arr['content'] = $value[3];
 
                 if ($value[4]==0) {
+                    $arr['user_id'] = Session::get('user.id');
                     UserProduction::insert($arr);
                 }else{
                     UserProduction::where('id',$value[4])->update($arr);
@@ -105,8 +106,8 @@ class User  extends Yang
         if ($this->request->isAjax()) {
             $data = input();
 
-            $arr = [];
-            foreach ($data['skill'] as $key => $value) {
+            $education = [];//交易经历
+            foreach ($data['education'] as $key => $value) {
                 $arr['skill'] = $value[0];
                 $arr['grade'] = $value[1];
 

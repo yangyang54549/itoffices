@@ -21,7 +21,7 @@
 		<style type="text/css">
 			.fields:nth-child(1) {
 				border-top: 1px solid #F7F7F7;
-				
+
 			}
 
 			.fields {
@@ -223,7 +223,7 @@
 
 				if(worksname != "" && duty != "" && worksurl != "" && description != "") {
 					$(this).parent().parent().parent().append($(this).parent().parent().clone(true));
-					
+
 					var lent1 = $(".field .fields").length;
 					$(".field .fields:nth-child(" + lent1 + ")").attr("data-id","0");
 					$(".field .fields:nth-child(" + lent1 + ") input").val("");
@@ -276,11 +276,13 @@
 					/*alert("作品内容不完整，无法提交。");*/
 				}else{
 					console.log(aCity0);
-					console.log(JSON.stringify(aCity0));
 					$.post("{:url('user/bianji0')}",{production:aCity0},function(data){
-						console.log(data);
+						if (data.code==1) {
+							alert("提交成功");
+						}else{
+							alert("提交失败");
+						}
 					}, "json");
-					alert("提交成功");
 				}
 				/*$(".beijin").css("display","block");
 				$(".beijin").css("background-color","rgba(255, 255, 255, 0.8)");
