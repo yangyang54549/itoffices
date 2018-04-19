@@ -248,7 +248,10 @@ $("#resumecontentform .J_Fields:nth-child(" + (fields+1) + ") select.jinen").htm
 
 			})
 			$("#resumecontentform .field .fields .resume_hand_li  .trash").click(function() {
-				if($("#resumecontentform .field .fields").length>1){
+				var con;
+				con=confirm("确认删除本条记录?"); //在页面上弹出对话框
+				if(con==true){
+					if($("#resumecontentform .field .fields").length>1){
 					$(this).parent().parent().remove();
 				}else{
 					$(".beijin").css("display", "block");
@@ -256,6 +259,11 @@ $("#resumecontentform .J_Fields:nth-child(" + (fields+1) + ") select.jinen").htm
 					$(".beijin .good img").css("display","none");
 					$(".beijin").css("background-color","rgba(0, 0, 0, 0.5)");
 				}
+				}else{
+					alert("取消删除本条记录");
+				}
+				
+				
 
 			})
 			$(".beijin").click(function(){
