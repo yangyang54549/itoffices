@@ -374,7 +374,7 @@
     			top: 0;
     			left: 0;
     			z-index: 999;
-    			background-color: rgba(0,0,0,.3);  display: none;  			
+    			background-color: rgba(0,0,0,.3);    			
 			}
 			.login{
 				width: 400px;
@@ -389,7 +389,7 @@
 				top: 50%;
 				z-index: 1000;
 				margin-left: -200px;
-				margin-top: -200px;display: none;
+				margin-top: -200px;
 			}
 			.login_logo{
 				width: 100%;
@@ -483,7 +483,14 @@
 		<script src="__INDEX__/js/main.js" type="text/javascript" charset="utf-8"></script>
 
 		<script>
-			
+			$(".login_background").click(function(){
+				$(".login_background").css("display","none");
+				$(".login").css("display","none");
+			})
+			$(".login_background").click(function(){
+				$(".login_background").css("display","none");
+				$(".login").css("display","none");
+			})
 			
 			
 			$('.choice_kind li').click(function() {

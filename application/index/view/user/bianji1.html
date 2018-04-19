@@ -233,7 +233,7 @@
 				var jinen = $("#resumecontentform .J_Fields:nth-child(" + fields + ") .jinen option:selected").text(); /*现在状态*/
 
 				if(jinen != "请选择技能") {
-					$("#resumecontentform .J_Fields:nth-child(" + (fields+1) + ")").data('id',0);
+					$("#resumecontentform .J_Fields:nth-child(" + (fields+1) + ")").attr("data-id","0");
 					$(this).parent().parent().parent().append($(this).parent().parent().clone(true));
 				} else {
 					alert("第" + fields + "份技能内容不完整，无法添加。");
