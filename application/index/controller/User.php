@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-19 15:07:57
+ * @Last Modified time: 2018-04-19 16:26:51
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -81,6 +81,7 @@ class User  extends Yang
     {
         if ($this->request->isAjax()) {
             $data = input();
+            //return json($data);
 
             $arr = [];
             foreach ($data['skill'] as $key => $value) {
@@ -88,6 +89,7 @@ class User  extends Yang
                 $arr['grade'] = $value[1];
 
                 if ($value[2]==0) {
+                    $arr['user_id'] = Session::get('user.id');
                     UserSkill::insert($arr);
                 }else{
                     UserSkill::where('id',$value[2])->update($arr);

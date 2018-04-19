@@ -234,7 +234,7 @@
 				var jinen = $("#resumecontentform .J_Fields:nth-child(" + fields + ") .jinen option:selected").text(); /*现在状态*/
 
 				if(jinen != "请选择技能") {
-					
+
 				$(this).parent().parent().parent().append($(this).parent().parent().clone(true));
 					$("#resumecontentform .J_Fields:nth-child(" + (fields+1) + ")").attr("data-id","0");
 //					$("#resumecontentform .J_Fields:nth-child(" + (fields+1) + ") .jinen ").val() = "-1";
@@ -294,6 +294,14 @@ $("#resumecontentform .J_Fields:nth-child(" + (fields+1) + ") select.jinen").htm
 					/*alert("作品内容不完整，无法提交。");*/
 				}else{
 					console.log(aCity1);
+					$.post("{:url('user/bianji1')}",{skill:aCity1},function(data){
+						console.log(data);
+						if (data.code==1) {
+							alert("提交成功");
+						}else{
+							alert("提交失败");
+						}
+					}, "json");
 					alert("提交成功。");
 				}
 				/*var is = $(".field .fields").length;
