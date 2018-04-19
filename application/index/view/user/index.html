@@ -341,9 +341,9 @@
 										<i class="clear"></i></div>
 									<div class="div1-info"><span>现在状态  </span><span>
 				        		<select placeholder="请选择现在状态" id="workingLife1"style="font-size: 16px;">
-					        		<option selected="">自由工作</option>
-				                    <option>求职</option>
-				                    <option>正常工作</option>
+					        		<option {if condition="$user.gender == '自由工作'"}selected="selected"{/if}>自由工作</option>
+				                    <option {if condition="$user.gender == '在职'"}selected="selected"{/if}>在职</option>
+				                    <option {if condition="$user.gender == '离职'"}selected="selected"{/if}>离职</option>
 
 			                 	</select></span><i class="clear"></i></div>
 									<div class="div1-info"><span>选择职业  </span><span>
