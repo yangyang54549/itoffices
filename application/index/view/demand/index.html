@@ -254,7 +254,7 @@
 	<body>
 
 		<div class="sou">
-			<div class="head_img" style="width: 70px; position: absolute; left: 50%; top: 15px ;margin-left: -50px;" onclick="window.location='{:url("user/index")}'">
+			<div class="head_img" style="width: 70px; position: absolute; left: 50%; top: 15px ;margin-left: -50px;" >
 				<img src="__INDEX__/img/bai.png" style="width: 70px;" />
 				<p style="width: 100%; text-align: center;color: white; font-size: 15px;">硅谷</p>
 			</div>
@@ -374,7 +374,7 @@
     			top: 0;
     			left: 0;
     			z-index: 999;
-    			background-color: rgba(0,0,0,.3);    			
+    			background-color: rgba(0,0,0,.3);  display: none;  			
 			}
 			.login{
 				width: 400px;
@@ -390,6 +390,7 @@
 				z-index: 1000;
 				margin-left: -200px;
 				margin-top: -200px;
+				display: none;
 			}
 			.login_logo{
 				width: 100%;
@@ -402,14 +403,7 @@
 				margin-top: 20px;
 				
 			}
-			.login_logo p{
-				float: left;
-				width: 100%;
-				text-align: right;
-				font-size: 14px;
-				height: 20px;
-				line-height: 20px;
-			}
+			
 			.form-group{
 				width: 100%;
 				overflow: hidden;
@@ -462,15 +456,47 @@
 			}
 			.login_logos p.one{
 				height: 15px;
-				border-bottom: 1px solid rgba(0,0,0,.1);
+				border-bottom: 1px solid rgba(0,0,0,.5);
 			}
 			.login_logos p.one span{
 				display: block;
 				padding: 0px 10px ;
 				height:30px ;
+				width: 100px;
+				margin: 0px  auto;
+				text-align: center;
 				line-height: 30px;
 				background-color: white;
 				
+			}
+			.login_logos p.two{
+				width: 100%;
+				margin: 25px 0px ;
+				display: flex;
+				justify-content: space-around;
+			}
+			.login_logos p.two span{
+				display: block;
+				
+				width:50px;
+				height: 50px;
+				background-image: url(__INDEX__/img/icon/weixin.png);
+				 -moz-background-size:100% 100%;
+			   background-size:100% 100%;
+			}
+			#quehuan1,#quehuan2{
+				display: block;
+				position: absolute;
+				bottom:10px ;
+				right: 10px;
+				width: 50px;
+				height: 50px;
+				background-image: url(__INDEX__/img/icon/qiehuan0.png);
+				 -moz-background-size:100% 100%;
+			   background-size:100% 100%;
+			}
+			#quehuan2{
+				background-image: url(__INDEX__/img/icon/qiehuan1.png);
 			}
 		</style>
 		<div class="login_background" >
@@ -480,10 +506,12 @@
 		<div class="login">
 				<div class="login_logo">
 					<span style="float: left;">登录</span>
-					<img src="__INDEX__/img/icon/cas.png" style="float: right;"/>
-					<p >短信快捷登录</p>
+					<img src="__INDEX__/img/icon/cas.png" style="float: right;" id="login-none"/>
+					
 				</div>
-				<div class="form-group">
+				<div class="login1">
+					<p  style="width: 100%;text-align: right; font-size: 14px;">短信快捷登录</p>
+					<div class="form-group">
 							
 							<input id="phones" value="" name="phone" type="text" placeholder="输入手机号" class="form-control x319 in" autocomplete="off">
 						</div>
@@ -499,7 +527,22 @@
 						</div>
 					<div class="login_logos">
 					<p class="one"><span id="">第三方登录</span></p>
+					<p class="two"><span></span> </p>
 				</div>
+				<span id="quehuan1">
+					
+				</span>
+				</div>
+				<div class="login2" style="display: none;">
+					<p  style="width: 100%;text-align: center; font-size: 16px;  font-weight: bold;">微信登录</p>
+					<img src="__INDEX__/img/saoma.png" style="width: 240px; height: auto; display: block;margin: 0px  auto;"/>
+					<p  style="width: 100%;text-align: center; font-size: 14px; line-height: 30px; font-weight: bold;">使用短信扫描二维码登录</p>
+					
+				<span id="quehuan2">
+					
+				</span>
+				</div>
+				
 			</div>
 		<script type="text/javascript">
 		</script>
@@ -518,15 +561,63 @@
 
 		<script>
 			$(".login_background").click(function(){
+				loginNone();
+			})
+			$("#login-none").click(function(){
+				loginNone();
+			})
+			function loginNone(){
 				$(".login_background").css("display","none");
 				$(".login").css("display","none");
+			}
+			$("#quehuan1").click(function(){
+				$(".login .login1").css("display","none");
+				$(".login .login2").css("display","block");
 			})
-			$(".login_background").click(function(){
-				$(".login_background").css("display","none");
-				$(".login").css("display","none");
+			$("#quehuan2").click(function(){
+				$(".login .login2").css("display","none");
+				$(".login .login1").css("display","block");
 			})
-			
-			
+			$(".head_img").click(function(){
+				$(".login_background").css("display","block");
+				$(".login").css("display","block");
+				/*window.location='{:url("user/index")}'*/
+			})
+			 $("#login1s").click(function() {
+                if($("#phones").val() == "") {
+                    alert("请输入手机号码");
+                }  else {
+                	if(!(/^1[3456789]\d{9}$/.test($("#phones").val()))) {
+						alert("手机号码有误，请重填");						
+					} else {						 
+						if($("#j_captcha").val()!=""){
+							alert("登录成功");
+						}else{
+							alert("请输入短信验证码");
+						}
+					}
+				}
+			})
+			  $("#yan").click(function() {
+                if($("#phones").val() == "") {
+                    alert("请输入手机号码");
+                }  else {
+                	if(!(/^1[3456789]\d{9}$/.test($("#phones").val()))) {
+						alert("手机号码有误，请重填");						
+					} else {						 
+						var s = 60;
+						var j = setInterval(function() {
+							s = s - 1;
+							$("#yan").html(s + "秒后重新获取");
+							if(s == 0) {							
+								$("#yan").html("请重新获取");
+								clearInterval(j);
+								$("#yan").html("60秒");
+							}
+						}, 1000)
+					}
+				}
+			})
 			$('.choice_kind li').click(function() {
 				$("#page-box .now").text('1')
 				$(this).parents(".choice_kind").find("li").removeClass("active").end().find(".freeman_none").css("display", 'none');
