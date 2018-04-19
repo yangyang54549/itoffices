@@ -238,7 +238,9 @@
 				$(this).parent().parent().parent().append($(this).parent().parent().clone(true));
 					$("#resumecontentform .J_Fields:nth-child(" + (fields+1) + ")").attr("data-id","0");
 //					$("#resumecontentform .J_Fields:nth-child(" + (fields+1) + ") .jinen ").val() = "-1";
+$("#resumecontentform .J_Fields:nth-child(" + (fields+1) + ") select.jinen").html('<option value="-1">请选择技能</option><option value="0">java</option><option value="1">php</option><option value="2">html5</option><option value="3">css</option><option value="4">c++</option>')
 
+				$("#resumecontentform .J_Fields:nth-child(" + (fields+1) + ") select.fen").html('<option value="-1">1分</option><option value="0">2分</option><option value="1">3分</option><option value="2">4分</option><option value="3">5分</option>')
 				} else {
 					alert("第" + fields + "份技能内容不完整，无法添加。");
 				}
