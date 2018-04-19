@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-18 16:53:40
+ * @Last Modified time: 2018-04-19 09:36:26
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -19,6 +19,8 @@ class User  extends Yang
     public function index()
     {
         if ($this->request->isAjax()) {
+            $arr = input('');
+            U::where('id',Session::get('user.id'))->update($arr);
 
         }else{
             $user = U::where('id',Session::get('user.id'))->find();
@@ -46,26 +48,38 @@ class User  extends Yang
     }
     public function bianji0()
     {
-        $UserProduction = UserProduction::where(['user_id'=>Session::get('user.id')])->select();
-        $this->assign('production',$UserProduction);
+        if ($this->request->isAjax()) {
 
-        return $this->fetch();
+        }else{
+            $UserProduction = UserProduction::where(['user_id'=>Session::get('user.id')])->select();
+            $this->assign('production',$UserProduction);
+
+            return $this->fetch();
+        }
     }
     public function bianji1()
     {
-        $UserSkill = UserSkill::where(['user_id'=>Session::get('user.id')])->select();
-        $this->assign('skill',$UserSkill);
-        return $this->fetch();
+        if ($this->request->isAjax()) {
+
+        }else{
+            $UserSkill = UserSkill::where(['user_id'=>Session::get('user.id')])->select();
+            $this->assign('skill',$UserSkill);
+            return $this->fetch();
+        }
     }
     public function bianji2()
     {
-        $user = U::where('id',Session::get('user.id'))->find();
-        $UserEducation = UserEducation::where(['user_id'=>$user['id']])->select();
-        $UserExperience = UserExperience::where(['user_id'=>$user['id']])->select();
-        $this->assign('education',$UserEducation);
-        $this->assign('experience',$UserExperience);
-        $this->assign('user',$user);
+        if ($this->request->isAjax()) {
 
-        return $this->fetch();
+        }else{
+            $user = U::where('id',Session::get('user.id'))->find();
+            $UserEducation = UserEducation::where(['user_id'=>$user['id']])->select();
+            $UserExperience = UserExperience::where(['user_id'=>$user['id']])->select();
+            $this->assign('education',$UserEducation);
+            $this->assign('experience',$UserExperience);
+            $this->assign('user',$user);
+
+            return $this->fetch();
+        }
     }
 }
