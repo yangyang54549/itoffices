@@ -277,13 +277,21 @@
 //
 //			}
 			$(".J_ResumeFields .J_item .fields .trash").click(function(){
-				if($(".J_ResumeFields .J_item").length>1){
+				
+				
+				var con;
+				con=confirm("确认删除本条记录?"); //在页面上弹出对话框
+				if(con==true){
+					if($(".J_ResumeFields .J_item").length>1){
 					$(this).parent().parent().remove();
 				}else{
 					$(".beijin").css("display", "block");
 					$(".beijin .good p").text("至少保留一条记录");
 					$(".beijin .good img").css("display","none");
 					$(".beijin").css("background-color","rgba(0, 0, 0, 0.5)");
+				}
+				}else{
+					alert("取消删除本条记录");
 				}
 			})
 			/*教育经历*/
@@ -334,13 +342,21 @@ var nones3 = false;
 				}
 			}*/
 			$(".J_EduFields .J_EduItem .fields .trash").click(function(){
-				if($(".J_EduFields .J_EduItem").length>1){
+				
+				
+				var con1;
+				con1=confirm("确认删除本条记录?"); //在页面上弹出对话框
+				if(con1==true){
+					if($(".J_EduFields .J_EduItem").length>1){
 					$(this).parent().parent().remove();
 				}else{
 					$(".beijin").css("display", "block");
 					$(".beijin .good p").text("至少保留一条记录");
 					$(".beijin .good img").css("display","none");
 					$(".beijin").css("background-color","rgba(0, 0, 0, 0.5)");
+				}
+				}else{
+					alert("取消删除本条记录");
 				}
 			})
 			$(".beijin").click(function(){

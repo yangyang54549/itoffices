@@ -393,28 +393,39 @@
 			}
 			.login_logo{
 				width: 100%;
+				overflow: hidden;
 				text-align: center;
 				line-height: 50px;
 				font-size: 24px;
 				font-weight: bold;
-				color: red;
+				
 				margin-top: 20px;
 				
+			}
+			.login_logo p{
+				float: left;
+				width: 100%;
+				text-align: right;
+				font-size: 14px;
+				height: 20px;
+				line-height: 20px;
 			}
 			.form-group{
 				width: 100%;
 				overflow: hidden;
-				padding: 10px;
+				padding: 10px 0px;
 				height: 40px;
 				position: relative;
 			}
-			.form-group label.t,.form-group input.form-control{				
-				float: left;
-				height: 30px;
-				line-height: 30px;
+			.form-group input.form-control{				
+				width: 100%;
+				height: 40px;
+				line-height: 40px;
 				font-size: 16px;
+				padding: 0px 10px;
+				box-sizing: border-box;
 			}
-			.form-group label.t{				
+			/*.form-group label.t{				
 				width: 30%;
 			}
 			.form-group input.form-control{
@@ -422,27 +433,44 @@
 				padding-left: 10px;
 				box-sizing: border-box;
 				
-			}
+			}*/
 			.form-group input.btn-default{
-				width: 60%;
-				margin: 10px 20%;
+				width: 100%;				
 				height: 40px;
 				line-height: 40px;
-				border-radius: 5px;				
+				border-radius: 5px;	
+				font-size: 14px;	
+				background-color: black;
+				color: white;		
 			}
 			#yan{
 				position: absolute;
-				top: 10px;
-				right: 0;
-				width: auto;
+				top: 15px;
+				right: 5px;
+				width: 110px;
 				padding: 0px 10px;
 				height: 30px;
 				line-height: 30px;
 				border-radius: 10px;
 				text-align: center;			
-				background-color: #428bca;
-	color: white;
-	font-size: 14px;
+				background-color: black;
+				color: white;
+				font-size: 14px;
+			}
+			.login_logos{
+				width: 100%;
+			}
+			.login_logos p.one{
+				height: 15px;
+				border-bottom: 1px solid rgba(0,0,0,.1);
+			}
+			.login_logos p.one span{
+				display: block;
+				padding: 0px 10px ;
+				height:30px ;
+				line-height: 30px;
+				background-color: white;
+				
 			}
 		</style>
 		<div class="login_background" >
@@ -451,24 +479,27 @@
 		
 		<div class="login">
 				<div class="login_logo">
-					<span>登录</span>
-					<img src="__INDEX__/img/icon/ca.png"/>
-					
+					<span style="float: left;">登录</span>
+					<img src="__INDEX__/img/icon/cas.png" style="float: right;"/>
+					<p >短信快捷登录</p>
 				</div>
 				<div class="form-group">
-							<label for="j_username" class="t">手机号　：</label>
-							<input id="phones" value="" name="phone" type="text" class="form-control x319 in" autocomplete="off">
+							
+							<input id="phones" value="" name="phone" type="text" placeholder="输入手机号" class="form-control x319 in" autocomplete="off">
 						</div>
 						<div class="form-group">
-							<label for="j_captcha" class="t">验证码　：</label>
-							<input id="j_captcha" name="j_captcha" type="text" class="form-control x164 in">
+							
+							<input id="j_captcha" name="j_captcha"  placeholder="输入短信验证码" type="text" class="form-control x164 in">
 							<span id="yan" class="btn-primary">
-								验证
+								获取短信验证码
 							</span>
 						</div>
 						<div class="form-group">
 							<input type="reset" id="login1s" value="&nbsp;登&nbsp;录&nbsp;" class="btn btn-default btn-lg">
 						</div>
+					<div class="login_logos">
+					<p class="one"><span id="">第三方登录</span></p>
+				</div>
 			</div>
 		<script type="text/javascript">
 		</script>
