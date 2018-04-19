@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-19 14:13:57
+ * @Last Modified time: 2018-04-19 14:43:13
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -46,6 +46,8 @@ class User  extends Yang
     {
         return $this->fetch();
     }
+
+    //我的作品 id为0就是新添加数据,否则为修改
     public function bianji0()
     {
         if ($this->request->isAjax()) {
@@ -58,10 +60,14 @@ class User  extends Yang
                 $arr['url'] = $value[2];
                 $arr['content'] = $value[3];
 
+                if ($value[4]==0) {
+                    UserProduction::insert($arr);
+                }else{
+                    UserProduction::where('id',$value[4])->update($arr);
+                }
             }
 
-            return json(count($data['production']));
-            //return json($this->ret);
+            return json($this->ret);
 
         }else{
             $UserProduction = UserProduction::where(['user_id'=>Session::get('user.id')])->select();
@@ -73,7 +79,21 @@ class User  extends Yang
     public function bianji1()
     {
         if ($this->request->isAjax()) {
+            $data = input();
 
+            $arr = [];
+            foreach ($data['skill'] as $key => $value) {
+                $arr['skill'] = $value[0];
+                $arr['grade'] = $value[1];
+
+                if ($value[2]==0) {
+                    UserSkill::insert($arr);
+                }else{
+                    UserSkill::where('id',$value[2])->update($arr);
+                }
+            }
+
+            return json($this->ret);
         }else{
             $UserSkill = UserSkill::where(['user_id'=>Session::get('user.id')])->select();
             $this->assign('skill',$UserSkill);
@@ -84,8 +104,21 @@ class User  extends Yang
     {
         if ($this->request->isAjax()) {
             $data = input();
-            //$data['experience'] = json_decode($data['experience'],true);
-            return json($data['experience']);
+
+            $arr = [];
+            foreach ($data['skill'] as $key => $value) {
+                $arr['skill'] = $value[0];
+                $arr['grade'] = $value[1];
+
+                if ($value[2]==0) {
+                    UserSkill::insert($arr);
+                }else{
+                    UserSkill::where('id',$value[2])->update($arr);
+                }
+            }
+
+            return json($this->ret);
+
         }else{
             $user = U::where('id',Session::get('user.id'))->find();
             $UserEducation = UserEducation::where(['user_id'=>$user['id']])->select();
