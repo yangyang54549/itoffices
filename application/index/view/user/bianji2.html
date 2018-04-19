@@ -249,31 +249,32 @@
 					alert("第" + lent + "份工作经历不完整，无法添加。");
 				}
 			})
-			var nones2 = false;
-				var aCity4 = new Array();
-			function gongzuo(){
-				var item = $(".J_ResumeFields .J_item").length;
-
-				for(var i = 0; i < item; i++) {
-					aCity4[i] = new Array();
-					var StartTime = $(".J_ResumeFields .J_item:nth-child("+(i+1)+") .inline input");
-					var EndTime0 = StartTime.eq(0).val();
-					var EndTime1 = StartTime.eq(1).val();
-					var EndTime2 = StartTime.eq(2).val();
-					var EndTime3 = StartTime.eq(3).val();
-					var fminfo = $(".J_ResumeFields .J_item:nth-child("+(i+1)+") .row textarea.fm-info").val();
-					if(EndTime0 !="" && EndTime1 !="" && EndTime2 !="" && EndTime3 !="" && fminfo !="" ) {
-							aCity4[i][0] = EndTime0;
-							aCity4[i][1] = EndTime1;
-							aCity4[i][2] = EndTime2;
-							aCity4[i][3] = EndTime3;
-							aCity4[i][4] = fminfo;
-
-					} else {
-						nones2 = true;
-					}
-				}
-			}
+			
+//			function gongzuo(){
+//				var item = $(".J_ResumeFields .J_item").length;
+//				var nones2 = false;
+//				var aCity4 = new Array();
+//				for(var i = 0; i < item; i++) {
+//					aCity4[i] = new Array();
+//					var StartTime = $(".J_ResumeFields .J_item:nth-child("+(i+1)+") .inline input");
+//					var EndTime0 = StartTime.eq(0).val();
+//					var EndTime1 = StartTime.eq(1).val();
+//					var EndTime2 = StartTime.eq(2).val();
+//					var EndTime3 = StartTime.eq(3).val();
+//					var fminfo = $(".J_ResumeFields .J_item:nth-child("+(i+1)+") .row textarea.fm-info").val();
+//					if(EndTime0 !="" && EndTime1 !="" && EndTime2 !="" && EndTime3 !="" && fminfo !="" ) {
+//							aCity4[i][0] = EndTime0;
+//							aCity4[i][1] = EndTime1;
+//							aCity4[i][2] = EndTime2;
+//							aCity4[i][3] = EndTime3;
+//							aCity4[i][4] = fminfo;
+//
+//					} else {
+//						nones2 = true;
+//					}
+//				}
+//				
+//			}
 			$(".J_ResumeFields .J_item .fields .trash").click(function(){
 				if($(".J_ResumeFields .J_item").length>1){
 					$(this).parent().parent().remove();
@@ -303,11 +304,11 @@
 					alert("第" + lent1 + "份教育经历不完整，无法添加。");
 				}
 			})
-			var nones3 = false;
-				var aCity5 = new Array();
-			function jiaoyu(){
+			
+			/*function jiaoyu(){
 				var duI = $(".J_EduFields .J_EduItem").length;
-
+var nones3 = false;
+				var aCity5 = new Array();
 				for(var i = 0; i < duI; i++) {
 					aCity5[i] = new Array();
 					var Star = $(".J_EduFields .J_EduItem:nth-child("+(i+1)+") .inline input");
@@ -329,7 +330,7 @@
 						nones3 = true;
 					}
 				}
-			}
+			}*/
 			$(".J_EduFields .J_EduItem .fields .trash").click(function(){
 				if($(".J_EduFields .J_EduItem").length>1){
 					$(this).parent().parent().remove();
@@ -350,8 +351,54 @@
 				var jies = $("#jies").val();
 				if(jies != ""){
 					var aCity3 = new Array();
-					jiaoyu();
-					gongzuo();
+					var item = $(".J_ResumeFields .J_item").length;
+				var nones2 = false;
+				var aCity4 = new Array();
+				for(var i = 0; i < item; i++) {
+					aCity4[i] = new Array();
+					var StartTime = $(".J_ResumeFields .J_item:nth-child("+(i+1)+") .inline input");
+					var EndTime0 = StartTime.eq(0).val();
+					var EndTime1 = StartTime.eq(1).val();
+					var EndTime2 = StartTime.eq(2).val();
+					var EndTime3 = StartTime.eq(3).val();
+					var fminfo = $(".J_ResumeFields .J_item:nth-child("+(i+1)+") .row textarea.fm-info").val();
+					if(EndTime0 !="" && EndTime1 !="" && EndTime2 !="" && EndTime3 !="" && fminfo !="" ) {
+							aCity4[i][0] = EndTime0;
+							aCity4[i][1]= EndTime1;
+							aCity4[i][2]= EndTime2;
+							aCity4[i][3]= EndTime3;
+							aCity4[i][4]= fminfo;
+
+					} else {
+						nones2 = true;
+					}
+				}
+				
+				var duI = $(".J_EduFields .J_EduItem").length;
+var nones3 = false;
+				var aCity5 = new Array();
+				for(var i = 0; i < duI; i++) {
+					aCity5[i] = new Array();
+					var Star = $(".J_EduFields .J_EduItem:nth-child("+(i+1)+") .inline input");
+					var End0 = Star.eq(0).val();
+					var End1 = Star.eq(1).val();
+					var End2 = Star.eq(2).val();
+					var End3 = Star.eq(3).val();
+					var End4 = Star.eq(4).val();
+					var fminfo1 = $(".J_EduFields .J_EduItem:nth-child("+(i+1)+") .row textarea.fm-info").val();
+					if(End0 !="" && End1 !="" && End2 !="" && End3 !=""&& End4 !="" && fminfo1 !="" ) {
+							aCity5[i][0] = End0;
+							aCity5[i][1] = End1;
+							aCity5[i][2] = End2;
+							aCity5[i][3] = End3;
+							aCity5[i][4] = End4;
+							aCity5[i][5] = fminfo1;
+
+					} else {
+						nones3 = true;
+					}
+				}
+				
 					if(nones2!=true && nones3!=true){
 					/*alert("作品内容不完整，无法提交。");*/
 					console.log(aCity4);
