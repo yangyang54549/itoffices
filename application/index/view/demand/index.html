@@ -374,8 +374,7 @@
     			top: 0;
     			left: 0;
     			z-index: 999;
-    			background-color: rgba(0,0,0,.3);
-    			
+    			background-color: rgba(0,0,0,.3);  display: none;  			
 			}
 			.login{
 				width: 400px;
@@ -385,11 +384,12 @@
 				border-radius: 20px;
 				box-sizing: border-box;
 				padding: 0px 50px;
-				position: absolute;
+				position: fixed;
 				left: 50%;
 				top: 50%;
+				z-index: 1000;
 				margin-left: -200px;
-				margin-top: -200px;
+				margin-top: -200px;display: none;
 			}
 			.login_logo{
 				width: 100%;
@@ -399,6 +399,7 @@
 				font-weight: bold;
 				color: red;
 				margin-top: 20px;
+				
 			}
 			.form-group{
 				width: 100%;
@@ -418,10 +419,16 @@
 			}
 			.form-group input.form-control{
 				width: 69%;
+				padding-left: 10px;
+				box-sizing: border-box;
+				
 			}
 			.form-group input.btn-default{
-				width: 50%;
-				margin: 10px  auto;
+				width: 60%;
+				margin: 10px 20%;
+				height: 40px;
+				line-height: 40px;
+				border-radius: 5px;				
 			}
 			#yan{
 				position: absolute;
@@ -439,7 +446,9 @@
 			}
 		</style>
 		<div class="login_background" >
-			<div class="login">
+			
+		</div>
+		<div class="login">
 				<div class="login_logo">
 					登录
 				</div>
@@ -458,7 +467,6 @@
 							<input type="reset" id="login1s" value="&nbsp;登&nbsp;录&nbsp;" class="btn btn-default btn-lg">
 						</div>
 			</div>
-		</div>
 		<script type="text/javascript">
 		</script>
 		<div class="footer" style="background-color: #1e2831;">
@@ -475,6 +483,9 @@
 		<script src="__INDEX__/js/main.js" type="text/javascript" charset="utf-8"></script>
 
 		<script>
+			
+			
+			
 			$('.choice_kind li').click(function() {
 				$("#page-box .now").text('1')
 				$(this).parents(".choice_kind").find("li").removeClass("active").end().find(".freeman_none").css("display", 'none');
