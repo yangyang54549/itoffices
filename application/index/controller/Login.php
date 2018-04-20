@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-20 10:42:59
+ * @Last Modified time: 2018-04-20 11:38:03
  */
 namespace app\index\controller;
 use app\index\controller\Yang;
@@ -89,85 +89,73 @@ class Login extends Yang
     {
         if ($this->request->isAjax() && $this->request->isPost())
         {
-            $mobile=input('post.mobile');
-            $code=input('post.code');
-            $referrer=input('post.referrer');
-            $arr = input('post.');
+
+        $mobile=input('post.mobile');
+        $code=input('post.code');
 
         if (!$mobile) {
-            return json(['code'=>1, 'msg'=>'手机号不能为空']);
+            $this->ret['msg'] = '手机号不能为空';
+            $this->ret['code'] = -200;
+            return json($this->ret);
         }
-        if (!checkMobile($mobile)) {
-            return json(['code'=>1, 'msg'=>'手机号格式不正确']);
-        }
+
         if ($code == '') {
             return json(['code'=>1, 'msg'=>'短信验证码不能为空']);
         }
-        if ($code != Session::get($mobile)) {
-            return json(['code'=>1, 'msg'=>'短信验证码错误']);
-        }
-        $times=Session::get($code);
-        if (time() > ($times+5*60)) {
-            Session::delete($times);
-            return json(['code'=>1, 'msg'=>'短信验证码已失效']);
-        }
+        // if ($code != Session::get($mobile)) {
+        //     $this->ret['msg'] = '短信验证码错误';
+        //     $this->ret['code'] = -200;
+        //     return json($this->ret);
+        // }
+        // $times=Session::get($code);
+        // if (time() > ($times+5*60)) {
+        //     Session::delete($times);
+        //     $this->ret['msg'] = '短信验证码已失效';
+        //     $this->ret['code'] = -200;
+        //     return json($this->ret);
+        // }
 
         $res = User::where(['mobile'=>$mobile])->find();
         if (isset($res)) {
                 //存cookie
-                Session::delete($mobile);
-                Session::delete($times);
-                $user_login = rand('10000000','99999999');
-                User::where(['mobile'=>$mobile])->update(['user_login'=>$user_login]);
-                $res['user_login'] = $user_login;
+
+                // Session::delete($mobile);
+                // Session::delete($times);
+
                 Session::set('user',$res);
-                Cookie::set('user_id',$res['id'],2592000);
-                $url = url("index/index");
-                if ($res['authentication'] == 0) {
-                    $url = url("login/identity");
-                }
-                return json(['code'=>200, 'msg'=>'登录成功','url'=>$url]);
+                $this->ret['msg'] = '登录成功';
+                return json($this->ret);
 
         } else {
 
             $row['mobile']=$mobile;
-            $row['name'] = '农场主';
+            $row['user_name'] = '程序员';
             $row['create_time']=time();
-            $row['status']=1;
-            $row['login_time']=time();
-            $row['invite_time']=time();
-            $row['sign_time']=time();
-            $row['integral']=1000;
-            $row['referrer']=$referrer;
+            $row['gender']='男';
             $res = User::insert($row);
 
             if ($res!==false) {
-                Session::delete($mobile);
-                Session::delete($times);
+
+                // Session::delete($mobile);
+                // Session::delete($times);
+
                 $res = User::where(['mobile'=>$mobile])->find();
-                $user_login = rand('10000000','99999999');
-                User::where(['mobile'=>$mobile])->update(['user_login'=>$user_login]);
-                $res['user_login'] = $user_login;
                 Session::set('user',$res);
-                Cookie::set('user_id',$res['id'],2592000);
-
-                $ups = UP::where(['id'=>1])->find();
-                $up['user_id'] =  $res['id'];
-                $up['number'] =  $ups['number'];
-                $up['money'] =  $ups['money'];
-                $up['remark'] = $ups['remark'];
-                $up['full'] = $ups['full'];
-                UP::insert($up);
-
-                $url = url("login/identity");
-                return json(['code'=>200, 'msg'=>'登录成功','url'=>$url]);
+                $this->ret['msg'] = '登录成功';
+                return json($this->ret);
             }
-            return json(['code'=>1, 'msg'=>'登录失败']);
-        }
-            return json(['code'=>1, 'msg'=>'登录失败']);
+            $this->ret['msg'] = '登录失败';
+            $this->ret['code'] = -200;
+            return json($this->ret);
 
+        }
+            $this->ret['msg'] = '登录失败';
+            $this->ret['code'] = -200;
+            return json($this->ret);
         }else{
-            return json(['code'=>1, 'msg'=>'非法请求']);
+            $this->ret['msg'] = '非法请求';
+            $this->ret['code'] = -200;
+            return json($this->ret);
         }
     }
     /**
@@ -402,6 +390,7 @@ class Login extends Yang
     public function exit()
     {
         Session::delete('user');
+        $this->redirect('demand/index');
         echo 'ok';
     }
 }

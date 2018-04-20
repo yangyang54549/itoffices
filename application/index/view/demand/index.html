@@ -609,14 +609,16 @@
 					} else {
 						if($("#j_captcha").val()!=""){
 							var mobile = $("#phones").val();
-							var yanz = $("#j_captcha").val();
-							$.post("{:url('demand/index')}",{mobile:mobile,yanz:yanz},function(data) {
-
-								$("#demandlist-ul1").html(data.data);
-
+							var code = $("#j_captcha").val();
+							$.post("{:url('login/checkindex')}",{mobile:mobile,code:code},function(data) {
+								if (data.code==1) {
+									alert("登录成功");
+									window.location.href='{:url("user/index")}';
+								}else{
+									alert(data.msg);
+								}
 							})
 
-							alert("登录成功");
 						}else{
 							alert("请输入短信验证码");
 						}
