@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-20 09:59:48
+ * @Last Modified time: 2018-04-20 10:42:59
  */
 namespace app\index\controller;
 use app\index\controller\Yang;
@@ -21,7 +21,12 @@ class Login extends Yang
     use \app\admin\traits\controller\Controller;
     public function login()
     {
+        if ($this->request->isAjax()){
+            $data = input();
+
+        }else{
             return  $this->fetch();
+        }
     }
 
     public function wxlogin()
