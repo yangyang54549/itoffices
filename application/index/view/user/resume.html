@@ -498,7 +498,7 @@
 					</div>
 				</div>
 				<div class="right_name">
-					<h3>格子飞</h3>
+					<h3>{$user.user_name}</h3>
 					<div class="status"><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><span>(1)</span>
 						<div class="status_x">
 
@@ -532,8 +532,10 @@
 					</div>
 				</div>
 				<div class="right_message">
-					<p>160元/天</p>
-					<p>可工作地点: 远程</p>					
+
+					<p>{$user.daily_money}元/天</p>
+					<p>可工作地点: {$user.working_address}</p>
+
 					<p>可工作时间: 工作日09:00-21:00、周末9:00-20:00</p>
 					<div class="contact-btn">
 						<a href="###" class="ui1">雇佣我吧</a>

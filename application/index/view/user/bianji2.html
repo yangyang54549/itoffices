@@ -277,13 +277,26 @@
 //
 //			}
 			$(".J_ResumeFields .J_item .fields .trash").click(function(){
-				
-				
+
+				var rem = $(this).parent().parent();
+
 				var con;
 				con=confirm("确认删除本条记录?"); //在页面上弹出对话框
 				if(con==true){
+					//工作经历
 					if($(".J_ResumeFields .J_item").length>1){
-					$(this).parent().parent().remove();
+						id = $(this).parent().parent().data('id');
+
+						$.post("{:url('user/deexperience')}",{id:id},function(data){
+							console.log(data);
+							if (data.code==1) {
+								alert("删除成功");
+								rem.remove();
+
+							}else{
+								alert("删除失败");
+							}
+						}, "json");
 				}else{
 					$(".beijin").css("display", "block");
 					$(".beijin .good p").text("至少保留一条记录");
@@ -291,7 +304,7 @@
 					$(".beijin").css("background-color","rgba(0, 0, 0, 0.5)");
 				}
 				}else{
-					
+
 				}
 			})
 			/*教育经历*/
@@ -342,13 +355,25 @@ var nones3 = false;
 				}
 			}*/
 			$(".J_EduFields .J_EduItem .fields .trash").click(function(){
-				
-				
+
+				var rem = $(this).parent().parent();
 				var con1;
 				con1=confirm("确认删除本条记录?"); //在页面上弹出对话框
 				if(con1==true){
 					if($(".J_EduFields .J_EduItem").length>1){
-					$(this).parent().parent().remove();
+					//教育经历
+					id = $(this).parent().parent().data('id');
+
+					$.post("{:url('user/deeducation')}",{id:id},function(data){
+						console.log(data);
+						if (data.code==1) {
+							alert("删除成功");
+							rem.remove();
+
+						}else{
+							alert("删除失败");
+						}
+					}, "json");
 				}else{
 					$(".beijin").css("display", "block");
 					$(".beijin .good p").text("至少保留一条记录");
@@ -356,7 +381,6 @@ var nones3 = false;
 					$(".beijin").css("background-color","rgba(0, 0, 0, 0.5)");
 				}
 				}else{
-					
 				}
 			})
 			$(".beijin").click(function(){
@@ -423,16 +447,17 @@ var nones3 = false;
 
 					if(nones2!=true && nones3!=true){
 					/*alert("作品内容不完整，无法提交。");*/
-					console.log(aCity4);
-					aCity4 = JSON.stringify(aCity4);
-					aCity5 = JSON.stringify(aCity5);
 					console.log(jies);
 					console.log(aCity4);
 					console.log(aCity5);
 					$.post("{:url('user/bianji2')}",{introduce:jies,experience:aCity4,education:aCity5},function(data){
 						console.log(data);
+						if (data.code==1) {
+							alert("提交成功");
+						}else{
+							alert("提交失败");
+						}
 					}, "json");
-					alert("提交成功");
 
 					}else{
 						alert("填写不完整，无法添加");

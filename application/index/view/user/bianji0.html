@@ -234,11 +234,27 @@
 
 			})
 			$(".field .fields .resume_hand_li .trash").click(function() {
-				
+				var rem = $(this).parent().parent();
+
 				var con;
 				con=confirm("确认删除本条记录?"); //在页面上弹出对话框
 				if(con==true){
 					if($(".field .fields").length > 1) {
+
+						id = $(this).parent().parent().data('id');
+
+						$.post("{:url('user/deexperience')}",{id:id},function(data){
+							console.log(data);
+							if (data.code==1) {
+								alert("删除成功");
+								rem.remove();
+
+							}else{
+								alert("删除失败");
+							}
+						}, "json");
+
+
 					$(this).parent().parent().remove();
 				} else {
 					$(".beijin").css("display", "block");
@@ -247,9 +263,9 @@
 					$(".beijin").css("background-color", "rgba(0, 0, 0, 0.5)");
 					}
 				}else{
-					
+
 				}
-				
+
 			})
 
 			$(".beijin").click(function() {

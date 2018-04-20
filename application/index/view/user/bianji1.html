@@ -161,6 +161,8 @@
 										<option value="go" {if condition="$vo.skill == 'go'"}selected="selected"{/if}>go</option>
 										<option value="javascript" {if condition="$vo.skill == 'javascript'"}selected="selected"{/if}>javascript</option>
 										<option value="python" {if condition="$vo.skill eq 'python'"}selected="selected"{/if}>python</option>
+										<option value="c++"  {if condition="$vo.skill eq 'c++'"}selected="selected"{/if}>c++</option>
+
 									</select>
 								</div>
 								<div class="inline field"> <label style="margin-top: 8px;">经验自评</label> </div>
@@ -184,22 +186,25 @@
 								<div class="inline field" style="width: 200px;padding-left: 0;">
 									<select name="" class="jinen" text="paraText">
 										<option value="-1">请选择技能</option>
-										<option value="0">java</option>
-										<option value="1">php</option>
-										<option value="2">html5</option>
-										<option value="3">css</option>
-										<option value="4">c++</option>
+										<option value="java">java</option>
+										<option value="php">php</option>
+										<option value="html5">html5</option>
+										<option value="css">css</option>
+										<option value="go">go</option>
+										<option value="javascript">javascript</option>
+										<option value="python">python</option>
+										<option value="c++">c++</option>
+
 									</select>
 								</div>
 								<div class="inline field"> <label style="margin-top: 8px;">经验自评</label> </div>
 								<div class="inline field" style="width: 200px;padding-left: 0;">
 									<select name="" class="fen" text="paraText">
-										<option value="-1">1分</option>
-										<option value="0">2分</option>
-										<option value="1">3分</option>
-										<option value="2">4分</option>
-										<option value="3">
-										5分</option>
+										<option value="1">1分</option>
+										<option value="2">2分</option>
+										<option value="3">3分</option>
+										<option value="4">4分</option>
+										<option value="5">5分</option>
 									</select>
 								</div>
 								<div class="inline field"> <label style="margin-top: 8px; color: gray;">1分为新入门，5分为满分</label> </div>
@@ -248,11 +253,25 @@ $("#resumecontentform .J_Fields:nth-child(" + (fields+1) + ") select.jinen").htm
 
 			})
 			$("#resumecontentform .field .fields .resume_hand_li  .trash").click(function() {
+				var rem = $(this).parent().parent();
 				var con;
 				con=confirm("确认删除本条记录?"); //在页面上弹出对话框
 				if(con==true){
 					if($("#resumecontentform .field .fields").length>1){
-					$(this).parent().parent().remove();
+					var id = $(this).parent().parent().data('id');
+
+					$.post("{:url('user/deskill')}",{id:id},function(data){
+						console.log(data);
+						if (data.code==1) {
+							alert("删除成功");
+							rem.remove();
+
+						}else{
+							alert("删除失败");
+						}
+					}, "json");
+
+					//$(this).parent().parent().remove();
 				}else{
 					$(".beijin").css("display", "block");
 					$(".beijin .good p").text("至少保留一条记录");
@@ -260,10 +279,10 @@ $("#resumecontentform .J_Fields:nth-child(" + (fields+1) + ") select.jinen").htm
 					$(".beijin").css("background-color","rgba(0, 0, 0, 0.5)");
 				}
 				}else{
-					
+
 				}
-				
-				
+
+
 
 			})
 			$(".beijin").click(function(){
@@ -310,7 +329,6 @@ $("#resumecontentform .J_Fields:nth-child(" + (fields+1) + ") select.jinen").htm
 							alert("提交失败");
 						}
 					}, "json");
-					alert("提交成功。");
 				}
 				/*var is = $(".field .fields").length;
 				for(var i=0; i<is;i++){}
