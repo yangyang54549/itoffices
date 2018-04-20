@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>登录</title>
-		
+
 		<style type="text/css">
 			body{
 				 width: 100%;
@@ -28,7 +28,7 @@
 				z-index: 1000;
 				margin-left: -200px;
 				margin-top: -200px;
-				
+
 			}
 			.login_logo{
 				width: 100%;
@@ -37,19 +37,19 @@
 				line-height: 50px;
 				font-size: 24px;
 				font-weight: bold;
-				
+
 				margin-top: 20px;
-				
+
 			}
-			
+
 			.form-group{
 				width: 100%;
 				overflow: hidden;
-				
+
 				height: 40px;
 				position: relative;
 			}
-			.form-group input.form-control{				
+			.form-group input.form-control{
 				width: 100%;
 				height: 40px;
 				line-height: 40px;
@@ -57,23 +57,23 @@
 				padding: 0px 10px;
 				box-sizing: border-box;
 			}
-			/*.form-group label.t{				
+			/*.form-group label.t{
 				width: 30%;
 			}
 			.form-group input.form-control{
 				width: 69%;
 				padding-left: 10px;
 				box-sizing: border-box;
-				
+
 			}*/
 			.form-group input.btn-default{
-				width: 100%;				
+				width: 100%;
 				height: 40px;
-				
-				border-radius: 5px;	
-				font-size: 14px;	
+
+				border-radius: 5px;
+				font-size: 14px;
 				background-color: black;
-				color: white;		
+				color: white;
 			}
 			#yan{
 				position: absolute;
@@ -84,7 +84,7 @@
 				height: 30px;
 				line-height: 30px;
 				border-radius: 10px;
-				text-align: center;			
+				text-align: center;
 				background-color: black;
 				color: white;
 				font-size: 14px;
@@ -105,7 +105,7 @@
 				text-align: center;
 				line-height: 30px;
 				background-color: white;
-				
+
 			}
 			.login_logos p.two{
 				width: 100%;
@@ -115,7 +115,7 @@
 			}
 		.login_logos p.two span{
 				display: block;
-				
+
 				width:50px;
 				height: 50px;
 				background-image: url(__INDEX__/img/icon/weixin.png);
@@ -143,16 +143,16 @@
 				<div class="login_logo">
 					<span style="float: left;">登录</span>
 					<img src="__INDEX__/img/icon/cas.png" style="float: right;" id="login-none" style="opacity: 0;"/>
-					
+
 				</div>
 				<div class="login1">
 					<p  style="width: 100%;text-align: right; font-size: 14px;">短信快捷登录</p>
 					<div class="form-group">
-							
+
 							<input id="phones" value="" name="phone" type="number" placeholder="输入手机号" class="form-control x319 in" autocomplete="off">
 						</div>
 						<div class="form-group">
-							
+
 							<input id="j_captcha" name="j_captcha"  placeholder="输入短信验证码" type="text" class="form-control x164 in">
 							<span id="yan" class="btn-primary">
 								获取短信验证码
@@ -166,25 +166,25 @@
 					<p class="two"><span></span> </p>
 				</div>
 				<span id="quehuan1">
-					
+
 				</span>
 				</div>
 				<div class="login2" style="display: none;">
 					<p  style="width: 100%;text-align: center; font-size: 16px;  font-weight: bold;">微信登录</p>
 					<img src="__INDEX__/img/saoma.png" style="width: 240px; height: auto; display: block;margin: 0px  auto;"/>
 					<p  style="width: 100%;text-align: center; font-size: 14px; line-height: 30px; font-weight: bold;">使用短信扫描二维码登录</p>
-					
+
 				<span id="quehuan2">
-					
+
 				</span>
 				</div>
-				
+
 			</div>
 		<script src="__INDEX__/js/jss/jquery-2.1.3.min.js"></script>
-		
+
 		<script type="text/javascript">
-			
-			
+
+
 			$("#quehuan1").click(function(){
 				$(".login .login1").css("display","none");
 				$(".login .login2").css("display","block");
@@ -193,14 +193,14 @@
 				$(".login .login2").css("display","none");
 				$(".login .login1").css("display","block");
 			})
-			
+
 			 $("#login1s").click(function() {
                 if($("#phones").val() == "") {
                     alert("请输入手机号码");
                 }  else {
                 	if(!(/^1[3456789]\d{9}$/.test($("#phones").val()))) {
-						alert("手机号码有误，请重填");						
-					} else {						 
+						alert("手机号码有误，请重填");
+					} else {
 						if($("#j_captcha").val()!=""){
 							alert("登录成功");
 						}else{
@@ -214,13 +214,13 @@
                     alert("请输入手机号码");
                 }  else {
                 	if(!(/^1[3456789]\d{9}$/.test($("#phones").val()))) {
-						alert("手机号码有误，请重填");						
-					} else {						 
+						alert("手机号码有误，请重填");
+					} else {
 						var s = 60;
 						var j = setInterval(function() {
 							s = s - 1;
 							$("#yan").html(s + "秒后重新获取");
-							if(s == 0) {							
+							if(s == 0) {
 								$("#yan").html("请重新获取");
 								clearInterval(j);
 								$("#yan").html("60秒");

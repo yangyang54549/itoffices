@@ -378,29 +378,29 @@
 									<div class="div1-info"><span>微信号  </span><span><input type="text" placeholder="请填写您的微信号" value="13203940281" id="wxNum" maxlength="20"></span><i class="clear"></i></div>
 									<div class="div1-info"><span>邮箱  </span><span><input type="text" placeholder="请填写您的邮箱" value="13203940281@163.com" id="email"></span><i class="clear"></i></div>
 									<div class="div1-info"><span>联系电话  </span><span><input type="text"  maxlength="11" placeholder="请填写您的联系电话" value="13203940281" id="mobile"></span><i class="clear"></i></div>
-									<!--<div class="div1-info1" >
+									<div class="div1-info1" id="times">
 										<span>可工作时间  </span>
 										<span>
 											<div class="div_checkbox">
-												<input type="checkbox" name="" id="" value="xifan"  id="in1"/><label>工作日</label><i class="clear"></i>
+												<input type="checkbox" name="value1" id="" value="工作日"  id="in1"/><label>工作日</label><i class="clear"></i>
 											</div>
 
-											<div class="div_time">
+											<div class="div_time div_time1 ">
 												<input class="J_WorkTime start" type="text" placeholder="开始时间：09-00"maxlength="10" value="">
 												<input class="J_WorkTime end" type="text" placeholder="结束时间：17-00" maxlength="10"value=""><i class="clear"></i>
 											</div>
 											<div class="div_checkbox">
-												<input type="checkbox" name="" id="" value="xifan"  id="in1"/><label>周末</label><i class="clear"></i>
+												<input type="checkbox" name="value1" id="" value="周末"  id="in1"/><label>周末</label><i class="clear"></i>
 											</div>
 
-											<div class="div_time">
+											<div class="div_time div_time1">
 												<input class="J_WorkTime start" type="text" placeholder="开始时间：20-00" maxlength="10" value="">
 												<input class="J_WorkTime end" type="text" placeholder="结束时间：23-00" maxlength="10"value=""><i class="clear"></i>
 											</div>
 											<i class="clear"></i>
 										</span>
 										<i class="clear"></i>
-									</div>-->
+									</div>
 									<!--<div class="div1-info1">
 										<span>可工作区域 </span>
 										<span>
@@ -435,13 +435,16 @@
 										</span>
 										<i class="clear"></i>
 									</div>
-									<div class="div1-info1">
+									<div class="div1-info1" id="div_checkbox2">
+										
 										<span>接单状态</span>
 										<span>
-											<div class="div_checkbox" id="div_checkbox2">
-												<input type="checkbox" name="you" id="" value="显示" checked="checked" style="font-size: 16px;"/><label class="ches">接单</label><i class="clear"></i>
+											<div class="div_checkbox" >
+												<input type="radio" name="you" id=""  value="接单" checked="checked" style="font-size: 16px;"/><label class="ches">接单</label><i class="clear"></i>
 											</div>
-
+<div class="div_checkbox" >
+												<input type="radio" name="you" id=""  value="不接单" style="font-size: 16px;"/><label class="ches">不接单</label><i class="clear"></i>
+											</div>
 											<i class="clear"></i>
 										</span>
 										<i class="clear"></i>
@@ -577,41 +580,66 @@
 			/*工作区域切换*/
 			$("#div_select1").attr("disabled", "disabled");
 			$("#div_select2").attr("disabled", "disabled");
-			var value = "";
-			$("#checkbox1 input").click(function() {
+//			var value = "";
+//			$("#checkbox1 input").click(function() {
+//
+//				var radio = document.getElementsByName("radioday");
+//				for(var i = 0; i < radio.length; i++) {
+//					if(radio[i].checked == true) {
+//						value = radio[i].value;
+//						break;
+//					}
+//				}
+//				if(value == "驻场工作") {
+//					document.getElementById('div_select1').disabled = false;
+//					document.getElementById('div_select2').disabled = false;
+//				} else if(value == "远程工作") {
+//					document.getElementById('div_select1').disabled = true;
+//					document.getElementById('div_select2').disabled = true;
+//				}
+//			})
+ $("#times .div_time1 input").attr("disabled", "disabled");
+  $("#times .div_time2 input").attr("disabled", "disabled");
+  var chestr="";
+$("#times .div_checkbox input").click(function() {
 
-				var radio = document.getElementsByName("radioday");
-				for(var i = 0; i < radio.length; i++) {
-					if(radio[i].checked == true) {
-						value = radio[i].value;
-						break;
-					}
-				}
-				if(value == "驻场工作") {
-					document.getElementById('div_select1').disabled = false;
-					document.getElementById('div_select2').disabled = false;
-				} else if(value == "远程工作") {
-					document.getElementById('div_select1').disabled = true;
-					document.getElementById('div_select2').disabled = true;
-				}
+				var str=document.getElementsByName("value1");
+var objarray=str.length;
+
+for (i=0;i<objarray;i++)
+{
+  if(str[i].checked == true)
+  {
+   chestr+=str[i].value;
+  }
+}
+if(chestr == "")
+{
+  $("#times .div_time1 input").attr("disabled", "disabled");
+  $("#times .div_time2 input").attr("disabled", "disabled");
+}
+else if(chestr=="工作日周末")
+{
+ $("#times .div_time1 input").removeAttr("disabled");
+  $("#times .div_time2 input").removeAttr("disabled");
+}else if(chestr=="工作日"){
+	$("#times .div_time1 input").removeAttr("disabled");
+  $("#times .div_time2 input").attr("disabled", "disabled");
+}else if(chestr=="周末"){
+	$("#times .div_time1 input").attr("disabled", "disabled");
+  $("#times .div_time2 input").removeAttr("disabled");
+}
 			})
-			/*接单状态*/
-			var value1 = "";
+			/*接单状态*/	
+			var value1 = "接单";
 			$("#div_checkbox2 input").click(function() {
-
 				var radio = document.getElementsByName("you");
 				for(var i = 0; i < radio.length; i++) {
 					if(radio[i].checked == true) {
-						value1 = radio[i].value;
+						 value1 = radio[i].value;
 						break;
 					}
-				}
-				if(value1 == "显示") {
-					$(".ches").text("接单");
-				} else {
-					$(".ches").text("不接单");
-				}
-
+				}				
 			})
 			/**/
 
@@ -635,6 +663,7 @@
 				var xinsui = $("#xinsui").val();/*日薪*/
 				var ches = $(".ches").text();/*接单状态*/
 				var gzly = $(".gzly span.onstyle");
+				/*关注领域*/
 				var gzs;
 				if(gzly.length>0){
 					for(var n = 0;n<gzly.length;n++){
@@ -660,14 +689,30 @@
 									if(strEmail) {
 										return true;
 										if(mobile!=""){
-					if(!(/^1[3456789]\d{9}$/.test($("#dl_mobile1").val()))) {
-						alert("手机号码有误，请重填")
-					} else {
-
-					}
-				}else{
-					alert("请输入手机号")
-				}
+											if(!(/^1[3456789]\d{9}$/.test($("#dl_mobile1").val()))) {
+												alert("手机号码有误，请重填")
+											} else {
+												if(chestr != ""){
+													var gongzuotime = new Array();
+													if(chestr=="工作日周末"){
+														gongzuotime[0] = new Array();
+														if(){
+															
+														}else{
+															
+														}
+													}else if(chestr=="工作日"){
+														
+													}else if(chestr=="周末"){
+														
+													}
+												}else{
+												 alert("未选择可工作时间");
+												}
+											}
+										}else{
+											alert("请输入手机号")
+										}
 									} else {
 										alert("邮箱格式不正确！");
 									}
@@ -685,6 +730,7 @@
 				}
 
 			})
+			/*可工作时间*/
 			/*邮箱验证*/
 			function isEmail() {
 									var email = document.getElementById("email").value;
