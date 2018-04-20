@@ -696,16 +696,40 @@ else if(chestr=="工作日周末")
 													var gongzuotime = new Array();
 													if(chestr=="工作日周末"){
 														gongzuotime[0] = new Array();
-														if(){
-															
+														var divtime = $("#times .div_time input");
+														if(divtime[0].val()!=""&&divtime[1].val()!=""&&divtime[2].val()!=""&&divtime[3].val()!=""){
+															gongzuotime[0][0] = divtime[0].val();
+															gongzuotime[0][1] = divtime[1].val();
+															gongzuotime[0][2] = divtime[2].val();
+															gongzuotime[0][3] = divtime[3].val();
 														}else{
-															
+															alert("可工作时间未填写");
 														}
 													}else if(chestr=="工作日"){
-														
+														gongzuotime[0] = new Array();
+														var divtime = $("#times .div_time1 input");
+														if(divtime[0].val()!=""&&divtime[1].val()!=""){
+															gongzuotime[0][0] = divtime[0].val();
+															gongzuotime[0][1] = divtime[1].val();
+														}else{
+															alert("工作日时间未填写");
+														}
 													}else if(chestr=="周末"){
-														
+														gongzuotime[0] = new Array();
+														var divtime = $("#times .div_time2 input");
+														if(divtime[0].val()!=""&&divtime[1].val()!=""){
+															gongzuotime[0][0] = divtime[0].val();
+															gongzuotime[0][1] = divtime[1].val();
+														}else{
+															alert("周末时间未填写");
+														}
 													}
+													if(value1 !="接单"){
+														/*接单状态 不接单*/
+													}else{
+														/*接单状态 接单*/
+													}
+													
 												}else{
 												 alert("未选择可工作时间");
 												}
