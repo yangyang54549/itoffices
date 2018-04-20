@@ -701,7 +701,7 @@ else if(chestr=="工作日周末")
 												if(chestr != ""){
 													var gongzuotime = new Array();
 													var gays = true;
-													
+													var gaystext = "";
 													if(chestr=="工作日周末"){
 														gongzuotime[0] = new Array();
 														var divtime = $("#times .div_time input");
@@ -712,7 +712,7 @@ else if(chestr=="工作日周末")
 															gongzuotime[0][3] = divtime.eq(3).val();
 															gays = true;
 														}else{
-															alert("可工作时间未填写");
+															gaystext = "可工作时间未填写";
 															gays = false;
 														}
 													}else if(chestr=="工作日"){
@@ -723,7 +723,7 @@ else if(chestr=="工作日周末")
 															gongzuotime[0][1] = divtime.eq(1).val();
 															gays = true;
 														}else{
-															alert("工作日时间未填写");
+															gaystext = "工作日时间未填写";
 															gays = false;
 														}
 													}else if(chestr=="周末"){
@@ -734,29 +734,28 @@ else if(chestr=="工作日周末")
 															gongzuotime[0][1] = divtime.eq(1).val();
 															gays = true;
 														}else{
-															alert("周末时间未填写");
+															gaystext ="周末时间未填写";
 															gays = false;
 														}
-													}
-
-													alert('修改');
-
+													}													
 													if(value1 !="接单"){
 														/*接单状态 不接单*/
 													}else{
 														/*接单状态 接单*/
 													}
-<<<<<<< HEAD
-													if(gays){
-														
+
+													if(gays != false){
+														alert("完成");
+													}else{
+														alert(gaystext);
 													}
-													alert("万彩城");
+												
 													
-=======
-alert('修改');
 
 
->>>>>>> ee442a5560673a67f73699d2dff527a7aa30bc6b
+
+
+
 												}else{
 												 alert("未选择可工作时间");
 												}
