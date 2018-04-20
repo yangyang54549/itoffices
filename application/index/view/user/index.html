@@ -573,6 +573,9 @@
 			</div>
 		</div>
 		<script type="text/javascript">
+
+		var address = "{$user.address}";
+
 			$(".head_img2").click(function() {
 				$(".right-bg").css("display", "none");
 				$("#center").css("display", "block");
@@ -627,7 +630,7 @@ else if(chestr=="工作日周末")
   $("#times .div_time2 input").removeAttr("disabled");
 }else if(chestr=="工作日"){
 	$("#times .div_time1 input").removeAttr("disabled");
-  
+
 }else if(chestr=="周末"){
 	$("#times .div_time1 input").attr("disabled", "disabled");
   $("#times .div_time2 input").removeAttr("disabled");
@@ -680,7 +683,11 @@ else if(chestr=="工作日周末")
 				}
 
 				if(names != "") {
-					if(s_province != "省份" && s_city != "县、市" && s_county != "乡（镇）") {
+					if(s_province == "省份" && s_city == "县、市" && s_county == "乡（镇）") {
+						if (address=="") {
+							alert('请选择地区');return false;
+						}
+					}
 						if(occupation1 != "选择职业") {
 							if(wxNum != "") {
 								if(email == "") {
@@ -692,12 +699,12 @@ else if(chestr=="工作日周末")
 									strEmail = pattern.test(email);
 									if(strEmail) {
 										/*return true;*/
-										
+
 										if(mobile!=""){
 											if(!(/^1[3456789]\d{9}$/.test(mobile))) {
 												alert("手机号码有误，请重填")
 											} else {
-												
+
 												if(chestr != ""){
 													var gongzuotime = new Array();
 													var gays = true;
@@ -737,7 +744,7 @@ else if(chestr=="工作日周末")
 															gaystext ="周末时间未填写";
 															gays = false;
 														}
-													}													
+													}
 													if(value1 !="接单"){
 														/*接单状态 不接单*/
 													}else{
@@ -745,12 +752,70 @@ else if(chestr=="工作日周末")
 													}
 
 													if(gays != false){
+						var ress = s_province+"/"+s_city+"/"+s_county;
+
+
+				// var names = $("#name").val(); /*姓名*/
+				// var sex = $("#sex option:selected").text(); /*性别*/
+				// var s_province = $("#s_province option:selected").text(); /*省*/
+				// var s_city = $("#s_city option:selected").text(); /*县*/
+				// var s_county = $("#s_county option:selected").text(); /*乡*/
+				// var workingLife1 = $("#workingLife1 option:selected").text(); /*现在状态*/
+				// var occupation1 = $("#occupation1 option:selected").text(); /*职业选择1*/
+				// var occupation2 = $("#occupation2 option:selected").text(); /*职业选择2*/
+				// var workingLife = $("#workingLife option:selected").text(); /*工作年限*/
+				// //	var timeinit = $("#time-init").val();/*出生日期*/
+				// var wxNum = $("#wxNum").val(); /*微信号*/
+				// var email = $("#email").val(); /*邮箱*/
+				// var mobile = $("#mobile").val(); /*电话*/
+				// /*工作时间  未获取*/
+				// var xinsui = $("#xinsui").val();/*日薪*/
+				// var ches = $(".ches").text();/*接单状态*/
+				// var gzly = $(".gzly span.onstyle");
+				// /*关注领域*/
+				// var gzs;
+
+														alert(names);
+														alert(sex);
+														alert(ress);
+														alert(workingLife1);
+														alert(occupation1);
+														alert(occupation2);
+														alert(workingLife);
+
+						if(s_province == "省份" && s_city == "县、市" && s_county == "乡（镇）") {
+							ress = address;
+						}
+						occupation = occupation1+"/"+occupation2;
+
+						$.post("{:url('user/index')}",{
+							user_name:names,
+							gender:sex,
+							address:ress,
+							user_status:workingLife1,
+							occupation:occupation,
+							years:workingLife,
+							mobile:mobile,
+							wxchat:wxNum,
+							email:email,
+						},function(data){
+							console.log(data);
+							if (data.code==1) {
+								alert("删除成功");
+								rem.remove();
+
+							}else{
+								alert("删除失败");
+							}
+						}, "json");
+
 														alert("完成");
+
 													}else{
 														alert(gaystext);
 													}
-												
-													
+
+
 
 
 
@@ -772,9 +837,6 @@ else if(chestr=="工作日周末")
 						} else {
 							alert("请选选择职业");
 						}
-					} else {
-						alert("请选择所在区域");
-					}
 				} else {
 					alert("请输入姓名");
 				}

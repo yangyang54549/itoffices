@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-19 17:44:58
+ * @Last Modified time: 2018-04-20 16:37:36
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -21,6 +21,7 @@ class User  extends Yang
         if ($this->request->isAjax()) {
             $arr = input('');
             U::where('id',Session::get('user.id'))->update($arr);
+            return json($this->ret);
 
         }else{
             $user = U::where('id',Session::get('user.id'))->find();
