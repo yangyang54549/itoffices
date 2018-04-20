@@ -441,7 +441,7 @@
 					<span><img src="__INDEX__/img/icon/xi04.png"/><span>联系方式</span></span>
 
 					<span>
-						<span id="xinxi">申请干活才能看到联系方式哦</span>
+						<span id="xinxi"><a><img src="__INDEX__/img/hua.png" style="height: 16px;" /><span>：</span> <span>{$demand.mobile}</span></a></span>
 					<span id="lianxi1" style="z-index: 100;">
 					<a><img src="__INDEX__/img/wei.png"/> <span>：</span> <span>121797873</span></a>
 					<a><img src="__INDEX__/img/hua.png" style="height: 16px;" /><span>：</span> <span>{$demand.mobile}</span></a>
@@ -1040,7 +1040,7 @@
 			</div>
 
 			<script type="text/javascript">
-				$("#xinxi").click(function() {
+				/*$("#xinxi").click(function() {
 						$("#xinxi").css("display", "none");
 						$("#xinxi2").css("display", "none");
 						$("#lianxi1").css("display", "block");
@@ -1051,7 +1051,7 @@
 						$("#xinxi2").css("display", "block");
 						$("#xinxi").css("display", "none");
 						$("#lianxi1").css("display", "none");
-					})
+					})*/
 				$("#content-sq").click(function() {
 				if($(this).text() == "申请干活") {
 					$(".beijin").css("display", "block");
