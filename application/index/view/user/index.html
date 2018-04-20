@@ -205,7 +205,7 @@
 
 					<!--<a href="###">我的工作</a>-->
 					<!--<a class="active" href="###">我的作品</a>-->
-					<a href="###">退出登录</a>
+					<a href="javascript:if(confirm('确实要退出登录吗?')){location='{:url("login/exit")}'}">退出登录</a>
 				</div>
 				<div class="info-right">
 					<div class="right-bg">
@@ -232,7 +232,7 @@
 							</div>
 							<div>
 								<span>所在地区</span>
-								<span>{$user.address}</span>
+								<span>{$user.address ? $user.address : '请设置'}</span>
 								<i class="clear"></i>
 							</div>
 							<!--<div>
@@ -242,17 +242,17 @@
 							</div>-->
 							<div>
 								<span>现在状态</span>
-								<span>{if condition="$user.user_status eq 1"}在职{elseif condition="$user.user_status eq 2" /}离职{else/}自由职业{/if}</span>
+								<span>{$user.user_status ? $user.user_status : '请设置'}</span>
 								<i class="clear"></i>
 							</div>
 							<div>
 								<span>职业</span>
-								<span>{$user.occupation}</span>
+								<span>{$user.occupation ? $user.occupation : '请设置'}</span>
 								<i class="clear"></i>
 							</div>
 							<div>
 								<span>工作年限</span>
-								<span>{$user.years}年</span>
+								<span>{$user.years ? $user.years : '请设置'}</span>
 								<i class="clear"></i>
 							</div>
 							<div>
@@ -260,15 +260,15 @@
 								<span class="contact">
 							<div>
 								<p>电话</p>
-								<p>{$user.mobile}</p>
+								<p>{$user.mobile ? $user.mobile : '请设置'}</p>
 							</div>
 							<div>
 								<p>微信</p>
-								<p>{$user.wxchat}</p>
+								<p>{$user.wxchat ? $user.wxchat : '请设置'}</p>
 							</div>
 							<div>
 								<p>邮箱</p>
-								<p>{$user.email}</p>
+								<p>{$user.email ? $user.email : '请设置'}</p>
 							</div>
 						</span>
 								<i class="clear"></i>
@@ -288,7 +288,7 @@
 							<div class="skill">
 								<span>关注领域</span>
 								<span>
-							<i>{$user.attention}</i>
+							<i>{$user.attention ? $user.attention : '请设置'}</i>
 		                    </span>
 								<i class="clear"></i>
 							</div>
@@ -325,13 +325,13 @@
 				        			<div class="demo-wrap" style="overflow: hidden;">
 
 				        					<select id="s_province" name="s_province" style="font-size: 16px;">
-				        						<option value="河南" selected="selected">河南</option>
+
 				        					</select>
 										    <select id="s_city" name="s_city" style="font-size: 16px;">
-				        						<option value="郑州市" selected="selected">郑州市</option>
+
 										    </select>
 										    <select id="s_county" name="s_county" style="font-size: 16px;" value="管城回族区">
-				        						<option value="管城回族区" selected="selected">管城回族区</option>
+
 										    </select>
 
 										    <script class="resources library" src="__INDEX__/area.js" type="text/javascript"></script>
@@ -375,9 +375,9 @@
 												<input type="text"  id="time-init" placeholder="您的出生日期例：1995-12-03" value=""maxlength="10">
 										</span><i class="clear"></i></div>-->
 
-									<div class="div1-info"><span>微信号  </span><span><input type="text" placeholder="请填写您的微信号" value="13203940281" id="wxNum" maxlength="20"></span><i class="clear"></i></div>
-									<div class="div1-info"><span>邮箱  </span><span><input type="text" placeholder="请填写您的邮箱" value="13203940281@163.com" id="email"></span><i class="clear"></i></div>
-									<div class="div1-info"><span>联系电话  </span><span><input type="text"  maxlength="11" placeholder="请填写您的联系电话" value="13203940281" id="mobile"></span><i class="clear"></i></div>
+									<div class="div1-info"><span>微信号  </span><span><input type="text" placeholder="请填写您的微信号" value="{$user.wxchat}" id="wxNum" maxlength="20"></span><i class="clear"></i></div>
+									<div class="div1-info"><span>邮箱  </span><span><input type="text" placeholder="请填写您的邮箱" value="{$user.email}" id="email"></span><i class="clear"></i></div>
+									<div class="div1-info"><span>联系电话  </span><span><input type="text"  maxlength="11" placeholder="请填写您的联系电话" value="{$user.mobile}" id="mobile"></span><i class="clear"></i></div>
 									<div class="div1-info1" id="times">
 										<span>可工作时间  </span>
 										<span>
@@ -401,7 +401,7 @@
 										</span>
 										<i class="clear"></i>
 									</div>
-									<!--<div class="div1-info1">
+									<div class="div1-info1">
 										<span>可工作区域 </span>
 										<span>
 											<div class="div_checkbox" id="checkbox1">
@@ -423,12 +423,12 @@
 											<i class="clear"></i>
 										</span>
 										<i class="clear"></i>
-									</div>-->
+									</div>
 									<div class="div1-info1">
 										<span>日薪</span>
 										<span>
 											<div class="div_time">
-												<input type="number" id="xinsui" name="" value="300" style="font-size: 16px;"/>
+												<input type="number" id="xinsui" name="" value="{$user.daily_money}" style="font-size: 16px;"/>
 												<label style="line-height: 36px; height: 36px; color: gray;">元/天(8小时)</label>
 											</div>
 											<i class="clear"></i>
@@ -436,13 +436,13 @@
 										<i class="clear"></i>
 									</div>
 									<div class="div1-info1" id="div_checkbox2">
-										
+
 										<span>接单状态</span>
 										<span>
 											<div class="div_checkbox" >
 												<input type="radio" name="you" id=""  value="接单" checked="checked" style="font-size: 16px;"/><label class="ches">接单</label><i class="clear"></i>
 											</div>
-<div class="div_checkbox" >
+											<div class="div_checkbox" >
 												<input type="radio" name="you" id=""  value="不接单" style="font-size: 16px;"/><label class="ches">不接单</label><i class="clear"></i>
 											</div>
 											<i class="clear"></i>
@@ -630,7 +630,7 @@ else if(chestr=="工作日周末")
   $("#times .div_time2 input").removeAttr("disabled");
 }
 			})
-			/*接单状态*/	
+			/*接单状态*/
 			var value1 = "接单";
 			$("#div_checkbox2 input").click(function() {
 				var radio = document.getElementsByName("you");
@@ -639,7 +639,7 @@ else if(chestr=="工作日周末")
 						 value1 = radio[i].value;
 						break;
 					}
-				}				
+				}
 			})
 			/**/
 
@@ -724,12 +724,17 @@ else if(chestr=="工作日周末")
 															alert("周末时间未填写");
 														}
 													}
+
+													alert('修改');
+
 													if(value1 !="接单"){
 														/*接单状态 不接单*/
 													}else{
 														/*接单状态 接单*/
 													}
-													
+alert('修改');
+
+
 												}else{
 												 alert("未选择可工作时间");
 												}

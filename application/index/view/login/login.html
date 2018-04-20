@@ -142,8 +142,6 @@
 		<div class="login">
 				<div class="login_logo">
 					<span style="float: left;">登录</span>
-					<img src="__INDEX__/img/icon/cas.png" style="float: right;" id="login-none" style="opacity: 0;"/>
-
 				</div>
 				<div class="login1">
 					<p  style="width: 100%;text-align: right; font-size: 14px;">短信快捷登录</p>
@@ -202,7 +200,17 @@
 						alert("手机号码有误，请重填");
 					} else {
 						if($("#j_captcha").val()!=""){
-							alert("登录成功");
+
+							var mobile = $("#phones").val();
+							var code = $("#j_captcha").val();
+							$.post("{:url('login/checkindex')}",{mobile:mobile,code:code},function(data) {
+								if (data.code==1) {
+									alert("登录成功");
+									window.location.href='{:url("user/index")}';
+								}else{
+									alert(data.msg);
+								}
+							})
 						}else{
 							alert("请输入短信验证码");
 						}
