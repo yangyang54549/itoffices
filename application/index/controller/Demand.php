@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-18 09:31:57
+ * @Last Modified time: 2018-04-20 16:20:20
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -31,6 +31,7 @@ class Demand extends Yang
         if ($this->request->isAjax()) {
             $data = input();
             $data['create_time'] = time();
+            $data['user_id'] = Session::get('user.id');
             $result = D::insert($data);
             if (isset($result)) {
                 $this->ret['msg'] = '需求提交成功';
