@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-19 16:26:51
+ * @Last Modified time: 2018-04-19 17:44:58
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -108,15 +108,40 @@ class User  extends Yang
         if ($this->request->isAjax()) {
             $data = input();
 
-            $education = [];//交易经历
-            foreach ($data['education'] as $key => $value) {
-                $arr['skill'] = $value[0];
-                $arr['grade'] = $value[1];
+            //个人介绍
+            U::where('id',Session::get('user.id'))->update(['introduce'=>$data['introduce']]);
 
-                if ($value[2]==0) {
-                    UserSkill::insert($arr);
+            $experience = [];//工作经历
+            foreach ($data['experience'] as $key => $value) {
+                $experience['start_time'] = $value[0];
+                $experience['end_time'] = $value[1];
+                $experience['company_name'] = $value[2];
+                $experience['position'] = $value[3];
+                $experience['content'] = $value[4];
+
+                if ($value[5]==0) {
+                    $experience['user_id'] = Session::get('user.id');
+                    UserExperience::insert($experience);
                 }else{
-                    UserSkill::where('id',$value[2])->update($arr);
+                    UserExperience::where('id',$value[5])->update($experience);
+                }
+            }
+
+
+            $education = [];//教育经历
+            foreach ($data['education'] as $key => $value) {
+                $education['start_time'] = $value[0];
+                $education['end_time'] = $value[1];
+                $education['school_name'] = $value[2];
+                $education['major'] = $value[3];
+                $education['xueli'] = $value[4];
+                $education['content'] = $value[5];
+
+                if ($value[6]==0) {
+                    $education['user_id'] = Session::get('user.id');
+                    UserEducation::insert($education);
+                }else{
+                    UserEducation::where('id',$value[6])->update($education);
                 }
             }
 
@@ -132,5 +157,31 @@ class User  extends Yang
 
             return $this->fetch();
         }
+    }
+
+    //教育经历删除
+    public function deeducation()
+    {
+        $id = input('id');
+        UserEducation::where('id',$id)->delete();
+        return json($this->ret);
+
+    }
+
+    //工作经历删除
+    public function deexperience()
+    {
+        $id = input('id');
+        UserExperience::where('id',$id)->delete();
+        return json($this->ret);
+
+    }
+    //技能删除
+    public function deskill()
+    {
+        $id = input('id');
+        UserSkill::where('id',$id)->delete();
+        return json($this->ret);
+
     }
 }

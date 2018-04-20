@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-18 14:27:34
+ * @Last Modified time: 2018-04-20 09:59:48
  */
 namespace app\index\controller;
 use app\index\controller\Yang;
@@ -21,11 +21,6 @@ class Login extends Yang
     use \app\admin\traits\controller\Controller;
     public function login()
     {
-            $id = 0;
-            if (!empty(input('friends'))) {
-                $id = input('friends');
-            }
-            $this->assign('friends',$id);
             return  $this->fetch();
     }
 
@@ -310,108 +305,6 @@ class Login extends Yang
                 }
     }
 
-    /*
-     *修改支付密码
-     */
-    public function nopay(){
-        if ($this->request->isAjax() && $this->request->isPost()){
-             $user = User::where(['id'=>$this->id])->find();
-                 if ($user['mobile']=='') {
-                     $arr['msg'] = '请先在设置中绑定手机号码!';
-                     return json_encode($arr);
-                 }
-                $mobile=Session::get('user.mobile');
-                $pay_pass=input('post.pay_pass');
-                $code      = input('post.code');
-                $times=Session::get($code);
-                $arr['mobile']= $mobile;
-                $arr['pay_pass'] = md5($pay_pass);
-
-                if (!$pay_pass) {
-                    return json(['code'=>1, 'msg'=>'支付密码不能为空']);
-                }
-                if (strlen($pay_pass) != 6) {
-                    return json(['code'=>1, 'msg'=>'支付密码长度为六位']);
-                }
-                if (empty(input('post.shibie'))) {
-                    if ($code == '') {
-                        return json(['code'=>1, 'msg'=>'短信验证码不能为空']);
-                    }
-                    if ($code != Session::get($mobile)) {
-                        return json(['code'=>1, 'msg'=>'短信验证码错误']);
-                    }
-                    if (time() > ($times+5*60)) {
-                        Session::delete($times);
-                        return json(['code'=>1, 'msg'=>'短信验证码已失效']);
-                    }
-                }
-                $res = User::where(['mobile'=>$mobile])->find();
-                if (isset($res)) {
-                    Session::delete($mobile);
-                    Session::delete($times);
-                    $ress = User::where(['mobile'=>$mobile])->update($arr);
-                    Session::set('user.pay_pass',$arr['pay_pass']);
-                    return json(['code'=>200, 'msg'=>'支付密码设置成功']);
-                }
-
-                return json(['code'=>1, 'msg'=>'支付密码设置失败']);
-        }else{
-
-            return $this->fetch();
-        }
-    }
-
-/*
- *修改手机号码
- */
-    public function nomobile(){
-        $user = User::where(['id'=>$this->id])->find();
-        if ($this->request->isAjax() && $this->request->isPost()){
-                $user = User::where(['id'=>$this->id])->find();
-                if ($user['mobile']=='') {
-                     $arr['msg'] = '请先在设置中绑定手机号码!';
-                     return json_encode($arr);
-                }
-
-                $mobile=Session::get('user.mobile');
-                $mobilex=input('post.mobilex');
-                $arr['mobile']= $mobilex;//新手机号
-                $code      = input('post.code');
-                $user = User::where(['mobile'=>$mobilex])->find();
-                if (isset($user)) {
-                    return json(['code'=>1, 'msg'=>'新手机号已被绑定']);
-                }
-                if (!$mobilex) {
-                    return json(['code'=>1, 'msg'=>'新手机号不能为空']);
-                }
-                if (!checkMobile($mobilex)) {
-                    return json(['code'=>1, 'msg'=>'手机号格式不正确']);
-                }
-                if ($code != Session::get($mobile)) {
-                    return json(['code'=>1, 'msg'=>'短信验证码错误']);
-                }
-                $times=Session::get($code);
-                if (time() > ($times+5*60)) {
-                    Session::delete($times);
-                    return json(['code'=>1, 'msg'=>'短信验证码已失效']);
-                }
-
-                $ress = User::where(['id'=>$this->id])->update($arr);
-
-                if ($ress===false) {
-                    return json(['code'=>1, 'msg'=>'重置手机号码失败']);
-                }else{
-                    Session::delete($mobile);
-                    Session::delete($times);
-                    Session::set('user.mobile',$mobilex);
-                    return json(['code'=>200, 'msg'=>'重置手机号码成功']);
-                }
-                return json(['code'=>1, 'msg'=>'重置手机号码失败']);
-        }else{
-            $this->assign('mobile',$user['mobile']);
-            return $this->fetch();
-        }
-    }
 
     /*
      * 绑定手机号码
@@ -490,47 +383,6 @@ class Login extends Yang
         return $this->fetch();
     }
     /*
-     * 设置支付密码
-     */
-    public function pay()
-    {
-        $user = User::where(['id'=>$this->id])->find();
-        if (!empty($user['pay_pass'])) {
-           $this->redirect('index/index');
-        }
-       return $this->fetch();
-    }
-    /*
-     * 单点登录
-     */
-    public function has()
-    {
-       Session::delete('user');
-       Cookie::delete('user_id');
-       return $this->fetch();
-    }
-    /*
-     * 退出
-     */
-    public function noadmin()
-    {
-       Session::delete('user');
-       Session::delete('isopenid');
-       Cookie::delete('user_id');
-       $this->redirect('Index/index');
-    }
-    /*
-     * 身份验证 验证程序在Member/identity
-     */
-    public function identity()
-    {
-        $user = User::where(['id'=>$this->id])->find();
-        if ($user['authentication']!=0) {
-           $this->redirect('index/index');
-        }
-        return $this->fetch();
-    }
-    /*
      * 测试用登录
      */
     public function admin()
@@ -539,5 +391,12 @@ class Login extends Yang
        Session::set('user',$user);
        echo 'ok';
     }
-
+    /*
+     * 退出
+     */
+    public function exit()
+    {
+        Session::delete('user');
+        echo 'ok';
+    }
 }
