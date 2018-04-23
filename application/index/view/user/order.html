@@ -529,17 +529,18 @@
 					<div class="cente_b">
 						<div class="cente_ul">
 							<ul class="ul1">
+							{volist name="demand" id="vo"}
 								<li class="li_one">
 									<div class="top relative">
 										<div class="top_left">
 											<img src="__INDEX__/img/bai.png" />
 										</div>
 										<div class="top_center">
-											<p><span>[模块]</span><span>棋牌游戏</span></p>
-											<p><span>郑州  </span><span>发布时间    </span><span>2017.11.20</span></p>
+											<p><span>[需求名称]  </span><span>{$vo.name}</span></p>
+											<p><span>郑州  </span><span>发布时间    </span><span>{$vo.create_time|date="Y-m-d H:i",###}</span></p>
 										</div>
 										<div class="top_right">
-											<span>等待开发者</span>
+											<span>{if condition="$vo.schedule == 1"}招募中{elseif condition="$vo.schedule == 2"/}对接中{elseif condition="$vo.schedule == 3"/}执行中{elseif condition="$vo.schedule == 4"/}已完成{/if}</span>
 										</div>
 									</div>
 									<div class="bottom relative">
@@ -598,6 +599,8 @@
 										</div>
 									</div>
 								</li>
+							{/volist}
+
 								<li class="li_one">
 									<div class="top relative">
 										<div class="top_left">

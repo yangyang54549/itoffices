@@ -289,7 +289,14 @@
 							<div class="skill">
 								<span>关注领域</span>
 								<span>
-							<i>{$user.attention ? $user.attention : '请设置'}</i>
+								{if condition="$user.attention"}
+									{volist name="$user.attentions" id="vo"}
+										<i>{$vo}</i>
+									{/volist}
+								{else/}
+									<i>请设置</i>
+								{/if}
+
 		                    </span>
 								<i class="clear"></i>
 							</div>
@@ -350,11 +357,12 @@
 									<div class="div1-info"><span>选择职业  </span><span>
 
 						         	   <select name="" id="occupation1" style="width: 49%; height: 34px;font-size: 16px;">
-						         	   	<option value="-1">选择职业</option>
+						         	   	<option value="{$user['occupations'][0]}" selected = "selected">{$user['occupations'][0]}</option>
+
 
 						         	   </select>
 						         	  <select name="" id="occupation2" style="width: 49%; height: 34px;font-size: 16px;">
-						         	  	<option value="-1">选择职业</option>
+						         	  	<option value="{$user['occupations'][1]}">{$user['occupations'][1]}</option>
 
 						         	  </select>
 						       		</span><i class="clear"></i>
@@ -363,11 +371,11 @@
 
 									<div class="div1-info"><span>工作年限  </span><span>
 				        		<select placeholder="请选择您的工作年限" id="workingLife"style="font-size: 16px;">
-					        		<option selected="">1-3年</option>
-				                    <option>3-5年</option>
-				                    <option>5-8年</option>
-				                    <option>8-10年</option>
-				                    <option>10年以上</option>
+					        		<option {if condition="$user.years == '1-3年'"}selected="selected"{/if}>1-3年</option>
+				                    <option {if condition="$user.years == '3-5年'"}selected="selected"{/if}>3-5年</option>
+				                    <option {if condition="$user.years == '5-8年'"}selected="selected"{/if}>5-8年</option>
+				                    <option {if condition="$user.years == '8-10年'"}selected="selected"{/if}>8-10年</option>
+				                    <option {if condition="$user.years == '10年以上'"}selected="selected"{/if}>10年以上</option>
 			                 	</select></span><i class="clear"></i></div>
 									<!--<div class="div1-info">
 										<span>出生日期  </span>
@@ -456,51 +464,44 @@
 								<div class="center-div1-skill">
 									<div class="skill-div1-info"><span>关注领域</span><span>（必填信息）</span><i class="clear"></i></div>
 									<div class="basic-skill gzly">
-										<span tid="1">科技/互联网</span>
-										<span tid="18">金融/财经</span>
-										<span tid="33">搞笑/段子手</span>
-										<span tid="38">营销/广告</span>
-										<span tid="42">创业</span>
-										<span tid="47">媒体/自媒体</span>
-										<span tid="2">母婴/育儿</span>
-										<span tid="3">教育</span>
-										<span tid="4">家居</span>
-										<span tid="5">零售连锁</span>
-										<span tid="6">文化传媒</span>
-										<span tid="7">旅游</span>
-										<span tid="8">汽车</span>
-										<span tid="10">地产/房产</span>
-										<span tid="11">工业</span>
-										<span tid="12">医疗/健康</span>
-										<span tid="13">美业</span>
-										<span tid="16">时尚</span>
-										<span tid="17">娱乐</span>
-										<span tid="20">体育</span>
-										<span tid="21">艺术</span>
-										<span tid="22">餐饮/食品</span>
-										<span tid="23">服务</span>
-										<span class="onstyle" tid="24">动漫/漫画/游戏</span>
-										<span tid="25">服装</span>
-										<span tid="26">新闻/资讯</span>
-										<span tid="27">创意、生活</span>
-										<span tid="28">购物</span>
-										<span tid="29">情感</span>
-										<span tid="30">宠物</span>
-										<span tid="31">百科</span>
-										<span tid="32">物流</span>
-										<span tid="34">女性</span>
-										<span tid="35">产品评测</span>
-										<span tid="36">电商</span>
-										<span tid="37">创投</span>
-										<span tid="39">管理</span>
-										<span tid="40">影视</span>
-										<span tid="41">阅读</span>
-										<span class="onstyle" tid="43">IT/数码</span>
-										<span tid="44">综合</span>
-										<span tid="45">地方</span>
-										<span tid="48">艺人/网红</span>
-										<span tid="49">公益</span>
-										<span tid="15">其它</span>
+
+										<span tid="1" {volist name="$user.attentions" id="vo"}{if condition="$vo == '科技/互联网'"} class="onstyle"{/if}{/volist} >科技/互联网</span>
+										<span tid="18" {volist name="$user.attentions" id="vo"}{if condition="$vo == '金融/财经'"} class="onstyle"{/if}{/volist}>金融/财经</span>
+										<span tid="33" {volist name="$user.attentions" id="vo"}{if condition="$vo == '搞笑/段子手'"} class="onstyle"{/if}{/volist}>搞笑/段子手</span>
+										<span tid="38" {volist name="$user.attentions" id="vo"}{if condition="$vo == '营销/广告'"} class="onstyle"{/if}{/volist}>营销/广告</span>
+										<span tid="42" {volist name="$user.attentions" id="vo"}{if condition="$vo == '创业'"} class="onstyle"{/if}{/volist}>创业</span>
+										<span tid="47" {volist name="$user.attentions" id="vo"}{if condition="$vo == '媒体/自媒体'"} class="onstyle"{/if}{/volist}>媒体/自媒体</span>
+										<span tid="2" {volist name="$user.attentions" id="vo"}{if condition="$vo == '母婴/育儿'"} class="onstyle"{/if}{/volist}>母婴/育儿</span>
+										<span tid="3" {volist name="$user.attentions" id="vo"}{if condition="$vo == '教育'"} class="onstyle"{/if}{/volist}>教育</span>
+										<span tid="5" {volist name="$user.attentions" id="vo"}{if condition="$vo == '零售连锁'"} class="onstyle"{/if}{/volist}>零售连锁</span>
+										<span tid="6" {volist name="$user.attentions" id="vo"}{if condition="$vo == '文化传媒'"} class="onstyle"{/if}{/volist}>文化传媒</span>
+										<span tid="7" {volist name="$user.attentions" id="vo"}{if condition="$vo == '旅行'"} class="onstyle"{/if}{/volist}>旅行</span>
+										<span tid="8" {volist name="$user.attentions" id="vo"}{if condition="$vo == '汽车'"} class="onstyle"{/if}{/volist}>汽车</span>
+										<span tid="10" {volist name="$user.attentions" id="vo"}{if condition="$vo == '地产/房产'"} class="onstyle"{/if}{/volist}>地产/房产</span>
+										<span tid="12" {volist name="$user.attentions" id="vo"}{if condition="$vo == '医疗/健康'"} class="onstyle"{/if}{/volist}>医疗/健康</span>
+										<span tid="16" {volist name="$user.attentions" id="vo"}{if condition="$vo == '时尚'"} class="onstyle"{/if}{/volist}>时尚</span>
+										<span tid="17" {volist name="$user.attentions" id="vo"}{if condition="$vo == '娱乐'"} class="onstyle"{/if}{/volist}>娱乐</span>
+										<span tid="20" {volist name="$user.attentions" id="vo"}{if condition="$vo == '体育'"} class="onstyle"{/if}{/volist}>体育</span>
+										<span tid="21" {volist name="$user.attentions" id="vo"}{if condition="$vo == '艺术'"} class="onstyle"{/if}{/volist}>艺术</span>
+										<span tid="24" {volist name="$user.attentions" id="vo"}{if condition="$vo == '动漫/漫画/游戏'"} class="onstyle"{/if}{/volist}>动漫/漫画/游戏</span>
+										<span tid="25" {volist name="$user.attentions" id="vo"}{if condition="$vo == '服装'"} class="onstyle"{/if}{/volist}>服装</span>
+										<span tid="26" {volist name="$user.attentions" id="vo"}{if condition="$vo == '新闻/资讯'"} class="onstyle"{/if}{/volist}>新闻/资讯</span>
+										<span tid="27" {volist name="$user.attentions" id="vo"}{if condition="$vo == '创意/生活'"} class="onstyle"{/if}{/volist}>创意/生活</span>
+										<span tid="28" {volist name="$user.attentions" id="vo"}{if condition="$vo == '购物'"} class="onstyle"{/if}{/volist}>购物</span>
+										<span tid="29" {volist name="$user.attentions" id="vo"}{if condition="$vo == '情感'"} class="onstyle"{/if}{/volist}>情感</span>
+										<span tid="30" {volist name="$user.attentions" id="vo"}{if condition="$vo == '宠物'"} class="onstyle"{/if}{/volist}>宠物</span>
+										<span tid="31" {volist name="$user.attentions" id="vo"}{if condition="$vo == '百科'"} class="onstyle"{/if}{/volist}>百科</span>
+										<span tid="32" {volist name="$user.attentions" id="vo"}{if condition="$vo == '物流'"} class="onstyle"{/if}{/volist}>物流</span>
+										<span tid="34" {volist name="$user.attentions" id="vo"}{if condition="$vo == '女性'"} class="onstyle"{/if}{/volist}>女性</span>
+										<span tid="35" {volist name="$user.attentions" id="vo"}{if condition="$vo == '产品评测'"} class="onstyle"{/if}{/volist}>产品评测</span>
+										<span tid="36" {volist name="$user.attentions" id="vo"}{if condition="$vo == '电商'"} class="onstyle"{/if}{/volist}>电商</span>
+										<span tid="37" {volist name="$user.attentions" id="vo"}{if condition="$vo == '创投'"} class="onstyle"{/if}{/volist}>创投</span>
+										<span tid="39" {volist name="$user.attentions" id="vo"}{if condition="$vo == '管理'"} class="onstyle"{/if}{/volist}>管理</span>
+										<span tid="40" {volist name="$user.attentions" id="vo"}{if condition="$vo == '影视'"} class="onstyle"{/if}{/volist}>影视</span>
+										<span tid="41" {volist name="$user.attentions" id="vo"}{if condition="$vo == '阅读'"} class="onstyle"{/if}{/volist}>阅读</span>
+										<span tid="43" {volist name="$user.attentions" id="vo"}{if condition="$vo == 'IT/数码'"} class="onstyle"{/if}{/volist}>IT/数码</span>
+										<span tid="48" {volist name="$user.attentions" id="vo"}{if condition="$vo == '艺人/网红'"} class="onstyle"{/if}{/volist}>艺人/网红</span>
+										<span tid="49" {volist name="$user.attentions" id="vo"}{if condition="$vo == '公益'"} class="onstyle"{/if}{/volist}>公益</span>
 									</div>
 								</div>
 								<button class="next1" style="font-size: 18px;">完成</button>
@@ -752,45 +753,17 @@ else if(chestr=="工作日周末")
 													// 	/*接单状态 接单*/
 													// }
 
-													//if(gays != false){
 
-
-				// var names = $("#name").val(); /*姓名*/
-				// var sex = $("#sex option:selected").text(); /*性别*/
-				// var s_province = $("#s_province option:selected").text(); /*省*/
-				// var s_city = $("#s_city option:selected").text(); /*县*/
-				// var s_county = $("#s_county option:selected").text(); /*乡*/
-				// var workingLife1 = $("#workingLife1 option:selected").text(); /*现在状态*/
-				// var occupation1 = $("#occupation1 option:selected").text(); /*职业选择1*/
-				// var occupation2 = $("#occupation2 option:selected").text(); /*职业选择2*/
-				// var workingLife = $("#workingLife option:selected").text(); /*工作年限*/
-				// //	var timeinit = $("#time-init").val();/*出生日期*/
-				// var wxNum = $("#wxNum").val(); /*微信号*/
-				// var email = $("#email").val(); /*邮箱*/
-				// var mobile = $("#mobile").val(); /*电话*/
-				// /*工作时间  未获取*/
-				// var xinsui = $("#xinsui").val();/*日薪*/
-				// var ches = $(".ches").text();/*接单状态*/
-				// var gzly = $(".gzly span.onstyle");
-				// /*关注领域*/
-				// var gzs;
 						var ress = s_province+"/"+s_city+"/"+s_county;
 
-														// alert(names);
-														// alert(sex);
-														// alert(ress);
-														// alert(workingLife1);
-														// alert(occupation1);
-														// alert(occupation2);
-														// alert(workingLife);
 
-						console.log(ress);
-						console.log(workingLife1);
-						console.log(workingLife);
-						console.log(mobile);
-						console.log(email);
-						console.log(xinsui);
-						console.log(gzs);
+						// console.log(ress);
+						// console.log(workingLife1);
+						// console.log(workingLife);
+						// console.log(mobile);
+						// console.log(email);
+						// console.log(xinsui);
+						// console.log(gzs);
 						if(s_province == "省份" && s_city == "县、市" && s_county == "乡（镇）") {
 							ress = address;
 						}
@@ -812,28 +785,11 @@ else if(chestr=="工作日周末")
 						},function(data){
 							console.log(data);
 							if (data.code==1) {
-								alert("删除成功");
-
+								window.location.href = "{:url('user/index')}";
 							}else{
-								alert("删除失败");
+								alert("提交失败");
 							}
 						}, "json");
-
-														alert("完成");
-
-													// }else{
-													// 	alert(gaystext);
-													// }
-
-
-
-
-
-
-
-												// }else{
-												//  alert("未选择可工作时间");
-												// }
 											}
 										}else{
 											alert("请输入手机号")
