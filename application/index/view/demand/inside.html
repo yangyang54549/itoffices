@@ -1045,6 +1045,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 			</div>
 
 			<script type="text/javascript">
+			var id = {$demand.id};
 				/*$("#xinxi").click(function() {
 						$("#xinxi").css("display", "none");
 						$("#xinxi2").css("display", "none");
@@ -1059,10 +1060,21 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 					})*/
 				$("#content-sq").click(function() {
 				if($(this).text() == "申请干活") {
-					$(".beijin").css("display", "block");
-				} else if($(this).text() == "已申请") {
-					$(".jing").css("display", "block");
-				}
+
+						$.post("{:url('demand/inside')}",{
+							id:id
+						},function(data){
+							console.log(data);
+							if (data.code==1) {
+								$(".beijin").css("display", "block");
+							}else{
+								alert(data.msg);
+							}
+						}, "json");
+
+				} //else if($(this).text() == "已申请") {
+					//$(".jing").css("display", "block");
+				//}
 			})
 			$("#qd").click(function() {
 				$(".beijin").css("display", "none");

@@ -362,12 +362,12 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 									<div class="div1-info"><span>选择职业  </span><span>
 
 						         	   <select name="" id="occupation1" style="width: 49%; height: 34px;font-size: 16px;">
-						         	   	<option value="{$user['occupations'][0]}" selected = "selected">{$user['occupations'][0]}</option>
+						         	   	<option value="{$user['occupations'][0] ?? '请选择'}" selected = "selected">{$user['occupations'][0] ?? '请选择'}</option>
 
 
 						         	   </select>
 						         	  <select name="" id="occupation2" style="width: 49%; height: 34px;font-size: 16px;">
-						         	  	<option value="{$user['occupations'][1]}">{$user['occupations'][1]}</option>
+						         	  	<option value="{$user['occupations'][1] ?? '请选择'}">{$user['occupations'][1] ?? '请选择'}</option>
 
 						         	  </select>
 						       		</span><i class="clear"></i>

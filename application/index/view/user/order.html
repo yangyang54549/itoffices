@@ -551,37 +551,59 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 									<div class="bottom relative">
 										<div class="demanddel-type">
 											<p class="demanddel-t" style="font-size: 1.2em;color: #797979;">项目预算</p>
-											<p style="font-size: 24px;color: #ec1313;">10000~30000元 </p>
+											<p style="font-size: 24px;color: #ec1313;">{$vo.money}元 </p>
 											<div class="demanddel-num">
 												<p class="apply1"><span>已申请</span> <span>0人</span></p>
 												<p class="apply2"><span>已浏览</span> <span>0人</span></p>
 											</div>
 										</div>
-										<p><span>所属行业</span><span>游戏行业</span></p>
-										<p><span>所属类型</span><span>H5开发/微信开发</span></p>
-										<p><span>开发周期</span><span>少于一月内</span></p>
-										<p><span>紧急程度</span><span>非常紧急</span></p>
-										<p><span>需求描述</span><span>h5棋牌游戏开发，有现成模版的最好。</span></p>
+										<p><span>所属行业</span>
+										<span>
+											{volist name="demandtrade" id="dtr"}
+											{if condition="$dtr.id == $vo.industry"}{$dtr.name}{/if}
+											{/volist}
+										</span>
+										</p>
+										<p><span>所属类型</span>
+										<span>
+											{volist name="demandtype" id="dty"}
+											{if condition="$dty.id == $vo.type"}{$dty.name}{/if}
+											{/volist}
+										</span></p>
+										<p><span>开发周期</span>
+										<span>
+										{if condition="$vo.period == 1"}少于1周{elseif condition="$vo.period == 2"/}少于1个月{elseif condition="$vo.period == 3"/}1-3个月{elseif condition="$vo.period == 4"/}3-6个月{elseif condition="$vo.period == 5"/}超过6个月{/if}
+										</span></p>
+										<p><span>紧急程度</span><span>
+											{if condition="$vo.urgency eq 1"}
+											不紧急
+											{elseif condition="$vo.urgency eq 2" /}
+											一般
+											{elseif condition="$vo.urgency eq 3" /}
+											比较紧急
+											{else /}
+											非常紧急
+											{/if}
+										</span></p>
+										<p><span>需求描述</span><span>{$vo.info}</span></p>
 										<p style="margin-top: 30px;width: auto;"><span>参与项目人员</span>
 											<div class="participations">
-												<div class="participation participation_f">
-													<a href="###">需求方</a>
-													<img src="__INDEX__/img/bai.png" />
-													<a href="###">硅谷</a>
-													<i class=" "> <img src="__INDEX__/img/icon/dui.png"/></i>
-												</div>
+
+												{volist name="$vo.apply" id="ap"}
 												<div class="participation participation_f1">
 													<a href="###">接单方</a>
 													<img src="__INDEX__/img/avatar/2.jpg" />
-													<a href="###">张珊</a>
+													<a href="###">{$ap.user_name}</a>
 													<i class=" "> <img src="__INDEX__/img/icon/dui.png"/></i>
 												</div>
-												<div class="participation participation_f2">
+												{/volist}
+
+												<!--<div class="participation participation_f2">
 													<a href="###">接单方</a>
 													<img src="__INDEX__/img/avatar/3.jpg" />
 													<a href="###">李四</a>
 													<i class=" "> <img src="__INDEX__/img/icon/dui.png"/></i>
-												</div>
+												</div> -->
 											</div>
 										</p>
 										<div class="bottom_bottom" style="border-top: 1px dotted #d3d0d0;border-bottom: 1px dotted #d3d0d0;">
@@ -605,283 +627,6 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 									</div>
 								</li>
 							{/volist}
-
-								<li class="li_one">
-									<div class="top relative">
-										<div class="top_left">
-											<img src="__INDEX__/img/bai.png" />
-										</div>
-										<div class="top_center">
-											<p><span>[模块]</span><span>棋牌游戏</span></p>
-											<p><span>郑州  </span><span>发布时间    </span><span>2017.11.20</span></p>
-										</div>
-										<div class="top_right">
-											<span>等待开发者</span>
-										</div>
-									</div>
-									<div class="bottom relative">
-										<div class="demanddel-type">
-											<p class="demanddel-t" style="font-size: 1.2em;color: #797979;">项目预算</p>
-											<p style="font-size: 24px;color: #ec1313;">10000~30000元 </p>
-											<div class="demanddel-num">
-												<p class="apply1"><span>已申请</span> <span>0人</span></p>
-												<p class="apply2"><span>已浏览</span> <span>0人</span></p>
-											</div>
-										</div>
-										<p><span>所属行业</span><span>游戏行业</span></p>
-										<p><span>所属类型</span><span>H5开发/微信开发</span></p>
-										<p><span>开发周期</span><span>少于一月内</span></p>
-										<p><span>紧急程度</span><span>非常紧急</span></p>
-										<p><span>需求描述</span><span>h5棋牌游戏开发，有现成模版的最好。</span></p>
-										<p style="margin-top: 30px;width: auto;"><span>参与项目人员</span>
-											<div class="participations">
-												<div class="participation participation_f">
-													<a href="###">需求方</a>
-													<img src="__INDEX__/img/bai.png" />
-													<a href="###">硅谷</a>
-													<i class=" "> <img src="__INDEX__/img/icon/dui.png"/></i>
-												</div>
-												<div class="participation participation_f1">
-													<a href="###">接单方</a>
-													<img src="__INDEX__/img/avatar/2.jpg" />
-													<a href="###">张珊</a>
-													<i class=" "> <img src="__INDEX__/img/icon/dui.png"/></i>
-												</div>
-												<div class="participation participation_f2">
-													<a href="###">接单方</a>
-													<img src="__INDEX__/img/avatar/3.jpg" />
-													<a href="###">李四</a>
-													<i class=" "> <img src="__INDEX__/img/icon/dui.png"/></i>
-												</div>
-											</div>
-										</p>
-										<div class="bottom_bottom" style="border-top: 1px dotted #d3d0d0;border-bottom: 1px dotted #d3d0d0;">
-											<p class="blue">
-												<span>发布</span>
-												<span></span>
-											</p>
-											<p>
-												<span>选择开发者</span>
-												<span></span>
-											</p>
-											<p>
-												<span>确认完工</span>
-												<span></span>
-											</p>
-											<p>
-												<span>提成佣金</span>
-												<span></span>
-											</p>
-										</div>
-									</div>
-								</li>
-								<li class="li_one">
-									<div class="top relative">
-										<div class="top_left">
-											<img src="__INDEX__/img/bai.png" />
-										</div>
-										<div class="top_center">
-											<p><span>[模块]</span><span>棋牌游戏</span></p>
-											<p><span>郑州  </span><span>发布时间    </span><span>2017.11.20</span></p>
-										</div>
-										<div class="top_right">
-											<span>等待开发者</span>
-										</div>
-									</div>
-									<div class="bottom relative">
-										<div class="demanddel-type">
-											<p class="demanddel-t" style="font-size: 1.2em;color: #797979;">项目预算</p>
-											<p style="font-size: 24px;color: #ec1313;">10000~30000元 </p>
-											<div class="demanddel-num">
-												<p class="apply1"><span>已申请</span> <span>0人</span></p>
-												<p class="apply2"><span>已浏览</span> <span>0人</span></p>
-											</div>
-										</div>
-										<p><span>所属行业</span><span>游戏行业</span></p>
-										<p><span>所属类型</span><span>H5开发/微信开发</span></p>
-										<p><span>开发周期</span><span>少于一月内</span></p>
-										<p><span>紧急程度</span><span>非常紧急</span></p>
-										<p><span>需求描述</span><span>h5棋牌游戏开发，有现成模版的最好。</span></p>
-										<p style="margin-top: 30px;width: auto;"><span>参与项目人员</span>
-											<div class="participations">
-												<div class="participation participation_f">
-													<a href="###">需求方</a>
-													<img src="__INDEX__/img/bai.png" />
-													<a href="###">硅谷</a>
-													<i class=" "> <img src="__INDEX__/img/icon/dui.png"/></i>
-												</div>
-												<div class="participation participation_f1">
-													<a href="###">接单方</a>
-													<img src="__INDEX__/img/avatar/2.jpg" />
-													<a href="###">张珊</a>
-													<i class=" "> <img src="__INDEX__/img/icon/dui.png"/></i>
-												</div>
-												<div class="participation participation_f2">
-													<a href="###">接单方</a>
-													<img src="__INDEX__/img/avatar/3.jpg" />
-													<a href="###">李四</a>
-													<i class=" "> <img src="__INDEX__/img/icon/dui.png"/></i>
-												</div>
-											</div>
-										</p>
-										<div class="bottom_bottom" style="border-top: 1px dotted #d3d0d0;border-bottom: 1px dotted #d3d0d0;">
-											<p class="blue">
-												<span>发布</span>
-												<span></span>
-											</p>
-											<p>
-												<span>选择开发者</span>
-												<span></span>
-											</p>
-											<p>
-												<span>确认完工</span>
-												<span></span>
-											</p>
-											<p>
-												<span>提成佣金</span>
-												<span></span>
-											</p>
-										</div>
-									</div>
-								</li>
-								<li class="li_one">
-									<div class="top relative">
-										<div class="top_left">
-											<img src="__INDEX__/img/bai.png" />
-										</div>
-										<div class="top_center">
-											<p><span>[模块]</span><span>棋牌游戏</span></p>
-											<p><span>郑州  </span><span>发布时间    </span><span>2017.11.20</span></p>
-										</div>
-										<div class="top_right">
-											<span>等待开发者</span>
-										</div>
-									</div>
-									<div class="bottom relative">
-										<div class="demanddel-type">
-											<p class="demanddel-t" style="color: #797979;">项目预算</p>
-											<p style="font-size: 24px;color: #ec1313;">10000~30000元 </p>
-											<div class="demanddel-num">
-												<p class="apply1"><span>已申请</span> <span>0人</span></p>
-												<p class="apply2"><span>已浏览</span> <span>0人</span></p>
-											</div>
-										</div>
-										<p><span>所属行业</span><span>游戏行业</span></p>
-										<p><span>所属类型</span><span>H5开发/微信开发</span></p>
-										<p><span>开发周期</span><span>少于一月内</span></p>
-										<p><span>紧急程度</span><span>非常紧急</span></p>
-										<p><span>需求描述</span><span>h5棋牌游戏开发，有现成模版的最好5棋牌游戏开发，有现成模版的最好5棋牌游戏开发，有现成模版的最好5棋牌游戏开发，有现成模版的最好5棋牌游戏开发，有现成模版的最好5棋牌游戏开发5棋牌游戏开发，有现成模版的最好5棋牌游戏开发，有现成模版的最好5棋牌游戏开发，有现成模版的最好5棋牌游戏开发5棋牌游戏开发，有现成模版的最好5棋牌游戏开发，有现成模版的最好5棋牌游戏开发，有现成模版的最好5棋牌游戏开发5棋牌游戏开发，有现成模版的最好5棋牌游戏开发，有现成模版的最好5棋牌游戏开发，有现成模版的最好5棋牌游戏开发5棋牌游戏开发，有现成模版的最好5棋牌游戏开发，有现成模版的最好5棋牌游戏开发，有现成模版的最好5棋牌游戏开发5棋牌游戏开发，有现成模版的最好5棋牌游戏开发，有现成模版的最好5棋牌游戏开发，有现成模版的最好5棋牌游戏开发5棋牌游戏开发，有现成模版的最好5棋牌游戏开发，有现成模版的最好5棋牌游戏开发，有现成模版的最好5棋牌游戏开发5棋牌游戏开发，有现成模版的最好5棋牌游戏开发，有现成模版的最好5棋牌游戏开发，有现成模版的最好5棋牌游戏开发，有现成模版的最好。</span></p>
-										<p style="margin-top: 30px;width: auto;"><span>参与项目人员</span>
-											<div class="participations">
-												<div class="participation participation_f">
-													<a href="###">需求方</a>
-													<img src="__INDEX__/img/bai.png" />
-													<a href="###">硅谷</a>
-													<i class=" "> <img src="__INDEX__/img/icon/dui.png"/></i>
-												</div>
-												<div class="participation participation_f1">
-													<a href="###">接单方</a>
-													<img src="__INDEX__/img/avatar/2.jpg" />
-													<a href="###">张珊</a>
-													<i class=" "> <img src="__INDEX__/img/icon/dui.png"/></i>
-												</div>
-												<div class="participation participation_f2">
-													<a href="###">接单方</a>
-													<img src="__INDEX__/img/avatar/3.jpg" />
-													<a href="###">李四</a>
-													<i class=" "> <img src="__INDEX__/img/icon/dui.png"/></i>
-												</div>
-											</div>
-										</p>
-										<div class="bottom_bottom" style="border-top: 1px dotted #d3d0d0;border-bottom: 1px dotted #d3d0d0;">
-											<p class="blue">
-												<span>发布</span>
-												<span></span>
-											</p>
-											<p>
-												<span>选择开发者</span>
-												<span></span>
-											</p>
-											<p>
-												<span>确认完工</span>
-												<span></span>
-											</p>
-											<p>
-												<span>提成佣金</span>
-												<span></span>
-											</p>
-										</div>
-									</div>
-								</li>
-								<li class="li_one">
-									<div class="top relative">
-										<div class="top_left">
-											<img src="__INDEX__/img/bai.png" />
-										</div>
-										<div class="top_center">
-											<p><span>[模块]</span><span>棋牌游戏</span></p>
-											<p><span>郑州  </span><span>发布时间    </span><span>2017.11.20</span></p>
-										</div>
-										<div class="top_right">
-											<span>等待开发者</span>
-										</div>
-									</div>
-									<div class="bottom relative">
-										<div class="demanddel-type">
-											<p class="demanddel-t" style="color: #797979;">项目预算</p>
-											<p style="font-size: 24px;color: #ec1313;">10000~30000元 </p>
-											<div class="demanddel-num">
-												<p class="apply1"><span>已申请</span> <span>0人</span></p>
-												<p class="apply2"><span>已浏览</span> <span>0人</span></p>
-											</div>
-										</div>
-										<p><span>所属行业</span><span>游戏行业</span></p>
-										<p><span>所属类型</span><span>H5开发/微信开发</span></p>
-										<p><span>开发周期</span><span>少于一月内</span></p>
-										<p><span>紧急程度</span><span>非常紧急</span></p>
-										<p><span>需求描述</span><span>h5棋牌游戏开发，有现成模版的最好。</span></p>
-										<p style="margin-top: 30px;width: auto;"><span>参与项目人员</span>
-											<div class="participations">
-												<div class="participation participation_f">
-													<a href="###">需求方</a>
-													<img src="__INDEX__/img/bai.png" />
-													<a href="###">硅谷</a>
-													<i class=" "> <img src="__INDEX__/img/icon/dui.png"/></i>
-												</div>
-												<div class="participation participation_f1">
-													<a href="###">接单方</a>
-													<img src="__INDEX__/img/avatar/2.jpg" />
-													<a href="###">张珊</a>
-													<i class=" "> <img src="__INDEX__/img/icon/dui.png"/></i>
-												</div>
-												<div class="participation participation_f2">
-													<a href="###">接单方</a>
-													<img src="__INDEX__/img/avatar/3.jpg" />
-													<a href="###">李四</a>
-													<i class=" "> <img src="__INDEX__/img/icon/dui.png"/></i>
-												</div>
-											</div>
-										</p>
-										<div class="bottom_bottom" style="border-top: 1px dotted #d3d0d0;border-bottom: 1px dotted #d3d0d0;">
-											<p class="blue">
-												<span>发布</span>
-												<span></span>
-											</p>
-											<p>
-												<span>选择开发者</span>
-												<span></span>
-											</p>
-											<p>
-												<span>确认完工</span>
-												<span></span>
-											</p>
-											<p>
-												<span>提成佣金</span>
-												<span></span>
-											</p>
-										</div>
-									</div>
-								</li>
 								<div class="string">
 										<div class="">
 											<h3 style="display: none;">进展详情</h3>

@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-20 16:20:20
+ * @Last Modified time: 2018-04-23 16:08:55
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -17,6 +17,8 @@ use app\common\model\System as SY;
 use app\common\model\CasesOrder as CO;
 use app\common\model\DemandType as DT;
 use app\common\model\DemandTrade as DTR;
+use app\common\model\Apply;
+use app\common\model\User;
 
 /**
 * 案例
@@ -154,22 +156,41 @@ class Demand extends Yang
      */
     public function inside()
     {
-        $id = input('id');
-        $demand = D::where('id',$id)->find();
-        $dt = DT::where(['id'=>$demand['type']])->find();
-        $demand['type'] = $dt['name'];
-        $dtr = DTR::where(['id'=>$demand['industry']])->find();
-        $demand['industry'] = $dtr['name'];
-        // $demandtype = DT::select();
-        // $demand = D::select();
-        // foreach ($demand as $k => $v) {
-        //     $dt = DT::where(['id'=>$v['type']])->find();
-        //     $demand[$k]['type'] = $dt['name'];
-        //     $dtr = DTR::where(['id'=>$v['industry']])->find();
-        //     $demand[$k]['industry'] = $dtr['name'];
-        // }
-        // $this->assign('demandtype',$demandtype);
-        $this->assign('demand',$demand);
-        return $this->fetch();
+
+        if ($this->request->isAjax()) {
+            $id = input('id');
+
+            $apply = Apply::where(['user_id'=>Session::get('user.id'),'demand_id'=>$id])->find();
+            if (isset($apply)) {
+                $this->ret['msg'] = '您已提交过申请';
+                $this->ret['code'] = -200;
+                return json($this->ret);
+            }
+            $data['user_id'] = Session::get('user.id');
+            $data['user_name'] = Session::get('user.user_name');
+            $data['demand_id'] = $id;
+            $data['create_time'] = time();
+            Apply::insert($data);
+            return json($this->ret);
+
+        }else{
+            $id = input('id');
+            $demand = D::where('id',$id)->find();
+            $dt = DT::where(['id'=>$demand['type']])->find();
+            $demand['type'] = $dt['name'];
+            $dtr = DTR::where(['id'=>$demand['industry']])->find();
+            $demand['industry'] = $dtr['name'];
+            // $demandtype = DT::select();
+            // $demand = D::select();
+            // foreach ($demand as $k => $v) {
+            //     $dt = DT::where(['id'=>$v['type']])->find();
+            //     $demand[$k]['type'] = $dt['name'];
+            //     $dtr = DTR::where(['id'=>$v['industry']])->find();
+            //     $demand[$k]['industry'] = $dtr['name'];
+            // }
+            // $this->assign('demandtype',$demandtype);
+            $this->assign('demand',$demand);
+            return $this->fetch();
+        }
     }
 }

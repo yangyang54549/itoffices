@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-23 10:35:25
+ * @Last Modified time: 2018-04-23 16:26:02
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -16,6 +16,7 @@ use app\common\model\DemandTrade;
 use app\common\model\DemandType;
 use app\common\model\Demand;
 use app\common\model\UserSkill;
+use app\common\model\Apply;
 
 class User  extends Yang
 {
@@ -51,9 +52,16 @@ class User  extends Yang
     public function order()
     {
         $demand = Demand::where(['user_id'=>Session::get('user.id')])->select();
+        foreach ($demand as $key => $value) {
+            $apply = Apply::where(['demand_id'=>$value['id']])->select();
+            $demand[$key]['apply'] = $apply;
+        }
+        // dump($demand[1]);die;
         $demandtrade = DemandTrade::select();
+        $demandtype = DemandType::select();
         $this->assign('demand',$demand);
         $this->assign('demandtrade',$demandtrade);
+        $this->assign('demandtype',$demandtype);
         return $this->fetch();
     }
 
