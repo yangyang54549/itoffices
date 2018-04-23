@@ -21,7 +21,8 @@
 		<!--<script charset="utf-8" src="https://lxbjs.baidu.com/lxb.js?sid=10694576"></script>-->
 		<!--<script charset="utf-8" src="https://tag.baidu.com/vcard/v.js?siteid=10694576&amp;url=https%3A%2F%2Fwww.315pr.com%2Fuser%2Fuser_center.shtml&amp;source=http%3A%2F%2F127.0.0.1%3A8020%2Fsan%2Findexs.html%3F__hbt%3D1511768718260&amp;rnd=1782945575&amp;hm=1"></script>-->
 		<!--<script src="https://hm.baidu.com/hm.js?c16e71335ce5575c1aab0ce71c7415ae"></script>-->
-		<script src="__INDEX__/js/jss/jquery-2.1.3.min.js"></script>
+		<!-- <script src="__INDEX__/js/jss/jquery-2.1.3.min.js"></script> -->
+		<script src="__INDEX__/js/jss/jquery.js"></script>
 
 		<!--<script type="text/javascript" charset="utf-8" src="https://dut.zoosnet.net/js/CdCheck.aspx?id=20380941&amp;sid=1511765651350480413414&amp;d=1511768960039"></script>-->
 
@@ -378,7 +379,7 @@
 									<div class="div1-info"><span>微信号  </span><span><input type="text" placeholder="请填写您的微信号" value="{$user.wxchat}" id="wxNum" maxlength="20"></span><i class="clear"></i></div>
 									<div class="div1-info"><span>邮箱  </span><span><input type="text" placeholder="请填写您的邮箱" value="{$user.email}" id="email"></span><i class="clear"></i></div>
 									<div class="div1-info"><span>联系电话  </span><span><input type="text"  maxlength="11" placeholder="请填写您的联系电话" value="{$user.mobile}" id="mobile"></span><i class="clear"></i></div>
-									<div class="div1-info1" id="times">
+<!-- 									<div class="div1-info1" id="times">
 										<span>可工作时间  </span>
 										<span>
 											<div class="div_checkbox">
@@ -400,8 +401,8 @@
 											<i class="clear"></i>
 										</span>
 										<i class="clear"></i>
-									</div>
-									<div class="div1-info1">
+									</div> -->
+								<!--<div class="div1-info1">
 										<span>可工作区域 </span>
 										<span>
 											<div class="div_checkbox" id="checkbox1">
@@ -423,7 +424,7 @@
 											<i class="clear"></i>
 										</span>
 										<i class="clear"></i>
-									</div>
+									</div> -->
 									<div class="div1-info1">
 										<span>日薪</span>
 										<span>
@@ -435,7 +436,7 @@
 										</span>
 										<i class="clear"></i>
 									</div>
-									<div class="div1-info1" id="div_checkbox2">
+<!-- 									<div class="div1-info1" id="div_checkbox2">
 
 										<span>接单状态</span>
 										<span>
@@ -448,7 +449,7 @@
 											<i class="clear"></i>
 										</span>
 										<i class="clear"></i>
-									</div>
+									</div> -->
 
 								</div>
 
@@ -705,54 +706,53 @@ else if(chestr=="工作日周末")
 												alert("手机号码有误，请重填")
 											} else {
 
-												if(chestr != ""){
-													var gongzuotime = new Array();
-													var gays = true;
-													var gaystext = "";
-													if(chestr=="工作日周末"){
-														gongzuotime[0] = new Array();
-														var divtime = $("#times .div_time input");
-														if(divtime.eq(0).val()!=""&&divtime.eq(1).val()!=""&&divtime.eq(2).val()!=""&&divtime.eq(3).val()!=""){
-															gongzuotime[0][0] = divtime.eq(0).val();
-															gongzuotime[0][1] = divtime.eq(1).val();
-															gongzuotime[0][2] = divtime.eq(2).val();
-															gongzuotime[0][3] = divtime.eq(3).val();
-															gays = true;
-														}else{
-															gaystext = "可工作时间未填写";
-															gays = false;
-														}
-													}else if(chestr=="工作日"){
-														gongzuotime[0] = new Array();
-														var divtime = $("#times .div_time1 input");
-														if(divtime.eq(0).val()!=""&&divtime.eq(1).val()!=""){
-															gongzuotime[0][0] = divtime.eq(0).val();
-															gongzuotime[0][1] = divtime.eq(1).val();
-															gays = true;
-														}else{
-															gaystext = "工作日时间未填写";
-															gays = false;
-														}
-													}else if(chestr=="周末"){
-														gongzuotime[0] = new Array();
-														var divtime = $("#times .div_time2 input");
-														if(divtime.eq(0).val()!=""&&divtime.eq(1).val()!=""){
-															gongzuotime[0][0] = divtime.eq(0).val();
-															gongzuotime[0][1] = divtime.eq(1).val();
-															gays = true;
-														}else{
-															gaystext ="周末时间未填写";
-															gays = false;
-														}
-													}
-													if(value1 !="接单"){
-														/*接单状态 不接单*/
-													}else{
-														/*接单状态 接单*/
-													}
+												//if(chestr != ""){
+													// var gongzuotime = new Array();
+													// var gays = true;
+													// var gaystext = "";
+													// if(chestr=="工作日周末"){
+													// 	gongzuotime[0] = new Array();
+													// 	var divtime = $("#times .div_time input");
+													// 	if(divtime.eq(0).val()!=""&&divtime.eq(1).val()!=""&&divtime.eq(2).val()!=""&&divtime.eq(3).val()!=""){
+													// 		gongzuotime[0][0] = divtime.eq(0).val();
+													// 		gongzuotime[0][1] = divtime.eq(1).val();
+													// 		gongzuotime[0][2] = divtime.eq(2).val();
+													// 		gongzuotime[0][3] = divtime.eq(3).val();
+													// 		gays = true;
+													// 	}else{
+													// 		gaystext = "可工作时间未填写";
+													// 		gays = false;
+													// 	}
+													// }else if(chestr=="工作日"){
+													// 	gongzuotime[0] = new Array();
+													// 	var divtime = $("#times .div_time1 input");
+													// 	if(divtime.eq(0).val()!=""&&divtime.eq(1).val()!=""){
+													// 		gongzuotime[0][0] = divtime.eq(0).val();
+													// 		gongzuotime[0][1] = divtime.eq(1).val();
+													// 		gays = true;
+													// 	}else{
+													// 		gaystext = "工作日时间未填写";
+													// 		gays = false;
+													// 	}
+													// }else if(chestr=="周末"){
+													// 	gongzuotime[0] = new Array();
+													// 	var divtime = $("#times .div_time2 input");
+													// 	if(divtime.eq(0).val()!=""&&divtime.eq(1).val()!=""){
+													// 		gongzuotime[0][0] = divtime.eq(0).val();
+													// 		gongzuotime[0][1] = divtime.eq(1).val();
+													// 		gays = true;
+													// 	}else{
+													// 		gaystext ="周末时间未填写";
+													// 		gays = false;
+													// 	}
+													// }
+													// if(value1 !="接单"){
+													// 	/*接单状态 不接单*/
+													// }else{
+													// 	/*接单状态 接单*/
+													// }
 
-													if(gays != false){
-						var ress = s_province+"/"+s_city+"/"+s_county;
+													//if(gays != false){
 
 
 				// var names = $("#name").val(); /*姓名*/
@@ -774,19 +774,28 @@ else if(chestr=="工作日周末")
 				// var gzly = $(".gzly span.onstyle");
 				// /*关注领域*/
 				// var gzs;
+						var ress = s_province+"/"+s_city+"/"+s_county;
 
-														alert(names);
-														alert(sex);
-														alert(ress);
-														alert(workingLife1);
-														alert(occupation1);
-														alert(occupation2);
-														alert(workingLife);
+														// alert(names);
+														// alert(sex);
+														// alert(ress);
+														// alert(workingLife1);
+														// alert(occupation1);
+														// alert(occupation2);
+														// alert(workingLife);
 
+						console.log(ress);
+						console.log(workingLife1);
+						console.log(workingLife);
+						console.log(mobile);
+						console.log(email);
+						console.log(xinsui);
+						console.log(gzs);
 						if(s_province == "省份" && s_city == "县、市" && s_county == "乡（镇）") {
 							ress = address;
 						}
 						occupation = occupation1+"/"+occupation2;
+						console.log(occupation);
 
 						$.post("{:url('user/index')}",{
 							user_name:names,
@@ -798,11 +807,12 @@ else if(chestr=="工作日周末")
 							mobile:mobile,
 							wxchat:wxNum,
 							email:email,
+							daily_money:xinsui,
+							attention:gzs,
 						},function(data){
 							console.log(data);
 							if (data.code==1) {
 								alert("删除成功");
-								rem.remove();
 
 							}else{
 								alert("删除失败");
@@ -811,9 +821,9 @@ else if(chestr=="工作日周末")
 
 														alert("完成");
 
-													}else{
-														alert(gaystext);
-													}
+													// }else{
+													// 	alert(gaystext);
+													// }
 
 
 
@@ -821,9 +831,9 @@ else if(chestr=="工作日周末")
 
 
 
-												}else{
-												 alert("未选择可工作时间");
-												}
+												// }else{
+												//  alert("未选择可工作时间");
+												// }
 											}
 										}else{
 											alert("请输入手机号")
