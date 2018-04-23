@@ -587,7 +587,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 										</span></p>
 										<p><span>需求描述</span><span>{$vo.info}</span></p>
 										<p style="margin-top: 30px;width: auto;"><span>参与项目人员</span>
-											<div class="participations" data-id = "{$vo.id}">
+											<div class="participations pt{$vo.id}" data-id = "{$vo.id}">
 
 												{volist name="$vo.apply" id="ap"}
 												<div class="participation participation_f1 ">
@@ -983,17 +983,22 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 
 
 			$(".ul1 .participations .participation_f1").click(function() {
-				$(this).toggleClass("participation1");
-				i++;
-				var s = i%2;
-				if(s =="1"){
-					$(".ul1 .string h3").css("display","block");
+				if($(this).hasClass('participation1')){
+					/*选择  取消未选择*/
+					$(this).removeClass("participation1");
+					ling();
+				}else{
+						/*未选择  改为选择*/
+				var pt = $(this).parent().data('id');
+				$(".pt"+pt+" .participation_f1").removeClass("participation1");				
+				 $(this).addClass("participation1");
+				 $(".ul1 .string h3").css("display","block");
 					$(".ul1 .renyuean").css("display","block");
 					$(".ul1 .bottom_bottom p:nth-child(2)").addClass("blue");
 					$(".ul1 .top_right span").text("选择开发者");
-				}else if(s =="0"){
-					ling();
 				}
+				
+				
 			})
 
 			function ling(){
