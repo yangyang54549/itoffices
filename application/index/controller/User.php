@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-23 16:26:02
+ * @Last Modified time: 2018-04-23 17:40:35
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -49,6 +49,23 @@ class User  extends Yang
         $this->assign('user',$user);
         return $this->fetch();
     }
+
+    public function resumes()
+    {
+        $id = input('id');
+        $user = U::where('id',$id)->find();
+        $UserEducation = UserEducation::where(['user_id'=>$user['id']])->select();
+        $UserExperience = UserExperience::where(['user_id'=>$user['id']])->select();
+        $UserProduction = UserProduction::where(['user_id'=>$user['id']])->select();
+        $UserSkill = UserSkill::where(['user_id'=>$user['id']])->select();
+        $this->assign('education',$UserEducation);
+        $this->assign('experience',$UserExperience);
+        $this->assign('production',$UserProduction);
+        $this->assign('skill',$UserSkill);
+        $this->assign('user',$user);
+        return $this->fetch();
+    }
+
     public function order()
     {
         $demand = Demand::where(['user_id'=>Session::get('user.id')])->select();
