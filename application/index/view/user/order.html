@@ -587,10 +587,10 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 										</span></p>
 										<p><span>需求描述</span><span>{$vo.info}</span></p>
 										<p style="margin-top: 30px;width: auto;"><span>参与项目人员</span>
-											<div class="participations">
+											<div class="participations" data-id = "{$vo.id}">
 
 												{volist name="$vo.apply" id="ap"}
-												<div class="participation participation_f1">
+												<div class="participation participation_f1 ">
 													<a href="###">接单方</a>
 													<img src="__INDEX__/img/avatar/2.jpg" />
 													<a href="###">{$ap.user_name}</a>
