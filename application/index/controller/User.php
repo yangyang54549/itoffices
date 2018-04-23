@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-20 16:37:36
+ * @Last Modified time: 2018-04-23 10:35:25
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -12,6 +12,9 @@ use app\common\model\User as U;
 use app\common\model\UserEducation;
 use app\common\model\UserExperience;
 use app\common\model\UserProduction;
+use app\common\model\DemandTrade;
+use app\common\model\DemandType;
+use app\common\model\Demand;
 use app\common\model\UserSkill;
 
 class User  extends Yang
@@ -25,6 +28,8 @@ class User  extends Yang
 
         }else{
             $user = U::where('id',Session::get('user.id'))->find();
+            $user['occupations'] = explode("/",$user['occupation']);
+            $user['attentions'] = explode(",",$user['attention']);
             $this->assign('user',$user);
             return $this->fetch();
         }
@@ -45,6 +50,10 @@ class User  extends Yang
     }
     public function order()
     {
+        $demand = Demand::where(['user_id'=>Session::get('user.id')])->select();
+        $demandtrade = DemandTrade::select();
+        $this->assign('demand',$demand);
+        $this->assign('demandtrade',$demandtrade);
         return $this->fetch();
     }
 
