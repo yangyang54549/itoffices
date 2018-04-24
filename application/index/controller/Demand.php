@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-23 16:08:55
+ * @Last Modified time: 2018-04-23 18:40:54
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -171,6 +171,7 @@ class Demand extends Yang
             $data['demand_id'] = $id;
             $data['create_time'] = time();
             Apply::insert($data);
+            D::where(['id'=>$id])->setInc('apply');
             return json($this->ret);
 
         }else{

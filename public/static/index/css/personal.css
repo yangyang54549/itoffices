@@ -1,4 +1,4 @@
-@font-face {font-family: "微软雅黑";} 
+@font-face {font-family: "微软雅黑";}
 body,div,span,p,a,img,input,h1,h2,h3,h4,h5,h6,button,ul,li,iframe{
 	margin: 0;
 	padding: 0;
@@ -13,15 +13,15 @@ a:active {text-decoration: none;}
 body{ background-color: #F7F7F7;}
 .container{width: 980px;margin: 0 auto; overflow:auto;
 display: flex;
-flex-direction: row; 
+flex-direction: row;
 justify-content: space-between;
-align-items:flex-end; 
+align-items:flex-end;
 min-height: 80vh;
 }
 #right{width: 260px; height: auto;
 position: fixed;
 top: 84px;
-background-color: white;  
+background-color: white;
 z-index: 100;
 box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
 				-webkit-box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
@@ -38,7 +38,7 @@ box-sizing: border-box;}
 
 .right_img{
 	width: 250px;
-	
+
 }
 .top_img{
 	margin: 20px  auto;
@@ -78,7 +78,7 @@ box-sizing: border-box;}
 /*星级*/
 .status,.right_site{
 	display: flex;
-	flex-direction: row wrap;    
+	flex-direction: row wrap;
 	justify-content:center;
 	padding: 10px 0 0 0;
 	margin-bottom: 10px;
@@ -101,7 +101,7 @@ box-sizing: border-box;}
 	position: absolute;
 	left: -70px;
 	bottom:31px ;
-	width: 150px;
+	width: 200px;
 	padding: 15px 5px;
 	background-color: gray;
 	display: none;
@@ -127,8 +127,8 @@ p.sanjiao {
 	display: block;
 }
 
-.status{		
-	height: 20px;		
+.status{
+	height: 20px;
 	width: 180px;
 	margin: 0 auto;
 	position: relative;
@@ -136,10 +136,10 @@ p.sanjiao {
 	left: 0;
 }
 .status img{
-	width: 15px;	
+	width: 15px;
 	margin-top: 3px;
 }
-.status span{	
+.status span{
 	line-height: 23px;
 }
 .status:hover .status_x{
@@ -150,27 +150,27 @@ p.sanjiao {
 	position: absolute;
 	top: 30px;
 	left: -14px;
-	width: 200px;	
+	width: 200px;
 	padding: 0 5px;
 	background-color: white;
 	display: none;
 	box-shadow: 2px 2px 5px 2px rgba(28, 57, 81, 0.18);
 				-webkit-box-shadow: 2px 2px 5px 2px rgba(28, 57, 81, 0.18);
 				-moz-box-shadow: 2px 2px 5px 2px rgba(28, 57, 81, 0.18);
-	
+
 }
 
 .status_x p{
 	width: 100%;
 	display: flex;
-	
+
 }
 .status_x p span{
 	float: left;
 	padding: 2px 5px;
 	font-size: 13px;
 	width: 50%;
-	
+
 	color: black;
 }
 
@@ -182,7 +182,7 @@ p.sanjiao {
 	box-sizing: border-box;
 	font-size: 14px;
 	border-top:1px solid  #F7F7F7 ;
-	margin-top: 10px; 
+	margin-top: 10px;
 }
 .right_message p{
 	padding: 10px 0;
@@ -197,27 +197,27 @@ p.sanjiao {
 	    margin-top: 20px;
   box-sizing: border-box;
   text-align: center;
- 
+
 }
 .contact-btn a{
 	/*background-color: #2481e4;*/
-	 box-shadow: 0 0 0 0 rgba(39,41,43,.15) inset;   
+	 box-shadow: 0 0 0 0 rgba(39,41,43,.15) inset;
 	/*color: #fff;*/
     text-shadow: none;
-    background-image: none;  
+    background-image: none;
     width: 180px;
     font-size: 16px;
     font-weight: 400;cursor: pointer;
     display: inline-block;
     min-height: 1em;
     outline: 0;
-    border: none;        
+    border: none;
     padding: .78571em 1.5em;
     text-shadow: none;
     line-height: 1;
     font-style: normal;
-    text-align: center;  
-    border-radius: .2857rem;    
+    text-align: center;
+    border-radius: .2857rem;
     user-select: none;
     box-sizing: border-box;
 }
@@ -250,12 +250,12 @@ p.sanjiao {
 }
 .right_attention ,.right_attention2{
 	display: flex;
-	justify-content: space-around; 
+	justify-content: space-around;
 }
 .attention_left,.attention_right{
 	padding: 10px;
 	display: flex;
-	justify-content: center; 
+	justify-content: center;
 	width: 50%;
 	position: relative;
 }
@@ -286,9 +286,9 @@ p.sanjiao {
 .right_attention2 .attention_left,.right_attention2 .attention_right{
 	width: 50%;
 	display: flex;
-	  flex-direction: column; 
+	  flex-direction: column;
 	  background-color: #F0F2F5;
-	 
+
 	      border-top: 1px solid #e4e9f0;;
 }
 .right_attention2 .attention_right{
@@ -327,7 +327,7 @@ box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
     font-weight: 400;
 }
 .introduce h3 span,.work h3 span{
-	color: #0190FE;	
+	color: #0190FE;
 }
 .introduce p,.work p{
 	line-height: 20px;
@@ -339,14 +339,14 @@ box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
 	padding: 0 20px;
 	font-size: 14px;
 }
-ul{	  
+ul{
 	        display: block;
     list-style-type: disc;
     -webkit-margin-before: 1em;
     -webkit-margin-after: 1em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
-    
+
 }
 .title{
 	color: #258fe7;
@@ -370,7 +370,7 @@ ul{
     top: 27px;
     border-radius: 8px;
 }
-.dot i{	
+.dot i{
     width: 11px;
     height: 11px;
     display: block;
@@ -378,7 +378,7 @@ ul{
     border-radius: 6px;
    margin-top:2.5px ;
    margin-left: 2.5px;
-    
+
 }
 
 ul li:hover .dot{
@@ -411,7 +411,7 @@ ul li:hover .dot i{
 }
  .gren_b span{
  	display: block;
- 	background-color: #55A7EA;	
+ 	background-color: #55A7EA;
 	height: 10px;
 	margin-top: 5px;
  }
@@ -434,7 +434,7 @@ ul li:hover .dot i{
  	margin-top: 10px;
  }
  .introduce3 .ruler p:nth-child(1){
- 	background-color: #E9E9E9;	
+ 	background-color: #E9E9E9;
  }
 .introduce3 .ruler p:nth-child(1) span{
 	width: 5px ;
@@ -453,31 +453,31 @@ ul li:hover .dot i{
 	border-color:#258fe6 ;
 	color: #258fe6;
 }
-.introduce4 li .left:hover p{	
+.introduce4 li .left:hover p{
 	color: #258fe6;
 }
 .introduce4 li .right{
 	float: right;
 	width: 100%;
-	
+
 }
 .introduce4 li .right p:nth-child(1){
-	display: flex;	    
+	display: flex;
     justify-content: space-between;
 }
 .introduce4 li .right p:nth-child(1) span:nth-child(1){
-	color: #258fe6;	
+	color: #258fe6;
 	font-size: 16px;
-	
+
 }
 .introduce4 li .right p:nth-child(1) span:nth-child(2){
-	color: #768696;	
+	color: #768696;
 	font-size: 14px;
 	position: relative;
 	top: 0;
 	right: 0;
 }
-.introduce4 li .right p:nth-child(2) {	
+.introduce4 li .right p:nth-child(2) {
 	font-size: 14px;
 	margin-top: 10px;
 }
@@ -488,14 +488,14 @@ ul li:hover .dot i{
 	color: #b3bdcf;
 }
 .introduce5 h3{
-	width: 100%;	
+	width: 100%;
 	box-sizing: border-box;
-	
+
 }
 .introduce5 h3 span{
 	float: right;
 	text-align: right;
-	font-size: 14px;	
+	font-size: 14px;
 	color: black;
 }
 .introduce5 h3 span a{
@@ -534,7 +534,7 @@ ul li:hover .dot i{
 .introduce51 li{
 	margin: 10px 0;
 	padding: 10px 20px;
-	
+
 }
 .introduce51 li .left,.introduce51 li .conte{
 	float: left;
@@ -569,7 +569,7 @@ ul li:hover .dot i{
 }
 .introduce51 li .right{
 	float: right;
-	
+
 }
 .introduce51 li .right p{
 	text-align: right;
@@ -591,7 +591,7 @@ ul li:hover .dot i{
 	position: absolute;
 	top: 85px;
 	left: 12vw;
-	
+
 }
 /*行限定*/
 .summary,.introduce4 li .right p:nth-child(2),.introduce51 li .conte p:nth-child(2){
@@ -609,13 +609,13 @@ width: 70%;
 .introduce51 li .conte p:nth-child(1){
 	width: 400px;
 	 white-space:nowrap; text-overflow:ellipsis; overflow:hidden;
-	
+
 }
 .h3 a{
 	float: right;
-	
+
 }
 .imgs{
 	display: block;
-	
+
 }

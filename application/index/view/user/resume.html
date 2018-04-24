@@ -241,7 +241,7 @@
 		#ul li a:hover{
 			background-color: #2481e4;
 		}
-		
+
 		</style>
 	</head>
 <script>
@@ -517,31 +517,33 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				<div class="right_site">
 					<div class="">
 						<img src="__INDEX__/img/icon/weixin.png" />
-						<p class="site_top">未验证微信号</p>
+						<p class="site_top">{$user.wxchat ? $user.wxchat : '未验证微信号'}</p>
 						<p class="sanjiao"></p>
 					</div>
 					<div class="">
 						<img src="__INDEX__/img/icon/app.png" />
-						<p class="site_top">未验证电话号码</p>
+						<p class="site_top">{$user.mobile ? $user.mobile : '未验证电话号码'}</p>
 						<p class="sanjiao"></p>
 					</div>
 					<div class="">
 						<img src="__INDEX__/img/144512357196727672.png" />
-						<p class="site_top">未验证邮箱地址</p>
+						<p class="site_top">{$user.email ? $user.email : '未验证邮箱地址'}</p>
 						<p class="sanjiao"></p>
 					</div>
-					<div class="">
+	<!-- 				<div class="">
 						<img src="__INDEX__/img/icon/rencai.png" />
 						<a href="#" class="site_top">未完成个人主页</a>
 						<p class="sanjiao"></p>
-					</div>
+					</div> -->
 				</div>
 				<div class="right_message">
 
 					<p>{$user.daily_money}元/天</p>
-					<p>可工作地点: {$user.working_address}</p>
-
-					<p>可工作时间: 工作日09:00-21:00、周末9:00-20:00</p>
+					<p>工作地点: {$user.working_address}</p>
+					<p>地区：{$user.address ? $user.address : '请设置'}</p>
+					<p>状态：{$user.user_status ? $user.user_status : '请设置'}</p>
+					<p>职业：{$user.occupation ? $user.occupation : '请设置'}</p>
+					<p>工作年限：{$user.years ? $user.years : '请设置'}</p>
 					<div class="contact-btn">
 						<a href="###" class="ui1">雇佣我吧</a>
 					</div>
@@ -554,24 +556,24 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				</div>
 				<div class="right_attention">
 					<div class="attention_left" id="duibi">
-						<span id="">
+						<!-- <span id="">
 							<img src="__INDEX__/img/icon/fei.png" id="duibi_img" style="display: none;"/>
 						</span>
 						<span id="">
 							对比
-						</span>
+						</span> -->
 					</div>
 					<div class="attention_right" id="guanzu">
-						<span id="">
+						<!-- <span id="">
 							&omega;
 						</span>
 						<span id="guanzu_span">
 							关注
 						</span>
-						<p class="attention_right_p" id="guanzu_p">关注</p>
+						<p class="attention_right_p" id="guanzu_p">关注</p> -->
 					</div>
 				</div>
-				<div class="right_attention2">
+				<!-- <div class="right_attention2">
 					<div class="attention_left">
 						<p>关注</p>
 						<p class="strin">6</p>
@@ -580,7 +582,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 						<p>粉丝</p>
 						<p class="strin">8</p>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 		<div class="footer" style="background-color: #1e2831;">
