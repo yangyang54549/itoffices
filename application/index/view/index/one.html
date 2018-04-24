@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html>
 
+<html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
-		<link rel="stylesheet" type="text/css" href="__INDEX__/css/font-awesome.min.css" />
-		<script src="__INDEX__/js/jss/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<title>it</title>
+		<link rel="stylesheet" type="text/css" href="__INDEX__/css/font-awesome.min.css"/>
+		
 		<style type="text/css">
 			body,
 			div,
@@ -22,10 +21,9 @@
 				width: 100vw;
 				height: 100vh;
 				
-				min-height: 768px;
-				min-width: 1366px;
-				min-height: 768px;
-				min-width: 1366px;
+				min-height: 900px;
+				min-width: 1600px;
+				
 				position: relative;
 			}
 			
@@ -438,7 +436,7 @@
 						<a href="#" class="is ">人工</a>
 					</div>
 					<input type="text" name="" id="name" value="" placeholder="搜索..." />
-					<img src="img/icon/fda.png" />
+					<img src="__INDEX__/img/icon/fda.png" />
 					<button onclick="sou();">搜索</button>
 					<p id="sousuo">bing搜索</p>
 					<span>或者</span>
@@ -472,7 +470,7 @@
 					<div class="saos">
 						<div class="">
 							<p>扫描下载</p>
-							<img src="img/phone.png" />
+							<img src="__INDEX__/img/phone.png" />
 							<p>扫描下载</p>
 						</div>
 						<p></p>
@@ -508,6 +506,7 @@
 				<a href="#">反馈</a>
 			</div>
 		</div>
+		<script src="__INDEX__/js/jss/jquery.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			var myDate = new Date();
 			var dayss = myDate.getDay();
@@ -535,8 +534,7 @@
 					if(h3 == 0) {
 						h3++;
 						var ss = parseInt($("#fx_text").text()) + 1;
-						$("#fx_text").text(ss);
-						
+						$("#fx_text").text(ss);						
 					}
 				} else {
 					if($(this).hasClass("hover2")) {
@@ -556,8 +554,7 @@
 
 						}
 					}
-				}
-				
+				}				
 			})
 
 			function bings() {
@@ -608,22 +605,17 @@
 					dayss = dayss - 7;
 				} else if(dayss < 0) {
 					dayss = dayss + 7;
-				} else {
-
-				}
+				} else {}
 			}
-
 			function left() {
 				dayss = dayss - 1;
 				day7();
 				days();
 			}
-
 			function right() {
 				dayss = dayss + 1;
 				day7();
 				days();
-
 			}
 		</script>
 	</body>

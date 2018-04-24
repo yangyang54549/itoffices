@@ -269,6 +269,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				<div class="search1">
 					<div class="navs">
 						<!--<i class="is ">IT联合办公</i>-->
+						<i class="is">首页</i>
 						<i class="is actives">需求</i>
 						<i class="is">案例</i>
 						<i class="is">人才</i>
@@ -758,6 +759,8 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 					window.location.href = "{:url('cases/index')}";
 				} else if($(".navs .actives").text() == "IT联合办公") {
 					window.location.href = "{:url('index/index')}";
+				}else if($(".navs .actives").text() == "首页"){
+					window.location.href = "{:url('index/one')}";
 				}
 			}
 		</script>

@@ -215,20 +215,22 @@
 			font-size: 14px;
 			color: black;
 			z-index: 100;
+			border-radius: 20px;
+			margin-right: 10px;
 		}
 
 		.navs a:hover {
 			color: #fff !important;
-			background: url(_INDEX__/img/navBg.png);
+			/*background: url(_INDEX__/img/navBg.png);*/
 			background-size: 100%;
-			/*background-color: #ff5454;*/
+			background-color: #ff5454;
 		}
 
 		.actives {
 			color: #fff !important;
-			background: url(_INDEX__/img/navBg.png);
+			/*background: url(_INDEX__/img/navBg.png);*/
 			background-size: 100%;
-			/*background-color: #ff5454;*/
+		background-color: #ff5454;
 		}
 		/*招募等4中背景*/
 
@@ -492,10 +494,13 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 						<a href="#" class="is">IT联合办公</a>
 					</li>-->
 					<li>
-						<a href="#" class="is actives">需求</a>
+						<a href="{:url('index/one')}" class="is ">首页</a>
 					</li>
 					<li>
-						<a href="#" class="is ">案例</a>
+						<a href="{:url('demand/index')}" class="is actives">需求</a>
+					</li>
+					<li>
+						<a href="{:url('cases/index')}" class="is ">案例</a>
 					</li>
 					<li>
 						<a href="#" class="is">人才</a>
