@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-24 16:50:04
+ * @Last Modified time: 2018-04-24 17:24:07
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -72,10 +72,11 @@ class User  extends Yang
         foreach ($demand as $key => $value) {
             $apply = Apply::where(['demand_id'=>$value['id']])->select();
             $demand[$key]['apply'] = $apply;
-            // $app = Apply::where(['demand_id'=>$value['id'],'status'=>1])->find();
-            // if () {
-            //     # code...
-            // }
+            $app = Apply::where(['demand_id'=>$value['id'],'status'=>1])->find();
+            if (isset($app)) {
+                $user = U::where('id',$app['user_id'])->find();
+                $demand[$key]['app'] = $user['user_name'];
+            }
         }
 
         $apply = Apply::where(['user_id'=>Session::get('user.id')])->select();
