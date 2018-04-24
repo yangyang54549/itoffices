@@ -585,7 +585,7 @@
 				padding: 10px 10px !important;
 				border-radius: 5px;
 			}
-			.strings{}				
+			.strings{}
 			.li_ones{}
 		</style>
 	</head>
@@ -623,12 +623,7 @@
 					<li>
 						<a href="###" class="is actives">人才</a>
 					</li>
-					<!--<li><a href="https://www.315pr.com:443/case/page.shtml">案例</a></li>-->
-					<!-- <li><a href="https://www.315pr.com:443/smart/list.shtml">媒介</a></li> -->
-					<!--<li><a href="https://www.315pr.com:443/report/page.shtml">资讯</a></li>-->
-
 				</ul>
-
 				<div style="clear:both"></div>
 			</div>
 		</div>
@@ -645,8 +640,8 @@
 					<div class="cente-head ">
 						<p class="p2 on"><span>我发布的需求(</span><span id="num_1">5</span>)</p>
 						<p class="p2"><span>我申请的任务</span><span id="num_2">(0)</span></p>
-						<p class="p2"><span>我雇佣的</span><span id="num_3">(0)</span></p>
-						<p class="p2"><span>雇佣我的</span><span id="num_4">(0)</span></p>
+						<!-- <p class="p2"><span>我雇佣的</span><span id="num_3">(0)</span></p>
+						<p class="p2"><span>雇佣我的</span><span id="num_4">(0)</span></p> -->
 					</div>
 					<div class="cente_b">
 						<div class="cente_ul">
@@ -703,29 +698,22 @@
 											{/if}
 										</span></p>
 										<p><span>需求描述</span><span>{$vo.info}</span></p>
-										<p style="margin-top: 30px;width: auto;"><span>参与项目人员</span>
+										<p style="margin-top: 30px;width: auto;"><span>接单方</span>
 											<div class="participations pt{$vo.id}" data-id="{$vo.id}">
 
 												{volist name="$vo.apply" id="ap"}
-												<div class="participation participation_f1">
+												<div {if condition="$ap.status eq 1"} class="participation participation_f1 participation1" {else/} class="participation participation_f1"{/if}>
 													<a href="#">接单方</a>
 													<img src="__INDEX__/img/avatar/2.jpg"/>
-													<a href="#"  onclick="window.open('{:url("user/resumes",["id"=>$ap.user_id])}')" >{$ap.user_name}</a>
+													<a href="#" onclick="window.open('{:url("user/resumes",["id"=>$ap.user_id])}')" >{$ap.user_name}</a>
 													<i class=" "> <img src="__INDEX__/img/icon/dui.png"/></i>
 												</div>
 												{/volist}
-
-												<!--<div class="participation participation_f2">
-													<a href="###">接单方</a>
-													<img src="__INDEX__/img/avatar/3.jpg" />
-													<a href="###">李四</a>
-													<i class=" "> <img src="__INDEX__/img/icon/dui.png"/></i>
-												</div> -->
 											</div>
 										</p>
-										<div class="bottom_bottom" style="border-top: 1px dotted #d3d0d0;border-bottom: 1px dotted #d3d0d0;">
+										<div {if condition="$vo.schedule eq 1"} class="bottom_bottom blue0" {else/} class="bottom_bottom blue1" {/if} style="border-top: 1px dotted #d3d0d0;border-bottom: 1px dotted #d3d0d0;">
 											<p>
-												<span class="sptext">发布</span>
+												<span class="sptext">发布需求</span>
 												<span class="spbackground"></span>
 											</p>
 											<p>
@@ -737,11 +725,11 @@
 												<span class="spbackground"></span>
 											</p>
 											<p>
-												<span>提成佣金</span>
+												<span>评价</span>
 												<span class="spbackground"></span>
 											</p>
 										</div>
-										<div class="string">											
+										<div class="string">
 												<h3 >进展详情</h3>
 												<div class="renyuean">
 													<div class="">
@@ -763,7 +751,6 @@
 														<h5 class="blues" style="color: #0082E6; "> 已开工 <i></i></h5>
 														<i style="border-left: 2px solid gray; color: gray;"><i >完成时间：</i><i class="timess">1~3月</i></i>
 													</div>
-
 												</div>
 												<div class="renyuean3">
 													<div class="">
@@ -776,7 +763,6 @@
 														<i class="tong" style="padding: 3px 5px;border: 1px solid gainsboro;background-color: #0190FE; border-radius:5px ;color: white;">同意</i></i>
 													</div>
 												</div>
-											
 										</div>
 									</div>
 								</li>
@@ -786,57 +772,73 @@
 								</div>
 							</ul>
 							<ul class="ul2">
+								{volist name="sdemand" id="vos"}
 								<li class="li_one">
 									<div class="top relative">
 										<div class="top_left">
 											<img src="__INDEX__/img/bai.png" />
 										</div>
 										<div class="top_center">
-											<p><span>[模块]</span><span>棋牌游戏</span></p>
-											<p><span>郑州  </span><span>发布时间    </span><span>2017.11.20</span></p>
+											<p><span>[需求名称]  </span><span>{$vos.name}</span></p>
+											<p><span>郑州  </span><span>发布时间    </span><span>{$vos.create_time|date="Y-m-d H:i",###}</span></p>
 										</div>
 										<div class="top_right">
-											<span>等待雇佣</span>
+											<span>{if condition="$vos.schedule == 1"}招募中{elseif condition="$vos.schedule == 2"/}对接中{elseif condition="$vos.schedule == 3"/}执行中{elseif condition="$vos.schedule == 4"/}已完成{/if}</span>
 										</div>
 									</div>
 									<div class="bottom relative">
 										<div class="demanddel-type">
 											<p class="demanddel-t" style="font-size: 1.2em;color: #797979;">项目预算</p>
-											<p style="font-size: 24px;color: #ec1313;">10000~30000元 </p>
+											<p style="font-size: 24px;color: #ec1313;">{$vos.money}元 </p>
 											<div class="demanddel-num">
-												<p class="apply1"><span>已申请</span> <span>0人</span></p>
-												<p class="apply2"><span>已浏览</span> <span>0人</span></p>
+												<p class="apply1"><span>已申请</span> <span>{$vos.apply}人</span></p>
+												<p class="apply2"><span>已浏览</span> <span>{$vos.browse}人</span></p>
 											</div>
 										</div>
-										<p><span>所属行业</span><span>游戏行业</span></p>
-										<p><span>所属类型</span><span>H5开发/微信开发</span></p>
-										<p><span>开发周期</span><span>少于一月内</span></p>
-										<p><span>紧急程度</span><span>非常紧急</span></p>
-										<p><span>需求描述</span><span>h5棋牌游戏开发，有现成模版的最好。</span></p>
-										<p style="margin-top: 30px;width: auto;"><span>参与项目人员</span>
+										<p><span>所属行业</span>
+											<span>
+											{volist name="demandtrade" id="dtr"}
+											{if condition="$dtr.id == $vos.industry"}{$dtr.name}{/if}
+											{/volist}
+										</span>
+										</p>
+										<p><span>所属类型</span>
+											<span>
+											{volist name="demandtype" id="dty"}
+											{if condition="$dty.id == $vos.type"}{$dty.name}{/if}
+											{/volist}
+										</span></p>
+										<p><span>开发周期</span>
+											<span>
+										{if condition="$vos.period == 1"}少于1周{elseif condition="$vos.period == 2"/}少于1个月{elseif condition="$vos.period == 3"/}1-3个月{elseif condition="$vos.period == 4"/}3-6个月{elseif condition="$vos.period == 5"/}超过6个月{/if}
+										</span></p>
+										<p><span>紧急程度</span><span>
+											{if condition="$vos.urgency eq 1"}
+											不紧急
+											{elseif condition="$vos.urgency eq 2" /}
+											一般
+											{elseif condition="$vos.urgency eq 3" /}
+											比较紧急
+											{else /}
+											非常紧急
+											{/if}
+										</span></p>
+										<p><span>需求描述</span><span>{$vos.info}</span></p>
+										<p style="margin-top: 30px;width: auto;"><span>需求方</span>
 											<div class="participations">
 												<div class="participation participation_f">
-													<a href="###">需求方</a>
-													<img src="__INDEX__/img/bai.png" />
-													<a href="###">硅谷</a>
+													<a href="#">需求方</a>
+													<img src="__INDEX__/img/bai.png"/>
+													<a onclick="window.open('{:url("user/resumes",["id"=>$vos.user_id])}')">{$vos.username}</a>
 													<i class=" "> <img src="__INDEX__/img/icon/dui.png"/></i>
 												</div>
-												<div class="participation participation_f1">
-													<a href="###">接单方</a>
-													<img src="__INDEX__/img/avatar/2.jpg" />
-													<a href="###">张珊</a>
-													<i class=" "> <img src="__INDEX__/img/icon/dui.png"/></i>
-												</div>
-
 											</div>
 										</p>
-										<div class="bottom_bottom" style="border-top: 1px dotted #d3d0d0;border-bottom: 1px dotted #d3d0d0;">
+										<div class="bottom_bottom blue1"   style="border-top: 1px dotted #d3d0d0;border-bottom: 1px dotted #d3d0d0;">
 											<p class="blue">
-												<span class="sptext">我申请的</span>
+												<span class="sptext">申请中</span>
 												<span class="spbackground"></span>
-												
 											</p>
-
 											<p>
 												<span class="sptext">我被雇佣</span>
 												<span class="spbackground"></span>
@@ -851,23 +853,23 @@
 											</p>
 										</div>
 										<div class="string">
-									
+
 										<h3 style="display: none;">进展详情</h3>
 										<div class="renyuean">
 											<div class="">
 												<img src="__INDEX__/img/avatar/2.jpg" />
-												<i>张三</i>
+												<i>{$vos.username}</i>
 											</div>
 											<div class="">
 												<h5 class="blues" style="color: #0082E6; ">硅谷 雇佣了你</h5>
 												<i style="border-left: 2px solid gray; color: gray;">
-														<i  >硅谷</i><i>13613820359</i></i><i class="kai"> 是否开工：确认</i>
+												<i  >硅谷</i><i>13613820359</i></i><i class="kai"> 是否开工：确认</i>
 											</div>
 										</div>
 										<div class="renyuean2">
 											<div class="">
 												<img src="__INDEX__/img/avatar/2.jpg" />
-												<i>张珊</i>
+												<i>{$vos.username}</i>
 											</div>
 											<div class="">
 												<h5 class="blues" style="color: #0082E6; "> 已开工 <i></i></h5>
@@ -878,7 +880,7 @@
 										<div class="renyuean3">
 											<div class="">
 												<img src="__INDEX__/img/bai.png" />
-												<i>硅谷</i>
+												<i>{$vos.username}</i>
 											</div>
 											<div class="">
 												<h5 class="blues">已验收 <i></i></h5>
@@ -886,11 +888,13 @@
 													<i class="tong" style="padding: 3px 5px;border: 1px solid gainsboro;background-color: #0190FE; border-radius:5px ;color: white;">同意</i></i>
 											</div>
 										</div>
-									
-									
+
+
 								</div>
 									</div>
 								</li>
+								{/volist}
+
 								<li class="li_one">
 									<div class="top relative">
 										<div class="top_left">
@@ -939,10 +943,7 @@
 											<p >
 												<span class="sptext">我申请的</span>
 												<span class="spbackground" ></span>
-												
-												
 											</p>
-
 											<p>
 												<span class="sptext">我被雇佣</span>
 												<span class="spbackground"></span>
@@ -957,7 +958,7 @@
 											</p>
 										</div>
 										<div class="string">
-									
+
 										<h3 style="display: none;">进展详情</h3>
 										<div class="renyuean">
 											<div class="">
@@ -992,8 +993,8 @@
 													<i class="tong" style="padding: 3px 5px;border: 1px solid gainsboro;background-color: #0190FE; border-radius:5px ;color: white;">同意</i></i>
 											</div>
 										</div>
-									
-									
+
+
 								</div>
 									</div>
 								</li>
@@ -1045,8 +1046,8 @@
 											<p >
 												<span class="sptext">我申请的</span>
 												<span class="spbackground" ></span>
-												
-												
+
+
 											</p>
 
 											<p>
@@ -1063,7 +1064,7 @@
 											</p>
 										</div>
 										<div class="string">
-									
+
 										<h3 style="display: none;">进展详情</h3>
 										<div class="renyuean">
 											<div class="">
@@ -1098,13 +1099,13 @@
 													<i class="tong" style="padding: 3px 5px;border: 1px solid gainsboro;background-color: #0190FE; border-radius:5px ;color: white;">同意</i></i>
 											</div>
 										</div>
-									
-									
+
+
 								</div>
 									</div>
 								</li>
 								<div class="string">
-									
+
 									<p style="font-size: 14px;">sss</p>
 								</div>
 							</ul>
@@ -1199,39 +1200,39 @@
 			$(" .participations .participation_f1").click(function() {
 				if($(this).hasClass('participation1')) {
 					/*选择  取消未选择*/
-					$(this).removeClass("participation1");			
-					$(this).parent().next().next().removeClass("blue1");	
-					$(this).parent().next().next().next().removeClass("string1");	
+					$(this).removeClass("participation1");
+					$(this).parent().next().next().removeClass("blue1");
+					$(this).parent().next().next().next().removeClass("string1");
 				} else {
 					/*未选择  改为选择*/
 					var pt = $(this).parent().data('id');
 					$(".pt" + pt + " .participation_f1").removeClass("participation1");
 					$(this).addClass("participation1");
-					$(this).parent().next().next().addClass("blue1");	
-					$(this).parent().next().next().next().addClass("string1");					
+					$(this).parent().next().next().addClass("blue1");
+					$(this).parent().next().next().next().addClass("string1");
 				}
 			})
-			
+
 			$(".kai").click(function() {
 				if($(this).text()!="已开工"){
 					$(this).text("已开工");
 					$(this).parent().parent().parent().removeClass("string1");
 					$(this).parent().parent().parent().addClass("string2");
-				}												
+				}
 			})
-		
+
 			$(".renyuean2 .timess").click(function() {
 				$(this).parent().parent().parent().parent().addClass("string3");
 				$(this).parent().parent().parent().parent().removeClass("string2");
-				
+
 			})
 			$(".tong").click(function() {
 				$(this).parent().parent().parent().parent().addClass("strings");
 				$(".strings .renyuean2 div h5").text("已完工");
 				$(".strings .kai").text("已完工");
 				$(".strings .timess").text("已完工");
-				$(".strings").prev().addClass("blue2");								
-			})						
+				$(".strings").prev().addClass("blue2");
+			})
 		</script>
 		<script type="text/javascript">
 			$(".content .center_cen").width(($(".center").width() - 250) + "px");
