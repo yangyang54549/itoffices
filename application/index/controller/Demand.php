@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-23 18:40:54
+ * @Last Modified time: 2018-04-24 14:33:27
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -34,6 +34,7 @@ class Demand extends Yang
             $data = input();
             $data['create_time'] = time();
             $data['user_id'] = Session::get('user.id');
+            $data['username'] = Session::get('user.user_name');
             $result = D::insert($data);
             if (isset($result)) {
                 $this->ret['msg'] = '需求提交成功';
