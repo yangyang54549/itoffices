@@ -1,0 +1,66 @@
+{extend name="template/base" /}
+{block name="content"}
+<div class="page-container">
+    <form class="mb-20" method="get" action="{:\\think\\Url::build($Request.action)}">
+        <input type="text" class="input-text" style="width:250px" placeholder="id" name="id" value="{$Request.param.id}" >
+        <input type="text" class="input-text" style="width:250px" placeholder="手机号码" name="mobile" value="{$Request.param.mobile}" >
+        <button type="submit" class="btn btn-success"><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
+    </form>
+    <div class="cl pd-5 bg-1 bk-gray">
+        <span class="l">
+            {tp:menu menu="add,forbid,resume" /}
+        </span>
+        <span class="r pt-5 pr-5">
+            共有数据 ：<strong>{$count ?? '0'}</strong> 条
+        </span>
+    </div>
+    <table class="table table-border table-bordered table-hover table-bg mt-20">
+        <thead>
+        <tr class="text-c">
+            <th width="25"><input type="checkbox"></th>
+            <th width="">id</th>
+            <th width="">姓名</th>
+            <th width="">性别</th>
+            <th width="">地址</th>
+            <th width="">工作状态</th>
+            <th width="">职业</th>
+            <th width="">工作年限</th>
+            <th width="">手机号码</th>
+            <th width="">微信号</th>
+            <th width="">邮箱</th>
+            <th width="">日薪</th>
+            <th width="">关注的领域</th>
+            <th width="">注册时间</th>
+            <th width="70">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {volist name="list" id="vo"}
+        <tr class="text-c">
+            <td><input type="checkbox" name="id[]" value="{$vo.id}"></td>
+            <td  onclick="layer_open('用户详情', '/index/user/resumes/id/{$vo.id}.html')">{$vo.id|high_light=$Request.param.id}</td>
+            <td>{$vo.user_name}</td>
+            <td>{$vo.gender}</td>
+            <td>{$vo.address}</td>
+            <td>{$vo.user_status}</td>
+            <td>{$vo.occupation}</td>
+            <td>{$vo.years}</td>
+            <td>{$vo.mobile|high_light=$Request.param.mobile}</td>
+            <td>{$vo.wxchat}</td>
+            <td>{$vo.email}</td>
+            <td>{$vo.daily_money}</td>
+            <td>{$vo.attention}</td>
+            <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+            <td class="f-14">
+                {$vo.status|show_status=$vo.id}
+                {tp:menu menu='sedit' /}
+                {tp:menu menu='sdeleteforever' /}
+            </td>
+        </tr>
+        {/volist}
+        </tbody>
+    </table>
+    <div class="page-bootstrap">{$page ?? ''}</div>
+</div>
+{/block}
+
