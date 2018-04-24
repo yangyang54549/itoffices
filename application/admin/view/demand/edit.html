@@ -18,30 +18,92 @@
             <div class="col-xs-3 col-sm-3"></div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>所属行业：</label>
+            <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>所属类型：</label>
             <div class="formControls col-xs-6 col-sm-6">
-                <input type="text" class="input-text" placeholder="所属行业" name="industry" value="{$vo.industry ?? ''}"  datatype="*" nullmsg="请填写所属行业">
+
+                <div class="select-box">
+                    <select name="type" class="select" datatype="*" nullmsg="请选择案例类型">
+                        {if condition="$vo?? ''"}
+                            {volist name="type" id="vos"}
+                                <option value="{$vos.id}" {if condition="$vo.type eq $vos.id"}selected="selected"{/if}>{$vos.name}</option>
+                            {/volist}
+                        {else/}
+                            {volist name="type" id="vos"}
+                                <option value="{$vos.id}">{$vos.name}</option>
+                            {/volist}
+                        {/if}
+                    </select>
+                </div>
+
             </div>
             <div class="col-xs-3 col-sm-3"></div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>所属类型：</label>
+            <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>所属行业：</label>
             <div class="formControls col-xs-6 col-sm-6">
-                <input type="text" class="input-text" placeholder="所属类型" name="type" value="{$vo.type ?? ''}"  datatype="*" nullmsg="请填写所属类型">
+                <div class="select-box">
+                    <select name="industry" class="select" datatype="*" nullmsg="请选择案例功能">
+                    {if condition="$vo?? ''"}
+                        {volist name="trade" id="voss"}
+                            <option value="{$voss.id}" {if condition="$vo.industry eq $voss.id"}selected="selected"{/if}>{$voss.name}</option>
+                        {/volist}
+                    {else/}
+                        {volist name="trade" id="voss"}
+                            <option value="{$voss.id}">{$voss.name}</option>
+                        {/volist}
+                    {/if}
+                    </select>
+                </div>
             </div>
             <div class="col-xs-3 col-sm-3"></div>
         </div>
+
         <div class="row cl">
             <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>开发周期：</label>
             <div class="formControls col-xs-6 col-sm-6">
-                <input type="text" class="input-text" placeholder="开发周期" name="period" value="{$vo.period ?? ''}"  datatype="*" nullmsg="请填写开发周期">
+                <div class="radio-box">
+                    <input type="radio" name="period" id="status-1" value="1" datatype="*" nullmsg="请选择状态" {$vo.period ==1 ? 'checked' : ''}>
+                    <label for="status-1">少于1周</label>
+                </div>
+                <div class="radio-box">
+                    <input type="radio" name="period" id="status-2" value="2" datatype="*" nullmsg="请选择状态" {$vo.period ==2 ? 'checked' : ''}>
+                    <label for="status-2">少于1个月</label>
+                </div>
+                <div class="radio-box">
+                    <input type="radio" name="period" id="status-3" value="3" datatype="*" nullmsg="请选择状态" {$vo.period ==3 ? 'checked' : ''}>
+                    <label for="status-3">1-3个月</label>
+                </div>
+                <div class="radio-box">
+                    <input type="radio" name="period" id="status-4" value="4" datatype="*" nullmsg="请选择状态" {$vo.period ==4 ? 'checked' : ''}>
+                    <label for="status-4">3-6个月</label>
+                </div>
+                <div class="radio-box">
+                    <input type="radio" name="period" id="status-5" value="5" datatype="*" nullmsg="请选择状态" {$vo.period ==5 ? 'checked' : ''}>
+                    <label for="status-4">超过6个月</label>
+                </div>
+
             </div>
             <div class="col-xs-3 col-sm-3"></div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>紧急程度：</label>
             <div class="formControls col-xs-6 col-sm-6">
-                <input type="text" class="input-text" placeholder="紧急程度" name="urgency" value="{$vo.urgency ?? ''}"  datatype="*" nullmsg="请填写紧急程度">
+                <div class="radio-box">
+                    <input type="radio" name="urgency" id="status-1" value="1" datatype="*" nullmsg="请选择状态" {$vo.urgency ==1 ? 'checked' : ''}>
+                    <label for="status-1">不紧急</label>
+                </div>
+                <div class="radio-box">
+                    <input type="radio" name="urgency" id="status-2" value="2" datatype="*" nullmsg="请选择状态" {$vo.urgency ==2 ? 'checked' : ''}>
+                    <label for="status-2">一般紧急</label>
+                </div>
+                <div class="radio-box">
+                    <input type="radio" name="urgency" id="status-3" value="3" datatype="*" nullmsg="请选择状态" {$vo.urgency ==3 ? 'checked' : ''}>
+                    <label for="status-3">比较紧急</label>
+                </div>
+                <div class="radio-box">
+                    <input type="radio" name="urgency" id="status-4" value="4" datatype="*" nullmsg="请选择状态" {$vo.urgency ==4 ? 'checked' : ''}>
+                    <label for="status-4">非常紧急</label>
+                </div>
             </div>
             <div class="col-xs-3 col-sm-3"></div>
         </div>
@@ -60,26 +122,35 @@
             <div class="col-xs-3 col-sm-3"></div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>交付时间：</label>
-            <div class="formControls col-xs-6 col-sm-6">
-                <input type="text" class="input-text" placeholder="交付时间" name="delivery_time" value="{$vo.delivery_time ?? ''}"  datatype="*" nullmsg="请填写交付时间">
-            </div>
-            <div class="col-xs-3 col-sm-3"></div>
-        </div>
-        <div class="row cl">
             <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>项目进度：</label>
             <div class="formControls col-xs-6 col-sm-6">
-                <input type="text" class="input-text" placeholder="项目进度" name="schedule" value="{$vo.schedule ?? ''}"  datatype="*" nullmsg="请填写项目进度">
+                <div class="radio-box">
+                    <input type="radio" name="schedule" id="status-1" value="1" datatype="*" nullmsg="请选择状态" {$vo.schedule ==1 ? 'checked' : ''}>
+                    <label for="status-1">招募中</label>
+                </div>
+                <div class="radio-box">
+                    <input type="radio" name="schedule" id="status-2" value="2" datatype="*" nullmsg="请选择状态" {$vo.schedule ==2 ? 'checked' : ''}>
+                    <label for="status-2">对接中</label>
+                </div>
+                <div class="radio-box">
+                    <input type="radio" name="schedule" id="status-3" value="3" datatype="*" nullmsg="请选择状态" {$vo.schedule ==3 ? 'checked' : ''}>
+                    <label for="status-3">执行中</label>
+                </div>
+                <div class="radio-box">
+                    <input type="radio" name="schedule" id="status-4" value="4" datatype="*" nullmsg="请选择状态" {$vo.schedule ==4 ? 'checked' : ''}>
+                    <label for="status-4">已完成</label>
+                </div>
             </div>
             <div class="col-xs-3 col-sm-3"></div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>任务详情：</label>
             <div class="formControls col-xs-6 col-sm-6">
-                <input type="text" class="input-text" placeholder="任务详情" name="info" value="{$vo.info ?? ''}"  datatype="*" nullmsg="请填写任务详情">
+                <textarea name="info" datatype="*" nullmsg="请填写任务详情" rows="10" cols="70">{$vo.info ?? ''}</textarea>
             </div>
             <div class="col-xs-3 col-sm-3"></div>
         </div>
+
         <div class="row cl">
             <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>参考网站/产品：</label>
             <div class="formControls col-xs-6 col-sm-6">
@@ -90,7 +161,7 @@
         <div class="row cl">
             <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>官方观点：</label>
             <div class="formControls col-xs-6 col-sm-6">
-                <input type="text" class="input-text" placeholder="官方观点" name="authority" value="{$vo.authority ?? ''}"  datatype="*" nullmsg="请填写官方观点">
+                <textarea name="authority" datatype="*" nullmsg="请填写官方观点" rows="10" cols="70">{$vo.authority ?? ''}</textarea>
             </div>
             <div class="col-xs-3 col-sm-3"></div>
         </div>

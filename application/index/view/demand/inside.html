@@ -1228,23 +1228,23 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 			</div>
 <script type="text/javascript">
 	var session = "{:session('user.id')}";
-	
-			$(".login_background").click(function(){
-				loginNone();
-			})
-			$(".xuqiu").click(function(){
-				if (session.length == 0){
-					$(".login_background").css("display","block");
-					$(".login").css("display","block");
-				}else{
-					window.location.href='{:url("demand/publish")}';
-				}
-			})
-			
 
-			$("#login-none").click(function(){
-				loginNone();
-			})
+			// $(".login_background").click(function(){
+			// 	loginNone();
+			// })
+			// $(".xuqiu").click(function(){
+			// 	if (session.length == 0){
+			// 		$(".login_background").css("display","block");
+			// 		$(".login").css("display","block");
+			// 	}else{
+			// 		window.location.href='{:url("demand/publish")}';
+			// 	}
+			// })
+
+
+			// $("#login-none").click(function(){
+			// 	loginNone();
+			// })
 			function loginNone(){
 				$(".login_background").css("display","none");
 				$(".login").css("display","none");
@@ -1271,7 +1271,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 							$.post("{:url('login/checkindex')}",{mobile:mobile,code:code},function(data) {
 								if (data.code==1) {
 									alert("登录成功");
-									window.location.href='{:url("user/index")}';
+									location.reload();
 								}else{
 									alert(data.msg);
 								}
@@ -1319,10 +1319,13 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 						$("#lianxi1").css("display", "none");
 					})*/
 				$("#content-sq").click(function() {
-				if($(this).text() == "申请干活") {
-					$(".login_background").css("display","block");
-					$(".login").css("display","block");
 
+					// $(".login_background").css("display","block");
+					// $(".login").css("display","block");
+					if (session.length == 0){
+						$(".login_background").css("display","block");
+						$(".login").css("display","block");
+					}else{
 						$.post("{:url('demand/inside')}",{
 							id:id
 						},function(data){
@@ -1333,10 +1336,8 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 								alert(data.msg);
 							}
 						}, "json");
+					}
 
-				} //else if($(this).text() == "已申请") {
-					//$(".jing").css("display", "block");
-				//}
 			})
 			$("#qd").click(function() {
 				$(".beijin").css("display", "none");
