@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="__INDEX__/css/font-awesome.min.css" />
+		<script src="__INDEX__/js/jss/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			body,
+			div,
+			p,
+			img,
+			p,
+			span,
+			input {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body {
+				width: 100vw;
+				height: 100vh;
+				
+				min-height: 768px;
+				min-width: 1366px;
+				min-height: 768px;
+				min-width: 1366px;
+				position: relative;
+			}
+			
+			input {
+				-webkit-appearance: textfield;
+				background-color: white;
+				-webkit-rtl-ordering: logical;
+				cursor: auto;
+				padding: 1px;
+				border-width: 2px;
+				border-style: inset;
+				border-color: initial;
+				border-image: initial;
+			}
+			
+			input,
+			button {
+				outline: none;
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			.header,
+			.footer {
+				position: absolute;
+				left: 0;
+				height: 50px;
+				width: 100%;
+				z-index: 10;
+				height: 50px;
+				color: white;
+			}
+			
+			.header {
+				top: 0;
+			}
+			
+			.footer {
+				bottom: 0;
+				background: rgba(0, 0, 0, 0.4);
+			}
+			
+			.header .center,
+			.footer .center,
+			.main .center {
+				width: 1300px;
+				margin: 0px auto;
+				display: flex;
+				position: relative;
+			}
+			
+			.header .center a,
+			.footer .center a,
+			.footer .center p {
+				margin: 0 10px;
+				line-height: 50px;
+				font-size: 15px;
+				color: white;
+				opacity: 0.8;
+			}
+			
+			.header .center a:hover,
+			.footer .center a:hover {
+				/*cursor:hand;*/
+				cursor: pointer;
+				color: white;
+			}
+			
+			#den {
+				position: absolute;
+				right: 100px;
+				top: 0;
+			}
+			
+			#den span {
+				margin: 0px 5px;
+				font-size: 17px;
+			}
+			
+			#den span.fa {
+				font-size: 20px;
+			}
+			
+			.main {
+				width: 100%;
+				height: 100%;
+				min-height: 768px;
+				min-width: 1366px;
+				overflow: hidden;
+				/*background-image: url(img/index/0.jpg);
+				-moz-background-size: 100% 100%;
+				background-size: 100% 100%;*/
+			}
+			
+			.sou {
+				position: relative;
+				top: 0;
+				left: 0;
+			}
+			
+			.main .center {
+				position: absolute;
+				bottom: 100px;
+				right: 50%;
+				margin-right: -650px;
+				/*flex-direction:row-reverse;*/
+				justify-content: flex-end;
+			}
+			
+			.main .center a {
+				color: white;
+				margin: 0 15px;
+				width: 40px;
+				height: 40px;
+				position: relative;
+				top: 0;
+				left: 0;
+				display: flex;
+			}
+			
+			.main .center a div.circle {
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				border: 2px solid white;
+			}
+			
+			.main .center a div.circle .fa {
+				width: 40px;
+				line-height: 40px;
+				text-align: center;
+			}
+			
+			.main .center a div.circle:hover {
+				background-color: white;
+				color: gray;
+			}
+			/*.a_circles a div.circles {
+				position: absolute;
+				top: 0;
+				right: 0;
+				display: none;
+				transition: right 0.5s;
+			}*/
+			/*.main .center a div.circles:nth-child(3){
+				left: -70px;
+			}
+			.main .center a div.circles:nth-child(2){
+				left: -140px;
+			}
+			.main .center a div.circles:nth-child(1){
+				left: -210px;
+			}*/
+			/*.a_circles:hover div.circles {
+				transition: all .5s ease-in .1s;
+			}
+			
+			.a_circles:hover div.hover1 {
+				right: 70px;
+			}
+			
+			.a_circles:hover div.hover2 {
+				right: 140px;
+			}
+			
+			.a_circles:hover div.hover3 {
+				right: 210px;
+			}*/
+			
+			.search {
+				width: 100%;
+				padding: 0;
+				position: absolute;
+				left: 0;
+				top: 30%;
+				margin-top: -30px;
+			}
+			
+			.search1 {
+				height: 60px;
+				width: 600px;
+				line-height: 65px;
+				position: relative;
+				top: 0;
+				left: 0;
+				background-color: white;
+				margin-left: 300px;
+				border-radius: 5px;
+				box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
+			}
+			
+			.search1:hover {
+				box-shadow: 0 10px 30px 6px rgba(28, 57, 81, 0.18);
+			}
+			
+			.search1 input {
+				width: 450px;
+				height: 56px;
+				line-height: 56px;
+				border: none;
+				margin-left: 50px;
+				margin-top: 0px;
+				padding: 0px;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+			
+			.search1 img {
+				width: 30px;
+				position: absolute;
+				top: 15px;
+				left: 10px;
+			}
+			
+			.search1 button {
+				width: 100px;
+				height: 56px;
+				position: absolute;
+				top: 2px;
+				right: 2px;
+				border-radius: 5px;
+				background-color: #0d80dd;
+				color: white;
+				font-size: 16px;
+			}
+			
+			.search1 span {
+				position: absolute;
+				top: 0px;
+				right: -40px;
+				color: white;
+				font-size: 15px;
+				font-weight: bold;
+			}
+			
+			.search1 p {
+				width: 120px;
+				height: 56px;
+				text-align: center;
+				border-radius: 5px;
+				position: absolute;
+				right: -170px;
+				font-size: 16px;
+				background-color: #0d80dd;
+				color: white;
+				font-weight: bold;
+				top: 3px;
+				line-height: 56px;
+				box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
+				/*background: -webkit-linear-gradient(left,  #f2f2ef, white);*/
+				/* Safari 5.1 - 6.0 */
+				/*background: -o-linear-gradient(right,  #f2f2ef, white);*/
+				/* Opera 11.1 - 12.0 */
+				/*background: -moz-linear-gradient(right, #f2f2ef, white);*/
+				/* Firefox 3.6 - 15 */
+				/*background: linear-gradient(to right, #f2f2ef, white);*/
+				/* 标准的语法（必须放在最后） */
+			}
+			
+			.search1 p:hover {
+				box-shadow: 0 10px 30px 6px rgba(28, 57, 81, 0.18);
+			}
+			.navs {
+				position: absolute;
+				top: -45px;
+				left: 0;
+				width: 600px;
+				height: 40px;
+				overflow: hidden;
+				background-color: rgba(0, 0, 0, 0.1);
+			}
+			
+			.navs .is {
+				float: left;
+				width: 90px;
+				height: 38px;
+				text-align: center;
+				line-height: 40px;
+				font-size: 14px;
+				color: white;
+				z-index: 100;
+				
+			}
+			
+			.navs .is:hover {
+				color: #fff !important;
+				background: url(__INDEX__/img/navBg.png);
+				background-size: 100%;
+				
+			}
+			
+			.actives {
+				color: #fff !important;
+				background: url(__INDEX__/img/navBg.png);
+				background-size: 100%;
+				/*background-color: #ff5454;*/
+			}
+			
+			#a_circles {
+				width: 80px;
+				height: 40px;
+				display: flex;
+				justify-content: flex-end;
+				position: relative;
+			}
+			
+			#fx_text {
+				width: 70px;
+				text-align: center;
+				position: absolute;
+				right: 0px;
+				top: -20px;
+				line-height: 20px;
+				font-size: 15px;
+				color: white;
+				transform: scale(0.8);
+			}
+			
+			#a_circles a.circles {
+				display: none;
+				transition: all .5s ease-in .1s;
+			}
+			
+			#a_circles:hover {
+				width: 400px;
+			}
+			
+			#a_circles:hover a.circles {
+				display: block;
+				transition: all .5s ease-in .1s;
+			}
+			
+			.saos {
+				width: 140px;
+				height: 240px;
+				position: absolute;
+				top: -240px;
+				left: -50px;
+				display: none;
+			}
+			
+			.saos>div {
+				width: 140px;
+				height: 180px;
+				background: rgba(0, 0, 0, 0.5);
+				border: 1px solid white;
+			}
+			
+			.saos>div img {
+				width: 110px;
+				margin: 5px 15px;
+			}
+			
+			.saos>div p {
+				width: 100%;
+				text-align: center;
+				line-height: 30px;
+				font-size: 15px;
+			}
+			
+			.saos>p {
+				width: 70px;
+				height: 60px;
+				border-right: 1px solid white;
+			}
+			
+			#RichScan:hover .saos {
+				display: block;
+			}
+			
+			#bj {
+				width: 100%;
+				min-height: 900px;
+				min-width: 1600px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: -1;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="header">
+
+			<div class="center">
+				<a href="https://cn.bing.com/images/trending?form=Z9LH">图片</a>
+				<a href="https://cn.bing.com/videos/trending">视频</a>
+				<a href="https://cn.bing.com/academic/?FORM=Z9LH2">学术</a>
+				<a href="https://cn.bing.com/dict/?FORM=HDRSC6">词典</a>
+				<a href="https://cn.bing.com/maps?q=&FORM=HDRSC7">地图</a>
+				<a href="#" id="den">
+					<span>登录</span><span class="fa fa-2x fa-user-circle"></span>
+				</a>
+			</div>
+		</div>
+		
+		<div class="main sou">
+			<img id="bj" src="__INDEX__/img/index/0.jpg" />
+			<div class="search">
+
+				<div class="search1">
+					<div class="navs">
+						<a href="#" class="is  actives">首页</a>
+						<a href="#" class="is ">需求</a>
+						<a href="#" class="is  ">案例</a>
+						<a href="#" class="is ">人工</a>
+					</div>
+					<input type="text" name="" id="name" value="" placeholder="搜索..." />
+					<img src="img/icon/fda.png" />
+					<button onclick="sou();">搜索</button>
+					<p id="sousuo">bing搜索</p>
+					<span>或者</span>
+				</div>
+			</div>
+			<div class="center">
+				<div class="a_circles" id="a_circles">
+					<p id="fx_text">2</p>
+					<a href="#" title="QQ空间" class="circles hover3">
+						<div class="circle ">
+							<span class="fa  fa-qq"></span>
+						</div>
+					</a>
+					<a href="#" title="微博" class="circles hover2">
+						<div class="circle ">
+							<span class="fa  fa-weibo"></span>
+						</div>
+					</a>
+					<a href="#" title="微信" class="circles hover1">
+						<div class="circle ">
+							<span class="fa  fa-weixin"></span>
+						</div>
+					</a>
+					<a href="javascript:void(0)" title="分享">
+						<div class="circle">
+							<span class="fa  fa-backward"></span>
+						</div>
+					</a>
+				</div>
+				<a href="javascript:void(0)" title="扫一扫" id="RichScan">
+					<div class="saos">
+						<div class="">
+							<p>扫描下载</p>
+							<img src="img/phone.png" />
+							<p>扫描下载</p>
+						</div>
+						<p></p>
+					</div>
+					<div class="circle">
+						<span class="fa  fa-th-large"></span>
+					</div>
+				</a>
+				<a href="javascript:void(0)" title="上一张图" onclick="left()">
+					<div class="circle" id="left">
+						<span class="fa  fa-chevron-left"></span>
+					</div>
+				</a>
+				<a href="javascript:void(0)" title="下一张图" onclick="right()">
+					<div class="circle" id="right">
+						<span class="fa  fa-chevron-right"></span>
+					</div>
+				</a>
+				<a href="javascript:void(0)" title="" id="img_text">
+					<div class="circle">
+						<span class="fa  fa-italic"></span>
+					</div>
+				</a>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="center">
+				<p>© 2018郑州汇谷电子科技有限公司 All rights reserved </p>
+				<p>豫ICP备15001063号-3</p>
+				<a href="#">法律声明</a>
+				<a href="#">广告</a>
+				<a href="#">报告</a>
+				<a href="#">反馈</a>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var myDate = new Date();
+			var dayss = myDate.getDay();
+			days();
+			$(document).bind("contextmenu copy selectstart", function(){
+				return false;
+			});
+			/*禁用ctrl+c ctrl+v*/
+			$(document).keydown(function(e){
+				if(e.ctrlKey &&(e.keyCode ==65|| e.keyCode ==67)){
+					return false;
+				}
+			})
+			$(".navs .is").click(function() {
+				$(".navs .is").removeClass("actives");
+				tt = $(".navs .is").index($(this));
+				var tts = $(".navs .is")[tt];
+				tts.className = "actives is";				
+			});
+			var h1 = 0;
+				var h2 = 0;
+				var h3 = 0;
+			$("#a_circles .circles").click(function() {			
+				if($(this).hasClass("hover3")) {
+					if(h3 == 0) {
+						h3++;
+						var ss = parseInt($("#fx_text").text()) + 1;
+						$("#fx_text").text(ss);
+						
+					}
+				} else {
+					if($(this).hasClass("hover2")) {
+						if(h2 == 0) {
+							h2++;
+							var ss = parseInt($("#fx_text").text()) + 1;
+							$("#fx_text").text(ss);
+						}
+					} else {
+						if($(this).hasClass("hover1")) {
+							if(h1 == 0) {
+								h1++;
+								var ss = parseInt($("#fx_text").text()) + 1;
+								$("#fx_text").text(ss);
+							}
+						} else {
+
+						}
+					}
+				}
+				
+			})
+
+			function bings() {
+				var names = $("#name").val();
+				if(names == "") {} else {
+					window.location.href = "https://cn.bing.com/search?q=" + names + "&go=%E6%90%9C%E7%B4%A2&qs=ds&form=QBRE";
+				}
+			}
+
+			function sou() {
+				if($(".navs .actives").text() == "需求") {
+					window.location.href = "index.html";
+				} else if($(".navs .actives").text() == "案例") {
+					window.location.href = "indexs2.html";
+				}else if($(".navs .actives").text() == "人工"){
+					
+				}else if($(".navs .actives").text() == "首页"){
+					location.reload();
+				}
+			}
+			
+			$("#sousuo").click(function() {
+				bings();
+			})
+
+			function days() {
+				$("#bj").attr("src", "__INDEX__/img/index/" + dayss + ".jpg");
+				/*var jsons = {"绿水青山","山水之间有朵云","阳光明媚，绿草茵茵","乌云去，太阳现，彩虹消","高山峡谷蓝天白云","乌云水泊帆船","夕阳枫林"};*/
+				if(dayss == 0) {
+					$("#img_text").attr("title", "绿水青山");
+				} else if(dayss == 1) {
+					$("#img_text").attr("title", "山水之间");
+				} else if(dayss == 2) {
+					$("#img_text").attr("title", "阳光明媚，绿草茵茵");
+				} else if(dayss == 3) {
+					$("#img_text").attr("title", "乌云，太阳，彩虹");
+				} else if(dayss == 4) {
+					$("#img_text").attr("title", "高山峡谷蓝天白云");
+				} else if(dayss == 5) {
+					$("#img_text").attr("title", "乌云水泊帆船");
+				} else if(dayss == 6) {
+					$("#img_text").attr("title", "夕阳枫林");
+				}
+			}
+
+			function day7() {
+				if(dayss > 6) {
+					dayss = dayss - 7;
+				} else if(dayss < 0) {
+					dayss = dayss + 7;
+				} else {
+
+				}
+			}
+
+			function left() {
+				dayss = dayss - 1;
+				day7();
+				days();
+			}
+
+			function right() {
+				dayss = dayss + 1;
+				day7();
+				days();
+
+			}
+		</script>
+	</body>
+
+</html>
