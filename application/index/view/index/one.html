@@ -431,6 +431,7 @@
 				<div class="search1">
 					<div class="navs">
 						<a href="#" class="is  actives">首页</a>
+						<a href="#" class="is ">IT联合办公</a>
 						<a href="#" class="is ">需求</a>
 						<a href="#" class="is  ">案例</a>
 						<a href="#" class="is ">人工</a>
@@ -565,14 +566,16 @@
 			}
 
 			function sou() {
+				
+				
 				if($(".navs .actives").text() == "需求") {
-					window.location.href = "index.html";
+					window.location.href = "{:url('demand/index')}";
 				} else if($(".navs .actives").text() == "案例") {
-					window.location.href = "indexs2.html";
-				}else if($(".navs .actives").text() == "人工"){
-					
+					window.location.href = "{:url('cases/index')}";
+				} else if($(".navs .actives").text() == "IT联合办公") {
+					window.location.href = "{:url('index/index')}";
 				}else if($(".navs .actives").text() == "首页"){
-					location.reload();
+						location.reload();
 				}
 			}
 			
