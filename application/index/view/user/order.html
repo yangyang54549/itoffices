@@ -702,7 +702,7 @@
 											<div class="participations pt{$vo.id}" data-id="{$vo.id}">
 
 												{volist name="$vo.apply" id="ap"}
-												<div {if condition="$ap.status eq 1"} class="participation participation_f1 participation1" {else/} class="participation participation_f1"{/if} data-id="{$ap.user_id}">
+												<div {if condition="$ap.status eq 1"} class="participation participation_f1 participation1" {else/} class="participation participation_f1"{/if} dada-demand="{$ap.demand_id}" data-user="{$ap.user_id}">
 													<a href="#">接单方</a>
 													<img src="__INDEX__/img/avatar/2.jpg"/>
 													<a href="#" onclick="window.open('{:url("user/resumes",["id"=>$ap.user_id])}')" >{$ap.user_name}</a>
@@ -995,13 +995,7 @@
 
 			$(" .participations .participation_f1").click(function() {
 
-
-				if($(this).parent().parent().hasClass('str')) {
-
-				}else{
-
-
-
+				if($(this).parent().parent().hasClass('str')) {}else{
 				if($(this).hasClass('participation1')) {
 					/*选择  取消未选择*/
 					$(this).removeClass("participation1");
@@ -1023,6 +1017,29 @@
 					$(this).parent().parent().parent().removeClass("string1");
 					$(this).parent().parent().parent().addClass("string2");
 					$(this).parent().parent().parent().parent().addClass("str");
+
+					/*获取当前的 .li_one*/
+					var prse = $(this).parent().parent().parent().parent().parent();
+					var names = prse.parent().attr('class');
+					/*获取当前的 .li_one 得下标*/
+					var tt = $("."+names+" .li_one").index(prse);
+					/*获取 选择的接单 的data-id*/
+					var demand_id = $("."+names+" .li_one:nth-child("+(tt+1)+") .str .participations .participation1").data('demand');
+					var user_id = $("."+names+" .li_one:nth-child("+(tt+1)+") .str .participations .participation1").data('user');
+					alert(user_id);
+					alert(demand_id);
+
+						// $.post("{:url('user/index')}",{
+						// 	user_id:dataid,
+						// 	gender:sex,
+						// },function(data){
+						// 	console.log(data);
+						// 	if (data.code==1) {
+						// 		window.location.href = "{:url('user/index')}";
+						// 	}else{
+						// 		alert("提交失败");
+						// 	}
+						// }, "json");
 
 				}
 			})
