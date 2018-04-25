@@ -552,7 +552,7 @@ a {
 			}
 			.strings{}
 			.li_ones{}
-		.li_one:hover .top{
+		.li_one .top:hover{
 			background-color: rgba(0,0,0,.1);
 		}
 		.li_one.liBackground{
