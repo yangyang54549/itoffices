@@ -994,6 +994,14 @@
 			})
 
 			$(" .participations .participation_f1").click(function() {
+				
+				
+				if($(this).parent().parent().hasClass('str')) {
+					
+				}else{
+					
+				
+				
 				if($(this).hasClass('participation1')) {
 					/*选择  取消未选择*/
 					$(this).removeClass("participation1");
@@ -1006,7 +1014,7 @@
 					$(this).addClass("participation1");
 					$(this).parent().next().next().addClass("blue1");
 					$(this).parent().next().next().next().addClass("string1");
-				}
+				}}
 			})
 
 			$(".kai").click(function() {
@@ -1014,6 +1022,8 @@
 					$(this).text("已开工");
 					$(this).parent().parent().parent().removeClass("string1");
 					$(this).parent().parent().parent().addClass("string2");
+					$(this).parent().parent().parent().parent().addClass("str");
+									
 				}
 			})
 
