@@ -555,6 +555,6 @@ a {
 		.li_one .top:hover{
 			background-color: rgba(0,0,0,.1);
 		}
-		.li_one.liBackground{
+		.li_one .liBackground{
 			background-color: rgba(0,0,0,.1);
 		}
