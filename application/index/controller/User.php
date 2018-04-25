@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-25 13:52:23
+ * @Last Modified time: 2018-04-25 14:54:35
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -116,7 +116,7 @@ class User  extends Yang
             $sdemand[$k] = $de;
         }
 
-        $sdemand = Demand::where(['user_id'=>Session::get('user.id')])->select();//我申请的需求
+        // $sdemand = Demand::where(['user_id'=>Session::get('user.id')])->select();//我申请的需求
         $demandtrade = DemandTrade::select();
         $demandtype = DemandType::select();
         $this->assign('demand',$demand);
@@ -133,7 +133,7 @@ class User  extends Yang
         $demand_id = input('demand_id');
         $apply = Apply::where(['user_id' => $user_id,'demand_id'=>$demand_id])->find();
         Demand::where(['id'=>$demand_id])->update(['schedule'=>2,'apply_id'=>$apply['id']]);
-        Apply::where(['user_id' => $user_id,'demand_id'=>$demand_id])->update(['xstatus' => 1,'sstatus'=>1,'status'=>1]);
+        Apply::where(['user_id' => $user_id,'demand_id'=>$demand_id])->update(['xstatus' => 1,'status'=>1]);
         return json($this->ret);
     }
     //需求方确认完成

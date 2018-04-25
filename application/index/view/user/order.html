@@ -660,7 +660,7 @@
 											<span>{if condition="$vo.schedule == 1"}招募中{elseif condition="$vo.schedule == 2"/}对接中{elseif condition="$vo.schedule == 3"/}执行中{elseif condition="$vo.schedule == 4"/}已完成{/if}</span>
 										</div>
 									</div>
-									<div class="bottom relative">
+									<div {if condition="$vo.apply_id"} class="bottom relative str" {else/} class="bottom relative" {/if}>
 										<div class="demanddel-type">
 											<p class="demanddel-t" style="font-size: 1.2em;color: #797979;">项目预算</p>
 											<p style="font-size: 24px;color: #ec1313;">{$vo.money}元 </p>
@@ -709,9 +709,9 @@
 													<i class=" "> <img src="__INDEX__/img/icon/dui.png"/></i>
 												</div>
 												{/volist}
-											</div>
+									</div>
 										</p>
-										<div {if condition="$vo.schedule eq 1"} class="bottom_bottom blue0" {else/} class="bottom_bottom blue1" {/if} style="border-top: 1px dotted #d3d0d0;border-bottom: 1px dotted #d3d0d0;">
+										<div {if condition="$vo.apply_id.xstatus eq 1"} class="bottom_bottom blue1" {elseif condition="$vo.apply_id.xstatus eq 2" /} class="bottom_bottom blue2" {else/} class="bottom_bottom blue0" {/if} style="border-top: 1px dotted #d3d0d0;border-bottom: 1px dotted #d3d0d0;">
 											<p>
 												<span class="sptext">发布需求</span>
 												<span class="spbackground"></span>
@@ -736,7 +736,7 @@
 													<div class="renyuean">
 														<div class="">
 															<img src="__INDEX__/img/bai.png" />
-															<i>{$ap.user_name}</i>
+															<i>{$vo.apply_id.user_name}</i>
 														</div>
 														<div class="">
 															<h5 class="blues" style="color: #0082E6; ">您选择的项目开发人员   <i></i></h5>
@@ -744,22 +744,32 @@
 															<i>确认选择此开发者吗?</i></i><i class="kai">确认选择</i>
 														</div>
 													</div>
+												{elseif condition="$vo.apply_id.sstatus == 0"/}
+													<div class="renyuean2">
+														<div class="">
+															<img src="__INDEX__/img/avatar/2.jpg" />
+															<i>{$vo.apply_id.user_name}</i>
+														</div>
+														<div class="">
+															<h5 class="blues" style="color: #0082E6; "> 等待开发者确认 <i></i></h5>
+														</div>
+													</div>
 												{elseif condition="$vo.apply_id.sstatus == 1"/}
 													<div class="renyuean2">
 														<div class="">
 															<img src="__INDEX__/img/avatar/2.jpg" />
-															<i>{$ap.user_name}</i>
+															<i>{$vo.apply_id.user_name}</i>
 														</div>
 														<div class="">
 															<h5 class="blues" style="color: #0082E6; "> 已开工 <i></i></h5>
 															<i style="border-left: 2px solid gray; color: gray;"><i >完成时间：</i><i class="timess">{if condition="$vo.period == 1"}少于1周{elseif condition="$vo.period == 2"/}少于1个月{elseif condition="$vo.period == 3"/}1-3个月{elseif condition="$vo.period == 4"/}3-6个月{elseif condition="$vo.period == 5"/}超过6个月{/if}</i></i>
 														</div>
 													</div>
-													{elseif condition="$vo.apply_id.sstatus == 2"/}
+												{elseif condition="$vo.apply_id.sstatus == 2"/}
 													<div class="renyuean3">
 														<div class="">
 															<img src="__INDEX__/img/avatar/2.jpg" />
-															<i>{$ap.user_name}</i>
+															<i>{$vo.apply_id.user_name}</i>
 														</div>
 														<div class="">
 															<h5 class="blues">已完工  <i></i></h5>
@@ -840,7 +850,7 @@
 												</div>
 											</div>
 										</p>
-										<div class="bottom_bottom blue1"   style="border-top: 1px dotted #d3d0d0;border-bottom: 1px dotted #d3d0d0;">
+										<div class="bottom_bottom blue1"  style="border-top: 1px dotted #d3d0d0;border-bottom: 1px dotted #d3d0d0;">
 											<p class="blue">
 												<span class="sptext">申请中</span>
 												<span class="spbackground"></span>
@@ -1031,16 +1041,17 @@
 					strs=user_id.split(","); //字符分割
 					console.log(strs);
 
-						$.post("{:url('order/order_kai')}",{
+						$.post("{:url('user/order_kai')}",{
 							user_id:strs[0],
 							demand_id:strs[1],
 						},function(data){
 							console.log(data);
-							// if (data.code==1) {
-							// 	window.location.href = "{:url('user/index')}";
-							// }else{
-							// 	alert("提交失败");
-							// }
+							if (data.code==1) {
+								alert("提交成功");
+								window.location.reload();
+							}else{
+								alert("提交失败");
+							}
 						}, "json");
 
 				}
