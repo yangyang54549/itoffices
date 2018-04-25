@@ -476,7 +476,23 @@
 				<p>2014-2017 汇谷电子科技有限公司 版权所有：ICP备12027515号-1</p>
 			</div>
 		</div>
-		<script type="text/javascript">			
+		<script src="__INDEX__/js/order.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">		
+			taps(0);
+
+$(".cente-head .p2").click(function() {
+	var tt  = $(".cente-head .p2").index($(this));
+	$(".cente-head .p2").removeClass("on");
+	$(this).addClass("on");
+	if(tt > 1) {		
+		tap = tt;
+			window.location.href = "{:url('user/orders')}";	
+			
+	} else {		$(".cente_ul").css("margin-left", "-" +(tt*100)+ "%");	}	
+	
+	
+
+})
 			/*ul1*/
 			$(".ul1 .li_one .top").click(function() {
 				var sr1 = $(this).parent();
@@ -555,7 +571,7 @@
 				$(".strings").prev().addClass("blue2");
 			})
 		</script>
-		<script src="__INDEX__/js/order.js" type="text/javascript" charset="utf-8"></script>
+		
 	</body>
 
 </html>

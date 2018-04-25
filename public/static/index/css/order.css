@@ -124,6 +124,8 @@ a {
 			.cente_ul {
 				width: 400%;
 				display: flex;
+				margin-left: 0px;
+				transition:margin-left .5s ;
 			}
 
 			.cente_ul ul {
@@ -550,3 +552,9 @@ a {
 			}
 			.strings{}
 			.li_ones{}
+		.li_one:hover .top{
+			background-color: rgba(0,0,0,.1);
+		}
+		.li_one.liBackground{
+			background-color: rgba(0,0,0,.1);
+		}
