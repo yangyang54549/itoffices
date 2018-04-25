@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-25 11:16:39
+ * @Last Modified time: 2018-04-25 13:52:23
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -67,6 +67,36 @@ class User  extends Yang
     }
 
     public function order()
+    {
+        $demand = Demand::where(['user_id'=>Session::get('user.id')])->select();//我发布的需求
+        foreach ($demand as $key => $value) {
+            $apply = Apply::where(['demand_id'=>$value['id']])->select();
+            $demand[$key]['apply'] = $apply;
+            if (isset($value['apply_id'])) {
+                $app = Apply::where(['id'=>$value['apply_id']])->find();
+                $demand[$key]['apply_id'] = $app;
+                $demand[$key]['app'] = $app['user_name'];
+            }
+        }
+
+        $apply = Apply::where(['user_id'=>Session::get('user.id')])->select();
+        $sdemand = [];
+        foreach ($apply as $k => $v) {
+            $de = Demand::where(['id'=>$v['demand_id']])->find();//我发布的需求
+            $sdemand[$k] = $de;
+        }
+
+        $sdemand = Demand::where(['user_id'=>Session::get('user.id')])->select();//我申请的需求
+        $demandtrade = DemandTrade::select();
+        $demandtype = DemandType::select();
+        $this->assign('demand',$demand);
+        $this->assign('sdemand',$sdemand);
+        $this->assign('demandtrade',$demandtrade);
+        $this->assign('demandtype',$demandtype);
+        return $this->fetch();
+    }
+
+    public function orders()
     {
         $demand = Demand::where(['user_id'=>Session::get('user.id')])->select();//我发布的需求
         foreach ($demand as $key => $value) {
