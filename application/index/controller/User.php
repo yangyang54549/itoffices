@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-24 17:24:07
+ * @Last Modified time: 2018-04-24 18:01:02
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -95,6 +95,45 @@ class User  extends Yang
         $this->assign('demandtype',$demandtype);
         return $this->fetch();
     }
+
+    //需求方选择开发者
+    public function order_kai()
+    {
+        $user_id = input('user_id');
+        $demand_id = input('demand_id');
+        Demand::where(['id'=>$demand_id])->update(['schedule'=>2]);
+        Apply::where(['user_id' => $user_id,'demand_id'=>$demand_id])->update(['xstatus' => 1,'sstatus'=>1,'status'=>1]);
+        return json($this->ret);
+    }
+    //需求方确认完成
+    public function order_que()
+    {
+        $user_id = input('user_id');
+        $demand_id = input('demand_id');
+        Demand::where(['id'=>$demand_id])->update(['schedule'=>3]);
+        Apply::where(['user_id' => $user_id,'demand_id'=>$demand_id])->update(['xstatus' => 2,'sstatus'=>2]);
+        return json($this->ret);
+    }
+
+    //申请方确认干活
+    public function order_gan()
+    {
+        $user_id = input('user_id');
+        $demand_id = input('demand_id');
+        Apply::where(['user_id' => $user_id,'demand_id'=>$demand_id])->update(['xstatus' => 2,'sstatus'=>2]);
+        return json($this->ret);
+    }
+
+    //申请方完工提交
+    public function order_wan()
+    {
+        $user_id = input('user_id');
+        $demand_id = input('demand_id');
+        Demand::where(['id'=>$demand_id])->update(['schedule'=>3]);
+        Apply::where(['user_id' => $user_id,'demand_id'=>$demand_id])->update(['xstatus' => 2,'sstatus'=>2]);
+        return json($this->ret);
+    }
+
 
     //我的作品 id为0就是新添加数据,否则为修改
     public function bianji0()
