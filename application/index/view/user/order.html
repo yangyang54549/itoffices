@@ -6,587 +6,11 @@
 		<title>IT联合办公</title>
 		<link rel="stylesheet" type="text/css" href="__INDEX__/css/header.css" />
 		<link rel="stylesheet" href="__INDEX__/css/restre.css">
+		<link rel="stylesheet" type="text/css" href="__INDEX__/css/order.css" />
 		<script type="text/javascript" src="__INDEX__/js/jss/jquery-1.9.1.min.js"></script>
+		
 		<style type="text/css">
-			a {
-				text-decoration: none;
-				color: black;
-			}
-
-			a:link {
-				text-decoration: none;
-				color: black;
-			}
-
-			a:visited {
-				text-decoration: none;
-			}
-
-			a:active {
-				text-decoration: none;
-				color: black;
-			}
-
-			a:hover {
-				text-decoration: none;
-			}
-
-			.relative {
-				position: relative;
-				top: 0;
-				left: 0;
-			}
-
-			.footer {
-				width: 100%;
-				background-color: #1e2831;
-				height: 60px;
-				z-index: 100;
-			}
-
-			.footer .center {
-				width: 75%;
-				margin: 0 auto;
-			}
-
-			.footer .center p {
-				width: 100%;
-				text-align: center;
-				line-height: 60px;
-				color: #fff;
-				font-size: 14px;
-			}
-
-			.content .center {
-				width: 80%;
-				margin: 0 auto;
-				padding-top: 50px;
-				min-width: 890px;
-				display: flex;
-			}
-
-			.center_left {
-				width: 250px;
-				padding-top: 20px;
-				position: relative;
-				top: 0;
-				left: 0;
-				display: flex;
-				flex-direction: column;
-			}
-
-			.center_left a {
-				width: 108px;
-				height: 36px;
-				text-align: center;
-				line-height: 36px;
-				font-size: 16px;
-				border-radius: 18px;
-				margin: 15px 0px 0px 10px;
-				color: #3a4455;
-			}
-
-			.center_left a:hover {
-				background: #ff5353;
-				color: white;
-			}
-
-			.active {
-				background: #ff5353;
-			}
-
-			.center_cen {
-				box-shadow: 0 2px 10px 1px rgba(28, 57, 81, 0.18);
-			}
-
-			.cente-head {
-				display: flex;
-				justify-content: space-around;
-				padding: 20px 0;
-			}
-
-			.cente-head .p2 {
-				float: left;
-				width: 20%;
-				margin: 0;
-				text-align: center;
-				font-size: 15px;
-				padding: 10px 0;
-				box-sizing: border-box;
-			}
-
-			.cente-head .on {
-				color: red;
-				border-bottom: 4px solid red;
-			}
-
-			.p2:hover {
-				color: red;
-				border-bottom: 4px solid red;
-			}
-
-			.cente_b {
-				width: 100%;
-				min-height: 80vh;
-				overflow: hidden;
-			}
-
-			.cente_ul {
-				width: 400%;
-				display: flex;
-			}
-
-			.cente_ul ul {
-				width: 25%;
-			}
-			/*ul*/
-
-			.ul1 .li_one,
-			.ul2 .li_one {
-				width: 100%;
-			}
-
-			.ul1 .li_one .top,
-			.ul2 .li_one .top {
-				width: 100%;
-				box-sizing: border-box;
-				padding: 15px 40px;
-				display: flex;
-			}
-
-			.li_one .top .top_left img {
-				width: 50px;
-			}
-
-			.li_one .top .top_center {
-				margin-left: 20px;
-			}
-
-			.li_one .top .top_center p:nth-child(1) span {
-				height: 21px;
-				font-size: 16px;
-				margin-bottom: 10px;
-			}
-
-			.li_one .top .top_center p:nth-child(2) span {
-				height: 15px;
-				font-size: 12px;
-				line-height: 15px;
-			}
-
-			.li_one .top .top_center p:nth-child(2) span:nth-child(3) {
-				font-size: 13px;
-			}
-
-			.li_one .top .top_right {
-				position: absolute;
-				right: 90px;
-				bottom: 30px;
-			}
-
-			.li_one .top .top_right span {
-				padding: 2px 6px;
-				background-color: #f7b100;
-				color: white;
-				font-size: 12px;
-			}
-			/*bottom*/
-
-			.ul1 .li_one .bottom,
-			.ul2 .li_one .bottom {
-				width: 100%;
-				border-top: 1px dotted #d3d0d0;
-				padding: 10px 40px;
-				box-sizing: border-box;
-				display: none;
-				overflow: hidden;
-			}
-			.ul1 .li_ones .bottom,
-			.ul2 .li_ones .bottom {
-				display: block !important;
-			}
-
-			.li_one .bottom .demanddel-type {
-				position: absolute;
-				top: 20px;
-				right: 10%;
-				width: 250px;
-				box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-				height: auto;
-			}
-
-			.li_one .bottom .demanddel-type .demanddel-num {
-				overflow: hidden;
-			}
-
-			.demanddel-type {
-				font-size: 14px;
-				text-align: center;
-				padding: 15px 0 10px 0;
-			}
-			/*.demanddel-type span{
-				display: block;
-				font-size: 14px;
-			   text-align: center;
-			    padding: 10px 0;
-			}*/
-
-			.demanddel-type .demanddel-num p {
-				float: left;
-				width: 49%;
-				margin: 0;
-				margin: 10px 0;
-			}
-
-			.demanddel-type .demanddel-num p:nth-child(2) {
-				border-left: 1px dotted #7d7d7d;
-			}
-
-			.demanddel-type .demanddel-num p span {
-				display: block;
-				width: 100%;
-				text-align: center;
-				padding: 5px 0;
-			}
-
-			.li_one .bottom>p {
-				margin: 22px 0;
-				overflow: hidden;
-			}
-
-			.li_one .bottom>p span:nth-child(1) {
-				float: left;
-				width: 100px;
-				padding-right: 20px;
-				text-align: right;
-				color: gray;
-			}
-
-			.li_one .bottom>p span {
-				font-size: 15px;
-			}
-
-			.li_one .bottom>p span:nth-child(2) {
-				float: left;
-				width: 80%;
-				word-break: break-all;
-				display: -webkit-box;
-				-webkit-line-clamp: 3;
-				-webkit-box-orient: vertical;
-				overflow: hidden;
-			}
-
-			.participations {
-				display: flex;
-				padding: 10px 0;
-				margin-left: 120px;
-				margin-top: -25px;
-			}
-
-			.participation {
-				width: 120px;
-				height: 120px;
-				display: flex;
-				flex-direction: column;
-				border: 1px solid #eee;
-				margin-bottom: 10px;
-				margin-right: 10px;
-				background-color: rgb(255, 255, 255);
-				position: relative;
-				left: 0;
-				top: 0;
-			}
-
-			.participation a {
-				width: 100%;
-				text-align: center;
-				font-size: 16px;
-				height: 40px;
-				line-height: 40px;
-				font-weight: 700;
-				display: block;
-			}
-
-			.participation a:nth-child(1) {
-				border-bottom: 1px solid #eee;
-				font-size: 14px;
-				height: 30px;
-				line-height: 30px;
-				font-weight: 400;
-				background-color: rgb(250, 250, 250);
-			}
-
-			.participation img {
-				width: 40px;
-				margin-left: 40px;
-				margin-top: 10px;
-			}
-
-			.participation i {
-				position: absolute;
-				left: 5px;
-				top: 5px;
-				display: none;
-			}
-
-			.participation1 {
-				border-color: red;
-			}
-
-			.participation1 i {
-				display: block;
-			}
-
-			.participation>i>img {
-				display: block;
-				margin: 0;
-				padding: 0;
-				width: 25px;
-			}
-
-			.participation a:hover {
-				color: black;
-			}
-
-			.bottom_bottom {
-				width: 100%;
-				padding: 20px 40px;
-				margin: 0 -40px;
-				display: flex;
-				justify-content: space-between;
-			}
-
-			.bottom_bottom:nth-child(1) {
-				background-color: #F7F7F7;
-				justify-content: space-between;
-			}
-
-			.bottom_bottom:nth-child(2) {
-				flex-direction: column;
-			}
-
-			.bottom_bottom p {
-				width: 20%;
-				display: flex;
-				flex-direction: column;
-				margin: 0;
-				overflow: hidden;
-			}
-
-			.bottom_bottom p span {
-				width: 100%;
-				margin: 0;
-				padding: 0;
-				color: grey;
-			}
-
-			.bottom_bottom p .sptext {
-				text-align: left;
-				font-size: 14px;
-			}
-
-			.bottom_bottom p .spbackground {
-				margin-top: 10px;
-				height: 6px;
-				background-color: #a8a4a4;
-				display: block;
-			}
-
-			.bottom_bottom p:nth-child(1) .sptext,
-			.bottom_bottom.blue1 p:nth-child(2) .sptext,
-			.bottom_bottom.blue2 p:nth-child(2) .sptext,
-			.bottom_bottom.blue2 p:nth-child(3) .sptext,
-			.bottom_bottom.blue3 p:nth-child(2) .sptext,
-			.bottom_bottom.blue3 p:nth-child(3) .sptext,
-			.bottom_bottom.blue3 p:nth-child(4) .sptext {
-				color: #0082E6;
-				background-color: white;
-			}
-
-			.bottom_bottom p:nth-child(1) .spbackground,
-			.bottom_bottom.blue1 p:nth-child(2) .spbackground,
-			.bottom_bottom.blue2 p:nth-child(2) .spbackground,
-			.bottom_bottom.blue2 p:nth-child(3) .spbackground,
-			.bottom_bottom.blue3 p:nth-child(2) .spbackground,
-			.bottom_bottom.blue3 p:nth-child(3) .spbackground,
-			.bottom_bottom.blue3 p:nth-child(4) .spbackground {
-				background-color: #0082E6;
-			}
-
-			.ul1 .string,
-			.ul2 .string {
-				width: 100%;
-				padding: 10px 40px;
-				box-sizing: border-box;
-				background-color: #F7F7F7;
-				background-color: rgba(247, 247, 247, 0.2);
-			}
-
-			.ul1 .string .renyuean,
-			.ul1 .string .renyuean2,
-			.ul1 .string .renyuean3,
-			.ul2 .string .renyuean,
-			.ul2 .string .renyuean2,
-			.ul2 .string .renyuean3 {
-				width: 100%;
-				overflow: hidden;
-				padding: 10px 0;
-				display: none;
-			}
-
-			.ul1 .string .renyuean div:nth-child(1),
-			.ul1 .string .renyuean2 div:nth-child(1),
-			.ul1 .string .renyuean3 div:nth-child(1),
-			.ul2 .string .renyuean div:nth-child(1),
-			.ul2 .string .renyuean2 div:nth-child(1),
-			.ul2 .string .renyuean3 div:nth-child(1) {
-				float: left;
-				width: 45px;
-			}
-
-			.ul1 .string .renyuean div:nth-child(2),
-			.ul1 .string .renyuean2 div:nth-child(2),
-			.ul1 .string .renyuean3 div:nth-child(2),
-			.ul2 .string .renyuean div:nth-child(2),
-			.ul2 .string .renyuean2 div:nth-child(2),
-			.ul2 .string .renyuean3 div:nth-child(2) {
-				float: left;
-				padding-left: 10px;
-			}
-
-			.ul1 .string .renyuean div:nth-child(1) img,
-			.ul1 .string .renyuean2 div:nth-child(1) img,
-			.ul1 .string .renyuean3 div:nth-child(1) img,
-			.ul2 .string .renyuean div:nth-child(1) img,
-			.ul2 .string .renyuean2 div:nth-child(1) img,
-			.ul2 .string .renyuean3 div:nth-child(1) img {
-				width: 45px;
-				height: 45px;
-			}
-
-			.ul1 .string .renyuean div:nth-child(1) i,
-			.ul1 .string .renyuean2 div:nth-child(1) i,
-			.ul1 .string .renyuean3 div:nth-child(1) i,
-			.ul2 .string .renyuean div:nth-child(1) i,
-			.ul2 .string .renyuean2 div:nth-child(1) i,
-			.ul2 .string .renyuean3 div:nth-child(1) i {
-				font-weight: 600;
-				display: block;
-				width: 45px;
-				text-align: center;
-				font-size: 14px;
-			}
-
-			.ul1 .string .renyuean div:nth-child(2) h5,
-			.ul1 .string .renyuean2 div:nth-child(2) h5,
-			.ul1 .string .renyuean3 div:nth-child(2) h5,
-			.ul2 .string .renyuean div:nth-child(2) h5,
-			.ul2 .string .renyuean2 div:nth-child(2) h5,
-			.ul2 .string .renyuean3 div:nth-child(2) h5 {
-				margin: 0;
-				font-size: 16px;
-				margin-bottom: 10px;
-			}
-
-			.ul1 .string .renyuean div:nth-child(2) i,
-			.ul1 .string .renyuean2 div:nth-child(2) i,
-			.ul1 .string .renyuean3 div:nth-child(2) i,
-			.ul2 .string .renyuean div:nth-child(2) i,
-			.ul2 .string .renyuean2 div:nth-child(2) i,
-			.ul2 .string .renyuean3 div:nth-child(2) i {
-				padding: 0 5px;
-				font-size: 14px;
-			}
-
-			.none {
-				display: block;
-			}
-
-			.navs {
-				width: 90%;
-				margin: 0 auto;
-				padding: 10px;
-			}
-
-			.navs li {
-				float: left;
-			}
-
-			.navs .is {
-				display: block;
-				width: 90px;
-				height: 38px;
-				text-align: center;
-				line-height: 40px;
-				font-size: 14px;
-				color: black;
-				z-index: 100;
-			}
-
-			.navs a:hover {
-				color: #fff !important;
-				background: url(__INDEX__/img/navBg.png);
-				background-size: 100%;
-				/*background-color: #ff5454;*/
-			}
-
-			.actives {
-				color: #fff !important;
-				background: url(__INDEX__/img/navBg.png);
-				background-size: 100%;
-				/*background-color: #ff5454;*/
-			}
-
-			.string .wu {
-				display: flex;
-				padding-top: 100px;
-				justify-content: center;
-			}
-
-			.string .wu img {
-				width: 300px;
-				height: 300px;
-			}
-
-			.string .wu p {
-				height: 300px;
-				line-height: 300px;
-				font-size: 28px;
-				font-weight: bold;
-				color: gray;
-				text-align: center;
-			}
-
-			/*项目详情*/
-			.bottom.relative .string>h3,.bottom.relative .string>div{
-				display: none;
-			}
-			.bottom.relative .string.string1>h3,
-			.bottom.relative .string.string1>.renyuean,
-			.bottom.relative .string.string2>h3,
-			.bottom.relative .string.string2>.renyuean,
-			.bottom.relative .string.string2>.renyuean2,
-			.bottom.relative .string.string3>h3,
-			.bottom.relative .string.string3>.renyuean,
-			.bottom.relative .string.string3>.renyuean2,
-			.bottom.relative .string.string3>.renyuean3{
-				display: block;
-			}
-			.bottom.relative .string>div{
-				position: relative;
-			}
-			.kai{
-				display: block;
-				position: absolute;
-				right: 10px;
-				bottom: 10px;
-				background-color: #0082E6;
-				color: white;
-				padding: 10px 10px !important;
-				border-radius: 5px;
-			}
-			.strings{}
-			.li_ones{}
+			
 		</style>
 	</head>
 	<script>
@@ -638,10 +62,10 @@
 				</div>
 				<div class="center_cen">
 					<div class="cente-head ">
-						<p class="p2 on"><span>我发布的需求(</span><span id="num_1">5</span>)</p>
-						<p class="p2"><span>我申请的任务</span><span id="num_2">(0)</span></p>
-						 <p class="p2"><span>我雇佣的</span><span id="num_3">(0)</span></p>
-						<p class="p2"><span>雇佣我的</span><span id="num_4">(0)</span></p>
+						<p class="p2 on"><span>我发布的需求(</span><span id="num_1"></span>)</p>
+						<p class="p2"><span>我申请的任务(</span><span id="num_2">0</span>)</p>
+						 <p class="p2"><span>我雇佣的(</span><span id="num_3">0</span>)</p>
+						<p class="p2"><span>雇佣我的(</span><span id="num_4"></span>)</p>
 					</div>
 					<div class="cente_b">
 						<div class="cente_ul">
@@ -784,6 +208,10 @@
 								</li>
 								{/volist}
 								<div class="string">
+									<div class="wu">
+										<img src="__INDEX__/img/521511013441599704.png" />
+										<p>没有记录</p>
+									</div>
 									<p style="font-size: 14px;"></p>
 								</div>
 							</ul>
@@ -911,25 +339,140 @@
 								</li>
 								{/volist}
 								<div class="string">
-
-									<p style="font-size: 14px;">sss</p>
+									<div class="wu">
+										<img src="__INDEX__/img/521511013441599704.png" />
+										<p>没有记录</p>
+									</div>
+									<p style="font-size: 14px;"></p>
 								</div>
 							</ul>
 							<ul class="ul3">
+								<li class="li_one">
+									<div class="top relative">
+										<div class="top_left">
+											<img src="__INDEX__/img/bai.png" />
+										</div>
+										<div class="top_center">
+											<p><span>需求名称 </span><span></span></p>
+											<p><span>郑州  </span><span>发布时间    </span><span></span></p>
+										</div>
+										<div class="top_right">
+											<span>对接中</span>
+										</div>
+									</div>
+									<div class="bottom relative">
+										<div class="demanddel-type">
+											<p class="demanddel-t" style="font-size: 1.2em;color: #797979;">项目预算</p>
+											<p style="font-size: 24px;color: #ec1313;">元 </p>
+											<div class="demanddel-num">
+												<p class="apply1"><span>已申请</span> <span>人</span></p>
+												<p class="apply2"><span>已浏览</span> <span>人</span></p>
+											</div>
+										</div>
+										<p><span>所属行业</span>
+											<span>
+											
+										</span>
+										</p>
+										<p><span>所属类型</span>
+											<span>
+											
+										</span></p>
+										<p><span>开发周期</span>
+											<span>
+										3-6个月
+										</span></p>
+										<p><span>紧急程度</span><span>
+											
+											非常紧急
+											
+										</span></p>
+										<p><span>需求描述</span><span></span></p>
+										<p style="margin-top: 30px;width: auto;"><span>需求方</span>
+											<div class="participations">
+												<div class="participation participation_f">
+													<a href="#">需求方</a>
+													<img src="__INDEX__/img/bai.png"/>
+													<a ></a>
+													<i class=" "> <img src="__INDEX__/img/icon/dui.png"/></i>
+												</div>
+											</div>
+										</p>
+										<div class="bottom_bottom blue1"   style="border-top: 1px dotted #d3d0d0;border-bottom: 1px dotted #d3d0d0;">
+											<p class="blue">
+												<span class="sptext">申请中</span>
+												<span class="spbackground"></span>
+											</p>
+											<p>
+												<span class="sptext">我被雇佣</span>
+												<span class="spbackground"></span>
+											</p>
+											<p >
+												<span class="sptext">我已完工</span>
+												<span class="spbackground"></span>
+											</p>
+											<!-- <p>
+												<span class="sptext">提成佣金</span>
+												<span class="spbackground"></span>
+											</p> -->
+										</div>
+										<div class="string string3">
+
+										<h3 style="display: none;">进展详情</h3>
+										<div class="renyuean">
+											<div class="">
+												<img src="__INDEX__/img/avatar/2.jpg" />
+												<i></i>
+											</div>
+											<div class="">
+												<h5 class="blues" style="color: #0082E6; ">硅谷 雇佣了你</h5>
+												<i style="border-left: 2px solid gray; color: gray;">
+												<i  >硅谷</i><i>13613820359</i></i><i class="kai"> 是否开工：确认</i>
+											</div>
+										</div>
+										<div class="renyuean2">
+											<div class="">
+												<img src="__INDEX__/img/avatar/2.jpg" />
+												<i></i>
+											</div>
+											<div class="">
+												<h5 class="blues" style="color: #0082E6; "> 已开工 <i></i></h5>
+												<i style="border-left: 2px solid gray; color: gray;"><i >完工时间：</i><i>1~3月</i><i class="timess">请验收</i></i>
+											</div>
+
+										</div>
+										<div class="renyuean3">
+											<div class="">
+												<img src="__INDEX__/img/bai.png" />
+												<i></i>
+											</div>
+											<div class="">
+												<h5 class="blues">已验收 <i></i></h5>
+												<i style="border-left: 2px solid gray;color: gray;">
+													<i class="tong" style="padding: 3px 5px;border: 1px solid gainsboro;background-color: #0190FE; border-radius:5px ;color: white;">同意</i></i>
+											</div>
+										</div>
+
+
+								</div>
+									</div>
+								</li>
 								<div class="string">
 									<div class="wu">
 										<img src="__INDEX__/img/521511013441599704.png" />
 										<p>没有记录</p>
 									</div>
+									<p style="font-size: 14px;"></p>
 
 								</div>
 							</ul>
-							<ul>
+							<ul class="ul4">
 								<div class="string">
 									<div class="wu">
 										<img src="__INDEX__/img/521511013441599704.png" />
 										<p>没有记录</p>
 									</div>
+									<p style="font-size: 14px;"></p>
 								</div>
 							</ul>
 						</div>
@@ -943,30 +486,7 @@
 				<p>2014-2017 汇谷电子科技有限公司 版权所有：ICP备12027515号-1</p>
 			</div>
 		</div>
-		<script type="text/javascript">
-			/*右键禁止，复制禁止*/
-			$(document).bind("contextmenu copy selectstart", function() {
-				return false;
-			});
-
-			$(document).keydown(function(e) {
-				if(e.ctrlKey && (e.keyCode == 65 || e.keyCode == 67)) {
-					return false;
-				}
-			})
-			/*tap切换*/
-			$(".cente-head .p2").click(function() {
-				$(".cente-head .p2").removeClass("on");
-				$(this).addClass("on");
-				var tt1 = $(".cente-head .p2").index($(this)) * 100;
-				$(".cente_ul").css("margin-left", "-" + tt1 + "%");
-
-			})
-
-			/*发布需求 记录*/
-			var ullen = $(".ul1 .li_one").length;
-			$(".ul1 .string p").html("共" + ullen + "条记录，共" + (Math.ceil(ullen / 7)) + "页");
-			$("#num_1").text(ullen);
+		<script type="text/javascript">			
 			/*ul1*/
 			$(".ul1 .li_one .top").click(function() {
 				var sr1 = $(this).parent();
@@ -983,10 +503,7 @@
 					strs.css("display","none");
 				}
 			})
-			/*申请的任务 记录*/
-			var ullen1 = $(".ul2 .li_one").length;
-			$(".ul2 .string p").html("共" + ullen1 + "条记录，共" + (Math.ceil(ullen1 / 7)) + "页");
-			$("#num_2").text(ullen1);
+						
 			$(".ul2 .li_one .top").click(function() {
 				var sr1 = $(this).parent();
 				var st1 = $(this).next();
@@ -1001,25 +518,7 @@
 					sr1.addClass("li_ones");
 					strs.css("display","none");
 				}
-			})
-
-			$(" .participations .participation_f1").click(function() {
-
-				if($(this).parent().parent().hasClass('str')) {}else{
-				if($(this).hasClass('participation1')) {
-					/*选择  取消未选择*/
-					$(this).removeClass("participation1");
-					$(this).parent().next().next().removeClass("blue1");
-					$(this).parent().next().next().next().removeClass("string1");
-				} else {
-					/*未选择  改为选择*/
-					var pt = $(this).parent().data('id');
-					$(".pt" + pt + " .participation_f1").removeClass("participation1");
-					$(this).addClass("participation1");
-					$(this).parent().next().next().addClass("blue1");
-					$(this).parent().next().next().next().addClass("string1");
-				}}
-			})
+			})		
 
 			$(".kai").click(function() {
 				if($(this).text()!="已开工"){
@@ -1027,7 +526,6 @@
 					$(this).parent().parent().parent().removeClass("string1");
 					$(this).parent().parent().parent().addClass("string2");
 					$(this).parent().parent().parent().parent().addClass("str");
-
 					/*获取当前的 .li_one*/
 					var prse = $(this).parent().parent().parent().parent().parent();
 					var names = prse.parent().attr('class');
@@ -1037,7 +535,6 @@
 					var user_id = $("."+names+" .li_one:nth-child("+(tt+1)+") .str .participations .participation1").data('id');
 					alert(user_id);
 					var strs= new Array(); //定义一数组
-
 					strs=user_id.split(","); //字符分割
 					console.log(strs);
 
@@ -1053,7 +550,6 @@
 								alert("提交失败");
 							}
 						}, "json");
-
 				}
 			})
 
@@ -1070,10 +566,7 @@
 				$(".strings").prev().addClass("blue2");
 			})
 		</script>
-		<script type="text/javascript">
-			$(".content .center_cen").width(($(".center").width() - 250) + "px");
-			$(".active").css("color", "white");
-		</script>
+		<script src="__INDEX__/js/order.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 
 </html>
