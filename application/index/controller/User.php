@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-24 18:01:02
+ * @Last Modified time: 2018-04-25 11:16:39
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -72,10 +72,10 @@ class User  extends Yang
         foreach ($demand as $key => $value) {
             $apply = Apply::where(['demand_id'=>$value['id']])->select();
             $demand[$key]['apply'] = $apply;
-            $app = Apply::where(['demand_id'=>$value['id'],'status'=>1])->find();
-            if (isset($app)) {
-                $user = U::where('id',$app['user_id'])->find();
-                $demand[$key]['app'] = $user['user_name'];
+            if (isset($value['apply_id'])) {
+                $app = Apply::where(['id'=>$value['apply_id']])->find();
+                $demand[$key]['apply_id'] = $app;
+                $demand[$key]['app'] = $app['user_name'];
             }
         }
 
@@ -101,7 +101,8 @@ class User  extends Yang
     {
         $user_id = input('user_id');
         $demand_id = input('demand_id');
-        Demand::where(['id'=>$demand_id])->update(['schedule'=>2]);
+        $apply = Apply::where(['user_id' => $user_id,'demand_id'=>$demand_id])->find();
+        Demand::where(['id'=>$demand_id])->update(['schedule'=>2,'apply_id'=>$apply['id']]);
         Apply::where(['user_id' => $user_id,'demand_id'=>$demand_id])->update(['xstatus' => 1,'sstatus'=>1,'status'=>1]);
         return json($this->ret);
     }
