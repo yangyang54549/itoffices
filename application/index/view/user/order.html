@@ -8,9 +8,18 @@
 		<link rel="stylesheet" href="__INDEX__/css/restre.css">
 		<link rel="stylesheet" type="text/css" href="__INDEX__/css/order.css" />
 		<script type="text/javascript" src="__INDEX__/js/jss/jquery-1.9.1.min.js"></script>
-		
+
 		<style type="text/css">
-			
+		.queren {
+		    display: block;
+		    position: absolute;
+		    right: 10px;
+		    bottom: 10px;
+		    background-color: #0082E6;
+		    color: white;
+		    padding: 10px 10px !important;
+		    border-radius: 5px;
+		}
 		</style>
 	</head>
 	<script>
@@ -84,7 +93,7 @@
 											<span>{if condition="$vo.schedule == 1"}招募中{elseif condition="$vo.schedule == 2"/}对接中{elseif condition="$vo.schedule == 3"/}执行中{elseif condition="$vo.schedule == 4"/}已完成{/if}</span>
 										</div>
 									</div>
-									<div class="bottom relative">
+									<div {if condition="$vo.apply_id"} class="bottom relative str" {else/} class="bottom relative" {/if}>
 										<div class="demanddel-type">
 											<p class="demanddel-t" style="font-size: 1.2em;color: #797979;">项目预算</p>
 											<p style="font-size: 24px;color: #ec1313;">{$vo.money}元 </p>
@@ -133,9 +142,9 @@
 													<i class=" "> <img src="__INDEX__/img/icon/dui.png"/></i>
 												</div>
 												{/volist}
-											</div>
+									</div>
 										</p>
-										<div {if condition="$vo.schedule eq 1"} class="bottom_bottom blue0" {else/} class="bottom_bottom blue1" {/if} style="border-top: 1px dotted #d3d0d0;border-bottom: 1px dotted #d3d0d0;">
+										<div {if condition="$vo.apply_id.xstatus eq 1"} class="bottom_bottom blue1" {elseif condition="$vo.apply_id.xstatus eq 2" /} class="bottom_bottom blue2" {else/} class="bottom_bottom blue0" {/if} style="border-top: 1px dotted #d3d0d0;border-bottom: 1px dotted #d3d0d0;">
 											<p>
 												<span class="sptext">发布需求</span>
 												<span class="spbackground"></span>
@@ -160,7 +169,7 @@
 													<div class="renyuean">
 														<div class="">
 															<img src="__INDEX__/img/bai.png" />
-															<i>{$ap.user_name}</i>
+															<i>{$vo.apply_id.user_name}</i>
 														</div>
 														<div class="">
 															<h5 class="blues" style="color: #0082E6; ">您选择的项目开发人员   <i></i></h5>
@@ -168,26 +177,36 @@
 															<i>确认选择此开发者吗?</i></i><i class="kai">确认选择</i>
 														</div>
 													</div>
+												{elseif condition="$vo.apply_id.sstatus == 0"/}
+													<div class="renyuean2">
+														<div class="">
+															<img src="__INDEX__/img/avatar/2.jpg" />
+															<i>{$vo.apply_id.user_name}</i>
+														</div>
+														<div class="">
+															<h5 class="blues" style="color: #0082E6; "> 等待开发者确认 <i></i></h5>
+														</div>
+													</div>
 												{elseif condition="$vo.apply_id.sstatus == 1"/}
 													<div class="renyuean2">
 														<div class="">
 															<img src="__INDEX__/img/avatar/2.jpg" />
-															<i>{$ap.user_name}</i>
+															<i>{$vo.apply_id.user_name}</i>
 														</div>
 														<div class="">
 															<h5 class="blues" style="color: #0082E6; "> 已开工 <i></i></h5>
 															<i style="border-left: 2px solid gray; color: gray;"><i >完成时间：</i><i class="timess">{if condition="$vo.period == 1"}少于1周{elseif condition="$vo.period == 2"/}少于1个月{elseif condition="$vo.period == 3"/}1-3个月{elseif condition="$vo.period == 4"/}3-6个月{elseif condition="$vo.period == 5"/}超过6个月{/if}</i></i>
 														</div>
 													</div>
-													{elseif condition="$vo.apply_id.sstatus == 2"/}
+												{elseif condition="$vo.apply_id.sstatus == 2"/}
 													<div class="renyuean3">
 														<div class="">
 															<img src="__INDEX__/img/avatar/2.jpg" />
-															<i>{$ap.user_name}</i>
+															<i>{$vo.apply_id.user_name}</i>
 														</div>
 														<div class="">
 															<h5 class="blues">已完工  <i></i></h5>
-															<i style="border-left: 2px solid gray;color: gray;"><i  >请验收：</i>
+															<i style="border-left: 2px solid gray;color: gray;"><is>请验收：</i>
 															<i class="tong" style="padding: 3px 5px;border: 1px solid gainsboro;background-color: #0190FE; border-radius:5px ;color: white;">同意</i></i>
 														</div>
 													</div>
@@ -268,7 +287,7 @@
 												</div>
 											</div>
 										</p>
-										<div class="bottom_bottom blue1"   style="border-top: 1px dotted #d3d0d0;border-bottom: 1px dotted #d3d0d0;">
+										<div {if condition="$vo.apply_id.sstatus eq 1"} class="bottom_bottom blue1" {elseif condition="$vo.apply_id.sstatus eq 2" /} class="bottom_bottom blue2" {else/} class="bottom_bottom blue0" {/if} style="border-top: 1px dotted #d3d0d0;border-bottom: 1px dotted #d3d0d0;">
 											<p class="blue">
 												<span class="sptext">申请中</span>
 												<span class="spbackground"></span>
@@ -286,46 +305,53 @@
 												<span class="spbackground"></span>
 											</p> -->
 										</div>
-										<div class="string string3">
 
+
+								{if condition="$vos.is_apply_id eq 1"}
+								<div class="string string3">
 										<h3 style="display: none;">进展详情</h3>
-										<div class="renyuean">
-											<div class="">
-												<img src="__INDEX__/img/avatar/2.jpg" />
-												<i>{$vos.username}</i>
+										{if condition="$vos.apply_id.xstatus == 1"/}
+											{if condition="$vos.apply_id.sstatus == 0"/}
+											<div class="renyuean">
+												<div class="">
+													<img src="__INDEX__/img/avatar/2.jpg" />
+													<i>{$vos.username}</i>
+												</div>
+												<div class="">
+													<h5 class="blues" style="color: #0082E6; ">硅谷 雇佣了你</h5>
+													<i style="border-left: 2px solid gray; color: gray;">
+													<i  >硅谷</i><i>13613820359</i></i><i class="queren" data-id="{$vos.id}"> 是否开工：确认</i>
+												</div>
 											</div>
-											<div class="">
-												<h5 class="blues" style="color: #0082E6; ">硅谷 雇佣了你</h5>
-												<i style="border-left: 2px solid gray; color: gray;">
-												<i  >硅谷</i><i>13613820359</i></i><i class="kai"> 是否开工：确认</i>
+											{elseif condition="$vos.apply_id.sstatus == 1"/}
+											<div class="renyuean2">
+												<div class="">
+													<img src="__INDEX__/img/avatar/2.jpg" />
+													<i>{$vos.username}</i>
+												</div>
+												<div class="">
+													<h5 class="blues" style="color: #0082E6; "> 已开工 <i></i></h5>
+													<i style="border-left: 2px solid gray; color: gray;"><i >完工时间：</i><i>1~3月</i><i class="timess">请验收</i></i>
+												</div>
 											</div>
-										</div>
-										<div class="renyuean2">
-											<div class="">
-												<img src="__INDEX__/img/avatar/2.jpg" />
-												<i>{$vos.username}</i>
+											{/if}
+										{elseif condition="$vos.apply_id.xstatus == 2"/}
+											<div class="renyuean3">
+												<div class="">
+													<img src="__INDEX__/img/bai.png" />
+													<i>{$vos.username}</i>
+												</div>
+												<div class="">
+													<h5 class="blues">已验收 <i></i></h5>
+													<i style="border-left: 2px solid gray;color: gray;">
+														<i class="tong" style="padding: 3px 5px;border: 1px solid gainsboro;background-color: #0190FE; border-radius:5px ;color: white;">同意</i></i>
+												</div>
 											</div>
-											<div class="">
-												<h5 class="blues" style="color: #0082E6; "> 已开工 <i></i></h5>
-												<i style="border-left: 2px solid gray; color: gray;"><i >完工时间：</i><i>1~3月</i><i class="timess">请验收</i></i>
-											</div>
-
-										</div>
-										<div class="renyuean3">
-											<div class="">
-												<img src="__INDEX__/img/bai.png" />
-												<i>{$vos.username}</i>
-											</div>
-											<div class="">
-												<h5 class="blues">已验收 <i></i></h5>
-												<i style="border-left: 2px solid gray;color: gray;">
-													<i class="tong" style="padding: 3px 5px;border: 1px solid gainsboro;background-color: #0190FE; border-radius:5px ;color: white;">同意</i></i>
-											</div>
-										</div>
-
-
+										{/if}
 								</div>
+								{/if}
 									</div>
+
 								</li>
 								{/volist}
 								<div class="string">
@@ -361,21 +387,21 @@
 										</div>
 										<p><span>所属行业</span>
 											<span>
-											
+
 										</span>
 										</p>
 										<p><span>所属类型</span>
 											<span>
-											
+
 										</span></p>
 										<p><span>开发周期</span>
 											<span>
 										3-6个月
 										</span></p>
 										<p><span>紧急程度</span><span>
-											
+
 											非常紧急
-											
+
 										</span></p>
 										<p><span>需求描述</span><span></span></p>
 										<p style="margin-top: 30px;width: auto;"><span>需求方</span>
@@ -476,6 +502,7 @@
 				<p>2014-2017 汇谷电子科技有限公司 版权所有：ICP备12027515号-1</p>
 			</div>
 		</div>
+
 		<script src="__INDEX__/js/order.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">		
 			taps(0);
@@ -493,6 +520,7 @@ $(".cente-head .p2").click(function() {
 	
 
 })
+
 			/*ul1*/
 			$(".ul1 .li_one .top").click(function() {
 				var sr1 = $(this).parent();
@@ -509,7 +537,7 @@ $(".cente-head .p2").click(function() {
 					strs.css("display","none");
 				}
 			})
-						
+
 			$(".ul2 .li_one .top").click(function() {
 				var sr1 = $(this).parent();
 				var st1 = $(this).next();
@@ -524,14 +552,12 @@ $(".cente-head .p2").click(function() {
 					sr1.addClass("li_ones");
 					strs.css("display","none");
 				}
-			})		
+			})
 
 			$(".kai").click(function() {
-				if($(this).text()!="已开工"){
-					$(this).text("已开工");
-					$(this).parent().parent().parent().removeClass("string1");
-					$(this).parent().parent().parent().addClass("string2");
-					$(this).parent().parent().parent().parent().addClass("str");
+					// $(this).parent().parent().parent().removeClass("string1");
+					// $(this).parent().parent().parent().addClass("string2");
+					// $(this).parent().parent().parent().parent().addClass("str");
 					/*获取当前的 .li_one*/
 					var prse = $(this).parent().parent().parent().parent().parent();
 					var names = prse.parent().attr('class');
@@ -539,23 +565,42 @@ $(".cente-head .p2").click(function() {
 					var tt = $("."+names+" .li_one").index(prse);
 					/*获取 选择的接单 的data-id*/
 					var user_id = $("."+names+" .li_one:nth-child("+(tt+1)+") .str .participations .participation1").data('id');
-					alert(user_id);
+					if (user_id==null) { alert('请选择开发者');return false };
 					var strs= new Array(); //定义一数组
 					strs=user_id.split(","); //字符分割
-					console.log(strs);
 
-						$.post("{:url('order/order_kai')}",{
+						$.post("{:url('user/order_kai')}",{
 							user_id:strs[0],
 							demand_id:strs[1],
 						},function(data){
 							console.log(data);
-							// if (data.code==1) {
-							// 	window.location.href = "{:url('user/index')}";
-							// }else{
-							// 	alert("提交失败");
-							// }
+							if (data.code==1) {
+								alert("提交成功");
+								window.location.reload();
+							}else{
+								alert("提交失败");
+							}
 						}, "json");
-				}
+			})
+
+			$(".queren").click(function() {
+
+
+					/*申请方确认干活*/
+					var demand_id = $(this).data('id');
+					alert(demand_id);
+
+						$.post("{:url('user/order_gan')}",{
+							demand_id:demand_id
+						},function(data){
+							console.log(data);
+							if (data.code==1) {
+								alert("提交成功");
+								window.location.reload();
+							}else{
+								alert("提交失败");
+							}
+						}, "json");
 			})
 
 			$(".renyuean2 .timess").click(function() {
