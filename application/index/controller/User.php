@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-25 17:19:20
+ * @Last Modified time: 2018-04-25 17:57:31
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -112,46 +112,6 @@ class User  extends Yang
 
     public function orders()
     {
-        $demand = Demand::where(['user_id'=>Session::get('user.id')])->select();//我发布的需求
-        foreach ($demand as $key => $value) {
-            $apply = Apply::where(['demand_id'=>$value['id']])->select();
-            $demand[$key]['apply'] = $apply;
-            if (isset($value['apply_id'])) {
-                $app = Apply::where(['id'=>$value['apply_id']])->find();
-                $demand[$key]['apply_id'] = $app;
-                $demand[$key]['app'] = $app['user_name'];
-            }
-        }
-
-        // $apply = Apply::where(['user_id'=>Session::get('user.id')])->select();
-        // $sdemand = [];
-        // foreach ($apply as $k => $v) {
-        //     $de = Demand::where(['id'=>$v['demand_id']])->find();//我发布的需求
-
-        //     if (isset($de['apply_id'])) {
-        //         if ($de['apply_id']==$v['id']) {
-        //             $de['is_apply_id'] = 1;//申请的需求人选中了我
-        //         }elseif($de['apply_id']!=$v['id']){
-        //             $de['is_apply_id'] = 2;//申请的需求人没有选中我
-        //         }
-
-        //         $app = Apply::where(['id'=>$de['apply_id']])->find();
-        //         $de['apply_id'] = $app;
-
-        //     }else{
-        //             $de['is_apply_id'] = 0;//申请的需求人还没有选择开发者
-        //     }
-
-        //     $sdemand[$k] = $de;
-        // }
-
-        $sdemand = Demand::where(['user_id'=>Session::get('user.id')])->select();//我申请的需求
-        $demandtrade = DemandTrade::select();
-        $demandtype = DemandType::select();
-        $this->assign('demand',$demand);
-        $this->assign('sdemand',$sdemand);
-        $this->assign('demandtrade',$demandtrade);
-        $this->assign('demandtype',$demandtype);
         return $this->fetch();
     }
 
@@ -168,10 +128,8 @@ class User  extends Yang
     //需求方确认完成
     public function order_que()
     {
-        $user_id = input('user_id');
         $demand_id = input('demand_id');
-        Demand::where(['id'=>$demand_id])->update(['schedule'=>3]);
-        Apply::where(['user_id' => $user_id,'demand_id'=>$demand_id])->update(['xstatus' => 2]);
+        Apply::where(['status' => 1,'demand_id'=>$demand_id])->update(['xstatus' => 2]);
         return json($this->ret);
     }
 
@@ -180,17 +138,17 @@ class User  extends Yang
     {
         $user_id = Session::get('user.id');
         $demand_id = input('demand_id');
-        Apply::where(['user_id' => $user_id,'demand_id'=>$demand_id])->update(['sstatus'=>1]);
+        Demand::where(['id'=>$demand_id])->update(['schedule'=>3]);
+        Apply::where(['status' => 1,'user_id' => $user_id,'demand_id'=>$demand_id])->update(['sstatus'=>1]);
         return json($this->ret);
     }
 
     //申请方完工提交
     public function order_wan()
     {
-        $user_id = input('user_id');
+        $user_id = Session::get('user.id');
         $demand_id = input('demand_id');
-        Demand::where(['id'=>$demand_id])->update(['schedule'=>3]);
-        Apply::where(['user_id' => $user_id,'demand_id'=>$demand_id])->update(['sstatus'=>2]);
+        Apply::where(['status' => 1,'user_id' => $user_id,'demand_id'=>$demand_id])->update(['sstatus'=>2]);
         return json($this->ret);
     }
 
