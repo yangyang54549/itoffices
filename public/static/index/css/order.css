@@ -540,7 +540,7 @@ a {
 			.bottom.relative .string>div{
 				position: relative;
 			}
-			.kai{
+			.kai,.yanshou{
 				display: block;
 				position: absolute;
 				right: 10px;
