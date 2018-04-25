@@ -199,17 +199,6 @@
 														</div>
 													</div>
 												{elseif condition="$vo.apply_id.sstatus == 2"/}
-													{if condition="$vo.apply_id.xstatus == 2"}
-													<div class="renyuean3">
-														<div class="">
-															<img src="__INDEX__/img/avatar/2.jpg" />
-															<i>{$vo.apply_id.user_name}</i>
-														</div>
-														<div class="">
-															<h5 class="blues">已确认完工<i></i></h5>
-														</div>
-													</div>
-													{else/}
 													<div class="renyuean3">
 														<div class="">
 															<img src="__INDEX__/img/avatar/2.jpg" />
@@ -218,10 +207,9 @@
 														<div class="">
 															<h5 class="blues">已完工  <i></i></h5>
 															<i style="border-left: 2px solid gray;color: gray;"><is>请验收：</i>
-															<i class="tong" style="padding: 3px 5px;border: 1px solid gainsboro;background-color: #0190FE; border-radius:5px ;color: white;" data-id="{$vo.id}">同意</i></i>
+															<i class="tong" style="padding: 3px 5px;border: 1px solid gainsboro;background-color: #0190FE; border-radius:5px ;color: white;">同意</i></i>
 														</div>
 													</div>
-													{/if}
 												{/if}
 										</div>
 										{/if}
@@ -333,7 +321,7 @@
 													<h5 class="blues" style="color: #0082E6; ">硅谷 雇佣了你</h5>
 													<i style="border-left: 2px solid gray; color: gray;">
 													<i  >硅谷</i><i>13613820359</i></i><i class="queren " data-id="{$vos.id}"> 是否开工：确认</i>
-
+													
 												</div>
 											</div>
 											{elseif condition="$vos.apply_id.sstatus == 1"/}
@@ -344,8 +332,8 @@
 												</div>
 												<div class="">
 													<h5 class="blues" style="color: #0082E6; "> 已开工 <i></i></h5>
-													<i style="border-left: 2px solid gray; color: gray;"><i >完工时间：</i><i>{if condition="$vo.period == 1"}少于1周{elseif condition="$vo.period == 2"/}少于1个月{elseif condition="$vo.period == 3"/}1-3个月{elseif condition="$vo.period == 4"/}3-6个月{elseif condition="$vo.period == 5"/}超过6个月{/if}</i></i>
-												<i class="yanshou"  data-id="{$vos.id}">请验收</i>
+													<i style="border-left: 2px solid gray; color: gray;"><i >完工时间：</i><i>1~3月</i><i class="timess">请验收</i></i>
+												<i class="yanshou" >请验收</i>
 												</div>
 											</div>
 											{/if}
@@ -356,7 +344,9 @@
 													<i>{$vos.username}</i>
 												</div>
 												<div class="">
-													<h5 class="blues">需求方已验收 <i></i></h5>
+													<h5 class="blues">已验收 <i></i></h5>
+													<i style="border-left: 2px solid gray;color: gray;">
+														<i class="tong" style="padding: 3px 5px;border: 1px solid gainsboro;background-color: #0190FE; border-radius:5px ;color: white;">同意</i></i>
 												</div>
 											</div>
 										{/if}
@@ -516,20 +506,20 @@
 		</div>
 
 		<script src="__INDEX__/js/order.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript">
+		<script type="text/javascript">		
 			taps(0);
 
 $(".cente-head .p2").click(function() {
 	var tt  = $(".cente-head .p2").index($(this));
 	$(".cente-head .p2").removeClass("on");
 	$(this).addClass("on");
-	if(tt > 1) {
+	if(tt > 1) {		
 		tap = tt;
-			window.location.href = "{:url('user/orders')}";
-
-	} else {		$(".cente_ul").css("margin-left", "-" +(tt*100)+ "%");	}
-
-
+			window.location.href = "{:url('user/orders')}";	
+			
+	} else {		$(".cente_ul").css("margin-left", "-" +(tt*100)+ "%");	}	
+	
+	
 
 })
 
@@ -596,6 +586,9 @@ $(".cente-head .p2").click(function() {
 							}
 						}, "json");
 			})
+			$(".yanshou").click(function(){
+				alert("yanshou");
+			})
 
 			$(".queren").click(function() {
 					/*申请方确认干活*/
@@ -614,22 +607,6 @@ $(".cente-head .p2").click(function() {
 							}
 						}, "json");
 			})
-			$(".yanshou").click(function(){
-				var demand_id = $(this).data('id');
-				alert(demand_id);
-
-				$.post("{:url('user/order_wan')}",{
-					demand_id:demand_id,
-				},function(data){
-					console.log(data);
-					if (data.code==1) {
-						alert("提交成功");
-						window.location.reload();
-					}else{
-						alert("提交失败");
-					}
-				}, "json");
-			})
 
 			$(".renyuean2 .timess").click(function() {
 				$(this).parent().parent().parent().parent().addClass("string3");
@@ -637,23 +614,14 @@ $(".cente-head .p2").click(function() {
 
 			})
 			$(".tong").click(function() {
-				var demand_id = $(this).data('id');
-				alert(demand_id);
-
-				$.post("{:url('user/order_que')}",{
-					demand_id:demand_id,
-				},function(data){
-					console.log(data);
-					if (data.code==1) {
-						alert("提交成功");
-						window.location.reload();
-					}else{
-						alert("提交失败");
-					}
-				}, "json");
+				$(this).parent().parent().parent().parent().addClass("strings");
+				$(".strings .renyuean2 div h5").text("已完工");
+				$(".strings .kai").text("已完工");
+				$(".strings .timess").text("已完工");
+				$(".strings").prev().addClass("blue2");
 			})
 		</script>
-
+		
 	</body>
 
 </html>
