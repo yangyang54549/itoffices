@@ -994,14 +994,8 @@
 			})
 
 			$(" .participations .participation_f1").click(function() {
-				
-				
-				if($(this).parent().parent().hasClass('str')) {
-					
-				}else{
-					
-				
-				
+								
+				if($(this).parent().parent().hasClass('str')) {}else{													
 				if($(this).hasClass('participation1')) {
 					/*选择  取消未选择*/
 					$(this).removeClass("participation1");
@@ -1023,6 +1017,15 @@
 					$(this).parent().parent().parent().removeClass("string1");
 					$(this).parent().parent().parent().addClass("string2");
 					$(this).parent().parent().parent().parent().addClass("str");
+					/*获取当前的 .li_one*/
+					var prse = $(this).parent().parent().parent().parent().parent();
+					var names = prse.parent().attr('class');	
+					/*获取当前的 .li_one 得下标*/
+					var tt = $("."+names+" .li_one").index(prse);
+					/*获取 选择的接单 的data-id*/
+					var dataid = $("."+names+" .li_one:nth-child("+(tt+1)+") .str .participations .participation1").data('id');
+				
+
 									
 				}
 			})
