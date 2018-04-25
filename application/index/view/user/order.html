@@ -287,7 +287,7 @@
 												</div>
 											</div>
 										</p>
-										<div {if condition="$vo.apply_id.sstatus eq 1"} class="bottom_bottom blue1" {elseif condition="$vo.apply_id.sstatus eq 2" /} class="bottom_bottom blue2" {else/} class="bottom_bottom blue0" {/if} style="border-top: 1px dotted #d3d0d0;border-bottom: 1px dotted #d3d0d0;">
+										<div {if condition="$vos.apply_id.sstatus eq 1"} class="bottom_bottom blue1" {elseif condition="$vos.apply_id.sstatus eq 2" /} class="bottom_bottom blue2" {else/} class="bottom_bottom blue0" {/if} style="border-top: 1px dotted #d3d0d0;border-bottom: 1px dotted #d3d0d0;">
 											<p class="blue">
 												<span class="sptext">申请中</span>
 												<span class="spbackground"></span>
@@ -567,6 +567,7 @@ $(".cente-head .p2").click(function() {
 					var tt = $("."+names+" .li_one").index(prse);
 					/*获取 选择的接单 的data-id*/
 					var user_id = $("."+names+" .li_one:nth-child("+(tt+1)+") .str .participations .participation1").data('id');
+
 					if (user_id==null) { alert('请选择开发者');return false };
 					var strs= new Array(); //定义一数组
 					strs=user_id.split(","); //字符分割
