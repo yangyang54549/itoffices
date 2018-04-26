@@ -552,9 +552,59 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				</div>
 
 			</div>
+				<style type="text/css">
+			.beijin {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+  display: none;
+}
+.good {
+    margin: 30vh auto;
+    padding: 50px;
+    width: 400px;
+    background-color: white;
+    border-radius: 10px;
+}
+.good h5 {
+    font-size: 16px;
+    margin: 0;
+    margin-bottom: 20px;
+}
 
-		<script type="text/javascript">
-		</script>
+.good h5, .good p {
+    width: 100%;
+    text-align: center;
+}
+.good p {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.good h5, .good p {
+    width: 100%;
+    text-align: center;
+}
+.qud {
+    border: 1px solid red;
+    color: red;
+    border-radius: 10px;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+		</style>
+		<div class="beijin">
+			<div class="good">
+				<h5>提示</h5>
+				<p class="texts"></p>
+				<p class="qud" id="qd">确定</p>
+			</div>
+		</div>
+
 		<div class="footer" style="background-color: #1e2831;">
 			<div class="center">
 				<p>2014-2017 汇谷电子科技有限公司 版权所有：ICP备12027515号-1</p>
@@ -605,6 +655,11 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				$(".login .login2").css("display","none");
 				$(".login .login1").css("display","block");
 			})
+			
+			$("#qd").click(function() {
+				$(".beijin").css("display", "none");				
+			})
+			
 
 			 $("#login1s").click(function() {
                 if($("#phones").val() == "") {
@@ -713,7 +768,10 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 					page = page+1;
 				var num = $('.num').text();//总页码数
 				if (page>num) {
-					alert('暂无数据');return false;
+					/*alert('暂无数据');*/
+					$(".beijin").css("display", "block");
+					$(".beijin .texts").text("暂无数据");
+					return false;
 				}
 				var	clas = 'abc'+page;
 					$(".page a").removeClass('atcives');
