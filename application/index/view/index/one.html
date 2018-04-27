@@ -415,9 +415,9 @@
 				<a href="https://cn.bing.com/academic/?FORM=Z9LH2">学术</a>
 				<a href="https://cn.bing.com/dict/?FORM=HDRSC6">词典</a>
 				<a href="https://cn.bing.com/maps?q=&FORM=HDRSC7">地图</a>-->
-				<a href="{:url('index/one')}">首页</a>
-				<a href="{:url('demand/index')}">需求</a>
-				<a  href="{:url('cases/index')}" >案例</a>
+				<a href="{:url('index/one')}" target="_blank">首页</a>
+				<a href="{:url('demand/index')}" target="_blank">需求</a>
+				<a  href="{:url('cases/index')}"  target="_blank">案例</a>
 				<a href="#">人工</a>
 				
 				<a href="#" id="den">
@@ -563,17 +563,21 @@
 			function bings(s) {
 				
 				if(s != "") {
-					window.location.href = "https://cn.bing.com/search?q=" + s + "&go=%E6%90%9C%E7%B4%A2&qs=ds&form=QBRE";
+					/*window.location.href = "https://cn.bing.com/search?q=" + s + "&go=%E6%90%9C%E7%B4%A2&qs=ds&form=QBRE";*/
+					window.open("https://cn.bing.com/search?q=" + s + "&go=%E6%90%9C%E7%B4%A2&qs=ds&form=QBRE","name1","width=1920,height=1080,toolbar=no,scrollbars=no,menubar=no,screenX=0,screenY=0");  
 				}
 			}
 			function baidus(s){
 				if(s != "") {
-					window.location.href = "https://www.baidu.com/s?tn=96534837_s_hao_pg&wd=" + s ;
+					/*window.location.href = "https://www.baidu.com/s?tn=96534837_s_hao_pg&wd=" + s ;*/
+					window.open("https://www.baidu.com/s?tn=96534837_s_hao_pg&wd="+ s,"name1","width=1920,height=1080,toolbar=no,scrollbars=no,menubar=no,screenX=0,screenY=0");  
 				}				
 			}
 			function sou36(s){
 				if(s != "") {
-					window.location.href = "https://www.so.com/s?ie=utf-8&fr=none&src=360sou_newhome&q=" + s ;
+					/*window.location.href = "https://www.so.com/s?ie=utf-8&fr=none&src=360sou_newhome&q=" + s ;*/
+					 
+					window.open("https://www.so.com/s?ie=utf-8&fr=none&src=360sou_newhome&q="+ s,"name1","width=1920,height=1080,toolbar=no,scrollbars=no,menubar=no,screenX=0,screenY=0");  
 				}	
 			}
 			function sou() {							
@@ -600,7 +604,9 @@
 				}else {
 					
 				}
-				
+				/*window.open，location.href就是当前页面打开*/
+
+
 			})
 
 			function days() {

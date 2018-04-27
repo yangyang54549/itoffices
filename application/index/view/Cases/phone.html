@@ -435,7 +435,8 @@
 				width: 100px;
 			}
 
-			.code p {
+			.code a {
+				display: block;
 				width: 100px;
 				background-color: #0368bd;
 				height: 35px;
@@ -799,7 +800,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 						<p class="submits">提交项目需求</p>
 						<div class="code">
 							<img id="right-img" src="{$cases.code}" />
-							<p onclick="window.location='{$cases.preview}'">预览</p>
+							<a target="_blank" href="{$cases.preview}">预览</a>
 						</div>
 					</div>
 				</div>
