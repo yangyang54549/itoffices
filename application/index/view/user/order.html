@@ -239,7 +239,7 @@
 							<ul class="ul2">
 								{volist name="sdemand" id="vos"}
 								<li class="li_one">
-									<div class="top relative">
+									<div {if condition="$vos.is_apply_id eq 2"} class="top relative liBackground" {else/} class="top relative" {/if} >
 										<div class="top_left">
 											<img src="__INDEX__/img/bai.png" />
 										</div>
@@ -248,7 +248,11 @@
 											<p><span>郑州  </span><span>发布时间    </span><span>{$vos.create_time|date="Y-m-d H:i",###}</span></p>
 										</div>
 										<div class="top_right">
-											<span>{if condition="$vos.schedule == 1"}招募中{elseif condition="$vos.schedule == 2"/}对接中{elseif condition="$vos.schedule == 3"/}执行中{elseif condition="$vos.schedule == 4"/}已完成{/if}</span>
+											<span>
+											{if condition="$vos.is_apply_id eq 2"} 申请开发失败 {else/}
+												{if condition="$vos.schedule == 1"}招募中{elseif condition="$vos.schedule == 2"/}对接中{elseif condition="$vos.schedule == 3"/}执行中{elseif condition="$vos.schedule == 4"/}已完成{/if}
+											{/if}
+											</span>
 										</div>
 									</div>
 									<div class="bottom relative">
@@ -299,7 +303,8 @@
 												</div>
 											</div>
 										</p>
-										<div {if condition="$vos.apply_id.sstatus eq 1"} class="bottom_bottom blue1" {elseif condition="$vos.apply_id.sstatus eq 2" /} class="bottom_bottom blue2" {else/} class="bottom_bottom blue0" {/if} style="border-top: 1px dotted #d3d0d0;border-bottom: 1px dotted #d3d0d0;">
+										<div {if condition="$vos.is_apply_id eq 2"} class="bottom_bottom blue0" {else/} {if condition="$vos.apply_id.sstatus eq 1"} class="bottom_bottom blue1" {elseif condition="$vos.apply_id.sstatus eq 2" /} class="bottom_bottom blue2" {else/} class="bottom_bottom blue0" {/if}{/if}
+										 style="border-top: 1px dotted #d3d0d0;border-bottom: 1px dotted #d3d0d0;">
 											<p class="blue">
 												<span class="sptext">申请中</span>
 												<span class="spbackground"></span>
@@ -490,7 +495,6 @@ $(".cente-head .p2").click(function() {
 			$(".queren").click(function() {
 					/*申请方确认干活*/
 					var demand_id = $(this).data('id');
-					alert(demand_id);
 
 						$.post("{:url('user/order_gan')}",{
 							demand_id:demand_id
@@ -506,7 +510,6 @@ $(".cente-head .p2").click(function() {
 			})
 			$(".yanshou").click(function(){
 				var demand_id = $(this).data('id');
-				alert(demand_id);
 
 				$.post("{:url('user/order_wan')}",{
 					demand_id:demand_id,
@@ -528,7 +531,6 @@ $(".cente-head .p2").click(function() {
 			})
 			$(".tong").click(function() {
 				var demand_id = $(this).data('id');
-				alert(demand_id);
 
 				$.post("{:url('user/order_que')}",{
 					demand_id:demand_id,

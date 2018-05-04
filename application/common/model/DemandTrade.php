@@ -7,5 +7,5 @@ class DemandTrade extends Model
 {
     // 指定表名,不含前缀
     protected $name = 'demand_trade';
-    
+
 }

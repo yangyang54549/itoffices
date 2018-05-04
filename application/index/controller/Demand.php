@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-24 14:33:27
+ * @Last Modified time: 2018-05-02 17:11:20
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -135,9 +135,9 @@ class Demand extends Yang
             $page['count'] = D::where(['status'=>1])->count();//总条数
             $page['page'] = ceil($page['count']/9);//总共几页
             $page['num'] = 1;//当前处于第几页
-            $demandtype = DT::select();
+            $demandtype = DT::order('sort')->select();
             $demand = D::where(['status'=>1])->order('create_time desc')->page('1,9')->select();
-            $demandtrade = DTR::select();
+            $demandtrade = DTR::order('sort')->select();
             foreach ($demand as $k => $v) {
                 $dt = DT::where(['id'=>$v['type']])->find();
                 $demand[$k]['type'] = $dt['name'];
@@ -167,8 +167,9 @@ class Demand extends Yang
                 $this->ret['code'] = -200;
                 return json($this->ret);
             }
+            $user = User::where('id',Session::get('user.id'))->find();
             $data['user_id'] = Session::get('user.id');
-            $data['user_name'] = Session::get('user.user_name');
+            $data['user_name'] = $user['user_name'];
             $data['demand_id'] = $id;
             $data['create_time'] = time();
             Apply::insert($data);
@@ -177,11 +178,22 @@ class Demand extends Yang
 
         }else{
             $id = input('id');
+            $exist = 0;
             $demand = D::where('id',$id)->find();
             $dt = DT::where(['id'=>$demand['type']])->find();
             $demand['type'] = $dt['name'];
             $dtr = DTR::where(['id'=>$demand['industry']])->find();
             $demand['industry'] = $dtr['name'];
+
+            //判断是否已经申请过
+            $user_id = Session::get('user.id');
+            if (isset($user_id)) {
+                $apply = Apply::where(['user_id'=>Session::get('user.id'),'demand_id'=>$id])->find();
+                if (isset($apply)) {
+                    $exist = 1;
+                }
+            }
+
             // $demandtype = DT::select();
             // $demand = D::select();
             // foreach ($demand as $k => $v) {
@@ -191,6 +203,8 @@ class Demand extends Yang
             //     $demand[$k]['industry'] = $dtr['name'];
             // }
             // $this->assign('demandtype',$demandtype);
+
+            $this->assign('exist',$exist);
             $this->assign('demand',$demand);
             return $this->fetch();
         }

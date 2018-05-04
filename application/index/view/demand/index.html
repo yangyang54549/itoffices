@@ -296,11 +296,17 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				<span text="所有类型：">所有类型：</span>
 				<ul class="ty">
 					<li class="active" data-id="0">不限</li>
-					{volist name="demandtype" id="vo" }
-					<li data-id="{$vo.id}">{$vo.name}</li>
+					{volist name="demandtype" id="vo" key="n"}
+                    {if condition="$n lt 7"}
+						<li data-id="{$vo.id}">{$vo.name}</li>
+                    {else /}
+						<li data-id="{$vo.id}" style="display:none;">{$vo.name}</li>
+                    {/if}
 					{/volist}
-					<!-- <li data="131" class="freeman_none" style="display:none;">危机公关</li> -->
 
+                    {if condition="$n gt 7"}
+						<i class="more_choice" id="more_choice1">更多>></i>
+                    {/if}
 				</ul>
 				<i class="clear"></i>
 			</div>
@@ -308,11 +314,17 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				<span text="所属行业：">所属行业：</span>
 				<ul class="tyr">
 					<li class="active" data-id="0">不限</li>
-					{volist name="demandtrade" id="vo" }
-					<li data-id="{$vo.id}">{$vo.name}</li>
+					{volist name="demandtrade" id="vo" key="h"}
+	                    {if condition="$h lt 7"}
+						<li data-id="{$vo.id}">{$vo.name}</li>
+	                    {else /}
+						<li data-id="{$vo.id}">{$vo.name}</li>
+	                    {/if}
 					{/volist}
-					<!-- <li data="131" class="freeman_none" style="display:none;">危机公关</li> -->
 
+					{if condition="$h gt 7"}
+						<i class="more_choice" id="more_choice2">更多>></i>
+                    {/if}
 				</ul>
 				<i class="clear"></i>
 			</div>
@@ -356,18 +368,19 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 
 				</ul>
 				<div id="page-box">
-					<div class="page">
-						{for start="1" end="$page.page+1" comparison="lt" step="1" name="n"}
-							{if condition = "$n eq $page.num"}
-							<a  href="#" class="atcives abc{$n}" onclick="pagess({$n});">{$n}</a>
-							{else /}
-							<a  href="#" class="abc{$n}" onclick="pagess({$n});">{$n}</a>
-							{/if}
-						{/for}
-					</div>
-					<a href="#" class="page_next" onclick="xia();">下页</a>
-					<em><span class="now">{$page.num}</span>/<span class="num">{$page.page}</span>页&nbsp;&nbsp;共<span class="total">{$page.count}</span>条</em>
-
+					{if condition="$page.page gt 1"}
+						<div class="page">
+							{for start="1" end="$page.page+1" comparison="lt" step="1" name="n"}
+								{if condition = "$n eq $page.num"}
+								<a  href="#" class="atcives abc{$n}" onclick="pagess({$n});">{$n}</a>
+								{else /}
+								<a  href="#" class="abc{$n}" onclick="pagess({$n});">{$n}</a>
+								{/if}
+							{/for}
+						</div>
+						<a href="#" class="page_next" onclick="xia();">下页</a>
+						<em><span class="now">{$page.num}</span>/<span class="num">{$page.page}</span>页&nbsp;&nbsp;共<span class="total">{$page.count}</span>条</em>
+                    {/if}
 				</div>
 			</div>
 		</div>
@@ -514,7 +527,6 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				<div class="login_logo">
 					<span style="float: left;">登录</span>
 					<img src="__INDEX__/img/icon/cas.png" style="float: right;" id="login-none"/>
-
 				</div>
 
 				<div class="login1">
@@ -655,7 +667,9 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				$("#page-box .now").text('1')
 				$(this).parents(".choice_kind").find("li").removeClass("active").end().find(".freeman_none").css("display", 'none');
 				$(this).addClass("active");
-				$(this).parent().find(".more_choice").css('display', 'block');
+
+				//$(this).parent().find(".more_choice").css('display', 'block');
+
 				if($(this).attr("class").indexOf("freeman_none") > -1) {
 					$(this).parents(".choice_kind").find("span:eq(0)").html($(this).text() + ":").css("color", '#ff5454').attr("data", $(this).attr('data'))
 				} else {
@@ -751,7 +765,15 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				var tts = $(".navs i")[tt];
 				tts.className = "actives is";
 			});
-
+			/*点击显示*/
+			$("#more_choice1").click(function() {
+				$(".ty li").css("display","block");
+				$(this).css("display","none");
+			});
+			$("#more_choice2").click(function() {
+				$(".tyr li").css("display","block");
+				$(this).css("display","none");
+			});
 			function one() {
 				if($(".navs .actives").text() == "需求") {
 					window.location.href = "{:url('demand/index')}";

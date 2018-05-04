@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-25 17:57:31
+ * @Last Modified time: 2018-05-02 18:32:18
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -72,23 +72,24 @@ class User  extends Yang
         foreach ($demand as $key => $value) {
             $apply = Apply::where(['demand_id'=>$value['id']])->select();
             $demand[$key]['apply'] = $apply;
-            if (isset($value['apply_id'])) {
+            if (!empty($value['apply_id'])) {
                 $app = Apply::where(['id'=>$value['apply_id']])->find();
                 $demand[$key]['apply_id'] = $app;
                 $demand[$key]['app'] = $app['user_name'];
             }
         }
 
-        $apply = Apply::where(['user_id'=>Session::get('user.id')])->select();
+        $apply = Apply::where(['user_id'=>Session::get('user.id')])->order('create_time desc')->select();
         $sdemand = [];
         foreach ($apply as $k => $v) {
             $de = Demand::where(['id'=>$v['demand_id']])->find();//我发布的需求
 
-            if (isset($de['apply_id'])) {
+            if (!empty($de['apply_id'])) {
                 if ($de['apply_id']==$v['id']) {
                     $de['is_apply_id'] = 1;//申请的需求人选中了我
                 }elseif($de['apply_id']!=$v['id']){
-                    $de['is_apply_id'] = 2;//申请的需求人没有选中我
+                    continue;
+                    //$de['is_apply_id'] = 2;//申请的需求人没有选中我
                 }
 
                 $app = Apply::where(['id'=>$de['apply_id']])->find();

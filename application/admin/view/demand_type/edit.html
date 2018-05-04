@@ -4,21 +4,27 @@
     <form class="form form-horizontal" id="form" method="post" action="{:\\think\\Request::instance()->baseUrl()}">
         <input type="hidden" name="id" value="{$vo.id ?? ''}">
         <div class="row cl">
-            <label class="form-label col-xs-3 col-sm-3">需求类型：</label>
+            <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>类型名称：</label>
             <div class="formControls col-xs-6 col-sm-6">
-                <input type="text" class="input-text" placeholder="需求类型" name="name" value="{$vo.name ?? ''}" >
+                <input type="text" class="input-text" placeholder="类型名称" name="name" value="{$vo.name ?? ''}"  datatype="*" nullmsg="请填写类型名称">
             </div>
             <div class="col-xs-3 col-sm-3"></div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>商品图片：</label>
+            <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>类型图片：</label>
             <div class="formControls col-xs-6 col-sm-6">
-                <input type="text" name="img" value="{$vo.img ?? ''}" class="input-text" id="upload" placeholder="请点击后面的上传按钮" datatype="*" nullmsg="请填写图片url" style="width: 70%">
-                <button type="button" class="btn btn-primary radius" onclick="layer_open('文件上传','{:\\think\\Url::build(\'Upload/index\', [\'id\' => \'upload\'])}')">上传</button>
-                <a onclick="$(this).attr('href', $('#upload').val())" type="button" class="btn btn-success radius" data-lightbox="preview">预览</a>
+                <input type="text" class="input-text" placeholder="类型图片" name="img" value="{$vo.img ?? ''}"  datatype="*" nullmsg="请填写类型图片">
             </div>
             <div class="col-xs-3 col-sm-3"></div>
         </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>排序：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <input type="text" class="input-text" placeholder="排序" name="sort" value="{$vo.sort ?? ''}"  datatype="*" nullmsg="请填写排序">
+            </div>
+            <div class="col-xs-3 col-sm-3"></div>
+        </div>
+
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
                 <button type="submit" class="btn btn-primary radius">&nbsp;&nbsp;提交&nbsp;&nbsp;</button>

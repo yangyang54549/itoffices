@@ -11,5 +11,7 @@ class DemandType extends Controller
     // 方法黑名单
     protected static $blacklist = [];
 
+    protected static $isdelete = false;
+
     
 }

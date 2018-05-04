@@ -66,7 +66,12 @@
 		#xinxi,
 		#lianxi1 {
 			display: block;
-			width: 100%;
+			width: 230%;
+		}
+
+		#xinxi1{
+			display: block;
+			width: 230%;
 		}
 
 		#lianxi1,
@@ -634,14 +639,14 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 					<span><img src="__INDEX__/img/icon/xi04.png"/><span>联系方式</span></span>
 
 					<span>
-						<span id="xinxi"><a><img src="__INDEX__/img/hua.png" style="height: 16px;" /><span>：</span> <span>{$demand.mobile}</span></a></span>
-					<span id="lianxi1" style="z-index: 100;">
-					<a><img src="__INDEX__/img/wei.png"/> <span>：</span> <span>121797873</span></a>
-					<a><img src="__INDEX__/img/hua.png" style="height: 16px;" /><span>：</span> <span>{$demand.mobile}</span></a>
-					<a><img src="__INDEX__/img/144512357196727672.png" /><span>：</span> <span>121797873@qq.com</span></a>
-					<i class="clear"></i>
-					</span>
-					<span id="xinxi2">外包招募流程已经结束，联系信息已被隐藏</span>
+							{if condition="$exist eq 1"}
+								<span id="xinxi"><a><img src="__INDEX__/img/hua.png" style="height: 16px;" /><span>：</span> <span>{$demand.mobile}</span></a></span>
+							{else /}
+								<span id="xinxi" style="display:none"><a><img src="__INDEX__/img/hua.png" style="height: 16px;" /><span>：</span> <span>{$demand.mobile}</span></a></span>
+								<span id="xinxi1"><a><span>申请干活后才能看到联系方式哦</span></a></span>
+							{/if}
+
+					<!-- <span id="xinxi2">外包招募流程已经结束，联系信息已被隐藏</span> -->
 					</span>
 
 					<i class="clear"></i>
@@ -677,7 +682,13 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 					<span><i><em>已完成</em></i></span>
 					<em class="clear"></em>
 				</div>
-				<button id="content-sq">申请干活</button>
+				{if condition = "$demand.schedule eq 1"}
+					{if condition="$exist eq 1"}
+						<button id="content-sq">已申请</button>
+					{else/}
+						<button id="content-sq">申请干活</button>
+					{/if}
+				{/if}
 				<i class="clear"></i>
 
 			</div>
@@ -1324,6 +1335,8 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 						$("#lianxi1").css("display", "none");
 					})*/
 				$("#content-sq").click(function() {
+					if ($("#content-sq").text()=='申请干活') {
+
 
 					// $(".login_background").css("display","block");
 					// $(".login").css("display","block");
@@ -1337,12 +1350,15 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 							console.log(data);
 							if (data.code==1) {
 								$(".beijin").css("display", "block");
+								$("#xinxi").css("display", "block");
+								$("#xinxi1").css("display", "none");
+
 							}else{
 								alert(data.msg);
 							}
 						}, "json");
 					}
-
+				}
 			})
 			$("#qd").click(function() {
 				$(".beijin").css("display", "none");

@@ -799,7 +799,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 						<p class="submits">提交项目需求</p>
 						<div class="code">
 							<img id="right-img" src="{$cases.code}" />
-							<p onclick="window.location='{$cases.preview}'">预览</p>
+							<p onclick="window.open('{$cases.preview}')">预览</p>
 						</div>
 					</div>
 				</div>
@@ -1220,8 +1220,8 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 			quweinongchang();
 			function quweinongchang(){
 				var h4text =  $("#right-h4").text();
-				if(h4text == "趣味农场"){				
-					$("#right-img").attr('src',"__INDEX__/img/qw.png"); 
+				if(h4text == "趣味农场"){
+					$("#right-img").attr('src',"__INDEX__/img/qw.png");
 				}
 			}
 			/*var ph = document.getElementById("phone_height");
