@@ -660,7 +660,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 			</div>
 			<div class="content-info-right">
 				<p class="content-info-right-p">交付日期</p>
-				<h3>2017年11月22日</h3>
+				<h3>{$demand.create_time|date="Y-m-d",###}</h3>
 				<p class="content-info-right-p">项目预算</p>
 				<h3 class="content-info-right-red">{$demand.money}</h3>
 				<div class="count">
@@ -1547,7 +1547,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				<h1 style="height: 26px;font-size: 16px; line-height: 30px;padding-top: 10px;"><img src="__INDEX__/img/icon/xi11.png"class="img" /><span id="" style="font-size: 16px; line-height: 30px;">
 			参考网址/产品
 		</span>
-				<span id="" style="font-size: 16px; line-height: 30px; margin-left: 30px;color: gray; font-weight: 500;" onclick="window.location='{$demand.reference}'">
+				<span id="" style="font-size: 16px; line-height: 30px; margin-left: 30px;color: gray; font-weight: 500;" onclick="window.location='http://{$demand.reference}'">
 					{$demand.reference}
 				</span></h1>
 
