@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<title>IT联合办公</title>
+		<title>首页</title>
 		<link rel="stylesheet" type="text/css" href="__INDEX__/css/header.css" />
 		<link rel="stylesheet" href="__INDEX__/css/restre.css">
 		<link rel="stylesheet" type="text/css" href="__INDEX__/css/order.css" />
@@ -19,6 +19,11 @@
 		    color: white;
 		    padding: 10px 10px !important;
 		    border-radius: 5px;
+		}
+		.h5bth{
+			position: absolute;
+			top: 10px;
+			right: 50px;
 		}
 		</style>
 	</head>
@@ -45,7 +50,7 @@
 				</div>
 				<ul class="navs">
 					<li>
-						<a href="{:url('index/index')}" class="is">IT联合办公</a>
+						<a href="{:url('index/one')}" class="is">首页</a>
 					</li>
 					<li>
 						<a href="{:url('demand/index')}" class="is">需求</a>
@@ -362,6 +367,7 @@
 												</div>
 												<div class="">
 													<h5 class="blues">需求方已验收 <i></i></h5>
+													<h5 class="h5bth">评价 </h5>
 												</div>
 											</div>
 										{/if}

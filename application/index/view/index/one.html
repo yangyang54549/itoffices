@@ -2,9 +2,8 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>it</title>
-		<link rel="stylesheet" type="text/css" href="__INDEX__/css/font-awesome.min.css"/>
-		
+		<title>首页</title>
+		<link rel="stylesheet" type="text/css" href="__INDEX__/css/font-awesome.min.css"/>		
 		<style type="text/css">
 			body,
 			div,
@@ -19,11 +18,9 @@
 			
 			body {
 				width: 100vw;
-				height: 100vh;
-				
+				height: 100vh;				
 				min-height: 900px;
-				min-width: 1600px;
-				
+				min-width: 1600px;				
 				position: relative;
 			}
 			
@@ -413,11 +410,16 @@
 		<div class="header">
 
 			<div class="center">
-				<a href="https://cn.bing.com/images/trending?form=Z9LH">图片</a>
+				<!--<a href="https://cn.bing.com/images/trending?form=Z9LH">图片</a>
 				<a href="https://cn.bing.com/videos/trending">视频</a>
 				<a href="https://cn.bing.com/academic/?FORM=Z9LH2">学术</a>
 				<a href="https://cn.bing.com/dict/?FORM=HDRSC6">词典</a>
-				<a href="https://cn.bing.com/maps?q=&FORM=HDRSC7">地图</a>
+				<a href="https://cn.bing.com/maps?q=&FORM=HDRSC7">地图</a>-->
+				<a href="{:url('index/one')}" target="_blank">首页</a>
+				<a href="{:url('demand/index')}" target="_blank">需求</a>
+				<a  href="{:url('cases/index')}"  target="_blank">案例</a>
+				<a href="#">人工</a>
+				
 				<a href="#" id="den">
 					<span>登录</span><span class="fa fa-2x fa-user-circle"></span>
 				</a>
@@ -430,16 +432,15 @@
 
 				<div class="search1">
 					<div class="navs">
-						<a href="#" class="is  actives">首页</a>
-						<!--<a href="#" class="is ">IT联合办公</a>-->
-						<a href="#" class="is ">需求</a>
-						<a href="#" class="is  ">案例</a>
-						<a href="#" class="is ">人工</a>
+						<a href="#" class="is  actives">百度搜索</a>						
+						<a href="#" class="is ">360搜索</a>
+						<a href="#" class="is  ">bing搜索</a>
+						
 					</div>
 					<input type="text" name="" id="name" value="" placeholder="搜索..." />
 					<img src="__INDEX__/img/icon/fda.png" />
 					<button onclick="sou();">搜索</button>
-					<p id="sousuo">bing搜索</p>
+					<p id="sousuo">百度搜索</p>
 					<span>或者</span>
 				</div>
 			</div>
@@ -525,7 +526,8 @@
 				$(".navs .is").removeClass("actives");
 				tt = $(".navs .is").index($(this));
 				var tts = $(".navs .is")[tt];
-				tts.className = "actives is";				
+				tts.className = "actives is";	
+				$("#sousuo").text($(this).text());
 			});
 			var h1 = 0;
 				var h2 = 0;
@@ -558,17 +560,28 @@
 				}				
 			})
 
-			function bings() {
-				var names = $("#name").val();
-				if(names == "") {} else {
-					window.location.href = "https://cn.bing.com/search?q=" + names + "&go=%E6%90%9C%E7%B4%A2&qs=ds&form=QBRE";
+			function bings(s) {
+				
+				if(s != "") {
+					/*window.location.href = "https://cn.bing.com/search?q=" + s + "&go=%E6%90%9C%E7%B4%A2&qs=ds&form=QBRE";*/
+					window.open("https://cn.bing.com/search?q=" + s + "&go=%E6%90%9C%E7%B4%A2&qs=ds&form=QBRE","name1","width=1920,height=1080,toolbar=no,scrollbars=no,menubar=no,screenX=0,screenY=0");  
 				}
 			}
-
-			function sou() {
-				
-				
-				if($(".navs .actives").text() == "需求") {
+			function baidus(s){
+				if(s != "") {
+					/*window.location.href = "https://www.baidu.com/s?tn=96534837_s_hao_pg&wd=" + s ;*/
+					window.open("https://www.baidu.com/s?tn=96534837_s_hao_pg&wd="+ s,"name1","width=1920,height=1080,toolbar=no,scrollbars=no,menubar=no,screenX=0,screenY=0");  
+				}				
+			}
+			function sou36(s){
+				if(s != "") {
+					/*window.location.href = "https://www.so.com/s?ie=utf-8&fr=none&src=360sou_newhome&q=" + s ;*/
+					 
+					window.open("https://www.so.com/s?ie=utf-8&fr=none&src=360sou_newhome&q="+ s,"name1","width=1920,height=1080,toolbar=no,scrollbars=no,menubar=no,screenX=0,screenY=0");  
+				}	
+			}
+			function sou() {							
+				/*if($(".navs .actives").text() == "需求") {
 					window.location.href = "{:url('demand/index')}";
 				} else if($(".navs .actives").text() == "案例") {
 					window.location.href = "{:url('cases/index')}";
@@ -576,11 +589,24 @@
 					window.location.href = "{:url('index/index')}";
 				}else if($(".navs .actives").text() == "首页"){
 						location.reload();
-				}
+				}*/
 			}
 			
 			$("#sousuo").click(function() {
-				bings();
+				var names = $("#name").val();
+				var tex = $("#sousuo").text();
+				if(tex=="百度搜索"){
+					 baidus(names);
+				}else if(tex=="360搜索"){
+					sou36(names);
+				}else if(tex=="bing搜索"){
+					bings(names);
+				}else {
+					
+				}
+				/*window.open，location.href就是当前页面打开*/
+
+
 			})
 
 			function days() {
