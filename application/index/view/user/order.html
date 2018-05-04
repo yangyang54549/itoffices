@@ -120,7 +120,7 @@
 	</script>
 
 	<body>
-		<div style="width:100%;box-shadow:0 2px 4px 0 rgba(58,68,85,0.16);position:relative;z-index:99999;background-color: rgba(0,0,0,0.1);">
+		<div style="width:100%;box-shadow:0 2px 4px 0 rgba(58,68,85,0.16);position:relative;z-index:9;background-color: rgba(0,0,0,0.1);">
 			<div class="head">
 				<div class="logo">
 					<a href="###"></a>
@@ -530,7 +530,7 @@
   display: none;
 }
 .goods {
-    margin: 30vh auto;
+    margin: 35vh auto;
     padding: 50px;
     width: 400px;
     background-color: white;
@@ -574,21 +574,17 @@
 		<script src="__INDEX__/js/order.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			taps(0);
-
 $(".cente-head .p2").click(function() {
 	var tt  = $(".cente-head .p2").index($(this));
 	$(".cente-head .p2").removeClass("on");
 	$(this).addClass("on");
 	if(tt > 1) {
 		tap = tt;
-			window.location.href = "{:url('user/orders')}";
-
-	} else {		$(".cente_ul").css("margin-left", "-" +(tt*100)+ "%");	}
-
-
-
+		window.location.href = "{:url('user/orders')}";
+	} else {	
+		$(".cente_ul").css("margin-left", "-" +(tt*100)+ "%");
+	}
 })
-
 			/*ul1*/
 			$(".ul1 .li_one .top").click(function() {
 				var sr1 = $(this).parent();
