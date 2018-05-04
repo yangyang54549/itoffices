@@ -293,6 +293,7 @@ a {
 				line-height: 40px;
 				font-weight: 700;
 				display: block;
+				color: red;
 			}
 
 			.participation a:nth-child(1) {
@@ -561,3 +562,6 @@ a {
 		.li_ones .top{
 			background-color: rgba(0,0,0,.1);
 		}
+.participation a{
+	color: black !important;  
+}
