@@ -526,7 +526,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 200;
+    z-index: 700;
   display: none;
 }
 .goods {
@@ -635,7 +635,7 @@ $(".cente-head .p2").click(function() {
 					/*获取 选择的接单 的data-id*/
 					var user_id = $("."+names+" .li_one:nth-child("+(tt+1)+") .str .participations .participation1").data('id');
 
-					if (user_id==null) { alert('请选择开发者');return false };
+					if (user_id==null) { $(".beijin").css("display", "block");$(".beijin .texts").text('请选择开发者');return false };
 					var strs= new Array(); //定义一数组
 					strs=user_id.split(","); //字符分割
 
@@ -645,10 +645,10 @@ $(".cente-head .p2").click(function() {
 						},function(data){
 							console.log(data);
 							if (data.code==1) {
-								alert("提交成功");
+								$(".beijin").css("display", "block");$(".beijin .texts").text("提交成功");
 								window.location.reload();
 							}else{
-								alert("提交失败");
+								$(".beijin").css("display", "block");$(".beijin .texts").text("提交失败");
 							}
 						}, "json");
 			})
@@ -662,10 +662,10 @@ $(".cente-head .p2").click(function() {
 						},function(data){
 							console.log(data);
 							if (data.code==1) {
-								alert("提交成功");
+								$(".beijin").css("display", "block");$(".beijin .texts").text("提交成功");
 								window.location.reload();
 							}else{
-								alert("提交失败");
+								$(".beijin").css("display", "block");$(".beijin .texts").text("提交失败");
 							}
 						}, "json");
 			})
@@ -677,10 +677,10 @@ $(".cente-head .p2").click(function() {
 				},function(data){
 					console.log(data);
 					if (data.code==1) {
-						alert("提交成功");
+						$(".beijin").css("display", "block");$(".beijin .texts").text("提交成功");
 						window.location.reload();
 					}else{
-						alert("提交失败");
+						$(".beijin").css("display", "block");$(".beijin .texts").text("提交失败");
 					}
 				}, "json");
 			})
@@ -698,10 +698,10 @@ $(".cente-head .p2").click(function() {
 				},function(data){
 					console.log(data);
 					if (data.code==1) {
-						alert("提交成功");
+						$(".beijin").css("display", "block");$(".beijin .texts").text("提交成功");
 						window.location.reload();
 					}else{
-						alert("提交失败");
+						$(".beijin").css("display", "block");$(".beijin .texts").text("提交失败");
 					}
 				}, "json");
 			})
@@ -753,15 +753,18 @@ $(".cente-head .p2").click(function() {
 						$(".login_background").css("display","none");
 						$(".good").css("display","none");
 			 		}else{
-			 			alert("未写评论");
+			 			$(".beijin").css("display", "block");$(".beijin .texts").text("未写评论");
+			 			
 			 		}
 			 	}else {
-			 		alert("未选择星级");
+			 		$(".beijin").css("display", "block");$(".beijin .texts").text("未选择星级");
 			 	}
 			 					 				
 			})
 $("#qd").click(function() {
 				$(".beijin").css("display", "none");				
+			})
+$(".beijin").click(function() {$(".beijin").css("display", "none");				
 			})
 		</script>
 
