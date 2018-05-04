@@ -10,6 +10,17 @@
 		<script type="text/javascript" src="__INDEX__/js/jss/jquery-1.9.1.min.js"></script>
 
 		<style type="text/css">
+			.login_background{
+				 width: 100%;
+    			min-width: 1080px;
+    			height:100vh;
+    			min-height: 800px;
+    			position: fixed;
+    			top: 0;
+    			left: 0;
+    			z-index: 50;
+    			background-color: rgba(0,0,0,.3);  display: none;
+			}
 		.queren {
 		    display: block;
 		    position: absolute;
@@ -23,8 +34,74 @@
 		.h5bth{
 			position: absolute;
 			top: 10px;
-			right: 50px;
+			right: 10px;
+			padding: 5px 10px;
+			background-color: #0082E6;
+			color: white;
 		}
+		.good {
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   z-index: 600;
+   margin-left: -230px;
+   margin-top: -150px;
+    padding: 30px;
+    width: 400px;
+    background-color: white;
+    border-radius: 10px;
+    display: none;
+    
+}
+.good h5 {
+    font-size: 18px;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.good h5, .good .pinglun {
+    width: 100%;
+    text-align: center;
+}
+.pinglun{
+				
+				display: flex;
+				margin: 10px 0px;
+			}
+			.pinglun label{
+				font-size: 16px;
+				width: 100px;
+			}
+			.ct-star {
+        display: inline-block;
+        margin: 0 1px;
+        width: 25px;
+        height: 25px;
+        background: url(__INDEX__/img/xing1.png);
+        -moz-background-size:100% 100%;
+			   background-size:100% 100%;
+			 
+        vertical-align: -2px;
+        cursor: pointer;
+    }
+    .ct-stars{
+    	 background: url(__INDEX__/img/xin.png);
+        -moz-background-size:100% 100%;
+			   background-size:100% 100%;
+    }
+   .pinglun textarea{
+   	width: 250px;
+   	padding: 5px;
+   	line-height: 25px;
+   }
+.pinglunp{
+    border: 1px solid red;
+    color: red;
+    border-radius: 10px;
+    padding: 10px 0;
+    margin-top: 20px;
+    text-align: center;
+}
 		</style>
 	</head>
 	<script>
@@ -65,9 +142,12 @@
 				<div style="clear:both"></div>
 			</div>
 		</div>
+		
+		
+		
 		<div class="content" style="padding: 0;">
 			<div class="center">
-				<div class="center_left">
+				<div class="center_left"> 
 					<a href="{:url('user/resume')}">个人主页</a>
 					<a href="{:url('user/index')}">基本信息</a>
 					<a href="{:url('user/order')}" class="active"><em></em>我的订单</a>
@@ -212,6 +292,29 @@
 														</div>
 														<div class="">
 															<h5 class="blues">已确认完工<i></i></h5>
+															<p class="h5bth">评价 </p>
+															<div class="good">
+				<h5>评论</h5>
+				<div class="pinglun">
+			<label>评论星级</label>
+			<span class="star">
+        <b class="ct-star  "></b>
+        <b class="ct-star  "></b>
+        <b class="ct-star  "></b>
+        <b class="ct-star  "></b>
+        <b class="ct-star  "></b>
+		</span>
+		<span class="star-txt"></span>
+		</div>
+		<div class="pinglun">
+			<label>评论内容</label>
+			<textarea name="" rows="2" cols="" maxlength="50" placeholder="限定50字以内"></textarea>
+		</div>
+		<div class="pinglunp">
+			
+			确定
+		</div>
+			</div>
 														</div>
 													</div>
 													{else/}
@@ -366,8 +469,8 @@
 													<i>{$vos.username}</i>
 												</div>
 												<div class="">
-													<h5 class="blues">需求方已验收 <i></i></h5>
-													<h5 class="h5bth">评价 </h5>
+													<h5 class="blues">需求方已验收 </h5>
+													
 												</div>
 											</div>
 										{/if}
@@ -415,7 +518,59 @@
 				<p>2014-2017 汇谷电子科技有限公司 版权所有：ICP备12027515号-1</p>
 			</div>
 		</div>
+					<style type="text/css">
+			.beijin {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+  display: none;
+}
+.goods {
+    margin: 30vh auto;
+    padding: 50px;
+    width: 400px;
+    background-color: white;
+    border-radius: 10px;
+}
+.goods h5 {
+    font-size: 16px;
+    margin: 0;
+    margin-bottom: 20px;
+}
 
+.goods h5, .goods p {
+    width: 100%;
+    text-align: center;
+}
+.goods p {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.goods h5, .goods p {
+    width: 100%;
+    text-align: center;
+}
+.qud {
+    border: 1px solid red;
+    color: red;
+    border-radius: 10px;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+		</style>
+		<div class="beijin">
+			<div class="goods">
+				<h5>提示</h5>
+				<p class="texts"></p>
+				<p class="qud" id="qd">确定</p>
+			</div>
+		</div>
+<div class="login_background" ></div>
 		<script src="__INDEX__/js/order.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			taps(0);
@@ -549,6 +704,64 @@ $(".cente-head .p2").click(function() {
 						alert("提交失败");
 					}
 				}, "json");
+			})
+			$(".h5bth").click(function(){
+				var next = $(this).next();
+				$(this).next().css("display","block");
+				$(this).next().addClass("you");
+				$(".login_background").css("display","block");
+				/*if(next.is('.good')){
+					next.addClass("you");
+					
+				}*/
+			})
+			$(".login_background").click(function(){
+				$(".login_background").css("display","none");
+				$(".good").css("display","none");
+			})
+			
+			 window.onload=function(){
+        var aSpan=$(".good .pinglun .star");   
+        var aBstar=$(".good .pinglun .star b");       
+        var num=0;
+        var onOff=true;for(var i= 0;i<aBstar.length;i++){
+                aBstar[i].index=i;                         
+                //鼠标点击
+                aBstar[i].onclick=function(){
+                    onOff=false;//开关为假就不执行鼠标移除的代码
+                    //先清空                                    
+                    for(var i=0;i<aBstar.length;i++){
+                        /*aBstar[i].style.background =  "url(__INDEX__/img/xing1.png)"; aBstar[i].style.backgroundSize = "100% 100%";*/
+                      aBstar[i].classList.remove("ct-stars");
+                    }
+                    //点击当前星星，之前的都点亮包含自己
+                    num = this.index ;                 
+                    for(var i=0;i<=this.index;i++){
+                    	
+                    	 aBstar[i].classList.add("ct-stars");
+                       /* aBstar[i].style.background =  "url(__INDEX__/img/xin.png)"; aBstar[i].style.backgroundSize = "100% 100%";*/
+                    }
+                };
+            }
+    }
+			 $(".good .pinglunp").click(function(){
+			 	var len = $(".you .pinglun .star .ct-stars").length;
+			 	var val = $(".you .pinglun textarea").val();
+			 	if(len>0){
+			 		if(val!=""){
+			 			$(".good.you").removeClass("you");
+						$(".login_background").css("display","none");
+						$(".good").css("display","none");
+			 		}else{
+			 			alert("未写评论");
+			 		}
+			 	}else {
+			 		alert("未选择星级");
+			 	}
+			 					 				
+			})
+$("#qd").click(function() {
+				$(".beijin").css("display", "none");				
 			})
 		</script>
 
