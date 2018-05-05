@@ -1177,10 +1177,10 @@ $(" .xiugai  .affirm").click(function(){
 				var oNoHis2 = $.myTime.DateToUnix(no2); // 1498060800					
 					if(oNoHis2>oNoHis1){
 						$(".login_background").css("display", "none");
-				$(".xiugai").css("display", "none");
-				$(".beijin").css("display", "block");$(".beijin .texts").text("修改完成");
+						$(".xiugai").css("display", "none");
+						$(".beijin").css("display", "block");$(".beijin .texts").text("修改完成");
 					}else{
-						$(".beijin").css("display", "block");$(".beijin .texts").text("交付时间不能小于等于开始时间");
+						$(".beijin").css("display", "block");$(".beijin .texts").text("交付时间不能小于或等于开始时间");
 					}				
 			}else{
 		$(".beijin").css("display", "block");$(".beijin .texts").text("请输入交付时间");
