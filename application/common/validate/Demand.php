@@ -17,7 +17,6 @@ class Demand extends Validate
         "schedule|项目进度" => "require",
         "info|任务详情" => "require",
         "reference|参考网站/产品" => "require",
-        "authority|官方观点" => "require",
         "company_name|公司名称" => "require",
         "user_name|发布人姓名" => "require",
         "mobile|手机号码" => "require",

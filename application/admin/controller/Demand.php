@@ -10,6 +10,8 @@ use think\exception\HttpException;
 use think\Config;
 use app\common\model\DemandType;
 use app\common\model\DemandTrade;
+use app\common\model\Demand as D;
+use app\common\model\Apply;
 
 class Demand extends Controller
 {
@@ -92,6 +94,10 @@ class Demand extends Controller
 
                     return ajax_return_adv_error($e->getMessage());
                 }
+            }
+            if ($data['schedule']==4) {
+                $demand = D::where('id',$data['id'])->find();
+                Apply::where(['id'=>$demand['apply_id']])->update(['sstatus'=>3]);
             }
 
             return ajax_return_adv("编辑成功");

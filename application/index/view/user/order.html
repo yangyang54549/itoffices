@@ -346,15 +346,23 @@
 											<p><span>郑州  </span><span>发布时间    </span><span>{$vo.create_time|date="Y-m-d H:i",###}</span></p>
 										</div>
 										<div class="top_right">
-											<span>{if condition="$vo.schedule == 1"}招募中{elseif condition="$vo.schedule == 2"/}对接中{elseif condition="$vo.schedule == 3"/}执行中{elseif condition="$vo.schedule == 4"/}已完成{/if}</span>
+
+											{if condition="$vo.schedule == 1"}
+											<span>招募中</span>
+											{elseif condition="$vo.schedule == 2"/}
+											<span>对接中</span>
+											{elseif condition="$vo.schedule == 3"/}
+											<span>执行中</span>
+											{elseif condition="$vo.schedule == 4"/}
+											<span style="color:#000">已完成</span>
+											{/if}
 										</div>
 									</div>
 									<div {if condition="$vo.apply_id"} class="bottom relative str" {else/} class="bottom relative" {/if}>
 										<div class="demanddel-type">
-											<img src="__INDEX__/img/xiugai.png" class="imgs" alt="修改" title="修改">
-											<div class="xiugai">
+			<img src="__INDEX__/img/xiugai.png" class="imgs" alt="修改" title="修改">
+			<div class="xiugai">
 			<div class="xiugai-cen">
-				<!--<span>*总工时</span><span id="times">8</span><span>天<span>-->
 			</div>
 			<div class="xiugai-day">
 				<label>项目预算</label>
@@ -362,7 +370,6 @@
 					<input type="number" name="" id="" value="1" id="day" /><span>元</span>
 				</div>
 				<div class="">
-					<!--<input type="number" name="" id="" value="0" id="daytime" /><span>小时</span>-->
 				</div>
 			</div>
 			<div class="xiugai-times">
@@ -549,6 +556,17 @@
 														</div>
 													</div>
 													{/if}
+												{elseif condition="$vo.apply_id.sstatus == 3"/}
+													<div class="renyuean3">
+														<div class="">
+															<img src="__INDEX__/img/avatar/2.jpg" />
+															<i>{$vo.apply_id.user_name}</i>
+														</div>
+														<div class="">
+															<h5 class="blues">已完工  <i></i></h5>
+															<!-- <i style="border-left: 2px solid gray;color: gray;"><is>已评价</i> -->
+														</div>
+													</div>
 												{/if}
 										</div>
 										{/if}
@@ -575,11 +593,15 @@
 											<p><span>郑州  </span><span>发布时间    </span><span>{$vos.create_time|date="Y-m-d H:i",###}</span></p>
 										</div>
 										<div class="top_right">
-											<span>
-											{if condition="$vos.is_apply_id eq 2"} 申请开发失败 {else/}
-												{if condition="$vos.schedule == 1"}招募中{elseif condition="$vos.schedule == 2"/}对接中{elseif condition="$vos.schedule == 3"/}执行中{elseif condition="$vos.schedule == 4"/}已完成{/if}
+											{if condition="$vos.schedule == 1"}
+											<span>招募中</span>
+											{elseif condition="$vos.schedule == 2"/}
+											<span>对接中</span>
+											{elseif condition="$vos.schedule == 3"/}
+											<span>执行中</span>
+											{elseif condition="$vos.schedule == 4"/}
+											<span style="color:#000">已完成</span>
 											{/if}
-											</span>
 										</div>
 									</div>
 									<div class="bottom relative">
@@ -667,8 +689,7 @@
 												<div class="">
 													<h5 class="blues" style="color: #0082E6; ">硅谷 雇佣了你</h5>
 													<i style="border-left: 2px solid gray; color: gray;">
-													<i  >硅谷</i><i>13613820359</i></i><i class="queren " data-id="{$vos.id}"> 是否开工：确认</i>
-
+													<i>硅谷</i><i>13613820359</i></i><i class="queren " data-id="{$vos.id}"> 是否开工：确认</i>
 												</div>
 											</div>
 											{elseif condition="$vos.apply_id.sstatus == 1"/}
@@ -692,6 +713,7 @@
 												</div>
 												<div class="">
 													<h5 class="blues">需求方已验收 </h5>
+													<i style="border-left: 2px solid gray; color: gray;"><i>等待后台提成佣金</i></i>
 												</div>
 											</div>
 										{elseif condition="$vos.apply_id.xstatus == 3"/}
@@ -701,7 +723,8 @@
 													<i>{$vos.username}</i>
 												</div>
 												<div class="">
-													<h5 class="blues">需求方已评价 </h5>
+													<h5 class="blues">需求已完成</h5>
+													<i style="border-left: 2px solid gray; color: gray;"><i>已提成佣金</i></i>
 												</div>
 											</div>
 										{/if}

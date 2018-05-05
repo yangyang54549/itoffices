@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-05-05 11:02:25
+ * @Last Modified time: 2018-05-05 14:19:02
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -157,7 +157,13 @@ class User  extends Yang
         Apply::where(['status' => 1,'demand_id'=>$demand_id])->update(['xstatus' => 3]);
         return json($this->ret);
     }
-
+    //需求方修改时间
+    // public function order_que()
+    // {
+    //     $demand_id = input('demand_id');
+    //     Apply::where(['status' => 1,'demand_id'=>$demand_id])->update(['xstatus' => 2]);
+    //     return json($this->ret);
+    // }
     //申请方确认干活
     public function order_gan()
     {
