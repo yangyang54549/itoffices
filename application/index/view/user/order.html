@@ -53,7 +53,7 @@
     background-color: white;
     border-radius: 10px;
     display: none;
-    
+
 }
 .good h5 {
     font-size: 18px;
@@ -66,7 +66,7 @@
     text-align: center;
 }
 .pinglun{
-				
+
 				display: flex;
 				margin: 10px 0px;
 			}
@@ -82,7 +82,7 @@
         background: url(__INDEX__/img/xing1.png);
         -moz-background-size:100% 100%;
 			   background-size:100% 100%;
-			 
+
         vertical-align: -2px;
         cursor: pointer;
     }
@@ -115,7 +115,7 @@
 }
 .xiugai {
 				width: 600px;
-				
+
 				position: fixed;
 				top: 50%;
 				left: 50%;
@@ -128,7 +128,7 @@
 				overflow: hidden;
 				display: none;
 			}
-			
+
 			.xiugai>div {
 				width: 100%;
 				box-sizing: border-box;
@@ -137,25 +137,25 @@
 				font-size: 15px;
 				color: black;
 			}
-			
+
 			.xiugai-cen {
 				display: flex;
 				justify-content: center;
 				color: #2994f2 !important;
 				font-size: 16px;
 			}
-			
+
 			.xiugai>div>div span {
 				padding: 5px 10px;
 			}
-			
+
 			.xiugai-text,
 			.xiugai-times,
 			.xiugai-day {
 				width: 100%;
 				overflow: hidden;
 			}
-			
+
 			.xiugai-day label,
 			.xiugai-times label,
 			.xiugai-text label {
@@ -165,7 +165,7 @@
 				font-weight: bold;
 				text-align: left;
 			}
-			
+
 			.xiugai-day div,
 			.xiugai-times div,
 			.xiugai-day label,
@@ -174,23 +174,23 @@
 				width: 100%;
 				text-align: left;
 			}
-			
+
 			.xiugai-day div,
 			.xiugai-times div {
 				width: 50%;
 			}
-			
+
 			.xiugai>div input {
 				height: 25px;
 				line-height: 25px;
 				padding: 0px 10px;
 			}
-			
+
 			.xiugai-text textarea {
 				padding: 0px 10px;
 				line-height: 25px;
 			}
-			
+
 			.xiugai-text label,
 			.xiugai-day label,
 			.xiugai-text textarea,
@@ -203,7 +203,7 @@
 				box-sizing: border-box;
 				overflow: hidden;
 			}
-			
+
 			.buttom>span {
 				float: left;
 				width: 100px;
@@ -213,20 +213,20 @@
 				color: white;
 				margin-right: 20px;
 			}
-			
+
 			.buttom .sptext {
 				background-color: #3595fb;
 			}
-			
+
 			.buttom .spbackground {
 				background-color: #ffcc09!important;
 			}
-			
+
 			.buttom .teal {
 				width: 100%;
 				margin: 5px;
 			}
-			
+
 			#buttom,
 			#buttoms {
 				width: 100%;
@@ -234,7 +234,7 @@
 				padding: 0px;
 				margin: 10px 0px 0px 0px;
 			}
-			
+
 			#buttom p,
 			#buttoms p {
 				width: 50%;
@@ -244,12 +244,12 @@
 				margin: 0px;
 				color: white;
 			}
-			
+
 			#buttom .affirm,
 			#buttoms .affirm {
 				background-color: #3595FB;
 			}
-			
+
 			#buttom .cancel,
 			#buttoms .cancel {
 				background-color: #B3BDCF;
@@ -307,12 +307,12 @@
 				<div style="clear:both"></div>
 			</div>
 		</div>
-		
-		
-		
+
+
+
 		<div class="content" style="padding: 0;">
 			<div class="center">
-				<div class="center_left"> 
+				<div class="center_left">
 					<a href="{:url('user/resume')}">个人主页</a>
 					<a href="{:url('user/index')}">基本信息</a>
 					<a href="{:url('user/order')}" class="active"><em></em>我的订单</a>
@@ -376,7 +376,7 @@
 					    </div>
 					</div>
 				</div>
-				
+
 			</div>
 			<!--<div class="xiugai-text">
 				<label>工作地点</label>
@@ -426,7 +426,7 @@
 											非常紧急
 											{/if}
 										</span></p>
-										
+
 										<p><span>开始时间</span><span class="time-begin">待协商</span></p>
 										<p><span>交付时间</span><span class="time-finish">待协商</span></p>
 										<p><span>需求描述</span><span>{$vo.info}</span></p>
@@ -456,10 +456,10 @@
 												<span class="sptext">确认完工</span>
 												<span class="spbackground"></span>
 											</p>
-											<!-- <p>
-												<span>评价</span>
+											<p>
+												<span class="sptext">评价</span>
 												<span class="spbackground"></span>
-											</p> -->
+											</p>
 										</div>
 										{if condition="$vo.apply"}
 										<div class="string string3" >
@@ -525,7 +525,7 @@
 			<textarea name="" rows="2" cols="" maxlength="50" placeholder="限定50字以内"></textarea>
 		</div>
 		<div class="pinglunp">
-			
+
 			确定
 		</div>
 			</div>
@@ -579,7 +579,7 @@
 									</div>
 									<div class="bottom relative">
 										<div class="demanddel-type">
-											
+
 											<p class="demanddel-t" style="font-size: 1.2em;color: #797979;">项目预算</p>
 											<p style="font-size: 24px;color: #ec1313;" >{$vos.money}元 </p>
 											<div class="demanddel-num">
@@ -642,10 +642,10 @@
 												<span class="sptext">我已完工</span>
 												<span class="spbackground"></span>
 											</p>
-											<!-- <p>
+											<p>
 												<span class="sptext">提成佣金</span>
 												<span class="spbackground"></span>
-											</p> -->
+											</p>
 										</div>
 
 
@@ -687,7 +687,7 @@
 												</div>
 												<div class="">
 													<h5 class="blues">需求方已验收 </h5>
-													
+
 												</div>
 											</div>
 										{/if}
@@ -817,7 +817,7 @@
 					    </div>
 					</div>
 				</div>
-				
+
 			</div>
 			<!--<div class="xiugai-text">
 				<label>工作地点</label>
@@ -838,7 +838,7 @@
 	<script type="text/javascript" src="__INDEX__/js/bootstrap-datepicker.min.js"></script>
 	<script type="text/javascript" src="__INDEX__/js/bootstrap-datepicker.zh-CN.min.js" charset="UTF-8"></script>
 		<script type="text/javascript">
-			
+
 			taps(0);
 $(".cente-head .p2").click(function() {
 	var tt  = $(".cente-head .p2").index($(this));
@@ -847,7 +847,7 @@ $(".cente-head .p2").click(function() {
 	if(tt > 1) {
 		tap = tt;
 		window.location.href = "{:url('user/orders')}";
-	} else {	
+	} else {
 		$(".cente_ul").css("margin-left", "-" +(tt*100)+ "%");
 	}
 })
@@ -979,7 +979,7 @@ $(function(){
 				$(".login_background").css("display","block");
 				/*if(next.is('.good')){
 					next.addClass("you");
-					
+
 				}*/
 			})
 			$(".login_background").click(function(){
@@ -988,23 +988,23 @@ $(function(){
 			})
 			/*星星*/
 			 window.onload=function(){
-        var aSpan=$(".good .pinglun .star");   
-        var aBstar=$(".good .pinglun .star b");       
+        var aSpan=$(".good .pinglun .star");
+        var aBstar=$(".good .pinglun .star b");
         var num=0;
         var onOff=true;for(var i= 0;i<aBstar.length;i++){
-                aBstar[i].index=i;                         
+                aBstar[i].index=i;
                 //鼠标点击
                 aBstar[i].onclick=function(){
                     onOff=false;//开关为假就不执行鼠标移除的代码
-                    //先清空                                    
+                    //先清空
                     for(var i=0;i<aBstar.length;i++){
                         /*aBstar[i].style.background =  "url(__INDEX__/img/xing1.png)"; aBstar[i].style.backgroundSize = "100% 100%";*/
                       aBstar[i].classList.remove("ct-stars");
                     }
                     //点击当前星星，之前的都点亮包含自己
-                    num = this.index ;                 
+                    num = this.index ;
                     for(var i=0;i<=this.index;i++){
-                    	
+
                     	 aBstar[i].classList.add("ct-stars");
                        /* aBstar[i].style.background =  "url(__INDEX__/img/xin.png)"; aBstar[i].style.backgroundSize = "100% 100%";*/
                     }
@@ -1020,18 +1020,18 @@ $(function(){
 						$(".login_background").css("display","none");
 						$(".good").css("display","none");
 			 		}else{
-			 			$(".beijin").css("display", "block");$(".beijin .texts").text("未写评论");			 			
+			 			$(".beijin").css("display", "block");$(".beijin .texts").text("未写评论");
 			 		}
 			 	}else {
 			 		$(".beijin").css("display", "block");$(".beijin .texts").text("未选择星级");
 			 	}
-			 					 				
+
 			})
 			 /*提示   取消*/
 $("#qd").click(function() {
-				$(".beijin").css("display", "none");				
+				$(".beijin").css("display", "none");
 			})
-$(".beijin").click(function() {$(".beijin").css("display", "none");				
+$(".beijin").click(function() {$(".beijin").css("display", "none");
 			})
 var aCity0 = new Array();
 $(".demanddel-type .imgs").click(function(){
@@ -1045,7 +1045,7 @@ $(".demanddel-type .imgs").click(function(){
 				/*aCity0[0] = $(".xiugai input").eq(0).val();
 				aCity0[1] = $(".xiugai input").eq(1).val();
 				aCity0[2] = $(".xiugai input").eq(2).val();*/
-				
+
 })
 /*取消*/
 $(".xiugai  .cancel").click(function(){
@@ -1055,11 +1055,11 @@ $(".xiugai  .cancel").click(function(){
 /*确认*/
 $(".xiugai  .affirm").click(function(){
 	/*li_one li_ones*/
-	
+
 	if($(".xiugai input").eq(0).val()!=""){
 		if($(".xiugai input").eq(1).val()!=""){
 			if($(".xiugai input").eq(2).val()!=""){
-			
+
 				/*$(".li_one.li_ones .bottom .imgs-text").text($(".xiugai input").eq(0).val()+".00元");
 				$(".li_one.li_ones .bottom .time-begin").text($(".xiugai input").eq(1).val());
 				$(".li_one.li_ones .bottom .time-finish").text($(".xiugai input").eq(2).val());*/
@@ -1071,7 +1071,7 @@ $(".xiugai  .affirm").click(function(){
 	}
 		}else{
 		$(".beijin").css("display", "block");$(".beijin .texts").text("请输入开始时间");
-	}	
+	}
 	}else{
 		$(".beijin").css("display", "block");$(".beijin .texts").text("请输入项目预算");
 	}
