@@ -746,7 +746,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
                         </div>
                     </div>
                     <div class="right">
-                        <h4> {$cases.case_name}</h4>
+                        <h4 id="right-h4">{$cases.case_name}</h4>
                         <div class="money">
                             <span>
                                 ￥
@@ -786,7 +786,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
                         </div>
                         <p class="submits">提交项目需求</p>
                         <div class="code">
-                            <img src="{$cases.code}" />
+                            <img id="right-img" src="{$cases.code}" />
                             <p onclick="window.open('{$cases.preview}')">预览</p>
 
                         </div>
@@ -1205,6 +1205,13 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
                 $("#nav2 a").removeClass("active");
                 $(this).addClass("active");
             })
+            quweinongchang();
+			function quweinongchang(){
+				var h4text =  $("#right-h4").text();
+				if(h4text == "美容美发管理软件"){
+					$("#right-img").attr('src',"__INDEX__/img/meirong.png");
+				}
+			}
             /*var ph = document.getElementById("phone_height");
             var nav2 = document.getElementById("nav2");
             var nav = document.getElementById("nav");
