@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-05-05 14:19:02
+ * @Last Modified time: 2018-05-05 15:14:20
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -18,6 +18,7 @@ use app\common\model\Demand;
 use app\common\model\UserSkill;
 use app\common\model\Apply;
 use app\common\model\Evaluate;
+use think\exception\HttpException;
 
 class User  extends Yang
 {
@@ -122,12 +123,29 @@ class User  extends Yang
     //需求方选择开发者
     public function order_kai()
     {
-        $user_id = input('user_id');
-        $demand_id = input('demand_id');
-        $apply = Apply::where(['user_id' => $user_id,'demand_id'=>$demand_id])->find();
-        Demand::where(['id'=>$demand_id])->update(['schedule'=>2,'apply_id'=>$apply['id']]);
-        Apply::where(['user_id' => $user_id,'demand_id'=>$demand_id])->update(['xstatus' => 1,'status'=>1]);
+
+        if ($this->request->isAjax()) {
+            Db::startTrans();
+            try {
+
+                $user_id = input('user_id');
+                $demand_id = input('demand_id');
+                $apply = Apply::where(['user_id' => $user_id,'demand_id'=>$demand_id])->find();
+                Demand::where(['id'=>$demand_id])->update(['schedule'=>2,'apply_id'=>$apply['id']]);
+                Apply::where(['user_id' => $user_id,'demand_id'=>$demand_id])->update(['xstatus' => 1,'status'=>1]);
+
+                // 提交事务
+                Db::commit();
+            } catch (\Exception $e) {
+                // 回滚事务
+                Db::rollback();
+
+                return json($this->ret);
+            }
+
         return json($this->ret);
+
+        }
     }
     //需求方确认完成
     public function order_que()
@@ -158,12 +176,16 @@ class User  extends Yang
         return json($this->ret);
     }
     //需求方修改时间
-    // public function order_que()
-    // {
-    //     $demand_id = input('demand_id');
-    //     Apply::where(['status' => 1,'demand_id'=>$demand_id])->update(['xstatus' => 2]);
-    //     return json($this->ret);
-    // }
+    public function order_xiugai()
+    {
+        $demand_id = input('demand_id');
+        $start_time = input('start_time');
+        $delivery_time = input('delivery_time');
+        $money = input('money');
+        Demand::where(['id'=>$demand_id])->update(['start_time'=>3]);
+        Apply::where(['status' => 1,'demand_id'=>$demand_id])->update(['start_time' => $start_time,'delivery_time'=>$delivery_time,'money'=>$money]);
+        return json($this->ret);
+    }
     //申请方确认干活
     public function order_gan()
     {
