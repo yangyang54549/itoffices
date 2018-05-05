@@ -360,6 +360,7 @@
 									</div>
 									<div {if condition="$vo.apply_id"} class="bottom relative str" {else/} class="bottom relative" {/if}>
 										<div class="demanddel-type">
+			{if condition="$vo.schedule == 2"/}
 			<img src="__INDEX__/img/xiugai.png" class="imgs" alt="修改" title="修改">
 			<div class="xiugai">
 			<div class="xiugai-cen">
@@ -401,9 +402,12 @@
 			</div>-->
 			<div id="buttom">
 				<p class="cancel">取消</p>
-				<p class="affirm">确认</p>
+				<p class="affirm" data-id="{$vo.id}">确认</p>
 			</div>
 		</div>
+			{/if}
+
+
 											<p class="demanddel-t" style="font-size: 1.2em;color: #797979;">项目预算</p>
 											<p style="font-size: 24px;color: #ec1313;" class="imgs-text">{$vo.money}元 </p>
 											<div class="demanddel-num">
@@ -440,8 +444,8 @@
 											{/if}
 										</span></p>
 
-										<p><span>开始时间</span><span class="time-begin">待协商</span></p>
-										<p><span>交付时间</span><span class="time-finish">待协商</span></p>
+										<p><span>开始时间</span><span class="time-begin">{if condition="$vo.start_time eq 0"}待协商{else/}{$vo.start_time|date="Y-m-d",###}{/if}</span></p>
+										<p><span>交付时间</span><span class="time-finish">{if condition="$vo.delivery_time eq 0"}待协商{else/}{$vo.delivery_time|date="Y-m-d",###}{/if}</span></p>
 										<p><span>需求描述</span><span>{$vo.info}</span></p>
 										<p style="margin-top: 30px;width: auto;"><span>接单方</span>
 											<div class="participations pt{$vo.id}" data-id="{$vo.id}">
@@ -507,7 +511,7 @@
 														</div>
 														<div class="">
 															<h5 class="blues" style="color: #0082E6; "> 已开工 <i></i></h5>
-															<i style="border-left: 2px solid gray; color: gray;"><i >完成时间：</i><i class="timess">{if condition="$vo.period == 1"}少于1周{elseif condition="$vo.period == 2"/}少于1个月{elseif condition="$vo.period == 3"/}1-3个月{elseif condition="$vo.period == 4"/}3-6个月{elseif condition="$vo.period == 5"/}超过6个月{/if}</i></i>
+															<i style="border-left: 2px solid gray; color: gray;"><i >完成时间：</i><i class="timess">{if condition="$vo.delivery_time eq 0"}待协商{else/}{$vo.delivery_time|date="Y-m-d",###}{/if}</i></i>
 														</div>
 													</div>
 												{elseif condition="$vo.apply_id.sstatus == 2"/}
@@ -569,6 +573,40 @@
 													</div>
 													{/if}
 												{elseif condition="$vo.apply_id.sstatus == 3"/}
+
+													{if condition="$vo.apply_id.xstatus == 2"}
+														<div class="renyuean3">
+															<div class="">
+																<img src="__INDEX__/img/avatar/2.jpg" />
+																<i>{$vo.apply_id.user_name}</i>
+															</div>
+															<div class="">
+																<h5 class="blues">已确认完工<i></i></h5>
+																<p class="h5bth">评价 </p>
+																<div class="good" data-id="{$vo.id}">
+																	<h5>评论</h5>
+																	<div class="pinglun">
+																	<label>评论星级</label>
+																	<span class="star">
+															        <b class="ct-star  "></b>
+															        <b class="ct-star  "></b>
+															        <b class="ct-star  "></b>
+															        <b class="ct-star  "></b>
+															        <b class="ct-star  "></b>
+																	</span>
+																	<span class="star-txt"></span>
+																	</div>
+																	<div class="pinglun">
+																		<label>评论内容</label>
+																		<textarea name="" rows="3" cols="" maxlength="50" placeholder="限定50字以内"></textarea>
+																	</div>
+																	<div class="pinglunp">
+																		确定
+																	</div>
+																</div>
+															</div>
+														</div>
+													{else/}
 													<div class="renyuean3">
 														<div class="">
 															<img src="__INDEX__/img/avatar/2.jpg" />
@@ -579,6 +617,7 @@
 															<!-- <i style="border-left: 2px solid gray;color: gray;"><is>已评价</i> -->
 														</div>
 													</div>
+													{/if}
 												{/if}
 										</div>
 										{/if}
@@ -654,8 +693,8 @@
 											非常紧急
 											{/if}
 										</span></p>
-										<p><span>开始时间</span><span class="time-begin">待协商</span></p>
-										<p><span>交付时间</span><span class="time-finish">待协商</span></p>
+										<p><span>开始时间</span><span class="time-begin">{if condition="$vos.start_time eq 0"}待协商{else/}{$vos.start_time|date="Y-m-d",###}{/if}</span></p>
+										<p><span>交付时间</span><span class="time-finish">{if condition="$vos.delivery_time eq 0"}待协商{else/}{$vos.delivery_time|date="Y-m-d",###}{/if}</span></p>
 										<p><span>需求描述</span><span>{$vos.info}</span></p>
 										<p style="margin-top: 30px;width: auto;"><span>需求方</span>
 											<div class="participations">
@@ -712,8 +751,19 @@
 												</div>
 												<div class="">
 													<h5 class="blues" style="color: #0082E6; "> 已开工 <i></i></h5>
-													<i style="border-left: 2px solid gray; color: gray;"><i >完工时间：</i><i>{if condition="$vo.period == 1"}少于1周{elseif condition="$vo.period == 2"/}少于1个月{elseif condition="$vo.period == 3"/}1-3个月{elseif condition="$vo.period == 4"/}3-6个月{elseif condition="$vo.period == 5"/}超过6个月{/if}</i></i>
-												<i class="yanshou"  data-id="{$vos.id}">请验收</i>
+													<i style="border-left: 2px solid gray; color: gray;"><i >完工时间：</i><i>{if condition="$vos.delivery_time eq 0"}待协商{else/}{$vos.delivery_time|date="Y-m-d",###}{/if}</i></i>
+													<i class="yanshou"  data-id="{$vos.id}">请验收</i>
+												</div>
+											</div>
+											{elseif condition="$vos.apply_id.sstatus == 2"/}
+											<div class="renyuean3">
+												<div class="">
+													<img src="__INDEX__/img/bai.png" />
+													<i>{$vos.username}</i>
+												</div>
+												<div class="">
+													<h5 class="blues">需求方验收:</h5>
+													<i style="border-left: 2px solid gray; color: gray;"><i>等待需求方验收</i></i>
 												</div>
 											</div>
 											{/if}
@@ -1068,9 +1118,9 @@ $(function(){
 			 	if(len>0){
 			 		if(val!=""){
 			 			demand_id = $(this).parent().data('id');
-			 			alert(demand_id);
-			 			alert(len);
-			 			alert(val);
+			 			// alert(demand_id);
+			 			// alert(len);
+			 			// alert(val);
 
 						$.post("{:url('user/order_pinglu')}",{
 							demand_id:demand_id,
@@ -1184,16 +1234,38 @@ $(" .xiugai  .affirm").click(function(){
 				no2 = no2.replace(/\年/g,"-");
 				no2 = no2.replace(/\月/g,"-");
 				no2 = no2.replace(/\日/g,"");
-
+				var money = $(".li_ones .xiugai  input").eq(0).val();
 				var oNoHis1 = $.myTime.DateToUnix(no1); // 1498060800
 				var oNoHis2 = $.myTime.DateToUnix(no2); // 1498060800
+				var demand_id = $(this).data('id');
+				alert(money);
+				alert(oNoHis1);
+				alert(oNoHis2);
+				alert(demand_id);
 					if(oNoHis2>oNoHis1){
-						$(".login_background").css("display", "none");
-				$(".xiugai").css("display", "none");
-				$(".beijin").css("display", "block");$(".beijin .texts").text("修改完成");
+
+						$.post("{:url('user/order_xiugai')}",{
+							start_time:oNoHis1,
+							delivery_time:oNoHis2,
+							money:money,
+							demand_id:demand_id,
+						},function(data){
+							console.log(data);
+							if (data.code==1) {
+								$(".login_background").css("display", "none");
+								$(".xiugai").css("display", "none");
+								$(".beijin").css("display", "block");$(".beijin .texts").text("修改完成");
+								window.location.reload();
+							}else{
+								$(".beijin").css("display", "block");$(".beijin .texts").text("修改失败");
+							}
+						}, "json");
+
 					}else{
+
 						$(".beijin").css("display", "block");$(".beijin .texts").text("交付时间不能小于等于开始时间");
 					}
+
 			}else{
 		$(".beijin").css("display", "block");$(".beijin .texts").text("请输入交付时间");
 	}

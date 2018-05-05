@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-05-05 15:40:15
+ * @Last Modified time: 2018-05-05 16:41:52
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -72,7 +72,7 @@ class User  extends Yang
 
     public function order()
     {
-        $demand = Demand::where(['user_id'=>Session::get('user.id')])->select();//我发布的需求
+        $demand = Demand::where(['user_id'=>Session::get('user.id')])->order('create_time desc')->select();//我发布的需求
         foreach ($demand as $key => $value) {
             $apply = Apply::where(['demand_id'=>$value['id']])->select();
             $demand[$key]['apply'] = $apply;
@@ -151,7 +151,8 @@ class User  extends Yang
     public function order_que()
     {
         $demand_id = input('demand_id');
-        Apply::where(['status' => 1,'demand_id'=>$demand_id])->update(['xstatus' => 2]);
+        Apply::where(['status' => 1,'demand_id'=>$demand_id])->update(['xstatus' => 2,'sstatus'=>3]);
+        Demand::where(['id'=>$demand_id])->update(['schedule'=>4]);
         return json($this->ret);
     }
     //需求方评论
@@ -196,8 +197,7 @@ class User  extends Yang
         $start_time = input('start_time');
         $delivery_time = input('delivery_time');
         $money = input('money');
-        Demand::where(['id'=>$demand_id])->update(['start_time'=>3]);
-        Apply::where(['status' => 1,'demand_id'=>$demand_id])->update(['start_time' => $start_time,'delivery_time'=>$delivery_time,'money'=>$money]);
+        Demand::where(['id'=>$demand_id])->update(['start_time' => $start_time,'delivery_time'=>$delivery_time,'money'=>$money]);
         return json($this->ret);
     }
     //申请方确认干活
