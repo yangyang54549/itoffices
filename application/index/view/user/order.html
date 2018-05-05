@@ -543,6 +543,18 @@
 															</div>
 														</div>
 													</div>
+													{elseif condition="$vo.apply_id.xstatus == 1"}
+													<div class="renyuean3">
+														<div class="">
+															<img src="__INDEX__/img/avatar/2.jpg" />
+															<i>{$vo.apply_id.user_name}</i>
+														</div>
+														<div class="">
+															<h5 class="blues">已完工  <i></i></h5>
+															<i style="border-left: 2px solid gray;color: gray;"><is>确认验收:</i>
+															<i class="tong" style="padding: 3px 5px;border: 1px solid gainsboro;background-color: #0190FE; border-radius:5px ;color: white;" data-id="{$vo.id}">同意</i></i>
+														</div>
+													</div>
 													{else/}
 													<div class="renyuean3">
 														<div class="">
@@ -712,7 +724,7 @@
 													<i>{$vos.username}</i>
 												</div>
 												<div class="">
-													<h5 class="blues">需求方已验收 </h5>
+													<h5 class="blues">需求方已验收</h5>
 													<i style="border-left: 2px solid gray; color: gray;"><i>等待后台提成佣金</i></i>
 												</div>
 											</div>
@@ -724,7 +736,7 @@
 												</div>
 												<div class="">
 													<h5 class="blues">需求已完成</h5>
-													<i style="border-left: 2px solid gray; color: gray;"><i>已提成佣金</i></i>
+													<i style="border-left: 2px solid gray; color: gray;"><i>等待后台提成佣金</i></i>
 												</div>
 											</div>
 										{/if}
@@ -1112,7 +1124,7 @@ $(".xiugai  .cancel").click(function(){
 })
 
 		</script>
-		
+
 <script type="text/javascript">
 $.extend({
     myTime:{
@@ -1160,28 +1172,28 @@ console.log(ohaveHis);*/
 /*确认*/
 $(" .xiugai  .affirm").click(function(){
 	/*li_one li_ones*/
-		
+
 	if($(".li_ones .xiugai  input").eq(0).val()!=""){
 		if($(".li_ones .xiugai  input").eq(1).val()!=""){
-			if($(".li_ones .xiugai  input").eq(2).val()!=""){				
+			if($(".li_ones .xiugai  input").eq(2).val()!=""){
 				var no1 = $(".li_ones .xiugai  input").eq(1).val();
 				var no2 = $(".li_ones .xiugai  input").eq(2).val();
-				no1 = no1.replace(/\年/g,"-");				
+				no1 = no1.replace(/\年/g,"-");
 				no1 = no1.replace(/\月/g,"-");
 				no1 = no1.replace(/\日/g,"");
 				no2 = no2.replace(/\年/g,"-");
 				no2 = no2.replace(/\月/g,"-");
 				no2 = no2.replace(/\日/g,"");
-												
+
 				var oNoHis1 = $.myTime.DateToUnix(no1); // 1498060800
-				var oNoHis2 = $.myTime.DateToUnix(no2); // 1498060800					
+				var oNoHis2 = $.myTime.DateToUnix(no2); // 1498060800
 					if(oNoHis2>oNoHis1){
 						$(".login_background").css("display", "none");
 				$(".xiugai").css("display", "none");
 				$(".beijin").css("display", "block");$(".beijin .texts").text("修改完成");
 					}else{
 						$(".beijin").css("display", "block");$(".beijin .texts").text("交付时间不能小于等于开始时间");
-					}				
+					}
 			}else{
 		$(".beijin").css("display", "block");$(".beijin .texts").text("请输入交付时间");
 	}
