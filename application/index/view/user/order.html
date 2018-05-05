@@ -893,6 +893,7 @@ $(function(){
 					language: 'zh-CN'
 				});
 			})
+
 			/*ul1*/
 			$(".ul1 .li_one .top").click(function() {
 				var sr1 = $(this).parent();
@@ -1109,20 +1110,78 @@ $(".xiugai  .cancel").click(function(){
 	$(".login_background").css("display", "none");
 				$(".xiugai").css("display", "none");
 })
+
+		</script>
+		
+<script type="text/javascript">
+$.extend({
+    myTime:{
+        CurTime: function(){
+            return Date.parse(new Date())/1000;
+        },
+        DateToUnix: function(string) {
+            var f = string.split(' ', 2);
+            var d = (f[0] ? f[0] : '').split('-', 3);
+            var t = (f[1] ? f[1] : '').split(':', 3);
+            return (new Date(
+                parseInt(d[0], 10) || null,
+                (parseInt(d[1], 10) || 1) - 1,
+                parseInt(d[2], 10) || null,
+                parseInt(t[0], 10) || null,
+                parseInt(t[1], 10) || null,
+                parseInt(t[2], 10) || null
+                )).getTime() / 1000;
+        },
+        UnixToDate: function(unixTime, isFull, timeZone) {
+            if (typeof (timeZone) == 'number'){
+                unixTime = parseInt(unixTime) + parseInt(timeZone) * 60 * 60;
+            }
+            var time = new Date(unixTime * 1000);
+            var ymdhis = "";
+            ymdhis += time.getUTCFullYear() + "-";
+            ymdhis += (time.getUTCMonth()+1) + "-";
+            ymdhis += time.getUTCDate();
+            if (isFull === true){
+                ymdhis += "" + time.getUTCHours() + ":";
+                ymdhis += time.getUTCMinutes() + ":";
+                ymdhis += time.getUTCSeconds();
+            }
+            return ymdhis;
+        }
+    }
+});
+/*//将时间转化为时间戳
+var noHis = "2017-06-22";
+var haveHis = "2017-06-22 00:00:01";
+var oNoHis = $.myTime.DateToUnix(noHis); // 1498060800
+var ohaveHis = $.myTime.DateToUnix(haveHis); // 1498123193
+console.log(oNoHis);
+console.log(ohaveHis);*/
 /*确认*/
-$(".xiugai  .affirm").click(function(){
+$(" .xiugai  .affirm").click(function(){
 	/*li_one li_ones*/
-
-	if($(".xiugai input").eq(0).val()!=""){
-		if($(".xiugai input").eq(1).val()!=""){
-			if($(".xiugai input").eq(2).val()!=""){
-
-				/*$(".li_one.li_ones .bottom .imgs-text").text($(".xiugai input").eq(0).val()+".00元");
-				$(".li_one.li_ones .bottom .time-begin").text($(".xiugai input").eq(1).val());
-				$(".li_one.li_ones .bottom .time-finish").text($(".xiugai input").eq(2).val());*/
-				$(".login_background").css("display", "none");
+		
+	if($(".li_ones .xiugai  input").eq(0).val()!=""){
+		if($(".li_ones .xiugai  input").eq(1).val()!=""){
+			if($(".li_ones .xiugai  input").eq(2).val()!=""){				
+				var no1 = $(".li_ones .xiugai  input").eq(1).val();
+				var no2 = $(".li_ones .xiugai  input").eq(2).val();
+				no1 = no1.replace(/\年/g,"-");				
+				no1 = no1.replace(/\月/g,"-");
+				no1 = no1.replace(/\日/g,"");
+				no2 = no2.replace(/\年/g,"-");
+				no2 = no2.replace(/\月/g,"-");
+				no2 = no2.replace(/\日/g,"");
+												
+				var oNoHis1 = $.myTime.DateToUnix(no1); // 1498060800
+				var oNoHis2 = $.myTime.DateToUnix(no2); // 1498060800					
+					if(oNoHis2>oNoHis1){
+						$(".login_background").css("display", "none");
 				$(".xiugai").css("display", "none");
 				$(".beijin").css("display", "block");$(".beijin .texts").text("修改完成");
+					}else{
+						$(".beijin").css("display", "block");$(".beijin .texts").text("交付时间不能小于等于开始时间");
+					}				
 			}else{
 		$(".beijin").css("display", "block");$(".beijin .texts").text("请输入交付时间");
 	}
@@ -1133,8 +1192,7 @@ $(".xiugai  .affirm").click(function(){
 		$(".beijin").css("display", "block");$(".beijin .texts").text("请输入项目预算");
 	}
 })
-		</script>
-
+</script>
 	</body>
 
 </html>
