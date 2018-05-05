@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-05-02 18:32:18
+ * @Last Modified time: 2018-05-05 11:02:25
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -17,6 +17,7 @@ use app\common\model\DemandType;
 use app\common\model\Demand;
 use app\common\model\UserSkill;
 use app\common\model\Apply;
+use app\common\model\Evaluate;
 
 class User  extends Yang
 {
@@ -42,10 +43,12 @@ class User  extends Yang
         $UserExperience = UserExperience::where(['user_id'=>$user['id']])->select();
         $UserProduction = UserProduction::where(['user_id'=>$user['id']])->select();
         $UserSkill = UserSkill::where(['user_id'=>$user['id']])->select();
+        $Evaluate = Evaluate::where(['user_id'=>$user['id']])->select();
         $this->assign('education',$UserEducation);
         $this->assign('experience',$UserExperience);
         $this->assign('production',$UserProduction);
         $this->assign('skill',$UserSkill);
+        $this->assign('evaluate',$Evaluate);
         $this->assign('user',$user);
         return $this->fetch();
     }
@@ -133,6 +136,27 @@ class User  extends Yang
         Apply::where(['status' => 1,'demand_id'=>$demand_id])->update(['xstatus' => 2]);
         return json($this->ret);
     }
+    //需求方评论
+    public function order_pinglu()
+    {
+        $demand_id = input('demand_id');
+        $star = input('star');
+        $content = input('content');
+
+        $user = U::where('id',Session::get('user.id'))->find();
+        $apply = Apply::where(['status' => 1,'demand_id'=>$demand_id])->find();
+        $data['user_id'] = $apply['user_id'];
+        $data['demand_id'] = $apply['demand_id'];
+        $data['evaluate_name'] = $user['user_name'];
+        $data['evaluate_id'] = Session::get('user.id');
+        $data['star'] = $star;
+        $data['content'] = $content;
+        $data['create_time'] = time();
+
+        Evaluate::insert($data);
+        Apply::where(['status' => 1,'demand_id'=>$demand_id])->update(['xstatus' => 3]);
+        return json($this->ret);
+    }
 
     //申请方确认干活
     public function order_gan()
@@ -152,7 +176,6 @@ class User  extends Yang
         Apply::where(['status' => 1,'user_id' => $user_id,'demand_id'=>$demand_id])->update(['sstatus'=>2]);
         return json($this->ret);
     }
-
 
     //我的作品 id为0就是新添加数据,否则为修改
     public function bianji0()

@@ -449,7 +449,7 @@
 												{/volist}
 									</div>
 										</p>
-										<div {if condition="$vo.apply_id.xstatus eq 1"} class="bottom_bottom blue1" {elseif condition="$vo.apply_id.xstatus eq 2" /} class="bottom_bottom blue2" {else/} class="bottom_bottom blue0" {/if} style="border-top: 1px dotted #d3d0d0;border-bottom: 1px dotted #d3d0d0;">
+										<div {if condition="$vo.apply_id.xstatus eq 1"} class="bottom_bottom blue1" {elseif condition="$vo.apply_id.xstatus eq 2" /} class="bottom_bottom blue2"  {elseif condition="$vo.apply_id.xstatus eq 3" /} class="bottom_bottom blue3" {else/} class="bottom_bottom blue0" {/if} style="border-top: 1px dotted #d3d0d0;border-bottom: 1px dotted #d3d0d0;">
 											<p>
 												<span class="sptext">发布需求</span>
 												<span class="spbackground"></span>
@@ -513,28 +513,27 @@
 														<div class="">
 															<h5 class="blues">已确认完工<i></i></h5>
 															<p class="h5bth">评价 </p>
-															<div class="good">
-				<h5>评论</h5>
-				<div class="pinglun">
-			<label>评论星级</label>
-			<span class="star">
-        <b class="ct-star  "></b>
-        <b class="ct-star  "></b>
-        <b class="ct-star  "></b>
-        <b class="ct-star  "></b>
-        <b class="ct-star  "></b>
-		</span>
-		<span class="star-txt"></span>
-		</div>
-		<div class="pinglun">
-			<label>评论内容</label>
-			<textarea name="" rows="3" cols="" maxlength="50" placeholder="限定50字以内"></textarea>
-		</div>
-		<div class="pinglunp">
-
-			确定
-		</div>
-			</div>
+															<div class="good" data-id="{$vo.id}">
+																<h5>评论</h5>
+																<div class="pinglun">
+																<label>评论星级</label>
+																<span class="star">
+														        <b class="ct-star  "></b>
+														        <b class="ct-star  "></b>
+														        <b class="ct-star  "></b>
+														        <b class="ct-star  "></b>
+														        <b class="ct-star  "></b>
+																</span>
+																<span class="star-txt"></span>
+																</div>
+																<div class="pinglun">
+																	<label>评论内容</label>
+																	<textarea name="" rows="3" cols="" maxlength="50" placeholder="限定50字以内"></textarea>
+																</div>
+																<div class="pinglunp">
+																	确定
+																</div>
+															</div>
 														</div>
 													</div>
 													{else/}
@@ -545,8 +544,8 @@
 														</div>
 														<div class="">
 															<h5 class="blues">已完工  <i></i></h5>
-															<i style="border-left: 2px solid gray;color: gray;"><is>请验收：</i>
-															<i class="tong" style="padding: 3px 5px;border: 1px solid gainsboro;background-color: #0190FE; border-radius:5px ;color: white;" data-id="{$vo.id}">同意</i></i>
+															<i style="border-left: 2px solid gray;color: gray;"><is>已评价	</i>
+															<!-- <i class="tong" style="padding: 3px 5px;border: 1px solid gainsboro;background-color: #0190FE; border-radius:5px ;color: white;" data-id="{$vo.id}">同意</i></i> -->
 														</div>
 													</div>
 													{/if}
@@ -634,7 +633,7 @@
 												</div>
 											</div>
 										</p>
-										<div {if condition="$vos.is_apply_id eq 2"} class="bottom_bottom blue0" {else/} {if condition="$vos.apply_id.sstatus eq 1"} class="bottom_bottom blue1" {elseif condition="$vos.apply_id.sstatus eq 2" /} class="bottom_bottom blue2" {else/} class="bottom_bottom blue0" {/if}{/if}
+										<div {if condition="$vos.is_apply_id eq 2"} class="bottom_bottom blue0" {else/} {if condition="$vos.apply_id.sstatus eq 1"} class="bottom_bottom blue1" {elseif condition="$vos.apply_id.sstatus eq 2" /} class="bottom_bottom blue2" {elseif condition="$vos.apply_id.sstatus eq 3" /} class="bottom_bottom blue3" {else/} class="bottom_bottom blue0" {/if}{/if}
 										 style="border-top: 1px dotted #d3d0d0;border-bottom: 1px dotted #d3d0d0;">
 											<p class="blue">
 												<span class="sptext">申请中</span>
@@ -693,7 +692,16 @@
 												</div>
 												<div class="">
 													<h5 class="blues">需求方已验收 </h5>
-
+												</div>
+											</div>
+										{elseif condition="$vos.apply_id.xstatus == 3"/}
+											<div class="renyuean3">
+												<div class="">
+													<img src="__INDEX__/img/bai.png" />
+													<i>{$vos.username}</i>
+												</div>
+												<div class="">
+													<h5 class="blues">需求方已评价 </h5>
 												</div>
 											</div>
 										{/if}
@@ -1022,9 +1030,28 @@ $(function(){
 			 	var val = $(".you .pinglun textarea").val();
 			 	if(len>0){
 			 		if(val!=""){
-			 			$(".good.you").removeClass("you");
-						$(".login_background").css("display","none");
-						$(".good").css("display","none");
+			 			demand_id = $(this).parent().data('id');
+			 			alert(demand_id);
+			 			alert(len);
+			 			alert(val);
+
+						$.post("{:url('user/order_pinglu')}",{
+							demand_id:demand_id,
+							star:len,
+							content:val,
+						},function(data){
+							console.log(data);
+							if (data.code==1) {
+					 			$(".good.you").removeClass("you");
+								$(".login_background").css("display","none");
+								$(".good").css("display","none");
+								$(".beijin").css("display", "block");$(".beijin .texts").text("评论成功");
+								window.location.reload();
+							}else{
+								$(".beijin").css("display", "block");$(".beijin .texts").text("提交失败");
+							}
+						}, "json");
+
 			 		}else{
 			 			$(".beijin").css("display", "block");$(".beijin .texts").text("未写评论");
 			 		}

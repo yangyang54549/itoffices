@@ -257,7 +257,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 					<li>
 						<a href="{:url('index/one')}" class="is ">首页</a>
 					</li>
-				
+
 					<!--<li>
 						<a href="{:url('index/index')}" class="is">IT联合办公</a>
 					</li>-->
@@ -351,7 +351,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				</div>
 
 				<div class="introduce introduce5">
-					<h3>用户评价<span> 好评度  <a href="###" class="introduce5_span">
+					<h3>用户评价<!-- <span> 好评度  <a href="###" class="introduce5_span">
 						<img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/>
 						<div class="">
 							<p><span >专业(强烈推荐)</span> <span ><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/></span> <i class="clear"></i></p>
@@ -359,84 +359,30 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 							<p><span >态度(强烈推荐)</span> <span ><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/></span> <i class="clear"></i></p>
 
 						</div>
-					</a> 4 人评论 </span><i class="clear"></i></h3>
+					</a> 4 人评论 </span> --><i class="clear"></i></h3>
 					<ul class="introduce51">
 
+						{volist name="evaluate" id="vossss"}
 						<li>
 							<div class="left">
 								<img src="__INDEX__/img/avatar/11.jpg" />
 
 							</div>
 							<div class="conte">
-								<p>
-									生于1890</p>
-								<p>完成质量很高，专业度和配合度都很好，非常满意</p>
+								<p>{$vossss.evaluate_name}</p>
+								<p>{$vossss.content}</p>
 							</div>
 							<div class="right">
+								<p>{$vossss.create_time|date="Y-m-d",###}</p>
 								<p>
-									2017-06-01
+								{for start="0" end="$vossss.star"}
+								<img src="__INDEX__/img/xin.png" />
+								{/for}
 								</p>
-								<p><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /></p>
 							</div>
 							<i class="clear"></i>
 						</li>
-						<li>
-							<div class="left">
-
-								<img src="__INDEX__/img/avatar/11.jpg" />
-
-							</div>
-							<div class="conte">
-								<p>
-									生于1890</p>
-								<p>完成质量很高，专业度和配合度都很好，非常满意</p>
-							</div>
-							<div class="right">
-								<p>
-									2017-06-01
-								</p>
-								<p><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /></p>
-							</div>
-							<i class="clear"></i>
-						</li>
-						<li>
-							<div class="left">
-
-								<img src="__INDEX__/img/avatar/11.jpg" />
-
-							</div>
-							<div class="conte">
-								<p>
-									生于1890</p>
-								<p>完成质量很高，专业度和配合度都很好，非常满意</p>
-							</div>
-							<div class="right">
-								<p>
-									2017-06-01
-								</p>
-								<p><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /></p>
-							</div>
-							<i class="clear"></i>
-						</li>
-						<li>
-							<div class="left">
-
-								<img src="__INDEX__/img/avatar/11.jpg" />
-
-							</div>
-							<div class="conte">
-								<p>
-									生于1890</p>
-								<p>完成质量很高，专业度和配合度都很好，非常满意</p>
-							</div>
-							<div class="right">
-								<p>
-									2017-06-01
-								</p>
-								<p><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /></p>
-							</div>
-							<i class="clear"></i>
-						</li>
+						{/volist}
 					</ul>
 				</div>
 				<div class="introduce6">
