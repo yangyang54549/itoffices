@@ -329,8 +329,8 @@
 					<div class="cente-head ">
 						<p class="p2 on"><span>我发布的需求(</span><span id="num_1"></span>)</p>
 						<p class="p2"><span>我申请的任务(</span><span id="num_2">0</span>)</p>
-						 <p class="p2"><span>我雇佣的(</span><span id="num_3">0</span>)</p>
-						<p class="p2"><span>雇佣我的(</span><span id="num_4"></span>)</p>
+						 <!-- <p class="p2"><span>我雇佣的(</span><span id="num_3">0</span>)</p>
+						<p class="p2"><span>雇佣我的(</span><span id="num_4"></span>)</p> -->
 					</div>
 					<div class="cente_b">
 						<div class="cente_ul">
@@ -354,7 +354,7 @@
 											{elseif condition="$vo.schedule == 3"/}
 											<span>执行中</span>
 											{elseif condition="$vo.schedule == 4"/}
-											<span style="color:#000">已完成</span>
+											<span style="color: #fff;background-color: #ccc">已完成</span>
 											{/if}
 										</div>
 									</div>
@@ -453,7 +453,7 @@
 												{volist name="$vo.apply" id="ap"}
 												<div {if condition="$ap.status eq 1"} class="participation participation_f1 participation1" {else/} class="participation participation_f1"{/if} data-id="{$ap.user_id},{$ap.demand_id}">
 													<a href="#">接单方</a>
-													<img src="__INDEX__/img/avatar/2.jpg"/>
+													<img src="__INDEX__/img/bai.png"/>
 													<a href="#" onclick="window.open('{:url("user/resumes",["id"=>$ap.user_id])}')" >{$ap.user_name}</a>
 													<i class=" "> <img src="__INDEX__/img/icon/dui.png"/></i>
 												</div>
@@ -496,7 +496,7 @@
 												{elseif condition="$vo.apply_id.sstatus == 0"/}
 													<div class="renyuean2">
 														<div class="">
-															<img src="__INDEX__/img/avatar/2.jpg" />
+															<img src="__INDEX__/img/bai.png" />
 															<i>{$vo.apply_id.user_name}</i>
 														</div>
 														<div class="">
@@ -504,9 +504,21 @@
 														</div>
 													</div>
 												{elseif condition="$vo.apply_id.sstatus == 1"/}
+
+													<div class="renyuean">
+														<div class="">
+															<img src="__INDEX__/img/bai.png" />
+															<i>{$vo.apply_id.user_name}</i>
+														</div>
+														<div class="">
+															<h5 class="blues" style="color: #0082E6; ">选择开发者<i></i></h5>
+															<i style="border-left: 2px solid gray;color: gray;">已选择</i>
+														</div>
+													</div>
+
 													<div class="renyuean2">
 														<div class="">
-															<img src="__INDEX__/img/avatar/2.jpg" />
+															<img src="__INDEX__/img/bai.png" />
 															<i>{$vo.apply_id.user_name}</i>
 														</div>
 														<div class="">
@@ -516,14 +528,38 @@
 													</div>
 												{elseif condition="$vo.apply_id.sstatus == 2"/}
 													{if condition="$vo.apply_id.xstatus == 2"}
-													<div class="renyuean3">
+
+													<div class="renyuean">
 														<div class="">
-															<img src="__INDEX__/img/avatar/2.jpg" />
+															<img src="__INDEX__/img/bai.png" />
 															<i>{$vo.apply_id.user_name}</i>
 														</div>
 														<div class="">
-															<h5 class="blues">已确认完工<i></i></h5>
-															<p class="h5bth">评价 </p>
+															<h5 class="blues" style="color: #0082E6; ">选择开发者<i></i></h5>
+															<i style="border-left: 2px solid gray;color: gray;">已选择</i>
+														</div>
+													</div>
+
+													<div class="renyuean2">
+														<div class="">
+															<img src="__INDEX__/img/bai.png" />
+															<i>{$vo.apply_id.user_name}</i>
+														</div>
+														<div class="">
+															<h5 class="blues" style="color: #0082E6; ">确认完工<i></i></h5>
+															<i style="border-left: 2px solid gray;color: gray;">已确认</i>
+
+														</div>
+													</div>
+
+													<div class="renyuean3">
+														<div class="">
+															<img src="__INDEX__/img/bai.png" />
+															<i>{$vo.apply_id.user_name}</i>
+														</div>
+														<div class="">
+															<h5 class="blues" style="color: #0082E6; ">评价<i></i></h5>
+															<p class="h5bth">评价</p>
 															<div class="good" data-id="{$vo.id}">
 																<h5>评论</h5>
 																<div class="pinglun">
@@ -548,25 +584,61 @@
 														</div>
 													</div>
 													{elseif condition="$vo.apply_id.xstatus == 1"}
-													<div class="renyuean3">
+													<div class="renyuean">
 														<div class="">
-															<img src="__INDEX__/img/avatar/2.jpg" />
+															<img src="__INDEX__/img/bai.png" />
 															<i>{$vo.apply_id.user_name}</i>
 														</div>
 														<div class="">
-															<h5 class="blues">已完工  <i></i></h5>
-															<i style="border-left: 2px solid gray;color: gray;"><is>确认验收:</i>
+															<h5 class="blues" style="color: #0082E6; ">选择开发者<i></i></h5>
+															<i style="border-left: 2px solid gray;color: gray;">已选择</i>
+														</div>
+													</div>
+
+													<div class="renyuean3">
+														<div class="">
+															<img src="__INDEX__/img/bai.png" />
+															<i>{$vo.apply_id.user_name}</i>
+														</div>
+														<div class="">
+															<h5 class="blues" style="color: #0082E6; ">已完工 <i></i></h5>
+															<i style="border-left: 2px solid gray;color: gray;"><is>确认完工:</i>
 															<i class="tong" style="padding: 3px 5px;border: 1px solid gainsboro;background-color: #0190FE; border-radius:5px ;color: white;" data-id="{$vo.id}">同意</i></i>
 														</div>
 													</div>
 													{else/}
-													<div class="renyuean3">
+
+
+													<div class="renyuean">
 														<div class="">
-															<img src="__INDEX__/img/avatar/2.jpg" />
+															<img src="__INDEX__/img/bai.png" />
 															<i>{$vo.apply_id.user_name}</i>
 														</div>
 														<div class="">
-															<h5 class="blues">已完工  <i></i></h5>
+															<h5 class="blues" style="color: #0082E6; ">选择开发者<i></i></h5>
+															<i style="border-left: 2px solid gray;color: gray;">已选择</i>
+														</div>
+													</div>
+
+													<div class="renyuean2">
+														<div class="">
+															<img src="__INDEX__/img/bai.png" />
+															<i>{$vo.apply_id.user_name}</i>
+														</div>
+														<div class="">
+															<h5 class="blues" style="color: #0082E6; ">确认完工<i></i></h5>
+															<i style="border-left: 2px solid gray;color: gray;">已确认</i>
+
+														</div>
+													</div>
+
+													<div class="renyuean3">
+														<div class="">
+															<img src="__INDEX__/img/bai.png" />
+															<i>{$vo.apply_id.user_name}</i>
+														</div>
+														<div class="">
+															<h5 class="blues">评价<i></i></h5>
 															<i style="border-left: 2px solid gray;color: gray;"><is>已评价	</i>
 															<!-- <i class="tong" style="padding: 3px 5px;border: 1px solid gainsboro;background-color: #0190FE; border-radius:5px ;color: white;" data-id="{$vo.id}">同意</i></i> -->
 														</div>
@@ -575,9 +647,34 @@
 												{elseif condition="$vo.apply_id.sstatus == 3"/}
 
 													{if condition="$vo.apply_id.xstatus == 2"}
+
+													<div class="renyuean">
+														<div class="">
+															<img src="__INDEX__/img/bai.png" />
+															<i>{$vo.apply_id.user_name}</i>
+														</div>
+														<div class="">
+															<h5 class="blues" style="color: #0082E6; ">选择开发者<i></i></h5>
+															<i style="border-left: 2px solid gray;color: gray;">已选择</i>
+														</div>
+													</div>
+
+													<div class="renyuean2">
+														<div class="">
+															<img src="__INDEX__/img/bai.png" />
+															<i>{$vo.apply_id.user_name}</i>
+														</div>
+														<div class="">
+															<h5 class="blues" style="color: #0082E6; ">确认完工<i></i></h5>
+															<i style="border-left: 2px solid gray;color: gray;">已确认</i>
+
+														</div>
+													</div>
+
+
 														<div class="renyuean3">
 															<div class="">
-																<img src="__INDEX__/img/avatar/2.jpg" />
+																<img src="__INDEX__/img/bai.png" />
 																<i>{$vo.apply_id.user_name}</i>
 															</div>
 															<div class="">
@@ -607,14 +704,38 @@
 															</div>
 														</div>
 													{else/}
-													<div class="renyuean3">
+
+													<div class="renyuean">
 														<div class="">
-															<img src="__INDEX__/img/avatar/2.jpg" />
+															<img src="__INDEX__/img/bai.png" />
 															<i>{$vo.apply_id.user_name}</i>
 														</div>
 														<div class="">
-															<h5 class="blues">已完工  <i></i></h5>
-															<!-- <i style="border-left: 2px solid gray;color: gray;"><is>已评价</i> -->
+															<h5 class="blues" style="color: #0082E6; ">选择开发者<i></i></h5>
+															<i style="border-left: 2px solid gray;color: gray;">已选择</i>
+														</div>
+													</div>
+
+													<div class="renyuean2">
+														<div class="">
+															<img src="__INDEX__/img/bai.png" />
+															<i>{$vo.apply_id.user_name}</i>
+														</div>
+														<div class="">
+															<h5 class="blues" style="color: #0082E6; ">确认完工<i></i></h5>
+															<i style="border-left: 2px solid gray;color: gray;">已确认</i>
+
+														</div>
+													</div>
+
+													<div class="renyuean3">
+														<div class="">
+															<img src="__INDEX__/img/bai.png" />
+															<i>{$vo.apply_id.user_name}</i>
+														</div>
+														<div class="">
+															<h5 class="blues" style="color: #0082E6; ">评价<i></i></h5>
+															<i style="border-left: 2px solid gray;color: gray;"><is>已评价	</i>
 														</div>
 													</div>
 													{/if}
@@ -651,7 +772,7 @@
 											{elseif condition="$vos.schedule == 3"/}
 											<span>执行中</span>
 											{elseif condition="$vos.schedule == 4"/}
-											<span style="color:#000">已完成</span>
+											<span style="color: #fff;background-color: #ccc">已完成</span>
 											{/if}
 										</div>
 									</div>
@@ -734,19 +855,32 @@
 											{if condition="$vos.apply_id.sstatus == 0"/}
 											<div class="renyuean">
 												<div class="">
-													<img src="__INDEX__/img/avatar/2.jpg" />
+													<img src="__INDEX__/img/bai.png" />
 													<i>{$vos.username}</i>
 												</div>
 												<div class="">
-													<h5 class="blues" style="color: #0082E6; ">硅谷 雇佣了你</h5>
+													<h5 class="blues" style="color: #0082E6; ">雇佣了你</h5>
 													<i style="border-left: 2px solid gray; color: gray;">
 													<i>硅谷</i><i>13613820359</i></i><i class="queren " data-id="{$vos.id}"> 是否开工：确认</i>
 												</div>
 											</div>
 											{elseif condition="$vos.apply_id.sstatus == 1"/}
+
+											<div class="renyuean">
+												<div class="">
+													<img src="__INDEX__/img/bai.png" />
+													<i>{$vos.username}</i>
+												</div>
+												<div class="">
+													<h5 class="blues" style="color: #0082E6; ">我被雇佣</h5>
+													<i style="border-left: 2px solid gray; color: gray;">
+													<i>硅谷</i><i>13613820359</i></i><i>已确认</i>
+												</div>
+											</div>
+
 											<div class="renyuean2">
 												<div class="">
-													<img src="__INDEX__/img/avatar/2.jpg" />
+													<img src="__INDEX__/img/bai.png" />
 													<i>{$vos.username}</i>
 												</div>
 												<div class="">
@@ -756,37 +890,94 @@
 												</div>
 											</div>
 											{elseif condition="$vos.apply_id.sstatus == 2"/}
+											<div class="renyuean">
+												<div class="">
+													<img src="__INDEX__/img/bai.png" />
+													<i>{$vos.username}</i>
+												</div>
+												<div class="">
+													<h5 class="blues" style="color: #0082E6; ">我被雇佣</h5>
+													<i>已确认</i>
+												</div>
+											</div>
+
 											<div class="renyuean3">
 												<div class="">
 													<img src="__INDEX__/img/bai.png" />
 													<i>{$vos.username}</i>
 												</div>
 												<div class="">
-													<h5 class="blues">需求方验收:</h5>
+													<h5 class="blues" style="color: #0082E6; ">需求方验收:</h5>
 													<i style="border-left: 2px solid gray; color: gray;"><i>等待需求方验收</i></i>
 												</div>
 											</div>
 											{/if}
 										{elseif condition="$vos.apply_id.xstatus == 2"/}
+
+											<div class="renyuean">
+												<div class="">
+													<img src="__INDEX__/img/bai.png" />
+													<i>{$vos.username}</i>
+												</div>
+												<div class="">
+													<h5 class="blues" style="color: #0082E6; ">我被雇佣</h5>
+													<i>已确认</i>
+												</div>
+											</div>
+
+											<div class="renyuean2">
+												<div class="">
+													<img src="__INDEX__/img/bai.png" />
+													<i>{$vos.username}</i>
+												</div>
+												<div class="">
+													<h5 class="blues" style="color: #0082E6; ">我已完工<i></i></h5>
+													<i style="border-left: 2px solid gray; color: gray;"><i>已完工</i></i>
+												</div>
+											</div>
+
 											<div class="renyuean3">
 												<div class="">
 													<img src="__INDEX__/img/bai.png" />
 													<i>{$vos.username}</i>
 												</div>
 												<div class="">
-													<h5 class="blues">需求方已验收</h5>
-													<i style="border-left: 2px solid gray; color: gray;"><i>等待后台提成佣金</i></i>
+													<h5 class="blues" style="color: #0082E6; ">提成佣金</h5>
+													<i style="border-left: 2px solid gray; color: gray;"><i>请保持通信畅通,客服会与您联系</i></i>
 												</div>
 											</div>
 										{elseif condition="$vos.apply_id.xstatus == 3"/}
+
+											<div class="renyuean">
+												<div class="">
+													<img src="__INDEX__/img/bai.png" />
+													<i>{$vos.username}</i>
+												</div>
+												<div class="">
+													<h5 class="blues" style="color: #0082E6; ">我被雇佣</h5>
+													<i>已确认</i>
+												</div>
+											</div>
+
+											<div class="renyuean2">
+												<div class="">
+													<img src="__INDEX__/img/bai.png" />
+													<i>{$vos.username}</i>
+												</div>
+												<div class="">
+													<h5 class="blues" style="color: #0082E6; ">我已完工<i></i></h5>
+													<i style="border-left: 2px solid gray; color: gray;"><i>已完工</i></i>
+												</div>
+											</div>
+
 											<div class="renyuean3">
 												<div class="">
 													<img src="__INDEX__/img/bai.png" />
 													<i>{$vos.username}</i>
 												</div>
 												<div class="">
-													<h5 class="blues">需求已完成</h5>
-													<i style="border-left: 2px solid gray; color: gray;"><i>等待后台提成佣金</i></i>
+													<h5 class="blues" style="color: #0082E6; ">提成佣金</h5>
+													<i style="border-left: 2px solid gray; color: gray;"><i>请保持通信畅通,客服会与您联系</i></i>
 												</div>
 											</div>
 										{/if}
@@ -1238,10 +1429,10 @@ $(" .xiugai  .affirm").click(function(){
 				var oNoHis1 = $.myTime.DateToUnix(no1); // 1498060800
 				var oNoHis2 = $.myTime.DateToUnix(no2); // 1498060800
 				var demand_id = $(this).data('id');
-				alert(money);
-				alert(oNoHis1);
-				alert(oNoHis2);
-				alert(demand_id);
+				// alert(money);
+				// alert(oNoHis1);
+				// alert(oNoHis2);
+				// alert(demand_id);
 					if(oNoHis2>oNoHis1){
 
 						$.post("{:url('user/order_xiugai')}",{

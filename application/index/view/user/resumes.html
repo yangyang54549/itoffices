@@ -293,51 +293,74 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				<div class="introduce">
 
 					<h3 class="h3">个人介绍<span> </span><a href="bianji2.html"att><img src="__INDEX__/img/xiugai.png"class="imgs" alt="修改" title="修改"/></a></h3>
-					<p>{$user.introduce}</p>
+					{if condition="$user.introduce"}
+						<p>{$user.introduce}</p>
+					{else/}
+						<p>还没有填写个人介绍</p>
+					{/if}
 
 
 				</div>
 				<div class="work introduce">
 					<h3 class="h3">工作经历<span></span><a href="bianji2.html"att><img src="__INDEX__/img/xiugai.png"class="imgs" alt="修改" title="修改"/></a></h3>
 					<ul class="J_Works">
-
-						{volist name="experience" id="vo"}
-						<li>
-							<i class="dot"><i></i></i>
-							<p class="title"><span>{$vo.start_time} - {$vo.end_time}</span><span>{$vo.company_name}</span><span>{$vo.position}</span></p>
-							<p class="summary">{$vo.content}</p>
-						</li>
-						{/volist}
+						{if condition="$experience"}
+							{volist name="experience" id="vo"}
+							<li>
+								<i class="dot"><i></i></i>
+								<p class="title"><span>{$vo.start_time} - {$vo.end_time}</span><span>{$vo.company_name}</span><span>{$vo.position}</span></p>
+								<p class="summary">{$vo.content}</p>
+							</li>
+							{/volist}
+						{else/}
+							<li>
+								<i class="dot"><i></i></i>
+								<p class="summary">还没有完善工作经历</p>
+							</li>
+						{/if}
 					</ul>
 
 				</div>
 				<div class="introduce">
 					<h3 class="h3">教育经历<span> </span><a href="bianji2.html"att><img src="__INDEX__/img/xiugai.png"class="imgs" alt="修改" title="修改"/></a></h3>
 					<ul>
-						{volist name="education" id="vos"}
-						<li>
-							<i class="dot"><i style="margin-top: 2.5px;"></i></i>
-							<p class="title"><span>{$vos.start_time} - {$vos.end_time}</span><span>{$vos.school_name}</span><span>{$vos.major}</span><span>{$vos.xueli}</span></p>
-							<p class="summary">{$vos.content}</p>
-						</li>
-						{/volist}
+						{if condition="$education"}
+							{volist name="education" id="vos"}
+							<li>
+								<i class="dot"><i style="margin-top: 2.5px;"></i></i>
+								<p class="title"><span>{$vos.start_time} - {$vos.end_time}</span><span>{$vos.school_name}</span><span>{$vos.major}</span><span>{$vos.xueli}</span></p>
+								<p class="summary">{$vos.content}</p>
+							</li>
+							{/volist}
+						{else/}
+							<li>
+								<i class="dot"><i></i></i>
+								<p class="summary">还没有完善教育经历</p>
+							</li>
+						{/if}
 					</ul>
 				</div>
 				<div class="introduce">
 					<h3 class="h3">技能<span> </span><a href="bianji1.html"att><img src="__INDEX__/img/xiugai.png"class="imgs" alt="修改" title="修改"/></a></h3>
 					<ul class="introduce3">
 
-						{volist name="skill" id="voss"}
-						<li>
-							<p>{$voss.skill}</p>
-							<p class="gren_b"><span style="width:{$voss.grade*20}%"></span></p>
-						</li>
-						{/volist}
-
-						<li class="ruler">
-							<p><span></span><span></span><span></span><span></span><span></span><span></span></p>
-							<p><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></p>
-						</li>
+						{if condition="$skill"}
+							{volist name="skill" id="voss"}
+							<li>
+								<p>{$voss.skill}</p>
+								<p class="gren_b"><span style="width:{$voss.grade*20}%"></span></p>
+							</li>
+							{/volist}
+							<li class="ruler">
+								<p><span></span><span></span><span></span><span></span><span></span><span></span></p>
+								<p><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></p>
+							</li>
+						{else/}
+							<li>
+								<i><i style="margin-top: 2.5px;"></i></i>
+								<p class="summary">还没有完善技能</p>
+							</li>
+						{/if}
 
 					</ul>
 				</div>
@@ -346,21 +369,30 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 					<h3 class="h3">作品<span> </span><a href="bianji0.html"att><img src="__INDEX__/img/xiugai.png"class="imgs" alt="修改" title="修改"/></a></h3>
 					<ul class="introduce4">
 
-						{volist name="production" id="vosss"}
-						<li>
-							<div class="right">
-								<p> <span>{$vosss.name}</span><span>{$vosss.position}</span></p>
-								<p>{$vosss.content}</p>
-							</div>
-							<i class="clear"></i>
-						</li>
-						{/volist}
+						{if condition="$skill"}
+							{volist name="production" id="vosss"}
+							<li>
+								<div class="right">
+									<p> <span>{$vosss.name}</span><span>{$vosss.position}</span></p>
+									<p>{$vosss.content}</p>
+								</div>
+								<i class="clear"></i>
+							</li>
+							{/volist}
+						{else/}
+							<li>
+								<div class="right">
+									<p>还没有完善作品</p>
+								</div>
+								<i class="clear"></i>
+							</li>
+						{/if}
 
 					</ul>
 				</div>
 
 				<div class="introduce introduce5">
-					<h3>用户评价<span> 好评度  <a href="###" class="introduce5_span">
+					<h3>用户评价<!-- <span> 好评度  <a href="###" class="introduce5_span">
 						<img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/>
 						<div class="">
 							<p><span >专业(强烈推荐)</span> <span ><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/></span> <i class="clear"></i></p>
@@ -368,84 +400,36 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 							<p><span >态度(强烈推荐)</span> <span ><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/><img src="__INDEX__/img/xin.png"/></span> <i class="clear"></i></p>
 
 						</div>
-					</a> 4 人评论 </span><i class="clear"></i></h3>
+					</a> 4 人评论 </span> --><i class="clear"></i></h3>
 					<ul class="introduce51">
 
+					{if condition="$evaluate"}
+						{volist name="evaluate" id="vossss"}
 						<li>
 							<div class="left">
 								<img src="__INDEX__/img/avatar/11.jpg" />
 
 							</div>
 							<div class="conte">
-								<p>
-									生于1890</p>
-								<p>完成质量很高，专业度和配合度都很好，非常满意</p>
+								<p>{$vossss.evaluate_name}</p>
+								<p>{$vossss.content}</p>
 							</div>
 							<div class="right">
+								<p>{$vossss.create_time|date="Y-m-d",###}</p>
 								<p>
-									2017-06-01
+								{for start="0" end="$vossss.star"}
+								<img src="__INDEX__/img/xin.png" />
+								{/for}
 								</p>
-								<p><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /></p>
 							</div>
 							<i class="clear"></i>
 						</li>
+						{/volist}
+					{else/}
 						<li>
-							<div class="left">
-
-								<img src="__INDEX__/img/avatar/11.jpg" />
-
-							</div>
-							<div class="conte">
-								<p>
-									生于1890</p>
-								<p>完成质量很高，专业度和配合度都很好，非常满意</p>
-							</div>
-							<div class="right">
-								<p>
-									2017-06-01
-								</p>
-								<p><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /></p>
-							</div>
-							<i class="clear"></i>
+							<P>还没有用户评价</P>
 						</li>
-						<li>
-							<div class="left">
-
-								<img src="__INDEX__/img/avatar/11.jpg" />
-
-							</div>
-							<div class="conte">
-								<p>
-									生于1890</p>
-								<p>完成质量很高，专业度和配合度都很好，非常满意</p>
-							</div>
-							<div class="right">
-								<p>
-									2017-06-01
-								</p>
-								<p><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /></p>
-							</div>
-							<i class="clear"></i>
-						</li>
-						<li>
-							<div class="left">
-
-								<img src="__INDEX__/img/avatar/11.jpg" />
-
-							</div>
-							<div class="conte">
-								<p>
-									生于1890</p>
-								<p>完成质量很高，专业度和配合度都很好，非常满意</p>
-							</div>
-							<div class="right">
-								<p>
-									2017-06-01
-								</p>
-								<p><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /><img src="__INDEX__/img/xin.png" /></p>
-							</div>
-							<i class="clear"></i>
-						</li>
+					{/if}
 					</ul>
 				</div>
 				<div class="introduce6">

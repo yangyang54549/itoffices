@@ -22,7 +22,8 @@ function notHave() {
 	var uls = $(".cente_ul ul");
 	for(var s = 0; s < uls.length; s++) {
 		var ullen = $(".cente_ul .ul" + (s + 1) + " .li_one").length;
-		$(".cente_ul .ul" + (s + 1) + " .string>p").html("共" + ullen + "条记录，共" + (Math.ceil(ullen / 7)) + "页");
+		/*$(".cente_ul .ul" + (s + 1) + " .string>p").html("共" + ullen + "条记录，共" + (Math.ceil(ullen / 7)) + "页");*/
+		$(".cente_ul .ul" + (s + 1) + " .string>p").html("共" + ullen + "条记录");
 		if(ullen > 0) {
 			$(".cente_ul .ul" + (s + 1) + " .string>p").css("display", "block");
 			$(".cente_ul .ul" + (s + 1) + " .string .wu").css("display", "none");
