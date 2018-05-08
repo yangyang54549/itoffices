@@ -585,56 +585,6 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 							<span>{$demand.create_time|date="Y-m-d H:i:s",###}</span>
 							<i class="clear"></i>
 						</div>
-<!-- 						<div id="ws1">
-							<span><img src="__INDEX__/img/icon/xi10.png"/><span>已申请人数</span></span>
-
-							<span class="spimg">
-						<div class="pimg" id="pg">
-						<div class="">
-							<img src="__INDEX__/img/bai.png"/>
-							<span>张小旺</span>
-						</div>
-						<div class="">
-							<img src="__INDEX__/img/bai.png" />
-							<span>李晓吧</span>
-						</div>
-						<div class="">
-							<img src="__INDEX__/img/bai.png" />
-							<span>诸葛小白</span>
-						</div>
-						<div class="">
-							<img src="__INDEX__/img/bai.png" />
-							<span>司马大白</span>
-						</div>
-						<div class="">
-							<img src="__INDEX__/img/bai.png" />
-							<span>老白</span>
-						</div>
-						<div class="">
-							<img src="__INDEX__/img/bai.png" />
-							<span>六点半</span>
-						</div>
-						<div class="">
-							<img src="__INDEX__/img/bai.png" />
-							<span>李复</span>
-						</div>
-						<div class="">
-							<img src="__INDEX__/img/bai.png" />
-							<span>李复</span>
-						</div>
-						<div class="">
-							<img src="__INDEX__/img/bai.png" />
-							<span>李复</span>
-						</div>
-						<div class="">
-							<img src="__INDEX__/img/bai.png" />
-							<span>李复</span>
-						</div>
-
-					</div>
-					</span>
-					<i class="clear"></i>
-				</div> -->
 				<div id="lianxi">
 					<span><img src="__INDEX__/img/icon/xi04.png"/><span>联系方式</span></span>
 
@@ -643,10 +593,8 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 								<span id="xinxi"><a><img src="__INDEX__/img/hua.png" style="height: 16px;" /><span>：</span> <span>{$demand.mobile}</span></a></span>
 							{else /}
 								<span id="xinxi" style="display:none"><a><img src="__INDEX__/img/hua.png" style="height: 16px;" /><span>：</span> <span>{$demand.mobile}</span></a></span>
-								<span id="xinxi1"><a><span>申请干活后才能看到联系方式哦</span></a></span>
+								<span id="xinxi1"><a><span>{if condition="$demand.schedule eq 1"}申请干活后才能看到联系方式哦{else /}外包招募流程已经结束，联系信息已被隐藏{/if}</span></a></span>
 							{/if}
-
-					<!-- <span id="xinxi2">外包招募流程已经结束，联系信息已被隐藏</span> -->
 					</span>
 
 					<i class="clear"></i>
@@ -660,7 +608,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 			</div>
 			<div class="content-info-right">
 				<p class="content-info-right-p">交付日期</p>
-				<h3>{$demand.create_time|date="Y-m-d",###}</h3>
+				<h3>{if condition="$demand.delivery_time eq 0"}待协商{else/}{$demand.delivery_time|date="Y-m-d",###}{/if}</h3>
 				<p class="content-info-right-p">项目预算</p>
 				<h3 class="content-info-right-red">{$demand.money}</h3>
 				<div class="count">
@@ -1350,21 +1298,20 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 						},function(data){
 							console.log(data);
 							if (data.code==1) {
+
+								var shenqing = $("#shenqing").text();
+								$("#shenqing").text(shenqing+1);
+
 								$("#content-sq").text("已申请");
 								$(".beijin").css("display", "block");
 
 								$("#xinxi").css("display", "block");
 								$("#xinxi1").css("display", "none");
 
-// =======
-// 								$(".beijin .good h5").text("申请成功！");
-// 								$(".beijin .good .text").text("我们尽快与您联系，请保持手机通畅");
-// >>>>>>> 9579208b82a0ca4e1b83880ccc29e17db4b8ff85
 							}else{
 
 								$(".beijin").css("display", "block");
 								$(".beijin .good h5").text("已申请");$(".beijin .good .text").text(data.msg);
-
 
 							}
 						}, "json");
@@ -1547,7 +1494,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				<h1 style="height: 26px;font-size: 16px; line-height: 30px;padding-top: 10px;"><img src="__INDEX__/img/icon/xi11.png"class="img" /><span id="" style="font-size: 16px; line-height: 30px;">
 			参考网址/产品
 		</span>
-				<span id="" style="font-size: 16px; line-height: 30px; margin-left: 30px;color: gray; font-weight: 500;" onclick="window.location='http://{$demand.reference}'">
+				<span id="" style="font-size: 16px; line-height: 30px; margin-left: 30px;color: gray; font-weight: 500;" onclick="window.open('http://{$demand.reference}')">
 					{$demand.reference}
 				</span></h1>
 
