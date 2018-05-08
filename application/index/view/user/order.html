@@ -1069,9 +1069,25 @@
     padding: 10px 0;
     margin-top: 20px;
 }
+#goods{
+	 position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -250px;
+    margin-top: -200px;
+  
+   
+    background-color: white;
+    border-radius: 10px;
+    z-index: 999;
+    display: none;
+	width: 450px !important;
+	padding: 0px !important;
+}					
+
 		</style>
 		<div class="beijin">
-			<div class="goods">
+			<div class="goods" id="goods">
 				<h5>提示</h5>
 				<p class="texts"></p>
 				<p class="qud" id="qd">确定</p>
@@ -1123,12 +1139,26 @@
 			</div>
 		</div>
 <div class="login_background" ></div>
+<div class="goods" >
+				<h5>提示</h5>
+				<p class="texts">取消本次预约？</p>
+				<div class="buttoms">
+					<p class="cancel" style="background-color: #d95c5c;">取消</p>
+					<p class="affirm" style="background-color: #5bbd72;">确认</p>
+				</div>
+			</div>
 		<script src="__INDEX__/js/order.js" type="text/javascript" charset="utf-8"></script>
 		<script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="__INDEX__/js/bootstrap-datepicker.min.js"></script>
 	<script type="text/javascript" src="__INDEX__/js/bootstrap-datepicker.zh-CN.min.js" charset="UTF-8"></script>
 		<script type="text/javascript">
-
+/*确认取消*/
+$("#goods .cancel").click(function(){
+	/*取消*/
+})
+$("#goods .affirm").click(function(){
+	/*确认*/
+})
 			taps(0);
 $(".cente-head .p2").click(function() {
 	var tt  = $(".cente-head .p2").index($(this));
