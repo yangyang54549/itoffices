@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-05-02 17:11:20
+ * @Last Modified time: 2018-05-08 10:33:46
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -177,7 +177,12 @@ class Demand extends Yang
             return json($this->ret);
 
         }else{
+
             $id = input('id');
+
+            /*浏览量*/
+            D::where('id',$id)->setInc('browse');
+
             $exist = 0;
             $demand = D::where('id',$id)->find();
             $dt = DT::where(['id'=>$demand['type']])->find();
@@ -206,6 +211,7 @@ class Demand extends Yang
 
             $this->assign('exist',$exist);
             $this->assign('demand',$demand);
+
             return $this->fetch();
         }
     }

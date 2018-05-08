@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-05-07 18:17:26
+ * @Last Modified time: 2018-05-08 13:46:46
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -77,6 +77,7 @@ class User  extends Yang
     {
         $demand = Demand::where(['user_id'=>Session::get('user.id')])->order('create_time desc')->select();//我发布的需求
         foreach ($demand as $key => $value) {
+            $demand[$key]['applys'] = $demand[$key]['apply'];
             $apply = Apply::where(['demand_id'=>$value['id']])->select();
             $demand[$key]['apply'] = $apply;
             if (!empty($value['apply_id'])) {
