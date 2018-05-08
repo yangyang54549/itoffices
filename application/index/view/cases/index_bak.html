@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>IT联合办公</title>
+		<link rel="stylesheet" href="__INDEX__/css/header.css" />
+		<link rel="stylesheet" href="__INDEX__/css/index.css" />
+		<link rel="stylesheet" href="__INDEX__/css/restre.css" />
+		<link rel="stylesheet" href="__INDEX__/css/style.css" />
+		<link href="__INDEX__/css/index_style.css" rel="stylesheet" type="text/css">
+		<!--<link rel="shortcut icon" href="https://www.315pr.com:443/resources/bootstrap/__INDEX__/img/sdyk.ico">-->
+		<script src="__INDEX__/js/jss/jquery-2.1.3.min.js"></script>
+
+		<style type="text/css">
+			.nav li a {
+				color: white;
+			}
+
+			.sou {
+				width: 100%;
+min-width: 1200px;
+				height: 640px;
+
+				background-image: url(__INDEX__/img/index.jpg);
+				filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+				-moz-background-size: 100% 100%;
+				background-size: 100% 100%;
+				padding: 1px 0;
+				position: relative;
+				top: 0;
+				left: 0;
+				z-index: 1;
+			}
+
+			.search {
+				width: 100%;
+				padding: 0;
+				position: absolute;
+				left: 0;
+				top: 50%;
+				margin-top: -30px;
+				z-index: 10;
+			}
+
+			.search1 {
+				height: 60px;
+				width: 600px;
+				line-height: 65px;
+				position: relative;
+				top: 0;
+				left: 0;
+				background-color: white;
+				margin: 5px auto;
+				border-radius: 5px;
+				box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
+			}
+
+			.search1:hover {
+				box-shadow: 0 10px 30px 6px rgba(28, 57, 81, 0.18);
+			}
+
+			.search1 input {
+				width: 450px;
+				height: 56px;
+				line-height: 56px;
+				border: none;
+				margin-left: 50px;
+				margin-top: -2px;
+			}
+
+			.search1 img {
+				width: 30px;
+				position: absolute;
+				top: 17px;
+				left: 13px;
+			}
+
+			.search1 button {
+				width: 80px;
+				height: 56px;
+				position: absolute;
+				top: 2px;
+				right: 2px;
+				border-radius: 5px;
+				background-color: #0d80dd;
+				color: white;
+				font-size: 16px;
+			}
+
+			.search1 span {
+				position: absolute;
+				top: 0px;
+				right: -40px;
+				color: white;
+				font-size: 15px;
+				font-weight: bold;
+			}
+
+			.search1 p {
+				width: 120px;
+				height: 56px;
+				text-align: center;
+				border-radius: 5px;
+				position: absolute;
+				right: -170px;
+				font-size: 16px;
+				background-color: #0d80dd;
+				color: white;
+				font-weight: bold;
+				top: 3px;
+				line-height: 56px;
+				box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
+				/*background: -webkit-linear-gradient(left,  #f2f2ef, white);*/
+				/* Safari 5.1 - 6.0 */
+				/*background: -o-linear-gradient(right,  #f2f2ef, white);*/
+				/* Opera 11.1 - 12.0 */
+				/*background: -moz-linear-gradient(right, #f2f2ef, white);*/
+				/* Firefox 3.6 - 15 */
+				/*background: linear-gradient(to right, #f2f2ef, white);*/
+				/* 标准的语法（必须放在最后） */
+			}
+
+			.search1 p:hover {
+				box-shadow: 0 10px 30px 6px rgba(28, 57, 81, 0.18);
+			}
+
+			#page-box {
+				position: relative;
+				top: 0;
+				left: 0;
+			}
+.demandlist ul li.page-div{
+	border-radius:30px;
+}
+			.page-div {
+				width: 30% !important;
+				height: 688px;
+				box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
+				background-color: rgba(0, 0, 0, 0.1);
+				border: none !important;
+			}
+
+			.page-div h3 {
+				width: 100%;
+				height: 100px;
+				font-size: 40px;
+				line-height: 100px;
+				text-align: center;
+				position: absolute;
+				top: 50%;
+				left: 0;
+				margin-top: -50px;
+			}
+
+			.page-div:hover {
+				box-shadow: 0 10px 30px 6px rgba(28, 57, 81, 0.18);
+			}
+
+			.demandlist ul .round {
+				width: 30%;
+				margin-bottom: 50px;
+				margin-right: 5%;
+			}
+
+			.similarity_label {
+				font-size: 18px;
+			}
+			/*nav*/
+			.navs{
+				position: absolute;
+				top: -45px;
+				left: 0;
+				width: 600px;
+				height: 40px;
+				overflow: hidden;
+				background-color: rgba(0,0,0,0.1);
+			}
+			.navs .is{
+				float: left;
+				width: 90px;
+				height: 38px;
+				text-align: center;
+				line-height: 40px;
+				font-size: 14px;
+				color: white;
+				z-index: 100;
+			}
+			.navs i:hover{
+				color: #fff !important;
+				background: url(__INDEX__/img/navBg.png);
+				background-size: 100%;
+			}
+			.actives {
+				color: #fff !important;
+				background: url(__INDEX__/img/navBg.png);
+				background-size: 100%;
+			}
+			.page-content{width: 100%;}
+			 .demandlist{
+			 	width: 100%;
+			 }
+			.project-list{width: 1200px;
+			margin: 0 auto;
+			padding: 0 20px;}
+			.project-list .round{
+				/*background-image: url(__INDEX__/img/index/phone.png);*/
+				padding: 40px 18px 80px 18px;
+    			width: 359px;
+    			height: 688px;
+    			border-radius: 25px;
+    			margin-right: 40px;
+    			border: none;
+    			  border: 1px solid #d2d2d2;
+    			  box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
+			}
+			.project-list .round .rounds{
+				width: 100%;
+				height: 100%;
+    			overflow: hidden;
+    			position: relative;
+    			display: inline-block;
+   			 	border: 1px solid gainsboro;
+			}
+			.rounds a{
+			width: 100%;
+			height: 100%;
+			}
+			.rounds a .proImg{
+				width:100%;
+				height: 100%;
+			}
+
+			.project-list .round:hover{
+				background-image: url(__INDEX__/img/index/phone.png);
+				box-shadow: 0 8px 20px 0 rgba(28,57,81,0.24);
+
+			}
+			.photograph{
+				background-color: rgba(255,255,255,0.01);
+
+			}
+			.photograph img{
+				margin-top: 15px;
+				margin-left: 15px;
+				width: 40px;
+				height: 40px;
+			}
+			.atcives{
+				color:#b43d3d ;
+			}
+			.page a {
+				padding: 0 10px !important;
+			}
+			#demo{
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: -1;
+		height: 640px;
+		overflow: hidden;
+		display: none;
+	}
+	#demo .canvaszz{
+		height: 640px;
+
+	}
+	#canvas{
+		height: 640px;
+
+	}
+		</style>
+	</head>
+<script>
+(function(b,a,e,h,f,c,g,s){b[h]=b[h]||function(){(b[h].c=b[h].c||[]).push(arguments)};
+b[h].s=!!c;g=a.getElementsByTagName(e)[0];s=a.createElement(e);
+s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefore(s,g)
+})(window,document,"script","_qha",224241,false);
+</script>
+	<body>
+		<div class="sou " >
+			<div class="search">
+				<div class="search1">
+					<div class="navs">
+						<!--<i class="is">IT联合办公</i>-->
+						<i class="is">首页</i>
+						<i class="is">需求</i>
+						<i class="actives is">案例</i>
+						<i class="is">人才</i>
+					</div>
+					<input type="text" name="" id="" value="" placeholder="搜索..." />
+					<img src="__INDEX__/img/icon/fda.png" />
+					<button onclick="one();">搜索</button>
+					<!-- <p>定制发需求</p> -->
+					<p onclick="window.location.href='{:url("demand/publish")}'">定制发需求</p>
+					<span>或者</span>
+				</div>
+			</div>
+		</div>
+		<div class="header" id="demo">
+	<!--<div class="top_logo"></div> -->
+
+	<!--<div class="topcn" style="font:20px/18px 'microsoft yahei'; color:#0FF;text-align:center;">
+	  <p>&nbsp;</p>
+	  <p>内容区域</p>
+	  <p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+	  <p>来源：<a href="#">站长素材</a></p>
+	</div>
+
+    <div class="nav">
+    	<a class="gv" href="#">建站服务</a>
+        <a class="gv" href="#">仿站技术</a>
+        <a class="gv" href="#">作品案例</a>
+        <a class="gv" href="#">工 作 站</a>
+        <a class="gv" href="#">资讯中心</a>
+        <a class="gv" href="#">在线帮助</a>
+   </div>-->
+
+  <div class="canvaszz"> </div>
+  <canvas id="canvas"></canvas>
+</div>
+<script src="__INDEX__/js/script.js" ></script>
+		<div id="choice">
+			<div class="choice_kind">
+				<span text="产品类型：">产品类型：</span>
+				<ul class="ty">
+					<li class="active" data-id="0">不限</li>
+                    {volist name="type" id="vos" key="k"}
+                        <li data-id="{$vos.id}" class="">{$vos.name}</li>
+                        <!-- <li data-id="{$vos.id}" class="freeman_none" style="display:none;"></li> -->
+                    {/volist}
+					<!-- <li data="9" class="freeman_none" style="display:none;">直销系统类</li> -->
+					<!-- <i class="more_choice" id="more_choice1">更多>></i> -->
+					<i class="clear"></i>
+				</ul>
+				<i class="clear"></i>
+			</div>
+<!--不限-->
+			<div class="choice_kind" style="border-bottom: 1px dashed rgba(0,0,0,0.14);">
+				<span text="主要功能：" class="hhh">主要功能：</span>
+				<ul class="xiao">
+					<li class="active nuxian" data-id="0" id="fun">不限</li>
+                    {volist name="specific" id="voss" key="n"}
+	                    {if condition="$n lt 7"}
+	                        <li data-id="{$voss.id}" class="ccc{$voss.father_id} ccc nine{$n} freeman_none" id="ccc{$voss.father_id}">{$voss.name}</li>
+	                    {else /}
+	                        <li data-id="{$voss.id}" class="ccc{$voss.father_id} ccc nine{$n} freeman_none" id="ccc{$voss.father_id}" style="display:none;">{$voss.name}</li>
+	                    {/if}
+					<!--<li class="ccc{$voss.father_id} ccc" data-id="{$voss.id}">{$voss.name}</li> -->
+					{/volist}
+					<i class="more_choice" id="more_choice2">更多>></i>
+					<i class="more_choices" id="more_choices" style="display:none">更多>></i>
+
+					<i class="clear"></i>
+				</ul>
+				<i class="clear"></i>
+			</div>
+
+<!--全部-->	<div class="choice_kind system share">
+				<span text="系统类型：" data="">系统类型：</span>
+				<ul class="sys">
+					<li data-id="0" class="active">不限</li>
+                        {volist name="system" id="vosss"}
+                            <li data-id="{$vosss.id}">{$vosss.name}</li>
+                        {/volist}
+					<i class="clear"></i>
+				</ul>
+				<i class="clear"></i>
+			</div>
+		</div>
+		<!--end-->
+		<div class="page-content" style="margin-top: 0">
+			<div class="demandlist">
+				<ul class="project-list" id="project-list1">
+				{volist name="cases" id="vo" empty="暂时没有数据"}
+					<li class="round">
+						<div class="rounds">
+							<a href="{:url('cases/inside',['id'=>$vo.id])}" target="_blank">
+							<img class="proImg" src="{$vo.img}" alt="">
+							<div class="picList">
+								<div class="similarity-title">{$vo.case_name}</div>
+								<div class="similarity_label">产品类型:<span>{$vo.type}</span></div>
+								<div class="similarity_label">主要功能:<span>{$vo.specific}</span></div>
+								<div class="similarity_label functionNames">系统类型:
+									<span>{$vo.system_type}</span>
+								</div>
+								<div class="similarity-intro">{$vo.brief}</div>
+								<div class="similarity-price"> ￥<span class="price">{$vo.money}</span> </div>
+								<div class="photograph">
+								{if condition="$vo.is_pp eq 1"}
+								<img src="__INDEX__/img/sj.png" alt="">
+								{else /}
+								<img src="__INDEX__/img/diannao.png" alt="">
+								{/if}
+								</div>
+							</div>
+						</a>
+						</div>
+					</li>
+				{/volist}
+				<li class="page-div" onclick="xia();">
+					<h3>下一页</h3>
+				</li>
+				</ul>
+				<div id="page-box" style="width: 1200px;margin: 0 auto;">
+					<div class="page">
+						{for start="1" end="$page.page+1" comparison="lt" step="1" name="n"}
+							{if condition = "$n eq $page.num"}
+							<a  href="#" class="atcives abc{$n}" onclick="pagess({$n});">{$n}</a>
+							{else /}
+							<a  href="#" class="abc{$n}" onclick="pagess({$n});">{$n}</a>
+							{/if}
+						{/for}
+					</div>
+					<a href="#" class="page_next" onclick="xia();">下页</a>
+					<em><span class="now">{$page.num}</span>/<span class="num">{$page.page}</span>页&nbsp;&nbsp;共<span class="total">{$page.count}</span>条</em>
+
+				</div>
+			</div>
+		</div>
+					<style type="text/css">
+			.beijin {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+  display: none;
+}
+.good {
+    margin: 30vh auto;
+    padding: 50px;
+    width: 400px;
+    background-color: white;
+    border-radius: 10px;
+}
+.good h5 {
+    font-size: 16px;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.good h5, .good p {
+    width: 100%;
+    text-align: center;
+}
+.good p {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.good h5, .good p {
+    width: 100%;
+    text-align: center;
+}
+.qud {
+    border: 1px solid red;
+    color: red;
+    border-radius: 10px;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+		</style>
+		<div class="beijin">
+			<div class="good">
+				<h5>提示</h5>
+				<p class="texts"></p>
+				<p class="qud" id="qd">确定</p>
+			</div>
+		</div>
+		<div class="footer" style="background-color: #1e2831;">
+			<div class="center">
+				<p>2014-2017 汇谷电子科技有限公司 版权所有：ICP备12027515号-1</p>
+			</div>
+		</div>
+		<div class="fixedTop" style="position:relative">
+		</div>
+
+		<!--请将以下码嵌入到您网页源代码的最后面，通常是</body></HTML>之后,这样在服务器升级维护的时候也不会影响您的网页打开呈现速度。-->
+		<!-- <script src="__INDEX__/js/demand.js" type="text/javascript" charset="utf-8"></script> -->
+
+		<script src="__INDEX__/js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__INDEX__/js/jss/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+		var pagenum = {$page.page};
+$("#qd").click(function() {
+				$(".beijin").css("display", "none");				
+			})
+			$('.choice_kind li').click(function(){
+				$("#page-box .now").text('1')
+				$(this).parents(".choice_kind").find("li").removeClass("active").end().find(".freeman_none").css("display",'none');
+				$(this).addClass("active");
+				$(this).parent().find(".more_choice").css('display','block');
+				if($(this).attr("class").indexOf("freeman_none")>-1){
+
+					$(this).parents(".choice_kind").find("span:eq(0)").html($(this).text()+":").css("color",'#ff5454').attr("data",$(this).attr('data'));
+					// $(this).parents(".choice_kind").find("span:eq(0)").html($(this).parents(".choice_kind").find("span:eq(0)").attr("text")).css("color",'#333').attr("data",$(this).attr('data'));
+				}else{
+					$(this).parents(".choice_kind").find("span:eq(0)").html($(this).parents(".choice_kind").find("span:eq(0)").attr("text")).css("color",'#333').attr("data",$(this).attr('data'));
+				}
+				$('#more_choice2').css('display','none');
+
+
+				var cla = $(this).parent().attr('class');
+				var id = $(this).attr('data-id');
+				var type = $('.ty .active').attr('data-id');
+				var specific = $('.xiao .active').attr('data-id');
+				var system_type = $('.sys .active').attr('data-id');
+				var page = 1;
+
+				if (cla=='ty') {
+					if (id==0) {
+						$('.xiao .ccc').css('display','none');
+						$('.xiao .nine1').css('display','block');
+						$('.xiao .nine2').css('display','block');
+						$('.xiao .nine3').css('display','block');
+						$('.xiao .nine4').css('display','block');
+						$('.xiao .nine5').css('display','block');
+						$('.xiao .nine6').css('display','block');
+						$('.xiao .ccc').removeClass("active");
+						$('.xiao .nuxian').addClass("active");
+						$('#more_choice2').css('display','block');
+					}else{
+						var claa = 'ccc'+id;
+						$('.xiao .ccc').css('display','none');
+						$('.xiao .'+claa).css('display','block');
+						$('.xiao li').removeClass("active");
+						$('.xiao li:nth-child(1)').addClass("active");
+						$('#more_choice2').css('display','none');
+
+						var datas = $('.ccc'+type);
+						for(var i=0;i<datas.length;i++){
+							if (i>5) {
+								datas.eq(i).css('display','none');
+								$('#more_choice2').css('display','block');
+							}
+						}
+
+						console.log($('.ccc'+type));
+					}
+					var specific = $('.xiao .active').attr('data-id');
+					var system_type = $('.sys .active').attr('data-id');
+					$(".hhh").text('主要功能：');
+					$('.hhh').css('color','');
+
+				}else if(cla=='xiao'){
+						if (type==0) {
+							//类型未选择
+							$('.ccc').css('display','block');
+							var xiaos = $('.ccc');
+							for(var i=0;i<xiaos.length;i++){
+								if (i>5) {
+									xiaos.eq(i).css('display','none');
+									$('#more_choice2').css('display','block');
+								}
+							}
+
+						}else{
+							//类型已选择
+							$('.ccc'+type).css('display','block');
+							var xiaos = $('.ccc'+type);
+							for(var i=0;i<xiaos.length;i++){
+								if (i>5) {
+									xiaos.eq(i).css('display','none');
+									$('#more_choice2').css('display','block');
+								}
+							}
+						}
+				}
+				$.post("{:url('cases/index')}",{type:type,specific:specific,system_type:system_type,page:page},function(data) {
+					pagenum = data.page.page;
+					$("#project-list1").html(data.data);
+
+					if (data.page.page<=1) {
+						$("#page-box").html('');
+					}else{
+						// $("#project-list1").append('<li class="page-div" onclick="xia();"><h3>下一页</h3></li>');
+
+						var st = '';
+						for (var i=1;i<data.page.page+1;i++)
+						{
+							if (i==data.page.num) {
+								st +='<a  href="#" class="atcives abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
+							}else{
+								st +='<a  href="#" class="abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
+							}
+						}
+
+						var str = '<div class="page">'+st+
+						'</div><a href="#" class="page_next" onclick="xia();">下页</a><em><span class="now">'+data.page.num+
+						'</span>/<span class="num">'+data.page.page+
+						'</span>页&nbsp;&nbsp;共<span class="total">'+data.page.count+'</span>条</em>';
+						$("#page-box").html(str);
+					}
+				})
+
+			})
+
+			$(".more_choice").click(function(){
+				typec = $('.ty .active').attr('data-id');
+				if(typec==0){
+					$(this).parent().find(".freeman_none").css("display",'block')
+				}else{
+					$('.ccc'+typec).css('display','block');
+				}
+				$(this).css("display",'none')
+			})
+
+			$(".navs i").click(function() {
+				$(".navs i").removeClass("actives");
+				tt = $(".navs i").index($(this));
+				var tts = $(".navs i")[tt];
+				tts.className = "actives is";
+			});
+
+			$(document).bind("contextmenu copy selectstart", function() {
+				return false;
+			});
+			/*禁用ctrl+c ctrl+v*/
+			$(document).keydown(function(e) {
+				if(e.ctrlKey && (e.keyCode == 65 || e.keyCode == 67)) {
+					return false;
+				}
+			})
+
+			function xia() {
+				var page = 0;
+				var num = 0;
+					page = $('.now').text();//当前页码数
+					page = parseInt(page);
+					page = page+1;
+					num = $('.num').text();//总页码数
+
+				if (pagenum<=1) {
+					$(".beijin").css("display", "block");
+					$(".beijin .texts").text("当前是最后一页");
+					/*alert('当前是最后一页');*/return false;
+				}
+				if (page>num) {
+					$(".beijin").css("display", "block");
+					$(".beijin .texts").text("当前是最后一页");return false;
+				}
+
+				var	clas = 'abc'+page;
+					$(".page a").removeClass('atcives');
+					$('.'+clas).addClass('atcives');
+					$('.now').text(page);
+
+				var cla = $(this).parent().attr('class');
+				var id = $(this).attr('data-id');
+				var type = 0;
+				var specific = 0;
+				var system_type = $('.sys .active').attr('data-id');
+
+				if (cla=='ty') {
+					if (id==0) {
+						$('.xiao .ccc').css('display','block');
+						$('.xiao .ccc').removeClass("active");
+						$('.xiao .nuxian').addClass("active");
+					}else{
+						var claa = 'ccc'+id;
+						$('.xiao .ccc').css('display','none');
+						$('.xiao .'+claa).css('display','block');
+						$('.xiao li').removeClass("active");
+						$('.xiao li:nth-child(1)').addClass("active");
+					}
+				}else if(cla=='xiao'){
+				}
+
+				type = $('.ty .active').attr('data-id');
+				specific = $('.xiao .active').attr('data-id');
+				$.post("{:url('cases/index')}",{type:type,specific:specific,system_type:system_type,page:page},function(data) {
+					$("#project-list1").html(data.data);
+					// if (data.page.num<data.page.page) {
+						// $("#project-list1").append('<li class="page-div" onclick="xia();"><h3>下一页</h3></li>');
+					// }
+				})
+			}
+			function pagess(page) {
+				if (pagenum<=1) {
+					$(".beijin").css("display", "block");
+					$(".beijin .texts").text("当前是最后一页");return false;
+				}
+				$(".page a").removeClass('atcives');
+				var	clas = 'abc'+page;
+				$('.'+clas).addClass('atcives');
+				$('.now').text(page);
+				var type = 0;
+				var specific = 0;
+				var system_type = $('.sys .active').attr('data-id');
+				type = $('.ty .active').attr('data-id');
+				specific = $('.xiao .active').attr('data-id');
+				$.post("{:url('cases/index')}",{type:type,specific:specific,system_type:system_type,page:page},function(data) {
+					$("#project-list1").html(data.data);
+					// if (data.page.num<data.page.page) {
+						// $("#project-list1").append('<li class="page-div" onclick="xia();"><h3>下一页</h3></li>');
+					// }
+
+				})
+			}
+
+			function one() {
+				if($(".navs .actives").text() == "需求") {
+					window.location.href = "{:url('demand/index')}";
+				} else if($(".navs .actives").text() == "案例") {
+					window.location.href = "{:url('cases/index')}";
+				}else if($(".navs .actives").text() == "人才"){
+					/*window.location.href = "essential2.html";*/
+				}else if($(".navs .actives").text() == "IT联合办公"){
+					window.location.href = "{:url('index/index')}";
+				}else if($(".navs .actives").text() == "首页"){
+					window.location.href = "{:url('index/one')}";
+				}
+			}
+		</script>
+	</body>
+
+</html>
