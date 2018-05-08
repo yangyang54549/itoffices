@@ -1122,11 +1122,63 @@
 				<p class="affirm">确认</p>
 			</div>
 		</div>
+		<style type="text/css">
+			#goods{
+				position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -250px;
+    margin-top: -200px;
+    width: 450px !important;
+	padding: 0px !important;
+    background-color: white;
+    overflow: hidden;
+    border-radius: 10px;
+    z-index: 999;
+    display: none;
+			}
+			#goods h5{
+    font-size: 18px;
+    margin: 0;
+   
+   line-height: 30px;
+}
+#goods h5, #goods p {
+    width: 100%;
+    text-align: center;
+}
+#goods p {
+    font-size: 15px;
+    font-weight: 600;line-height: 50px;
+}
+
+#goods h5, #goods p  {
+    width: 100%;
+    text-align: center;
+}#goods .buttoms{
+	display: flex;
+}
+#goods .buttoms p{
+	width: 50%;
+	margin: 0px ;
+	padding: 0px;
+	color: white;
+}
+		</style>
+		<div id="goods" >
+				<h5>提示</h5>
+				<p class="texts">取消本次预约？</p>
+				<div class="buttoms">
+					<p class="cancel" style="background-color: #d95c5c;">取消</p>
+					<p class="affirm" style="background-color: #5bbd72;">确认</p>
+				</div>
+			</div>
 <div class="login_background" ></div>
+
 		<script src="__INDEX__/js/order.js" type="text/javascript" charset="utf-8"></script>
 		<script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="__INDEX__/js/bootstrap-datepicker.min.js"></script>
-	<script type="text/javascript" src="__INDEX__/js/bootstrap-datepicker.zh-CN.min.js" charset="UTF-8"></script>
+		<script type="text/javascript" src="__INDEX__/js/bootstrap-datepicker.min.js"></script>
+		<script type="text/javascript" src="__INDEX__/js/bootstrap-datepicker.zh-CN.min.js" charset="UTF-8"></script>
 		<script type="text/javascript">
 
 			taps(0);
@@ -1181,34 +1233,34 @@ $(function(){
 			})
 
 			$(".kai").click(function() {
-					// $(this).parent().parent().parent().removeClass("string1");
-					// $(this).parent().parent().parent().addClass("string2");
-					$(this).parent().parent().parent().parent().addClass("str");
-					/*获取当前的 .li_one*/
-					var prse = $(this).parent().parent().parent().parent().parent();
-
-					var names = prse.parent().attr('class');
-					/*获取当前的 .li_one 得下标*/
-					var tt = $("."+names+" .li_one").index(prse);
-					/*获取 选择的接单 的data-id*/
-					var user_id = $("."+names+" .li_one:nth-child("+(tt+1)+") .str .participations .participation1").data('id');
-
-					if (user_id==null) { $(".beijin").css("display", "block");$(".beijin .texts").text('请选择开发者');return false };
-					var strs= new Array(); //定义一数组
-					strs=user_id.split(","); //字符分割
-
-						$.post("{:url('user/order_kai')}",{
-							user_id:strs[0],
-							demand_id:strs[1],
-						},function(data){
-							console.log(data);
-							if (data.code==1) {
-								$(".beijin").css("display", "block");$(".beijin .texts").text("提交成功");
-								window.location.reload();
-							}else{
-								$(".beijin").css("display", "block");$(".beijin .texts").text("提交失败");
-							}
-						}, "json");
+					$("#goods").css("display","block");
+					$(".login_background").css("display","block");
+//					$(this).parent().parent().parent().parent().addClass("str");
+//					/*获取当前的 .li_one*/
+//					var prse = $(this).parent().parent().parent().parent().parent();
+//
+//					var names = prse.parent().attr('class');
+//					/*获取当前的 .li_one 得下标*/
+//					var tt = $("."+names+" .li_one").index(prse);
+//					/*获取 选择的接单 的data-id*/
+//					var user_id = $("."+names+" .li_one:nth-child("+(tt+1)+") .str .participations .participation1").data('id');
+//
+//					if (user_id==null) { $(".beijin").css("display", "block");$(".beijin .texts").text('请选择开发者');return false };
+//					var strs= new Array(); //定义一数组
+//					strs=user_id.split(","); //字符分割
+//
+//						$.post("{:url('user/order_kai')}",{
+//							user_id:strs[0],
+//							demand_id:strs[1],
+//						},function(data){
+//							console.log(data);
+//							if (data.code==1) {
+//								$(".beijin").css("display", "block");$(".beijin .texts").text("提交成功");
+//								window.location.reload();
+//							}else{
+//								$(".beijin").css("display", "block");$(".beijin .texts").text("提交失败");
+//							}
+//						}, "json");
 			})
 
 			$(".queren").click(function() {
@@ -1277,6 +1329,7 @@ $(function(){
 				$(".login_background").css("display","none");
 				$(".good").css("display","none");
 				$(".li_one.li_ones .xiugai").css("display","none");
+				$("#goods").css("display","none");
 			})
 			/*星星*/
 			 window.onload=function(){
