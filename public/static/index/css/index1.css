@@ -222,8 +222,8 @@ h2 {
 .cus_recommend_case section h3 {
     font-size: 22px;
     line-height: 30px;
-   /* color: white;*/
-  color: black;
+    color: white;
+ 	font-weight: bold;
     position: absolute;
     top: 250px;
     left: 0;

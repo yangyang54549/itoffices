@@ -411,8 +411,8 @@
 											<p class="demanddel-t" style="font-size: 1.2em;color: #797979;">项目预算</p>
 											<p style="font-size: 24px;color: #ec1313;" class="imgs-text">{$vo.money}元 </p>
 											<div class="demanddel-num">
-												<p class="apply1"><span>已申请</span> <span>{$vo.applys}人</span></p>
-												<p class="apply2"><span>已浏览</span> <span>{$vo.browse}人</span></p>
+												<p class="apply1"><span>已申请</span> <span>0人</span></p>
+												<p class="apply2"><span>已浏览</span> <span>0人</span></p>
 											</div>
 										</div>
 										<p><span>所属行业</span>
@@ -782,7 +782,7 @@
 											<p class="demanddel-t" style="font-size: 1.2em;color: #797979;">项目预算</p>
 											<p style="font-size: 24px;color: #ec1313;" >{$vos.money}元 </p>
 											<div class="demanddel-num">
-												<p class="apply1"><span>已申请</span> <span id="shenqing">{$vos.apply}人</span></p>
+												<p class="apply1"><span>已申请</span> <span>{$vos.apply}人</span></p>
 												<p class="apply2"><span>已浏览</span> <span>{$vos.browse}人</span></p>
 											</div>
 										</div>
@@ -1036,6 +1036,20 @@
     z-index: 700;
   display: none;
 }
+#goods{
+				position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -250px;
+    margin-top: -200px;
+    width: 450px !important;
+	padding: 0px !important;
+    background-color: white;
+    overflow: hidden;
+    border-radius: 10px;
+    z-index: 999;
+    display: none;
+			}
 .goods {
     margin: 35vh auto;
     padding: 50px;
@@ -1043,22 +1057,24 @@
     background-color: white;
     border-radius: 10px;
 }
-.goods h5 {
+.goods h5,#goods h5 {
     font-size: 16px;
     margin: 0;
     margin-bottom: 20px;
 }
-
-.goods h5, .goods p {
+#goods h5{
+	padding: 20px 0px;
+}
+.goods h5, .goods p,#goods h5, #goods p {
     width: 100%;
     text-align: center;
 }
-.goods p {
+.goods p,#goods p {
     font-size: 15px;
     font-weight: 600;
 }
 
-.goods h5, .goods p {
+.goods h5, .goods p,#goods h5, #goods p  {
     width: 100%;
     text-align: center;
 }
@@ -1069,30 +1085,37 @@
     padding: 10px 0;
     margin-top: 20px;
 }
-#goods{
-	 position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-left: -250px;
-    margin-top: -200px;
 
 
-    background-color: white;
-    border-radius: 10px;
-    z-index: 999;
-    display: none;
-	width: 450px !important;
-	padding: 0px !important;
+			#goods .buttoms{
+	display: flex;
+	padding-top: 20px;
+}
+#goods .buttoms p{
+	width: 50%;
+	height: 40px;
+	line-height: 40px;
+	margin: 0px ;
+	padding: 0px;
+	color: white;
 }
 
 		</style>
 		<div class="beijin">
-			<div class="goods" id="goods">
+			<div class="goods">
 				<h5>提示</h5>
 				<p class="texts"></p>
 				<p class="qud" id="qd">确定</p>
 			</div>
 		</div>
+		<div id="goods" >
+				<h5>提示</h5>
+				<p class="texts">取消本次预约？</p>
+				<div class="buttoms">
+					<p class="cancel" style="background-color: #d95c5c;">取消</p>
+					<p class="affirm" style="background-color: #5bbd72;">确认</p>
+				</div>
+			</div>
 		<div class="xiugai">
 			<div class="xiugai-cen">
 				<!--<span>*总工时</span><span id="times">8</span><span>天<span>-->
@@ -1138,27 +1161,18 @@
 				<p class="affirm">确认</p>
 			</div>
 		</div>
-		<div class="login_background" ></div>
-		<div class="goods" >
-			<h5>提示</h5>
-			<p class="texts">是否确认？</p>
-			<div class="buttoms">
-				<p class="cancel" style="background-color: #d95c5c;">取消</p>
-				<p class="affirm" style="background-color: #5bbd72;">确认</p>
-			</div>
-		</div>
+
+		<style type="text/css">
+
+		</style>
+
+<div class="login_background" ></div>
 		<script src="__INDEX__/js/order.js" type="text/javascript" charset="utf-8"></script>
 		<script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="__INDEX__/js/bootstrap-datepicker.min.js"></script>
-	<script type="text/javascript" src="__INDEX__/js/bootstrap-datepicker.zh-CN.min.js" charset="UTF-8"></script>
+		<script type="text/javascript" src="__INDEX__/js/bootstrap-datepicker.min.js"></script>
+		<script type="text/javascript" src="__INDEX__/js/bootstrap-datepicker.zh-CN.min.js" charset="UTF-8"></script>
 		<script type="text/javascript">
-/*确认取消*/
-$("#goods .cancel").click(function(){
-	/*取消*/
-})
-$("#goods .affirm").click(function(){
-	/*确认*/
-})
+
 			taps(0);
 $(".cente-head .p2").click(function() {
 	var tt  = $(".cente-head .p2").index($(this));
@@ -1211,8 +1225,8 @@ $(function(){
 			})
 
 			$(".kai").click(function() {
-					// $(this).parent().parent().parent().removeClass("string1");
-					// $(this).parent().parent().parent().addClass("string2");
+					/*$("#goods").css("display","block");
+					$(".login_background").css("display","block");*/
 					$(this).parent().parent().parent().parent().addClass("str");
 					/*获取当前的 .li_one*/
 					var prse = $(this).parent().parent().parent().parent().parent();
@@ -1240,9 +1254,21 @@ $(function(){
 							}
 						}, "json");
 			})
+			$("#goods .cancel").click(function(){
+				/*取消*/
+				$("#goods").css("display","none");
+				$(".login_background").css("display","none");
+			})
+			$("#goods .affirm").click(function(){
+				/*确定*/
+				$("#goods").css("display","none");
+				$(".login_background").css("display","none");
+			})
 
 			$(".queren").click(function() {
 					/*申请方确认干活*/
+					/*$("#goods").css("display","block");
+					$(".login_background").css("display","block");*/
 					var demand_id = $(this).data('id');
 
 						$.post("{:url('user/order_gan')}",{
@@ -1258,6 +1284,8 @@ $(function(){
 						}, "json");
 			})
 			$(".yanshou").click(function(){
+				/*$("#goods").css("display","block");
+					$(".login_background").css("display","block");*/
 				var demand_id = $(this).data('id');
 
 				$.post("{:url('user/order_wan')}",{
@@ -1279,6 +1307,8 @@ $(function(){
 
 			})
 			$(".tong").click(function() {
+				/*$("#goods").css("display","block");
+					$(".login_background").css("display","block");*/
 				var demand_id = $(this).data('id');
 
 				$.post("{:url('user/order_que')}",{
@@ -1307,6 +1337,7 @@ $(function(){
 				$(".login_background").css("display","none");
 				$(".good").css("display","none");
 				$(".li_one.li_ones .xiugai").css("display","none");
+				$("#goods").css("display","none");
 			})
 			/*星星*/
 			 window.onload=function(){
