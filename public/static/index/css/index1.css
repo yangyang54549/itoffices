@@ -17,9 +17,7 @@ q:before, q:after { content: ' '; }
 button,a,input{
 	outline:none;
 }
-body{
-	padding-top: 40px;
-}
+
 /*nav*/
 .header_nav {
     text-align: center;
