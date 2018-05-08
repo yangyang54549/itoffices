@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-05-05 16:41:52
+ * @Last Modified time: 2018-05-07 18:17:26
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -62,10 +62,13 @@ class User  extends Yang
         $UserExperience = UserExperience::where(['user_id'=>$user['id']])->select();
         $UserProduction = UserProduction::where(['user_id'=>$user['id']])->select();
         $UserSkill = UserSkill::where(['user_id'=>$user['id']])->select();
+        $Evaluate = Evaluate::where(['user_id'=>$user['id']])->select();
+
         $this->assign('education',$UserEducation);
         $this->assign('experience',$UserExperience);
         $this->assign('production',$UserProduction);
         $this->assign('skill',$UserSkill);
+        $this->assign('evaluate',$Evaluate);
         $this->assign('user',$user);
         return $this->fetch();
     }
@@ -142,9 +145,7 @@ class User  extends Yang
 
                 //return json($this->ret);
             //}
-
             return json($this->ret);
-
         }
     }
     //需求方确认完成
