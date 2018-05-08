@@ -1,0 +1,48 @@
+.header_nav {
+    text-align: center;
+    vertical-align: top;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+   /* background: rgba(9,10,65,1);*/
+   background: #3A56DE;
+    z-index: 10000;
+}
+.header_nav > a:first-child {
+    padding: 0;
+    margin: 16px 246px 0 0;
+}
+
+.header_nav > a {
+    display: inline-block;
+    color: #fff;
+    font-size: 15px;
+    line-height: 21px;
+    padding: 22px 23px;
+    cursor: pointer;
+    vertical-align: top;
+}
+.header_nav img {
+    width: 95px;
+    height: 32px;
+    display: inline-block;
+}
+
+img {
+    font-size: 0;
+}
+.header_nav > a {
+    display: inline-block;
+    color: #fff;
+    font-size: 15px;
+    line-height: 21px;
+    padding: 22px 23px;
+    cursor: pointer;
+    vertical-align: top;
+}
+.header_nav > a img{
+	height: 20px ;
+	width: auto;
+}

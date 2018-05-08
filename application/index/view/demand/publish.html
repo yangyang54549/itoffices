@@ -12,6 +12,7 @@
 		<link rel="stylesheet" type="text/css" href="__INDEX__/css/sub.css" />
 		<link rel="stylesheet" type="text/css" href="__INDEX__/css/one.css" />
 		<link rel="stylesheet" type="text/css" href="__INDEX__/css/css/app.css" />
+		<link rel="stylesheet" type="text/css" href="__INDEX__/css/nav.css" />
 		<script src="__INDEX__/js/jss/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<style type="text/css">
@@ -201,16 +202,14 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 })(window,document,"script","_qha",224241,false);
 </script>
 	<body style="background-color: white;">
-		<div style="width:100%;box-shadow:0 2px 4px 0 rgba(58,68,85,0.16);position:relative;z-index:99999; background-color: rgba(0,0,0,0.1);">
+		<!--<div style="width:100%;box-shadow:0 2px 4px 0 rgba(58,68,85,0.16);position:relative;z-index:99999; background-color: rgba(0,0,0,0.1);">
 			<div class="head">
 				<div class="logo">
 					<a href="###">
-						<!--<img src="https://www.315pr.com:443/resources/bootstrap/__INDEX__/img/logo_top1.png">--></a>
+						</a>
 				</div>
 				<ul class="navs">
-					<!--<li>
-						<a href="#" class="is">IT联合办公</a>
-					</li>-->
+					
 					<li>
 						<a href="{:url('index/one')}" class="is ">首页</a>
 					</li>
@@ -223,24 +222,21 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 					<li>
 						<a href="###" class="is">人才</a>
 					</li>
-					<!--<li><a href="https://www.315pr.com:443/case/page.shtml">案例</a></li>-->
-					<!-- <li><a href="https://www.315pr.com:443/smart/list.shtml">媒介</a></li> -->
-					<!--<li><a href="https://www.315pr.com:443/report/page.shtml">资讯</a></li>-->
-
+				
 				</ul>
-				<!--<div class="getInto">
-			</div>
-		<div class="nav_box">
-			<a tolink="https://www.315pr.com:443/user/demandStart.shtml" class="nav_a">发布需求</a>
-			<a tolink="https://www.315pr.com:443/supplier/reg.shtml" class="nav_a">申请供应商</a>
-			<a class="nav_a" tolink="
-			https://www.315pr.com:443/user/user_info.shtml
-			">加入智库</a>
-			<div class="nav_bg"></div>
-		</div>-->
+			
 				<div style="clear:both"></div>
 			</div>
-		</div>
+		</div>-->
+		<nav class="header_nav">
+			<a> <img src="__INDEX__/img/hui.png" /></a>
+			<a id="nav_sy" href="{:url('index/index')}" title="首页" target="_blank">首页</a>
+			<a href="{:url('demand/index')}" title="需求" target="_blank">需求</a>
+			<a href="{:url('cases/index')}" title="案例" target="_blank">案例</a>
+			
+			<a  href="{:url('index/lxwm')}" titile="联系我们" target="_blank">联系我们</a>
+			<a  href="{:url('index/lxwm')}" titile="" target="_blank"><img src="__INDEX__/img/icon/rencai.png"/></a>
+		</nav>
 		<form action="" method="post" id="form">
 
 			<div id="app">

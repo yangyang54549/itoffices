@@ -7,7 +7,7 @@
 
 		<link rel="stylesheet" type="text/css" href="__INDEX__/css/personal.css" />
 		<link rel="stylesheet" type="text/css" href="__INDEX__/css/header.css" />
-
+<link rel="stylesheet" type="text/css" href="__INDEX__/css/nav.css" />
 		<style type="text/css">
 			.introduce4 .center {
 				width: 460px;
@@ -260,33 +260,44 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 })(window,document,"script","_qha",224241,false);
 </script>
 	<body>
-		<div style="width:100%;height: 63px;  box-shadow:0 2px 4px 0 rgba(58,68,85,0.16); z-index:99999; background-color: rgba(0,0,0,0.1);">
-			<div class="head">
-				<ul class="navs">
+		<!-- <div style="width:100%;box-shadow:0 2px 4px 0 rgba(58,68,85,0.16);position:relative;z-index:99999; background-color: rgba(0,0,0,0.1);" id="nav">
+            <div class="head">
+                <div class="logo">
+                    <a href="###">
+                        </a>
+                </div>
+                <ul class="navs">
+
+                  
 					<li>
 						<a href="{:url('index/one')}" class="is ">首页</a>
 					</li>
+                    
+                    <li>
+                        <a href="{:url('demand/index')}" class="is ">需求</a>
+                    </li>
+                    <li>
+                        <a href="{:url('cases/index')}" class="is actives">案例</a>
+                    </li>
+                    <li>
+                        <a href="#"class="is">人才</a>
+                    </li>
+                    
 
-					<!--<li>
-						<a href="{:url('index/index')}" class="is">IT联合办公</a>
-					</li>-->
-					<li>
-						<a href="{:url('demand/index')}" class="is">需求</a>
-					</li>
-					<li>
-						<a href="{:url('cases/index')}" class="is">案例</a>
-					</li>
-					<li>
-						<a href="###" class="is actives">人才</a>
-					</li>
-					<!--<li><a href="https://www.315pr.com:443/case/page.shtml">案例</a></li>-->
-					<!-- <li><a href="https://www.315pr.com:443/smart/list.shtml">媒介</a></li> -->
-					<!--<li><a href="https://www.315pr.com:443/report/page.shtml">资讯</a></li>-->
-
-				</ul>
-				<div style="clear:both"></div>
-			</div>
-		</div>
+                </ul>
+            
+                <div style="clear:both"></div>
+            </div>
+        </div>-->
+        <nav class="header_nav">
+			<a> <img src="__INDEX__/img/hui.png" /></a>
+			<a id="nav_sy" href="{:url('index/index')}" title="首页" target="_blank">首页</a>
+			<a href="{:url('demand/index')}" title="需求" target="_blank">需求</a>
+			<a href="{:url('cases/index')}" title="案例" target="_blank">案例</a>
+			
+			<a  href="{:url('index/lxwm')}" titile="联系我们" target="_blank">联系我们</a>
+			<a  href="{:url('index/lxwm')}" titile="" target="_blank"><img src="__INDEX__/img/icon/rencai.png"/></a>
+		</nav>
 		<!-- <img src="__INDEX__/img/fan.png" class="img_one" onclick="window.history.go(-1);" /> -->
 		<div class="container">
 			<div class="left">

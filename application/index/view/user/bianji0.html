@@ -12,6 +12,7 @@
 		<link href="https://innsta.b0.upaiyun.com/favicon_new.ico" mce_href="https://innsta.b0.upaiyun.com/favicon.ico" rel="shortcut icon" type="image/x-icon">-->
 
 		<link rel="stylesheet" href="https://innsta.b0.upaiyun.com/css_v2/inn.css?_=310_13">
+		<link rel="stylesheet" type="text/css" href="__INDEX__/css/nav.css" />
 		<!--<link rel="stylesheet" href="https://innsta.b0.upaiyun.com/css_v2/page/resume.css?_=310_13">-->
 		<!--<script src="//hm.baidu.com/hm.js?c92adf6182a39eb23c24cf43abc3f439"></script>
 		<script async="" charset="UTF-8" src="//eco-api.meiqia.com/dist/meiqia.js?v=1"></script>-->
@@ -111,27 +112,44 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 })(window,document,"script","_qha",224241,false);
 </script>
 	<body style="padding: 0;">
-		<div style="width:100%;box-shadow:0 2px 4px 0 rgba(58,68,85,0.16); background-color: rgba(0,0,0,0.1);">
-			<div class="head">
-				<ul class="navs">
+		<!-- <div style="width:100%;box-shadow:0 2px 4px 0 rgba(58,68,85,0.16);position:relative;z-index:99999; background-color: rgba(0,0,0,0.1);" id="nav">
+            <div class="head">
+                <div class="logo">
+                    <a href="###">
+                        </a>
+                </div>
+                <ul class="navs">
+
+                  
 					<li>
 						<a href="{:url('index/one')}" class="is ">首页</a>
 					</li>
-					<li>
-						<a href="{:url('demand/index')}" class="is ">需求</a>
-					</li>
-					<li>
-						<a href="{:url('cases/index')}" class="is ">案例</a>
-					</li>
-					<li>
-						<a href="###" class="is actives">人才</a>
-					</li>
+                    
+                    <li>
+                        <a href="{:url('demand/index')}" class="is ">需求</a>
+                    </li>
+                    <li>
+                        <a href="{:url('cases/index')}" class="is actives">案例</a>
+                    </li>
+                    <li>
+                        <a href="#"class="is">人才</a>
+                    </li>
+                    
 
-				</ul>
-				<div style="clear:both"></div>
-			</div>
-		</div>
-
+                </ul>
+            
+                <div style="clear:both"></div>
+            </div>
+        </div>-->
+        <nav class="header_nav">
+			<a> <img src="__INDEX__/img/hui.png" /></a>
+			<a id="nav_sy" href="{:url('index/index')}" title="首页" target="_blank">首页</a>
+			<a href="{:url('demand/index')}" title="需求" target="_blank">需求</a>
+			<a href="{:url('cases/index')}" title="案例" target="_blank">案例</a>
+			
+			<a  href="{:url('index/lxwm')}" titile="联系我们" target="_blank">联系我们</a>
+			<a  href="{:url('index/lxwm')}" titile="" target="_blank"><img src="__INDEX__/img/icon/rencai.png"/></a>
+		</nav>
 		<div class="main proginn-resume inn-skill" style="min-height: 80vh;margin: 10px  auto;">
 			<div class="ui segment header" style="text-align: center;">
 				<i class="write icon"></i>编辑作品

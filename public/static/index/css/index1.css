@@ -17,6 +17,9 @@ q:before, q:after { content: ' '; }
 button,a,input{
 	outline:none;
 }
+body{
+	padding-top: 40px;
+}
 /*nav*/
 .header_nav {
     text-align: center;
@@ -61,6 +64,10 @@ img {
     padding: 22px 23px;
     cursor: pointer;
     vertical-align: top;
+}
+.header_nav > a img{
+	height: 20px ;
+	width: auto;
 }
 /*buttom*/
 .immediate_experience {
@@ -251,7 +258,7 @@ h2 {
     top: 150px;  
 }
 .cus_recommend_case section .mask {
-    top: 570px;
+    top: 710px;
     left: 0;
     right: 0;
     bottom: 0;
