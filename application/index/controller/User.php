@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-05-08 13:46:46
+ * @Last Modified time: 2018-05-09 14:37:49
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -200,6 +200,8 @@ class User  extends Yang
         $delivery_time = input('delivery_time');
         $money = input('money');
         Demand::where(['id'=>$demand_id])->update(['start_time' => $start_time,'delivery_time'=>$delivery_time,'money'=>$money]);
+        $demand = Demand::where(['id'=>$demand_id])->find();
+        Apply::where(['id'=>$demand['apply_id']])->update(['xstatus' => 4]);
         return json($this->ret);
     }
     //申请方确认干活

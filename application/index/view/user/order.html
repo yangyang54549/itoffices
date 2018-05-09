@@ -43,52 +43,52 @@
 			color: white;
 		}
 		.good {
-   position: fixed;
-   top: 50%;
-   left: 50%;
-   z-index: 600;
-   margin-left: -330px;
-   margin-top: -150px;
-    padding: 50px 30px;
-    width: 600px;
-    background-color: white;
-    border-radius: 10px;
-    display: none;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			z-index: 600;
+			margin-left: -330px;
+			margin-top: -150px;
+			padding: 50px 30px;
+			width: 600px;
+			background-color: white;
+			border-radius: 10px;
+			display: none;
 
-}
-.good h5 {
-    font-size: 24px !important;
-    line-height: 30px;
-    margin: 0;
-    margin-bottom: 20px;
-}
+		}
+		.good h5 {
+			font-size: 24px !important;
+			line-height: 30px;
+			margin: 0;
+			margin-bottom: 20px;
+		}
 
-.good h5, .good .pinglun {
-    width: 100%;
-    text-align: center;
-}
-.pinglun{
+	.good h5, .good .pinglun {
+	    width: 100%;
+	    text-align: center;
+	}
+	.pinglun{
 
-				display: flex;
-				margin: 10px 0px;
-				padding-left: 0px  !important;
-			}
-			.pinglun label{
-				font-size: 16px;
-				width: 100px !important;
-				height: 25px ;
-			}
-			.ct-star {
-        display: inline-block;
-        margin: 0 1px;
-        width: 25px;
-        height: 25px;
-        background: url(__INDEX__/img/xing1.png);
-        -moz-background-size:100% 100%;
-			   background-size:100% 100%;
+		display: flex;
+		margin: 10px 0px;
+		padding-left: 0px  !important;
+	}
+	.pinglun label{
+		font-size: 16px;
+		width: 100px !important;
+		height: 25px ;
+	}
+	.ct-star {
+    display: inline-block;
+    margin: 0 1px;
+    width: 25px;
+    height: 25px;
+    background: url(__INDEX__/img/xing1.png);
+    -moz-background-size:100% 100%;
+		   background-size:100% 100%;
 
-        vertical-align: -2px;
-        cursor: pointer;
+    vertical-align: -2px;
+    cursor: pointer;
     }
     .ct-stars{
     	 background: url(__INDEX__/img/xin.png);
@@ -274,6 +274,16 @@
 			.input-group .input-group-addon span{
 				padding: 0px;
 			}
+			.imgs{
+				    display: block;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    background-color: #0082E6;
+    color: white;
+    padding: 10px 10px !important;
+    border-radius: 5px;
+			}
 		</style>
 	</head>
 	<script>
@@ -370,7 +380,7 @@
 									<div {if condition="$vo.apply_id"} class="bottom relative str" {else/} class="bottom relative" {/if}>
 										<div class="demanddel-type">
 			{if condition="$vo.schedule == 2"/}
-			<img src="__INDEX__/img/xiugai.png" class="imgs" alt="修改" title="修改">
+			<!-- <img src="__INDEX__/img/xiugai.png" class="imgs" alt="修改" title="修改"> -->
 			<div class="xiugai">
 			<div class="xiugai-cen">
 			</div>
@@ -469,13 +479,17 @@
 												{/volist}
 									</div>
 										</p>
-										<div {if condition="$vo.apply_id.xstatus eq 1"} class="bottom_bottom blue1" {elseif condition="$vo.apply_id.xstatus eq 2" /} class="bottom_bottom blue2"  {elseif condition="$vo.apply_id.xstatus eq 3" /} class="bottom_bottom blue3" {else/} class="bottom_bottom blue0" {/if} style="border-top: 1px dotted #d3d0d0;border-bottom: 1px dotted #d3d0d0;">
+										<div {if condition="$vo.apply_id.xstatus eq 1"} class="bottom_bottom blue1" {elseif condition="$vo.apply_id.xstatus eq 4" /} class="bottom_bottom blue2"  {elseif condition="$vo.apply_id.xstatus eq 2" /} class="bottom_bottom blue3"  {elseif condition="$vo.apply_id.xstatus eq 3" /} class="bottom_bottom blue4" {else/} class="bottom_bottom blue0" {/if} style="border-top: 1px dotted #d3d0d0;border-bottom: 1px dotted #d3d0d0;">
 											<p>
 												<span class="sptext">发布需求</span>
 												<span class="spbackground"></span>
 											</p>
 											<p>
 												<span class="sptext">选择开发者</span>
+												<span class="spbackground"></span>
+											</p>
+											<p>
+												<span class="sptext">确认时间/预算</span>
 												<span class="spbackground"></span>
 											</p>
 											<p>
@@ -497,21 +511,63 @@
 															<i>{$vo.apply_id.user_name}</i>
 														</div>
 														<div class="">
-															<h5 class="blues" style="color: #0082E6; ">您选择的项目开发人员   <i></i></h5>
+															<h5 class="blues" style="color: #0082E6; ">您选择的项目开发人员  <i></i></h5>
 															<i style="border-left: 2px solid gray; color: gray;">
 															<i>确认选择此开发者吗?</i></i><i class="kai">确认选择</i>
 														</div>
 													</div>
 												{elseif condition="$vo.apply_id.sstatus == 0"/}
-													<div class="renyuean2">
-														<div class="">
-															<img src="__INDEX__/img/bai.png" />
-															<i>{$vo.apply_id.user_name}</i>
+
+													{if condition="$vo.apply_id.xstatus == 4"}
+														<div class="renyuean2">
+															<div class="">
+																<img src="__INDEX__/img/bai.png" />
+																<i>{$vo.apply_id.user_name}</i>
+															</div>
+															<div class="">
+																<h5 class="blues" style="color: #0082E6; "> 已选择开发者 <i></i></h5>
+																<i style="border-left: 2px solid gray; color: gray;">
+																<i>请同开发者协商日期和预算</i></i>
+															</div>
 														</div>
-														<div class="">
-															<h5 class="blues" style="color: #0082E6; "> 等待开发者确认 <i></i></h5>
+
+														<div class="renyuean">
+															<div class="">
+																<img src="__INDEX__/img/bai.png" />
+																<i>{$vo.apply_id.user_name}</i>
+															</div>
+															<div class="">
+																<h5 class="blues" style="color: #0082E6; "> 确认时间/预算 <i></i></h5>
+																<i style="border-left: 2px solid gray; color: gray;">
+																<i>时间预算已修改,等待开发者确认</i></i>
+															</div>
 														</div>
-													</div>
+													{else/}
+														<div class="renyuean2">
+															<div class="">
+																<img src="__INDEX__/img/bai.png" />
+																<i>{$vo.apply_id.user_name}</i>
+															</div>
+															<div class="">
+																<h5 class="blues" style="color: #0082E6; "> 已选择开发者 <i></i></h5>
+																<i>请同开发者协商日期和预算</i>
+															</div>
+														</div>
+
+														<div class="renyuean">
+															<div class="">
+																<img src="__INDEX__/img/bai.png" />
+																<i>{$vo.apply_id.user_name}</i>
+															</div>
+															<div class="">
+																<h5 class="blues" style="color: #0082E6; "> 确认时间/预算 <i></i></h5>
+																<i style="border-left: 2px solid gray; color: gray;">
+																<i>请同开发者协商日期和预算</i></i><i class="imgs">修改</i>
+															</div>
+														</div>
+													{/if}
+
+
 												{elseif condition="$vo.apply_id.sstatus == 1"/}
 
 													<div class="renyuean">
@@ -524,6 +580,18 @@
 															<i style="border-left: 2px solid gray;color: gray;">已选择</i>
 														</div>
 													</div>
+
+						<div class="renyuean3">
+							<div class="">
+								<img src="__INDEX__/img/bai.png" />
+								<i>{$vo.apply_id.user_name}</i>
+							</div>
+							<div class="">
+								<h5 class="blues" style="color: #0082E6; "> 确认时间/预算 <i></i></h5>
+								<i style="border-left: 2px solid gray; color: gray;">
+								<i>时间预算已确认</i></i>
+							</div>
+						</div>
 
 													<div class="renyuean2">
 														<div class="">
@@ -548,6 +616,19 @@
 															<i style="border-left: 2px solid gray;color: gray;">已选择</i>
 														</div>
 													</div>
+
+
+						<div class="renyuean">
+							<div class="">
+								<img src="__INDEX__/img/bai.png" />
+								<i>{$vo.apply_id.user_name}</i>
+							</div>
+							<div class="">
+								<h5 class="blues" style="color: #0082E6; "> 确认时间/预算 <i></i></h5>
+								<i style="border-left: 2px solid gray; color: gray;">
+								<i>时间预算已确认</i></i>
+							</div>
+						</div>
 
 													<div class="renyuean2">
 														<div class="">
@@ -592,7 +673,7 @@
 															</div>
 														</div>
 													</div>
-													{elseif condition="$vo.apply_id.xstatus == 1"}
+													{elseif condition="$vo.apply_id.xstatus == 4"}
 													<div class="renyuean">
 														<div class="">
 															<img src="__INDEX__/img/bai.png" />
@@ -603,6 +684,18 @@
 															<i style="border-left: 2px solid gray;color: gray;">已选择</i>
 														</div>
 													</div>
+
+						<div class="renyuean2">
+							<div class="">
+								<img src="__INDEX__/img/bai.png" />
+								<i>{$vo.apply_id.user_name}</i>
+							</div>
+							<div class="">
+								<h5 class="blues" style="color: #0082E6; "> 确认时间/预算 <i></i></h5>
+								<i style="border-left: 2px solid gray; color: gray;">
+								<i>时间预算已确认</i></i>
+							</div>
+						</div>
 
 													<div class="renyuean3">
 														<div class="">
@@ -628,6 +721,18 @@
 															<i style="border-left: 2px solid gray;color: gray;">已选择</i>
 														</div>
 													</div>
+
+						<div class="renyuean">
+							<div class="">
+								<img src="__INDEX__/img/bai.png" />
+								<i>{$vo.apply_id.user_name}</i>
+							</div>
+							<div class="">
+								<h5 class="blues" style="color: #0082E6; "> 确认时间/预算 <i></i></h5>
+								<i style="border-left: 2px solid gray; color: gray;">
+								<i>时间预算已确认</i></i>
+							</div>
+						</div>
 
 													<div class="renyuean2">
 														<div class="">
@@ -667,6 +772,18 @@
 															<i style="border-left: 2px solid gray;color: gray;">已选择</i>
 														</div>
 													</div>
+
+						<div class="renyuean">
+							<div class="">
+								<img src="__INDEX__/img/bai.png" />
+								<i>{$vo.apply_id.user_name}</i>
+							</div>
+							<div class="">
+								<h5 class="blues" style="color: #0082E6; "> 确认时间/预算 <i></i></h5>
+								<i style="border-left: 2px solid gray; color: gray;">
+								<i>时间预算已确认</i></i>
+							</div>
+						</div>
 
 													<div class="renyuean2">
 														<div class="">
@@ -724,6 +841,18 @@
 															<i style="border-left: 2px solid gray;color: gray;">已选择</i>
 														</div>
 													</div>
+
+						<div class="renyuean">
+							<div class="">
+								<img src="__INDEX__/img/bai.png" />
+								<i>{$vo.apply_id.user_name}</i>
+							</div>
+							<div class="">
+								<h5 class="blues" style="color: #0082E6; "> 确认时间/预算 <i></i></h5>
+								<i style="border-left: 2px solid gray; color: gray;">
+								<i>时间预算已确认</i></i>
+							</div>
+						</div>
 
 													<div class="renyuean2">
 														<div class="">
@@ -839,7 +968,7 @@
 										<div {if condition="$vos.is_apply_id eq 2"} class="bottom_bottom blue0" {else/} {if condition="$vos.apply_id.sstatus eq 1"} class="bottom_bottom blue1" {elseif condition="$vos.apply_id.sstatus eq 2" /} class="bottom_bottom blue2" {elseif condition="$vos.apply_id.sstatus eq 3" /} class="bottom_bottom blue3" {else/} class="bottom_bottom blue0" {/if}{/if}
 										 style="border-top: 1px dotted #d3d0d0;border-bottom: 1px dotted #d3d0d0;">
 											<p class="blue">
-												<span class="sptext">申请中</span>
+												<span class="sptext">申请干活</span>
 												<span class="spbackground"></span>
 											</p>
 											<p>
@@ -861,7 +990,18 @@
 								<div class="string string3">
 										<h3 style="display: none;">进展详情</h3>
 										{if condition="$vos.apply_id.xstatus == 1"/}
-											{if condition="$vos.apply_id.sstatus == 0"/}
+											<div class="renyuean">
+												<div class="">
+													<img src="__INDEX__/img/bai.png" />
+													<i>{$vos.username}</i>
+												</div>
+												<div class="">
+													<h5 class="blues" style="color: #0082E6; ">我被雇佣</h5>
+													<i style="border-left: 2px solid gray; color: gray;">
+													<i>协商时间/预算中</i></i>
+												</div>
+											</div>
+											<!-- {if condition="$vos.apply_id.sstatus == 0"/}
 											<div class="renyuean">
 												<div class="">
 													<img src="__INDEX__/img/bai.png" />
@@ -920,7 +1060,7 @@
 													<i style="border-left: 2px solid gray; color: gray;"><i>等待需求方验收</i></i>
 												</div>
 											</div>
-											{/if}
+											{/if} -->
 										{elseif condition="$vos.apply_id.xstatus == 2"/}
 
 											<div class="renyuean">
@@ -989,6 +1129,70 @@
 													<i style="border-left: 2px solid gray; color: gray;"><i>请保持通信畅通,客服会与您联系</i></i>
 												</div>
 											</div>
+
+										{elseif condition="$vos.apply_id.xstatus == 4"/}
+
+											{if condition="$vos.apply_id.sstatus == 0"/}
+											<div class="renyuean">
+												<div class="">
+													<img src="__INDEX__/img/bai.png" />
+													<i>{$vos.username}</i>
+												</div>
+												<div class="">
+													<h5 class="blues" style="color: #0082E6; ">雇佣了你</h5>
+													<i style="border-left: 2px solid gray; color: gray;">
+													<i>硅谷</i><i>13613820359</i></i><i class="queren " data-id="{$vos.id}"> 是否开工：确认</i>
+												</div>
+											</div>
+											{elseif condition="$vos.apply_id.sstatus == 1"/}
+
+											<div class="renyuean">
+												<div class="">
+													<img src="__INDEX__/img/bai.png" />
+													<i>{$vos.username}</i>
+												</div>
+												<div class="">
+													<h5 class="blues" style="color: #0082E6; ">我被雇佣</h5>
+													<i style="border-left: 2px solid gray; color: gray;">
+													<i>硅谷</i><i>13613820359</i></i><i>已确认</i>
+												</div>
+											</div>
+
+											<div class="renyuean2">
+												<div class="">
+													<img src="__INDEX__/img/bai.png" />
+													<i>{$vos.username}</i>
+												</div>
+												<div class="">
+													<h5 class="blues" style="color: #0082E6; "> 已开工 <i></i></h5>
+													<i style="border-left: 2px solid gray; color: gray;"><i >完工时间：</i><i>{if condition="$vos.delivery_time eq 0"}待协商{else/}{$vos.delivery_time|date="Y-m-d",###}{/if}</i></i>
+													<i class="yanshou"  data-id="{$vos.id}">请验收</i>
+												</div>
+											</div>
+											{elseif condition="$vos.apply_id.sstatus == 2"/}
+											<div class="renyuean">
+												<div class="">
+													<img src="__INDEX__/img/bai.png" />
+													<i>{$vos.username}</i>
+												</div>
+												<div class="">
+													<h5 class="blues" style="color: #0082E6; ">我被雇佣</h5>
+													<i>已确认</i>
+												</div>
+											</div>
+
+											<div class="renyuean3">
+												<div class="">
+													<img src="__INDEX__/img/bai.png" />
+													<i>{$vos.username}</i>
+												</div>
+												<div class="">
+													<h5 class="blues" style="color: #0082E6; ">需求方验收:</h5>
+													<i style="border-left: 2px solid gray; color: gray;"><i>等待需求方验收</i></i>
+												</div>
+											</div>
+											{/if}
+
 										{/if}
 								</div>
 								{/if}
@@ -1415,7 +1619,7 @@ $("#qd").click(function() {
 $(".beijin").click(function() {$(".beijin").css("display", "none");
 			})
 var aCity0 = new Array();
-$(".demanddel-type .imgs").click(function(){
+$(".imgs").click(function(){
 	/*var texts = $(this).parent().parent();
 	var yuan = $(this).next().next().text();
 	var time1 = texts.getElementsByClassName("time-begin");
