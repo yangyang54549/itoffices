@@ -5,31 +5,18 @@
 		<meta charset="UTF-8">
 		<title>it</title>
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
-		<link rel="stylesheet" type="text/css" href="__INDEX__/css/index1.css" />		
+		<link rel="stylesheet" type="text/css" href="__INDEX__/css/index1.css" />
+		<link rel="stylesheet" type="text/css" href="__INDEX__/css/nav.css" />
+
 	</head>
 	<body style="padding: 0px;">
-		<!-- 
-		      index.html
-		      <project>
-		      
-		      Created by Administrator on 2018-05-07.
-		      Copyright 2018 Administrator. All rights reserved.
-		 -->
-		<nav class="header_nav">
-			<a> <img src="__INDEX__/img/hui.png" /></a>
-			<a id="nav_sy" href="{:url('index/index')}" title="首页" target="_blank">首页</a>
-			<a href="{:url('demand/index')}" title="需求" target="_blank">需求</a>
-			<a href="{:url('cases/index')}" title="案例" target="_blank">案例</a>
-			
-			<a  href="{:url('index/lxwm')}" titile="联系我们" target="_blank">联系我们</a>	
-			<a  href="{:url('index/lxwm')}" titile="" target="_blank"><img src="__INDEX__/img/icon/rencai.png"/></a>
-		</nav>
+		{include file="index/nav" /}
 		<button type="button" class="immediate_experience"></button>
 		<header> <img src="__INDEX__/img/picture/nav_bg.jpg" style="width: 100%; height: auto;" />
 			<a href="##" title="价值3260元系统只需99元立即领取">
 				<p style="bottom:0;height:0.7rem;"></p>
 			</a>
-			
+
 		</header>
 		<div class="solution ow_ctn tc">
 			<h1>解决方案</h1>
@@ -78,7 +65,7 @@
 				<section> <img src="__INDEX__/img/yi.png" alt="杭州骇客荷姐" />
 					<h3>汇谷影视</h3>
 					<div class="mask">
-						<p>河南汇谷影视文化传媒有限公司，<br/>经营范围包括设计、制作、代理、发布国内广告等。                                
+						<p>河南汇谷影视文化传媒有限公司，<br/>经营范围包括设计、制作、代理、发布国内广告等。
 						</p>
 						<button type="button" data-videourl="">详情</button>
 					</div>
@@ -100,12 +87,12 @@
 			</div>
 			<button type="button" class="mt60" onClick="javascript: window.location.href = '#';">查看更多</button>
 		</div>
-		
+
 		<div class="solution ow_ctn tc">
 			<h1>解决方案</h1>
 			<h6>SOLUTION</h6>
 		<div class="servicesBox clearfix">
-		
+
 			<div class="serBox">
 				<div class="serBoxOn" ></div>
 				<div class="pic1" style="right: 93px;"> <img src="__INDEX__/img/icon/a1.png"> </div>
@@ -166,8 +153,8 @@
 					<p>诚信保障，信赖基础<br />快速高效，保障成功</p>
 				</div>
 			</div> -->
-			
-			
+
+
 		</div>
 		<div class="servicesBox clearfix" style="border-top: solid 1px #DDDDDD;">
 			<div class="serBox">
@@ -218,7 +205,7 @@
 					<p style="color: rgb(255, 255, 255);">多媒体化<br>表现力强<br>呈现快捷</p>
 				</div>
 			</div>
-			
+
 			<!-- <div class="serBox">
 				<div class="serBoxOn"></div>
 				<div class="pic1" style="right: 73px;"> <img src="__INDEX__/img/icon/c1.png"> </div>
@@ -232,7 +219,7 @@
 				</div>
 			</div> -->
 		</div>
-		
+
 	</div>
 		<div class="cus_evaluate ow_ctn tc">
 			<h1>解决方案&客户评价</h1>
@@ -324,7 +311,7 @@
 				<button id="sliderBtnRight" type="button"> <img src="__INDEX__/img/picture/arrow_right.png" /></button>
 			</div>
 		</div>
-		
+
 		<div class="free_trial">
 			<h1 class="fg_white f24 mb15">免费试用</h1>
 			<p class="fg_white f16 mb40" style="opacity: 0.8;">专注于it行业，10年行业经验，专业的管理软件服务商</p>
@@ -335,7 +322,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="copyright">
 			<p>© 2016郑州汇谷电子科技有限公司 All rights reserved 豫ICP备15001063号-3</p>
 			<a href="#">关于汇谷</a> |
@@ -353,29 +340,29 @@
 			<a href="/data/rssmap.html">RSS地图</a>
 			<p style="opacity: 0.3;"> 地址：河南省郑州市管城区紫荆山路与商城路交叉路口兴达国贸18楼1802室 </p>
 		</div>
-		
+
 		<script src="__INDEX__/js/jss/jquery.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript">			
+		<script type="text/javascript">
                     $("#sliderBtnLeft").attr("disabled","disabled");
-                     $(".cus_evaluate .tab_btn").mouseover(function (){  
+                     $(".cus_evaluate .tab_btn").mouseover(function (){
                      	if($(this).hasClass("active")){}else{
-	                     	$(".tab_btn").removeClass("active");                    	 
+	                     	$(".tab_btn").removeClass("active");
 	                        $(this).addClass("active");
 	                        var imgs =  $(this).data('sliderimgs-id');
 	                        $(".slider_imgs").css("display","none");
-	                        $("#"+imgs).css("display","block");    
+	                        $("#"+imgs).css("display","block");
 	                        $("#"+imgs).css("margin-left","0px");
 	                        $("#sliderBtnLeft").attr("disabled","disabled");
 	                        $("#sliderBtnRight").attr("disabled",false);
-                     	}       				
-  					});  
-  					$("#sliderBtnLeft").click(function(){  						  						
+                     	}
+  					});
+  					$("#sliderBtnLeft").click(function(){
   						var disp = document.getElementById("slider_imgs2");
   						if(disp.style.display!="none"){
   							$("#slider_imgs2").css("margin-left","0px");
   						}else{
   							$("#slider_imgs1").css("margin-left","0px");
-  						} 						
+  						}
   						 $("#sliderBtnLeft").attr("disabled","disabled");
   						 $("#sliderBtnRight").attr("disabled",false);
   					})
@@ -389,7 +376,7 @@
   						 $("#sliderBtnRight").attr("disabled","disabled");
   						 $("#sliderBtnLeft").attr("disabled",false);
   					})
-        
+
 		</script>
 	</body>
 
