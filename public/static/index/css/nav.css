@@ -44,6 +44,10 @@ img {
     cursor: pointer;
     vertical-align: top;
 }
+.header_nav > a img{
+	height: 20px ;
+	width: auto;
+}
 
 #personage{
 	position: absolute;
