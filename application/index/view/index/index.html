@@ -318,8 +318,8 @@
 			<p class="fg_white f16 mb40" style="opacity: 0.8;">专注于it行业，10年行业经验，专业的管理软件服务商</p>
 			<div class="row_c">
 				<div class="ft_submit row">
-					<input id="telephone" type="number" class="cell" placeholder="输入您的手机号" maxlength="11" />
-					<button type="button" onClick="javascript: window.location.href = '#';" >点击提交</button>
+					<input id="telephone" type="tel" class="cell" placeholder="输入您的手机号" maxlength="11" onkeyup="this.value=this.value.replace(/\D/g, '')"/>
+					<button type="button" >点击提交</button>
 				</div>
 			</div>
 		</div>
