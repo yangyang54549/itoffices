@@ -9,7 +9,16 @@
 		
 	</head>
 	<body style="padding: 0px;">
-		{include file="index/nav" /}
+
+		<nav class="header_nav">
+			<a> <img src="__INDEX__/img/hui.png" /></a>
+			<a id="nav_sy" href="{:url('index/index')}" title="首页" target="_blank">首页</a>
+			<a href="{:url('demand/index')}" title="需求" target="_blank">需求</a>
+			<a href="{:url('cases/index')}" title="案例" target="_blank">案例</a>
+			<a  href="{:url('index/lxwm')}" titile="联系我们" target="_blank">联系我们</a>
+			<a  id="personage" href="{:url('index/lxwm')}" titile="" target="_blank"><img src="__INDEX__/img/icon/geren.png"/></a>
+		</nav>
+
 		<button type="button" class="immediate_experience"></button>
 		<header> <img src="__INDEX__/img/picture/nav_bg.jpg" style="width: 100%; height: auto;" />
 			<a href="##" title="价值3260元系统只需99元立即领取">
@@ -84,7 +93,7 @@
 					</div>
 				</section>
 			</div>
-			<button type="button" class="mt60" onClick="javascript: window.location.href = '#';">查看更多</button>
+			<button type="button" class="mt60" onClick="javascript: window.open('{:url('cases/index')}');">查看更多</button>
 		</div>
 
 		<div class="solution ow_ctn tc">
