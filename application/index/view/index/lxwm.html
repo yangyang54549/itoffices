@@ -12,21 +12,21 @@
 			ul li:hover {
 				background-color: #F7F7F7;
 			}
-			
+
 			.navs li {
 				padding: 0;
 			}
-			
+
 			.navs {
 				width: 90%;
 				margin: 0 auto;
 				padding: 10px;
 			}
-			
+
 			.navs li {
 				float: left;
 			}
-			
+
 			.navs .is {
 				display: block;
 				width: 90px;
@@ -38,7 +38,7 @@
 				z-index: 100;
 				border-radius: 20px;
 			}
-			
+
 			.navs a:hover {
 				color: #fff !important;
 				/*background:  url(img/navBg.png);*/
@@ -47,27 +47,27 @@
 				background-color: #FF5454;
 				/*background-color: #ff5454;*/
 			}
-			
+
 			.actives {
 				color: #fff !important;
 				/*background: url(img/navBg.png);
 				background-size: 100%;*/
 				background-color: #ff5454;
 			}
-			
+
 			.main {
 				width: 1300px;
 				margin: 20px auto;
 				position: relative;
 			}
-			
+
 			.banner {
 				width: 100%;
 				background-color: #11A5E5;
 				overflow: hidden;
 				position: relative;
 			}
-			
+
 			.banner h3,
 			.banner p {
 				height: 100px;
@@ -76,7 +76,7 @@
 				line-height: 100px;
 				color: white;
 			}
-			
+
 			.banner h3 {
 				width: 40%;
 				text-align: right;
@@ -84,21 +84,21 @@
 				font-size: 34px;
 				padding: 0px 2rem;
 			}
-			
+
 			.banner h3 em {
 				font-size: 26px;
 			}
-			
+
 			.banner p {
 				width: 60%;
 				padding: 0px 2rem;
 				font-size: 20px;
 			}
-			
+
 			.banner p a {
 				color: white;
 			}
-			
+
 			.headline_border {
 				width: 100%;
 				height: 10px;
@@ -106,7 +106,7 @@
 				background: url(__INDEX__/img/xgray_line02.png);
 				position: relative;
 			}
-			
+
 			.headline {
 				width: 200px;
 				background-color: #F7F7F7;
@@ -117,37 +117,37 @@
 				overflow: initial;
 				height: 100px;
 			}
-			
+
 			.headline h3,
 			.headline p {
 				width: 600px;
 				margin-left: -200px;
 				text-align: center;
 			}
-			
+
 			.headline h3 {
 				line-height: 50px;
 				font-size: 34px;
 			}
-			
+
 			.headline p {
 				line-height: 40px;
 				font-size: 20px;
 			}
-			
+
 			.text {
 				width: 100%
 			}
-			
+
 			.text>div {
 				width: 48%;
 			}
-			
+
 			.text>.right {
 				width: 100%;
 				border: 1px dashed yellowgreen;
 			}
-			
+
 			.right ul,
 			.right ul li {
 				width: 100%;
@@ -156,44 +156,44 @@
 				margin: 0px;
 				padding: 10px 0px;
 			}
-			
+
 			.rights {
 				position: absolute;
 				top: 10px;
 				right: 10px;
 			}
-			
+
 			.rights form ul,
 			.rights form ul li {
 				margin: 0px;
 				padding: 10px 0px;
 			}
-			
+
 			.rights form ul li {
 				width: 500px;
 				padding-left: 60px;
 				position: relative;
 			}
-			
+
 			.rights form ul li label {
 				position: absolute;
 				left: 5px;
 				top: 10px;
 				width: 50px;
 			}
-			
+
 			.rights form ul li input,
 			.rights form ul li textarea {
 				width: 350px;
 				display: block;
 			}
-			
+
 			.rights form ul li label,
 			.rights form ul li input {
 				height: 30px;
 				line-height: 30px;
 			}
-			
+
 			.rights form ul li textarea {
 				height: 90px;
 				line-height: 30px;
@@ -201,7 +201,7 @@
 				left: 55px;
 				top: 10px;
 			}
-			
+
 			 #bth {
 				width: 350px;
 				height: 30px;
@@ -229,11 +229,11 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
                 </div>
                 <ul class="navs">
 
-                  
+
 					<li>
 						<a href="{:url('index/one')}" class="is ">首页</a>
 					</li>
-                    
+
                     <li>
                         <a href="{:url('demand/index')}" class="is ">需求</a>
                     </li>
@@ -243,22 +243,14 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
                     <li>
                         <a href="#"class="is">人才</a>
                     </li>
-                    
+
 
                 </ul>
-            
+
                 <div style="clear:both"></div>
             </div>
         </div>-->
-        <nav class="header_nav">
-			<a> <img src="__INDEX__/img/hui.png" /></a>
-			<a id="nav_sy" href="{:url('index/index')}" title="首页" target="_blank">首页</a>
-			<a href="{:url('demand/index')}" title="需求" target="_blank">需求</a>
-			<a href="{:url('cases/index')}" title="案例" target="_blank">案例</a>
-			
-			<a  href="{:url('index/lxwm')}" titile="联系我们" target="_blank">联系我们</a>
-			<a  href="{:url('index/lxwm')}" titile="" target="_blank"><img src="__INDEX__/img/icon/rencai.png"/></a>
-		</nav>
+{include file="index/nav" /}
 
 		<div class="banner">
 			<img src="__INDEX__/img/pic_2_wb8xs.jpg" style="width: 100%; " />
@@ -295,8 +287,8 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 						<li> <p id="bth">提交</p></li>
 					<ul>
 					</form>
-					
-				
+
+
 				</div>
 				<div class="right">
 					<ul>
@@ -306,12 +298,12 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 						<li>公司地址：郑州市管城区紫金山路与商城路交叉路口兴达国贸1802</li>
 						<!--<li>Email : <a href="mailto:example@mail.com">mail@example.com</a></li>-->
 					<ul>
-				
+
 				</div>
 			</div>
-			
+
 		</div>
-		
+
 		<div class="footer" style="background-color: #1e2831;">
 			<div class="center">
 				<p>2014-2017 汇谷电子科技有限公司 版权所有：ICP备12027515号-1</p>
@@ -323,13 +315,13 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 		$("#bth").click(function(){
 			if($("#name").val()!=""){
 				if($("#phone").val()!=""){
-					
+
 						if($("#liu").val()!=""){
 							alert("提交成功");
 						}else{
 							alert("留言不能为空");
 						}
-					
+
 				}else{
 					alert("请输入手机号");
 				}
@@ -337,7 +329,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				alert("请输入姓名");
 			}
 		})
-		
+
 	</script>
 
 </html>
