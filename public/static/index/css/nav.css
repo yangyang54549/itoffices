@@ -5,10 +5,10 @@ body{
     text-align: center;
     vertical-align: top;
     border-bottom: 1px solid rgba(255,255,255,0.3);
-    position: fixed;
+    /*position: fixed;
     top: 0;
     left: 0;
-    right: 0;
+    right: 0;*/
    /* background: rgba(9,10,65,1);*/
    background: #3A56DE;
     z-index: 10000;
