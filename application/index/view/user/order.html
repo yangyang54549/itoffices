@@ -300,11 +300,11 @@
                 </div>
                 <ul class="navs">
 
-                  
+
 					<li>
 						<a href="{:url('index/one')}" class="is ">首页</a>
 					</li>
-                    
+
                     <li>
                         <a href="{:url('demand/index')}" class="is ">需求</a>
                     </li>
@@ -314,22 +314,14 @@
                     <li>
                         <a href="#"class="is">人才</a>
                     </li>
-                    
+
 
                 </ul>
-            
+
                 <div style="clear:both"></div>
             </div>
         </div>-->
-        <nav class="header_nav">
-			<a> <img src="__INDEX__/img/hui.png" /></a>
-			<a id="nav_sy" href="{:url('index/index')}" title="首页" target="_blank">首页</a>
-			<a href="{:url('demand/index')}" title="需求" target="_blank">需求</a>
-			<a href="{:url('cases/index')}" title="案例" target="_blank">案例</a>
-			
-			<a  href="{:url('index/lxwm')}" titile="联系我们" target="_blank">联系我们</a>
-			<a  href="{:url('index/lxwm')}" titile="" target="_blank"><img src="__INDEX__/img/icon/rencai.png"/></a>
-		</nav>
+{include file="index/nav" /}
 
 
 
@@ -340,7 +332,7 @@
 					<a href="{:url('user/index')}">基本信息</a>
 					<a href="{:url('user/order')}" class="active"><em></em>我的订单</a>
 
-					<a href="javascript:if(confirm('确实要删除该内容吗?')){location='{:url("login/exit")}'}">退出登录</a>
+					<a href="javascript:if(confirm('确认要退出登录吗?')){location='{:url("login/exit")}'}">退出登录</a>
 				</div>
 				<div class="center_cen">
 					<div class="cente-head ">
