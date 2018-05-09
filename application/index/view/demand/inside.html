@@ -613,7 +613,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 					<div>
 						<p>已申请</p>
 						<span>
-							<img src="__INDEX__/img/see_f00.png">{$demand.apply}</span>
+							<img src="__INDEX__/img/see_f00.png"><span  id = "shenqing">{$demand.apply}</span></span>
 					</div>
 					<div>
 						<p>已浏览</p>
@@ -1298,7 +1298,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 							if (data.code==1) {
 
 								var shenqing = $("#shenqing").text();
-								$("#shenqing").text(shenqing+1);
+								$("#shenqing").text(parseInt(shenqing)+1);
 
 								$("#content-sq").text("已申请");
 								$(".beijin").css("display", "block");

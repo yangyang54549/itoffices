@@ -1,8 +1,9 @@
 <nav class="header_nav">
-<a> <img src="__INDEX__/img/hui.png" /></a>
+<a> <img src="__INDEX__/img/xxxlogo.png" /></a>
 <a id="nav_sy" href="{:url('index/index')}" title="首页" target="_blank">首页</a>
-<a href="{:url('demand/index')}" title="需求" target="_blank">需求</a>
 <a href="{:url('cases/index')}" title="案例" target="_blank">案例</a>
+<a href="{:url('demand/index')}" title="需求" target="_blank">需求</a>
+<a href="{:url('demand/publish')}" title="免费发需求" target="_blank">免费发需求</a>
 <a  href="{:url('index/lxwm')}" titile="联系我们" target="_blank">联系我们</a>
-<a  id="personage" href="{:url('user/index')}" titile="" target="_blank"><img src="__INDEX__/img/icon/geren.png"/></a>
+<a  id="personage" href="{:url('user/index')}" titile="" target="_blank">{if condition="session('user')"}<img src="__INDEX__/img/icon/geren.png"/>{else/}登录/注册{/if}</a>
 </nav>
