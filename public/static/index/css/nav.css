@@ -8,6 +8,7 @@
     left: 0;
     right: 0;*/
    /* background: rgba(9,10,65,1);*/
+  position: relative;
    background: #3A56DE;
     z-index: 10000;
 }
@@ -43,7 +44,14 @@ img {
     cursor: pointer;
     vertical-align: top;
 }
-.header_nav > a img{
-	height: 20px ;
+
+#personage{
+	position: absolute;
+	top: 10px;
+	right: 200px;
+	padding: 10px;
+}
+#personage img{
+	height: 30px ;
 	width: auto;
 }
