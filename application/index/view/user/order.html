@@ -1452,7 +1452,7 @@ $(function(){
 					var user_id = $("."+names+" .li_one:nth-child("+(tt+1)+") .str .participations .participation1").data('id');
 
 					if (user_id==null) { $(".beijin").css("display", "block");$(".beijin .texts").text('请选择开发者');
-					$(this).parent().parent().parent().parent()..removeClass("str");
+					$(this).parent().parent().parent().parent().removeClass("str");
 					return false };
 					var strs= new Array(); //定义一数组
 					strs=user_id.split(","); //字符分割
