@@ -12,7 +12,7 @@
 		<link href="https://innsta.b0.upaiyun.com/favicon_new.ico" mce_href="https://innsta.b0.upaiyun.com/favicon.ico" rel="shortcut icon" type="image/x-icon">-->
 
 		<link rel="stylesheet" href="https://innsta.b0.upaiyun.com/css_v2/inn.css?_=310_13">
-		<link rel="stylesheet" type="text/css" href="__INDEX__/css/nav.css" />
+	
 		<!--<link rel="stylesheet" href="https://innsta.b0.upaiyun.com/css_v2/page/resume.css?_=310_13">-->
 		<!--<script src="//hm.baidu.com/hm.js?c92adf6182a39eb23c24cf43abc3f439"></script>
 		<script async="" charset="UTF-8" src="//eco-api.meiqia.com/dist/meiqia.js?v=1"></script>-->
@@ -30,40 +30,7 @@
 				padding: 15px 0 10px 20px;
 			}
 
-			.navs {
-				width: 90%;
-				margin: 0 auto;
-				padding: 10px;
-			}
-
-			.navs li {
-				float: left;
-			}
-
-			.navs .is {
-				display: block;
-				width: 90px;
-				height: 38px;
-				text-align: center;
-				line-height: 40px;
-				font-size: 14px;
-				color: black;
-				z-index: 100;
-			}
-
-			.navs a:hover {
-				color: #fff !important;
-				background: url(__INDEX__/img/navBg.png);
-				background-size: 100%;
-				/*background-color: #ff5454;*/
-			}
-
-			.actives {
-				color: #fff !important;
-				background: url(__INDEX__/img/navBg.png);
-				background-size: 100%;
-				/*background-color: #ff5454;*/
-			}
+			
 
 			.beijin {
 				width: 100vw;
@@ -141,16 +108,8 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
                 <div style="clear:both"></div>
             </div>
         </div>-->
-        <nav class="header_nav">
-			<a> <img src="__INDEX__/img/hui.png" /></a>
-			<a id="nav_sy" href="{:url('index/index')}" title="首页" target="_blank">首页</a>
-			<a href="{:url('demand/index')}" title="需求" target="_blank">需求</a>
-			<a href="{:url('cases/index')}" title="案例" target="_blank">案例</a>
-			
-			<a  href="{:url('index/lxwm')}" titile="联系我们" target="_blank">联系我们</a>
-			<a  href="{:url('index/lxwm')}" titile="" target="_blank"><img src="__INDEX__/img/icon/rencai.png"/></a>
-		</nav>
-		<div class="main proginn-resume inn-skill" style="min-height: 80vh;margin: 10px  auto;">
+       {include file="index/nav" /}
+		<div class="main proginn-resume inn-skill" style="min-height: 830px;margin: 10px  auto;">
 			<div class="ui segment header" style="text-align: center;">
 				<i class="write icon"></i>编辑作品
 			</div>

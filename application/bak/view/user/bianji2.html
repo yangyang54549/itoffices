@@ -14,7 +14,7 @@
 		<script async="" charset="UTF-8" src="//eco-api.meiqia.com/dist/meiqia.js?v=1"></script>-->
 		<!--<link charset="utf-8" rel="stylesheet" href="https://innsta.b0.upaiyun.com/plugin/selectize/__INDEX__/css/selectize.css?version=310_13">
 		<link charset="utf-8" rel="stylesheet" href="https://innsta.b0.upaiyun.com/plugin/datetimepicker/jquery.datetimepicker.css?version=310_13">-->
-		<link rel="stylesheet" type="text/css" href="__INDEX__/css/nav.css" />
+
 		<style type="text/css">
 		.J_EduFields .J_EduItem .fields .inline input{
 			width: 170px;
@@ -22,37 +22,7 @@
 		.J_EduFields .J_EduItem{
 			margin-bottom: 20px;
 		}
-		.navs{
-			 	width: 90%;
-			 	margin: 0 auto;
-			 	padding: 10px;
-			 }
-			 .navs li{
-			 	float: left;
-			 }
-			.navs .is{
-				display: block;
-				width: 90px;
-				height: 38px;
-				text-align: center;
-				line-height: 40px;
-				font-size: 14px;
-				color: black;
-				z-index: 100;
-			}
-			.navs a:hover{
-				color: #fff !important;
-				background: url(__INDEX__/img/navBg.png);
-				background-size: 100%;
-				/*background-color: #ff5454;*/
-			}
-			.actives {
-				color: #fff !important;
-				background: url(__INDEX__/img/navBg.png);
-				background-size: 100%;
-				/*background-color: #ff5454;*/
-
-			}
+		
 			.beijin {
 				width: 100vw;
 				height: 100vh;
@@ -147,16 +117,8 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
                 <div style="clear:both"></div>
             </div>
         </div>-->
-        <nav class="header_nav">
-			<a> <img src="__INDEX__/img/hui.png" /></a>
-			<a id="nav_sy" href="{:url('index/index')}" title="首页" target="_blank">首页</a>
-			<a href="{:url('demand/index')}" title="需求" target="_blank">需求</a>
-			<a href="{:url('cases/index')}" title="案例" target="_blank">案例</a>
-			
-			<a  href="{:url('index/lxwm')}" titile="联系我们" target="_blank">联系我们</a>
-			<a  href="{:url('index/lxwm')}" titile="" target="_blank"><img src="__INDEX__/img/icon/rencai.png"/></a>
-		</nav>
-		<div class="main proginn-resume"style="min-height: 80vh;margin: 10px  auto;">
+       {include file="index/nav" /}
+		<div class="main proginn-resume"style="min-height: 830px;margin: 10px  auto;">
 			<div class="ui segment header" style="text-align: center;">
 				<i class="write icon"></i>编辑个人履历
 			</div>

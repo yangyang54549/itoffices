@@ -11,12 +11,14 @@ a:visited {text-decoration: none;}
 a:active {text-decoration: none;}
 .hidden{overflow: hidden;}
 body{ background-color: #F7F7F7;}
-.container{width: 980px;margin: 0 auto; overflow:auto;
+.container{width: 980px; 
 display: flex;
 flex-direction: row;
 justify-content: space-between;
 align-items:flex-end;
 min-height: 80vh;
+margin: 0 auto;
+border: 1px solid red; 
 }
 #right{width: 260px; height: auto;
 position: fixed;
