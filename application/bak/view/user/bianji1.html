@@ -217,8 +217,77 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				<p>2014-2017 汇谷电子科技有限公司 版权所有：ICP备12027515号-1</p>
 			</div>
 		</div>
+						<style type="text/css">
+			#beijin {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+  display: none;
+}
+#good {
+	 position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 201;
+    
+    padding: 50px;
+    width: 400px;
+    margin-left: -250px;
+    margin-top: -150px;
+    background-color: white;
+    border-radius: 10px;
+    display: none;
+}
+#good h5 {
+    font-size: 16px;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+#good h5,#good p {
+    width: 100%;
+    text-align: center;
+}
+#good p {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#good h5, #good p {
+    width: 100%;
+    text-align: center;
+}
+.qud {
+    border: 1px solid red;
+    color: red;
+    border-radius: 10px;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+		</style>
+		<div id="beijin" onclick="none();">
+			
+		</div>
+		<div id="good">
+				<h5>提示</h5>
+				<p class="texts"></p>
+				<p class="qud" id="qd" onclick="none();">确定</p>
+			</div>
 		<script src="__INDEX__/js/jss/jquery.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
+			function none(){
+  						$("#beijin").css("display", "none");
+						$("#good").css("display", "none");
+  					}
+  					function block(s){
+  						$("#beijin").css("display", "block");
+						$("#good").css("display", "block");
+						$("#good .texts").text(s);						
+  					}
 			$("#resumecontentform .field .fields .resume_hand_li  .plus").click(function() {
 				var fields = $("#resumecontentform .J_Fields").length;
 				var jinen = $("#resumecontentform .J_Fields:nth-child(" + fields + ") .jinen option:selected").text(); /*现在状态*/
@@ -232,7 +301,7 @@ $("#resumecontentform .J_Fields:nth-child(" + (fields+1) + ") select.jinen").htm
 
 				$("#resumecontentform .J_Fields:nth-child(" + (fields+1) + ") select.fen").html('<option value="-1">1分</option><option value="0">2分</option><option value="1">3分</option><option value="2">4分</option><option value="3">5分</option>')
 				} else {
-					alert("第" + fields + "份技能内容不完整，无法添加。");
+					block("第" + fields + "份技能内容不完整，无法添加。");
 				}
 
 
@@ -248,11 +317,11 @@ $("#resumecontentform .J_Fields:nth-child(" + (fields+1) + ") select.jinen").htm
 					$.post("{:url('user/deskill')}",{id:id},function(data){
 						console.log(data);
 						if (data.code==1) {
-							alert("删除成功");
+							block("删除成功");
 							rem.remove();
 
 						}else{
-							alert("删除失败");
+							block("删除失败");
 						}
 					}, "json");
 
@@ -292,26 +361,27 @@ $("#resumecontentform .J_Fields:nth-child(" + (fields+1) + ") select.jinen").htm
 							for(var s= 0;s<i;s++){
 								aCity1[i][0]=jinen;
 								if(aCity1[i][0]!=aCity1[s][0]){}else{
-									alert("第" + (i+1) + "份技能与第"+(s+1)+"份内容重复，无法提交。");
+									block("第" + (i+1) + "份技能与第"+(s+1)+"份内容重复，无法提交。");
 									nones = true;
 								}
 							}
 						}
 					} else {
-						alert("第" + (i+1) + "份技能内容不完整，无法提交。");
+						block("第" + (i+1) + "份技能内容不完整，无法提交。");
 						nones = true;
 					}
 				}
 				if(nones!=false){
-					/*alert("作品内容不完整，无法提交。");*/
+					/*block("作品内容不完整，无法提交。");*/
 				}else{
 					console.log(aCity1);
 					$.post("{:url('user/bianji1')}",{skill:aCity1},function(data){
 						console.log(data);
 						if (data.code==1) {
-							alert("提交成功");
+							block("提交成功");
+							window.location.href = "{:url('user/resume')}";
 						}else{
-							alert("提交失败");
+							block("提交失败");
 						}
 					}, "json");
 				}

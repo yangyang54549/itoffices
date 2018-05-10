@@ -213,9 +213,78 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				<p>2014-2017 汇谷电子科技有限公司 版权所有：ICP备12027515号-1</p>
 			</div>
 		</div>
+		<style type="text/css">
+			#beijin {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+  display: none;
+}
+#good {
+	 position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 201;
+    
+    padding: 50px;
+    width: 400px;
+    margin-left: -250px;
+    margin-top: -150px;
+    background-color: white;
+    border-radius: 10px;
+    display: none;
+}
+#good h5 {
+    font-size: 16px;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+#good h5,#good p {
+    width: 100%;
+    text-align: center;
+}
+#good p {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#good h5, #good p {
+    width: 100%;
+    text-align: center;
+}
+.qud {
+    border: 1px solid red;
+    color: red;
+    border-radius: 10px;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+		</style>
+		<div id="beijin" onclick="none();">
+			
+		</div>
+		<div id="good">
+				<h5>提示</h5>
+				<p class="texts"></p>
+				<p class="qud" id="qd" onclick="none();">确定</p>
+			</div>
 		<script src="__INDEX__/js/jss/jquery.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			/*添加 工作经历*/
+			function none(){
+  						$("#beijin").css("display", "none");
+						$("#good").css("display", "none");
+  					}
+  					function block(s){
+  						$("#beijin").css("display", "block");
+						$("#good").css("display", "block");
+						$("#good .texts").text(s);						
+  					}
 			$(".row textarea").css("background-color","#F7F7F7");
 			$(".J_ResumeFields .J_item .fields .plus").click(function(){
 				var lent = $(".J_ResumeFields .J_item").length;
@@ -232,7 +301,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 					$(".J_ResumeFields .J_item:nth-child("+(lent+1)+") .row textarea.fm-info").val("");
 					$(".J_ResumeFields .J_item:nth-child("+(lent+1)+") .row input").val(lent);
 				} else {
-					alert("第" + lent + "份工作经历不完整，无法添加。");
+					block("第" + lent + "份工作经历不完整，无法添加。");
 				}
 			})
 
@@ -275,11 +344,11 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 						$.post("{:url('user/deexperience')}",{id:id},function(data){
 							console.log(data);
 							if (data.code==1) {
-								alert("删除成功");
+								block("删除成功");
 								rem.remove();
 
 							}else{
-								alert("删除失败");
+								block("删除失败");
 							}
 						}, "json");
 				}else{
@@ -309,7 +378,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 					$(".J_EduFields .J_EduItem:nth-child("+lents+") .inline input").val("");
 					$(".J_EduFields .J_EduItem:nth-child("+lents+") .row textarea").val("");
 				} else {
-					alert("第" + lent1 + "份教育经历不完整，无法添加。");
+					block("第" + lent1 + "份教育经历不完整，无法添加。");
 				}
 			})
 
@@ -352,11 +421,11 @@ var nones3 = false;
 					$.post("{:url('user/deeducation')}",{id:id},function(data){
 						console.log(data);
 						if (data.code==1) {
-							alert("删除成功");
+							block("删除成功");
 							rem.remove();
 
 						}else{
-							alert("删除失败");
+							block("删除失败");
 						}
 					}, "json");
 				}else{
@@ -431,26 +500,27 @@ var nones3 = false;
 				}
 
 					if(nones2!=true && nones3!=true){
-					/*alert("作品内容不完整，无法提交。");*/
+					/*block("作品内容不完整，无法提交。");*/
 					console.log(jies);
 					console.log(aCity4);
 					console.log(aCity5);
 					$.post("{:url('user/bianji2')}",{introduce:jies,experience:aCity4,education:aCity5},function(data){
 						console.log(data);
 						if (data.code==1) {
-							alert("提交成功");
+							block("提交成功");
+							window.location.href = "{:url('user/resume')}";
 						}else{
-							alert("提交失败");
+							block("提交失败");
 						}
 					}, "json");
 
 					}else{
-						alert("填写不完整，无法添加");
+						block("填写不完整，无法添加");
 					}
 
 
 				}else{
-					alert("个人简介为空，无法提交。")
+					block("个人简介为空，无法提交。")
 				}
 
 
