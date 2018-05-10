@@ -4,6 +4,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>个人中心-我的订单</title>
+
 		<link rel="stylesheet" type="text/css" href="__INDEX__/css/header.css" />
 		<link rel="stylesheet" href="__INDEX__/css/restre.css">
 		<link rel="stylesheet" type="text/css" href="__INDEX__/css/order.css" />
@@ -1414,6 +1415,7 @@ $(function(){
 			$(".kai").click(function() {
 					/*$("#goods").css("display","block");
 					$(".login_background").css("display","block");*/
+					var parent = $(this).parent().parent().parent().parent();
 					$(this).parent().parent().parent().parent().addClass("str");
 					/*获取当前的 .li_one*/
 					var prse = $(this).parent().parent().parent().parent().parent();
@@ -1424,7 +1426,9 @@ $(function(){
 					/*获取 选择的接单 的data-id*/
 					var user_id = $("."+names+" .li_one:nth-child("+(tt+1)+") .str .participations .participation1").data('id');
 
-					if (user_id==null) { $(".beijin").css("display", "block");$(".beijin .texts").text('请选择开发者');return false };
+					if (user_id==null) { $(".beijin").css("display", "block");$(".beijin .texts").text('请选择开发者');
+					$(this).parent().parent().parent().parent().removeClass("str");
+					return false };
 					var strs= new Array(); //定义一数组
 					strs=user_id.split(","); //字符分割
 
@@ -1497,7 +1501,6 @@ $(function(){
 				/*$("#goods").css("display","block");
 					$(".login_background").css("display","block");*/
 				var demand_id = $(this).data('id');
-
 				$.post("{:url('user/order_que')}",{
 					demand_id:demand_id,
 				},function(data){
