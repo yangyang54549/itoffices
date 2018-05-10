@@ -154,7 +154,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 					<p  style="width: 100%;text-align: right; font-size: 14px;">短信快捷登录</p>
 					<div class="form-group">
 
-							<input id="phones" value="" name="phone" type="number" placeholder="输入手机号" class="form-control x319 in" autocomplete="off">
+							<input id="phones" value="" name="phone" type="tel" placeholder="输入手机号" class="form-control x319 in" autocomplete="off">
 						</div>
 						<div class="form-group">
 
@@ -294,7 +294,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				}
 			})
 			  $("#yan").click(function() {
-                if($("#phones").val() == "") {
+                if($("#phones").val() == "") {  
                     block("请输入手机号码");
                 }  else {
                 	if(!(/^1[3456789]\d{9}$/.test($("#phones").val()))) {
