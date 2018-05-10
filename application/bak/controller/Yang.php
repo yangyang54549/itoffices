@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:47:48
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-05-10 09:41:18
+ * @Last Modified time: 2018-05-10 15:46:29
  */
 
 namespace app\bak\controller;
@@ -29,7 +29,7 @@ class yang extends Controller
             $user = Session::get('user');
             if (!isset($user)) {
                 //未登录
-                $this->redirect('index/login/login');
+                $this->redirect('login/login');
             }
 
         }
