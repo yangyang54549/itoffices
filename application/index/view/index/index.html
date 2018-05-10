@@ -230,7 +230,7 @@
 				<button data-sliderimgs-id="slider_imgs2" class="tab_btn">客户评价</button>
 			</div>
 			<div class="slider">
-				<button id="sliderBtnLeft" type="button"> <img src="__INDEX__/img/picture/arrow_left.png" /></button>
+				<button id="sliderBtnLeft" type="button" onclick="left();"> <img src="__INDEX__/img/picture/arrow_left.png" /></button>
 				<div class="slider_ctn">
 					<div id="slider_imgs1" class="slider_imgs">
 						<section> <img src="__INDEX__/img/picture/1_120z94f45464.jpg" alt="汇谷维修美容店连锁|加盟|管" />
@@ -309,7 +309,7 @@
 						</section>
 					</div>
 				</div>
-				<button id="sliderBtnRight" type="button"> <img src="__INDEX__/img/picture/arrow_right.png" /></button>
+				<button id="sliderBtnRight" type="button" onclick="right();"> <img src="__INDEX__/img/picture/arrow_right.png" /></button>
 			</div>
 		</div>
 
@@ -319,7 +319,7 @@
 			<div class="row_c">
 				<div class="ft_submit row">
 					<input id="telephone" type="tel" class="cell" placeholder="输入您的手机号" maxlength="11" onkeyup="this.value=this.value.replace(/\D/g, '')"/>
-					<button type="button" >点击提交</button>
+					<button type="button" id="bth" onclick="clicks();">点击提交</button>
 				</div>
 			</div>
 		</div>
@@ -338,7 +338,66 @@
 			<a href="/data/sitemap.html">网站地图</a>
 			<p style="opacity: 0.3;"> 地址：河南省郑州市管城区紫荆山路与商城路交叉路口兴达国贸18楼1802室 </p>
 		</div>
+				<style type="text/css">
+			.beijin {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+  display: none;
+}
+.good {
+	 position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 201;
+    
+    padding: 50px;
+    width: 400px;
+    margin-left: -250px;
+    margin-top: -150px;
+    background-color: white;
+    border-radius: 10px;
+    display: none;
+}
+.good h5 {
+    font-size: 16px;
+    margin: 0;
+    margin-bottom: 20px;
+}
 
+.good h5, .good p {
+    width: 100%;
+    text-align: center;
+}
+.good p {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.good h5, .good p {
+    width: 100%;
+    text-align: center;
+}
+.qud {
+    border: 1px solid red;
+    color: red;
+    border-radius: 10px;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+		</style>
+		<div class="beijin" onclick="none();">
+			
+		</div>
+		<div class="good">
+				<h5>提示</h5>
+				<p class="texts"></p>
+				<p class="qud" id="qd" onclick="none();">确定</p>
+			</div>
 		<script src="__INDEX__/js/jss/jquery.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
                     $("#sliderBtnLeft").attr("disabled","disabled");
@@ -354,17 +413,7 @@
 	                        $("#sliderBtnRight").attr("disabled",false);
                      	}
   					});
-  					$("#sliderBtnLeft").click(function(){
-  						var disp = document.getElementById("slider_imgs2");
-  						if(disp.style.display!="none"){
-  							$("#slider_imgs2").css("margin-left","0px");
-  						}else{
-  							$("#slider_imgs1").css("margin-left","0px");
-  						}
-  						 $("#sliderBtnLeft").attr("disabled","disabled");
-  						 $("#sliderBtnRight").attr("disabled",false);
-  					})
-  					$("#sliderBtnRight").click(function(){
+  					function right(){
   						var disp = document.getElementById("slider_imgs2");
   						if(disp.style.display!="none"){
   							$("#slider_imgs2").css("margin-left","-1083px");
@@ -373,8 +422,41 @@
   						}
   						 $("#sliderBtnRight").attr("disabled","disabled");
   						 $("#sliderBtnLeft").attr("disabled",false);
-  					})
-
+  					}
+  					
+  					function left(){
+  						var disp = document.getElementById("slider_imgs2");
+  						if(disp.style.display!="none"){
+  							$("#slider_imgs2").css("margin-left","0px");
+  						}else{
+  							$("#slider_imgs1").css("margin-left","0px");
+  						}
+  						 $("#sliderBtnLeft").attr("disabled","disabled");
+  						 $("#sliderBtnRight").attr("disabled",false);
+  					}
+  					function none(){
+  						$(".beijin").css("display", "none");
+						$(".good").css("display", "none");
+  					}
+  					function block(s){
+  						$(".beijin").css("display", "block");
+						$(".good").css("display", "block");
+						$(".good .texts").text(s);						
+  					}
+  					function clicks(){
+  						if($("#telephone").val() == "") {
+							block("请输入您的手机号");							
+						} else {
+							if(!(/^1[3456789]\d{9}$/.test($("#telephone").val()))) {
+								block("手机号码有误，请重填")								
+							} else {
+								block("提交成功");
+							}
+						}
+						$("#telephone").val("");
+  					}
+  					
+				
 		</script>
 	</body>
 
