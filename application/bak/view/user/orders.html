@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>IT联合办公</title>
+		<link rel="stylesheet" type="text/css" href="__INDEX__/css/header.css" />
+		<link rel="stylesheet" href="__INDEX__/css/restre.css">
+		<link rel="stylesheet" type="text/css" href="__INDEX__/css/order.css" />
+		<link rel="stylesheet" type="text/css" href="__INDEX__/css/nav.css" />
+		<script type="text/javascript" src="__INDEX__/js/jss/jquery-1.9.1.min.js"></script>
+		<style type="text/css">
+		.li_one:hover{
+			background-color: rgba(0,0,0,.1);
+		}
+		</style>
+	</head>
+	<script>
+		(function(b, a, e, h, f, c, g, s) {
+			b[h] = b[h] || function() {
+				(b[h].c = b[h].c || []).push(arguments)
+			};
+			b[h].s = !!c;
+			g = a.getElementsByTagName(e)[0];
+			s = a.createElement(e);
+			s.src = "//s.union.360.cn/" + f + ".js";
+			s.defer = !0;
+			s.async = !0;
+			g.parentNode.insertBefore(s, g)
+		})(window, document, "script", "_qha", 224241, false);
+	</script>
+
+	<body>
+		<!-- <div style="width:100%;box-shadow:0 2px 4px 0 rgba(58,68,85,0.16);position:relative;z-index:99999; background-color: rgba(0,0,0,0.1);" id="nav">
+            <div class="head">
+                <div class="logo">
+                    <a href="###">
+                        </a>
+                </div>
+                <ul class="navs">
+
+                  
+					<li>
+						<a href="{:url('index/one')}" class="is ">首页</a>
+					</li>
+                    
+                    <li>
+                        <a href="{:url('demand/index')}" class="is ">需求</a>
+                    </li>
+                    <li>
+                        <a href="{:url('cases/index')}" class="is actives">案例</a>
+                    </li>
+                    <li>
+                        <a href="#"class="is">人才</a>
+                    </li>
+                    
+
+                </ul>
+            
+                <div style="clear:both"></div>
+            </div>
+        </div>-->
+        <nav class="header_nav">
+			<a> <img src="__INDEX__/img/hui.png" /></a>
+			<a id="nav_sy" href="{:url('index/index')}" title="首页" target="_blank">首页</a>
+			<a href="{:url('demand/index')}" title="需求" target="_blank">需求</a>
+			<a href="{:url('cases/index')}" title="案例" target="_blank">案例</a>
+			
+			<a  href="{:url('index/lxwm')}" titile="联系我们" target="_blank">联系我们</a>
+			<a  href="{:url('index/lxwm')}" titile="" target="_blank"><img src="__INDEX__/img/icon/rencai.png"/></a>
+		</nav>
+		<div class="content" style="padding: 0;">
+			<div class="center">
+				<div class="center_left">
+					<a href="{:url('user/resume')}">个人主页</a>
+					<a href="{:url('user/index')}">基本信息</a>
+					<a href="{:url('user/order')}" class="active"><em></em>我的订单</a>
+
+					<a href="javascript:if(confirm('确实要删除该内容吗?')){location='{:url("login/exit")}'}">退出登录</a>
+				</div>
+				<div class="center_cen">
+					<div class="cente-head ">
+						<p class="p2 on"><span>我发布的需求(</span><span id="num_1">5</span>)</p>
+						<p class="p2"><span>我申请的任务</span><span id="num_2">(0)</span></p>
+						<p class="p2"><span>我雇佣的</span><span id="num_3">(0)</span></p>
+						<p class="p2"><span>雇佣我的</span><span id="num_4">(0)</span></p>
+					</div>
+					<div class="cente_b">
+						<div class="cente_ul">
+							<ul class="ul1">
+								<!--<div class="string">
+									<div class="wu">
+										<img src="__INDEX__/img/521511013441599704.png" />
+										<p>没有记录</p>
+									</div>
+
+								</div>-->
+							</ul>
+							<ul class="ul2">
+								<!--<div class="string">
+									<div class="wu">
+										<img src="__INDEX__/img/521511013441599704.png" />
+										<p>没有记录</p>
+									</div>
+								</div>-->
+							</ul>
+							<ul class="ul3">
+								<li class="li_one">
+									<div class="top relative">
+										<div class="top_left">
+											<img src="__INDEX__/img/bai.png" />
+										</div>
+										<div class="top_center">
+											<p><span>需求名称 </span><span></span></p>
+											<p><span>郑州  </span><span>发布时间    </span><span></span></p>
+										</div>
+										<div class="top_right">
+											<span>对接中</span>
+										</div>
+									</div>
+									
+									
+								</li>
+								<div class="string">
+									<div class="wu">
+										<img src="__INDEX__/img/521511013441599704.png" />
+										<p>没有记录</p>
+									</div>
+
+								</div>
+							</ul>
+							<ul class="ul4">
+								<div class="string">
+									<div class="wu">
+										<img src="__INDEX__/img/521511013441599704.png" />
+										<p>没有记录</p>
+									</div>
+								</div>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer" style="background-color: #1e2831; ">
+			<div class="center">
+				<p>2014-2017 汇谷电子科技有限公司 版权所有：ICP备12027515号-1</p>
+			</div>
+		</div>
+		<script src="__INDEX__/js/order.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">			
+			/*ul1*/
+			 taps(2);
+$(".cente-head .p2").click(function() {
+	var tt  = $(".cente-head .p2").index($(this));
+	$(".cente-head .p2").removeClass("on");
+	$(this).addClass("on");
+	if(tt < 2) {		
+		tap = tt;
+			window.location.href = "{:url('user/order')}";		
+	} else {	$(".cente_ul").css("margin-left", "-" +(tt*100)+ "%");		}	
+	
+	
+
+})
+			$(".ul3 .li_one .top").click(function() {
+				var sr1 = $(this).parent();
+				var st1 = $(this).next();
+				var strs = sr1.nextAll();
+				if(sr1.hasClass('li_ones')) {
+					/*有 展开 删除 合并 */
+					sr1.removeClass("li_ones");
+					strs.css("display","block");
+				} else {
+					/*无 合并 添加 展开 */
+					$(".ul1 .li_one").removeClass("li_ones");
+					sr1.addClass("li_ones");
+					strs.css("display","none");
+				}
+			})
+			/*申请的任务 记录*/			
+			$(".ul4 .li_one .top").click(function() {
+				var sr1 = $(this).parent();
+				var st1 = $(this).next();
+				var strs = sr1.nextAll();
+				if(sr1.hasClass('li_ones')) {
+					/*有 展开 删除 合并 */
+					sr1.removeClass("li_ones");
+					strs.css("display","block");
+				} else {
+					/*无 合并 添加 展开 */
+					$(".ul2 .li_one").removeClass("li_ones");
+					sr1.addClass("li_ones");
+					strs.css("display","none");
+				}
+			})
+			
+			$(".kai").click(function() {
+				if($(this).text()!="已开工"){
+					$(this).text("已开工");
+					$(this).parent().parent().parent().removeClass("string1");
+					$(this).parent().parent().parent().addClass("string2");
+					$(this).parent().parent().parent().parent().addClass("str");
+					/*获取当前的 .li_one*/
+					var prse = $(this).parent().parent().parent().parent().parent();
+					var names = prse.parent().attr('class');
+					/*获取当前的 .li_one 得下标*/
+					var tt = $("."+names+" .li_one").index(prse);
+					/*获取 选择的接单 的data-id*/
+					var demand_id = $("."+names+" .li_one:nth-child("+(tt+1)+") .str .participations .participation1").data('demand');
+					var user_id = $("."+names+" .li_one:nth-child("+(tt+1)+") .str .participations .participation1").data('user');					
+				}
+			})
+
+			$(".renyuean2 .timess").click(function() {
+				$(this).parent().parent().parent().parent().addClass("string3");
+				$(this).parent().parent().parent().parent().removeClass("string2");
+			})
+			$(".tong").click(function() {
+				$(this).parent().parent().parent().parent().addClass("strings");
+				$(".strings .renyuean2 div h5").text("已完工");
+				$(".strings .kai").text("已完工");
+				$(".strings .timess").text("已完工");
+				$(".strings").prev().addClass("blue2");
+			})
+		</script>
+		
+	</body>
+
+</html>

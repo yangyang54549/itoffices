@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>IT联合办公</title>
+		<link rel="stylesheet" type="text/css" href="__INDEX__/css/header.css" />
+		<!--<link href="https://innsta.b0.upaiyun.com/favicon_new.ico" mce_href="https://innsta.b0.upaiyun.com/favicon.ico" rel="bookmark" type="image/x-icon">
+		<link href="https://innsta.b0.upaiyun.com/favicon_new.ico" mce_href="https://innsta.b0.upaiyun.com/favicon.ico" rel="icon" type="image/x-icon">
+		<link href="https://innsta.b0.upaiyun.com/favicon_new.ico" mce_href="https://innsta.b0.upaiyun.com/favicon.ico" rel="shortcut icon" type="image/x-icon">-->
+		<link rel="stylesheet" href="https://innsta.b0.upaiyun.com/css_v2/inn.css?_=310_13">
+		<!--<link rel="stylesheet" href="https://innsta.b0.upaiyun.com/css_v2/page/resume.css?_=310_13">-->
+		<!--<script src="//hm.baidu.com/hm.js?c92adf6182a39eb23c24cf43abc3f439"></script>
+		<script async="" charset="UTF-8" src="//eco-api.meiqia.com/dist/meiqia.js?v=1"></script>-->
+		<!--<link charset="utf-8" rel="stylesheet" href="https://innsta.b0.upaiyun.com/plugin/selectize/__INDEX__/css/selectize.css?version=310_13">
+		<link charset="utf-8" rel="stylesheet" href="https://innsta.b0.upaiyun.com/plugin/datetimepicker/jquery.datetimepicker.css?version=310_13">-->
+		<link rel="stylesheet" type="text/css" href="__INDEX__/css/nav.css" />
+		<style type="text/css">
+		.J_EduFields .J_EduItem .fields .inline input{
+			width: 170px;
+		}
+		.J_EduFields .J_EduItem{
+			margin-bottom: 20px;
+		}
+		.navs{
+			 	width: 90%;
+			 	margin: 0 auto;
+			 	padding: 10px;
+			 }
+			 .navs li{
+			 	float: left;
+			 }
+			.navs .is{
+				display: block;
+				width: 90px;
+				height: 38px;
+				text-align: center;
+				line-height: 40px;
+				font-size: 14px;
+				color: black;
+				z-index: 100;
+			}
+			.navs a:hover{
+				color: #fff !important;
+				background: url(__INDEX__/img/navBg.png);
+				background-size: 100%;
+				/*background-color: #ff5454;*/
+			}
+			.actives {
+				color: #fff !important;
+				background: url(__INDEX__/img/navBg.png);
+				background-size: 100%;
+				/*background-color: #ff5454;*/
+
+			}
+			.beijin {
+				width: 100vw;
+				height: 100vh;
+				background-color: rgba(0, 0, 0, 0.5);
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 200;
+				display: none;
+			}
+
+			.good {
+				margin: 30vh auto;
+				padding: 50px;
+				width: 400px;
+				background-color: white;
+				border-radius:10px ;
+			}
+						.good img{
+				width: 50px;
+				height: 50px;
+				display: block;
+				margin: 10px  auto;
+			}
+			.good p {
+				width: 100%;
+				text-align: center;
+				font-size: 15px;
+				font-weight: 600;
+			}
+			/*.plus,.trash{
+				display: block;
+				position: absolute;
+				top: 0;
+				right: ;
+			}		*/
+			.J_EduItem,.J_item{
+				position: relative;
+				top: 0;
+				left: 0;			}
+				.plus{
+					position: absolute;
+					top: 10px;
+					right: 40px;
+
+				}
+				.trash{
+					position: absolute;
+					top: 10px;
+					right: 20px;
+
+				}
+				.J_item ,.J_EduItem{
+
+					margin-bottom: 20px;
+				}
+</style>
+	</head>
+<script>
+(function(b,a,e,h,f,c,g,s){b[h]=b[h]||function(){(b[h].c=b[h].c||[]).push(arguments)};
+b[h].s=!!c;g=a.getElementsByTagName(e)[0];s=a.createElement(e);
+s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefore(s,g)
+})(window,document,"script","_qha",224241,false);
+</script>
+	<body style="padding: 0;">
+		<!-- <div style="width:100%;box-shadow:0 2px 4px 0 rgba(58,68,85,0.16);position:relative;z-index:99999; background-color: rgba(0,0,0,0.1);" id="nav">
+            <div class="head">
+                <div class="logo">
+                    <a href="###">
+                        </a>
+                </div>
+                <ul class="navs">
+
+                  
+					<li>
+						<a href="{:url('index/one')}" class="is ">首页</a>
+					</li>
+                    
+                    <li>
+                        <a href="{:url('demand/index')}" class="is ">需求</a>
+                    </li>
+                    <li>
+                        <a href="{:url('cases/index')}" class="is actives">案例</a>
+                    </li>
+                    <li>
+                        <a href="#"class="is">人才</a>
+                    </li>
+                    
+
+                </ul>
+            
+                <div style="clear:both"></div>
+            </div>
+        </div>-->
+        <nav class="header_nav">
+			<a> <img src="__INDEX__/img/hui.png" /></a>
+			<a id="nav_sy" href="{:url('index/index')}" title="首页" target="_blank">首页</a>
+			<a href="{:url('demand/index')}" title="需求" target="_blank">需求</a>
+			<a href="{:url('cases/index')}" title="案例" target="_blank">案例</a>
+			
+			<a  href="{:url('index/lxwm')}" titile="联系我们" target="_blank">联系我们</a>
+			<a  href="{:url('index/lxwm')}" titile="" target="_blank"><img src="__INDEX__/img/icon/rencai.png"/></a>
+		</nav>
+		<div class="main proginn-resume"style="min-height: 80vh;margin: 10px  auto;">
+			<div class="ui segment header" style="text-align: center;">
+				<i class="write icon"></i>编辑个人履历
+			</div>
+			<div class="ui segment">
+				<div id="J_Loading"></div>
+				<div class="ui form">
+					<form action="/resume/add" id="resumecontentform" method="post" style="margin-bottom:20px;">
+						<h4 class="ui header">个人介绍</h4>
+						<div class="field">
+							<div class="textarea_content_div">
+								<textarea name="" rows="4" cols="" id="jies" placeholder="个人介绍(1000字以内)" maxlength="1000">{$user.introduce}</textarea>
+							</div>
+						</div>
+						<h4 class="ui header">工作经历</h4>
+						<div class="J_ResumeFields">
+						{if condition="$experience"}
+							{volist name="experience" id="vo"}
+							<div class="J_item mb20" data-id="{$vo.id}">
+								<div class="fields">
+									<input class="J_WorkId" type="hidden" value="24302">
+									<div class="inline field"><input type="text" class="fm-input J_StartTime" placeholder="开始时间:2015-06-06" maxlength="10" value="{$vo.start_time}"></div>
+									<div class="inline field"><input type="text" class="fm-input J_EndTime" placeholder="结束时间:2016-06-06"  maxlength="10" value="{$vo.end_time}"></div>
+									<div class="inline field"><input type="text" class="fm-input J_StartTime" placeholder="请输入公司名称(15字内)" maxlength="15" value="{$vo.company_name}"></div>
+									<div class="inline field"><input type="text" class="fm-input J_EndTime" placeholder="请输入职位(8字以内)" maxlength="8" value="{$vo.position}"></div>
+									<i class="plus icon link fm-icon J_AddResume" title="添加更多经历" ></i>
+									<i class="trash icon link fm-icon" data-role="delete" title="删除" ></i></div>
+								<div class="row"><textarea class="fm-info J_Desc" placeholder="请简单说明您的工作内容，关键成绩(90字以内)" rows="3" maxlength="90">{$vo.content}</textarea></div>
+								<!-- <div class="row" style="color: #258fe7;margin-top: 10px;"><label><input name="is_main" checked="checked" type="radio"value="1" >&nbsp;&nbsp;在个人主页优先展示该项经历</label></div> -->
+							</div>
+							{/volist}
+						{else/}
+							<div class="J_item mb20" data-id="0">
+								<div class="fields">
+									<input class="J_WorkId" type="hidden" value="24302">
+									<div class="inline field"><input type="text" class="fm-input J_StartTime" placeholder="开始时间:2015-06-06" maxlength="10"></div>
+									<div class="inline field"><input type="text" class="fm-input J_EndTime" placeholder="结束时间:2016-06-06"  maxlength="10"></div>
+									<div class="inline field"><input type="text" class="fm-input J_StartTime" placeholder="请输入公司名称(15字内)" maxlength="15"></div>
+									<div class="inline field"><input type="text" class="fm-input J_EndTime" placeholder="请输入职位(8字以内)" maxlength="8"></div>
+									<i class="plus icon link fm-icon J_AddResume" title="添加更多经历" ></i>
+									<i class="trash icon link fm-icon" data-role="delete" title="删除" ></i></div>
+								<div class="row"><textarea class="fm-info J_Desc" placeholder="请简单说明您的工作内容，关键成绩(90字以内)" rows="3" maxlength="90"></textarea></div>
+								<!-- <div class="row" style="color: #258fe7;margin-top: 10px;"><label><input name="is_main" checked="checked" type="radio"value="1" >&nbsp;&nbsp;在个人主页优先展示该项经历</label></div> -->
+							</div>
+						{/if}
+
+						</div>
+						<h4 class="ui header">教育经历</h4>
+						<div class="J_EduFields">
+
+						{if condition="$education"}
+							{volist name="education" id="vos"}
+							<div class="J_EduItem edu-item mb20" data-id="{$vos.id}">
+								<div class="fields"><input class="J_WorkId" type="hidden" value="7103">
+									<div class="inline field"><input type="text" class="fm-input J_StartTime" placeholder="开始时间:2011-03-03 " maxlength="10"  value="{$vos.start_time}"></div>
+									<div class="inline field"><input type="text" class="fm-input J_EndTime" placeholder="结束时间:2015-03-03 " maxlength="10" value="{$vos.end_time}"></div>
+									<div class="inline field" ><input type="text" class="fm-input J_StartTime" placeholder="请输入院校名称(10字内)" maxlength="10" value="{$vos.school_name}"></div>
+									<div class="inline field"><input type="text" class="fm-input J_EndTime" placeholder="请输入专业名称(7字内)" maxlength="7"  value="{$vos.major}"></div>
+									<div class="inline field"><input type="text" class="fm-input J_EndTime" placeholder="请输入学历(5字以内)" maxlength="5" value="{$vos.xueli}"></div>
+									<i class="plus icon link fm-icon J_Add" title="添加更多经历"></i><i class="trash icon link fm-icon" data-role="delete" title="删除"></i></div>
+								<div class="row"><textarea class="fm-info J_Desc" placeholder="请说明您的成就，如获奖经历、实践经历(90字以内)" maxlength="90">{$vos.content}</textarea></div>
+							</div>
+							{/volist}
+						{else/}
+							<div class="J_EduItem edu-item mb20" data-id="0">
+								<div class="fields"><input class="J_WorkId" type="hidden" value="7103">
+									<div class="inline field"><input type="text" class="fm-input J_StartTime" placeholder="开始时间:2011-03-03 " maxlength="10"></div>
+									<div class="inline field"><input type="text" class="fm-input J_EndTime" placeholder="结束时间:2015-03-03 " maxlength="10"></div>
+									<div class="inline field" ><input type="text" class="fm-input J_StartTime" placeholder="请输入院校名称(10字内)" maxlength="10"></div>
+									<div class="inline field"><input type="text" class="fm-input J_EndTime" placeholder="请输入专业名称(7字内)" maxlength="7"></div>
+									<div class="inline field"><input type="text" class="fm-input J_EndTime" placeholder="请输入学历(5字以内)" maxlength="5"></div>
+									<i class="plus icon link fm-icon J_Add" title="添加更多经历"></i><i class="trash icon link fm-icon" data-role="delete" title="删除"></i></div>
+								<div class="row"><textarea class="fm-info J_Desc" placeholder="请说明您的成就，如获奖经历、实践经历(90字以内)" maxlength="90"></textarea></div>
+							</div>
+						{/if}
+						</div>
+					</form>
+					<div class="field">
+						<a id="resume_submit_btn_a" class="ui button blue" data-status="3"><i class="write icon"></i>保存</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="beijin" >
+			<div class="good">
+				<img src="__INDEX__/img/duihao.png"/>
+				<p></p>
+			</div>
+		</div>
+		<div class="footer" style="background-color: #1e2831;">
+			<div class="center">
+				<p>2014-2017 汇谷电子科技有限公司 版权所有：ICP备12027515号-1</p>
+			</div>
+		</div>
+		<script src="__INDEX__/js/jss/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			/*添加 工作经历*/
+			$(".row textarea").css("background-color","#F7F7F7");
+			$(".J_ResumeFields .J_item .fields .plus").click(function(){
+				var lent = $(".J_ResumeFields .J_item").length;
+				var StartTime = $(".J_ResumeFields .J_item:nth-child("+lent+") .inline input");
+				var EndTime0 = StartTime.eq(0).val();
+				var EndTime1 = StartTime.eq(1).val();
+				var EndTime2 = StartTime.eq(2).val();
+				var EndTime3 = StartTime.eq(3).val();
+				var fminfo = $(".J_ResumeFields .J_item:nth-child("+lent+") .row textarea.fm-info").val();
+				if(EndTime0 !="" && EndTime1 !="" && EndTime2 !="" && EndTime3 !="" && fminfo !="" ) {
+					$(this).parent().parent().parent().append($(this).parent().parent().clone(true));
+					$(".J_ResumeFields .J_item:nth-child("+(lent+1)+")").attr("data-id","0");
+					$(".J_ResumeFields .J_item:nth-child("+(lent+1)+") .inline input").val("");
+					$(".J_ResumeFields .J_item:nth-child("+(lent+1)+") .row textarea.fm-info").val("");
+					$(".J_ResumeFields .J_item:nth-child("+(lent+1)+") .row input").val(lent);
+				} else {
+					alert("第" + lent + "份工作经历不完整，无法添加。");
+				}
+			})
+
+//			function gongzuo(){
+//				var item = $(".J_ResumeFields .J_item").length;
+//				var nones2 = false;
+//				var aCity4 = new Array();
+//				for(var i = 0; i < item; i++) {
+//					aCity4[i] = new Array();
+//					var StartTime = $(".J_ResumeFields .J_item:nth-child("+(i+1)+") .inline input");
+//					var EndTime0 = StartTime.eq(0).val();
+//					var EndTime1 = StartTime.eq(1).val();
+//					var EndTime2 = StartTime.eq(2).val();
+//					var EndTime3 = StartTime.eq(3).val();
+//					var fminfo = $(".J_ResumeFields .J_item:nth-child("+(i+1)+") .row textarea.fm-info").val();
+//					if(EndTime0 !="" && EndTime1 !="" && EndTime2 !="" && EndTime3 !="" && fminfo !="" ) {
+//							aCity4[i][0] = EndTime0;
+//							aCity4[i][1] = EndTime1;
+//							aCity4[i][2] = EndTime2;
+//							aCity4[i][3] = EndTime3;
+//							aCity4[i][4] = fminfo;
+//
+//					} else {
+//						nones2 = true;
+//					}
+//				}
+//
+//			}
+			$(".J_ResumeFields .J_item .fields .trash").click(function(){
+
+				var rem = $(this).parent().parent();
+
+				var con;
+				con=confirm("确认删除本条记录?"); //在页面上弹出对话框
+				if(con==true){
+					//工作经历
+					if($(".J_ResumeFields .J_item").length>1){
+						id = $(this).parent().parent().data('id');
+
+						$.post("{:url('user/deexperience')}",{id:id},function(data){
+							console.log(data);
+							if (data.code==1) {
+								alert("删除成功");
+								rem.remove();
+
+							}else{
+								alert("删除失败");
+							}
+						}, "json");
+				}else{
+					$(".beijin").css("display", "block");
+					$(".beijin .good p").text("至少保留一条记录");
+					$(".beijin .good img").css("display","none");
+					$(".beijin").css("background-color","rgba(0, 0, 0, 0.5)");
+				}
+				}else{
+
+				}
+			})
+			/*教育经历*/
+			$(".J_EduFields .J_EduItem:nth-child(1) .fields .plus").click(function(){
+				var lent1 = $(".J_EduFields .J_EduItem").length;
+				var Star = $(".J_EduFields .J_EduItem:nth-child("+lent1+") .inline input");
+				var End0 = Star.eq(0).val();
+				var End1 = Star.eq(1).val();
+				var End2 = Star.eq(2).val();
+				var End3 = Star.eq(3).val();
+				var End4 = Star.eq(4).val();
+				var fminfo1 = $(".J_EduFields .J_EduItem:nth-child("+lent1+") .row textarea.fm-info").val();
+				if(End0 !="" && End1 !="" && End2 !="" && End3 !="" && End4 !="" && fminfo1 !="" ) {
+					$(this).parent().parent().parent().append($(this).parent().parent().clone(true));
+					var lents = $(".J_EduFields .J_EduItem").length;
+					$(".J_EduFields .J_EduItem:nth-child("+lents+")").attr("data-id","0");
+					$(".J_EduFields .J_EduItem:nth-child("+lents+") .inline input").val("");
+					$(".J_EduFields .J_EduItem:nth-child("+lents+") .row textarea").val("");
+				} else {
+					alert("第" + lent1 + "份教育经历不完整，无法添加。");
+				}
+			})
+
+			/*function jiaoyu(){
+				var duI = $(".J_EduFields .J_EduItem").length;
+var nones3 = false;
+				var aCity5 = new Array();
+				for(var i = 0; i < duI; i++) {
+					aCity5[i] = new Array();
+					var Star = $(".J_EduFields .J_EduItem:nth-child("+(i+1)+") .inline input");
+					var End0 = Star.eq(0).val();
+					var End1 = Star.eq(1).val();
+					var End2 = Star.eq(2).val();
+					var End3 = Star.eq(3).val();
+					var End4 = Star.eq(4).val();
+					var fminfo1 = $(".J_EduFields .J_EduItem:nth-child("+(i+1)+") .row textarea.fm-info").val();
+					if(End0 !="" && End1 !="" && End2 !="" && End3 !=""&& End4 !="" && fminfo1 !="" ) {
+							aCity5[i][0] = End0;
+							aCity5[i][1] = End1;
+							aCity5[i][2] = End2;
+							aCity5[i][3] = End3;
+							aCity5[i][4] = End4;
+							aCity5[i][5] = fminfo1;
+
+					} else {
+						nones3 = true;
+					}
+				}
+			}*/
+			$(".J_EduFields .J_EduItem .fields .trash").click(function(){
+
+				var rem = $(this).parent().parent();
+				var con1;
+				con1=confirm("确认删除本条记录?"); //在页面上弹出对话框
+				if(con1==true){
+					if($(".J_EduFields .J_EduItem").length>1){
+					//教育经历
+					id = $(this).parent().parent().data('id');
+
+					$.post("{:url('user/deeducation')}",{id:id},function(data){
+						console.log(data);
+						if (data.code==1) {
+							alert("删除成功");
+							rem.remove();
+
+						}else{
+							alert("删除失败");
+						}
+					}, "json");
+				}else{
+					$(".beijin").css("display", "block");
+					$(".beijin .good p").text("至少保留一条记录");
+					$(".beijin .good img").css("display","none");
+					$(".beijin").css("background-color","rgba(0, 0, 0, 0.5)");
+				}
+				}else{
+				}
+			})
+			$(".beijin").click(function(){
+				$(".beijin").css("display","none");
+				$(".beijin .good p").text(" ");
+
+			})
+
+			$("#resume_submit_btn_a").click(function() {
+				var jies = $("#jies").val();
+				if(jies != ""){
+					var aCity3 = new Array();
+					var item = $(".J_ResumeFields .J_item").length;
+				var nones2 = false;
+				var aCity4 = new Array();
+				for(var i = 0; i < item; i++) {
+					aCity4[i] = new Array();
+					var StartTime = $(".J_ResumeFields .J_item:nth-child("+(i+1)+") .inline input");
+					var EndTime0 = StartTime.eq(0).val();
+					var EndTime1 = StartTime.eq(1).val();
+					var EndTime2 = StartTime.eq(2).val();
+					var EndTime3 = StartTime.eq(3).val();
+					var fminfo = $(".J_ResumeFields .J_item:nth-child("+(i+1)+") .row textarea.fm-info").val();
+					var Data2 = $(".J_ResumeFields .J_item:nth-child("+(i+1)+")").data('id');
+					if(EndTime0 !="" && EndTime1 !="" && EndTime2 !="" && EndTime3 !="" && fminfo !="" ) {
+							aCity4[i][0] = EndTime0;
+							aCity4[i][1]= EndTime1;
+							aCity4[i][2]= EndTime2;
+							aCity4[i][3]= EndTime3;
+							aCity4[i][4]= fminfo;
+							aCity4[i][5]=Data2;
+
+					} else {
+						nones2 = true;
+					}
+				}
+
+				var duI = $(".J_EduFields .J_EduItem").length;
+				var nones3 = false;
+				var aCity5 = new Array();
+				for(var i = 0; i < duI; i++) {
+					aCity5[i] = new Array();
+					var Star = $(".J_EduFields .J_EduItem:nth-child("+(i+1)+") .inline input");
+					var End0 = Star.eq(0).val();
+					var End1 = Star.eq(1).val();
+					var End2 = Star.eq(2).val();
+					var End3 = Star.eq(3).val();
+					var End4 = Star.eq(4).val();
+					var fminfo1 = $(".J_EduFields .J_EduItem:nth-child("+(i+1)+") .row textarea.fm-info").val();
+					var data3 = $(".J_EduFields .J_EduItem:nth-child("+(i+1)+")").data('id');
+					if(End0 !="" && End1 !="" && End2 !="" && End3 !=""&& End4 !="" && fminfo1 !="" ) {
+							aCity5[i][0] = End0;
+							aCity5[i][1] = End1;
+							aCity5[i][2] = End2;
+							aCity5[i][3] = End3;
+							aCity5[i][4] = End4;
+							aCity5[i][5] = fminfo1;
+							aCity5[i][6] = data3;
+
+					} else {
+						nones3 = true;
+					}
+				}
+
+					if(nones2!=true && nones3!=true){
+					/*alert("作品内容不完整，无法提交。");*/
+					console.log(jies);
+					console.log(aCity4);
+					console.log(aCity5);
+					$.post("{:url('user/bianji2')}",{introduce:jies,experience:aCity4,education:aCity5},function(data){
+						console.log(data);
+						if (data.code==1) {
+							alert("提交成功");
+						}else{
+							alert("提交失败");
+						}
+					}, "json");
+
+					}else{
+						alert("填写不完整，无法添加");
+					}
+
+
+				}else{
+					alert("个人简介为空，无法提交。")
+				}
+
+
+
+
+				/*var is = $(".field .fields").length;
+				for(var i=0; i<is;i++){}*/
+				/*$(".beijin").css("display","block");
+				$(".beijin").css("background-color","rgba(255, 255, 255, 0.8)");
+				$(".beijin .good img").css("display","block")
+				$(".beijin .good p").text("已保存");
+				$(".beijin .good ").css("background-color","rgba(255, 255, 255, 0)");
+				setTimeout(function(){
+					window.location.href="#";
+				},1000)*/
+
+			})
+		</script>
+	</body>
+
+</html>

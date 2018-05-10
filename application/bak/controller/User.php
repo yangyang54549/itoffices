@@ -3,9 +3,9 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-05-09 16:15:56
+ * @Last Modified time: 2018-05-10 09:41:14
  */
-namespace app\index\controller;
+namespace app\bak\controller;
 use app\admin\Controller;
 use think\Session;
 use app\common\model\User as U;
