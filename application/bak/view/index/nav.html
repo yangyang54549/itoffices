@@ -70,7 +70,7 @@
                         <a href="#"class="is">人才</a>
                     </li>           
                      <li style="float: right;">
-                        {if condition="session('user')"} <a href="javascript:void(0)" class=""><img src="__INDEX__/img/icon/geren.png"/></a>{else/}<a href="javascript:void(0)" class="is">登录/注册</a>{/if} 
+                        {if condition="session('user')"} <a href="{:url('user/index')}" class=""><img src="__INDEX__/img/icon/geren.png"/></a>{else/}<a href="{:url('user/index')}" class="is">登录/注册</a>{/if} 
                     </li> 
                </ul>           
                 <div style="clear:both"></div>
