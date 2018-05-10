@@ -1,0 +1,155 @@
+	.sou {
+				width: 100%;
+min-width: 1200px;
+				height: 640px;
+
+				background-image: url(../img/index.jpg);
+				filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+				-moz-background-size: 100% 100%;
+				background-size: 100% 100%;
+				padding: 1px 0;
+				position: relative;
+				top: 0;
+				left: 0;
+				z-index: 1;
+			}
+
+			.search {
+				width: 100%;
+				padding: 0;
+				position: absolute;
+				left: 0;
+				top: 50%;
+				margin-top: -30px;
+				z-index: 10;
+			}
+
+			.search1 {
+				height: 60px;
+				width: 600px;
+				line-height: 65px;
+				position: relative;
+				top: 0;
+				left: 0;
+				background-color: white;
+				margin: 5px auto;
+				border-radius: 5px;
+				box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
+			}
+
+			.search1:hover {
+				box-shadow: 0 10px 30px 6px rgba(28, 57, 81, 0.18);
+			}
+
+			.search1 input {
+				width: 450px;
+				height: 56px;
+				line-height: 56px;
+				border: none;
+				margin-left: 50px;
+				margin-top: -2px;
+			}
+
+			.search1 img {
+				width: 30px;
+				position: absolute;
+				top: 17px;
+				left: 13px;
+			}
+
+			.search1 button {
+				width: 80px;
+				height: 56px;
+				position: absolute;
+				top: 2px;
+				right: 2px;
+				border-radius: 5px;
+				background-color: #0d80dd;
+				color: white;
+				font-size: 16px;
+			}
+
+			.search1 span {
+				position: absolute;
+				top: 0px;
+				right: -40px;
+				color: white;
+				font-size: 15px;
+				font-weight: bold;
+			}
+
+			.search1 p {
+				width: 120px;
+				height: 56px;
+				text-align: center;
+				border-radius: 5px;
+				position: absolute;
+				right: -170px;
+				font-size: 16px;
+				background-color: #0d80dd;
+				color: white;
+				font-weight: bold;
+				top: 3px;
+				line-height: 56px;
+				box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
+				/*background: -webkit-linear-gradient(left,  #f2f2ef, white);*/
+				/* Safari 5.1 - 6.0 */
+				/*background: -o-linear-gradient(right,  #f2f2ef, white);*/
+				/* Opera 11.1 - 12.0 */
+				/*background: -moz-linear-gradient(right, #f2f2ef, white);*/
+				/* Firefox 3.6 - 15 */
+				/*background: linear-gradient(to right, #f2f2ef, white);*/
+				/* 标准的语法（必须放在最后） */
+			}
+
+			.search1 p:hover {
+				box-shadow: 0 10px 30px 6px rgba(28, 57, 81, 0.18);
+			}
+
+/*nav*/
+			.navs{
+				position: absolute;
+				top: -45px;
+				left: 0;
+				width: 600px;
+				height: 40px;
+				overflow: hidden;
+				background-color: rgba(0,0,0,0.1);
+			}
+			.navs .is{
+				float: left;
+				width: 90px;
+				height: 38px;
+				text-align: center;
+				line-height: 40px;
+				font-size: 14px;
+				color: white;
+				z-index: 100;
+			}
+			.navs i:hover{
+				color: #fff !important;
+				background: url(../img/navBg.png);
+				background-size: 100%;
+			}
+			.actives {
+				color: #fff !important;
+				background: url(../img/navBg.png);
+				background-size: 100%;
+			}
+			#demo{
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: -1;
+		height: 640px;
+		overflow: hidden;
+		display: none;
+	}
+	#demo .canvaszz{
+		height: 640px;
+
+	}
+	#canvas{
+		height: 640px;
+
+	}

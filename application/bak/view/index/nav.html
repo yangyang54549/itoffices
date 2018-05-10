@@ -1,9 +1,78 @@
-<nav class="header_nav">
-<a> <img src="__INDEX__/img/xxxlogo.png" /></a>
-<a id="nav_sy" href="{:url('index/index')}" title="首页" target="_blank">首页</a>
-<a href="{:url('cases/index')}" title="案例" target="_blank">案例</a>
-<a href="{:url('demand/index')}" title="需求" target="_blank">需求</a>
-<a href="{:url('demand/publish')}" title="免费发需求" target="_blank">免费发需求</a>
-<a  href="{:url('index/lxwm')}" titile="联系我们" target="_blank">联系我们</a>
-<a  id="personage" href="{:url('user/index')}" titile="" target="_blank">{if condition="session('user')"}<img src="__INDEX__/img/icon/geren.png"/>{else/}登录/注册{/if}</a>
-</nav>
+<style type="text/css">
+	.nav>li>a {
+			width: 100px;
+			line-height: 18px;
+		}
+
+		.nav>li> .is:hover {
+			background: url(_INDEX__/img/navBg.png);
+			filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+			-moz-background-size: 100% 100%;
+			background-size: 100% 100%;
+		}
+		.navs {
+			width: 90%;
+			margin: 0 auto;
+			padding: 10px;
+		}
+
+		.navs li {
+			float: left;
+		}
+
+		.navs .is {
+			display: block;
+			width: 90px;
+			height: 38px;
+			text-align: center;
+			line-height: 40px;
+			font-size: 14px;
+			color: black;
+			z-index: 100;
+			border-radius: 20px;
+			margin-right: 10px;
+		}
+
+		.navs .is:hover {
+			color: #fff !important;
+			/*background: url(_INDEX__/img/navBg.png);*/
+			background-size: 100%;
+			background-color: #ff5454;
+		}
+
+		.actives {
+			color: #fff !important;
+			/*background: url(_INDEX__/img/navBg.png);*/
+			background-size: 100%;
+		background-color: #ff5454;
+		}
+		.navs a img{
+			height: 38px ;
+			width: auto;
+		}
+</style>
+<div style="width:100%;box-shadow:0 2px 4px 0 rgba(58,68,85,0.16);position:relative;z-index:99999; background-color: rgba(0,0,0,0.1);" id="nav">
+            <div class="head">
+                <div class="logo">
+                    <a href="###"></a>
+                </div>
+                <ul class="navs"><li>
+						<a href="{:url('index/one')}" class="is ">首页</a>
+					</li>
+                    
+                    <li>
+                        <a href="{:url('demand/index')}" class="is ">需求</a>
+                    </li>
+                    <li>
+                        <a href="{:url('cases/index')}" class="is actives">案例</a>
+                    </li>
+                    <li>
+                        <a href="#"class="is">人才</a>
+                    </li>           
+                     <li style="float: right;">
+                        {if condition="session('user')"} <a href="javascript:void(0)" class=""><img src="__INDEX__/img/icon/geren.png"/></a>{else/}<a href="javascript:void(0)" class="is">登录/注册</a>{/if} 
+                    </li> 
+               </ul>           
+                <div style="clear:both"></div>
+            </div>
+        </div>

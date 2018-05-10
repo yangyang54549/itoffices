@@ -416,13 +416,13 @@
 				<a href="https://cn.bing.com/dict/?FORM=HDRSC6">词典</a>
 				<a href="https://cn.bing.com/maps?q=&FORM=HDRSC7">地图</a>-->
 				<!--<a href="{:url('index/one')}" target="_blank">首页</a>-->
-				<a href="{:url('demand/index')}" target="_blank">需求</a>
+				<!--<a href="{:url('demand/index')}" target="_blank">需求</a>
 				<a  href="{:url('cases/index')}"  target="_blank">案例</a>
-				<a href="#">人工</a>
+				<a  href="javascript:void(0)">人工</a>
 				
-				<a href="#" id="den">
+				<a  href="javascript:void(0)" id="den">
 					<span>登录</span><span class="fa fa-2x fa-user-circle"></span>
-				</a>
+				</a>-->
 			</div>
 		</div>
 		
@@ -432,9 +432,13 @@
 
 				<div class="search1">
 					<div class="navs">
-						<a href="#" class="is  actives">百度搜索</a>						
-						<a href="#" class="is ">360搜索</a>
-						<a href="#" class="is  ">bing搜索</a>
+						<a href="{:url('index/one')}" class="is actives" target="_blank">首页</a>
+						<a href="{:url('demand/index')}"class="is " target="_blank">需求</a>
+						<a  href="{:url('cases/index')}" class="is " target="_blank">案例</a>
+						
+						<a  href="javascript:void(0)" class="is ">百度搜索</a>						
+						<a  href="javascript:void(0)" class="is ">360搜索</a>
+						<a  href="javascript:void(0)" class="is  ">bing搜索</a>
 						
 					</div>
 					<input type="text" name="" id="name" value="" placeholder="搜索..." />
@@ -447,17 +451,17 @@
 			<div class="center">
 				<div class="a_circles" id="a_circles">
 					<p id="fx_text">2</p>
-					<a href="#" title="QQ空间" class="circles hover3">
+					<a  href="javascript:void(0)" title="QQ空间" class="circles hover3">
 						<div class="circle ">
 							<span class="fa  fa-qq"></span>
 						</div>
 					</a>
-					<a href="#" title="微博" class="circles hover2">
+					<a  href="javascript:void(0)" title="微博" class="circles hover2">
 						<div class="circle ">
 							<span class="fa  fa-weibo"></span>
 						</div>
 					</a>
-					<a href="#" title="微信" class="circles hover1">
+					<a  href="javascript:void(0)" title="微信" class="circles hover1">
 						<div class="circle ">
 							<span class="fa  fa-weixin"></span>
 						</div>
@@ -502,10 +506,10 @@
 			<div class="center">
 				<p>© 2018郑州汇谷电子科技有限公司 All rights reserved </p>
 				<p>豫ICP备15001063号-3</p>
-				<a href="#">法律声明</a>
-				<a href="#">广告</a>
-				<a href="#">报告</a>
-				<a href="#">反馈</a>
+				<a  href="javascript:void(0)">法律声明</a>
+				<a  href="javascript:void(0)">广告</a>
+				<a  href="javascript:void(0)">报告</a>
+				<a  href="javascript:void(0)">反馈</a>
 			</div>
 		</div>
 		<script src="__INDEX__/js/jss/jquery.js" type="text/javascript" charset="utf-8"></script>
@@ -527,7 +531,10 @@
 				tt = $(".navs .is").index($(this));
 				var tts = $(".navs .is")[tt];
 				tts.className = "actives is";	
-				$("#sousuo").text($(this).text());
+				if(tt>2){
+				$("#sousuo").text($(this).text());	
+				}
+				
 			});
 			var h1 = 0;
 				var h2 = 0;
