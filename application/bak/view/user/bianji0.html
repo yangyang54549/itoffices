@@ -12,7 +12,7 @@
 		<link href="https://innsta.b0.upaiyun.com/favicon_new.ico" mce_href="https://innsta.b0.upaiyun.com/favicon.ico" rel="shortcut icon" type="image/x-icon">-->
 
 		<link rel="stylesheet" href="https://innsta.b0.upaiyun.com/css_v2/inn.css?_=310_13">
-	
+
 		<!--<link rel="stylesheet" href="https://innsta.b0.upaiyun.com/css_v2/page/resume.css?_=310_13">-->
 		<!--<script src="//hm.baidu.com/hm.js?c92adf6182a39eb23c24cf43abc3f439"></script>
 		<script async="" charset="UTF-8" src="//eco-api.meiqia.com/dist/meiqia.js?v=1"></script>-->
@@ -30,7 +30,7 @@
 				padding: 15px 0 10px 20px;
 			}
 
-			
+
 
 			.beijin {
 				width: 100vw;
@@ -87,11 +87,11 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
                 </div>
                 <ul class="navs">
 
-                  
+
 					<li>
 						<a href="{:url('index/one')}" class="is ">首页</a>
 					</li>
-                    
+
                     <li>
                         <a href="{:url('demand/index')}" class="is ">需求</a>
                     </li>
@@ -101,10 +101,10 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
                     <li>
                         <a href="#"class="is">人才</a>
                     </li>
-                    
+
 
                 </ul>
-            
+
                 <div style="clear:both"></div>
             </div>
         </div>-->
@@ -199,7 +199,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
     top: 50%;
     left: 50%;
     z-index: 201;
-    
+
     padding: 50px;
     width: 400px;
     margin-left: -250px;
@@ -236,7 +236,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 }
 		</style>
 		<div id="beijin" onclick="none();">
-			
+
 		</div>
 		<div id="good">
 				<h5>提示</h5>
@@ -258,7 +258,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
   					function block(s){
   						$("#beijin").css("display", "block");
 						$("#good").css("display", "block");
-						$("#good .texts").text(s);						
+						$("#good .texts").text(s);
   					}
 
 			$(".field .fields .resume_hand_li .plus").click(function() {
@@ -295,7 +295,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 
 						id = $(this).parent().parent().data('id');
 
-						$.post("{:url('user/deexperience')}",{id:id},function(data){
+						$.post("{:url('user/production')}",{id:id},function(data){
 							console.log(data);
 							if (data.code==1) {
 								block("删除成功");

@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-05-09 16:15:56
+ * @Last Modified time: 2018-05-10 18:51:34
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -265,6 +265,8 @@ class User  extends Yang
             return $this->fetch();
         }
     }
+
+
     public function bianji1()
     {
         if ($this->request->isAjax()) {
@@ -352,6 +354,15 @@ class User  extends Yang
     {
         $id = input('id');
         UserEducation::where('id',$id)->delete();
+        return json($this->ret);
+
+    }
+
+    //作品删除
+    public function production()
+    {
+        $id = input('id');
+        UserProduction::where('id',$id)->delete();
         return json($this->ret);
 
     }

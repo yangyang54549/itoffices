@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-05-10 09:41:14
+ * @Last Modified time: 2018-05-10 18:53:32
  */
 namespace app\bak\controller;
 use app\admin\Controller;
@@ -355,7 +355,14 @@ class User  extends Yang
         return json($this->ret);
 
     }
+    //作品删除
+    public function production()
+    {
+        $id = input('id');
+        UserProduction::where('id',$id)->delete();
+        return json($this->ret);
 
+    }
     //工作经历删除
     public function deexperience()
     {
