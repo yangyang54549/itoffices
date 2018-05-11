@@ -15,7 +15,7 @@
 		<script src="__INDEX__/js/jss/jquery-2.1.3.min.js"></script>
 	</head>
 	<style type="text/css">
-		
+
 		/*下一页*/
 
 		#page-box {
@@ -44,7 +44,7 @@
 		.page-div:hover {
 			box-shadow: 0 10px 30px 6px rgba(28, 57, 81, 0.18);
 		}
-		
+
 		/*文字*/
 
 		.accomplishDate span {
@@ -80,7 +80,7 @@
 		.atcives{
 			color:#b43d3d ;
 		}
-		 
+
 	</style>
 <script>
 (function(b,a,e,h,f,c,g,s){b[h]=b[h]||function(){(b[h].c=b[h].c||[]).push(arguments)};
@@ -111,12 +111,12 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 			</div>
 		</div>
 	<!--		<div class="header" id="demo">
-	
+
 
   <div class="canvaszz"> </div>
   <canvas id="canvas"></canvas>
 </div>-->
-		
+
 <!--<script src="__INDEX__/js/script.js" ></script>-->
 		<div id="choice" class="choice_top">
 			<div class="choice_kind">
@@ -145,7 +145,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 	                    {if condition="$h lt 7"}
 						<li data-id="{$vo.id}">{$vo.name}</li>
 	                    {else /}
-						<li data-id="{$vo.id}">{$vo.name}</li>
+						<li data-id="{$vo.id}" style="display:none;">{$vo.name}</li>
 	                    {/if}
 					{/volist}
 
@@ -586,7 +586,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				})
 			})
 
-			
+
 
 			$(document).bind("contextmenu copy selectstart", function() {
 				return false;
@@ -643,7 +643,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 					$("#demandlist-ul1").html(data.data);
 				})
 			}
-			
+
 			/*点击显示*/
 			$("#more_choice1").click(function() {
 				$(".ty li").css("display","block");
