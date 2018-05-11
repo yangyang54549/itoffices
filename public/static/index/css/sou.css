@@ -1,9 +1,11 @@
 	.sou {
 				width: 100%;
-min-width: 1200px;
-				height: 640px;
+				min-width: 1200px;
+				height: 550px;
 
-				background-image: url(../img/index.jpg);
+				background: #00FF00 url(../img/index.jpg)  no-repeat fixed bottom;
+			
+				/*background: #00FF00 url(bgimage.gif) no-repeat fixed top;*/
 				filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
 				-moz-background-size: 100% 100%;
 				background-size: 100% 100%;
