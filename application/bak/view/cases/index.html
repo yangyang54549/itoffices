@@ -131,12 +131,12 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 						<i class="is">首页</i>
 						<i class="is">需求</i>
 						<i class="is actives">案例</i>
-						<!--<i class="is">人才</i>-->
+						<i class="is">人才</i>
 					</div>
 					<input type="text" name="" id="" value="" placeholder="搜索..." />
 					<img src="__INDEX__/img/icon/fda.png" />
 					<button onclick="one();">搜索</button>
-					<p onclick="window.location.href='{:url("demand/publish")}'">定制发需求</p>
+					<p onclick="window.location.href='{:url("demand/publish")}'">发布案例</p>
 					<span>或者</span>
 				</div>
 			</div>
@@ -541,6 +541,9 @@ $("#qd").click(function() {
 				tt = $(".navs i").index($(this));
 				var tts = $(".navs i")[tt];
 				tts.className = "actives is";
+				if(tt>0 && tt<3){
+					$(".search1 p").text("发布"+$(this).text());
+				}
 			});
 		</script>
 	</body>
