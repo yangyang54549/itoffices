@@ -394,7 +394,7 @@
 			<div class="xiugai-day">
 				<label>项目预算</label>
 				<div class="">
-					<input type="number" name="" id="" value="1" id="day" /><span>元</span>
+					<input type="number" name="" id="" value="{$vo.money}" id="day" /><span>元</span>
 				</div>
 				<div class="">
 				</div>
@@ -1600,18 +1600,9 @@ $("#qd").click(function() {
 $(".beijin").click(function() {$(".beijin").css("display", "none");
 			})
 var aCity0 = new Array();
-$(".imgs").click(function(){
-	/*var texts = $(this).parent().parent();
-	var yuan = $(this).next().next().text();
-	var time1 = texts.getElementsByClassName("time-begin");
-	var time2 = texts.getElementsByClassName("time-finish");
-	alert(yuan+"/"+time1+"/"+time2);*/
-	$(".login_background").css("display", "block");
-				$(".li_one.li_ones .xiugai").css("display", "block");
-				/*aCity0[0] = $(".xiugai input").eq(0).val();
-				aCity0[1] = $(".xiugai input").eq(1).val();
-				aCity0[2] = $(".xiugai input").eq(2).val();*/
-
+$(".imgs").click(function(){		
+					$(".login_background").css("display", "block");
+				$(".li_one.li_ones .xiugai").css("display", "block");								
 })
 /*取消*/
 $(".xiugai  .cancel").click(function(){
