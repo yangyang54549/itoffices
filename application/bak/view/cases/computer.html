@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <title>IT联合办公</title>
-        <link rel="stylesheet" type="text/css" href="__INDEX__/css/header.css" />
+     <!--   <link rel="stylesheet" type="text/css" href="__INDEX__/css/header.css" />-->
 <link rel="stylesheet" type="text/css" href="__INDEX__/css/nav.css" />
         <script src="__INDEX__/js/jss/jquery.js" type="text/javascript" charset="utf-8"></script>
         <style type="text/css">
@@ -692,7 +692,112 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
                 <div style="clear:both"></div>
             </div>
         </div>-->
-{include file="index/nav" /}
+<style type="text/css">
+	.header {
+    width: 100%;
+    min-width: 1200px;
+    height: 100px;
+    background: #fff;
+    border-bottom: 20px  solid #F2F2F2;
+}.container {
+    margin: 0 auto;
+    width: 1200px;
+    display: block;
+}
+.fl {
+    display: block;
+    float: left;
+}
+
+.logo {
+    margin-top: 15px;
+    width: 156px;
+    height: 59px;
+    display: block;
+}
+
+h1, .h1 {
+    font-size: 36px;
+}
+.logo a {
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-indent: -9999px;
+    background: url(http://www.biuwork.com/app/xunjia/img/plogo.png) no-repeat center center;
+}
+.fr {
+    display: block;
+    float: right;
+}
+
+.nav {
+    overflow: hidden;
+    text-align: center;
+}
+.fr {
+    display: block;
+    float: right;
+}
+
+.nav {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+.nav ul {
+    margin: 0;
+    overflow: hidden;
+}
+
+ul, ol {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+ol, ul {
+    list-style: none;
+}
+
+.nav li {
+    margin: 0 25px;
+  
+    display: inline;
+}
+.nav li a {
+    color: #333;
+     width: 80px;
+     text-align: center;
+    font-size: 18px;
+}
+
+.nav li a {
+    margin-top: 30px;
+    padding-bottom: 20px;
+    display: inline-block;
+}
+.nav li.on a {
+    border-bottom: 4px solid #0368bd;
+}
+</style>
+<div class="header">
+	<div class="container">
+		<h1 class="logo fl"><a href="index.do">码库</a></h1>
+		<div class="nav fr">
+			<ul>
+		      <!-- <li id='home'><a href="index.do">首页</a></li> -->
+		      <li id="code"><a href="{:url('index/one')}">首页</a></li>
+		      <li id="choiceness" ><a href="{:url('demand/index')}">需求</a></li>
+		      <!-- <li id='mkBank'><a href="mkBank.do">代码银行</a></li> -->
+		      <li id="counselor" class="on"><a href="{:url('cases/index')}">案例</a></li>
+		      <li id="selecttype"><a href="selecttype.do">人才</a></li>
+		      <!-- <li id='findinvestor'><a href="findinvestor.do">找投资人</a></li>
+		      <li id='news'><a href="news.do">新闻资讯</a></li>
+		      <li id='contact'><a href="contact.do">洽谈合作</a></li> -->
+			</ul>
+		</div>
+	</div>
+</div>
+
 
         <div class="container">
             <div class="current" id="phone_height">

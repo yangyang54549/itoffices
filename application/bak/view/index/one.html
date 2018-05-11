@@ -77,7 +77,7 @@
 			.header .center a,
 			.footer .center a,
 			.footer .center p {
-				margin: 0 10px;
+				margin: 0 20px;
 				line-height: 50px;
 				font-size: 15px;
 				color: white;
@@ -415,12 +415,12 @@
 				<a href="https://cn.bing.com/academic/?FORM=Z9LH2">学术</a>
 				<a href="https://cn.bing.com/dict/?FORM=HDRSC6">词典</a>
 				<a href="https://cn.bing.com/maps?q=&FORM=HDRSC7">地图</a>-->
-				<!--<a href="{:url('index/one')}" target="_blank">首页</a>-->
-				<!--<a href="{:url('demand/index')}" target="_blank">需求</a>
+				<a href="{:url('index/one')}" >首页</a>
+				<a href="{:url('demand/index')}" target="_blank">需求</a>
 				<a  href="{:url('cases/index')}"  target="_blank">案例</a>
 				<a  href="javascript:void(0)">人工</a>
 				
-				<a  href="javascript:void(0)" id="den">
+				<!--<a  href="javascript:void(0)" id="den">
 					<span>登录</span><span class="fa fa-2x fa-user-circle"></span>
 				</a>-->
 			</div>
@@ -432,9 +432,9 @@
 
 				<div class="search1">
 					<div class="navs">
-						<a href="{:url('index/one')}" class="is actives" target="_blank">首页</a>
-						<a href="{:url('demand/index')}"class="is " target="_blank">需求</a>
-						<a  href="{:url('cases/index')}" class="is " target="_blank">案例</a>
+						<a href="{:url('index/one')}" class="is actives" >首页</a>
+						<a href="javascript:void(0)"class="is " target="_blank">需求</a>
+						<a  href="javascript:void(0)" class="is " target="_blank">案例</a>
 						
 						<a  href="javascript:void(0)" class="is ">百度搜索</a>						
 						<a  href="javascript:void(0)" class="is ">360搜索</a>
@@ -533,6 +533,11 @@
 				tts.className = "actives is";	
 				if(tt>2){
 				$("#sousuo").text($(this).text());	
+				}else{
+					if(tt>0){
+						$("#sousuo").text("添加"+$(this).text());	
+					}
+					
 				}
 				
 			});
