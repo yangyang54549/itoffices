@@ -364,6 +364,7 @@ ol, ul {
 							<div class="item-name">项目所属行业</div>
 							<div class="item-value">
 								<select id="select">
+									<option value="请选择">请选择</option>
 									{volist name="demandtrade" id="vos"}
 									<option value="{$vos.id}">{$vos.name}</option>
 									{/volist}
