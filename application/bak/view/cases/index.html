@@ -114,7 +114,22 @@
 			.page a {
 				padding: 0 10px !important;
 			}
-			
+			#personage{
+	display: block;
+	width: 80px;
+	text-align: center;
+	height:30px ;
+	position: absolute; top: 5px ;right: 10px;
+	padding: 0px;
+	line-height: 30px;
+}
+#personage>img{
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	top: 0px;
+	right:25px;
+}
 		</style>
 	</head>
 <script>
@@ -137,6 +152,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				<a href="{:url('demand/index')}" class="is " >需求</a>
 				<a  href="{:url('cases/index')}" class="is actives"  >案例</a>
 				<a  href="javascript:void(0)" class="is">人工</a>
+				{if condition="session('user')"}<a  id="personage" href="{:url('user/index')}"  titile="" target="_blank"><img src="__INDEX__/img/icon/geren.png"/></a>{else/}<a href="{:url('demand/index')}" style="float: right;" class="is " >登录/注册</a>{/if}
 					</div>
 					<input type="text" name="" id="" value="" placeholder="搜索..." />
 					<img src="__INDEX__/img/icon/fda.png" />

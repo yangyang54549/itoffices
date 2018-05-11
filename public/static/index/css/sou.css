@@ -126,7 +126,7 @@ min-width: 1200px;
 				color: white;
 				z-index: 100;
 			}
-			.navs i:hover{
+			.navs .is:hover{
 				color: #fff !important;
 				background: url(../img/navBg.png);
 				background-size: 100%;
