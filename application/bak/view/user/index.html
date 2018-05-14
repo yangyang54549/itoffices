@@ -13,7 +13,7 @@
 		<link rel="stylesheet" href="__INDEX__/css/csss/laydate.css">
 		<link rel="stylesheet" type="text/css" href="__INDEX__/css/restre.css" />
 		<!--  地区插件    -->
-		<link rel="stylesheet" type="text/css" href="__INDEX__/css/header.css" />
+		<!--<link rel="stylesheet" type="text/css" href="__INDEX__/css/header.css" />-->
 		<link rel="stylesheet" href="__INDEX__/css/csss/areaselect.css">
 		<link rel="stylesheet" type="text/css" href="__INDEX__/css/csss/pretty.min.css" />
 		<link rel="stylesheet" type="text/css" href="__INDEX__/css/nav.css" />
@@ -175,15 +175,15 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				<div style="clear:both"></div>
 			</div>
 		</div>-->
-{include file="index/nav" /}
+  {include file="index/nav1" /}
 		<div class="page-content">
 
 			<div id="user-info">
 				<div class="info-left">
-					<a href="{:url('user/resume')}">个人主页</a>
+					
 					<a href="{:url('user/index')}" class="active">基本信息</a>
 					<a href="{:url('user/order')}"><em></em>我的订单</a>
-
+<a href="{:url('user/resume')}">个人主页</a>
 					<!--<a href="###">我的工作</a>-->
 					<!--<a class="active" href="###">我的作品</a>-->
 					<a href="javascript:if(confirm('确认要退出登录吗?')){location='{:url("login/exit")}'}">退出登录</a>
