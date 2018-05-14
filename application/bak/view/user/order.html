@@ -1421,7 +1421,8 @@ $(function(){
 			$(".kai").click(function() {
 					/*$("#goods").css("display","block");
 					$(".login_background").css("display","block");*/
-					$(this).parent().parent().parent().parent().addClass("str");
+					/*$(this).parent().parent().parent().parent().addClass("str");*/
+					var pr  = $(this).parent().parent().parent().parent();
 					/*获取当前的 .li_one*/
 					var prse = $(this).parent().parent().parent().parent().parent();
 
@@ -1441,6 +1442,7 @@ $(function(){
 						},function(data){
 							console.log(data);
 							if (data.code==1) {
+								pr.addClass("str");
 								$(".beijin").css("display", "block");$(".beijin .texts").text("提交成功");
 								window.location.reload();
 							}else{
