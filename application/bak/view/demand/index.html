@@ -537,7 +537,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 							var code = $("#j_captcha").val();
 							$.post("{:url('login/checkindex')}",{mobile:mobile,code:code},function(data) {
 								if (data.code==1) {
-									alert("登录成功");
+									//alert("登录成功");
 									location.reload();
 								}else{
 									alert(data.msg);
