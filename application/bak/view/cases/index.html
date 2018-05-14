@@ -182,20 +182,16 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				<ul class="ty">
 					<li class="active" data-id="0">不限</li>
                     {volist name="type" id="vos" key="k"}
-	                    {if condition="$n lt 7"}
+	                    {if condition="$k lt 7"}
                         	<li data-id="{$vos.id}" class="">{$vos.name}</li>
 	                    {else /}
-
+                        	<li data-id="{$vos.id}" class="" style="display:none;">{$vos.name}</li>
 	                    {/if}
-
-                        <!-- <li data-id="{$vos.id}" class="freeman_none" style="display:none;"></li> -->
                     {/volist}
-
 
                     {if condition="$k gt 7"}
 						<i class="more_choice" id="more_choice1">更多>></i>
                     {/if}
-					<!-- <li data="9" class="freeman_none" style="display:none;">直销系统类</li> -->
 					<i class="clear"></i>
 				</ul>
 				<i class="clear"></i>
@@ -715,6 +711,12 @@ $("#qd").click(function() {
 				})
 
 			})
+
+			$("#more_choice1").click(function(){
+				$('.ty li').css('display','block');
+				$(this).remove();
+			})
+
 
 			$(".more_choice").click(function(){
 				typec = $('.ty .active').attr('data-id');
