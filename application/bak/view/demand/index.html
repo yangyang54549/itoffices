@@ -25,8 +25,8 @@
 		}
 
 		.page-div {
-			position: absolute;
-			right: 0;
+			
+			    background-color: rgba(0, 0, 0, 0.1);
 			box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
 		}
 
@@ -39,6 +39,7 @@
 			top: 50%;
 			left: 0;
 			margin-top: -50px;
+			text-align: center;
 		}
 
 		.page-div:hover {
@@ -208,7 +209,9 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 						</div>
 					</div>
 					{/volist}
-
+				<li class="demandBox page-div" onclick="xia();">
+					<h3>下一页</h3>
+				</li>
 				</ul>
 				<div id="page-box">
 					{if condition="$page.page gt 1"}
@@ -624,11 +627,11 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				}
 			})
 
-			var he = $(".demandBox").height() + 50;
+			/*var he = $(".demandBox").height() + 50;*/
 			$(".page-div").width($(".demandBox").width());
-			$(".page-div").height($(".demandBox").height())
-			$(".page-div").css("top", "-" + he + "px");
-
+			$(".page-div").height($(".demandBox").height());
+			/*$(".page-div").css("top", "-" + he + "px");
+*/
 			function xia() {
 				var page = $('.now').text();//当前页码数
 					page = parseInt(page);

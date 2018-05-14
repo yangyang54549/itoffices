@@ -52,6 +52,8 @@ h1, .h1 {
     padding-left: 0;
     margin-bottom: 0;
     list-style: none;
+    
+    box-sizing: border-box;
 }
 .nav ul {
     margin: 0;
@@ -66,24 +68,29 @@ ol, ul {
     list-style: none;
 }
 
-.nav li {
-    margin: 0 25px;
-  
+.header .nav li {
+    margin: 0 25px !important; 
+   float: left;
     display: inline;
     padding: 0px;
+    width: 80px !important;
+   	box-sizing: border-box;
+    	
 }
-.nav li a {
+.header .nav li a {
     color: #333;
-     width: 80px;
+    	
+     width: 80px !important;
      text-align: center;
     font-size: 18px;
-}
-
-.nav li a {
+    height: 45px !important;
+	box-sizing: border-box;
     margin-top: 30px;
     padding-bottom: 20px;
     display: inline-block;
 }
+
+
 .nav li.on a {
     border-bottom: 4px solid #0368bd;
 }
