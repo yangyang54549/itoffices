@@ -134,25 +134,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 
 <!--<script src="__INDEX__/js/script.js" ></script>-->
 		<div id="choice" class="choice_top">
-			<div class="choice_kind">
-				<span text="所有类型：">所有类型：</span>
-				<ul class="ty">
-					<li class="active" data-id="0">不限</li>
-					{volist name="demandtype" id="vo" key="n"}
-                    {if condition="$n lt 7"}
-						<li data-id="{$vo.id}">{$vo.name}</li>
-                    {else /}
-						<li data-id="{$vo.id}" style="display:none;">{$vo.name}</li>
-                    {/if}
-					{/volist}
-
-                    {if condition="$n gt 7"}
-						<i class="more_choice" id="more_choice1">更多>></i>
-                    {/if}
-				</ul>
-				<i class="clear"></i>
-			</div>
-			<div class="choice_kind" style="border-bottom: 1px dashed rgba(0,0,0,0.14);">
+			<div class="choice_kind" >
 				<span text="所属行业：">所属行业：</span>
 				<ul class="tyr">
 					<li class="active" data-id="0">不限</li>
@@ -170,6 +152,25 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				</ul>
 				<i class="clear"></i>
 			</div>
+			<div class="choice_kind" style="border-bottom: 1px dashed rgba(0,0,0,0.14);">
+				<span text="所有类型：">所有类型：</span>
+				<ul class="ty">
+					<li class="active" data-id="0">不限</li>
+					{volist name="demandtype" id="vo" key="n"}
+                    {if condition="$n lt 7"}
+						<li data-id="{$vo.id}">{$vo.name}</li>
+                    {else /}
+						<li data-id="{$vo.id}" style="display:none;">{$vo.name}</li>
+                    {/if}
+					{/volist}
+
+                    {if condition="$n gt 7"}
+						<i class="more_choice" id="more_choice1">更多>></i>
+                    {/if}
+				</ul>
+				<i class="clear"></i>
+			</div>
+			
 			<div class="choice_kind">
 				<span text="所有进度：" data="">所有进度：</span>
 				<ul class="jd">
