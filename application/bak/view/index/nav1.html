@@ -2,13 +2,15 @@
 	.header {
     width: 100%;
     min-width: 1200px;
-    height: 100px;
+  
     background: #fff;
     border-bottom: 20px  solid #F2F2F2;
 }.container {
-    margin: 0 auto;
+    margin: 0px auto;
     width: 1200px;
     display: block;
+   
+    padding: 0px;
 }
 .fl {
     display: block;
@@ -154,7 +156,7 @@ ol, ul {
 }
 </style>
 <div class="header">
-	<div class="container">
+	<div class="container" style=" overflow: hidden; height: 80px;">
 		<h1 class="logo fl"><a href="{:url('index/one')}"></a></h1>
 		<div class="nav fr">
 			<ul>
