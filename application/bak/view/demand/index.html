@@ -239,7 +239,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
     			position: fixed;
     			top: 0;
     			left: 0;
-    			z-index: 999;
+    			z-index: 9;
     			background-color: rgba(0,0,0,.3);  display: none;
 			}
 			.login{
@@ -253,7 +253,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				position: fixed;
 				left: 50%;
 				top: 50%;
-				z-index: 1000;
+				z-index: 10;
 				margin-left: -200px;
 				margin-top: -200px;
 				display: none;
@@ -527,39 +527,41 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 			$("#qd").click(function() {
 				$(".beijin").css("display", "none");
 			})
-
+$(".beijin").click(function() {
+				$(".beijin").css("display", "none");
+			})
 
 			 $("#login1s").click(function() {
                 if($("#phones").val() == "") {
-                    alert("请输入手机号码");
+                    $(".beijin").css("display", "block");$(".beijin .texts").text("请输入手机号码");
                 }  else {
                 	if(!(/^1[3456789]\d{9}$/.test($("#phones").val()))) {
-						alert("手机号码有误，请重填");
+						$(".beijin").css("display", "block");$(".beijin .texts").text("手机号码有误，请重填");
 					} else {
 						if($("#j_captcha").val()!=""){
 							var mobile = $("#phones").val();
 							var code = $("#j_captcha").val();
 							$.post("{:url('login/checkindex')}",{mobile:mobile,code:code},function(data) {
 								if (data.code==1) {
-									//alert("登录成功");
+									//$(".beijin").css("display", "block");$(".beijin .texts").text("登录成功");
 									location.reload();
 								}else{
-									alert(data.msg);
+									$(".beijin").css("display", "block");$(".beijin .texts").text(data.msg);
 								}
 							})
 
 						}else{
-							alert("请输入短信验证码");
+							$(".beijin").css("display", "block");$(".beijin .texts").text("请输入短信验证码");
 						}
 					}
 				}
 			})
 			  $("#yan").click(function() {
                 if($("#phones").val() == "") {
-                    alert("请输入手机号码");
+                    $(".beijin").css("display", "block");$(".beijin .texts").text("请输入手机号码");
                 }  else {
                 	if(!(/^1[3456789]\d{9}$/.test($("#phones").val()))) {
-						alert("手机号码有误，请重填");
+						$(".beijin").css("display", "block");$(".beijin .texts").text("手机号码有误，请重填");
 					} else {
 						var s = 60;
 						var j = setInterval(function() {
@@ -638,9 +640,8 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 					page = page+1;
 				var num = $('.num').text();//总页码数
 				if (page>num) {
-					/*alert('暂无数据');*/
-					$(".beijin").css("display", "block");
-					$(".beijin .texts").text("暂无数据");
+					/*$(".beijin").css("display", "block");$(".beijin .texts").text('暂无数据');*/
+					$(".beijin").css("display", "block");$(".beijin .texts").text("暂无数据");
 					return false;
 				}
 				var	clas = 'abc'+page;
