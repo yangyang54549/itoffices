@@ -643,6 +643,7 @@ else if(chestr=="工作日周末")
 				var workingLife1 = $("#workingLife1 option:selected").text(); /*现在状态*/
 				var occupation1 = $("#occupation1 option:selected").text(); /*职业选择1*/
 				var occupation2 = $("#occupation2 option:selected").text(); /*职业选择2*/
+				
 				var workingLife = $("#workingLife option:selected").text(); /*工作年限*/
 				//	var timeinit = $("#time-init").val();/*出生日期*/
 				var wxNum = $("#wxNum").val(); /*微信号*/
@@ -670,12 +671,31 @@ else if(chestr=="工作日周末")
 							alert('请选择地区');return false;
 						}
 					}
-						if(occupation1 != "选择职业") {
-							if(wxNum != "") {
-								if(email == "") {
-										alert("请输入邮箱！");
+						if(occupation1 != "选择职业") {		
+							var occupation = occupation1+"/"+occupation2;
+								if(email == "") {		
+										if(mobile!=""){
+											if(!(/^1[3456789]\d{9}$/.test(mobile))) {
+												alert("手机号码有误，请重填")
+											} else {												
+												var ress = s_province+"/"+s_city+"/"+s_county;						
+												if(s_province == "省份" && s_city == "县、市" && s_county == "乡（镇）") {
+													ress = address;
+												}						
+												
+												post(names,sex,ress,workingLife1,occupation,workingLife,mobile,wxNum,email,xinsui,gzs);
+											}
+										}else{
+											var ress = s_province+"/"+s_city+"/"+s_county;						
+												if(s_province == "省份" && s_city == "县、市" && s_county == "乡（镇）") {
+													ress = address;
+												}						
+												
+												post(names,sex,ress,workingLife1,occupation,workingLife,mobile,wxNum,email,xinsui,gzs);
+										}
 										document.getElementById("email").focus();
 										return false;
+									
 									}
 									var pattern = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
 									strEmail = pattern.test(email);
@@ -745,20 +765,23 @@ else if(chestr=="工作日周末")
 						if(s_province == "省份" && s_city == "县、市" && s_county == "乡（镇）") {
 							ress = address;
 						}
-						occupation = occupation1+"/"+occupation2;
+						
 						console.log(occupation);
 post(names,sex,ress,workingLife1,occupation,workingLife,mobile,wxNum,email,xinsui,gzs);
 						
 											}
 										}else{
-											alert("请输入手机号")
+											var ress = s_province+"/"+s_city+"/"+s_county;						
+												if(s_province == "省份" && s_city == "县、市" && s_county == "乡（镇）") {
+													ress = address;
+												}						
+												console.log(occupation);
+												post(names,sex,ress,workingLife1,occupation,workingLife,mobile,wxNum,email,xinsui,gzs);
 										}
 									} else {
 										alert("邮箱格式不正确！");
 									}
-							} else {
-								alert("请输入微信号");
-							}
+							
 						} else {
 							alert("请选择职业");
 						}
@@ -767,6 +790,9 @@ post(names,sex,ress,workingLife1,occupation,workingLife,mobile,wxNum,email,xinsu
 				}
 
 			})
+			function Email(){
+				
+			}
 			function post(names,sex,ress,workingLife1,occupation,workingLife,mobile,wxNum,email,xinsui,gzs){
 				$.post("{:url('user/index')}",{
 							user_name:names,
