@@ -302,6 +302,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 										<span>性别  </span>
 										<span>
 											<select id="sex" style="font-size: 16px;">
+												<option {if condition="$user.gender == ''"}selected="selected"{/if}>请选择</option>
 												<option {if condition="$user.gender == '男'"}selected="selected"{/if}>男</option>
 												<option {if condition="$user.gender == '女'"}selected="selected"{/if}>女</option>
 											</select>
@@ -664,7 +665,9 @@ else if(chestr=="工作日周末")
 						}
 					}
 				}
-
+	if(sex!="请选择"){
+		
+	
 				if(names != "") {
 					if(s_province == "省份" && s_city == "县、市" && s_county == "乡（镇）") {
 						if (address=="") {
@@ -788,7 +791,9 @@ post(names,sex,ress,workingLife1,occupation,workingLife,mobile,wxNum,email,xinsu
 				} else {
 					alert("请输入姓名");
 				}
-
+}else{
+		alert('请选择性别')
+	}
 			})
 			function Email(){
 				
