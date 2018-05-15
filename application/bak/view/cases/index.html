@@ -428,11 +428,11 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				<div class="login1">
 					<p  style="width: 100%;text-align: right; font-size: 14px;">短信快捷登录</p>
 					<div class="form-group">
-							<input id="phones" value="" name="phone" type="text" placeholder="输入手机号" class="form-control x319 in" autocomplete="off">
+							<input id="phones" value="" name="phone" type="text" placeholder="输入手机号" maxlength="11" class="form-control x319 in" autocomplete="off">
 						</div>
 						<div class="form-group">
 
-							<input id="j_captcha" name="j_captcha"  placeholder="输入短信验证码" type="text" class="form-control x164 in">
+							<input id="j_captcha" name="j_captcha"  placeholder="输入短信验证码" type="text" maxlength="8" class="form-control x164 in">
 							<span id="yan" class="btn-primary">
 								获取短信验证码
 							</span>
@@ -452,7 +452,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				<div class="login2" style="display: none;">
 					<p  style="width: 100%;text-align: center; font-size: 16px;  font-weight: bold;">微信登录</p>
 					<img src="__INDEX__/img/saoma.png" style="width: 240px; height: auto; display: block;margin: 0px  auto;"/>
-					<p  style="width: 100%;text-align: center; font-size: 14px; line-height: 30px; font-weight: bold;">使用短信扫描二维码登录</p>
+					<p  style="width: 100%;text-align: center; font-size: 14px; line-height: 30px; font-weight: bold;">使用微信扫描二维码登录</p>
 
 				<span id="quehuan2">
 
@@ -532,6 +532,15 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 			var session = "{:session('user.id')}";
 			$(".login_background").click(function(){
 				loginNone();
+			})
+			
+			$("#quehuan1").click(function(){
+				$(".login .login1").css("display","none");
+				$(".login .login2").css("display","block");
+			})
+			$("#quehuan2").click(function(){
+				$(".login .login2").css("display","none");
+				$(".login .login1").css("display","block");
 			})
 			$(".xuqiu").click(function(){
 				if (session.length == 0){
