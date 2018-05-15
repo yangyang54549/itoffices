@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-04-20 11:38:03
+ * @Last Modified time: 2018-05-15 14:53:45
  */
 namespace app\index\controller;
 use app\index\controller\Yang;
@@ -131,7 +131,7 @@ class Login extends Yang
             $row['mobile']=$mobile;
             $row['user_name'] = '程序员';
             $row['create_time']=time();
-            $row['gender']='男';
+            $row['gender']='0';
             $res = User::insert($row);
 
             if ($res!==false) {
