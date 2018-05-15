@@ -329,7 +329,7 @@
                         <a href="{:url('cases/index')}" class="is actives">案例</a>
                     </li>
                     <li>
-                        <a href="#"class="is">人才</a>
+                        <a href="javascript:void(0)"class="is">人才</a>
                     </li>
 
 
@@ -478,9 +478,9 @@
 
 												{volist name="$vo.apply" id="ap"}
 												<div {if condition="$ap.status eq 1"} class="participation participation_f1 participation1" {else/} class="participation participation_f1"{/if} data-id="{$ap.user_id},{$ap.demand_id}">
-													<a href="#">接单方</a>
+													<a href="javascript:void(0)">接单方</a>
 													<img src="__INDEX__/img/bai.png"/>
-													<a href="#" onclick="window.open('{:url("user/resumes",["id"=>$ap.user_id])}')" >{$ap.user_name}</a>
+													<a href="javascript:void(0)" onclick="window.open('{:url("user/resumes",["id"=>$ap.user_id])}')" >{$ap.user_name}</a>
 													<i class=" "> <img src="__INDEX__/img/icon/dui.png"/></i>
 												</div>
 												{/volist}
@@ -939,9 +939,9 @@
 										<p style="margin-top: 30px;width: auto;"><span>需求方</span>
 											<div class="participations">
 												<div class="participation participation_f">
-													<a href="#" style="color: #000000;">需求方</a>
+													<a href="javascript:void(0)" style="color: #000000;">需求方</a>
 													<img src="__INDEX__/img/bai.png"/>
-													<a style="color: #000000;" onclick="window.open('{:url("user/resumes",["id"=>$vos.user_id])}')">{$vos.username}</a>
+													<a href="javascript:void(0)" style="color: #000000;" onclick="window.open('{:url("user/resumes",["id"=>$vos.user_id])}')">{$vos.username}</a>
 													<i class=" "> <img src="__INDEX__/img/icon/dui.png"/></i>
 												</div>
 											</div>
