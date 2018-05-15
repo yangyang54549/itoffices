@@ -189,6 +189,8 @@ p.sanjiao {
 .right_message p{
 	padding: 10px 0;
 	color: gray;
+	width: 100%;
+	 white-space:nowrap; text-overflow:ellipsis; overflow:hidden;
 }
 .right_message p:nth-child(1){
 	font-size: 16px;
