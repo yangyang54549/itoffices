@@ -763,6 +763,9 @@ else if(chestr=="工作日周末")
 					}
 						if(occupation1 != "选择职业") {		
 							var occupation = occupation1+"/"+occupation2;
+							if(xinsui !=""){
+								
+							
 								if(email == "") {		
 										if(mobile!=""){
 											if(!(/^1[3456789]\d{9}$/.test(mobile))) {
@@ -870,6 +873,9 @@ post(names,sex,ress,workingLife1,occupation,workingLife,mobile,wxNum,email,xinsu
 										}
 									} else {
 										$(".beijin").css("display", "block");$(".beijin .texts").text("邮箱格式不正确！");
+									}
+									}else{
+										$(".beijin").css("display", "block");$(".beijin .texts").text("请输入日薪！");
 									}
 							
 						} else {
