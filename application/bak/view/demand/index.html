@@ -116,7 +116,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				<a href="{:url('demand/index')}" class="is actives" >需求</a>
 				<a  href="{:url('cases/index')}" class="is"  >案例</a>
 				<a  href="javascript:void(0)" class="is">人工</a>
-				{if condition="session('user')"}<a  id="personage" href="{:url('user/index')}"  titile="" ><img src="__INDEX__/img/icon/geren.png"/></a>{else/}<a href="#" style="float: right;" class="is denglu" >登录/注册</a>{/if}
+				{if condition="session('user')"}<a  id="personage" href="{:url('user/index')}"  titile="" ><img src="__INDEX__/img/icon/geren.png"/></a>{else/}<a href="javascript:void(0)" style="float: right;" class="is denglu" >登录/注册</a>{/if}
 					</div>
 					<input type="text" name="" id="" value="" placeholder="搜索..." />
 					<img src="__INDEX__/img/icon/fda.png" />
@@ -600,14 +600,14 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 						for (var i=1;i<data.page.page+1;i++)
 						{
 							if (i==data.page.num) {
-								st +='<a  href="#" class="atcives abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
+								st +='<a  href="javascript:void(0)" class="atcives abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
 							}else{
-								st +='<a  href="#" class="abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
+								st +='<a  href="javascript:void(0)" class="abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
 							}
 						}
 
 						var str = '<div class="page">'+st+
-						'</div><a href="#" class="page_next" onclick="xia();">下页</a><em><span class="now">'+data.page.num+
+						'</div><a href="javascript:void(0)" class="page_next" onclick="xia();">下页</a><em><span class="now">'+data.page.num+
 						'</span>/<span class="num">'+data.page.page+
 						'</span>页&nbsp;&nbsp;共<span class="total">'+data.page.count+'</span>条</em>';
 						$("#page-box").html(str);
