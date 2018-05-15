@@ -681,12 +681,10 @@ else if(chestr=="工作日周末")
 									strEmail = pattern.test(email);
 									if(strEmail) {
 										/*return true;*/
-
 										if(mobile!=""){
 											if(!(/^1[3456789]\d{9}$/.test(mobile))) {
 												alert("手机号码有误，请重填")
 											} else {
-
 												//if(chestr != ""){
 													// var gongzuotime = new Array();
 													// var gays = true;
@@ -749,8 +747,28 @@ else if(chestr=="工作日周末")
 						}
 						occupation = occupation1+"/"+occupation2;
 						console.log(occupation);
+post(names,sex,ress,workingLife1,occupation,workingLife,mobile,wxNum,email,xinsui,gzs);
+						
+											}
+										}else{
+											alert("请输入手机号")
+										}
+									} else {
+										alert("邮箱格式不正确！");
+									}
+							} else {
+								alert("请输入微信号");
+							}
+						} else {
+							alert("请选择职业");
+						}
+				} else {
+					alert("请输入姓名");
+				}
 
-						$.post("{:url('user/index')}",{
+			})
+			function post(names,sex,ress,workingLife1,occupation,workingLife,mobile,wxNum,email,xinsui,gzs){
+				$.post("{:url('user/index')}",{
 							user_name:names,
 							gender:sex,
 							address:ress,
@@ -770,24 +788,7 @@ else if(chestr=="工作日周末")
 								alert("提交失败");
 							}
 						}, "json");
-											}
-										}else{
-											alert("请输入手机号")
-										}
-									} else {
-										alert("邮箱格式不正确！");
-									}
-							} else {
-								alert("请输入微信号");
-							}
-						} else {
-							alert("请选选择职业");
-						}
-				} else {
-					alert("请输入姓名");
-				}
-
-			})
+			}
 			/*可工作时间*/
 			/*邮箱验证*/
 			function isEmail() {
