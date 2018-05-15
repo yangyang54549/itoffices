@@ -550,13 +550,100 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 			//				document.getElementById("div_select2")[1].selected = true;
 			//			}
 		</script>
+							<style type="text/css">
+			.beijin {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 700;
+  display: none;
+}
+#goods{
+				position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -250px;
+    margin-top: -200px;
+    width: 450px !important;
+	padding: 0px !important;
+    background-color: white;
+    overflow: hidden;
+    border-radius: 10px;
+    z-index: 999;
+    display: none;
+			}
+.goods {
+    margin: 35vh auto;
+    padding: 50px;
+    width: 400px;
+    background-color: white;
+    border-radius: 10px;
+}
+.goods h5,#goods h5 {
+    font-size: 16px;
+    margin: 0;
+    margin-bottom: 20px;
+}
+#goods h5{
+	padding: 20px 0px;
+}
+.goods h5, .goods p,#goods h5, #goods p {
+    width: 100%;
+    text-align: center;
+}
+.goods p,#goods p {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.goods h5, .goods p,#goods h5, #goods p  {
+    width: 100%;
+    text-align: center;
+}
+.qud {
+    border: 1px solid red;
+    color: red;
+    border-radius: 10px;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+
+			#goods .buttoms{
+	display: flex;
+	padding-top: 20px;
+}
+#goods .buttoms p{
+	width: 50%;
+	height: 40px;
+	line-height: 40px;
+	margin: 0px ;
+	padding: 0px;
+	color: white;
+}
+
+		</style>
+		<div class="beijin">
+			<div class="goods">
+				<h5>提示</h5>
+				<p class="texts"></p>
+				<p class="qud" id="qd">确定</p>
+			</div>
+		</div>
 		<div class="footer" style="background-color: #1e2831;" >
 			<div class="center">
 				<p>2011-2018 汇谷科技  版权所有：豫ICP备12027515号-1</p>
 			</div>
 		</div>
 		<script type="text/javascript">
-
+$("#qd").click(function() {
+				$(".beijin").css("display", "none");
+			})
+$(".beijin").click(function() {$(".beijin").css("display", "none");
+			})
 		var address = "{$user.address}";
 
 			$(".head_img2").click(function() {
@@ -671,7 +758,7 @@ else if(chestr=="工作日周末")
 				if(names != "") {
 					if(s_province == "省份" && s_city == "县、市" && s_county == "乡（镇）") {
 						if (address=="") {
-							alert('请选择地区');return false;
+							$(".beijin").css("display", "block");$(".beijin .texts").text('请选择地区');return false;
 						}
 					}
 						if(occupation1 != "选择职业") {		
@@ -679,7 +766,7 @@ else if(chestr=="工作日周末")
 								if(email == "") {		
 										if(mobile!=""){
 											if(!(/^1[3456789]\d{9}$/.test(mobile))) {
-												alert("手机号码有误，请重填")
+												$(".beijin").css("display", "block");$(".beijin .texts").text("手机号码有误，请重填")
 											} else {												
 												var ress = s_province+"/"+s_city+"/"+s_county;						
 												if(s_province == "省份" && s_city == "县、市" && s_county == "乡（镇）") {
@@ -706,7 +793,7 @@ else if(chestr=="工作日周末")
 										/*return true;*/
 										if(mobile!=""){
 											if(!(/^1[3456789]\d{9}$/.test(mobile))) {
-												alert("手机号码有误，请重填")
+												$(".beijin").css("display", "block");$(".beijin .texts").text("手机号码有误，请重填")
 											} else {
 												//if(chestr != ""){
 													// var gongzuotime = new Array();
@@ -782,17 +869,17 @@ post(names,sex,ress,workingLife1,occupation,workingLife,mobile,wxNum,email,xinsu
 												post(names,sex,ress,workingLife1,occupation,workingLife,mobile,wxNum,email,xinsui,gzs);
 										}
 									} else {
-										alert("邮箱格式不正确！");
+										$(".beijin").css("display", "block");$(".beijin .texts").text("邮箱格式不正确！");
 									}
 							
 						} else {
-							alert("请选择职业");
+							$(".beijin").css("display", "block");$(".beijin .texts").text("请选择职业");
 						}
 				} else {
-					alert("请输入姓名");
+					$(".beijin").css("display", "block");$(".beijin .texts").text("请输入姓名");
 				}
 }else{
-		alert('请选择性别')
+		$(".beijin").css("display", "block");$(".beijin .texts").text('请选择性别')
 	}
 			})
 			function Email(){
@@ -816,7 +903,7 @@ post(names,sex,ress,workingLife1,occupation,workingLife,mobile,wxNum,email,xinsu
 							if (data.code==1) {
 								window.location.href = "{:url('user/index')}";
 							}else{
-								alert("提交失败");
+								$(".beijin").css("display", "block");$(".beijin .texts").text("提交失败");
 							}
 						}, "json");
 			}
@@ -825,7 +912,7 @@ post(names,sex,ress,workingLife1,occupation,workingLife,mobile,wxNum,email,xinsu
 			function isEmail() {
 									var email = document.getElementById("email").value;
 									if(email == "") {
-										alert("请输入邮箱！");
+										$(".beijin").css("display", "block");$(".beijin .texts").text("请输入邮箱！");
 										document.getElementById("email").focus();
 										return false;
 									}
@@ -834,19 +921,19 @@ post(names,sex,ress,workingLife1,occupation,workingLife,mobile,wxNum,email,xinsu
 									if(strEmail) {
 										return true;
 									} else {
-										alert("邮箱格式不正确！");
+										$(".beijin").css("display", "block");$(".beijin .texts").text("邮箱格式不正确！");
 									}
 								}
 			function mobile(){
 				var mobile = $("#mobile").val(); /*电话*/
 				if(mobile!=""){
 					if(!(/^1[3456789]\d{9}$/.test($("#dl_mobile1").val()))) {
-						alert("手机号码有误，请重填")
+						$(".beijin").css("display", "block");$(".beijin .texts").text("手机号码有误，请重填")
 					} else {
 
 					}
 				}else{
-					alert("请输入手机号")
+					$(".beijin").css("display", "block");$(".beijin .texts").text("请输入手机号")
 				}
 
 
