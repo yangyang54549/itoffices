@@ -1428,10 +1428,10 @@ $(function(){
 			})
 
 			$(".kai").click(function() {
-					/*$("#goods").css("display","block");
-					$(".login_background").css("display","block");*/
+				
 					/*$(this).parent().parent().parent().parent().addClass("str");*/
 					var pr  = $(this).parent().parent().parent().parent();
+					pr.addClass("str");
 					/*获取当前的 .li_one*/
 					var prse = $(this).parent().parent().parent().parent().parent();
 
@@ -1441,7 +1441,7 @@ $(function(){
 					/*获取 选择的接单 的data-id*/
 					var user_id = $("."+names+" .li_one:nth-child("+(tt+1)+") .str .participations .participation1").data('id');
 
-					if (user_id==null) { $(".beijin").css("display", "block");$(".beijin .texts").text('请选择开发者');return false };
+					if (user_id==null) { pr.removeClass("str");$(".beijin").css("display", "block");$(".beijin .texts").text('请选择开发者');return false };
 					var strs= new Array(); //定义一数组
 					strs=user_id.split(","); //字符分割
 
@@ -1451,10 +1451,11 @@ $(function(){
 						},function(data){
 							console.log(data);
 							if (data.code==1) {
-								pr.addClass("str");
+								
 								$(".beijin").css("display", "block");$(".beijin .texts").text("提交成功");
 								window.location.reload();
 							}else{
+								pr.removeClass("str");
 								$(".beijin").css("display", "block");$(".beijin .texts").text("提交失败");
 							}
 						}, "json");
