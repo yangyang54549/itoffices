@@ -453,9 +453,13 @@ var nones3 = false;
 				$(".beijin .good p").text(" ");
 
 			})
-
+/*var getFormatCode=function(strValue){  
+    return strValue.replace(/\r\n/g, '<br/>').replace(/\n/g, '<br/>').replace(/\s/g, ' ');  
+}*/
 			$("#resume_submit_btn_a").click(function() {
-				var jies = $("#jies").val();
+				var jie = $("#jies").val();
+				var jies = jie.replace(/\r\n/g, '<br/>').replace(/\n/g, '<br/>').replace(/\s/g, ' ');  
+				
 				if(jies != ""){
 					var aCity3 = new Array();
 					var item = $(".J_ResumeFields .J_item").length;
@@ -511,7 +515,7 @@ var nones3 = false;
 				}
 
 					if(nones2!=true && nones3!=true){
-					/*block("作品内容不完整，无法提交。");*/
+				
 					console.log(jies);
 					console.log(aCity4);
 					console.log(aCity5);
