@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-05-10 18:53:32
+ * @Last Modified time: 2018-05-16 17:34:26
  */
 namespace app\bak\controller;
 use app\admin\Controller;
@@ -295,9 +295,9 @@ class User  extends Yang
     {
         if ($this->request->isAjax()) {
             $data = input();
-
+            $introduce = $_POST['introduce'];
             //个人介绍
-            U::where('id',Session::get('user.id'))->update(['introduce'=>$data['introduce']]);
+            U::where('id',Session::get('user.id'))->update(['introduce'=>$introduce]);
 
             $experience = [];//工作经历
             foreach ($data['experience'] as $key => $value) {
