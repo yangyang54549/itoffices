@@ -300,7 +300,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 					<h3 class="h3">个人介绍<span> </span><a href="bianji2.html"att><img src="__INDEX__/img/xiugai.png"class="imgs" alt="修改" title="修改"/></a></h3>
 
 					{if condition="$user.introduce"}
-						<p>{$user.introduce}</p>
+						<p id="p">{$user.introduce}</p>
 					{else/}
 						<p>请填写个人介绍</p>
 					{/if}
@@ -612,7 +612,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 	<script type="text/javascript">
 		var ss = ($(window).width() - 980) / 2;
 		$("#right").css("right", ss + "px");
-
+		$("#p").html($("#p").text());
 		$("#duibi").click(function() {
 			var di = document.getElementById("duibi_img");
 			if(di.style.display == "block") {
