@@ -287,8 +287,13 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 			</div>
 		<script src="__INDEX__/js/jss/jquery.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			
-			$("#jies").html($("#jies").text().replace('<br/>',""));
+			re = new RegExp("<br/>","g");
+			$("#jies").html($("#jies").val().replace(re,'\n'));
+
+//re = new RegExp("<br/>","g"); //定义正则表达式
+////第一个参数是要替换掉的内容，第二个参数"g"表示替换全部（global）。
+//var stt = str.Replace(re, "");
+
 			/*添加 工作经历*/
 			function none(){
   						$("#beijin").css("display", "none");
