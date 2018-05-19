@@ -928,7 +928,7 @@ ol, ul {
                         </div>
                         <p class="submits">提交项目需求</p>
                         <div class="code">
-                            <img id="right-img" src="{$cases.code}" />
+                            <img id="right-img" title="点击弹出大图" src="{$cases.code}" />
                             <p onclick="window.open('{$cases.preview}')">预览</p>
 
                         </div>
@@ -1090,6 +1090,9 @@ ol, ul {
                 <p class="qud" id="qd">确定</p>
             </div>
         </div>
+        <div class="imgs" style="width: 100vw;height: 100vh;position: fixed;top: 0px ;left: 0px ;background-color: rgba(0,0,0,.2); display: none;">
+			<img  id="imgs" style="width: 400px;height: 400px;display: block;position: absolute;top: 50%;left: 50%;margin-top: -200px;margin-left: -200px;" />
+		</div>
         <div class="footer" style="background-color: #1e2831;">
             <div class="center">
                 <p>2011-2018 汇谷科技  版权所有：豫ICP备12027515号-1    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#0368bd" onclick="javascript:window.open('{:url("index/index_bak")}')">IT联合办公</span></p>
@@ -1353,7 +1356,14 @@ ol, ul {
 				if(h4text == "美容美发管理软件"){
 					$("#right-img").attr('src',"__INDEX__/img/meirong.png");
 				}
+				$("#imgs").attr('src',$("#right-img").attr("src"));
 			}
+			$("#right-img").click(function(){
+				$(".imgs").css("display", "block");
+			})
+			$(".imgs").click(function(){
+				$(this).css("display", "none");
+			})
             /*var ph = document.getElementById("phone_height");
             var nav2 = document.getElementById("nav2");
             var nav = document.getElementById("nav");

@@ -887,7 +887,7 @@ ol, ul {
 								<div class="screen">
 									<ul>
 										{volist name="cases.images" id="vos"}
-										<li><img src="{$vos}" /></li>
+										<li><img src="{$vos}"  / ></li>
 										{/volist}
 									</ul>
 									<ol>
@@ -937,7 +937,7 @@ ol, ul {
 						</div>
 						<p class="submits">提交项目需求</p>
 						<div class="code">
-							<img id="right-img" src="{$cases.code}" />
+							<img id="right-img" title="点击弹出大图" src="{$cases.code}" />
 							<p onclick="window.open('{$cases.preview}')">预览</p>
 						</div>
 					</div>
@@ -1098,6 +1098,9 @@ ol, ul {
 
 				<p class="qud" id="qd">确定</p>
 			</div>
+		</div>
+		<div class="imgs" style="width: 100vw;height: 100vh;position: fixed;top: 0px ;left: 0px ;background-color: rgba(0,0,0,.2); display: none;">
+			<img  id="imgs" style="width: 400px;height: 400px;display: block;position: absolute;top: 50%;left: 50%;margin-top: -200px;margin-left: -200px;" />
 		</div>
 		<div class="footer" style="background-color: #1e2831;">
 			<div class="center">
@@ -1356,13 +1359,14 @@ ol, ul {
 				$("#nav2 a").removeClass("active");
 				$(this).addClass("active");
 			})
+			
 			quweinongchang();
 			function quweinongchang(){
 				var h4text =  $("#right-h4").text();
 				if(h4text == "趣味农场.系统开发"){
 					$("#right-img").attr('src',"__INDEX__/img/qw.png");
 				}else if(h4text == "奥一农场.系统开发"){
-					$("#right-img").attr('src',"__INDEX__/img/images/nongchangs.jpg");
+					$("#right-img").attr('src',"__INDEX__/img/images/nongchangs.png");
 				}else if(h4text == "禅那客栈3380元／年起"){
 					$("#right-img").attr('src',"__INDEX__/img/images/channa.png");
 				}else if(h4text == "驾校小程序3380元／年起"){
@@ -1370,7 +1374,14 @@ ol, ul {
 				}else if(h4text == "简心摄影3380元／年起"){
 					$("#right-img").attr('src',"__INDEX__/img/images/jianxin.png");
 				}
+				$("#imgs").attr('src',$("#right-img").attr("src"));
 			}
+			$("#right-img").click(function(){
+				$(".imgs").css("display", "block");
+			})
+			$(".imgs").click(function(){
+				$(this).css("display", "none");
+			})
 			/*var ph = document.getElementById("phone_height");
 			var nav2 = document.getElementById("nav2");
 			var nav = document.getElementById("nav");
