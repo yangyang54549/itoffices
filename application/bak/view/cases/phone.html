@@ -938,7 +938,7 @@ ol, ul {
 						<p class="submits">提交项目需求</p>
 						<div class="code">
 							<img id="right-img" title="点击弹出大图" src="{$cases.code}" />
-							<p onclick="window.open('{$cases.preview}')">预览</p>
+							<a  href="{$cases.preview}" id="right-a" target="_blank">预览</a>
 						</div>
 					</div>
 				</div>
@@ -1373,6 +1373,7 @@ ol, ul {
 					$("#right-img").attr('src',"__INDEX__/img/images/yue.png");
 				}else if(h4text == "简心摄影3380元／年起"){
 					$("#right-img").attr('src',"__INDEX__/img/images/jianxin.png");
+					$("#right-a").attr("href",""); 
 				}
 				$("#imgs").attr('src',$("#right-img").attr("src"));
 			}
