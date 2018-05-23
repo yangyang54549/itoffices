@@ -1,8 +1,10 @@
 	.sou {
 				width: 100%;
 				min-width: 1200px;
-				height: 550px;
-				background:  url(../img/index.jpg)  no-repeat fixed bottom;							
+				height: 600px;
+				
+			/*	background:  url(../img/index.jpg)  no-repeat fixed bottom;		*/	
+				background:  url(../img/NAVS.png)  no-repeat fixed bottom;							
 				-moz-background-size: 100% 100%;
 				background-size: 100% 100%;
 				padding: 1px 0;
