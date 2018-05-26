@@ -106,6 +106,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 </script>
 	<body>
 		<div class="sou " >
+			<img src="__INDEX__/img/NAVS.png"/>
 			<div class="search">
 				<div class="search1">
 					<div class="navs">
@@ -480,7 +481,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 		<script>
 			
 			
-			$(".sou").height($(document.body).width()/3);
+			$(".sou").height($(".sou>img").height());
 			var session = "{:session('user.id')}";
 			$(".login_background").click(function(){
 				loginNone();

@@ -2,18 +2,33 @@
 				width: 100%;
 				min-width: 1200px;
 				
-				
+				  background-repeat: no-repeat;   
+    background-color: transparent;
+    background-position: -404px -311.75px;
+    background-image: url(../img/nav.jpg);
+    background-size: 2500px auto;
+    padding-top: 120px;
+    background-attachment: fixed;
 			/*	background:  url(../img/index.jpg)  no-repeat fixed bottom;	*/	
-				background:  url(../img/NAVS.png)  no-repeat fixed bottom;						
+				/*background:  url(../img/NAVS.png)  ;						
 				-moz-background-size: 100% 100%;
-				background-size: 100% 100%;
-				padding: 1px 0;
+				background-size: 100% 100%;*/
+				
 				position: relative;
 				top: 0;
 				left: 0;
 				z-index: 1;
+				overflow: hidden;
 			}
-
+.sou>img{
+	/*width: 100%;
+	height: auto;
+	position: fixed;
+	top: 0px ;
+	left: 0px;
+	z-index: 2;*/
+	display: none;
+}
 			.search {
 				width: 100%;
 				padding: 0;
