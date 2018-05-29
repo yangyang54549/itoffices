@@ -42,7 +42,8 @@
             </div>
             <div style="display:none;">
                 <ul id="yincang">
-                    {if condition="$vo?? ''"}
+
+                    {present name="$vo"}
                         <span style="color:red">点击图片删除</span>
                         {volist name="vo['images']" id="img" key="k"}
                             <li id="WU_FILE_{$k}" class="state-complete">
@@ -52,7 +53,7 @@
                             <span class="success"></span>
                             </li>
                         {/volist}
-                    {/if}
+                    {/present}
                 </ul>
             </div>
 
@@ -73,7 +74,7 @@
             <div class="formControls col-xs-6 col-sm-6">
                 <div class="select-box">
                     <select name="type" class="select types" datatype="*" nullmsg="请选择案例类型">
-                        {if condition="$vo?? ''"}
+                        {present name="$vo"}
                             {volist name="type" id="vos"}
                                 <option value="{$vos.id}" {if condition="$vo.type eq $vos.id"}selected="selected"{/if}>{$vos.name}</option>
                             {/volist}
@@ -81,7 +82,7 @@
                             {volist name="type" id="vos"}
                                 <option value="{$vos.id}" data-id="{$vos.id}">{$vos.name}</option>
                             {/volist}
-                        {/if}
+                        {/present}
                     </select>
                 </div>
             </div>
@@ -92,7 +93,7 @@
             <div class="formControls col-xs-6 col-sm-6">
                 <div class="select-box">
                     <select name="specific" class="select specifics" datatype="*" nullmsg="请选择案例功能">
-                    {if condition="$vo?? ''"}
+                    {present name="$vo"}
                         {volist name="specific" id="voss"}
                             <option value="{$voss.id}" {if condition="$vo.specific eq $voss.id"}selected="selected"{/if} data-id="{$voss.father_id}" class="ccc{$voss.father_id} ccc">{$voss.name}</option>
                         {/volist}
@@ -100,7 +101,7 @@
                         {volist name="specific" id="voss"}
                             <option value="{$voss.id}" data-id="{$voss.father_id}" class="ccc{$voss.father_id} ccc">{$voss.name}</option>
                         {/volist}
-                    {/if}
+                    {/present}
                     </select>
                 </div>
             </div>
@@ -109,20 +110,27 @@
         <div class="row cl">
             <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>案例系统类型：</label>
 
-            <div class="formControls col-xs-6 col-sm-6">
-                <div class="select-box">
-                    <select name="system_type" class="select" datatype="*" nullmsg="请选择案例系统类型">
-                    {if condition="$vo?? ''"}
-                        {volist name="system" id="vosss"}
-                            <option value="{$vosss.id}" {if condition="$vo.system_type eq $vosss.id"}selected="selected"{/if}>{$vosss.name}</option>
-                        {/volist}
-                    {else/}
-                        {volist name="system" id="vosss"}
-                            <option value="{$vosss.id}">{$vosss.name}</option>
-                        {/volist}
-                    {/if}
-                    </select>
+            <div class="formControls col-xs-6 col-sm-6 skin-minimal">
+                {present name="$vo"}
+
+                {volist name="system" id="vosss"}
+                <div class="radio-box">
+                    <input type="checkbox" name="system_type[]" id="id-{$vosss.id}" value="{$vosss.id}" datatype="*" {in name="vosss.id" value="$vo.system_type"} checked="checked"{/in} >
+                    <label for="status-{$vosss.id}">{$vosss.name}</label>
                 </div>
+                {/volist}
+
+                {else/}
+
+                {volist name="system" id="vosss"}
+                <div class="radio-box">
+                    <input type="checkbox" name="system_type[]" id="id-{$vosss.id}" value="{$vosss.id}" datatype="*">
+                    <label for="id-{$vosss.id}">{$vosss.name}</label>
+                </div>
+                {/volist}
+
+                {/present}
+
             </div>
 
             <div class="col-xs-3 col-sm-3"></div>

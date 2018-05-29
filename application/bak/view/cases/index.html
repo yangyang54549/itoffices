@@ -706,9 +706,9 @@ $("#qd").click(function() {
 						// $("#project-list1").append('<li class="page-div" onclick="xia();"><h3>下一页</h3></li>');
 
 						var st = '';
-						for (var i=1;i<data.page.page+1;i++)
+						for (var i=1;i<5;i++)
 						{
-							if (i==data.page.num) {
+							if (i==1) {
 								st +='<a  href="javascript:void(0)" class="atcives abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
 							}else{
 								st +='<a  href="javascript:void(0)" class="abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
@@ -807,8 +807,10 @@ $("#qd").click(function() {
 					}
 
 					jpage = page+3;
-					if (jpage<num) {
-						var xpage = page+1;
+					var xpage = page+1;
+					var snum = parseInt(num)+1;
+
+					if (jpage<=num) {
 						//在页码之内,考虑增加几条
 						for (var i=xpage;i<xpage+3;i++)
 						{
@@ -818,7 +820,7 @@ $("#qd").click(function() {
 					}else{
 
 						//超出最大页码,显示剩下的
-						for (var i=xpage;i<num+1;i++)
+						for (var i=xpage;i<snum;i++)
 						{
 							str += '<a  href="javascript:void(0)" class="abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
 						}
@@ -890,8 +892,10 @@ $("#qd").click(function() {
 					}
 
 					jpage = page+3;
-					if (jpage<num) {
-						var xpage = page+1;
+					var snum = parseInt(num)+1;
+					var xpage = page+1;
+
+					if (jpage<=num) {
 						//在页码之内,考虑增加几条
 						for (var i=xpage;i<xpage+3;i++)
 						{
@@ -901,7 +905,7 @@ $("#qd").click(function() {
 					}else{
 
 						//超出最大页码,显示剩下的
-						for (var i=xpage;i<num+1;i++)
+						for (var i=xpage;i<snum;i++)
 						{
 							str += '<a  href="javascript:void(0)" class="abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
 						}
