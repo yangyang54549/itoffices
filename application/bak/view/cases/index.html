@@ -267,7 +267,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				</ul>
 				<div id="page-box" style="width: 1200px;margin: 0 auto;">
 					<div class="page">
-						{for start="1" end="$page.page+1" comparison="lt" step="1" name="n"}
+						{for start="1" end="$page.xpage+1" comparison="lt" step="1" name="n"}
 							{if condition = "$n eq $page.num"}
 							<a  href="#footer" class="atcives abc{$n}" onclick="pagess({$n});">{$n}</a>
 							{else /}
@@ -535,7 +535,7 @@ $(".sou").height($(".sou>img").height());
 			$(".login_background").click(function(){
 				loginNone();
 			})
-			
+
 			$("#quehuan1").click(function(){
 				$(".login .login1").css("display","none");
 				$(".login .login2").css("display","block");
@@ -781,6 +781,55 @@ $("#qd").click(function() {
 				var specific = 0;
 				var system_type = $('.sys .active').attr('data-id');
 
+				var str = '';
+
+				if (num>6) {
+
+
+					if (page>2) {
+
+						qpage = page-2;
+
+						for (var n=qpage;n<page;n++)
+						{
+							str += '<a  href="javascript:void(0)" class="abc'+n+'" onclick="pagess('+n+');">'+n+'</a>';
+						}
+
+						str += '<a  href="javascript:void(0)" class="atcives abc'+page+'" onclick="pagess('+page+');">'+page+'</a>';
+
+					}else{
+						if (page==2) {
+							str += '<a  href="javascript:void(0)" class="abc1" onclick="pagess(1);">1</a>';
+							str += '<a  href="javascript:void(0)" class="atcives abc2" onclick="pagess(2);">2</a>';
+						}else{
+							str += '<a  href="javascript:void(0)" class="atcives abc1" onclick="pagess(1);">1</a>';
+						}
+					}
+
+					jpage = page+3;
+					if (jpage<num) {
+						var xpage = page+1;
+						//在页码之内,考虑增加几条
+						for (var i=xpage;i<xpage+3;i++)
+						{
+							str += '<a  href="javascript:void(0)" class="abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
+						}
+
+					}else{
+
+						//超出最大页码,显示剩下的
+						for (var i=xpage;i<num+1;i++)
+						{
+							str += '<a  href="javascript:void(0)" class="abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
+						}
+
+					}
+
+					$("#page-box .page").html(str);
+				}
+
+
+
 				if (cla=='ty') {
 					if (id==0) {
 						$('.xiao .ccc').css('display','block');
@@ -814,6 +863,54 @@ $("#qd").click(function() {
 				var	clas = 'abc'+page;
 				$('.'+clas).addClass('atcives');
 				$('.now').text(page);
+
+				num = $('.num').text();//总页码数
+				var str = '';
+				if (num>6) {
+
+
+					if (page>2) {
+
+						qpage = page-2;
+
+						for (var n=qpage;n<page;n++)
+						{
+							str += '<a  href="javascript:void(0)" class="abc'+n+'" onclick="pagess('+n+');">'+n+'</a>';
+						}
+
+						str += '<a  href="javascript:void(0)" class="atcives abc'+page+'" onclick="pagess('+page+');">'+page+'</a>';
+
+					}else{
+						if (page==2) {
+							str += '<a  href="javascript:void(0)" class="abc1" onclick="pagess(1);">1</a>';
+							str += '<a  href="javascript:void(0)" class="atcives abc2" onclick="pagess(2);">2</a>';
+						}else{
+							str += '<a  href="javascript:void(0)" class="atcives abc1" onclick="pagess(1);">1</a>';
+						}
+					}
+
+					jpage = page+3;
+					if (jpage<num) {
+						var xpage = page+1;
+						//在页码之内,考虑增加几条
+						for (var i=xpage;i<xpage+3;i++)
+						{
+							str += '<a  href="javascript:void(0)" class="abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
+						}
+
+					}else{
+
+						//超出最大页码,显示剩下的
+						for (var i=xpage;i<num+1;i++)
+						{
+							str += '<a  href="javascript:void(0)" class="abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
+						}
+
+					}
+
+					$("#page-box .page").html(str);
+				}
+
 				var type = 0;
 				var specific = 0;
 				var system_type = $('.sys .active').attr('data-id');
@@ -855,7 +952,7 @@ var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "https://hm.baidu.com/hm.js?44df8059d678095fffc254927a44f54d";
-  var s = document.getElementsByTagName("script")[0]; 
+  var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>

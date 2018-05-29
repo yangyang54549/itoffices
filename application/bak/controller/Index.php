@@ -29,5 +29,10 @@ class Index  extends Yang
          //$this->redirect('Cases/index');
          return $this->fetch();
     }
-
+    //新首页
+    public function index_bak()
+    {
+         //$this->redirect('Cases/index');
+         return $this->fetch();
+    }
 }

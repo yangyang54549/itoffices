@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-03-26 09:55:40
+ * @Last Modified time: 2018-05-29 11:04:30
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -124,6 +124,12 @@ class Cases extends Yang
             $page = [];
             $page['count'] = C::count();//总条数
             $page['page'] = ceil($page['count']/8);//总共几页
+
+            if ($page['page']>4) {
+                $page['xpage'] = 4;
+            }else{
+                $page['xpage'] = $page['page'];
+            }
             $page['num'] = 1;//当前处于第几页
             foreach ($cases as $key => $value) {
 

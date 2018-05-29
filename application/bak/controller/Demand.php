@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-05-10 09:39:58
+ * @Last Modified time: 2018-05-29 11:14:41
  */
 namespace app\bak\controller;
 use app\admin\Controller;
@@ -134,6 +134,12 @@ class Demand extends Yang
         }else{
             $page['count'] = D::where(['status'=>1])->count();//总条数
             $page['page'] = ceil($page['count']/9);//总共几页
+
+            if ($page['page']>4) {
+                $page['xpage'] = 4;
+            }else{
+                $page['xpage'] = $page['page'];
+            }
             $page['num'] = 1;//当前处于第几页
             $demandtype = DT::order('sort')->select();
             $demand = D::where(['status'=>1])->order('create_time desc')->page('1,9')->select();

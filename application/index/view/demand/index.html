@@ -371,7 +371,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				<div id="page-box">
 					{if condition="$page.page gt 1"}
 						<div class="page">
-							{for start="1" end="$page.page+1" comparison="lt" step="1" name="n"}
+							{for start="1" end="$page.xpage+1" comparison="lt" step="1" name="n"}
 								{if condition = "$n eq $page.num"}
 								<a  href="javascript:void(0)" class="atcives abc{$n}" onclick="pagess({$n});">{$n}</a>
 								{else /}
@@ -793,6 +793,55 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 					$('.'+clas).addClass('atcives');
 					$('.now').text(page);
 
+				var str = '';
+
+				if (num>6) {
+
+
+					if (page>2) {
+
+						qpage = page-2;
+
+						for (var n=qpage;n<page;n++)
+						{
+							str += '<a  href="javascript:void(0)" class="abc'+n+'" onclick="pagess('+n+');">'+n+'</a>';
+						}
+
+						str += '<a  href="javascript:void(0)" class="atcives abc'+page+'" onclick="pagess('+page+');">'+page+'</a>';
+
+					}else{
+						if (page==2) {
+							str += '<a  href="javascript:void(0)" class="abc1" onclick="pagess(1);">1</a>';
+							str += '<a  href="javascript:void(0)" class="atcives abc2" onclick="pagess(2);">2</a>';
+						}else{
+							str += '<a  href="javascript:void(0)" class="atcives abc1" onclick="pagess(1);">1</a>';
+						}
+					}
+
+					jpage = page+3;
+					if (jpage<num) {
+						var xpage = page+1;
+						//在页码之内,考虑增加几条
+						for (var i=xpage;i<xpage+3;i++)
+						{
+							str += '<a  href="javascript:void(0)" class="abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
+						}
+
+					}else{
+
+						//超出最大页码,显示剩下的
+						for (var i=xpage;i<num+1;i++)
+						{
+							str += '<a  href="javascript:void(0)" class="abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
+						}
+
+					}
+
+					$("#page-box .page").html(str);
+				}
+
+
+
 				var type = $('.ty .active').data('id');
 				var industry = $('.tyr .active').data('id');
 				var schedule = $('.jd .active').data('id');
@@ -807,11 +856,56 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				$('.'+clas).addClass('atcives');
 				$('.now').text(page);
 
+				num = $('.num').text();//总页码数
+				var str = '';
+				if (num>6) {
+
+
+					if (page>2) {
+
+						qpage = page-2;
+
+						for (var n=qpage;n<page;n++)
+						{
+							str += '<a  href="javascript:void(0)" class="abc'+n+'" onclick="pagess('+n+');">'+n+'</a>';
+						}
+
+						str += '<a  href="javascript:void(0)" class="atcives abc'+page+'" onclick="pagess('+page+');">'+page+'</a>';
+
+					}else{
+						if (page==2) {
+							str += '<a  href="javascript:void(0)" class="abc1" onclick="pagess(1);">1</a>';
+							str += '<a  href="javascript:void(0)" class="atcives abc2" onclick="pagess(2);">2</a>';
+						}else{
+							str += '<a  href="javascript:void(0)" class="atcives abc1" onclick="pagess(1);">1</a>';
+						}
+					}
+
+					jpage = page+3;
+					if (jpage<num) {
+						var xpage = page+1;
+						//在页码之内,考虑增加几条
+						for (var i=xpage;i<xpage+3;i++)
+						{
+							str += '<a  href="javascript:void(0)" class="abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
+						}
+
+					}else{
+
+						//超出最大页码,显示剩下的
+						for (var i=xpage;i<num+1;i++)
+						{
+							str += '<a  href="javascript:void(0)" class="abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
+						}
+
+					}
+					$("#page-box .page").html(str);
+				}
+
 
 				var type = $('.ty .active').data('id');
 				var industry = $('.tyr .active').data('id');
 				var schedule = $('.jd .active').data('id');
-
 				$.post("{:url('demand/index')}",{type:type,industry:industry,schedule:schedule,page:page},function(data) {
 
 					$("#demandlist-ul1").html(data.data);
