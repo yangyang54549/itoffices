@@ -105,6 +105,7 @@ class Cases extends Controller
             $info = $_POST['info'];
             $data['info'] = $info;
             $data['create_time'] = time();
+            $data['system_type'] = implode(',',$data['system_type']);
 
             //首页图缩略
             $url = '.'.$data['img'];

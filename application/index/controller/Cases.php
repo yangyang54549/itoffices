@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-05-29 11:04:30
+ * @Last Modified time: 2018-05-29 16:15:45
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -46,7 +46,7 @@ class Cases extends Yang
             }
             if(isset($types_id)){
                 if ($types_id!=0) {
-                    $where['system_type']=$types_id;
+                    $where['system_type']= ['like','%'.$types_id.'%'];
                 }
             }
             $str = '';
@@ -67,12 +67,19 @@ class Cases extends Yang
                              break;
                         }
                     }
+
+                    $v['system_type'] = explode(",",$v['system_type']);
+                    $system_type = [];
+
                     foreach ($systems as $c => $d) {
-                        if($d['id'] == $v['system_type']){
-                             $v['system_type'] = $d['name'];
-                             break;
+
+                        if (in_array($d['id'],$v['system_type']))
+                        {
+                            $system_type[] = $d['name'];
                         }
                     }
+
+                    $system_type = implode(',',$system_type);
 
                     $url = url("cases/inside",["id"=>$v["id"]]);
                     if ($v['is_pp']==1) {
@@ -90,7 +97,7 @@ class Cases extends Yang
                                 <div class="similarity_label">产品类型:<span>'.$v['type'].'</span></div>
                                 <div class="similarity_label">主要功能:<span>'.$v['specific'].'</span></div>
                                 <div class="similarity_label functionNames">系统类型:
-                                    <span>'.$v['system_type'].'</span>
+                                    <span>'.$system_type.'</span>
                                 </div>
                                 <div class="similarity-intro">'.$v['brief'].'</div>
                                 <div class="similarity-price"> ￥<span class="price">'.$v['money'].'</span></div>
@@ -145,12 +152,19 @@ class Cases extends Yang
                          break;
                     }
                 }
+
+                $value['system_type'] = explode(",",$value['system_type']);
+                $system_type = [];
+
                 foreach ($systems as $c => $d) {
-                    if($d['id'] == $value['system_type']){
-                         $arr[$key]['system_type'] = $d['name'];
-                         break;
+
+                    if (in_array($d['id'],$value['system_type']))
+                    {
+                        $system_type[] = $d['name'];
                     }
                 }
+
+                $arr[$key]['system_type'] = implode(',',$system_type);
 
             }
 
