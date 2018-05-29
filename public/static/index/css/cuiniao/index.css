@@ -1,0 +1,620 @@
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary {
+  display: block;
+}
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, cite, code, del, dfn, em, img, q, s, samp, small, strike, strong, sub, sup, tt, var, dd, dl, dt, li, ol, ul, fieldset, form, label, input, textarea, legend, button, table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 100%;
+    line-height: 1;
+    font-family: inherit;
+}
+a{
+	text-decoration:none;
+}
+audio,canvas,progress,video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+.header{
+	    background-repeat: no-repeat;   
+    background-color: transparent;
+    background-position: -404px -311.75px;
+    background-image: url(../../img/cuiniao/nav.jpg);
+    background-size: 2500px auto;
+    padding-top: 120px;
+    background-attachment: fixed;
+}
+.header1{
+	 background-image: url(../../img/cuiniao/nav2.jpg);
+}
+.header_text{
+	width: 1000px;
+	margin: 0px  auto ;
+	padding: 100px;
+	text-align: center;
+	color: white;
+}
+.header_text h2{
+	font-size: 30px;
+	line-height: 46px;
+	padding-bottom: 46px;
+}
+.header_text p{
+	font-size: 24px;
+	line-height: 40px;
+	
+}
+ p strong{
+	color: #e40613;
+}
+.header_bottom{
+	width: 100%;
+	display: flex;
+	padding-top: 120px;
+}
+.header_bottom .header_bottom_bai{	
+	border: 25px solid transparent;
+    border-top: none;   
+    box-sizing: border-box;
+    height: 25px;   
+    width: 50%;
+    border-color: rgb(255, 255, 255);
+}
+.header_bottoms .header_bottom_bai{
+	
+	 border-color: #F1A852;
+}
+.header_bottom .a1 {
+    border-right-color: transparent!important;  
+}
+.header_bottom .a2 {
+    border-left-color: transparent!important;    
+}
+.header_bottom .a3 {
+    border-left-color: transparent!important; 
+    border-bottom-color: transparent!important;  
+}
+.header_bottom .a4 {
+	 border-bottom-color: transparent!important; 
+    border-right-color: transparent!important;    
+}
+.main{
+	width: 100%;
+	min-width: 1152px;
+}
+.main>div,.main1 p{
+	width: 100%;
+}
+.main>div{
+	width: 1152px;
+	
+	margin: 50px auto;
+}
+.main1 p{
+text-align: center;
+height: 26px;
+font-size: 22px;
+margin: 20px 0px;
+}
+.s-text-color-black{
+	width: 255px;
+	height: 61px;
+	margin: 0px  auto;
+	font-size: 36px;
+}
+.s-text-color-black sub{
+	font-size: 24px;
+}
+.a-buttom,.a-buttoms{
+	display: block;
+	width: 168px ;
+	height: 66px;
+	line-height: 66px;
+	text-align: center;
+	border-radius: 10px;
+	background-color: #f1a852;
+	color: white;
+	font-weight: bold;
+	font-size: 24px;
+	margin: 30px  auto;
+}
+.a-buttoms{
+	background-color: rgba(255,255,255,0);
+    border: 2px solid white;
+}
+ .a-buttoms:hover {
+	background-color: rgba(255,255,255,.1);
+}
+.a-buttom:hover{
+	background-color: #FFD267;
+	
+}
+.main2>p{
+	text-align: center;
+	line-height: 50px;
+	font-size: 32px;
+}
+.main2_s{
+	overflow: hidden;
+	padding: 20px 0px;
+}
+.four{
+	float: left;
+	width: 256px;
+	box-sizing: border-box;
+	margin: 0px 15px;	
+}
+.four .top img{
+	display: block;
+	margin: 10px  auto;
+}
+.four .buttom {
+	width: 100%;
+	border: 1px solid rgba(0,0,0,.2);
+	border-radius: 3px;
+    box-shadow: none;
+    padding: 22px 26px;
+    box-sizing: border-box;
+}
+.four .buttom  h4{
+	text-align: center;
+	font-size: 24px;
+	line-height: 50px;
+}
+.four .buttom  p{
+	line-height: 20px;
+	font-size: 16px;
+	height: 80px;
+	display:-webkit-box;
+								-webkit-line-clamp:4;
+								-webkit-box-orient:vertical;
+								overflow:hidden;
+}
+.main3{
+	overflow: hidden;
+}
+.main3>div{
+	    padding: 5px;
+    min-height: 250px;
+    box-sizing: border-box;
+    float: left;
+}
+.main3 .one,.main3 .fours{
+	width: 62.5%;
+}
+.main3 .two,.main3 .there{
+	width: 37.5%;
+}
+.main3>div .ba_img{
+	width: 100%;
+	height: 250px;
+	background-repeat: repeat;
+    background-size: auto;
+    background-color: transparent;
+    background-position: 50% 50%;
+    
+}
+.main3 .one .ba_img{
+	background-image: url(../../img/cuiniao/main3-1.jpg);
+}
+.main3 .two .ba_img{
+	background-image: url(../../img/cuiniao/main3-2.jpg);
+}
+
+.main3 .there .ba_img{
+	background-image: url(../../img/cuiniao/main3-3.jpg);
+}
+
+.main3 .fours .ba_img{
+	background-image: url(../../img/cuiniao/main3-4.jpg);
+}
+.main3>div .ba_img p{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.1);
+	box-sizing: border-box;
+	padding: 100px 20px;
+	color: white;
+}
+.main3>div .ba_img p span{
+	display: block;
+	width: 100%;
+	text-align: center;
+	font-size:28px ;
+	line-height: 45px;
+}
+.main3>div .ba_img p em{
+	display: block;
+	width: 100%;
+	font-size: 16px;
+	text-align: right;
+	line-height: 20px;
+}
+.main4,.main5,.main7,.main8,.main9,.main10{
+	width: 100% !important;
+	padding: 80px  0px;
+	margin: 0px  !important;
+}
+.main4>p,.main5>p{
+	width: 100%;
+	text-align: center;
+	font-size: 30px;
+	color: white;
+	line-height: 50px;
+	padding-bottom: 20px;
+}
+.main4 .cenner{
+	width: 1122px;
+	height: 140px;
+	margin: 10px  auto;
+	overflow: hidden;
+}
+.process-item-wrapper{
+	float: left;
+	width: 200px ;
+	height: 139px;
+	position: relative;
+	color: white;
+	margin: 0px 10px;
+}
+.process-item-wrapper .process-item-index {
+    -webkit-align-items: center;
+    -webkit-justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    font-size: 26px;
+    font-weight: 700;
+    height: 52px;
+    justify-content: center;
+    margin-bottom: 12px;
+    width: 52px;
+   
+    margin-left: 73px;
+}.process-item-wrapper .process-item-linker {
+    border-right: 0;
+    border-top: 1px solid  white;
+    height: 1px;
+    left: calc(50% - -52px);
+    position: absolute;
+    top: 27px;
+    width: calc(100% - 82px);
+}
+
+.process-item-linker {
+    opacity: .3;
+}
+.process-item-wrapper h3 {
+    font-size: 24px;   
+    text-align: center;
+    padding: 5px  0px 10px 0px;
+}
+.s-item-text p{
+	text-align: center;
+	line-height: 20px;
+	
+}
+
+.main6 .anlis{
+	width: 100%;
+	overflow: hidden;
+}
+.main6 .anlis .anli{
+	    width: 546px;
+	    float: left;
+	    margin: 0px 15px;
+}
+.main6 .anlis .anli .img{
+	widows: 546px;
+	height: 365px;
+	position: relative;
+	overflow: hidden;
+}
+.main6 .anlis .anli .img img{
+	display: block;
+	widows: 546px;
+	height: 365px;	
+}
+.main6 .anlis .anli .img p{
+	widows: 546px;
+	height: 365px;
+position: absolute;
+top: 0px;
+left: 0px;
+background-color: rgba(0,0,0,0);
+}
+.main6 .anlis .anli .img:hover p{
+	background-color: rgba(0,0,0,.1);
+}
+.main6 .anlis .anli .text{
+	width: 546px;
+	height: 79px;
+	line-height: 79px;
+	text-align: center;
+	font-size: 24px;
+	color: black;
+	border: 1px solid rgba(0,0,0,.2);
+	margin: 20px  0px;
+}
+.main7 p,.main6 p{
+	width: 100%;
+	text-align: center;
+	font-size: 30px;
+	color: white;
+	padding: 20px 0px;
+}
+.main7>div{
+	width: 1152px;
+	margin: 0px  auto;
+	overflow: hidden;
+}
+.main7>div div{
+	width: 300px;
+	height: 300px;
+	float: left;
+	margin-left: 63px;
+	margin-bottom: 20px;
+}
+.main7>div div img{
+	display: block;
+	width: 300px;
+	height: 300px;	
+}
+.main7>.hezuo{
+	width: 950px ;
+	padding-bottom: 50px;
+}
+.main7>.hezuo div{
+	float: left;
+	   width: 178px;
+    height: 100px;
+    margin: 5px;
+    overflow: hidden;
+    position: relative;
+}
+.main7>.hezuo div img{
+	width: 178px;
+    height: 100px;
+}
+.main7>.hezuo div p{
+	width: 178px;
+    height: 100px;
+    background-color: black;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 5;
+    opacity: 0;
+    transition: all .5s ease-in .1s;
+}
+.main7>.hezuo div:hover p{
+	opacity: .3;
+}
+.main7 h5{
+	width: 100%;
+	padding: 80px 0px;
+	background-repeat: no-repeat;
+    background-size: 2000px 1500px;
+    background-color: transparent;
+    background-position: -48.5px -401.4px;
+    background-image: url(../../img/cuiniao/main7.jpg);
+    background-attachment: fixed;
+}
+.main8,.main9,.main10{
+	height: 460px;
+	box-sizing: border-box;
+	background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+    background-position: 50% 50%;
+    background-image: url(../../img/cuiniao/main8.jpg);
+     background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+}
+.main9{
+	 background-image: url(../../img/cuiniao/main9.jpg);
+}
+
+.main8:before,.main9:before,.main10 .ba {
+    -webkit-transform: translateZ(0);
+    background: rgba(0,0,0,.39);
+    content: "";
+    display: block!important;
+    height: 100%;
+   
+    left: 0;
+    position: absolute;
+    top: 0;
+    margin-top: -100px;
+	padding: 160px 0px;
+    transform: translateZ(0);
+    width: 100%;
+    z-index: 1;
+}
+.main8 .center,.main9 .center,.main10 .center{
+	width: 1152px;
+	height: 300px;	
+	overflow: hidden;
+	position: absolute;
+	top: 80px;
+	left: 50%;
+	margin-left: -576px;
+	z-index: 10;
+}
+.main8 .center img,.main8 .center .left,.main9 .center img,.main9 .center .left{
+	float: left;
+}
+.main9 .center .left{width: 400px;color: white;}
+.main8 .center .left,.main9 .center img{
+	margin-left: 250px;
+	color: white;
+}
+.main8 .center .left p,.main9 .center .left p{
+	margin-bottom: 10px;
+}
+
+.main10{
+	background-image: url(../../img/cuiniao/nav3.jpg) ;
+	overflow: hidden;
+	height: 560px;
+}
+
+.main10 .center{
+	/*width: 70%;*/
+	/*min-width: 960px;*/
+	width: 960px;
+	/*margin-left: -35%;*/
+	margin-left: -480px;
+	
+	height: 600px;
+overflow: hidden;
+	
+}
+.main10 .center>p{
+	width: 100%;
+	text-align: center;
+	font-size: 30px;
+	color: white;
+	line-height: 60px;
+}
+.main10 .center .left,.main10 .center .cent,.main10 .center .right{
+	float: left;
+	width: 30%;
+	min-height: 240px;
+	margin-left: 2.5%;
+}
+.main10 .center .left{
+	position: relative;
+}
+.main10 .center .left .left1,.main10 .center .left .left2{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	width: 100%;
+}
+.main10 .center .left .left2{
+	display: none;
+}
+.main10 .center .left .left2 a{
+	margin: 100px  auto;
+	background-color: white;
+	color: gray;
+} 
+.main10 .center .left .left2 a:hover{
+	background-color: white;
+	color: gray;
+}
+.main10 .center .left .left1 input,.main10 .center .left .left1 textarea{
+	 background-color: white;
+	 border-radius: 5px;
+	 line-height: 20px;
+	 padding: 10px;
+	 width: 80%;
+	 margin: 10px 0px;
+	 resize:none;
+}
+.main10 .center .left .left1 p{
+	width: 100%;
+	margin-left: 10px;
+	line-height: 25px;
+	font-size: 16px;
+	color: white;
+}
+.main10 .center .cent{
+	overflow: hidden;
+	height: 250px;
+	position: relative;
+}
+.main10 .center .cent iframe{
+	
+	margin-top: -75px;
+	margin-left: -150px;
+}
+.main10 .center .right p{
+	width: 100%;
+	overflow: hidden;
+	margin: 15px 0px;
+}
+.main10 .center .right p span{
+	float: left;
+	color: white;
+	line-height: 23px;
+}
+.main10 .center .right p span:nth-child(1){
+	width: 20%;
+	text-align: center;
+}
+.main10 .center .right p span:nth-child(2){
+	width: 70%;
+}
+/*nav*/
+/*nav*/
+.header_nav {
+    text-align: center;
+    vertical-align: top;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+   /* background: rgba(9,10,65,1);*/
+   background: #3A56DE;
+    z-index: 10000;
+}
+.header_nav > a:first-child {
+    padding: 0;
+    margin: 16px 246px 0 0;
+}
+
+.header_nav > a {
+    display: inline-block;
+    color: #fff;
+    font-size: 15px;
+    line-height: 21px;
+    padding: 22px 23px;
+    cursor: pointer;
+    vertical-align: top;
+}
+.header_nav img {
+    width: 95px;
+    height: 32px;
+    display: inline-block;
+}
+
+
+.header_nav > a {
+    display: inline-block;
+    color: #fff;
+    font-size: 15px;
+    line-height: 21px;
+    padding: 22px 23px;
+    cursor: pointer;
+    vertical-align: top;
+}
+.header_nav > a img{
+	height: 30px ;
+	width: auto;
+}
+#personage{
+	position: absolute;
+	top: 10px;
+	right: 200px;
+	padding: 10px;
+}
+#personage img{
+	height: 30px ;
+	width: auto;
+}
