@@ -338,7 +338,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 			</div>
 <!--不限-->
 			<div class="choice_kind" style="border-bottom: 1px dashed rgba(0,0,0,0.14);">
-				<span text="主要功能：" class="hhh">主要功能：</span>
+				<span text="适用行业：" class="hhh">适用行业：</span>
 				<ul class="xiao">
 					<li class="active nuxian" data-id="0" id="fun">不限</li>
                     {volist name="specific" id="voss" key="n"}
@@ -381,7 +381,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 							<div class="picList">
 								<div class="similarity-title">{$vo.case_name}</div>
 								<div class="similarity_label">产品类型:{$vo.type}</div>
-								<div class="similarity_label">主要功能:{$vo.specific}</div>
+								<div class="similarity_label">适用行业:{$vo.specific}</div>
 								<div class="similarity_label functionNames">系统类型:
 									{$vo.system_type}
 								</div>
@@ -543,7 +543,7 @@ $("#qd").click(function() {
 					}
 					var specific = $('.xiao .active').attr('data-id');
 					var system_type = $('.sys .active').attr('data-id');
-					$(".hhh").text('主要功能：');
+					$(".hhh").text('适用行业：');
 					$('.hhh').css('color','');
 
 				}else if(cla=='xiao'){

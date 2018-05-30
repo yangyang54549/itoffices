@@ -176,30 +176,26 @@
 }
  .similarity_label{
  	    width: 100%;
-    overflow: hidden;
-    color: #999;
-    margin-bottom: 5px;
- }
- .similarity_label span {
-    display: inline-block;
-    vertical-align: top;
-    padding: 0 4px;
-    text-align: center;
-    }
-    .similarity_label {
-    width: 100%;
    
     color: #999;
     margin-bottom: 5px;
-    word-break: break-all;
+     word-break: break-all;
 				display: -webkit-box;
 				-webkit-line-clamp: 1;
 				-webkit-box-orient: vertical;
 				overflow: hidden;
-}
+ }
+/* .similarity_label span {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 4px;
+    text-align: center;
+    }*/
+
 .similarity-intro {
     margin-top: 15px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    height: 60px;
    word-break:break-all;
 								display:-webkit-box;
 								-webkit-line-clamp:3;
