@@ -179,22 +179,22 @@
             <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>预览二维码：</label>
             <div class="formControls col-xs-6 col-sm-6">
 
-                <input type="text" name="img" value="{$vo.img ?? ''}" class="input-text" id="uploadabc" placeholder="请点击后面的上传按钮" datatype="*" nullmsg="请上传二维码图片" style="width: 70%">
-                <button type="button" class="btn btn-primary radius" onclick="layer_open('文件上传','{:\\think\\Url::build(\'Upload/index\', [\'id\' => \'uploadabc\'])}')">上传</button>
+                <input type="text" name="code" value="{$vo.code ?? ''}" class="input-text" id="uploade" placeholder="请点击后面的上传按钮" datatype="*" nullmsg="请上传二维码图片" style="width: 70%">
+                <button type="button" class="btn btn-primary radius" onclick="layer_open('文件上传','{:\\think\\Url::build(\'Upload/index\', [\'id\' => \'uploade\'])}')">上传</button>
 
-                <a onclick="$(this).attr('href', $('#uploadabc').val())" type="button" class="btn btn-success radius" data-lightbox="preview">预览</a>
+                <a onclick="$(this).attr('href', $('#uploade').val())" type="button" class="btn btn-success radius" data-lightbox="preview">预览</a>
 
             </div>
             <div class="col-xs-3 col-sm-3"></div>
         </div>
 
-        <div class="row cl">
+<!--         <div class="row cl">
             <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>预览二维码：</label>
             <div class="formControls col-xs-6 col-sm-6">
                 <input type="text" class="input-text" placeholder="二维码图片" name="code" value="{$vo.code ?? ''}"  datatype="*" nullmsg="二维码图片">
             </div>
             <div class="col-xs-3 col-sm-3"></div>
-        </div>
+        </div> -->
 
         <div class="row cl">
             <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>预览url：</label>

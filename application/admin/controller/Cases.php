@@ -43,7 +43,18 @@ class Cases extends Controller
             $suo = $this->image_png_size_add($url,$url);
 
             //二维码生成
-            $data['code'] = $this->qrcode($data['preview']);
+            if ($data['preview'] != "" && $data['code'] != "") {
+                //都不为空
+            }elseif ($data['preview'] != "" && $data['code'] == ""){
+                //链接不为空
+                $data['code'] = $this->qrcode($data['preview']);
+            }elseif ($data['preview'] == "" && $data['code'] != ""){
+                //图片不为空
+
+
+            }elseif ($data['preview'] == "" && $data['code'] == "") {
+                return ajax_return_adv_error(['code'=>-200,'msg'=>'不能都为空']);
+            }
 
             // 验证
             if (class_exists($validateClass = Loader::parseClass(Config::get('app.validate_path'), 'validate', $controller))) {
