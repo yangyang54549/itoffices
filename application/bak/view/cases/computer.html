@@ -635,7 +635,7 @@
                 margin-top: 20px;
 
             }
-           
+
             #column img{
                 width:100%;
             }
@@ -655,7 +655,7 @@
     font-size: 16px;
 }
         </style>
- 
+
 
     </head>
 <script>
@@ -762,7 +762,7 @@ ol, ul {
 
 .nav li {
     margin: 0 25px;
-  
+
     display: inline;
 }
 .nav li a {
@@ -835,12 +835,12 @@ ol, ul {
 	background-color: #1e2831;
 	height: 60px;
 	z-index: 100;
-	
+
 }
 .footer .center{
 	width: 75%;
 	margin: 0  auto;
-} 
+}
 .footer .center p{
 	width: 100%;
 	text-align: center;
@@ -913,7 +913,9 @@ ol, ul {
                             <div class="">
                                 <p>主要功能
                                 </p>
-                                <p>{$cases.specific}
+                                <p>                                {volist name="specific" id='naa'}
+                                {$naa}
+                                {/volist}
                                 </p>
                             </div>
                             <div class="">
@@ -1411,7 +1413,7 @@ var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "https://hm.baidu.com/hm.js?44df8059d678095fffc254927a44f54d";
-  var s = document.getElementsByTagName("script")[0]; 
+  var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>

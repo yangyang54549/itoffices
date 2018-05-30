@@ -90,21 +90,32 @@
         </div>
         <div class="row cl">
             <label class="form-label col-xs-3 col-sm-3"><span class="c-red">*</span>案例功能：</label>
-            <div class="formControls col-xs-6 col-sm-6">
-                <div class="select-box">
-                    <select name="specific" class="select specifics" datatype="*" nullmsg="请选择案例功能">
-                    {present name="$vo"}
-                        {volist name="specific" id="voss"}
-                            <option value="{$voss.id}" {if condition="$vo.specific eq $voss.id"}selected="selected"{/if} data-id="{$voss.father_id}" class="ccc{$voss.father_id} ccc">{$voss.name}</option>
-                        {/volist}
-                    {else/}
-                        {volist name="specific" id="voss"}
-                            <option value="{$voss.id}" data-id="{$voss.father_id}" class="ccc{$voss.father_id} ccc">{$voss.name}</option>
-                        {/volist}
-                    {/present}
-                    </select>
+
+            <div class="formControls col-xs-6 col-sm-6 skin-minimal">
+                {present name="$vo"}
+
+                {volist name="specific" id="voss"}
+                <div class="radio-box ccc{$voss.father_id} ccc">
+                    <input type="checkbox" name="specific[]" id="id-{$voss.id}" value="{$voss.id}" datatype="*" {in name="voss.id" value="$vo.specific"} checked="checked"{/in}>
+                    <label for="status-{$voss.id}">{$voss.name}</label>
                 </div>
+                {/volist}
+
+                {else/}
+
+                {volist name="specific" id="voss"}
+                <div class="radio-box ccc{$voss.father_id} ccc">
+                    <input type="checkbox" name="specific[]" id="id-{$voss.id}" value="{$voss.id}" datatype="*">
+                    <label for="id-{$voss.id}">{$voss.name}</label>
+                </div>
+                {/volist}
+
+                {/present}
+
             </div>
+
+
+
             <div class="col-xs-3 col-sm-3"></div>
         </div>
         <div class="row cl">

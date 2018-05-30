@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-05-29 16:15:45
+ * @Last Modified time: 2018-05-29 18:29:36
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -41,12 +41,12 @@ class Cases extends Yang
             }
             if(isset($specific)){
                 if ($specific!=0) {
-                    $where['specific']=$specific;
+                    $where['specific'] = ['like','%'.$specific.'%'];
                 }
             }
             if(isset($types_id)){
                 if ($types_id!=0) {
-                    $where['system_type']= ['like','%'.$types_id.'%'];
+                    $where['system_type'] = ['like','%'.$types_id.'%'];
                 }
             }
             $str = '';
@@ -61,12 +61,26 @@ class Cases extends Yang
                              break;
                         }
                     }
+                    // foreach ($specifics as $a => $b) {
+                    //     if($b['id'] == $v['specific']){
+                    //          $v['specific'] = $b['name'];
+                    //          break;
+                    //     }
+                    // }
+
+                    $v['specific'] = explode(",",$v['specific']);
+                    $specific = [];
+
                     foreach ($specifics as $a => $b) {
-                        if($b['id'] == $v['specific']){
-                             $v['specific'] = $b['name'];
-                             break;
+
+                        if (in_array($b['id'],$v['specific']))
+                        {
+                            $specific[] = $b['name'];
                         }
                     }
+
+                    $specific = implode(',',$specific);
+
 
                     $v['system_type'] = explode(",",$v['system_type']);
                     $system_type = [];
@@ -95,7 +109,7 @@ class Cases extends Yang
                             <div class="picList">
                                 <div class="similarity-title">'.$v['case_name'].'</div>
                                 <div class="similarity_label">产品类型:<span>'.$v['type'].'</span></div>
-                                <div class="similarity_label">主要功能:<span>'.$v['specific'].'</span></div>
+                                <div class="similarity_label">主要功能:<span>'.$specific.'</span></div>
                                 <div class="similarity_label functionNames">系统类型:
                                     <span>'.$system_type.'</span>
                                 </div>
@@ -146,12 +160,27 @@ class Cases extends Yang
                          break;
                     }
                 }
+
+                // foreach ($specifics as $a => $b) {
+                //     if($b['id'] == $value['specific']){
+                //          $arr[$key]['specific'] = $b['name'];
+                //          break;
+                //     }
+                // }
+
+                $value['specific'] = explode(",",$value['specific']);
+                $specific = [];
+
                 foreach ($specifics as $a => $b) {
-                    if($b['id'] == $value['specific']){
-                         $arr[$key]['specific'] = $b['name'];
-                         break;
+
+                    if (in_array($b['id'],$value['specific']))
+                    {
+                        $specific[] = $b['name'];
                     }
                 }
+
+                $arr[$key]['specific'] = implode(',',$specific);
+
 
                 $value['system_type'] = explode(",",$value['system_type']);
                 $system_type = [];
@@ -184,8 +213,12 @@ class Cases extends Yang
         $type = T::where(['id'=>$cases['type']])->find();
         $cases['type']=$type['name'];
 
-        $specific = S::where(['id'=>$cases['specific']])->find();
-        $cases['specific']=$specific['name'];
+        $specifics = explode(',' , $cases['specific']);
+        for ($i=0; $i < count($specifics); $i++) {
+            $specific = S::where(['id'=>$specifics[$i]])->find();
+            $specifics[$i] =  $specific['name'];
+        }
+
         $fetch = 0;
         $system_type = explode(',' , $cases['system_type']);
         for ($i=0; $i < count($system_type); $i++) {
@@ -197,6 +230,7 @@ class Cases extends Yang
         $cases['images'] = explode('@', $cases['images']);
         $this->view->assign("cases", $cases);
         $this->view->assign("system_type", $system_type);
+        $this->view->assign("specific", $specifics);
         $fet = '';
         if ($cases['is_pp']==0) {
             $fet = 'computer';
