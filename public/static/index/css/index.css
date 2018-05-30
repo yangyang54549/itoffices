@@ -188,9 +188,14 @@
     }
     .similarity_label {
     width: 100%;
-    overflow: hidden;
+   
     color: #999;
     margin-bottom: 5px;
+    word-break: break-all;
+				display: -webkit-box;
+				-webkit-line-clamp: 1;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
 }
 .similarity-intro {
     margin-top: 15px;
