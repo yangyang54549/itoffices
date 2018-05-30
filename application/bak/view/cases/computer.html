@@ -1363,14 +1363,13 @@ ol, ul {
                 $("#nav2 a").removeClass("active");
                 $(this).addClass("active");
             })
-           /* quweinongchang();
-			function quweinongchang(){
-				var h4text =  $("#right-h4").text();
-				if(h4text == "美容美发管理软件"){
-					$("#right-img").attr('src',"__INDEX__/img/meirong.png");
+           quweinongchang();
+			function quweinongchang(){								
+				if($('#right-a').attr('href')!=""){}else{
+					$('#right-a').attr("href","javascript:void(0)"); 
 				}
-				$("#imgs").attr('src',$("#right-img").attr("src"));
-			}*/
+				
+			}
 			$("#right-img").click(function(){
 				$(".imgs").css("display", "block");
 			})

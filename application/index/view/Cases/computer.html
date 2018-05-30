@@ -797,7 +797,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
                         <p class="submits">提交项目需求</p>
                         <div class="code">
                             <img id="right-img" src="{$cases.code}" />
-                            <p onclick="window.open('{$cases.preview}')">预览</p>
+                            <a  href="{$cases.preview}" id="right-a" target="_blank">预览</a>
 
                         </div>
                     </div>
@@ -958,6 +958,9 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
                 <p class="qud" id="qd">确定</p>
             </div>
         </div>
+         <div class="imgs" style="width: 100vw;height: 100vh;position: fixed;top: 0px ;left: 0px ;background-color: rgba(0,0,0,.2); display: none;">
+			<img  id="imgs" src="{$cases.code}" style="width: 400px;height: 400px;display: block;position: absolute;top: 50%;left: 50%;margin-top: -200px;margin-left: -200px;" />
+		</div>
         <div class="footer" style="background-color: #1e2831;">
             <div class="center">
                 <p>2011-2018 汇谷科技  版权所有：豫ICP备12027515号-1    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#0368bd" onclick="javascript:window.open('{:url("index/index_bak")}')">IT联合办公</span></p>
@@ -1215,13 +1218,19 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
                 $("#nav2 a").removeClass("active");
                 $(this).addClass("active");
             })
-            quweinongchang();
-			function quweinongchang(){
-				var h4text =  $("#right-h4").text();
-				if(h4text == "美容美发管理软件"){
-					$("#right-img").attr('src',"__INDEX__/img/meirong.png");
+           quweinongchang();
+			function quweinongchang(){								
+				if($('#right-a').attr('href')!=""){}else{
+					$('#right-a').attr("href","javascript:void(0)"); 
 				}
+				
 			}
+			$("#right-img").click(function(){
+				$(".imgs").css("display", "block");
+			})
+			$(".imgs").click(function(){
+				$(this).css("display", "none");
+			})
             /*var ph = document.getElementById("phone_height");
             var nav2 = document.getElementById("nav2");
             var nav = document.getElementById("nav");
