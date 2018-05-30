@@ -1039,20 +1039,16 @@ ol, ul {
                     </div>
                     <div class="columns">
 						<table border="" cellspacing="" cellpadding="" id="table" style="" class="nan">
-							<tr style="    background-color: #CCCCCC;">
+							<tr >
 									<td colspan="5" style="font-size: 24px;">
 
 										网站代建服务
+										<p style="font-size: 18px; width: 100%;text-align: center;margin: 0px ; padding: 0px;">有专业建站师为您量身制作网站，您仅需联系客服、购买服务、传送资料，1~2个工作日就可“坐享其成”</p>
+										
 									</td>
 
 								</tr>
-								<tr style="    background-color: #CCCCCC;">
-									<td colspan="5">
-
-										有专业建站师为您量身制作网站，您仅需联系客服、购买服务、传送资料，1~2个工作日就可“坐享其成”。
-									</td>
-
-								</tr>
+								
 								<tr>
 									<td>
 										套餐名称
@@ -1503,6 +1499,14 @@ ol, ul {
 			})
 			$(".imgs").click(function(){
 				$(this).css("display", "none");
+			})
+			$("#right-a").click(function(){
+				var hrefs = $(this).attr("href");
+				if(hrefs !="javascript:void(0)"){
+
+				}else{
+					$(".imgs").css("display", "block");
+				}
 			})
             /*var ph = document.getElementById("phone_height");
             var nav2 = document.getElementById("nav2");
