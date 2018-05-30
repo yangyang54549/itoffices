@@ -355,4 +355,28 @@ trait Controller
              return $res;
     }
 
+    /**
+     * 功能：生成二维码
+     * @param string $qrData 手机扫描后要跳转的网址
+     * @param string $qrLevel 默认纠错比例 分为L、M、Q、H四个等级，H代表最高纠错能力
+     * @param string $qrSize 二维码图大小，1－10可选，数字越大图片尺寸越大
+     * @param string $savePath 图片存储路径
+     * @param string $savePrefix 图片名称前缀
+     */
+    public function qrcode($url)
+    {
+        $savePath = ROOT_PATH  . 'public/qrcode/';
+        $webPath = '/qrcode/';
+        $qrData = $url;
+        $qrLevel = 'H';
+        $qrSize = '6';
+        $savePrefix = 'NickBai';
+
+        if($filename = createQRcode($savePath, $qrData, $qrLevel, $qrSize, $savePrefix)){
+            $pic = $webPath . $filename;
+        }
+        //echo "<img src='".$pic."'>";
+        return $pic;
+    }
+
 }

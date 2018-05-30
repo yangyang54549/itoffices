@@ -485,21 +485,21 @@ header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
      * @param string $savePath 图片存储路径
      * @param string $savePrefix 图片名称前缀
      */
-    public function qrcode($url)
-    {
-        $savePath = ROOT_PATH  . 'public/qrcode/';
-        $webPath = '/qrcode/';
-        $qrData = $url;
-        $qrLevel = 'H';
-        $qrSize = '6';
-        $savePrefix = 'NickBai';
+    // public function qrcode($url)
+    // {
+    //     $savePath = ROOT_PATH  . 'public/qrcode/';
+    //     $webPath = '/qrcode/';
+    //     $qrData = $url;
+    //     $qrLevel = 'H';
+    //     $qrSize = '6';
+    //     $savePrefix = 'NickBai';
 
-        if($filename = createQRcode($savePath, $qrData, $qrLevel, $qrSize, $savePrefix)){
-            $pic = $webPath . $filename;
-        }
-        //echo "<img src='".$pic."'>";
-        return $pic;
-    }
+    //     if($filename = createQRcode($savePath, $qrData, $qrLevel, $qrSize, $savePrefix)){
+    //         $pic = $webPath . $filename;
+    //     }
+    //     //echo "<img src='".$pic."'>";
+    //     return $pic;
+    // }
 
 
 }
