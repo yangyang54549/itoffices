@@ -28,7 +28,7 @@ class Cases extends Controller
     {
         $controller = $this->request->controller();
 
-        if ($this->request->isAjax()) {
+        if ($this->request->isPost()) {
             // 插入
             $data = $this->request->except(['id']);
 
@@ -49,7 +49,6 @@ class Cases extends Controller
             }elseif ($data['preview'] == "" && $data['code'] == "") {
                 return ajax_return_adv_error(['code'=>-200,'msg'=>'不能都为空']);
             }
-            return ajax_return_adv_error(['code'=>-200,'msg'=>'不能都为空']);
             // 验证
             if (class_exists($validateClass = Loader::parseClass(Config::get('app.validate_path'), 'validate', $controller))) {
                 $validate = new $validateClass();
@@ -102,9 +101,13 @@ class Cases extends Controller
     {
         $controller = $this->request->controller();
 
-        if ($this->request->isAjax()) {
+        if ($this->request->isPost()) {
+
             // 更新
             $data = $this->request->post();
+            unset($data['file']);
+            //return ajax_return_adv_error($data);
+
             if (!$data['id']) {
                 return ajax_return_adv_error("缺少参数ID");
             }
@@ -125,6 +128,7 @@ class Cases extends Controller
             }elseif ($data['preview'] == "" && $data['code'] == "") {
                 return ajax_return_adv_error(['code'=>-200,'msg'=>'不能都为空']);
             }
+
 
             // 验证
             if (class_exists($validateClass = Loader::parseClass(Config::get('app.validate_path'), 'validate', $controller))) {
@@ -160,6 +164,7 @@ class Cases extends Controller
 
             return ajax_return_adv("编辑成功");
         } else {
+
             // 编辑
             $id = $this->request->param('id');
             if (!$id) {
