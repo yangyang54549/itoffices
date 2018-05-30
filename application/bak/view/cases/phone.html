@@ -245,9 +245,9 @@
 			}
 			#column img {
 				width: 100%;
-				margin: 40px auto 30px;
+				/*margin: 40px auto 30px;*/
 			}
-
+#column
 			/*banner*/
 
 			li {
@@ -674,6 +674,10 @@
     color: white;
     font-size: 16px;
 }
+h3{
+	width: 100%;
+	text-align: center;
+}
 		</style>
 
 <link rel="stylesheet" type="text/css" href="__INDEX__/css/table.css" />
@@ -868,6 +872,82 @@ ol, ul {
 	color: #fff;
 	font-size: 14px;
 }
+
+
+#tables,
+			#table {
+				width: 100%;
+				border-collapse: collapse;
+				border: 1px solid black;
+				margin-bottom: 10px;
+			}
+			
+			#tables>tr,
+			#table>tr {
+				width: 100%;
+				border: 1px solid black;
+			}
+			
+			#tables>tr>td {
+				width: 25%;
+				box-sizing: border-box;
+				border: 1px solid black;
+				height: 50px;
+			}
+			
+			#table>tr>td {
+				width: 25%;
+				box-sizing: border-box;
+				border: 1px solid black;
+				height: 30px;
+			}
+			
+			#tables tr td p {
+				width: 100%;
+				text-align: center;
+				padding: 30px 0;
+				font-size: 22px;
+				line-height: 30px;
+			}
+			
+			#table tr td p {
+				width: 100%;
+				text-align: center;
+				line-height: 30px;
+				font-size: 20px;
+				padding: 20px 10px;
+				box-sizing: border-box;
+			}
+			
+			#tables tr:nth-child(1) {
+				background-color: #CCCCCC;
+			}
+			
+			#tables tr:nth-child(2) td p,
+			#tables tr:nth-child(3) td p,
+			#tables tr:nth-child(4) td p,
+			#tables tr:nth-child(5) td p {
+				font-size: 22px;
+			}
+			
+			.column h3 {
+				width: 100%;
+				text-align: center;
+				font-size: 30px;
+				padding: 10px 0px;
+			}
+			
+			#table tr td {
+				width: 20% !important;
+			}
+			
+			#table tr td.texts {
+				width: 40% !important;
+			}
+			
+			#bl td p {
+				font-weight: bold;
+			}
 </style>
 <div class="header">
 	<div class="container">
@@ -963,81 +1043,130 @@ ol, ul {
 					</div>
 					
 					<div class="column" id="column">
-						{$cases.info}
-						<!-- <div class="" id="column_1">
-							<h3 id="zero">项目报价</h3>
-						<table border="" cellspacing="" cellpadding="" id="tables">
-							<tr>
-								<td>
-									<p>修改幅度</p>
-								</td>
-								<td>
-									<p>开发报价</p>
-								</td>
-								<td>
-									<p>开发周期</p>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<p>0%</p>
-								</td>
-								<td>
-									<p>6000</p>
-								</td>
-								<td>
-									<p>25天</p>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<p>10%</p>
-								</td>
-								<td>
-									<p>65000</p>
-								</td>
-								<td>
-									<p>30天</p>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<p>20%</p>
-								</td>
-								<td>
-									<p>75000</p>
-								</td>
-								<td>
-									<p>45天</p>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<p>30%</p>
-								</td>
-								<td>
-									<p>90000</p>
-								</td>
-								<td>
-									<p>60天</p>
-								</td>
-							</tr>
+						{$cases.info}						
+					</div>
+					<div class="columns">
+						<table border="" cellspacing="" cellpadding="" id="table" style="" class="nan">
+							<tr style="    background-color: #CCCCCC;">
+									<td colspan="5" style="font-size: 24px;">
 
-						</table>
-						</div>
-						<div class="" id="column_2" style="width: 100%;">
-							<h3 id="one">功能菜单</h3>
-						<img src="__INDEX__/img/biao.png"  style="width: 100%;"/>
-						</div>
-						<div class="" id="column_3" style="width: 100%;">
-								<h3 id="two">思维导图</h3>
-						<img src="__INDEX__/img/5.18.png" style="width: 100%;"/>
-						</div>
-						<div class="" id="column_4" style="width: 100%;">
-							<h3 id="three">开发顾问</h3>
+										网站代建服务
+									</td>
+
+								</tr>
+								<tr style="    background-color: #CCCCCC;">
+									<td colspan="5">
+
+										有专业建站师为您量身制作网站，您仅需联系客服、购买服务、传送资料，1~2个工作日就可“坐享其成”。
+									</td>
+
+								</tr>
+								<tr>
+									<td>
+										套餐名称
+									</td>
+									<td>
+										微型网站代建
+									</td>
+									<td>
+										小型网站代建
+									</td>
+									<td>
+										中型网站代建
+									</td>
+									<td>
+										大型网站代建
+									</td>
+								</tr>
+								<tr>
+									<td>
+										页面数量
+									</td>
+									<td>
+										≤5个
+									</td>
+									<td>
+										≤10个
+									</td>
+									<td>
+										≤30个
+									</td>
+									<td>
+										大于30个
+									</td>
+								</tr>
+								<tr>
+									<td>
+										素材
+									</td>
+									<td>
+										您需要提供资料和图片
+									</td>
+									<td>
+										您需要提供资料和图片
+									</td>
+									<td>
+										您需要提供资料和图片
+									</td>
+									<td>
+										您需要提供资料和图片
+									</td>
+								</tr>
+								<tr>
+									<td>
+										代建
+									</td>
+									<td>
+										我们负责录入和设定
+									</td>
+									<td>
+										我们负责录入和设定
+									</td>
+									<td>
+										我们负责录入和设定
+									</td>
+									<td>
+										我们负责录入和设定
+									</td>
+								</tr>
+								<tr >
+									<td>
+										价格
+									</td>
+									<td class="red">
+										200元
+									</td>
+									<td class="red">
+										400元
+									</td>
+									<td class="red">
+										800元
+									</td>
+									<td class="red">
+										20元/每页
+									</td>
+								</tr>
+								<tr>
+									<td>
+										购买
+									</td>
+									<td class="blue">
+										购买服务
+									</td>
+									<td class="blue"> 
+										购买服务>
+									</td>
+									<td class="blue">
+										购买服务
+									</td>
+									<td class="blue">
+										购买服务
+									</td>
+								</tr>
+							</table>
+						<h3 id="three">开发顾问</h3>
 						<img src="__INDEX__/img/service-instructions.jpg"style="width: 100%;" />
-						</div> -->
-
+						</div>
 					</div>
 				</div>
 
