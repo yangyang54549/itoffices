@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-05-10 09:40:10
+ * @Last Modified time: 2018-05-31 14:43:36
  */
 namespace app\bak\controller;
 use app\bak\controller\Yang;
@@ -387,7 +387,7 @@ class Login extends Yang
     /*
      * 退出
      */
-    public function exit()
+    public function exits()
     {
         Session::delete('user');
         $this->redirect('demand/index');

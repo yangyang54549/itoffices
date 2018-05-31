@@ -346,11 +346,11 @@
 		<div class="content" style="padding: 0;">
 			<div class="center">
 				<div class="center_left">
-					
+
 					<a href="{:url('user/index')}">基本信息</a>
 					<a href="{:url('user/order')}" class="active"><em></em>我的订单</a>
 <a href="{:url('user/resume')}">个人主页</a>
-					<a href="javascript:if(confirm('确认要退出登录吗?')){location='{:url("login/exit")}'}">退出登录</a>
+					<a href="javascript:if(confirm('确认要退出登录吗?')){location='{:url("login/exits")}'}">退出登录</a>
 				</div>
 				<div class="center_cen">
 					<div class="cente-head ">
@@ -1420,7 +1420,7 @@ $(function(){
 			})
 
 			$(".kai").click(function() {
-				
+
 					/*$(this).parent().parent().parent().parent().addClass("str");*/
 					var pr  = $(this).parent().parent().parent().parent();
 					pr.addClass("str");
@@ -1443,7 +1443,7 @@ $(function(){
 						},function(data){
 							console.log(data);
 							if (data.code==1) {
-								
+
 								$(".beijin").css("display", "block");$(".beijin .texts").text("提交成功");
 								window.location.reload();
 							}else{
@@ -1604,9 +1604,9 @@ $("#qd").click(function() {
 $(".beijin").click(function() {$(".beijin").css("display", "none");
 			})
 var aCity0 = new Array();
-$(".imgs").click(function(){		
+$(".imgs").click(function(){
 					$(".login_background").css("display", "block");
-				$(".li_one.li_ones .xiugai").css("display", "block");								
+				$(".li_one.li_ones .xiugai").css("display", "block");
 })
 /*取消*/
 $(".xiugai  .cancel").click(function(){
