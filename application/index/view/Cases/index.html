@@ -200,10 +200,8 @@ min-width: 1200px;
 			}
 
 			.activeccc {
-			    background: #ccc;
-			    color: #fff;
-			    border-radius: 14px;
-			     pointer-events: none; 
+			    color: #CCC !important;
+			     pointer-events: none;
 			}
 
 			.page-content{width: 100%;}
@@ -510,7 +508,6 @@ $("#qd").click(function() {
 				}else{
 					$(this).parents(".choice_kind").find("span:eq(0)").html($(this).parents(".choice_kind").find("span:eq(0)").attr("text")).css("color",'#333').attr("data",$(this).attr('data'));
 				}
-				$('#more_choice2').css('display','none');
 
 
 				var cla = $(this).parent().attr('class');
@@ -521,6 +518,8 @@ $("#qd").click(function() {
 				var page = 1;
 
 				if (cla=='ty') {
+				$('#more_choice2').css('display','none');
+
 					if (id==0) {
 						$('.xiao .ccc').css('display','none');
 						$('.xiao .nine1').css('display','block');
@@ -559,6 +558,8 @@ $("#qd").click(function() {
 					$('.hhh').css('color','');
 
 				}else if(cla=='xiao'){
+				$('#more_choice2').css('display','none');
+
 						if (type==0) {
 							//类型未选择
 							$('.ccc').css('display','block');
@@ -586,7 +587,6 @@ $("#qd").click(function() {
 					$('.sys .nusys').addClass("active");
 
 				}
-				$('#more_choice2').css('display','block');
 
 				$.post("{:url('cases/index')}",{type:type,specific:specific,system_type:system_type,page:page},function(data) {
 					pagenum = data.page.page;

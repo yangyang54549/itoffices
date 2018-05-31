@@ -40,11 +40,11 @@
                 </div>
                 <ul class="navs">
 
-                  
+
 					<li>
 						<a href="{:url('index/one')}" class="is ">首页</a>
 					</li>
-                    
+
                     <li>
                         <a href="{:url('demand/index')}" class="is ">需求</a>
                     </li>
@@ -54,10 +54,10 @@
                     <li>
                         <a href="javascript:void(0)"class="is">人才</a>
                     </li>
-                    
+
 
                 </ul>
-            
+
                 <div style="clear:both"></div>
             </div>
         </div>-->
@@ -65,11 +65,11 @@
 		<div class="content" style="padding: 0;">
 			<div class="center">
 				<div class="center_left">
-					
+
 					<a href="{:url('user/index')}">基本信息</a>
 					<a href="{:url('user/order')}" class="active"><em></em>我的订单</a>
 <a href="{:url('user/resume')}">个人主页</a>
-					<a href="javascript:if(confirm('确实要删除该内容吗?')){location='{:url("login/exit")}'}">退出登录</a>
+					<a href="javascript:if(confirm('确实要删除该内容吗?')){location='{:url("login/exits")}'}">退出登录</a>
 				</div>
 				<div class="center_cen">
 					<div class="cente-head ">
@@ -111,8 +111,8 @@
 											<span>对接中</span>
 										</div>
 									</div>
-									
-									
+
+
 								</li>
 								<div class="string">
 									<div class="wu">
@@ -142,19 +142,19 @@
 			</div>
 		</div>
 		<script src="__INDEX__/js/order.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript">			
+		<script type="text/javascript">
 			/*ul1*/
 			 taps(2);
 $(".cente-head .p2").click(function() {
 	var tt  = $(".cente-head .p2").index($(this));
 	$(".cente-head .p2").removeClass("on");
 	$(this).addClass("on");
-	if(tt < 2) {		
+	if(tt < 2) {
 		tap = tt;
-			window.location.href = "{:url('user/order')}";		
-	} else {	$(".cente_ul").css("margin-left", "-" +(tt*100)+ "%");		}	
-	
-	
+			window.location.href = "{:url('user/order')}";
+	} else {	$(".cente_ul").css("margin-left", "-" +(tt*100)+ "%");		}
+
+
 
 })
 			$(".ul3 .li_one .top").click(function() {
@@ -172,7 +172,7 @@ $(".cente-head .p2").click(function() {
 					strs.css("display","none");
 				}
 			})
-			/*申请的任务 记录*/			
+			/*申请的任务 记录*/
 			$(".ul4 .li_one .top").click(function() {
 				var sr1 = $(this).parent();
 				var st1 = $(this).next();
@@ -188,7 +188,7 @@ $(".cente-head .p2").click(function() {
 					strs.css("display","none");
 				}
 			})
-			
+
 			$(".kai").click(function() {
 				if($(this).text()!="已开工"){
 					$(this).text("已开工");
@@ -202,7 +202,7 @@ $(".cente-head .p2").click(function() {
 					var tt = $("."+names+" .li_one").index(prse);
 					/*获取 选择的接单 的data-id*/
 					var demand_id = $("."+names+" .li_one:nth-child("+(tt+1)+") .str .participations .participation1").data('demand');
-					var user_id = $("."+names+" .li_one:nth-child("+(tt+1)+") .str .participations .participation1").data('user');					
+					var user_id = $("."+names+" .li_one:nth-child("+(tt+1)+") .str .participations .participation1").data('user');
 				}
 			})
 
@@ -218,7 +218,7 @@ $(".cente-head .p2").click(function() {
 				$(".strings").prev().addClass("blue2");
 			})
 		</script>
-		
+
 	</body>
 
 </html>

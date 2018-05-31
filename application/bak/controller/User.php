@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-05-16 17:34:26
+ * @Last Modified time: 2018-05-31 14:42:26
  */
 namespace app\bak\controller;
 use app\admin\Controller;
@@ -378,5 +378,10 @@ class User  extends Yang
         UserSkill::where('id',$id)->delete();
         return json($this->ret);
 
+    }
+
+    public function news()
+    {
+            return $this->fetch();
     }
 }

@@ -28,7 +28,7 @@
 		<!--<script type="text/javascript" charset="utf-8" src="https://dut.zoosnet.net/js/CdCheck.aspx?id=20380941&amp;sid=1511765651350480413414&amp;d=1511768960039"></script>-->
 
 		<style type="text/css">
-			
+
 
 			#s_province,
 			#s_city,
@@ -181,13 +181,13 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 
 			<div id="user-info">
 				<div class="info-left">
-					
+
 					<a href="{:url('user/index')}" class="active">基本信息</a>
 					<a href="{:url('user/order')}"><em></em>我的订单</a>
 <a href="{:url('user/resume')}">个人主页</a>
 					<!--<a href="###">我的工作</a>-->
 					<!--<a class="active" href="###">我的作品</a>-->
-					<a href="javascript:if(confirm('确认要退出登录吗?')){location='{:url("login/exit")}'}">退出登录</a>
+					<a href="javascript:if(confirm('确认要退出登录吗?')){location='{:url("login/exits")}'}">退出登录</a>
 				</div>
 				<div class="info-right">
 					<div class="right-bg">
@@ -732,7 +732,7 @@ else if(chestr=="工作日周末")
 				var workingLife1 = $("#workingLife1 option:selected").text(); /*现在状态*/
 				var occupation1 = $("#occupation1 option:selected").text(); /*职业选择1*/
 				var occupation2 = $("#occupation2 option:selected").text(); /*职业选择2*/
-				
+
 				var workingLife = $("#workingLife option:selected").text(); /*工作年限*/
 				//	var timeinit = $("#time-init").val();/*出生日期*/
 				var wxNum = $("#wxNum").val(); /*微信号*/
@@ -754,42 +754,42 @@ else if(chestr=="工作日周末")
 					}
 				}
 	if(sex!="请选择"){
-		
-	
+
+
 				if(names != "") {
 					if(s_province == "省份" && s_city == "县、市" && s_county == "乡（镇）") {
 						if (address=="") {
 							$(".beijin").css("display", "block");$(".beijin .texts").text('请选择地区');return false;
 						}
 					}
-						if(occupation1 != "选择职业") {		
+						if(occupation1 != "选择职业") {
 							var occupation = occupation1+"/"+occupation2;
 							if(xinsui !=""){
-								
-							
-								if(email == "") {		
+
+
+								if(email == "") {
 										if(mobile!=""){
 											if(!(/^1[3456789]\d{9}$/.test(mobile))) {
 												$(".beijin").css("display", "block");$(".beijin .texts").text("手机号码有误，请重填")
-											} else {												
-												var ress = s_province+"/"+s_city+"/"+s_county;						
+											} else {
+												var ress = s_province+"/"+s_city+"/"+s_county;
 												if(s_province == "省份" && s_city == "县、市" && s_county == "乡（镇）") {
 													ress = address;
-												}						
-												
+												}
+
 												post(names,sex,ress,workingLife1,occupation,workingLife,mobile,wxNum,email,xinsui,gzs);
 											}
 										}else{
-											var ress = s_province+"/"+s_city+"/"+s_county;						
+											var ress = s_province+"/"+s_city+"/"+s_county;
 												if(s_province == "省份" && s_city == "县、市" && s_county == "乡（镇）") {
 													ress = address;
-												}						
-												
+												}
+
 												post(names,sex,ress,workingLife1,occupation,workingLife,mobile,wxNum,email,xinsui,gzs);
 										}
 										document.getElementById("email").focus();
 										return false;
-									
+
 									}
 									var pattern = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
 									strEmail = pattern.test(email);
@@ -859,16 +859,16 @@ else if(chestr=="工作日周末")
 						if(s_province == "省份" && s_city == "县、市" && s_county == "乡（镇）") {
 							ress = address;
 						}
-						
+
 						console.log(occupation);
 post(names,sex,ress,workingLife1,occupation,workingLife,mobile,wxNum,email,xinsui,gzs);
-						
+
 											}
 										}else{
-											var ress = s_province+"/"+s_city+"/"+s_county;						
+											var ress = s_province+"/"+s_city+"/"+s_county;
 												if(s_province == "省份" && s_city == "县、市" && s_county == "乡（镇）") {
 													ress = address;
-												}						
+												}
 												console.log(occupation);
 												post(names,sex,ress,workingLife1,occupation,workingLife,mobile,wxNum,email,xinsui,gzs);
 										}
@@ -878,7 +878,7 @@ post(names,sex,ress,workingLife1,occupation,workingLife,mobile,wxNum,email,xinsu
 									}else{
 										$(".beijin").css("display", "block");$(".beijin .texts").text("请输入日薪！");
 									}
-							
+
 						} else {
 							$(".beijin").css("display", "block");$(".beijin .texts").text("请选择职业");
 						}
@@ -890,7 +890,7 @@ post(names,sex,ress,workingLife1,occupation,workingLife,mobile,wxNum,email,xinsu
 	}
 			})
 			function Email(){
-				
+
 			}
 			function post(names,sex,ress,workingLife1,occupation,workingLife,mobile,wxNum,email,xinsui,gzs){
 				$.post("{:url('user/index')}",{
