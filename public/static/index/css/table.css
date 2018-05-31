@@ -41,3 +41,6 @@
 	padding: 30px 0px;
 	font-weight: bold;
 }
+#column table:nth-child(1) tr:nth-child(1) {
+	background-color: #CCCCCC;
+}
