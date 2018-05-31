@@ -199,10 +199,10 @@ min-width: 1200px;
 				background-size: 100%;
 			}
 
-			.activesccc {
-				color: #ccc !important;
-				background: url(__INDEX__/img/navBg.png);
-				background-size: 100%;
+			.activeccc {
+			    background: #ff5454;
+			    color: #fff;
+			    border-radius: 14px;
 			}
 
 			.page-content{width: 100%;}
@@ -546,8 +546,6 @@ $("#qd").click(function() {
 								$('#more_choice2').css('display','block');
 							}
 						}
-
-						console.log($('.ccc'+type));
 					}
 					//点击一级分类,二级分类跳入不限,系统跳到不限
 					$('.sys .sss').removeClass("active");
@@ -612,12 +610,12 @@ $("#qd").click(function() {
 						$("#page-box").html(str);
 
 						var countsys = data.page.sys.length;
-						console.log(data.page.sys);
+						alert(countsys);
 
 						for (var i=0;i<countsys;i++)
 						{
 							var clasy = "sss"+data.page.sys[i];
-							$('.sys .'+clasy).addClass("activesccc");
+							$('.sys .'+clasy).addClass("activeccc");
 						}
 
 					}
