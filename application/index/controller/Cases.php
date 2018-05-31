@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-05-31 10:11:42
+ * @Last Modified time: 2018-05-31 10:39:24
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -145,6 +145,9 @@ class Cases extends Yang
             $page['page'] = 0;//总共几页
             $page['num'] = 1;//当前处于第几页
             $page['sys'][] = -200;
+            foreach ($systems as $va => $lu) {
+                $page['sys'][] = $lu['id'];
+            }
 
             $this->ret['page'] = $page;
             $this->ret['data'] = '暂无更多数据';
