@@ -1,0 +1,49 @@
+#nav2{
+	margin-bottom: 40px;
+}			
+			/*banner*/	
+			.center .left {
+				background-image: url(../img/index/phone.png);
+				padding: 40px 18px 80px 18px;
+				width: 325px;
+				margin: 0 auto;
+				border-radius: 30px;
+				float: left;
+				margin-left: 150px;
+			}		
+			.all {
+				width: 322px;
+				height: 560px;			
+			}
+
+			.screen {
+				width: 322px;
+				height: 560px;				
+			}
+
+			.screen li {
+				width: 322px;
+				height: 560px;				
+			}
+
+			.screen li img {
+				width: 322px;
+				height: 560px;
+			}
+
+/*sf*/
+			
+
+			.phone iframe {
+				width: 390px;
+				height: 690px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -183px;
+				margin-top: -343px;
+				border: none;
+			}
+			
+
+

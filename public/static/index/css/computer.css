@@ -1,0 +1,49 @@
+           /*banner*/         
+           .center .left {
+    background-image: url(../img/display.png);
+    filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+    -moz-background-size: 100% 100%;
+    background-size: 100% 100%;
+    width: 500px;
+    height: 414px;
+    margin: 0 auto;
+    float: left;
+    margin-top: 100px;
+}
+            .all {
+                margin-left: 20px;
+                margin-top: 20px;
+                width: 460px;
+                height: 260px;                
+            }
+
+            .screen {
+                width: 460px;
+                height: 260px;              
+            }
+
+            .screen li {
+                width: 460px;
+                height: 260px;              
+            }
+
+            .screen li img {
+                width: 460px;
+                height: 260px;
+            }
+
+           /*sdas*/         
+
+            
+
+            .phone iframe {
+                width: 520px;
+                height: 434px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-left: -260px;
+                margin-top: -220px;
+                border: none;
+            }
+            
