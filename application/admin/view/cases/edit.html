@@ -217,7 +217,70 @@
             <div class="formControls col-xs-6 col-sm-6">
         <div class="page-container">
             <div>
-                <script id="editor" type="text/plain" name="info" style="height:400px">{$vo.info ?? ''}</script>
+                <script id="editor" type="text/plain" name="info" style="height:400px">{$vo.info ?? '<p style="text-align: center;">
+    <span style="font-size: 24px;">项目报价</span>
+</p>
+<table>
+    <tbody>
+        <tr class="firstRow">
+            <td width="541" valign="top" style="word-break: break-all;">
+                修改幅度
+            </td>
+            <td width="541" valign="top" style="word-break: break-all;">
+                开发报价<br/>
+            </td>
+            <td width="541" valign="top" style="word-break: break-all;">
+                开发周期
+            </td>
+        </tr>
+        <tr>
+            <td width="541" valign="top"></td>
+            <td width="541" valign="top"></td>
+            <td width="541" valign="top"></td>
+        </tr>
+        <tr>
+            <td width="541" valign="top"></td>
+            <td width="541" valign="top"></td>
+            <td width="541" valign="top"></td>
+        </tr>
+        <tr>
+            <td width="541" valign="top"></td>
+            <td width="541" valign="top"></td>
+            <td width="541" valign="top"></td>
+        </tr>
+        <tr>
+            <td valign="top" colspan="1" rowspan="1"></td>
+            <td valign="top" colspan="1" rowspan="1"></td>
+            <td valign="top" colspan="1" rowspan="1" style="word-break: break-all;"></td>
+        </tr>
+    </tbody>
+</table>
+
+<p style="text-align: center;">
+    <span style="font-size: 24px;">功能菜单</span>
+</p>
+
+<table>
+    <tbody>
+        <tr class="firstRow">
+            <td width="401" valign="top" rowspan="3" colspan="1"></td>
+            <td width="401" valign="top"></td>
+            <td width="401" valign="top"></td>
+            <td width="401" valign="top"></td>
+        </tr>
+        <tr>
+            <td width="401" valign="top"></td>
+            <td width="401" valign="top"></td>
+            <td width="401" valign="top"></td>
+        </tr>
+        <tr>
+            <td width="401" valign="top"></td>
+            <td width="401" valign="top"></td>
+            <td width="401" valign="top"></td>
+        </tr>
+    </tbody>
+</table>
+'}</script>
             </div>
             <div id="markdown" class="mt-20"></div>
         </div>
@@ -809,7 +872,7 @@ var msg = "您真的确定要删除吗？\n\n请确认！";
                 case 'finish':
                     stats = uploader.getStats();
                     if ( stats.successNum ) {
-                        alert( '上传成功' );
+                        //alert( '上传成功' );
                     } else {
                         // 没有成功的图片，重设
                         state = 'done';

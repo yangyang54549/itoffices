@@ -198,6 +198,13 @@ min-width: 1200px;
 				background: url(__INDEX__/img/navBg.png);
 				background-size: 100%;
 			}
+
+			.activesccc {
+				color: #ccc !important;
+				background: url(__INDEX__/img/navBg.png);
+				background-size: 100%;
+			}
+
 			.page-content{width: 100%;}
 			 .demandlist{
 			 	width: 100%;
@@ -360,9 +367,9 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 <!--全部-->	<div class="choice_kind system share">
 				<span text="系统类型：" data="">系统类型：</span>
 				<ul class="sys">
-					<li data-id="0" class="active">不限</li>
+					<li data-id="0" class="active nusys sss">不限</li>
                         {volist name="system" id="vosss"}
-                            <li data-id="{$vosss.id}">{$vosss.name}</li>
+                            <li data-id="{$vosss.id}"  class="sss sss{$vosss.id}">{$vosss.name}</li>
                         {/volist}
 					<i class="clear"></i>
 				</ul>
@@ -524,6 +531,7 @@ $("#qd").click(function() {
 						$('.xiao .nuxian').addClass("active");
 						$('#more_choice2').css('display','block');
 					}else{
+
 						var claa = 'ccc'+id;
 						$('.xiao .ccc').css('display','none');
 						$('.xiao .'+claa).css('display','block');
@@ -541,6 +549,10 @@ $("#qd").click(function() {
 
 						console.log($('.ccc'+type));
 					}
+					//点击一级分类,二级分类跳入不限,系统跳到不限
+					$('.sys .sss').removeClass("active");
+					$('.sys .nusys').addClass("active");
+
 					var specific = $('.xiao .active').attr('data-id');
 					var system_type = $('.sys .active').attr('data-id');
 					$(".hhh").text('适用行业：');
@@ -569,6 +581,10 @@ $("#qd").click(function() {
 								}
 							}
 						}
+					//点击一级分类,二级分类跳入不限,系统跳到不限
+					$('.sys .sss').removeClass("active");
+					$('.sys .nusys').addClass("active");
+
 				}
 				$.post("{:url('cases/index')}",{type:type,specific:specific,system_type:system_type,page:page},function(data) {
 					pagenum = data.page.page;
@@ -594,6 +610,16 @@ $("#qd").click(function() {
 						'</span>/<span class="num">'+data.page.page+
 						'</span>页&nbsp;&nbsp;共<span class="total">'+data.page.count+'</span>条</em>';
 						$("#page-box").html(str);
+
+						var countsys = data.page.sys.length;
+						console.log(data.page.sys);
+
+						for (var i=0;i<countsys;i++)
+						{
+							var clasy = "sss"+data.page.sys[i];
+							$('.sys .'+clasy).addClass("activesccc");
+						}
+
 					}
 				})
 

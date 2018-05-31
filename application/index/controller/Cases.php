@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-05-29 18:29:36
+ * @Last Modified time: 2018-05-31 10:11:42
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -125,6 +125,17 @@ class Cases extends Yang
                 $page['count'] = C::where($where)->count();//总条数
                 $page['page'] = ceil($page['count']/8);//总共几页
                 $page['num'] = $pages;//当前处于第几页
+                $page['sys'][] = -200;
+                //判断系统类型是否存在,不存在传去前台
+                foreach ($systems as $va => $lu) {
+                     $where['system_type'] = ['like','%'.$lu["id"].'%'];
+                     $count = C::where($where)->count();
+                     if ($count==0) {
+                         $page['sys'][] = $lu['id'];
+                     }
+                }
+
+
                 $str .= '<li class="page-div" onclick="xia();"><h3>下一页</h3></li>';
                 $this->ret['data'] = $str;
                 $this->ret['page'] = $page;
@@ -133,6 +144,8 @@ class Cases extends Yang
             $page['count'] = 0;//总条数
             $page['page'] = 0;//总共几页
             $page['num'] = 1;//当前处于第几页
+            $page['sys'][] = -200;
+
             $this->ret['page'] = $page;
             $this->ret['data'] = '暂无更多数据';
             $this->ret['msg'] = '暂无更多数据';
