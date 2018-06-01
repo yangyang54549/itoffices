@@ -416,6 +416,41 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
                 <p class="qud" id="qd">确定</p>
             </div>
         </div>
+        <div class="gous" onclick="nos();">
+			
+		</div>
+		<div class="gou_bth" >
+				<p class="no"><input type="hidden" name="" id="hiddens" value="{$cases.money}" /> <span class="money">{$cases.money}</span><span class="nos" id="" onclick="nos();"></span></p>
+				<h5>购买须知！</h5>
+				
+				<p>购买前请认真了解购买流程，购买后您将获得账户和密码，需联系客服进行过户，过户后，确认交易金额将直接打给卖家。</p>
+				<div class="radio">
+					<div class="on" data-type = "0">
+						全款
+					</div>
+					<div class="" data-type = "1">
+						首付60%
+					</div>
+					<div class="" data-type = "2">
+						
+						<span>自定义</span>
+						<input type="number" name="money" id="money" value="" placeholder="自定义金额" style="outline:none ;"  onkeyup="value=value.replace(/[^\d]/g,'') " ng-pattern="/[^a-zA-Z]/"/>
+					</div>
+					
+				</div>
+				<p class="qud" >确定</p>
+			</div>
+		<div class="gou_er">
+			<p class="no"><span id="" onclick="nos();"></span></p>
+				<h5>购买须知！</h5>
+				<div class="img">
+					<img src="__INDEX__/img/saoma.png"/>
+					<p>微信扫码，快捷支付</p>
+				</div>
+				
+
+				
+			</div>
         <div class="imgs" style="width: 100vw;height: 100vh;position: fixed;top: 0px ;left: 0px ;background-color: rgba(0,0,0,.2); display: none;">
 			<img  id="imgs" src="{$cases.code}" style="width: 400px;height: 400px;display: block;position: absolute;top: 50%;left: 50%;margin-top: -200px;margin-left: -200px;" />
 		</div>
@@ -426,6 +461,44 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
         </div>
         <script src="__INDEX__/js/form.js" type="text/javascript" charset="utf-8"></script>
         <script type="text/javascript">
+        	/*购买-开始*/
+        	$(".gou").click(function(){
+				$(".gous").css("display","block");
+				$(".gou_bth").css("display","block");
+			})
+			$(".gou_bth .qud").click(function(){
+				/*var datas = $(".gou_bth .radio di.on").attr("data-type");
+				if(datas==2){
+					$(".money").text($("#hiddens").val()*0.6);
+				}else {
+					
+				}*/
+				$(".gou_bth").css("display","none");
+					$(".gou_er").css("display","block");
+			})
+			$(".gou_bth .radio div").click(function(){
+				$(".gou_bth .radio div").removeClass("on");
+				$(this).addClass("on");
+				var datas = $(this).attr("data-type");
+				if(datas==1){
+					$(".money").text($("#hiddens").val()*0.6);
+				}else if(datas==0){
+					$(".money").text($("#hiddens").val());
+				}
+			})
+			$("#money").bind('input', function() {
+				if($(this).val() !="") {
+					$(".money").text($(this).val());
+				}else{
+					$(".money").text($("#hiddens").val());
+				}
+			})
+			function nos(){
+				$(".gous").css("display","none");
+				$(".gou_bth").css("display","none");
+				$(".gou_er").css("display","none");
+			}
+			/*购买-结束*/
             $("#Xname").val($(".center .right h4").text());
 
             $(".submits").click(function() {

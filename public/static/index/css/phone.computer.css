@@ -369,7 +369,8 @@ overflow: hidden;
                 font-size: 18px;
 }
 .submit .gou{
-	float: right;
+	margin-left: 17.5%;
+	width: 25%;
 }
             .submits {
                
@@ -859,3 +860,149 @@ ol, ul {
            /* #tables tr:nth-child(2) td p,#tables tr:nth-child(3) td p,#tables tr:nth-child(4) td p,#tables tr:nth-child(5) td p{
                 font-size: 22px;
             }*/
+           
+.gous{
+	 width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: none;
+}
+.gou_bth,.gou_er{
+	 position: fixed;
+    top: 50%;
+    left: 50%;
+    
+	width: 420px;
+	height: 300px;
+	background-color: white;
+	border-radius:10px ;
+	overflow: hidden;
+	margin-left: -210px;
+	margin-top: -150px;
+	z-index: 11;
+	display: none;
+}
+.gou_er{
+	width: 380px;
+	height: 400px;
+	margin-left: -190px;
+	margin-top: -200px;
+}
+
+
+
+.gou_bth .radio .lable{
+	width: 20px;
+	height: 20px;
+	border:1px solid  #003300 ;
+	border-radius:50% ;
+	overflow: hidden;
+	margin-right: 10px;
+}
+.gou_bth .radios .lable{	
+	/*border:none ;*/
+	background-image: url(../img/ping.png);
+	 -moz-background-size:100% 100%;
+			   background-size:100% 100%;
+	
+	
+}
+.gou_bth h5,.gou_bth p,.gou_er h5{
+	padding: 10px 20px;
+	text-align: center;
+	font-size: 16px;
+}
+.gou_bth .no,.gou_er .no{
+	padding: 10px  20px;
+	height: 50px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.gou_bth .no .money,.gou_er .no .money{
+	float: left;
+	width: 180px;
+	margin-left: 100px;
+	text-align: center;
+	line-height: 30px;
+}
+.gou_bth .no .nos,.gou_er .no .nos{
+	float: right;
+	width: 30px;
+	height: 30px;
+	background-image: url(../img/icon/ca.png);
+	-moz-background-size:100% 100%;
+			   background-size:100% 100%;
+}
+.gou_bth h5{
+	font-size: 20px;
+	font-weight: bold;
+}
+.gou_bth .radio{
+	padding: 10px 20px;
+	width: 100%;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-around;
+}
+.gou_bth .radio>div{
+	width: 30%;	
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+.gou_bth .radio>div input{
+	
+	width: 100%;
+	height: 30px;
+	padding: 5px 10px;
+	margin-top: -7px;
+	margin-left: -7px;
+	line-height: 30px;
+	display: none;
+}
+.gou_bth .radio>div span{
+	
+	display: block;
+}
+.gou_bth .radio>div.on{
+	border: 1px solid red;
+	border-radius: 5px;
+	line-height: 28px;
+	
+}
+.gou_bth .radio>div.on input{
+	display: block;
+}
+.gou_bth .radio>div.on span{
+	
+	display:none;
+}
+.gou_bth p.qud{
+	width: 200px;
+	height: 40px;
+	line-height: 40px;
+	background-color: #0368bd;
+	border: none;
+	color: white;
+	margin: 0px  auto;
+	padding: 0px;
+}
+.gou_er .img{
+	width: 100%;
+	padding: 5px  20px;
+	box-sizing: border-box;
+}
+.gou_er .img img{
+	width: 200px;
+	margin: 0px  auto;
+}
+.gou_er .img p{
+	text-align: center;
+}
