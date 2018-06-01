@@ -922,17 +922,30 @@ ol, ul {
 	width: 100%;
 	box-sizing: border-box;
 }
-
-.gou_bth .no .money,.gou_er .no .money{
+.gou_bth .no span.h5,.gou_er .no span.h5{
+	
+	width: 180px ;
 	float: left;
-	width: 180px;
 	margin-left: 100px;
 	text-align: center;
-	line-height: 30px;
 	font-size: 26px;
 	font-weight: bold;
-	color: #e51515;
 }
+.gou_bth .money,.gou_er .money{
+	padding: 10px  20px;	
+	width: 100%;
+	text-align: center;
+	line-height: 30px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #e51515;
+	box-sizing: border-box;
+}
+.gou_bth  .money strong,.gou_er  .money strong{
+	font-size: 26px;
+}
+
+
 .gou_bth .no .nos,.gou_er .no .nos{
 	float: right;
 	width: 30px;
@@ -959,7 +972,7 @@ ol, ul {
 	text-align: center;
 	box-sizing: border-box;
 	background-color: white;
-	border: 1px  dashed #00FF00 ;
+	border: 1px  dashed gray ;
 	color: black;
 	border-radius: 5px;	
 	overflow: hidden;
@@ -990,7 +1003,7 @@ ol, ul {
 }
 .gou_bth .radio>div.on{
 	background-color: #afaeac;
-	border: 1px solid #0368bd;
+	border: 1px solid #afaeac;
 	color:white ;
 	/*border: 1px  dashed #00FF00 ;*/
 	border-radius: 5px;		
@@ -1022,7 +1035,7 @@ color:white ;
 	background-color: #0368bd;
 	border: none;
 	color: white;
-	margin: 0px  auto;
+	margin: 10px  auto;
 	padding: 0px;
 }
 .gou_er .img{
