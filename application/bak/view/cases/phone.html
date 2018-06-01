@@ -407,16 +407,16 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				$(this).addClass("on");
 				var datas = $(this).attr("data-type");
 				if(datas==1){
-					$(".money").text($("#hiddens").val()*0.6);
+					$(".gou_bth .no span.money").text($("#hiddens").val()*0.6);
 				}else if(datas==0){
-					$(".money").text($("#hiddens").val());
+					$(".gou_bth .no span.money").text($("#hiddens").val());
 				}
 			})
 			$("#money").bind('input', function() {
 				if($(this).val() !="") {
-					$(".money").text($(this).val());
+					$(".gou_bth .no span.money").text($(this).val());
 				}else{
-					$(".money").text($("#hiddens").val());
+					$(".gou_bth .no span.money").text($("#hiddens").val());
 				}
 			})
 			function nos(){
