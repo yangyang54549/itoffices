@@ -338,7 +338,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 		<div class="beijin">
 			<div class="good">
 				<h5>提交项目需求成功！</h5>
-
+				<p class="text">付款成功</p>
 				<p class="qud" id="qd">确定</p>
 			</div>
 		</div>
@@ -367,7 +367,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				<p class="qud" >确定</p>
 			</div>
 		<div class="gou_er">
-			<p class="no"><span id="" onclick="nos();"></span></p>
+			<p class="no"><span class="nos" id="" onclick="nos();"></span></p>
 				<h5>购买须知！</h5>
 				<div class="img">
 					<img src="__INDEX__/img/saoma.png"/>
@@ -407,8 +407,8 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				$(this).addClass("on");
 				var datas = $(this).attr("data-type");
 				if(datas==1){
-					$(".gou_bth .no span.money").text($("#hiddens").val()*0.6);
-				}else if(datas==0){
+					$(".gou_bth .no span.money").text($("#hiddens").val()*0.6);			
+				}else{
 					$(".gou_bth .no span.money").text($("#hiddens").val());
 				}
 			})
@@ -424,6 +424,10 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				$(".gou_bth").css("display","none");
 				$(".gou_er").css("display","none");
 			}
+			function money(){
+				$(".beijin").css("display", "block");
+				$(".beijin .good .text").css("display", "block");
+			}
 			/*购买-结束*/
 			$("#Xname").val($(".center .right h4").text());
 			$(".submits").click(function() {
@@ -432,8 +436,11 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 			$(".forms form li:nth-child(1) p").click(function() {
 				$(".forms").css("display", "none");
 			})
+			
 			$(".beijin").click(function() {
 				$(".beijin").css("display", "none");
+				$(".beijin .good .text").css("display", "none");
+				
 			})
 			/*表单*/
 			var xname = document.getElementById("Xname");
