@@ -36,10 +36,11 @@
 				font-size: 24px;
 			}
 
-#column>p span{
+#column>p{
 	display: block;
-	padding: 30px 0px;
+	line-height: 60px;
 	font-weight: bold;
+	height: auto;
 }
 
 #column table:nth-child(1) .firstRow {
