@@ -406,7 +406,22 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 					}
 				}
 			}*/
-			
+			 $(document).ready(function(){  
+        var ipt = $('#money');  
+        ipt.on('keyup',function(){  
+            if(! /^\d+$/.test(this.value)){  
+                this.value='';  
+            }  
+        })  
+    });  
+      
+    //2  
+    if(!/^[-]?[0-9]*\.?[0-9]+(eE?[0-9]+)?$/.test(ele.value)){ //校验数子  
+        return false;  
+    }  
+    if(ele.value.indexOf('.') !=-1){ //校验.  
+        return false;  
+    }  
 			/*购买-开始*/
 			$(".gou").click(function(){
 				$(".gous").css("display","block");
@@ -425,21 +440,39 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 					$(".gou_bth .money strong").text($("#hiddens").val()*0.6);			
 				}else if(datas==2){
 					if($("#money").val()>0 &&$("#money").val()!=""){
-						$(".gou_bth .money strong").text(Math.abs($("#money").val()));
+						/*var x = String($("#money").val()).indexOf('.') + 1;   //小数点的位置
+						var id=window.setTimeout(function(){*/
+						$(".gou_bth .money strong").text($("#money").val());
+					
 					}else{
 						$(".gou_bth .money strong").text($("#hiddens").val());
-					}
-					
+					}										
 				}else{
 					$(".gou_bth .money strong").text($("#hiddens").val());
-				}
-				
+				}				
 			})
+
 			$("#money").bind('input', function() {
 				if($(this).val() !="") {
 					
 					if($(this).val()>0){
-						$(".gou_bth .money strong").text(Math.abs($(this).val()));
+						/*$(".gou_bth .money strong").text(Math.abs($(this).val()));*/
+						/*var id=window.setTimeout(function(){
+						
+					},50);*/
+					$(".gou_bth .money strong").text($("#money").val());
+	/*				var th =  $(this).val();
+					var x = String(th).indexOf('.') + 1;   //小数点的位置
+var y = String(th).length - x;  //小数的位数
+if(y>0){
+	var ths = th;
+	for(var i = 0;i<y;i++){
+		ths = ths*10;
+	}
+	$(".gou_bth .money strong").text(ths);
+}else{
+	$(".gou_bth .money strong").text(th);
+}*/
 					}else{
 						$(".gou_bth .money strong").text($("#hiddens").val());
 					}
