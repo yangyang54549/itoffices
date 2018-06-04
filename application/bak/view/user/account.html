@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>个人中心-个人账户</title>
+		<!--<link rel="stylesheet" type="text/css" href="__INDEX__/css/order.css" />-->
+		<!--<link rel="stylesheet" type="text/css" href="css/header.css" />-->
+		<!--<link rel="stylesheet" href="css/restre.css">-->
+		<script type="text/javascript" src="__INDEX__/js/jss/jquery-1.9.1.min.js"></script>
+		<style type="text/css">
+			body,div{
+				margin: 0px;
+				padding: 0px;
+			}
+			a {
+				text-decoration: none;
+				color: black;
+			}
+			
+			a:link {
+				text-decoration: none;
+				color: black;
+			}
+			
+			a:visited {
+				text-decoration: none;
+			}
+			
+			a:active {
+				text-decoration: none;
+				color: black;
+			}
+			
+			a:hover {
+				text-decoration: none;
+			}
+			
+			.relative {
+				position: relative;
+				top: 0;
+				left: 0;
+			}
+			
+			.footer {
+				width: 100%;
+				background-color: #1e2831;
+				height: 60px;
+				z-index: 100;
+			}
+			
+			.footer .center {
+				width: 75%;
+				margin: 0 auto;
+			}
+			
+			.footer .center p {
+				width: 100%;
+				text-align: center;
+				line-height: 60px;
+				color: #fff;
+				font-size: 14px;
+			}
+			
+			.content .center {
+				width: 80%;
+				margin: 0 auto;
+				padding-top: 50px;
+				min-width: 890px;
+				position: relative;
+				padding-left: 250px;
+				box-sizing: border-box;
+			}
+			
+			.center_left {
+				width: 250px;
+				padding-top: 20px;
+				position: absolute;
+				top: 50px;
+				left: 0;
+				display: flex;
+				flex-direction: column;
+			}
+			
+			.center_left a {
+				width: 108px;
+				height: 36px;
+				text-align: center;
+				line-height: 36px;
+				font-size: 16px;
+				border-radius: 18px;
+				margin: 15px 0px 0px 10px;
+				color: #3a4455;
+			}
+			
+			.center_left a:hover {
+				background: #ff5353;
+				color: white;
+			}
+			
+			.center_left .active {
+				background: #ff5353;color: white;
+			}
+			
+			.center_cen {
+				width: 100%;
+				
+				box-shadow: 0 2px 10px 1px rgba(28, 57, 81, 0.18);
+			}
+			
+			.cente-head {
+				display: flex;
+				justify-content: space-around;
+				padding: 20px 0;
+			}
+			
+			.cente-head .p2 {
+				float: left;
+				width: 20%;
+				margin: 0;
+				text-align: center;
+				font-size: 16px;
+				padding: 10px 0;
+				box-sizing: border-box;
+			}
+			
+			.cente-head .p2 span {
+				display: block;
+				line-height: 30px;
+			}
+			
+			.cente-head .p2 span strong {
+				font-size: 18px;
+				margin-right: 3px;
+	
+			}
+			
+			.cente-head .p2 span.bth {
+				width: 150px;
+				margin: 5px auto;
+				border: 1px solid #E9935A;
+				color: #E9935A;
+				border-radius: 5px;
+			}
+			
+			.cente_b {
+				width: 100%;
+				min-height: 80vh;
+				overflow: hidden;
+			}
+			/*.cente_ul {
+				width: 100%;
+				
+			}*/
+			/*ul*/
+			
+			.center_cen h5,.center_cen h4 {
+				height: 80px;
+				line-height: 60px;
+				
+				color: #E9935A;
+				width: 100%;
+				padding: 10px 30px;
+				box-sizing: border-box;
+				margin: 0px;
+				
+			}
+			.cente_b p{
+				width: 100%;
+				height: 50px;
+				box-sizing: border-box;
+				padding: 10px 30px;
+				overflow: hidden;
+			}
+			.cente_b p span{
+				float: left;
+				text-align: center;
+				box-sizing: border-box;
+				height: 30px;
+				padding: 5px 10px;
+				line-height: 30px;
+				
+			}
+			.cente_b p span.bt1,.cente_b p span.bt2{
+				width: 20%;				
+			}
+			.cente_b p span.bt2{
+				width: 25%;	
+			}
+			.cente_b p span.bt3{
+				width:50%;				
+			}
+			
+			
+			.beijin {
+				width: 100vw;
+				height: 100vh;
+				background-color: rgba(0, 0, 0, 0.5);
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 200;
+				display: none;
+			}
+			
+			.good {
+				margin: 30vh auto;
+				padding: 50px;
+				width: 400px;
+				background-color: white;
+				border-radius:10px ;
+				overflow: hidden;
+				position: relative;
+			}
+			
+			.good h5,
+			.good p {
+				width: 100%;
+				text-align: center;
+			}
+			
+			.good h5 {
+				font-size: 16px;
+				margin: 0;
+				margin-bottom: 20px;
+			}
+			
+			.good p {
+				font-size: 15px;
+				font-weight: 600;
+				overflow: hidden;
+			}
+			.good p input{
+				width: 110%;
+				margin: 0px  auto;
+				height: 30px;
+				line-height: 30px;
+				padding: 5px;
+				box-sizing: border-box;
+				border: none;
+			}
+			.good .qud {
+				float: left;
+				width: 30% !important;
+				margin-left: 15%;
+				border: 1px solid blue;
+				color: black;
+				border-radius: 10px;
+				padding: 5px 0;
+				margin-top: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+{include file="index/nav1"/}
+		<div class="content" style="padding: 0;">
+			<div class="center">
+				<div class="center_left">
+
+					<a href="{:url('user/index')}">基本信息</a>
+					<a href="{:url('user/order')}" ><em></em>我的订单</a>
+					<a href="{:url('user/account')}" class="active">个人账户</a>
+<a href="{:url('user/resume')}">个人主页</a>
+					<a href="javascript:if(confirm('确认要退出登录吗?')){location='{:url("login/exits")}'}">退出登录</a>
+				</div>
+				<div class="center_cen">
+					<h4 style=" border-bottom: 1px solid rgba(28, 57, 81, 0.18);">个人账户</h4>
+					<div class="cente-head ">
+						<div class="p2">
+							<span> <strong>0</strong>元</span>
+							<span id="num_1">可提现</span>
+							<span class="bth" onclick="block();">提现</span>
+						</div>
+						<div class="p2">
+							<span> <strong>0</strong>元</span>
+							<span id="num_2">冻结金额</span>
+						</div>
+						<div class="p2">
+							<span> <strong>0</strong>元</span>
+							<span id="num_3">已提现</span>
+						</div>
+						<div class="p2">
+							<span> <strong>0</strong>元</span>
+							<span id="num_4">总收益</span>
+						</div>
+					</div>
+					<div class="cente_b">
+						<h4 style="background-color: #0286EB;color: white;">交易明细</h4>
+						<p><span class="bt1">金额</span><span class="bt2">时间</span><span class="bt3">明细</span></p>
+						<p><span class="bt1">2</span><span class="bt2">2011-11-02</span><span class="bt3">提现</span></p>
+						<p><span class="bt1">2</span><span class="bt2">2011-11-02</span><span class="bt3">提现</span></p>
+						<p><span class="bt1">2</span><span class="bt2">2011-11-02</span><span class="bt3">提现</span></p>
+						<p><span class="bt1">2</span><span class="bt2">2011-11-02</span><span class="bt3">提现</span></p>
+						<p><span class="bt1">2</span><span class="bt2">2011-11-02</span><span class="bt3">提现</span></p>
+						<p><span class="bt1">2</span><span class="bt2">2011-11-02</span><span class="bt3">提现</span></p>
+<p><span class="bt1">2</span><span class="bt2">2011-11-02</span><span class="bt3">提现</span></p>
+<p><span class="bt1">2</span><span class="bt2">2011-11-02</span><span class="bt3">提现</span></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	<div class="beijin" >
+			<div class="good">
+				<h5>提现金额！</h5>
+				<p style="border: 1px solid grey;"><input type="number" name="money" id="money" value=""  style="outline:none ;" oninput="if(value.length>11)value=value.slice(0,11)" onkeyup="value=value.replace(/[^\d]/g,'') " ng-pattern="/[^a-zA-Z]/"/>
+					</p>
+				<p><span class="qud" id="qd1" onclick="none();">确定</span>
+				<span class="qud" id="qd2"onclick="none();" >取消</span></p>
+			</div>
+		</div>
+		<div class="footer" style="background-color: #1e2831;" >
+			<div class="center">
+				<p>2011-2018 汇谷科技  版权所有：豫ICP备12027515号-1</p>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(".content .center_cen").width(($(".center").width() - 250) + "px");
+			$(".active").css("color", "white");
+			
+			function block(){
+				$(".beijin").css("display","block");
+			}
+			function none(){
+				$(".beijin").css("display","none");
+				$(".beijin input").val("");
+			}
+		</script>
+	</body>
+
+</html>
