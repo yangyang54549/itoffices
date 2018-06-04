@@ -1,12 +1,12 @@
 	.sou {
 				width: 100%;
 				min-width: 1200px;
-				height: 450px;
+				height: 600px;
 				  background-repeat: no-repeat;   
     background-color: transparent;
-    background-position: -404px -0px;
-    background-image: url(../img/NAVS.png);
-    background-size: 2500px auto;
+    background-position: -0px -0px;
+    background-image: url(../img/na.jpg);
+    background-size: 1980px auto;
     padding-top: 120px;
     background-attachment: fixed;
 			/*	background:  url(../img/index.jpg)  no-repeat fixed bottom;	*/	
