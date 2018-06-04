@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-05-31 14:42:26
+ * @Last Modified time: 2018-06-04 14:18:24
  */
 namespace app\bak\controller;
 use app\admin\Controller;
@@ -381,6 +381,11 @@ class User  extends Yang
     }
 
     public function news()
+    {
+            return $this->fetch();
+    }
+
+    public function account()
     {
             return $this->fetch();
     }
