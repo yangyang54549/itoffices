@@ -68,7 +68,7 @@
 				
 				min-width: 890px;
 				position: relative;
-				padding: 50px 0px 0px 250px;
+				padding: 50px 0px 50px 250px;
 				box-sizing: border-box;
 			}
 			
@@ -130,22 +130,23 @@
 			}
 			
 			.cente-head .p2 span strong {
-				font-size: 18px;
+				font-size: 19px;
 				margin-right: 3px;
+				/*font-weight: bold;*/
 	
 			}
 			
 			.cente-head .p2 span.bth {
 				width: 150px;
 				margin: 5px auto;
-				border: 1px solid #E9935A;
-				color: #E9935A;
+				border: 1px solid #ff5353;
+				color: #ff5353;
 				border-radius: 5px;
 			}
 			
 			.cente_b {
 				width: 100%;
-				min-height: 80vh;
+				min-height: 50vh;
 				overflow: hidden;
 			}
 			/*.cente_ul {
@@ -158,7 +159,8 @@
 				height: 80px;
 				line-height: 60px;
 				
-				color: #E9935A;
+				/*color: #E9935A;*/
+				color: #ff5353;
 				width: 100%;
 				padding: 10px 30px;
 				box-sizing: border-box;
@@ -246,8 +248,8 @@
 				float: left;
 				width: 30% !important;
 				margin-left: 15%;
-				border: 1px solid blue;
-				color: black;
+				border: 1px solid #ff5353;
+				color: #ff5353;
 				border-radius: 10px;
 				padding: 5px 0;
 				margin-top: 20px;
@@ -290,7 +292,7 @@
 					</div>
 					<div class="cente_b">
 						<h4 style="background-color: #F5F5F5;">交易明细</h4>
-						<p><span class="bt0">案例</span><span class="bt1">金额</span><span class="bt2">时间</span><span class="bt3">明细</span></p>
+						<p><span class="bt0">名称</span><span class="bt1">金额</span><span class="bt2">时间</span><span class="bt3">明细</span></p>
 						<p><span class="bt0">案例1</span><span class="bt1">2</span><span class="bt2">2011-11-02</span><span class="bt3">提现</span></p>
 						
 					</div>
@@ -300,9 +302,10 @@
 	<div class="beijin" >
 			<div class="good">
 				<h5>提现金额！</h5>
-				<p style="border: 1px solid grey;"><input type="number" name="money" id="money" value=""  style="outline:none ;" oninput="if(value.length>11)value=value.slice(0,11)" onkeyup="value=value.replace(/[^\d]/g,'') " ng-pattern="/[^a-zA-Z]/"/>
+				<p style="border: 1px solid grey;">
+				<input type="number" name="money" id="money" value=""  placeholder="提现金额不能小于100" style="outline:none ;" oninput="if(value.length>11)value=value.slice(0,11)" onkeyup="value=value.replace(/[^\d]/g,'') " ng-pattern="/[^a-zA-Z]/"/>
 					</p>
-				<p><span class="qud" id="qd1" onclick="none();">确定</span>
+				<p><span class="qud" id="qd1" onclick="none1();">确定</span>
 				<span class="qud" id="qd2"onclick="none();" >取消</span></p>
 			</div>
 		</div>
@@ -318,7 +321,16 @@
 			}
 			function none(){
 				$(".beijin").css("display","none");
+				
+			}
+			function none1(){
+				if($(".beijin input").val()<100){
+					
+				}else{
+					$(".beijin").css("display","none");
 				$(".beijin input").val("");
+				}
+				
 			}
 		</script>
 	</body>
