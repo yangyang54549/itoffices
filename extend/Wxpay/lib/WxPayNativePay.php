@@ -1,7 +1,5 @@
 <?php
-namespace Wxpay\example\WxPayNativePay;
-use Wxpay\lib\WxPayApi;
-//require_once "../lib/WxPayApi.php";
+//require_once "WxPayApi.php";
 /**
  *
  * 刷卡支付实现类

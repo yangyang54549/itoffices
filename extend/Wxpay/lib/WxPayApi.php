@@ -1,13 +1,8 @@
 <?php
-namespace Wxpay\lib\WxPayApi;
-use Wxpay\lib\WxPayException;
-use Wxpay\lib\WxPayConfig;
-use Wxpay\lib\WxPayData;
 
-
-// require_once "WxPayException.php";
-// require_once "WxPayConfig.php";
-// require_once "WxPayData.php";
+require_once "WxPayException.php";
+require_once "WxPayConfig.php";
+require_once "WxPayData.php";
 
 /**
  *
@@ -18,6 +13,12 @@ use Wxpay\lib\WxPayData;
  */
 class WxPayApi
 {
+
+	public static function tesss()
+	{
+		echo 'ok';
+	}
+
 	/**
 	 *
 	 * 统一下单，WxPayUnifiedOrder中out_trade_no、body、total_fee、trade_type必填

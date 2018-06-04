@@ -1,13 +1,14 @@
 <?php
-namespace Wxpay\lib\WxPayData;
-use Wxpay\lib\WxPayConfig;
-use Wxpay\lib\WxPayException;
+//namespace Wxpay\lib;
+//use Wxpay\lib;
+// use Wxpay\lib\WxPayConfig;
+// use Wxpay\lib\WxPayException;
 
 /**
 * 2015-06-29 修复签名问题
 **/
-// require_once "WxPayConfig.php";
-// require_once "WxPayException.php";
+require_once "WxPayConfig.php";
+require_once "WxPayException.php";
 
 /**
  *
@@ -19,6 +20,12 @@ use Wxpay\lib\WxPayException;
 class WxPayDataBase
 {
 	protected $values = array();
+
+	public function tesssaaa()
+	{
+		echo 'ok';
+	}
+
 
 	/**
 	* 设置签名，详见签名生成算法

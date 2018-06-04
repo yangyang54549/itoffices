@@ -1,5 +1,5 @@
 <?php
-namespace Wxpay\lib\WxPayException;
+// namespace Wxpay\lib;
 
 /**
  *

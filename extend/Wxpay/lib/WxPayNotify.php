@@ -1,5 +1,5 @@
 <?php
-namespace Wxpay\lib\WxPayNotify;
+// namespace Wxpay\lib;
 
 /**
  *

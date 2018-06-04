@@ -13,5 +13,16 @@ class CasesPay extends Controller
 
     protected static $isdelete = false;
 
-    
+    protected function filter(&$map)
+    {
+        if ($this->request->param("order_id")) {
+            $map['order_id'] = ["like", "%" . $this->request->param("order_id") . "%"];
+        }
+        if ($this->request->param("user_id")) {
+            $map['user_id'] = ["like", "%" . $this->request->param("user_id") . "%"];
+        }
+        if ($this->request->param("cases_id")) {
+            $map['cases_id'] = ["like", "%" . $this->request->param("cases_id") . "%"];
+        }
+    }
 }
