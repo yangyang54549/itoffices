@@ -1,6 +1,5 @@
 <?php
 namespace Wxpay\example;
-
 use think\Loader;
 
 Loader::import('Wxpay.lib.WxPayApi');
@@ -31,7 +30,7 @@ class Native
         $input->SetTime_start(date("YmdHis"));
         $input->SetTime_expire(date("YmdHis", time() + 600));
         $input->SetGoods_tag("test");
-        $input->SetNotify_url("http://keji.yingjisong.com/example/notify.php");
+        $input->SetNotify_url(LUR.url('Native/notify'));
         $input->SetTrade_type("NATIVE");
         $input->SetProduct_id("123456789");
         $result = $notify->GetPayUrl($input);
