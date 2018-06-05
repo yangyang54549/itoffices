@@ -422,10 +422,10 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				var moneys = parseInt($(".gou_bth .money strong").text());
 				var name = $("#right-h4").text();
 
-				alert(moneys);
+				//alert(moneys);
             $.post(
                 "{:url('Native/index')}",
-                {money:5000,name:name,cases_id:cases_id},
+                {money:moneys,name:name,cases_id:cases_id},
                 function(data){
                     if (data.code==1) {
                     	$("#wxpayimg").attr("src",data.data);
