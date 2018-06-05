@@ -605,14 +605,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				}
 			})
 
-			$(".head_img").click(function(){
-				if (session.length == 0){
-					$(".login_background").css("display","block");
-					$(".login").css("display","block");
-				}else{
-					window.location.href='{:url("user/index")}';
-				}
-			})
+			
 
 			$("#login-none").click(function(){
 				loginNone();
@@ -626,8 +619,15 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 
 			/*购买-开始*/
 			$(".gou").click(function(){
-				$(".gous").css("display","block");
-				$(".gou_bth").css("display","block");
+				
+				if (session == ""){
+					$(".gous").css("display","block");
+					$(".gou_bth").css("display","block");
+				}else{
+					$(".login_background").css("display","block");
+					$(".login").css("display","block");
+				}
+				
 			})
 			$(".gou_bth .qud").click(function(){
 				var moneys = parseInt($(".gou_bth .money strong").text());
