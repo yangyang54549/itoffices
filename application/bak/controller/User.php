@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-06-04 14:18:24
+ * @Last Modified time: 2018-06-05 18:30:58
  */
 namespace app\bak\controller;
 use app\admin\Controller;
@@ -19,6 +19,7 @@ use app\common\model\UserSkill;
 use app\common\model\Apply;
 use app\common\model\Evaluate;
 use think\exception\HttpException;
+use app\common\model\CasesPay;
 
 class User  extends Yang
 {
@@ -387,6 +388,10 @@ class User  extends Yang
 
     public function account()
     {
-            return $this->fetch();
+        $user_id = Session::get('user.id');
+        $CasesPay = CasesPay::where(['user_id'=>$user_id])->select();
+        $this->assign('casespay',$CasesPay);
+
+        return $this->fetch();
     }
 }
