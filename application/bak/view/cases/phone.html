@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="__INDEX__/css/phone.computer.css"/>
 <link rel="stylesheet" type="text/css" href="__INDEX__/css/phone.css" />
 		<script src="__INDEX__/js/jss/jquery.js" type="text/javascript" charset="utf-8"></script>
-		
+
 <link rel="stylesheet" type="text/css" href="__INDEX__/css/table.css" />
 <style type="text/css">
 	    input{outline:none;}
@@ -147,9 +147,9 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 						<!--<a href="#two">思维导图</a>-->
 						<a href="#three">开发顾问</a>
 					</div>
-					
+
 					<div class="column" id="column">
-						{$cases.info}						
+						{$cases.info}
 					</div>
 					<div class="columns">
 						<h3 >网站代建服务</h3>
@@ -159,11 +159,11 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 有专业建站师为您量身制作网站，您仅需联系客服、购买服务、传送资料，1~2个工作日就可“坐享其成”
 										<!--网站代建服务
 										<p style="font-size: 18px; width: 100%;text-align: center;margin: 0px ; padding: 0px;">有专业建站师为您量身制作网站，您仅需联系客服、购买服务、传送资料，1~2个工作日就可“坐享其成”</p>-->
-										
+
 									</td>
 
 								</tr>
-								
+
 								<tr>
 									<td>
 										套餐名称
@@ -256,7 +256,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 									<td class="blue">
 										购买服务
 									</td>
-									<td class="blue"> 
+									<td class="blue">
 										购买服务>
 									</td>
 									<td class="blue">
@@ -337,21 +337,21 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 		</div>
 		<div class="beijin">
 			<div class="good">
-				<h5>提交项目需求成功！</h5>				
+				<h5>提交项目需求成功！</h5>
 				<p class="qud" id="qd">确定</p>
 			</div>
 		</div>
 		<div class="gous" onclick="nos();">
-			
+
 		</div>
 		<div class="gou_bth" >
-			<p class="no"><input type="hidden" name="" id="hiddens" value="{$cases.money}" /> 
+			<p class="no"><input type="hidden" name="" id="hiddens" value="{$cases.money}" />
 					<span class="h5">购买须知！</span>
 					<span class="nos" id="" onclick="nos();"></span></p>
-			
-				
+
+
 				<p>购买后您将获得账户和密码，需联系客服进行交接，交接后，确认交易金额将直接打给卖家。</p>
-				
+
 					<p class="money">￥<strong>{$cases.money}</strong>元</p>
 					<div class="radio">
 					<div class="on" data-type = "0">
@@ -361,28 +361,28 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 						首付60%
 					</div>
 					<div class="" data-type = "2">
-						
+
 						<span>自定义</span>
 						<input type="number" name="money" id="money" value="" placeholder="自定义金额" style="outline:none ;" oninput="if(value.length>11)value=value.slice(0,11)" onkeyup="value=value.replace(/[^\d]/g,'') " ng-pattern="/[^a-zA-Z]/"/>
 					</div>
-					
+
 				</div>
-				
-				
-			
-				
+
+
+
+
 				<p class="qud" >确定</p>
 			</div>
 		<div class="gou_er">
 			<p class="no"><span class="nos" id="" onclick="nos();"></span></p>
 				<h5>购买须知！</h5>
 				<div class="img">
-					<img src="__INDEX__/img/saoma.png"/>
+					<img src="__INDEX__/img/saoma.png" id="wxpayimg" />
 					<p>微信扫码，快捷支付</p>
 				</div>
-				
 
-				
+
+
 			</div>
 		<div class="imgs" style="width: 100vw;height: 100vh;position: fixed;top: 0px ;left: 0px ;background-color: rgba(0,0,0,.2); display: none;">
 			<img  id="imgs" src="{$cases.code}" style="width: 400px;height: 400px;display: block;position: absolute;top: 50%;left: 50%;margin-top: -200px;margin-left: -200px;" />
@@ -400,50 +400,68 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				for(var i = 0; i<plen;i++){
 					$("#column>p").eq(i).text()
 					if($("#column>p").eq(i).text()==""){
-						
+
 						$("#column>p").eq(i).remove();
 						i=0;
 					}
 				}
 			}*/
-			
+			var cases_id = {$cases.id};
 			/*购买-开始*/
 			$(".gou").click(function(){
+
+
+
+
 				$(".gous").css("display","block");
 				$(".gou_bth").css("display","block");
 			})
-			$(".gou_bth .qud").click(function(){				
-				var moneys = parseInt($(".gou_bth .money strong").text());				
-				$(".gou_bth").css("display","none");
-				$(".gou_er").css("display","block");
+			$(".gou_bth .qud").click(function(){
+				var moneys = parseInt($(".gou_bth .money strong").text());
+				var name = $("#right-h4").text();
+
+
+            $.post(
+                "{:url('Native/index')}",
+                {money:5000,name:name,cases_id:cases_id},
+                function(data){
+                    if (data.code==1) {
+                    	$("#wxpayimg").attr("src",data.data);
+						$(".gou_bth").css("display","none");
+						$(".gou_er").css("display","block");
+                    }else{
+                    	alert(data.msg);
+                    }
+                   }
+                )
 			})
 			$(".gou_bth .radio div").click(function(){
 				$(".gou_bth .radio div").removeClass("on");
 				$(this).addClass("on");
 				var datas = $(this).attr("data-type");
 				if(datas==1){
-					$(".gou_bth .money strong").text($("#hiddens").val()*0.6);			
+					$(".gou_bth .money strong").text($("#hiddens").val()*0.6);
 				}else if(datas==2){
 					if($("#money").val()>0 &&$("#money").val()!=""){
 						$(".gou_bth .money strong").text(Math.abs($("#money").val()));
 					}else{
 						$(".gou_bth .money strong").text($("#hiddens").val());
 					}
-					
+
 				}else{
 					$(".gou_bth .money strong").text($("#hiddens").val());
 				}
-				
+
 			})
 			$("#money").bind('input', function() {
 				if($(this).val() !="") {
-					
+
 					if($(this).val()>0){
 						$(".gou_bth .money strong").text(Math.abs($(this).val()));
 					}else{
 						$(".gou_bth .money strong").text($("#hiddens").val());
 					}
-				}else{					
+				}else{
 					$(".gou_bth .money strong").text($("#hiddens").val());
 				}
 			})
@@ -451,7 +469,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				$(".gous").css("display","none");
 				$(".gou_bth").css("display","none");
 				$(".gou_er").css("display","none");
-			
+
 			}
 			function money(){
 				$(".beijin").css("display", "block");
@@ -465,11 +483,11 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 			$(".forms form li:nth-child(1) p").click(function() {
 				$(".forms").css("display", "none");
 			})
-			
+
 			$(".beijin").click(function() {
 				$(".beijin").css("display", "none");
-				
-				
+
+
 			})
 			/*表单*/
 			var xname = document.getElementById("Xname");
@@ -517,7 +535,6 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
                                             }
 										}
 
-                                                var cases_id = {$cases.id};
                                                 var name = xname.value;
                                                 var remark = brief.value;
                                                 var username = names.value;
@@ -714,13 +731,13 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 			})
 
 			quweinongchang();
-			function quweinongchang(){								
+			function quweinongchang(){
 				if($('#right-a').attr('href')!=""){
-					
+
 				}else{
-					$('#right-a').attr("href","javascript:void(0)"); 
+					$('#right-a').attr("href","javascript:void(0)");
 				}
-				
+
 			}
 			$("#right-img").click(function(){
 				$(".imgs").css("display", "block");
@@ -736,7 +753,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 					$(".imgs").css("display", "block");
 				}
 			})
-			
+
 			/*var ph = document.getElementById("phone_height");
 			var nav2 = document.getElementById("nav2");
 			var nav = document.getElementById("nav");

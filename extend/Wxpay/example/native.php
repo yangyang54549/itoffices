@@ -19,12 +19,12 @@ require_once 'log.php';
 class Native
 {
 
-    public static function getPayImage($money)
+    public static function getPayImage($money,$name)
     {
         $notify = new \NativePay();
 
         $input = new \WxPayUnifiedOrder();
-        $input->SetBody("test");
+        $input->SetBody($name);
         $input->SetAttach("test");
         $input->SetOut_trade_no(\WxPayConfig::MCHID.date("YmdHis"));
         $input->SetTotal_fee($money);
