@@ -47,7 +47,186 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
                 <div style="clear:both"></div>
             </div>
         </div>-->
+<style type="text/css">
+			.login_background{
+				 width: 100%;
+    			min-width: 1080px;
+    			height:100vh;
+    			min-height: 800px;
+    			position: fixed;
+    			top: 0;
+    			left: 0;
+    			z-index: 9;
+    			background-color: rgba(0,0,0,.3);  display: none;
+			}
+			.login{
+				width: 400px;
+				height: 400px;
+				/*background-image: url(__INDEX__/img/1.png);*/
+				background-color: white;
+				border-radius: 20px;
+				box-sizing: border-box;
+				padding: 0px 50px;
+				position: fixed;
+				left: 50%;
+				top: 50%;
+				z-index: 10;
+				margin-left: -200px;
+				margin-top: -200px;
+				display: none;
+			}
+			.login_logo{
+				width: 100%;
+				overflow: hidden;
+				text-align: center;
+				line-height: 50px;
+				font-size: 24px;
+				font-weight: bold;
 
+				margin-top: 20px;
+
+			}
+
+			.form-group{
+				width: 100%;
+				overflow: hidden;
+				padding: 10px 0px;
+				height: 40px;
+				position: relative;
+			}
+			.form-group input.form-control{
+				width: 100%;
+				height: 40px;
+				line-height: 40px;
+				font-size: 16px;
+				padding: 0px 10px;
+				box-sizing: border-box;
+			}
+			/*.form-group label.t{
+				width: 30%;
+			}
+			.form-group input.form-control{
+				width: 69%;
+				padding-left: 10px;
+				box-sizing: border-box;
+
+			}*/
+			.form-group input.btn-default{
+				width: 100%;
+				height: 40px;
+				line-height: 40px;
+				border-radius: 5px;
+				font-size: 14px;
+				background-color: black;
+				color: white;
+			}
+			#yan{
+				position: absolute;
+				top: 15px;
+				right: 5px;
+				width: 110px;
+				padding: 0px 10px;
+				height: 30px;
+				line-height: 30px;
+				border-radius: 10px;
+				text-align: center;
+				background-color: black;
+				color: white;
+				font-size: 14px;
+			}
+			.login_logos{
+				width: 100%;
+			}
+			.login_logos p.one{
+				height: 15px;
+				border-bottom: 1px solid rgba(0,0,0,.5);
+			}
+			.login_logos p.one span{
+				display: block;
+				padding: 0px 10px ;
+				height:30px ;
+				width: 100px;
+				margin: 0px  auto;
+				text-align: center;
+				line-height: 30px;
+				background-color: white;
+
+			}
+			.login_logos p.two{
+				width: 100%;
+				margin: 25px 0px ;
+				display: flex;
+				justify-content: space-around;
+			}
+			.login_logos p.two span{
+				display: block;
+
+				width:50px;
+				height: 50px;
+				background-image: url(__INDEX__/img/icon/weixin.png);
+				 -moz-background-size:100% 100%;
+			   background-size:100% 100%;
+			}
+			#quehuan1,#quehuan2{
+				display: block;
+				position: absolute;
+				bottom:10px ;
+				right: 10px;
+				width: 50px;
+				height: 50px;
+				background-image: url(__INDEX__/img/icon/qiehuan0.png);
+				 -moz-background-size:100% 100%;
+			   background-size:100% 100%;
+			}
+			#quehuan2{
+				background-image: url(__INDEX__/img/icon/qiehuan1.png);
+			}
+		</style>
+<div class="login_background" style="display:none">
+
+		</div>
+
+		<div class="login" style="display:none">
+				<div class="login_logo">
+					<span style="float: left;">登录</span>
+					<img src="__INDEX__/img/icon/cas.png" style="float: right;" id="login-none"/>
+				</div>
+
+				<div class="login1">
+					<p  style="width: 100%;text-align: right; font-size: 14px;">短信快捷登录</p>
+					<div class="form-group">
+							<input id="phones" value="" name="phone" type="text" placeholder="输入手机号" maxlength="11" class="form-control x319 in" autocomplete="off">
+						</div>
+						<div class="form-group">
+
+							<input id="j_captcha" name="j_captcha"  placeholder="输入短信验证码" type="text" maxlength="8" class="form-control x164 in">
+							<span id="yan" class="btn-primary">
+								获取短信验证码
+							</span>
+						</div>
+						<div class="form-group">
+							<input type="reset" id="login1s" value="&nbsp;登&nbsp;录&nbsp;" class="btn btn-default btn-lg">
+						</div>
+					<div class="login_logos">
+					<p class="one"><span id="">第三方登录</span></p>
+					<p class="two"><span></span> </p>
+					</div>
+				<span id="quehuan1">
+
+				</span>
+				</div>
+
+				<div class="login2" style="display: none;">
+					<p  style="width: 100%;text-align: center; font-size: 16px;  font-weight: bold;">微信登录</p>
+					<img src="__INDEX__/img/saoma.png" style="width: 240px; height: auto; display: block;margin: 0px  auto;"/>
+					<p  style="width: 100%;text-align: center; font-size: 14px; line-height: 30px; font-weight: bold;">使用微信扫描二维码登录</p>
+
+				<span id="quehuan2">
+
+				</span>
+				</div>
+
+			</div>
 <div class="header">
 	<div class="container">
 		<h1 class="logo fl"><a href="{:url('index/one')}"></a></h1>
@@ -470,7 +649,55 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
         </div>
         <script src="__INDEX__/js/form.js" type="text/javascript" charset="utf-8"></script>
         <script type="text/javascript">
-        	
+        		/*登录 开始*/
+			var session = "{:session('user.id')}";
+			$(".login_background").click(function(){
+				loginNone();
+			})
+
+			$("#quehuan1").click(function(){
+				$(".login .login1").css("display","none");
+				$(".login .login2").css("display","block");
+			})
+			$("#quehuan2").click(function(){
+				$(".login .login2").css("display","none");
+				$(".login .login1").css("display","block");
+			})
+			$(".xuqiu").click(function(){
+				if (session.length == 0){
+					$(".login_background").css("display","block");
+					$(".login").css("display","block");
+				}else{
+					window.location.href='{:url("demand/publish")}';
+				}
+			})
+
+			$(".denglu").click(function(){
+				if (session.length == 0){
+					$(".login_background").css("display","block");
+					$(".login").css("display","block");
+				}else{
+					window.location.href='{:url("user/index")}';
+				}
+			})
+
+			$(".head_img").click(function(){
+				if (session.length == 0){
+					$(".login_background").css("display","block");
+					$(".login").css("display","block");
+				}else{
+					window.location.href='{:url("user/index")}';
+				}
+			})
+
+			$("#login-none").click(function(){
+				loginNone();
+			})
+			function loginNone(){
+				$(".login_background").css("display","none");
+				$(".login").css("display","none");
+			}
+/*登录 结束*/
 			var cases_id = {$cases.id};
 
 			/*购买-开始*/

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="" content="">
+		<meta name="" content="">
+		<meta name="" content="">
+		<title>IT联合办公</title>
+		
+		
+		<link rel="stylesheet" type="text/css" href="__INDEX__/css/one.css" />
+		
+		<script src="js/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<style type="text/css">
+		.content {
+			padding: 30px;
+			box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
+			-webkit-box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
+			-moz-box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
+			margin-bottom: 20px;
+		}
+		
+		.content:hover {
+			box-shadow: 0 10px 30px 6px rgba(28, 57, 81, 0.18);
+			-webkit-box-shadow: 0 10px 30px 6px rgba(28, 57, 81, 0.18);
+			-moz-box-shadow: 0 10px 30px 6px rgba(28, 57, 81, 0.18);
+		}
+		
+		#app {
+			padding: 50px 0;
+		}
+		
+		.type {
+			box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
+			-webkit-box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
+			-moz-box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);
+		}
+		
+		.type:hover {
+			box-shadow: 0 10px 30px 6px rgba(28, 57, 81, 0.18);
+			-webkit-box-shadow: 0 10px 30px 6px rgba(28, 57, 81, 0.18);
+			-moz-box-shadow: 0 10px 30px 6px rgba(28, 57, 81, 0.18);
+		}
+		
+		.box.form-more,
+		.form-more ul,
+		.form-more ul li {
+			width: 100%;
+		}
+		
+		.form-more ul li {
+			overflow: hidden;
+			padding: 10px 10px;
+			box-sizing: border-box;
+		}
+		
+		.form-more ul li .item-name,
+		.form-more ul li .item-input,
+		.form-more ul li select {
+			float: left;
+		}
+		
+		.form-more ul li .item-name {
+			width: 20%;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+		}
+		
+		.form-more ul li select {
+			width: 30%;
+			padding: 0px 10px;
+			line-height: 40px;
+			height: 40px;
+			margin-right: 20px;
+		}
+		
+		.form-more ul li .item-input {
+			width: 80%;
+		}
+		
+		.form-more ul li .item-input input,
+		.form-more ul li .item-input span,
+		.form-more ul li .item-input textarea,
+		.form-more ul li .item-input .urgency {
+			float: left;
+		}
+		
+		.form-more ul li .item-input input,
+		.form-more ul li .item-input textarea {
+			width: 70%;
+		}
+		
+		.form-more ul li .item-input textarea {
+			min-height:  200px;
+		}
+		
+		.form-more ul li .item-input span {
+			width: 24%;
+			margin-left: 5%;
+			height: 50%;
+			line-height: 50px;
+		}
+		
+		.form-more ul li .item-input .urgency {
+			width: 20%;
+			padding: 15px 25px;
+			box-sizing: border-box;
+			position: relative;
+			
+		}
+		.form-more ul li .item-input .urgency .iconfont{
+			position: absolute;
+			top: 17px;
+			left: 5px;
+		}
+		.form-more ul li .item-input .urgency .icon-radio-active{
+			display: none;
+		}
+		.form-more ul li .item-input .urgency .icon-radio-inactive{
+			display: block;
+		}
+		.form-more ul li .item-input .urgency.selected .icon-radio-active{
+			display: block !important;
+		}
+		.form-more ul li .item-input .urgency.selected .icon-radio-inactive{
+			display: none !important;
+		}
+		.item-input.chuan>span{
+			display: block;
+			width: auto !important;
+			height: 30px !important;
+			padding: 0px 10px;
+			line-height: 30px !important;
+			border-radius:5px  !important;
+			    color: #fff;
+    background-color: #5a98de;
+    border-color: #5a98de;  
+    text-align: center;
+    font-weight: 400;  
+    border: solid 1px #ddd;
+		}
+		.item-name strong{
+			color: red;
+		}
+	</style>
+
+	<body style="background-color: white;">
+
+		<div id="app">
+			<div class="publish-type">
+
+				<div class="content">
+
+					<div class="title">案例上传</div>
+					<div class="box form-more">
+						<ul>
+							<li class="item-li">
+								<div class="item-name"><strong>*</strong>案例名称：</div>
+								<div class="item-input"><input type="text" name="" placeholder="项目名称" id="project" class=""><span></span>
+
+								</div>
+							</li>
+							
+							<li class="item-li">
+								<div class="item-name"><strong>*</strong>案例金额：</div>
+								<div class="item-input" style="position: relative;"><input type="number" name="" placeholder="案例金额" class="" id="budget"><span></span>
+									<div class="wan" style="position: absolute; top: 15px;left: 470px;">元</div>
+
+								</div>
+							</li>
+
+							<li class="item-li">
+								<div class="item-name"><strong>*</strong>案例类型：</div>
+								<select>
+									<option value="0">请选择案例类型</option>
+									<option value="1">医疗卫生</option>
+								</select>
+								<select>
+									<option value="0">请选择案例功能</option>
+									<option value="1">医疗卫生</option>
+								</select>
+							</li>
+							<li class="item-li">
+								<div class="item-name"><strong>*</strong>案例系统类型：</div>
+								<div class="item-input" id="xt">
+									<div class="urgency "><i class="iconfont icon-radio-active icon-checked"></i> <i class="iconfont icon-radio-inactive"></i> APP
+									</div>
+									<div class="urgency"><i class="iconfont icon-radio-active"></i> <i class="iconfont icon-radio-inactive"></i> 微信
+									</div>
+									<div class="urgency"><i class="iconfont icon-radio-active"></i> <i class="iconfont icon-radio-inactive"></i> 电脑版
+									</div>
+									<div class="urgency"><i class="iconfont icon-radio-active"></i> <i class="iconfont icon-radio-inactive"></i> 小程序
+									</div>
+								</div>
+							</li>
+							<li class="item-li">
+								<div class="item-name"><strong>*</strong>案例展示类型：</div>
+								<div class="item-input " id="zs">
+									<div class="urgency selected"><i class="iconfont icon-radio-active"></i> <i class="iconfont icon-radio-inactive"></i> 手机
+									</div>
+									<div class="urgency"><i class="iconfont icon-radio-active"></i> <i class="iconfont icon-radio-inactive"></i> 电脑
+									</div>
+
+								</div>
+							</li>
+							<li class="item-li">
+								<div class="item-name"><strong>*</strong>首页图：</div>
+								<div class="item-input chuan"><input type="number" name="" placeholder="首页图" class="" id="budget"><span>上传</span></div>
+							</li>
+							<li class="item-li">
+								<div class="item-name">预览二维码：</div>
+								<div class="item-input chuan" ><input type="number" name="" placeholder="预览二维码" class="" id="budget"><span>上传</span></div>
+							</li>
+							<li class="item-li">
+								<div class="item-name">预览url：</div>
+								<div class="item-input "><input type="number" name="" placeholder="预览url" class="" id="budget"><span></span></div>
+							</li>
+							<li class="item-li">
+								<div class="item-name"><strong>*</strong>图片集：</div>
+								<div class="item-input "><img src="iiii.png" style="float: left; width: 90%; height: auto;"/></div>
+							</li>
+							<li class="item-li">
+								<div class="item-name"><strong>*</strong>案例简介</div>
+								<div class="item-input">
+									<textarea placeholder="案例简介。" id="brief" class=""></textarea><span></span>
+								</div>
+							</li>
+							<li class="item-li">
+								<div class="item-name"><strong>*</strong>案例详情：</div>
+								<div class="item-input">
+									<textarea  id="brief" class=""></textarea><span></span>
+								</div>
+							</li>
+						</ul>
+					</div>
+
+					
+					<div class="btn">提交</div>
+				</div>
+
+			</div>
+			
+		</div>
+
+		<div class="beijin">
+			<div class="good">
+				<h5>申请成功！</h5>
+				<p>我们尽快与您联系，请保持手机通畅</p>
+				<p class="qud" id="qd">确定</p>
+			</div>
+		</div>
+		<div class="footer_bg">
+			<div class="footer" style="background-color: #1e2831; ">
+				<div class="center">
+					<p>2014-2017 汇谷电子科技有限公司 版权所有：ICP备12027515号-1</p>
+				</div>
+			</div>
+			<!--定制开发、创意设计、人才服务、网站建设、APP开发、微信开发、“系统开发”、产品/UI设计、物联网结合、人工智能、共享项目/开发
+
+
+自媒体营销、事件话题营销、软文发布、百科/问答、 SEO/快照、微信微博代运营、新闻撰稿/专访、危机公关、-->
+			<script src="js/form.js" type="text/javascript" charset="utf-8"></script>
+			<script type="text/javascript">
+				/*项目类型*/
+				$("#xt .urgency").click(function(){
+					/*$(this).siblings().removeClass("selected");*/
+					$(this).toggleClass("selected");
+				})
+				$("#zs .urgency").click(function(){
+					$(this).siblings().removeClass("selected");
+					$(this).addClass("selected");
+				})
+			</script>
+
+	</body>
+
+</html>
