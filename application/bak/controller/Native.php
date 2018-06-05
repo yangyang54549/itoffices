@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-06-04 10:59:16
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-06-05 18:24:12
+ * @Last Modified time: 2018-06-05 18:48:21
  */
 namespace app\bak\controller;
 use app\admin\Controller;
@@ -52,5 +52,21 @@ class Native extends Yang
             //return $notify->isorder();
     }
 
+    //支付查询
+    public function inquire()
+    {
+
+        $order_id = input('post.order_id');
+
+        $result = CasesPay::where(['order_id'=>$order_id])->find();
+
+        if (!empty($result)) {
+            return json($this->ret);
+        }else{
+            $this->ret['code'] = -200;
+            $this->ret['msg'] = "订单未支付";
+            return json($this->ret);
+        }
+    }
 
 }
