@@ -461,25 +461,10 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 
 			$("#money").bind('input', function() {
 				if($(this).val() !="") {
-
 					if($(this).val()>0){
-						/*$(".gou_bth .money strong").text(Math.abs($(this).val()));*/
-						/*var id=window.setTimeout(function(){
-
-					},50);*/
-					$(".gou_bth .money strong").text($("#money").val());
-	/*				var th =  $(this).val();
-					var x = String(th).indexOf('.') + 1;   //小数点的位置
-var y = String(th).length - x;  //小数的位数
-if(y>0){
-	var ths = th;
-	for(var i = 0;i<y;i++){
-		ths = ths*10;
-	}
-	$(".gou_bth .money strong").text(ths);
-}else{
-	$(".gou_bth .money strong").text(th);
-}*/
+						var inputs = $(this).val().toString();
+						var ins = inputs.replace('.','');
+						$(".gou_bth .money strong").text(ins);
 					}else{
 						$(".gou_bth .money strong").text($("#hiddens").val());
 					}
