@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-06-04 10:59:16
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-06-05 18:48:21
+ * @Last Modified time: 2018-06-05 18:57:17
  */
 namespace app\bak\controller;
 use app\admin\Controller;
@@ -29,6 +29,7 @@ class Native extends Yang
 
             $result = \Wxpay\example\Native::getPayImage($data['money'],$data['name'],$data['order_id']);
             $this->ret['data'] = "http://paysdk.weixin.qq.com/example/qrcode.php?data=".urlencode($result);
+            $this->ret['order_id'] = $data['order_id'];
             return json($this->ret);
         }else{
             $this->ret['code'] = -200;
@@ -60,7 +61,7 @@ class Native extends Yang
 
         $result = CasesPay::where(['order_id'=>$order_id])->find();
 
-        if (!empty($result)) {
+        if (!empty($result) && $result['status']==1) {
             return json($this->ret);
         }else{
             $this->ret['code'] = -200;
