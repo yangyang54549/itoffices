@@ -470,43 +470,59 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
         </div>
         <script src="__INDEX__/js/form.js" type="text/javascript" charset="utf-8"></script>
         <script type="text/javascript">
-        	/*购买-开始*/
+        	
+			var cases_id = {$cases.id};
+
+			/*购买-开始*/
 			$(".gou").click(function(){
 				$(".gous").css("display","block");
 				$(".gou_bth").css("display","block");
 			})
-			$(".gou_bth .qud").click(function(){				
-				var moneys = parseInt($(".gou_bth .money strong").text());				
-				$(".gou_bth").css("display","none");
-				$(".gou_er").css("display","block");
+			$(".gou_bth .qud").click(function(){
+				var moneys = parseInt($(".gou_bth .money strong").text());
+				var name = $("#right-h4").text();
+            $.post(
+                "{:url('Native/index')}",
+                {money:moneys,name:name,cases_id:cases_id},
+                function(data){
+                    if (data.code==1) {
+                    	$("#wxpayimg").attr("src",data.data);
+						$(".gou_bth").css("display","none");
+						$(".gou_er").css("display","block");
+                    }else{
+                    	alert(data.msg);
+                    }
+                   }
+                )
 			})
 			$(".gou_bth .radio div").click(function(){
 				$(".gou_bth .radio div").removeClass("on");
 				$(this).addClass("on");
 				var datas = $(this).attr("data-type");
 				if(datas==1){
-					$(".gou_bth .money strong").text($("#hiddens").val()*0.6);			
+					$(".gou_bth .money strong").text($("#hiddens").val()*0.6);
 				}else if(datas==2){
-					if($("#money").val()>0 &&$("#money").val()!=""){
-						$(".gou_bth .money strong").text(Math.abs($("#money").val()));
+					if($("#money").val()>0 &&$("#money").val()!=""){						
+						$(".gou_bth .money strong").text($("#money").val());
 					}else{
 						$(".gou_bth .money strong").text($("#hiddens").val());
 					}
-					
 				}else{
 					$(".gou_bth .money strong").text($("#hiddens").val());
 				}
-				
+
 			})
+
 			$("#money").bind('input', function() {
 				if($(this).val() !="") {
-					
 					if($(this).val()>0){
-						$(".gou_bth .money strong").text(Math.abs($(this).val()));
+						var inputs = $(this).val().toString();
+						var ins = inputs.replace('.','');
+						$(".gou_bth .money strong").text(ins);
 					}else{
 						$(".gou_bth .money strong").text($("#hiddens").val());
 					}
-				}else{					
+				}else{
 					$(".gou_bth .money strong").text($("#hiddens").val());
 				}
 			})
@@ -514,11 +530,11 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				$(".gous").css("display","none");
 				$(".gou_bth").css("display","none");
 				$(".gou_er").css("display","none");
-				
+
 			}
 			function money(){
 				$(".beijin").css("display", "block");
-				
+				$(".beijin .good .text").css("display", "block");
 			}
 			/*购买-结束*/
             $("#Xname").val($(".center .right h4").text());

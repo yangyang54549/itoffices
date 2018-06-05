@@ -394,35 +394,18 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 		</div>
 		<script src="__INDEX__/js/form.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			/*brs();
-			function brs(){
-				var plen = $("#column>p").length;
-				for(var i = 0; i<plen;i++){
-					$("#column>p").eq(i).text()
-					if($("#column>p").eq(i).text()==""){
-
-						$("#column>p").eq(i).remove();
-						i=0;
-					}
-				}
-			}*/
+			
 
 			var cases_id = {$cases.id};
 
 			/*购买-开始*/
 			$(".gou").click(function(){
-
-
-
-
 				$(".gous").css("display","block");
 				$(".gou_bth").css("display","block");
 			})
 			$(".gou_bth .qud").click(function(){
 				var moneys = parseInt($(".gou_bth .money strong").text());
 				var name = $("#right-h4").text();
-
-				//alert(moneys);
             $.post(
                 "{:url('Native/index')}",
                 {money:moneys,name:name,cases_id:cases_id},
@@ -444,15 +427,11 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				if(datas==1){
 					$(".gou_bth .money strong").text($("#hiddens").val()*0.6);
 				}else if(datas==2){
-					if($("#money").val()>0 &&$("#money").val()!=""){
-						/*var x = String($("#money").val()).indexOf('.') + 1;   //小数点的位置
-						var id=window.setTimeout(function(){*/
+					if($("#money").val()>0 &&$("#money").val()!=""){						
 						$(".gou_bth .money strong").text($("#money").val());
-
 					}else{
 						$(".gou_bth .money strong").text($("#hiddens").val());
 					}
-
 				}else{
 					$(".gou_bth .money strong").text($("#hiddens").val());
 				}
