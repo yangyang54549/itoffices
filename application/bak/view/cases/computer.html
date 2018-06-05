@@ -690,18 +690,45 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				$(".login_background").css("display","none");
 				$(".login").css("display","none");
 			}
+			 $("#login1s").click(function() {
+                if($("#phones").val() == "") {
+                    alert("请输入手机号码");
+                }  else {
+                	if(!(/^1[3456789]\d{9}$/.test($("#phones").val()))) {
+						alert("手机号码有误，请重填");
+					} else {
+						if($("#j_captcha").val()!=""){
+							var mobile = $("#phones").val();
+							var code = $("#j_captcha").val();
+							$.post("{:url('login/checkindex')}",{mobile:mobile,code:code},function(data) {
+								if (data.code==1) {
+									//$(".beijin").css("display", "block");$(".beijin .texts").text("登录成功");
+									location.reload();
+								}else{
+									alert(data.msg);
+								}
+							})
+
+						}else{
+							alert("请输入短信验证码");
+						}
+					}
+				}
+			})
 /*登录 结束*/
 
 			var cases_id = {$cases.id};
 
 			/*购买-开始*/
 			$(".gou").click(function(){
-				if (session.length == 0){
-					$(".gous").css("display","block");
-				$(".gou_bth").css("display","block");
-				}else{
+				
+				if (session == ""){
+					
 					$(".login_background").css("display","block");
 					$(".login").css("display","block");
+				}else{
+					$(".gous").css("display","block");
+					$(".gou_bth").css("display","block");
 				}
 				
 			})
