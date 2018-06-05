@@ -1,6 +1,5 @@
 <?php
 namespace Wxpay\example;
-
 use think\Loader;
 
 Loader::import('Wxpay.lib.WxPayApi');
@@ -19,19 +18,19 @@ require_once 'log.php';
 class Native
 {
 
-    public static function getPayImage($money,$name)
+    public static function getPayImage($money,$name,$order)
     {
         $notify = new \NativePay();
 
         $input = new \WxPayUnifiedOrder();
         $input->SetBody($name);
         $input->SetAttach("test");
-        $input->SetOut_trade_no(\WxPayConfig::MCHID.date("YmdHis"));
+        $input->SetOut_trade_no($order);//订单号,回调时用
         $input->SetTotal_fee($money);
         $input->SetTime_start(date("YmdHis"));
         $input->SetTime_expire(date("YmdHis", time() + 600));
         $input->SetGoods_tag("test");
-        $input->SetNotify_url("http://keji.yingjisong.com/example/notify.php");
+        $input->SetNotify_url(LUR.url('Native/notify'));
         $input->SetTrade_type("NATIVE");
         $input->SetProduct_id("123456789");
         $result = $notify->GetPayUrl($input);
