@@ -18,14 +18,14 @@ require_once 'log.php';
 class Native
 {
 
-    public static function getPayImage($money,$name)
+    public static function getPayImage($money,$name,$order)
     {
         $notify = new \NativePay();
 
         $input = new \WxPayUnifiedOrder();
         $input->SetBody($name);
         $input->SetAttach("test");
-        $input->SetOut_trade_no(\WxPayConfig::MCHID.date("YmdHis"));
+        $input->SetOut_trade_no($order);//订单号,回调时用
         $input->SetTotal_fee($money);
         $input->SetTime_start(date("YmdHis"));
         $input->SetTime_expire(date("YmdHis", time() + 600));

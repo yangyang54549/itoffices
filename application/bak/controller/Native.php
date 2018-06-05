@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-06-04 10:59:16
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-06-05 15:43:09
+ * @Last Modified time: 2018-06-05 18:24:12
  */
 namespace app\bak\controller;
 use app\admin\Controller;
@@ -27,7 +27,7 @@ class Native extends Yang
 
         if ($result) {
 
-            $result = \Wxpay\example\Native::getPayImage($data['money'],$data['name']);
+            $result = \Wxpay\example\Native::getPayImage($data['money'],$data['name'],$data['order_id']);
             $this->ret['data'] = "http://paysdk.weixin.qq.com/example/qrcode.php?data=".urlencode($result);
             return json($this->ret);
         }else{
@@ -41,10 +41,15 @@ class Native extends Yang
     public function notify()
     {
 
-            file_put_contents('wxpaylog.txt','开始记录===='.date("Y-m-d H:i:s",time()).'====='.PHP_EOL,FILE_APPEND);
-            $notify = new \Wxpay\example\PayNotifyCallBack;
-            $notify->Handle(false);
+            $xml = file_get_contents('php://input');
 
+            $arr = json_decode(json_encode((array) simplexml_load_string($xml,'SimpleXMLElement', LIBXML_NOCDATA)), true);
+            file_put_contents('wxpaylog.txt','开始记录===='.date("Y-m-d H:i:s",time()).'====='.$xml.'====='.PHP_EOL,FILE_APPEND);
+
+            CasesPay::where(['order_id'=>$arr['out_trade_no']])->update(['status'=>1]);
+
+            //$notify = new \Wxpay\example\Notify;
+            //return $notify->isorder();
     }
 
 
