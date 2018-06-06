@@ -724,8 +724,11 @@ $("#qd").click(function() {
 						// $("#project-list1").append('<li class="page-div" onclick="xia();"><h3>下一页</h3></li>');
 
 						var st = '';
-						for (var i=1;i<5;i++)
+						for (var i=1;i<data.page.page+1;i++)
 						{
+							if (i==5) {
+								break;
+							};
 							if (i==1) {
 								st +='<a  href="javascript:void(0)" class="atcives abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
 							}else{
