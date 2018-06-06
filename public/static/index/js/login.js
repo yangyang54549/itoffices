@@ -54,13 +54,15 @@ function loginNone(){
 						block("手机号码有误，请重填");
 					} else {
 						var s = 60;
+						$("#yan").addClass("disabled"); 
 						var j = setInterval(function() {
 							s = s - 1;
 							$("#yan").html(s + "秒后重新获取");
 							if(s == 0) {
-								$("#yan").html("请重新获取");
+								
 								clearInterval(j);
-								$("#yan").html("60秒");
+								$("#yan").remove("disabled");
+								$("#yan").html("请重新获取");
 							}
 						}, 1000)
 					}

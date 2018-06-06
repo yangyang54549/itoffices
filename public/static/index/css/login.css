@@ -84,6 +84,7 @@
 				color: white;
 				font-size: 14px;
 			}
+			.disabled { pointer-events: none; }
 			.login_logos{
 				width: 100%;
 			}
