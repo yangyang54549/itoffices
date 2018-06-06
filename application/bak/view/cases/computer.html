@@ -638,7 +638,12 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 
 
 			</div>
+<div class="tis">
+			<p style="font-size: 20px; color: #e51515;">付款成功！</p>
+<p style="font-size: 14px;">购买记录请到个人账户中查询</p>
 
+
+			</div>
         <div class="imgs" style="width: 100vw;height: 100vh;position: fixed;top: 0px ;left: 0px ;background-color: rgba(0,0,0,.2); display: none;">
 			<img  id="imgs" src="{$cases.code}" style="width: 400px;height: 400px;display: block;position: absolute;top: 50%;left: 50%;margin-top: -200px;margin-left: -200px;" />
 		</div>
@@ -760,9 +765,10 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 
                                     //二维码消失
                                     clearInterval(j);
-                                    nos()
-                                    window.location.href="http://keji.yingjisong.com/bak/user/index";
-
+                                   $(".gou_bth").css("display","none");
+				$(".gou_er").css("display","none");
+									$(".tis").css("display","block");
+                                  window.load.href="http://keji.yingjisong.com/bak/user/index";
                                 }else{
                                     //未支付
                                 }
@@ -776,6 +782,11 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
                    }
                 )
 			})
+			function hrefs(){
+				setTimeout(function(){
+										window.load.href="http://keji.yingjisong.com/bak/user/index";
+									},2000);
+			}
 			$(".gou_bth .radio div").click(function(){
 				$(".gou_bth .radio div").removeClass("on");
 				$(this).addClass("on");
