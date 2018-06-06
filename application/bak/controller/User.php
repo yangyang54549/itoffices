@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-06-06 11:25:30
+ * @Last Modified time: 2018-06-06 18:13:34
  */
 namespace app\bak\controller;
 use app\admin\Controller;
@@ -77,7 +77,7 @@ class User  extends Yang
 
     public function order()
     {
-        $demand = Demand::where(['user_id'=>Session::get('user.id')])->order('create_time desc')->paginate(5);//我发布的需求
+        $demand = Demand::where(['user_id'=>Session::get('user.id')])->order('create_time desc')->select();//我发布的需求
         foreach ($demand as $key => $value) {
             $demand[$key]['applys'] = $demand[$key]['apply'];
             $apply = Apply::where(['demand_id'=>$value['id']])->select();
@@ -89,7 +89,7 @@ class User  extends Yang
             }
         }
 
-        $apply = Apply::where(['user_id'=>Session::get('user.id')])->order('create_time desc')->paginate(5);
+        $apply = Apply::where(['user_id'=>Session::get('user.id')])->order('create_time desc')->select();
         $sdemand = [];
         foreach ($apply as $k => $v) {
             $de = Demand::where(['id'=>$v['demand_id']])->find();//我发布的需求
