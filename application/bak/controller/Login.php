@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-05-31 14:43:36
+ * @Last Modified time: 2018-06-06 17:31:35
  */
 namespace app\bak\controller;
 use app\bak\controller\Yang;
@@ -102,18 +102,18 @@ class Login extends Yang
         if ($code == '') {
             return json(['code'=>1, 'msg'=>'短信验证码不能为空']);
         }
-        // if ($code != Session::get($mobile)) {
-        //     $this->ret['msg'] = '短信验证码错误';
-        //     $this->ret['code'] = -200;
-        //     return json($this->ret);
-        // }
-        // $times=Session::get($code);
-        // if (time() > ($times+5*60)) {
-        //     Session::delete($times);
-        //     $this->ret['msg'] = '短信验证码已失效';
-        //     $this->ret['code'] = -200;
-        //     return json($this->ret);
-        // }
+        if ($code != Session::get($mobile)) {
+            $this->ret['msg'] = '短信验证码错误';
+            $this->ret['code'] = -200;
+            return json($this->ret);
+        }
+        $times=Session::get($code);
+        if (time() > ($times+5*60)) {
+            Session::delete($times);
+            $this->ret['msg'] = '短信验证码已失效';
+            $this->ret['code'] = -200;
+            return json($this->ret);
+        }
 
         $res = User::where(['mobile'=>$mobile])->find();
         if (isset($res)) {
@@ -232,20 +232,18 @@ class Login extends Yang
     {
         if ($this->request->isAjax() && $this->request->isPost()){
             $mobile = input('mobile');
-            $model = input('model');
+            $model = -200;
             if ($mobile==''||$model=='') {
-                return json(['code'=>1, 'msg'=>'数据丢失']);
+                return json(['code'=>-200, 'msg'=>'数据丢失']);
             }
-            if (!checkMobile($mobile)) {
-                return json(['code'=>1, 'msg'=>'手机号格式不正确']);
-            }
+
             $result = $this->message($mobile,$model);
             if ($result) {
-                return json(['code'=>200, 'msg'=>'发送成功']);
+                return json(['code'=>1, 'msg'=>'发送成功']);
             }
-            return json(['code'=>1, 'msg'=>'发送失败']);
+            return json(['code'=>-200, 'msg'=>'发送失败']);
         }
-        return json(['code'=>1, 'msg'=>'非法请求']);
+        return json(['code'=>-200, 'msg'=>'非法请求']);
     }
 
     /*

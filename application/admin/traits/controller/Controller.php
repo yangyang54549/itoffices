@@ -14,6 +14,7 @@ use think\Db;
 use think\Loader;
 use think\exception\HttpException;
 use think\Config;
+use think\Session;
 
 trait Controller
 {
@@ -357,15 +358,7 @@ trait Controller
         $rand = substr($randStr,0,6);
 
         if ($model==1) {
-            $cons = "【趣味农场】您正在登录,验证码是:".$rand."，5分钟后过期，请您及时验证!";
-        }elseif($model==2){
-            $cons = "【趣味农场】您正在注册,验证码是:".$rand."，5分钟后过期，请您及时验证!";
-        }elseif($model==3){
-            $cons = "【趣味农场】您正在绑定手机号码,验证码是:".$rand."，5分钟后过期，请您及时验证!";
-        }elseif($model==4){
-            $cons = "【趣味农场】您正在修改支付密码,验证码是:".$rand."，5分钟后过期，请您及时验证!";
-        }elseif($model==5){
-            $cons = "【趣味农场】您正在修改手机号码,验证码是:".$rand."，5分钟后过期，请您及时验证!";
+            $cons = "【网站顾问】您正在登录,验证码是:".$rand." , 有效期5分钟 ,请您及时验证!";
         }
 
         Session::set($mobile,$rand);
