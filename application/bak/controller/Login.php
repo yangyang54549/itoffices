@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-06-06 17:31:35
+ * @Last Modified time: 2018-06-06 17:46:04
  */
 namespace app\bak\controller;
 use app\bak\controller\Yang;
@@ -378,7 +378,7 @@ class Login extends Yang
      */
     public function admin()
     {
-       $user = User::where(['id'=>1])->find();
+       $user = User::where(['id'=>2])->find();
        Session::set('user',$user);
        echo 'ok';
     }
