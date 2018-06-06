@@ -291,36 +291,25 @@
     bottom: 10px;
     z-index: 50;
 			}
-			
-			/*页码*/
-			.page-box{
-				width: 100%;
-				margin: 15px 0px;
-				    text-align: center;
-    font-size: 16px;
-    line-height: 200%;
+		/**/	
+	.cente_ul ul .li_one{
+	display: none;
+}
+.cente_ul ul .li_one.li-block{
+	display: block !important;
+}
+.cente_ul ul .show{
+				display: block;
+				width: 150px;
+    margin:10px auto;
+    border: 1px solid #ff5353;
+    color: #ff5353;
+    border-radius: 5px;
+				font-style: normal;
+				text-align: center;
+				line-height: 30px;
+				
 			}
-			.page-box .page{
-    display: inline-block;
-}
-.page a {
-    padding: 0 10px !important;
-}
-
-.page a.atcives {
-    color: #b43d3d;
-}
-.page-box span, .page-box a {
-    display: inline-block;
-    padding: 0 16px;
-}
-em, i {
-    font-style: normal;
-}
-.page-box .now, .page-box .num, .page-box .total{
-    padding: 0;
-    margin: 0;
-}
 		</style>
 
 </head>
@@ -903,22 +892,11 @@ em, i {
 									</div>
 									<p style="font-size: 14px;"></p>
 								</div>
-								<div id="page-box"  class="page-box">
-					<div class="page">
-						
-							<a  href="#footer" class="atcives " >1</a>
-							
-							<a  href="#footer" class="" >2</a>
-							
-					</div>
-					<a href="#footer" class="page_next" onclick="xia();">下页</a>
-					<em><span class="now">1</span>/<span class="num">2</span>页&nbsp;&nbsp;共<span class="total">1</span>条</em>
-
-				</div>
+								<em class="show" onclick="showEm();">显示更多</em>
 							</ul>
 							<ul class="ul2">
 								{volist name="sdemand" id="vos"}
-								<li class="li_one">
+								<li class="li_one ">
 									<div {if condition="$vos.is_apply_id eq 2"} class="top relative liBackground" {else/} class="top relative" {/if} >
 										<div class="top_left">
 											<img src="__INDEX__/img/bai.png" />
@@ -1232,18 +1210,7 @@ em, i {
 									</div>
 									<p style="font-size: 14px;"></p>
 								</div>
-								<div id="page-box1" class="page-box">
-					<div class="page">
-						
-							<a  href="#footer" class="atcives " >1</a>
-							
-							<a  href="#footer" class="" >2</a>
-							
-					</div>
-					<a href="#footer" class="page_next" onclick="xia();">下页</a>
-					<em><span class="now">1</span>/<span class="num">2</span>页&nbsp;&nbsp;共<span class="total">1</span>条</em>
-
-				</div>
+								<em class="show" onclick="showEm();">显示更多</em>
 							</ul>
 							<ul class="ul3">
 								<div class="string">

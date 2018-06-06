@@ -27,22 +27,58 @@ function notHave() {
 		if(ullen > 0) {
 			$(".cente_ul .ul" + (s + 1) + " .string>p").css("display", "block");
 			$(".cente_ul .ul" + (s + 1) + " .string .wu").css("display", "none");
-			/*if(ullen > 7){
-				$(".cente_ul .ul" + (s + 1) + " .page-box").css("display", "block");
+			if(ullen > 6){
+				
+				$(".cente_ul .ul" + (s + 1) + " em.show").css("display", "block");
+				for(var i = 0;i<6;i++){
+					$(".cente_ul .ul" + (s + 1) + " .li_one").eq(i).addClass("li-block");
+				}
 			}else{
-				$(".cente_ul .ul" + (s + 1) + " .page-box").css("display", "none");
-			}*/
-			$(".cente_ul .ul" + (s + 1) + " .page-box").css("display", "block");
+				$(".cente_ul .ul" + (s + 1) + " em.show").css("display", "none");
+			}
+			
 			
 		} else {
 			$(".cente_ul .ul" + (s + 1) + " .string>p").css("display", "none");
 			$(".cente_ul .ul" + (s + 1) + " .string .wu").css("display", "block");
 			$(".cente_ul .ul" + (s + 1) + " .string .wu").css("display", "flex");
-			$(".cente_ul .ul" + (s + 1) + " .page-box").css("display", "none");
+			
 		}
 		$("#num_" + (s + 1)).text(ullen);
 	}
 
+}
+function showEm1(){
+	
+				var p1 = $(".cente_ul .ul1 .li_one").length;
+				var p2 = $(".cente_ul .ul1 .li-block").length;
+				var p2s = p2+6;
+				if(p1>p2s){					
+					for(var i = p2;i<p2s;i++){
+						$(".cente_ul .ul1 .li_one").eq(i).addClass("li-block");
+					}
+				}else{
+					$(".cente_ul .ul1 .show").css("display","none");
+					for(var i = p2;i<p1;i++){
+						$(".cente_ul .ul1 .li_one").eq(i).addClass("li-block");
+					}
+				}
+}
+function showEm2(){
+	
+				var p1 = $(".cente_ul .ul2 .li_one").length;
+				var p2 = $(".cente_ul .ul2 .li-block").length;
+				var p2s = p2+6;
+				if(p1>p2s){					
+					for(var i = p2;i<p2s;i++){
+						$(".cente_ul .ul2 .li_one").eq(i).addClass("li-block");
+					}
+				}else{
+					$(".cente_ul .ul2 .show").css("display","none");
+					for(var i = p2;i<p1;i++){
+						$(".cente_ul .ul2 .li_one").eq(i).addClass("li-block");
+					}
+				}
 }
 $(" .participations .participation_f1").click(function() {
 
