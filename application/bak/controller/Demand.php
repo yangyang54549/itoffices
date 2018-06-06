@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-06-06 15:52:36
+ * @Last Modified time: 2018-06-06 16:48:54
  */
 namespace app\bak\controller;
 use app\admin\Controller;
@@ -118,7 +118,7 @@ class Demand extends Yang
                     </div>';
                 }
                 $page['count'] = D::where($where)->count();//总条数
-                $page['page'] = ceil($page['count']/9);//总共几页
+                $page['page'] = ceil($page['count']/8);//总共几页
                 $page['num'] = $pages;//当前处于第几页
                 $this->ret['page'] = $page;
                 $this->ret['data'] = $str;
@@ -133,7 +133,7 @@ class Demand extends Yang
             return json($this->ret);
         }else{
             $page['count'] = D::where(['status'=>1])->count();//总条数
-            $page['page'] = ceil($page['count']/9);//总共几页
+            $page['page'] = ceil($page['count']/8);//总共几页
 
             if ($page['page']>4) {
                 $page['xpage'] = 4;

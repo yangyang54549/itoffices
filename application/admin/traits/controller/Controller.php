@@ -303,40 +303,6 @@ trait Controller
       return false;
     }
     /*
-     * 短信公共方法 根据不同model使用不同的模版
-     * mobile 手机号码
-     * model 1登录 2注册 3忘记密码修改密码 4修改支付密码 5修改手机号码
-     */
-    public function message($mobile,$model)
-    {
-        $cons = '';
-        $randStr = str_shuffle('1234567890');
-        $rand = substr($randStr,0,6);
-
-        if ($model==1) {
-            $cons = "【趣味农场】您正在登录,验证码是:".$rand."，5分钟后过期，请您及时验证!";
-        }elseif($model==2){
-            $cons = "【趣味农场】您正在注册,验证码是:".$rand."，5分钟后过期，请您及时验证!";
-        }elseif($model==3){
-            $cons = "【趣味农场】您正在绑定手机号码,验证码是:".$rand."，5分钟后过期，请您及时验证!";
-        }elseif($model==4){
-            $cons = "【趣味农场】您正在修改支付密码,验证码是:".$rand."，5分钟后过期，请您及时验证!";
-        }elseif($model==5){
-            $cons = "【趣味农场】您正在修改手机号码,验证码是:".$rand."，5分钟后过期，请您及时验证!";
-        }
-
-        Session::set($mobile,$rand);
-        Session::set($rand,time());
-        $url='http://117.78.52.216:9003';//系统接口地址
-        $conss = iconv('UTF-8', 'gbk', $cons);
-        $content=urlencode($conss);
-        $username="13613820359";//用户名
-        $password="ODIwMzU5";//密码百度BASE64加密后密文
-        $url=$url."/servlet/UserServiceAPI?method=sendSMS&extenno=&isLongSms=0&username=".$username."&password=".$password."&smstype=0&mobile=".$mobile."&content=".$content;
-        $data = $this->concurl($url);
-        return $data;
-    }
-    /*
      * 发送get请求
      */
     public function concurl($url)
@@ -377,6 +343,41 @@ trait Controller
         }
         //echo "<img src='".$pic."'>";
         return $pic;
+    }
+
+    /*
+     * 短信公共方法 根据不同model使用不同的模版
+     * mobile 手机号码
+     * model 1登录 2注册 3忘记密码修改密码 4修改支付密码 5修改手机号码
+     */
+    public function message($mobile,$model)
+    {
+        $cons = '';
+        $randStr = str_shuffle('1234567890');
+        $rand = substr($randStr,0,6);
+
+        if ($model==1) {
+            $cons = "【趣味农场】您正在登录,验证码是:".$rand."，5分钟后过期，请您及时验证!";
+        }elseif($model==2){
+            $cons = "【趣味农场】您正在注册,验证码是:".$rand."，5分钟后过期，请您及时验证!";
+        }elseif($model==3){
+            $cons = "【趣味农场】您正在绑定手机号码,验证码是:".$rand."，5分钟后过期，请您及时验证!";
+        }elseif($model==4){
+            $cons = "【趣味农场】您正在修改支付密码,验证码是:".$rand."，5分钟后过期，请您及时验证!";
+        }elseif($model==5){
+            $cons = "【趣味农场】您正在修改手机号码,验证码是:".$rand."，5分钟后过期，请您及时验证!";
+        }
+
+        Session::set($mobile,$rand);
+        Session::set($rand,time());
+        $url='http://117.78.52.216:9003';//系统接口地址
+        $conss = iconv('UTF-8', 'gbk', $cons);
+        $content=urlencode($conss);
+        $username="13613820359";//用户名
+        $password="ODIwMzU5";//密码百度BASE64加密后密文
+        $url=$url."/servlet/UserServiceAPI?method=sendSMS&extenno=&isLongSms=0&username=".$username."&password=".$password."&smstype=0&mobile=".$mobile."&content=".$content;
+        $data = $this->concurl($url);
+        return $data;
     }
 
 }
