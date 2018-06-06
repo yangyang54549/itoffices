@@ -665,8 +665,11 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 
 			                    	//二维码消失
 									clearInterval(j);
-									nos()
-									window.load.href="http://keji.yingjisong.com/bak/user/index";
+									nos();
+									setTimeout(function(){
+										window.load.href="http://keji.yingjisong.com/bak/user/index";
+									},2000)
+									
 			                    }else{
 			                    	//未支付
 			                    }
