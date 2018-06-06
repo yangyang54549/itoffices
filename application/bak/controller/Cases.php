@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-05-31 11:23:57
+ * @Last Modified time: 2018-06-06 09:08:53
  */
 namespace app\bak\controller;
 use app\admin\Controller;
@@ -109,7 +109,7 @@ class Cases extends Yang
                             <div class="picList">
                                 <div class="similarity-title">'.$v['case_name'].'</div>
                                 <div class="similarity_label">产品类型:<span>'.$v['type'].'</span></div>
-                                <div class="similarity_label">主要功能:<span>'.$specific.'</span></div>
+                                <div class="similarity_label">适用行业:<span>'.$specific.'</span></div>
                                 <div class="similarity_label functionNames">系统类型:
                                     <span>'.$system_type.'</span>
                                 </div>
