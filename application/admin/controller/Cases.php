@@ -487,7 +487,7 @@ header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
     public function order()
     {
 
-        $casesorder = CO::select();
+        $casesorder = CO::order("id desc")->select();
         $this->view->assign('list',$casesorder);
         return $this->view->fetch();
     }

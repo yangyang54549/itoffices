@@ -13,5 +13,5 @@ class Consult extends Controller
 
     protected static $isdelete = false;
 
-    
+
 }
