@@ -542,9 +542,9 @@ em, i {
 										</div>
 										{if condition="$vo.apply"}
 										<div class="string string3" >
-												<h3 >进展详情</h3>
+												<!--<h3 >进展详情</h3>-->
 												{if condition="!$vo.apply_id"}
-													<div class="renyuean">
+													<!--<div class="renyuean">
 														<div class="">
 															<img src="__INDEX__/img/bai.png" />
 															<i>{$vo.apply_id.user_name}</i>
@@ -554,10 +554,10 @@ em, i {
 															<i style="border-left: 2px solid gray; color: gray;">
 															<i>确认选择此开发者吗?</i></i><i class="kai ">确认选择</i>
 														</div>
-													</div>
+													</div>-->
 												{elseif condition="$vo.apply_id.sstatus == 0"/}
 
-														<div class="renyuean2">
+														<!--<div class="renyuean2">
 															<div class="">
 																<img src="__INDEX__/img/bai.png" />
 																<i>{$vo.apply_id.user_name}</i>
@@ -579,11 +579,11 @@ em, i {
 																<i>请同开发者协商日期和预算</i></i><i class="imgs">修改</i>
 															</div>
 														</div>
-
+-->
 
 												{elseif condition="$vo.apply_id.sstatus == 1"/}
 
-													<div class="renyuean">
+													<!--<div class="renyuean">
 														<div class="">
 															<img src="__INDEX__/img/bai.png" />
 															<i>{$vo.apply_id.user_name}</i>
@@ -615,11 +615,11 @@ em, i {
 															<h5 class="blues" style="color: #0082E6; "> 已开工 <i></i></h5>
 															<i style="border-left: 2px solid gray; color: gray;"><i >完成时间：</i><i class="timess">{if condition="$vo.delivery_time eq 0"}待协商{else/}{$vo.delivery_time|date="Y-m-d",###}{/if}</i></i>
 														</div>
-													</div>
+													</div>-->
 												{elseif condition="$vo.apply_id.sstatus == 2"/}
 													{if condition="$vo.apply_id.xstatus == 2"}
 
-													<div class="renyuean">
+													<!--<div class="renyuean">
 														<div class="">
 															<img src="__INDEX__/img/bai.png" />
 															<i>{$vo.apply_id.user_name}</i>
@@ -685,9 +685,9 @@ em, i {
 																</div>
 															</div>
 														</div>
-													</div>
+													</div>-->
 													{elseif condition="$vo.apply_id.xstatus == 4"}
-													<div class="renyuean">
+													<!--<div class="renyuean">
 														<div class="">
 															<img src="__INDEX__/img/bai.png" />
 															<i>{$vo.apply_id.user_name}</i>
@@ -720,10 +720,10 @@ em, i {
 															<i style="border-left: 2px solid gray;color: gray;"><is>确认完工:</i>
 															<i class="tong" style="padding: 3px 5px;border: 1px solid gainsboro;background-color: #0190FE; border-radius:5px ;color: white;" data-id="{$vo.id}">同意</i></i>
 														</div>
-													</div>
+													</div>-->
 													{else/}
 
-
+<!--
 													<div class="renyuean">
 														<div class="">
 															<img src="__INDEX__/img/bai.png" />
@@ -767,15 +767,15 @@ em, i {
 														<div class="">
 															<h5 class="blues">评价<i></i></h5>
 															<i style="border-left: 2px solid gray;color: gray;"><is>已评价	</i>
-															<!-- <i class="tong" style="padding: 3px 5px;border: 1px solid gainsboro;background-color: #0190FE; border-radius:5px ;color: white;" data-id="{$vo.id}">同意</i></i> -->
+															
 														</div>
-													</div>
+													</div>-->
 													{/if}
 												{elseif condition="$vo.apply_id.sstatus == 3"/}
 
 													{if condition="$vo.apply_id.xstatus == 2"}
 
-													<div class="renyuean">
+													<!--<div class="renyuean">
 														<div class="">
 															<img src="__INDEX__/img/bai.png" />
 															<i>{$vo.apply_id.user_name}</i>
@@ -841,10 +841,10 @@ em, i {
 																	</div>
 																</div>
 															</div>
-														</div>
+														</div>-->
 													{else/}
 
-													<div class="renyuean">
+													<!--<div class="renyuean">
 														<div class="">
 															<img src="__INDEX__/img/bai.png" />
 															<i>{$vo.apply_id.user_name}</i>
@@ -888,7 +888,7 @@ em, i {
 															<h5 class="blues" style="color: #0082E6; ">评价<i></i></h5>
 															<i style="border-left: 2px solid gray;color: gray;"><is>已评价	</i>
 														</div>
-													</div>
+													</div>-->
 													{/if}
 												{/if}
 										</div>
@@ -1013,9 +1013,9 @@ em, i {
 
 								{if condition="$vos.is_apply_id eq 1"}
 								<div class="string string3">
-										<h3 style="display: none;">进展详情</h3>
+										<!--<h3 style="display: none;">进展详情</h3>-->
 										{if condition="$vos.apply_id.xstatus == 1"/}
-											<div class="renyuean">
+											<!--<div class="renyuean">
 												<div class="">
 													<img src="__INDEX__/img/bai.png" />
 													<i>{$vos.username}</i>
@@ -1025,7 +1025,7 @@ em, i {
 													<i style="border-left: 2px solid gray; color: gray;">
 													<i>协商时间/预算中</i></i>
 												</div>
-											</div>
+											</div>-->
 											<!-- {if condition="$vos.apply_id.sstatus == 0"/}
 											<div class="renyuean">
 												<div class="">
@@ -1088,7 +1088,7 @@ em, i {
 											{/if} -->
 										{elseif condition="$vos.apply_id.xstatus == 2"/}
 
-											<div class="renyuean">
+											<!--<div class="renyuean">
 												<div class="">
 													<img src="__INDEX__/img/bai.png" />
 													<i>{$vos.username}</i>
@@ -1119,10 +1119,10 @@ em, i {
 													<h5 class="blues" style="color: #0082E6; ">提成佣金</h5>
 													<i style="border-left: 2px solid gray; color: gray;"><i>请保持通信畅通,客服会与您联系</i></i>
 												</div>
-											</div>
+											</div>-->
 										{elseif condition="$vos.apply_id.xstatus == 3"/}
 
-											<div class="renyuean">
+											<!--<div class="renyuean">
 												<div class="">
 													<img src="__INDEX__/img/bai.png" />
 													<i>{$vos.username}</i>
@@ -1154,11 +1154,11 @@ em, i {
 													<i style="border-left: 2px solid gray; color: gray;"><i>请保持通信畅通,客服会与您联系</i></i>
 												</div>
 											</div>
-
+-->
 										{elseif condition="$vos.apply_id.xstatus == 4"/}
 
 											{if condition="$vos.apply_id.sstatus == 0"/}
-											<div class="renyuean">
+											<!--<div class="renyuean">
 												<div class="">
 													<img src="__INDEX__/img/bai.png" />
 													<i>{$vos.username}</i>
@@ -1168,10 +1168,10 @@ em, i {
 													<i style="border-left: 2px solid gray; color: gray;">
 													<i>硅谷</i><i>13613820359</i></i><i class="queren " data-id="{$vos.id}"> 是否开工：确认</i>
 												</div>
-											</div>
+											</div>-->
 											{elseif condition="$vos.apply_id.sstatus == 1"/}
 
-											<div class="renyuean">
+										<!--	<div class="renyuean">
 												<div class="">
 													<img src="__INDEX__/img/bai.png" />
 													<i>{$vos.username}</i>
@@ -1193,9 +1193,9 @@ em, i {
 													<i style="border-left: 2px solid gray; color: gray;"><i >完工时间：</i><i>{if condition="$vos.delivery_time eq 0"}待协商{else/}{$vos.delivery_time|date="Y-m-d",###}{/if}</i></i>
 													<i class="yanshou"  data-id="{$vos.id}">请验收</i>
 												</div>
-											</div>
+											</div>-->
 											{elseif condition="$vos.apply_id.sstatus == 2"/}
-											<div class="renyuean">
+											<!--<div class="renyuean">
 												<div class="">
 													<img src="__INDEX__/img/bai.png" />
 													<i>{$vos.username}</i>
@@ -1215,7 +1215,7 @@ em, i {
 													<h5 class="blues" style="color: #0082E6; ">需求方验收:</h5>
 													<i style="border-left: 2px solid gray; color: gray;"><i>等待需求方验收</i></i>
 												</div>
-											</div>
+											</div>-->
 											{/if}
 
 										{/if}
