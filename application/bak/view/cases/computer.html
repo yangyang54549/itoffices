@@ -681,7 +681,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				}
 			})
 
-			
+
 
 			$("#login-none").click(function(){
 				loginNone();
@@ -721,17 +721,21 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 
 			/*购买-开始*/
 			$(".gou").click(function(){
-				
+
 				if (session == ""){
-					
+
 					$(".login_background").css("display","block");
 					$(".login").css("display","block");
 				}else{
 					$(".gous").css("display","block");
 					$(".gou_bth").css("display","block");
 				}
-				
+
 			})
+            var order_id;
+
+            var j;
+
 			$(".gou_bth .qud").click(function(){
 				var moneys = parseInt($(".gou_bth .money strong").text());
 				var name = $("#right-h4").text();
@@ -740,9 +744,32 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
                 {money:moneys,name:name,cases_id:cases_id},
                 function(data){
                     if (data.code==1) {
+                        clearInterval(j);
+                        order_id = data.order_id;
                     	$("#wxpayimg").attr("src",data.data);
 						$(".gou_bth").css("display","none");
 						$(".gou_er").css("display","block");
+
+                         var j = setInterval(function(){
+                        $.post(
+                            "{:url('Native/inquire')}",
+                            {order_id:order_id},
+                            function(data){
+
+                                if (data.code==1) {
+
+                                    //二维码消失
+                                    clearInterval(j);
+                                    nos()
+                                    window.load.href="http://keji.yingjisong.com/bak/user/index";
+
+                                }else{
+                                    //未支付
+                                }
+                               }
+                            )
+                        },3000);
+
                     }else{
                     	alert(data.msg);
                     }
