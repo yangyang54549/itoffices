@@ -210,7 +210,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 							</div>
 							<div>
 								<span>性别</span>
-								<span>{$user.gender}</span>
+								<span>{$user.gender ? $user.gender : '请选择'}</span>
 								<i class="clear"></i>
 							</div>
 							<div>
@@ -340,7 +340,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 									<div class="div1-info"><span>选择职业  </span><span>
 
 						         	   <select name="" id="occupation1" style="width: 49%; height: 34px;font-size: 16px;">
-						         	   	<option value="{$user['occupations'][0] ?? '请选择'}" selected = "selected">{$user['occupations'][0] ?? '请选择'}</option>
+						         	   	<option value="{if condition='$user["occupations"][0]'}{$user['occupations'][0]}{else/}请选择{/if}" selected = "selected">{if condition='$user["occupations"][0]'}{$user['occupations'][0]}{else/}请选择{/if}</option>
 
 
 						         	   </select>
@@ -353,7 +353,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 									</div>
 
 									<div class="div1-info"><span>工作年限  </span><span>
-				        		<select placeholder="请选择您的工作年限" id="workingLife"style="font-size: 16px;">
+				        		<select placeholder="请选择您的工作年限" id="workingLife" style="font-size: 16px;">
 					        		<option {if condition="$user.years == '1-3年'"}selected="selected"{/if}>1-3年</option>
 				                    <option {if condition="$user.years == '3-5年'"}selected="selected"{/if}>3-5年</option>
 				                    <option {if condition="$user.years == '5-8年'"}selected="selected"{/if}>5-8年</option>

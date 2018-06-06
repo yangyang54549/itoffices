@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-06-05 19:24:35
+ * @Last Modified time: 2018-06-06 10:03:51
  */
 namespace app\bak\controller;
 use app\admin\Controller;
@@ -34,6 +34,7 @@ class User  extends Yang
             $user = U::where('id',Session::get('user.id'))->find();
             $user['occupations'] = explode("/",$user['occupation']);
             $user['attentions'] = explode(",",$user['attention']);
+            //dump($user);die;
             $this->assign('user',$user);
             return $this->fetch();
         }
