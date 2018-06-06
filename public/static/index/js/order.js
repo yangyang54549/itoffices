@@ -29,12 +29,13 @@ function notHave() {
 			$(".cente_ul .ul" + (s + 1) + " .string .wu").css("display", "none");
 			if(ullen > 6){
 				
-				$(".cente_ul .ul" + (s + 1) + " em.show").css("display", "block");
+				$(".cente_ul .ul" + (s + 1) + " .em_show").css("display", "block");
 				for(var i = 0;i<6;i++){
 					$(".cente_ul .ul" + (s + 1) + " .li_one").eq(i).addClass("li-block");
 				}
 			}else{
-				$(".cente_ul .ul" + (s + 1) + " em.show").css("display", "none");
+				$(".cente_ul .ul" + (s + 1) + " .em_show").css("display", "none");
+				$(".cente_ul .ul" + (s + 1) + " .li_one").addClass("li-block");
 			}
 			
 			
@@ -58,7 +59,7 @@ function showEm1(){
 						$(".cente_ul .ul1 .li_one").eq(i).addClass("li-block");
 					}
 				}else{
-					$(".cente_ul .ul1 .show").css("display","none");
+					$(".cente_ul .ul1 .em_show").css("display","none");
 					for(var i = p2;i<p1;i++){
 						$(".cente_ul .ul1 .li_one").eq(i).addClass("li-block");
 					}
@@ -74,7 +75,7 @@ function showEm2(){
 						$(".cente_ul .ul2 .li_one").eq(i).addClass("li-block");
 					}
 				}else{
-					$(".cente_ul .ul2 .show").css("display","none");
+					$(".cente_ul .ul2 .em_show").css("display","none");
 					for(var i = p2;i<p1;i++){
 						$(".cente_ul .ul2 .li_one").eq(i).addClass("li-block");
 					}

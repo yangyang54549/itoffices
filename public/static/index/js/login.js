@@ -46,33 +46,4 @@ function loginNone(){
 					}
 				}
 			}
-			  function yan() {
-                if($("#phones").val() == "") {
-                    block("请输入手机号码");
-                }  else {
-                	if(!(/^1[3456789]\d{9}$/.test($("#phones").val()))) {
-						block("手机号码有误，请重填");
-					} else {
-
-                            $("#yan").addClass("disabled");
-                            $.post("{:url('login/codemsg')}",{mobile:$("#phones").val()},function(data) {
-                                if (data.code==1) {
-                                    var s = 60;
-                                    var j = setInterval(function() {
-                                        s = s - 1;
-                                        $("#yan").html(s + "秒后重新获取");
-                                        if(s == 0) {
-
-                                            clearInterval(j);
-                                            $("#yan").remove("disabled");
-                                            $("#yan").html("请重新获取");
-                                        }
-                                    }, 1000)
-                                }else{
-                                    block(data.msg);
-                                }
-                            })
-
-					}
-				}
-			}
+			  
