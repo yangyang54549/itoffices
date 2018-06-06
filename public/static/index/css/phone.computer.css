@@ -1050,3 +1050,25 @@ color:white ;
 .gou_er .img p{
 	text-align: center;
 }
+
+.tis{
+	 position: fixed;
+    top: 50%;
+    left: 50%;    
+	width: 320px;
+	height: 100px;
+	padding: 25px 0px;
+	background-color: white;
+	border-radius:10px ;
+	overflow: hidden;
+	margin-left: -160px;
+	margin-top: -75px;
+	z-index: 11;
+	display: none;
+}
+.tis p{
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+}
