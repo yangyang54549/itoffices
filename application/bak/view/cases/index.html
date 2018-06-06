@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="__INDEX__/css/restre.css" />
 		<link rel="stylesheet" href="__INDEX__/css/style.css" />
 			<link rel="stylesheet" href="__INDEX__/css/sou.css" />
-			
+
 	<!--	<link href="__INDEX__/css/index_style.css" rel="stylesheet" type="text/css">-->
 		<!--<link rel="shortcut icon" href="https://www.315pr.com:443/resources/bootstrap/__INDEX__/img/sdyk.ico">-->
 			<link rel="stylesheet" type="text/css" href="__INDEX__/css/nav.css" />
@@ -200,7 +200,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 	                    {/if}
                     {/volist}
 
-                    {if condition="$k gt 7"}
+                    {if condition="$k gt 6"}
 						<i class="more_choice" id="more_choice1">更多>></i>
                     {/if}
 					<i class="clear"></i>
@@ -289,7 +289,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 			</div>
 		</div>
 
-		
+
 		<div class="login_background" style="display:none" onclick="loginNone();">
 
 		</div>
@@ -404,7 +404,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 		<script src="__INDEX__/js/jss/jquery.js" type="text/javascript" charset="utf-8"></script>
 		<script>
 /*$(".sou").height($(".sou>img").height());*/
-			var session = "{:session('user.id')}";									
+			var session = "{:session('user.id')}";
 			$(".xuqiu").click(function(){
 				if (session.length == 0){
 					$(".login_background").css("display","block");
@@ -423,7 +423,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				}
 			})
 
-						
+
 			$("#qd").click(function() {
 				$(".beijin").css("display", "none");
 			})
@@ -431,7 +431,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 $(".beijin").click(function() {
 				$(".beijin").css("display", "none");
 			})
-			 
+
 
 		var pagenum = {$page.page};
 $("#qd").click(function() {

@@ -54,9 +54,9 @@ function loginNone(){
 						block("手机号码有误，请重填");
 					} else {
 
-                            $("#yan").addClass("disabled");
                             $.post("{:url('login/codemsg')}",{mobile:$("#phones").val()},function(data) {
                                 if (data.code==1) {
+                                     $("#yan").addClass("disabled");
                                     var s = 60;
                                     var j = setInterval(function() {
                                         s = s - 1;
@@ -69,7 +69,7 @@ function loginNone(){
                                         }
                                     }, 1000)
                                 }else{
-                                    block(data.msg);
+                                    block('12123');
                                 }
                             })
 
