@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-05-29 11:14:41
+ * @Last Modified time: 2018-06-06 15:41:56
  */
 namespace app\bak\controller;
 use app\admin\Controller;
@@ -83,7 +83,7 @@ class Demand extends Yang
             }
 
             $str = '';
-            $demand = D::where($where)->order('create_time desc')->page("$pages,9")->select();
+            $demand = D::where($where)->order('create_time desc')->page("$pages,8")->select();
 
             if (!empty($demand)) {
 
@@ -142,7 +142,7 @@ class Demand extends Yang
             }
             $page['num'] = 1;//当前处于第几页
             $demandtype = DT::order('sort')->select();
-            $demand = D::where(['status'=>1])->order('create_time desc')->page('1,9')->select();
+            $demand = D::where(['status'=>1])->order('create_time desc')->page('1,8')->select();
             $demandtrade = DTR::order('sort')->select();
             foreach ($demand as $k => $v) {
                 $dt = DT::where(['id'=>$v['type']])->find();
