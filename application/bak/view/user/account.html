@@ -176,6 +176,10 @@
 				overflow: hidden;
 				border-bottom: 1px solid gainsboro;
 				margin: 0px;
+				display: none;
+			}
+			.cente_b p.bls{
+				display: block;
 			}
 			.cente_b p span{
 				float: left;
@@ -195,7 +199,18 @@
 			.cente_b p span.bt3{
 				width:35%;
 			}
-
+			#show{
+				display: block;
+				width: 150px;
+    margin:10px auto;
+    border: 1px solid #ff5353;
+    color: #ff5353;
+    border-radius: 5px;
+				font-style: normal;
+				text-align: center;
+				line-height: 30px;
+				
+			}
 
 			.beijin {
 				width: 100vw;
@@ -292,11 +307,12 @@
 					</div>
 					<div class="cente_b">
 						<h4 style="background-color: #F5F5F5;">交易明细</h4>
-						<p><span class="bt0">名称</span><span class="bt1">金额</span><span class="bt2">时间</span><span class="bt3">明细</span></p>
+						<p class="bls"><span class="bt0">名称</span><span class="bt1">金额</span><span class="bt2">时间</span><span class="bt3">明细</span></p>
+						
 						{volist name="casespay" id="vo"}
 						<p><span class="bt0">{$vo.name}</span><span class="bt1">{$vo.money}</span><span class="bt2">{$vo.create_time|date="Y-m-d H:i:s",###}</span><span class="bt3">充值</span></p>
 						{/volist}
-
+						<em id="show" onclick="showEm();">显示更多</em>
 
 					</div>
 				</div>
@@ -334,6 +350,31 @@
 				$(".beijin input").val("");
 				}
 
+			}
+			shows();
+			function shows(){				
+				if($(".cente_b>p").length>7){
+					$("#show").css("display","block");
+					for(var i = 0;i<7;i++){
+						$(".cente_b>p").eq(i).addClass("bls");
+					}
+				}else{
+					$("#show").css("display","none");
+				}
+			}
+			function showEm(){
+				var p1 = $(".cente_b>p").length;
+				var p2 = $(".cente_b>p.bls").length;
+				var p2s = p2+7;
+				if(p1>p2s){
+					
+					for(var i = p2;i<p2s;i++){
+						$(".cente_b>p").eq(i).addClass("bls");
+					}
+				}else{
+					$("#show").css("display","none");
+					$(".cente_b>p").addClass("bls");
+				}
 			}
 		</script>
 	</body>
