@@ -366,14 +366,15 @@
 				var p1 = $(".cente_b>p").length;
 				var p2 = $(".cente_b>p.bls").length;
 				var p2s = p2+7;
-				if(p1>p2s){
-					
+				if(p1>p2s){					
 					for(var i = p2;i<p2s;i++){
 						$(".cente_b>p").eq(i).addClass("bls");
 					}
 				}else{
 					$("#show").css("display","none");
-					$(".cente_b>p").addClass("bls");
+					for(var i = p2;i<p1;i++){
+						$(".cente_b>p").eq(i).addClass("bls");
+					}
 				}
 			}
 		</script>
