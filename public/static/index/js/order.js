@@ -27,10 +27,12 @@ function notHave() {
 		if(ullen > 0) {
 			$(".cente_ul .ul" + (s + 1) + " .string>p").css("display", "block");
 			$(".cente_ul .ul" + (s + 1) + " .string .wu").css("display", "none");
+			$(".cente_ul .ul" + (s + 1) + " .page-box").css("display", "block");
 		} else {
 			$(".cente_ul .ul" + (s + 1) + " .string>p").css("display", "none");
 			$(".cente_ul .ul" + (s + 1) + " .string .wu").css("display", "block");
 			$(".cente_ul .ul" + (s + 1) + " .string .wu").css("display", "flex");
+			$(".cente_ul .ul" + (s + 1) + " .page-box").css("display", "none");
 		}
 		$("#num_" + (s + 1)).text(ullen);
 	}
