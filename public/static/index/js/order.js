@@ -27,7 +27,13 @@ function notHave() {
 		if(ullen > 0) {
 			$(".cente_ul .ul" + (s + 1) + " .string>p").css("display", "block");
 			$(".cente_ul .ul" + (s + 1) + " .string .wu").css("display", "none");
+			/*if(ullen > 7){
+				$(".cente_ul .ul" + (s + 1) + " .page-box").css("display", "block");
+			}else{
+				$(".cente_ul .ul" + (s + 1) + " .page-box").css("display", "none");
+			}*/
 			$(".cente_ul .ul" + (s + 1) + " .page-box").css("display", "block");
+			
 		} else {
 			$(".cente_ul .ul" + (s + 1) + " .string>p").css("display", "none");
 			$(".cente_ul .ul" + (s + 1) + " .string .wu").css("display", "block");
@@ -45,16 +51,19 @@ $(" .participations .participation_f1").click(function() {
 			/*选择  取消未选择*/
 			$(this).removeClass("participation1");
 			$(this).parent().next().next().removeClass("blue1");
-			$(this).parent().next().next().next().removeClass("string1");
+			/*$(this).parent().next().next().next().removeClass("string1");*/
 		} else {
 			/*未选择  改为选择*/
 			var pt = $(this).parent().data('id');
 			$(".pt" + pt + " .participation_f1").removeClass("participation1");
 			$(this).addClass("participation1");
 			$(this).parent().next().next().addClass("blue1");
-			$(this).parent().next().next().next().addClass("string1");
+			/*$(this).parent().next().next().next().addClass("string1");*/
 		}
 	}
 })
 $(".content .center_cen").width(($(".center").width() - 250) + "px");
 $(".active").css("color", "white");
+/*隐藏*/
+
+
