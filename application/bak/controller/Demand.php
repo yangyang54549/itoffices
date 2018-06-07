@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-06-06 16:48:54
+ * @Last Modified time: 2018-06-07 11:48:22
  */
 namespace app\bak\controller;
 use app\admin\Controller;
@@ -105,8 +105,7 @@ class Demand extends Yang
                     }
                     $url = url("Demand/inside",["id"=>$v["id"]]);
                     $str .= '<div class="demandBox" tid="799" onclick="window.open('."'".$url."'".')">
-                        <div class="marking content-bg-fff'.$v["schedule"].'">'.$schedule.'
-                        </div>
+
                         <div class="demandTitle">'.$v['name'].'</div>
                         <div class="accomplishDate"><span>发布时间</span><span>'.date('y-m-d h:i:s',$v['create_time']).'</span></div>
                         <div class="abbreviationBox"><span>'.$v['industry'].'</span><span>'.$v['type'].'</span><em class="clear"></em></div>
