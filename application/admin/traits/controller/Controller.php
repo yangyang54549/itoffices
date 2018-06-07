@@ -349,7 +349,7 @@ trait Controller
     /*
      * 短信公共方法 根据不同model使用不同的模版
      * mobile 手机号码
-     * model 1登录 2注册 3忘记密码修改密码 4修改支付密码 5修改手机号码
+     * model 1登录 2发案例
      */
     public function message($mobile,$model)
     {
@@ -359,6 +359,8 @@ trait Controller
 
         if ($model==1) {
             $cons = "【网站顾问】您正在登录,验证码是:".$rand." , 有效期5分钟 ,请您及时验证!";
+        }elseif($model==2){
+            $cons = "【网站顾问】您正在使用此手机号发案例,验证码是:".$rand." , 有效期5分钟 ,请您及时验证!";
         }
 
         Session::set($mobile,$rand);

@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-06-06 17:46:04
+ * @Last Modified time: 2018-06-07 10:02:59
  */
 namespace app\bak\controller;
 use app\bak\controller\Yang;
@@ -102,6 +102,7 @@ class Login extends Yang
         if ($code == '') {
             return json(['code'=>1, 'msg'=>'短信验证码不能为空']);
         }
+
         if ($code != Session::get($mobile)) {
             $this->ret['msg'] = '短信验证码错误';
             $this->ret['code'] = -200;
@@ -119,8 +120,8 @@ class Login extends Yang
         if (isset($res)) {
                 //存cookie
 
-                // Session::delete($mobile);
-                // Session::delete($times);
+                Session::delete($mobile);
+                Session::delete($times);
 
                 Session::set('user',$res);
                 $this->ret['msg'] = '登录成功';
@@ -232,7 +233,7 @@ class Login extends Yang
     {
         if ($this->request->isAjax() && $this->request->isPost()){
             $mobile = input('mobile');
-            $model = -200;
+            $model = 1;
             if ($mobile==''||$model=='') {
                 return json(['code'=>-200, 'msg'=>'数据丢失']);
             }
