@@ -11,7 +11,7 @@
  <script src="__INDEX__/js/jss/jquery.js" type="text/javascript" charset="utf-8"></script>
 <link rel="stylesheet" type="text/css" href="__INDEX__/css/table.css" />
 <link rel="stylesheet" type="text/css" href="__INDEX__/css/login.css"/>
-<script src="__INDEX__/js/login.js" type="text/javascript" charset="utf-8"></script>
+
     </head>
 <script>
 (function(b,a,e,h,f,c,g,s){b[h]=b[h]||function(){(b[h].c=b[h].c||[]).push(arguments)};
@@ -519,17 +519,18 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
             </div>
         </div>
         <script src="__INDEX__/js/form.js" type="text/javascript" charset="utf-8"></script>
+        <script src="__INDEX__/js/login.js" type="text/javascript" charset="utf-8"></script>
         <script type="text/javascript">
         		/*登录 开始*/
 			var session = "{:session('user.id')}";
 			$("#yan").click(function () {
 			  	 $("#yan").addClass("disabled");
                 if($("#phones").val() == "") {
-                    block("请输入手机号码"); $("#yan").remove("disabled");
+                    blockh("请输入手机号码"); $("#yan").remove("disabled");
                 }  else {
              
                 	if(!(/^1[3456789]\d{9}$/.test($("#phones").val()))) {
-						block("手机号码有误，请重填"); $("#yan").remove("disabled");
+						blockh("手机号码有误，请重填"); $("#yan").remove("disabled");
 					} else {
 
                            
@@ -557,10 +558,10 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 			})
 			$("#login1s").click(function () {
                 if($("#phones").val() == "") {
-                    block("请输入手机号码");
+                    blockh("请输入手机号码");
                 }  else {
                 	if(!(/^1[3456789]\d{9}$/.test($("#phones").val()))) {
-						block("手机号码有误，请重填");
+						blockh("手机号码有误，请重填");
 					} else {
 						if($("#j_captcha").val()!=""){
 
@@ -568,14 +569,14 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 							var code = $("#j_captcha").val();
 							$.post("{:url('login/checkindex')}",{mobile:mobile,code:code},function(data) {
 								if (data.code==1) {
-									block("登录成功");
+									blockh("登录成功");
 									window.location.href='{:url("user/index")}';
 								}else{
-									block(data.msg);
+									blockh(data.msg);
 								}
 							})
 						}else{
-							block("请输入短信验证码");
+							blockh("请输入短信验证码");
 						}
 					}
 				}
@@ -584,7 +585,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 /*登录 结束*/
 
 			var cases_id = {$cases.id};
-
+$(".beijin")
 			/*购买-开始*/
 			$(".gou").click(function(){
 
@@ -762,7 +763,7 @@ $(".tis").css("display","none");
                                                     function(data){
                                                         if (data.code==1) {
                                                             $(".forms").css("display", "none");
-                                                            $(".beijin").css("display", "block");
+                                                           blockh("提交项目需求成功！");
                                                             xname.value="";
                                                             brief.value="";
                                                             names.value="";
