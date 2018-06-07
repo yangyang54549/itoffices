@@ -406,7 +406,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 							$.post("{:url('login/checkindex')}",{mobile:mobile,code:code},function(data) {
 								if (data.code==1) {
 									block("登录成功");
-									window.location.href='{:url("user/index")}';
+									location.reload();
 								}else{
 									block(data.msg);
 								}

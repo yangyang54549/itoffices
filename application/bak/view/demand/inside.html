@@ -9,12 +9,12 @@
 		<link rel="stylesheet" href="__INDEX__/css/restre.css" />
 		<link rel="stylesheet" href="__INDEX__/css/style.css" />
 		<link rel="stylesheet" href="__INDEX__/css/sub.css" />
-		
+
 		<link rel="stylesheet" type="text/css" href="__INDEX__/css/one.css" />
 		<link rel="stylesheet" type="text/css" href="__INDEX__/css/pretty.min.css" />
 		<link rel="stylesheet" type="text/css" href="__INDEX__/css/csss/bootstrap.css" />
 		<link rel="stylesheet" type="text/css" href="__INDEX__/css/csss/materialdesignicons.mins.css" />
-		
+
 		<script src="__INDEX__/js/jss/jquery-2.1.3.min.js" type="text/javascript"></script>
 		<script src="__INDEX__/js/jss/jquery.js" type="text/javascript"></script>
 		<script src="__INDEX__/js/form.js" type="text/javascript"></script>
@@ -141,7 +141,7 @@
 			display: none;
 		}
 
-		
+
 
 		a {
 			text-decoration: none
@@ -196,7 +196,7 @@
 		}
 		*/
 
-		
+
 		/*招募等4中背景*/
 
 		.content-bg-fff1 {
@@ -543,7 +543,7 @@ ol, ul {
 
 .nav li {
     margin: 0 25px;
-  
+
     display: inline;
 }
 .nav li a {
@@ -616,12 +616,12 @@ ol, ul {
 	background-color: #1e2831;
 	height: 60px;
 	z-index: 100;
-	
+
 }
 .footer .center{
 	width: 75%;
 	margin: 0  auto;
-} 
+}
 .footer .center p{
 	width: 100%;
 	text-align: center;
@@ -1327,15 +1327,15 @@ ol, ul {
                 if($("#phones").val() == "") {
                     block("请输入手机号码"); $("#yan").remove("disabled");
                 }  else {
-             
+
                 	if(!(/^1[3456789]\d{9}$/.test($("#phones").val()))) {
 						block("手机号码有误，请重填"); $("#yan").remove("disabled");
 					} else {
 
-                           
+
                             $.post("{:url('login/codemsg')}",{mobile:$("#phones").val()},function(data) {
                                 if (data.code==1) {
-                                	 
+
                                     var s = 60;
                                     var j = setInterval(function() {
                                         s = s - 1;
@@ -1369,7 +1369,7 @@ ol, ul {
 							$.post("{:url('login/checkindex')}",{mobile:mobile,code:code},function(data) {
 								if (data.code==1) {
 									block("登录成功");
-									window.location.href='{:url("user/index")}';
+									location.reload();
 								}else{
 									block(data.msg);
 								}
@@ -1624,7 +1624,7 @@ var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "https://hm.baidu.com/hm.js?44df8059d678095fffc254927a44f54d";
-  var s = document.getElementsByTagName("script")[0]; 
+  var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
