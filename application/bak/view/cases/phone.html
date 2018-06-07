@@ -449,16 +449,16 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 			var session = "{:session('user.id')}";			
 /*登录 结束*/
 $("#yan").click(function () {
-			  	 $("#yan").addClass("disabled");
+			  	
                 if($("#phones").val() == "") {
-                    blockh("请输入手机号码"); $("#yan").remove("disabled");
+                    blockh("请输入手机号码"); 
                 }  else {
              
                 	if(!(/^1[3456789]\d{9}$/.test($("#phones").val()))) {
-						blockh("手机号码有误，请重填"); $("#yan").remove("disabled");
+						blockh("手机号码有误，请重填"); 
 					} else {
 
-                           
+                            $("#yan").addClass("disabled");
                             $.post("{:url('login/codemsg')}",{mobile:$("#phones").val()},function(data) {
                                 if (data.code==1) {
                                 	 
