@@ -104,7 +104,7 @@
 
 			.center_cen {
 				width: 100%;
-
+min-height: 75vh;
 				box-shadow: 0 2px 10px 1px rgba(28, 57, 81, 0.18);
 			}
 
@@ -146,7 +146,7 @@
 
 			.cente_b {
 				width: 100%;
-				min-height: 50vh;
+				
 				overflow: hidden;
 			}
 			/*.cente_ul {
@@ -265,12 +265,50 @@
 			.good .qud {
 				float: left;
 				width: 30% !important;
-				margin-left: 15%;
+				margin-left: 13%;
 				border: 1px solid #ff5353;
 				color: #ff5353;
 				border-radius: 10px;
 				padding: 5px 0;
 				margin-top: 20px;
+			}
+			#h4s{
+				height: 80px;
+				width: 100%;
+				background-color: #F5F5F5;
+				overflow: hidden;
+			}
+			#h4s h4{
+				float: left;
+				width: 33.3%;
+				box-sizing: border-box;
+				text-align: center;
+			}
+			.opacity{
+				opacity: 0.7;
+			}
+			/*weixin/zhifubao*/
+			.weizhi span{
+				float: left;
+				width: 25%;
+				margin-left: 5%;
+				border-radius: 10px;
+				box-sizing: border-box;
+				
+			}
+			.weizhi span.on{
+				border: 1px solid #f4370b;
+			}
+			.weizhi span img{
+width: 100%;
+height: auto;
+			}
+			.weizhi span i{
+				display: block;
+				width: 100%;
+				text-align: center;
+				line-height: 30px;
+				height: 30px;
 			}
 		</style>
 	</head>
@@ -308,24 +346,39 @@
 							<span id="num_4">总收益</span>
 						</div> -->
 					</div>
+					<div class="cente_bs" id="h4s">
+						<h4  data-type = "1">案例发布</h4>
+						<h4   data-type = "2">交易明细</h4>
+						<h4   data-type = "3">已购记录</h4>
+					</div>
 					<div class="cente_b" id="cente1">
-						<h4 style="background-color: #F5F5F5;">案例发布</h4>
+						
 						<p class="bls"><span class="bt0">名称</span><span class="bt1">金额</span><span class="bt2">时间</span></p>
 
 						{volist name="cases" id="vos"}
-						<p><span class="bt0">{$vos.case_name}</span><span class="bt1">{$vos.money}</span><span class="bt2">{$vos.create_time|date="Y-m-d H:i:s",###}</span><span class="bt3">充值</span></p>
+						<p><span class="bt0">{$vos.case_name}</span><span class="bt1">{$vos.money}</span><span class="bt2">{$vos.create_time|date="Y-m-d H:i:s",###}</span></p>
 						{/volist}
 						<em class="show" id="show1" onclick="showEm1();">显示更多</em>
 
 					</div>
-					<div class="cente_b" id="cente2">
-						<h4 style="background-color: #F5F5F5;">交易明细</h4>
+					<div class="cente_b" id="cente2" style="display: none;">
+						
 						<p class="bls"><span class="bt0">名称</span><span class="bt1">金额</span><span class="bt2">时间</span><span class="bt3">明细</span></p>
 
 						{volist name="casespay" id="vo"}
 						<p><span class="bt0">{$vo.name}</span><span class="bt1">{$vo.money}</span><span class="bt2">{$vo.create_time|date="Y-m-d H:i:s",###}</span><span class="bt3">充值</span></p>
 						{/volist}
 						<em class="show" id="show2" onclick="showEm2();">显示更多</em>
+
+					</div>
+					<div class="cente_b" id="cente3"style="display: none;" >
+						
+						<p class="bls"><span class="bt0">名称</span><span class="bt1">金额</span><span class="bt2">时间</span><span class="bt3">明细</span></p>
+
+						{volist name="casespay" id="vo"}
+						<p><span class="bt0">{$vo.name}</span><span class="bt1">{$vo.money}</span><span class="bt2">{$vo.create_time|date="Y-m-d H:i:s",###}</span><span class="bt3">充值</span></p>
+						{/volist}
+						<em class="show" id="show3" onclick="showEm3();">显示更多</em>
 
 					</div>
 				</div>
@@ -337,6 +390,9 @@
 				<p style="border: 1px solid grey;">
 				<input type="number" name="money" id="money" value=""  placeholder="提现金额不能小于100" style="outline:none ;" oninput="if(value.length>11)value=value.slice(0,11)" onkeyup="value=value.replace(/[^\d]/g,'') " ng-pattern="/[^a-zA-Z]/"/>
 					</p>
+					
+					<p class="weizhi"><span class="on"><!--<img src="__INDEX__/img/icon/weixin.png"/>--><i>微信</i></span>
+				<span  ><!--<img src="__INDEX__/img/icon/rengong.png"/>--><i>支付宝</i></span></p>
 				<p><span class="qud" id="qd1" onclick="none1();">确定</span>
 				<span class="qud" id="qd2"onclick="none();" >取消</span></p>
 			</div>
@@ -347,7 +403,23 @@
 			</div>
 		</div>
 		<script type="text/javascript">
-
+			$("#h4s h4").click(function(){
+				$("#h4s h4").removeClass("opacity");
+				$(this).addClass("opacity");
+				var daty = $(this).data('type');
+				$(".center_cen .cente_b").css("display","none");
+				if(daty==1){
+					$("#cente1").css("display","block");
+				}else if(daty==2){
+					$("#cente2").css("display","block");
+				}else{
+					$("#cente3").css("display","block");
+				}
+			})
+			$(".weizhi span").click(function(){
+				$(".weizhi span").removeClass("on");
+				$(this).addClass("on");
+			})
 			function block(){
 				$(".beijin").css("display","block");
 			}
@@ -356,11 +428,13 @@
 
 			}
 			function none1(){
-				if($(".beijin input").val()<100){
-
-				}else{
+				if($(".beijin input").val()>99 &&$(".beijin input").val()!=""){
+					var dat = $("weizhi .on").data('type');
+					
 					$(".beijin").css("display","none");
-				$(".beijin input").val("");
+					$(".beijin input").val("");
+				}else{
+					alert("您输入的数值小于100或未输入数值");
 				}
 
 			}
@@ -383,6 +457,15 @@
 				}else{
 					$("#show2").css("display","none");
 					$("#cente2>p").addClass("bls");
+				}
+				if($("#cente3>p").length>7){
+					$("#show2").css("display","block");
+					for(var i = 0;i<7;i++){
+						$("#cente3>p").eq(i).addClass("bls");
+					}
+				}else{
+					$("#show3").css("display","none");
+					$("#cente3>p").addClass("bls");
 				}
 			}
 
@@ -413,6 +496,21 @@
 					$("#show2").css("display","none");
 					for(var i = p2;i<p1;i++){
 						$("#cente2>p").eq(i).addClass("bls");
+					}
+				}
+			}
+			function showEm3(){
+				var p1 = $("#cente3>p").length;
+				var p2 = $("#cente3>p.bls").length;
+				var p2s = p2+7;
+				if(p1>p2s){
+					for(var i = p2;i<p2s;i++){
+						$("#cente3>p").eq(i).addClass("bls");
+					}
+				}else{
+					$("#show3").css("display","none");
+					for(var i = p2;i<p1;i++){
+						$("#cente3>p").eq(i).addClass("bls");
 					}
 				}
 			}
