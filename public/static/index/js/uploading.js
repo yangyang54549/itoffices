@@ -173,7 +173,7 @@
 						}
 					};
 				}
-				
+
 
 /*tijiao*/
 function overtop(s) {
@@ -187,7 +187,7 @@ function overtop(s) {
 					}, 1000);
 				}
 function bths(){
-	
+
 	/*获取select 选中的 text :
     $("#ddlregtype").find("option:selected").text();
 获取select选中的 value:
@@ -237,7 +237,7 @@ function imgs(){
 		}
 	}
 }
-function tuji(){	
+function tuji(){
 	if($(".img-list li").length>1&&$(".img-list li").length<5){
 		if($("#brief").val()!=""){
 			var str = ue.getContent();
@@ -268,10 +268,10 @@ function vals(){
 		selected[n] = $("#xt .selected").eq(n).text();
 	}
 	/*案例展示类型*/
-	var zs = $("#zs .selected").text();	
-	/*上传首页图*/	
-	var imgli1 = $(".img-list1 li:nth-child(1)").css("backgroundImage").replace('url(','').replace(')','');	
-	/*预览二维码*/	
+	var zs = $("#zs .selected").text();
+	/*上传首页图*/
+	var imgli1 = $(".img-list1 li:nth-child(1)").css("backgroundImage").replace('url(','').replace(')','');
+	/*预览二维码*/
 	if( $(".img-list2 li").length!=1){
 		/*预览url*/
 		var url = $("#budget-url").val();
@@ -282,7 +282,7 @@ function vals(){
 		}
 	}
 	/*图片集*/
-	
+
 	var aCity0 = new Array();
 	for(var i=0;i<$(".img-list li").length;i++){
 		aCity0[i] = $(".img-list li").eq(i).css("backgroundImage").replace('url(','').replace(')','');
@@ -291,5 +291,10 @@ function vals(){
 	var brief = $("#brief").val();
 	/*案例详情*/
 	var str = ue.getContent();
-	
+
+				$.post("{:url('cases/add')}",{case_name:proje,money:budget,images:aCity0,brief:brief,img:imgli1,type:sele1,specific:sele2,system_type:selected,code:imgli2,preview:url,info:str,is_pp:zs},function(data) {
+
+				})
+
+
 }

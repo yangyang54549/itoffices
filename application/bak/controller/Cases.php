@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-06-07 15:17:46
+ * @Last Modified time: 2018-06-07 18:03:32
  */
 namespace app\bak\controller;
 use app\admin\Controller;
@@ -309,6 +309,14 @@ class Cases extends Yang
             }
 
         }else{
+
+            $types = T::order('sort')->select();
+            $specifics = S::order('sort,father_id desc')->select();
+            $systems = SY::order('id desc')->select();
+
+            $this->view->assign("type", $types);
+            $this->view->assign("specific", $specifics);
+            $this->view->assign("system", $systems);
             return $this->fetch();
         }
     }

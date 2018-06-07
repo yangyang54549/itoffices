@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-06-04 10:59:16
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-06-07 17:09:43
+ * @Last Modified time: 2018-06-07 17:46:07
  */
 namespace app\bak\controller;
 use app\admin\Controller;
@@ -57,8 +57,11 @@ class Native extends Yang
             if(!isset($casespay)){
                 CasesPay::where(['order_id'=>$arr['out_trade_no']])->update(['status'=>1]);
                 $casespay = CasesPay::where(['order_id'=>$arr['out_trade_no']])->find();
-                file_put_contents('wxpaylog.txt','开始增加金额===='.$casespay['money'].'用户id'.$casespay['cases_user_id'].date("Y-m-d H:i:s",time()).'====='.$xml.'====='.PHP_EOL,FILE_APPEND);
-                User::where('id',$casespay['cases_user_id'])->setInc('money', 555);
+                $user = User::where('id',$casespay['cases_user_id'])->find();
+                $money = $user['money']+$casespay['money'];
+                file_put_contents('wxpaylog.txt','开始增加金额===='.$money.'用户id'.$casespay['cases_user_id'].date("Y-m-d H:i:s",time()).'====='.$xml.'====='.PHP_EOL,FILE_APPEND);
+                User::where(['id'=>$casespay['cases_user_id']])->update(['money'=>intval($money)]);
+
             }
 
 
