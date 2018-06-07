@@ -71,7 +71,7 @@
 		}
 
 		.form-more ul li select {
-			width: 30%;
+			width: 56%;
 			padding: 0px 10px;
 			line-height: 40px;
 			height: 40px;
@@ -407,18 +407,25 @@
 
 							<li class="item-li" id="select">
 								<div class="item-name"><strong>*</strong>案例类型：</div>
-								<select>
+								<select id="selects">
+									<option value="0">请选择</option>
 					                {volist name="system" id="vos"}
 									<option value="{$vos.id}">{$vos.name}</option>
 
 					                {/volist}
 								</select>
-								<select>
+								
+								
+							</li>
+							<li class="item-li">
+								<div class="item-name"><strong>*</strong>主要功能：</div>
+								<div class="item-input" id="zy">
 					                {volist name="specific" id="voss"}
-										<option value="{$voss.id}" data-id="{$voss.father_id}">{$voss.name}</option>
-
-					                {/volist}
-								</select>
+										<div class="urgency ur0 ur{$voss.father_id}" data-id="{$voss.id}" >
+											<i class="iconfont icon-radio-active icon-checked"></i> <i class="iconfont icon-radio-inactive"></i>{$voss.name}
+										</div>
+					               {/volist}
+								</div>
 							</li>
 							<li class="item-li">
 								<div class="item-name"><strong>*</strong>案例系统类型：</div>
@@ -574,10 +581,35 @@
 					/*$(this).siblings().removeClass("selected");*/
 					$(this).toggleClass("selected");
 				})
+				$("#zy .urgency").click(function(){					
+					$(this).toggleClass("selected");
+					
+				})
 				$("#zs .urgency").click(function(){
 					$(this).siblings().removeClass("selected");
 					$(this).addClass("selected");
 				})
+				zys();
+				function zys(){		
+					var se = $("#select select").val();
+					$("#zy .urgency").css("display","none");
+					if($("#zy .ur"+se).length>10){
+						for(var i = 0;i<10;i++){
+							$("#zy .ur"+se).eq(i).css("display","block");
+						}
+					}else{
+						$("#zy .ur"+se).css("display","block");
+					}
+					
+					
+				}
+				$("#select select").change(function(){
+					var se = $("#select select").val();
+					$("#zy .urgency").css("display","none");
+					$("#zy .ur"+se).css("display","block");
+					
+				})
+				
 //				$(".mg-none li").click(function(){
 //					/*$(this).parent().remove();*/
 //					alert("qwe");
