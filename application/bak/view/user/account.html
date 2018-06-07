@@ -146,7 +146,7 @@ min-height: 75vh;
 
 			.cente_b {
 				width: 100%;
-				
+
 				overflow: hidden;
 			}
 			/*.cente_ul {
@@ -294,7 +294,7 @@ min-height: 75vh;
 				margin-left: 5%;
 				border-radius: 10px;
 				box-sizing: border-box;
-				
+
 			}
 			.weizhi span.on{
 				border: 1px solid #f4370b;
@@ -352,7 +352,7 @@ height: auto;
 						<h4   data-type = "3">已售</h4>
 					</div>
 					<div class="cente_b" id="cente1">
-						
+
 						<p class="bls"><span class="bt0">名称</span><span class="bt1">金额</span><span class="bt2">时间</span></p>
 
 						{volist name="cases" id="vos"}
@@ -362,7 +362,7 @@ height: auto;
 
 					</div>
 					<div class="cente_b" id="cente2" style="display: none;">
-						
+
 						<p class="bls"><span class="bt0">名称</span><span class="bt1">金额</span><span class="bt2">时间</span><span class="bt3">明细</span></p>
 
 						{volist name="casespay" id="vo"}
@@ -372,7 +372,7 @@ height: auto;
 
 					</div>
 					<div class="cente_b" id="cente3"style="display: none;" >
-						
+
 						<p class="bls"><span class="bt0">名称</span><span class="bt1">金额</span><span class="bt2">时间</span><span class="bt3">明细</span></p>
 
 						{volist name="casespay" id="vo"}
@@ -390,9 +390,9 @@ height: auto;
 				<p style="border: 1px solid grey;">
 				<input type="number" name="money" id="money" value=""  placeholder="提现金额不能小于100" style="outline:none ;" oninput="if(value.length>11)value=value.slice(0,11)" onkeyup="value=value.replace(/[^\d]/g,'') " ng-pattern="/[^a-zA-Z]/"/>
 					</p>
-					
-					<p class="weizhi"><span class="on"><!--<img src="__INDEX__/img/icon/weixin.png"/>--><i>微信</i></span>
-				<span  ><!--<img src="__INDEX__/img/icon/rengong.png"/>--><i>支付宝</i></span></p>
+				<input type="text" name="card" id="card" value=""  placeholder="请输入提现帐号" style="outline:none;height: 30px;line-height: 30px;width: 100%;" >
+					<p class="weizhi"><span class="on" data-type='1'><!--<img src="__INDEX__/img/icon/weixin.png"/>--><i>微信</i></span>
+				<span  data-type='0'><!--<img src="__INDEX__/img/icon/rengong.png"/>--><i>支付宝</i></span></p>
 				<p><span class="qud" id="qd1" onclick="none1();">确定</span>
 				<span class="qud" id="qd2"onclick="none();" >取消</span></p>
 			</div>
@@ -429,10 +429,33 @@ height: auto;
 			}
 			function none1(){
 				if($(".beijin input").val()>99 &&$(".beijin input").val()!=""){
-					var dat = $("weizhi .on").data('type');
-					
-					$(".beijin").css("display","none");
-					$(".beijin input").val("");
+					//alert();
+					if ($("#card").val()=="") {
+						alert("请输入提现帐号");
+					}else{
+						var dat = $(".weizhi .on").data('type');
+						$(".beijin").css("display","none");
+						money = $(".beijin input").val();
+
+						$.post("{:url('user/account')}",{
+							money:money,
+							card:$("#card").val(),
+							is_wx:dat
+						},function(data){
+
+							if (data.code==1) {
+								$(".beijin").css("display","none");
+								$(".beijin input").val("");
+								$("#card").val("");
+							}else{
+								alert(data.msg)
+							}
+
+						}, "json");
+
+
+					}
+
 				}else{
 					alert("您输入的数值小于100或未输入数值");
 				}

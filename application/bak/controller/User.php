@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-06-07 16:39:03
+ * @Last Modified time: 2018-06-07 18:47:53
  */
 namespace app\bak\controller;
 use app\admin\Controller;
@@ -21,6 +21,7 @@ use app\common\model\Apply;
 use app\common\model\Evaluate;
 use think\exception\HttpException;
 use app\common\model\CasesPay;
+use app\common\model\Withdraw;
 
 class User  extends Yang
 {
@@ -390,15 +391,47 @@ class User  extends Yang
 
     public function account()
     {
-        $user_id = Session::get('user.id');
-        $user = U::where('id',$user_id)->find();
-        $CasesPay = CasesPay::where(['user_id'=>$user_id,'status'=>1])->order('id desc')->select();
-        $Cases = Cases::where(['user_id'=>$user_id])->order('id desc')->select();
 
-        $this->assign('user',$user);
-        $this->assign('casespay',$CasesPay);
-        $this->assign('cases',$Cases);
+        if ($this->request->isAjax())
+        {
 
-        return $this->fetch();
+                $data = input();
+                $user = U::where('id',Session::get('user.id'))->find();
+                if ($data['money']>$user['money']) {
+                    $this->ret['code']=-200;
+                    $this->ret['msg']='余额不足';
+                    return json($this->ret);
+                }
+
+
+                $data['user_id'] = Session::get('user.id');
+                $data['username'] = Session::get('user.user_name');
+                $data['create_time'] = time();
+                $result = Withdraw::insert($data);
+                if ($result) {
+
+                U::where(['id'=>Session::get('user.id')])->setDec('money',$data['money']);
+                U::where(['id'=>Session::get('user.id')])->setInc('dj_money',$data['money']);
+
+                return json($this->ret);
+
+            }else{
+                $this->ret['code']=-200;
+                $this->ret['msg']='提交失败,请重试';
+                return json($this->ret);
+            }
+        }else{
+            $user_id = Session::get('user.id');
+            $user = U::where('id',$user_id)->find();
+            $CasesPay = CasesPay::where(['user_id'=>$user_id,'status'=>1])->order('id desc')->select();
+            $Cases = Cases::where(['user_id'=>$user_id])->order('id desc')->select();
+
+            $this->assign('user',$user);
+            $this->assign('casespay',$CasesPay);
+            $this->assign('cases',$Cases);
+
+            return $this->fetch();
+        }
+
     }
 }
