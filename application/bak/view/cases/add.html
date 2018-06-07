@@ -408,12 +408,16 @@
 							<li class="item-li" id="select">
 								<div class="item-name"><strong>*</strong>案例类型：</div>
 								<select>
-									<option value="0">请选择案例类型</option>
-									<option value="1">医疗卫生</option>
+					                {volist name="system" id="vos"}
+									<option value="{$vos.id}">{$vos.name}</option>
+
+					                {/volist}
 								</select>
 								<select>
-									<option value="0">请选择案例功能</option>
-									<option value="1">医疗卫生</option>
+					                {volist name="specific" id="voss"}
+										<option value="{$voss.id}" >{$voss.name}</option>
+
+					                {/volist}
 								</select>
 							</li>
 							<li class="item-li">
