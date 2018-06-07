@@ -312,6 +312,51 @@
     color: #fff;
     font-size: 14px;
 }
+/*成功提示*/
+.beijin {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+  display: none;
+}
+.good {
+    margin: 30vh auto;
+    padding: 50px;
+    width: 400px;
+    background-color: white;
+    border-radius: 10px;
+}
+.good h5 {
+    font-size: 16px;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.good h5, .good p {
+    width: 100%;
+    text-align: center;
+}
+.good p {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.good h5, .good p {
+    width: 100%;
+    text-align: center;
+}
+.qud {
+    border: 1px solid red;
+    color: red;
+    border-radius: 10px;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+/*错误提示*/
 .overtop {
 			position: fixed;
 			top: 50%;
@@ -497,8 +542,8 @@
 
 		<div class="beijin">
 			<div class="good">
-				<h5>申请成功！</h5>
-				
+				<h5>案例添加成功！</h5>
+				<p>等待后台审核</p>
 				<p class="qud" id="qd">确定</p>
 			</div>
 		</div>

@@ -265,7 +265,7 @@ function vals(){
 	$("#xt .selected").length
 	var selected = new Array();
 	for(var n=0;n<$("#xt .selected").length;n++){
-		selected[n] = $(".img-list li").eq(n).text();
+		selected[n] = $("#xt .selected").eq(n).text();
 	}
 	/*案例展示类型*/
 	var zs = $("#zs .selected").text();	
@@ -276,7 +276,7 @@ function vals(){
 	/*预览url*/
 	var url = $("#budget-url").val();
 	/*图片集*/
-	$(".img-list li").length
+	
 	var aCity0 = new Array();
 	for(var i=0;i<$(".img-list li").length;i++){
 		aCity0[i] = $(".img-list li").eq(i).css("backgroundImage").replace('url(','').replace(')','');
@@ -285,4 +285,5 @@ function vals(){
 	var brief = $("#brief").val();
 	/*案例详情*/
 	var str = ue.getContent();
+	/*alert(aCity0);*/
 }
