@@ -355,8 +355,8 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 		<script src="__INDEX__/js/main.js" type="text/javascript" charset="utf-8"></script>
 
 		<script>
-
-
+			
+			/*$("#demandlist-ul1 .page-div").height($(".demandBox").height());*/
 			/*$(".sou").height($(".sou>img").height());*/
 			var session = "{:session('user.id')}";
 			$("#yan").click(function () {
@@ -471,7 +471,7 @@ $(".beijin").click(function() {
 
 					$("#demandlist-ul1").html(data.data);
 
-
+$("#demandlist-ul1 .page-div").height($(".demandBox").height());
 
 					if (data.page.page<=1) {
 						$("#page-box").html('');
@@ -591,6 +591,7 @@ $(".beijin").click(function() {
 					}
 
 					$("#demandlist-ul1").html(data.data);
+					$("#demandlist-ul1 .page-div").height($(".demandBox").height());
 				})
 			}
 			function pagess(page) {
@@ -660,6 +661,7 @@ $(".beijin").click(function() {
 					}
 
 					$("#demandlist-ul1").html(data.data);
+					$("#demandlist-ul1 .page-div").height($(".demandBox").height());
 				})
 			}
 
