@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-06-07 11:48:22
+ * @Last Modified time: 2018-06-07 15:04:32
  */
 namespace app\bak\controller;
 use app\admin\Controller;
@@ -25,6 +25,7 @@ use app\common\model\User;
 */
 class Demand extends Yang
 {
+    use \app\admin\traits\controller\Controller;
     /*
      * 发布需求
      */
@@ -32,15 +33,37 @@ class Demand extends Yang
     {
         if ($this->request->isAjax()) {
             $data = input();
+
+            if ($data['code'] == '') {
+                return json(['code'=>-200, 'msg'=>'短信验证码不能为空']);
+            }
+
+            if ($data['code'] != Session::get($data['mobile'])) {
+                $this->ret['msg'] = '短信验证码错误';
+                $this->ret['code'] = -200;
+                return json($this->ret);
+            }
+            $times=Session::get($data['code']);
+            if (time() > ($times+5*60)) {
+                Session::delete($times);
+                $this->ret['msg'] = '短信验证码已失效';
+                $this->ret['code'] = -200;
+                return json($this->ret);
+            }
+            unset($data['code']);
             $data['create_time'] = time();
             $data['user_id'] = Session::get('user.id');
             $data['username'] = Session::get('user.user_name');
             $result = D::insert($data);
+
             if (isset($result)) {
+                Session::delete($data['mobile']);
+                Session::delete($times);
+
                 $this->ret['msg'] = '需求提交成功';
                 return json($this->ret);
             }
-            $this->ret['msg'] = '需求提交成功';
+            $this->ret['msg'] = '需求提交失败';
             $this->ret['code'] = -200;
             return json($this->ret);
         }else{
@@ -50,6 +73,26 @@ class Demand extends Yang
             $this->assign('demandtype',$demandtype);
             return $this->fetch();
         }
+    }
+    /*
+     * 发送验证码
+     */
+    public function codemsg()
+    {
+        if ($this->request->isAjax() && $this->request->isPost()){
+            $mobile = input('mobile');
+            $model = 2;
+            if ($mobile==''||$model=='') {
+                return json(['code'=>-200, 'msg'=>'数据丢失']);
+            }
+
+            $result = $this->message($mobile,$model);
+            if ($result) {
+                return json(['code'=>1, 'msg'=>'发送成功']);
+            }
+            return json(['code'=>-200, 'msg'=>'发送失败']);
+        }
+        return json(['code'=>-200, 'msg'=>'非法请求']);
     }
     /*
      * 需求首页
@@ -104,8 +147,7 @@ class Demand extends Yang
                         $schedule = "已完成";
                     }
                     $url = url("Demand/inside",["id"=>$v["id"]]);
-                    $str .= '<div class="demandBox" tid="799" onclick="window.open('."'".$url."'".')">
-
+                    $str .= '<div class="demandBox" tid="799" onclick="window.open('."'".$url."'".')"><div class="marking content-bg-fff'.$v['schedule'].'">'.$schedule.'</div>
                         <div class="demandTitle">'.$v['name'].'</div>
                         <div class="accomplishDate"><span>发布时间</span><span>'.date('y-m-d h:i:s',$v['create_time']).'</span></div>
                         <div class="abbreviationBox"><span>'.$v['industry'].'</span><span>'.$v['type'].'</span><em class="clear"></em></div>

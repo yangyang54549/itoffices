@@ -212,7 +212,7 @@
 				font-style: normal;
 				text-align: center;
 				line-height: 30px;
-				
+
 			}
 
 			.beijin {
@@ -310,10 +310,10 @@
 					</div>
 					<div class="cente_b" id="cente1">
 						<h4 style="background-color: #F5F5F5;">案例发布</h4>
-						<p class="bls"><span class="bt0">名称</span><span class="bt2">时间</span></p>
-						
-						{volist name="casespay" id="vo"}
-						<p><span class="bt0">{$vo.name}</span><span class="bt1">{$vo.money}</span><span class="bt2">{$vo.create_time|date="Y-m-d H:i:s",###}</span><span class="bt3">充值</span></p>
+						<p class="bls"><span class="bt0">名称</span><span class="bt1">金额</span><span class="bt2">时间</span></p>
+
+						{volist name="cases" id="vos"}
+						<p><span class="bt0">{$vos.name}</span><span class="bt1">{$vos.money}</span><span class="bt2">{$vos.create_time|date="Y-m-d H:i:s",###}</span><span class="bt3">充值</span></p>
 						{/volist}
 						<em class="show" id="show1" onclick="showEm1();">显示更多</em>
 
@@ -321,7 +321,7 @@
 					<div class="cente_b" id="cente2">
 						<h4 style="background-color: #F5F5F5;">交易明细</h4>
 						<p class="bls"><span class="bt0">名称</span><span class="bt1">金额</span><span class="bt2">时间</span><span class="bt3">明细</span></p>
-						
+
 						{volist name="casespay" id="vo"}
 						<p><span class="bt0">{$vo.name}</span><span class="bt1">{$vo.money}</span><span class="bt2">{$vo.create_time|date="Y-m-d H:i:s",###}</span><span class="bt3">充值</span></p>
 						{/volist}
@@ -365,7 +365,7 @@
 
 			}
 			shows1();
-			function shows1(){				
+			function shows1(){
 				if($("#cente1>p").length>7){
 					$("#show1").css("display","block");
 					for(var i = 0;i<7;i++){
@@ -374,7 +374,7 @@
 				}else{
 					$("#show1").css("display","none");
 					$("#cente1>p").addClass("bls");
-				}				
+				}
 				if($("#cente2>p").length>7){
 					$("#show2").css("display","block");
 					for(var i = 0;i<7;i++){
@@ -385,12 +385,12 @@
 					$("#cente2>p").addClass("bls");
 				}
 			}
-			
+
 			function showEm1(){
 				var p1 = $("#cente1>p").length;
 				var p2 = $("#cente1>p.bls").length;
 				var p2s = p2+7;
-				if(p1>p2s){					
+				if(p1>p2s){
 					for(var i = p2;i<p2s;i++){
 						$("#cente1>p").eq(i).addClass("bls");
 					}
@@ -405,7 +405,7 @@
 				var p1 = $("#cente2>p").length;
 				var p2 = $("#cente2>p.bls").length;
 				var p2s = p2+7;
-				if(p1>p2s){					
+				if(p1>p2s){
 					for(var i = p2;i<p2s;i++){
 						$("#cente2>p").eq(i).addClass("bls");
 					}

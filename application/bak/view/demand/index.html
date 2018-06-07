@@ -165,7 +165,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				</ul>
 				<i class="clear"></i>
 			</div>
-			<!-- <div class="choice_kind" style="border-bottom: 1px dashed rgba(0,0,0,0.14);">
+			<div class="choice_kind" style="border-bottom: 1px dashed rgba(0,0,0,0.14);">
 				<span text="所有类型：">所有类型：</span>
 				<ul class="ty">
 					<li class="active" data-id="0">不限</li>
@@ -182,9 +182,9 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
                     {/if}
 				</ul>
 				<i class="clear"></i>
-			</div> -->
+			</div>
 
-			<!-- <div class="choice_kind">
+			<div class="choice_kind">
 				<span text="所有进度：" data="">所有进度：</span>
 				<ul class="jd">
 					<li class="active" data-id="0">不限</li>
@@ -194,7 +194,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 					<li data-id="4">已完成</li>
 				</ul>
 				<i class="clear"></i>
-			</div> -->
+			</div>
 		</div>
 		<!--end-->
 		<style type="text/css">
@@ -208,9 +208,9 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 					{volist name="demand" id="vos" }
 
 					<div class="demandBox" tid="799" onclick="window.open('{:url("demand/inside",["id"=>$vos.id])}')">
-						<!-- <div class="marking content-bg-fff{$vos.schedule}">
+						<div class="marking content-bg-fff{$vos.schedule}">
 							{if condition="$vos.schedule eq 1"} 招募中 {elseif condition="$vos.schedule eq 2"/} 对接中 {elseif condition="$vos.schedule eq 3"/} 执行中 {else /} 已完成 {/if}
-						</div> -->
+						</div>
 						<div class="demandTitle">{$vos.name}</div>
 						<div class="accomplishDate"><span>发布时间</span><span>{$vos.create_time|date="y-m-d h:i:s",###}</span></div>
 						<div class="abbreviationBox"><span>{$vos.industry}</span><span>{$vos.type}</span><em class="clear"></em></div>

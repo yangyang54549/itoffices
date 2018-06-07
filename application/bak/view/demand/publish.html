@@ -543,18 +543,18 @@ ol, ul {
 				}
 				$(".send1").click(function(){
 					if($("#phone").val() == "") {
-                    $(".overtop").text("请输入手机号码"); 
-                   
+                    $(".overtop").text("请输入手机号码");
+
 						overtop();
                 }  else {
-             
+
                 	if(!(/^1[3456789]\d{9}$/.test($("#phone").val()))) {
 						$(".overtop").text("手机号码有误，请重填"); overtop();
 					} else {
 
                             $(".send1").addClass("disabled");
-                            $.post("{:url('login/codemsg')}",{mobile:$("#phone").val()},function(data) {
-                                if (data.code==1) {                              	 
+                            $.post("{:url('demand/codemsg')}",{mobile:$("#phone").val()},function(data) {
+                                if (data.code==1) {
                                     var s = 60;
                                     var j = setInterval(function() {
                                         s = s - 1;
@@ -662,7 +662,7 @@ var hys;
 					$("#app").css("display", "block");
 					$(".publish-more").css("display", "none");
 				})
-				
+
 				/*验证*/
 				var phone = document.getElementById("phone"); //手机号
 				var Name = document.getElementById("Name"); //姓名
@@ -777,12 +777,12 @@ var hys;
 
 			                                            $.post(
 			                                                "{:url('demand/publish')}",
-			                                                {name:xname,money:ys,industry:hys,type:lei1s,period:lei2s,urgency:an1s,info:jbrief,reference:ck,company_name:comp,user_name:gname,mobile:p1},
+			                                                {name:xname,money:ys,industry:hys,type:lei1s,period:lei2s,urgency:an1s,info:jbrief,reference:ck,company_name:comp,user_name:gname,mobile:p1,code:notes},
 			                                                function(data){
 			  														if (data.code==1) {
 																		$(".beijin").css("display", "block");
 			  														}else{
-																		$(".overtop").text("提交失败");
+																		$(".overtop").text(data.msg);
 																		overtop();
 			  														}
 			                                                   }

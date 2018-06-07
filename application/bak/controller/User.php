@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-06-06 18:13:34
+ * @Last Modified time: 2018-06-07 14:49:10
  */
 namespace app\bak\controller;
 use app\admin\Controller;
@@ -15,6 +15,7 @@ use app\common\model\UserProduction;
 use app\common\model\DemandTrade;
 use app\common\model\DemandType;
 use app\common\model\Demand;
+use app\common\model\Cases;
 use app\common\model\UserSkill;
 use app\common\model\Apply;
 use app\common\model\Evaluate;
@@ -391,7 +392,10 @@ class User  extends Yang
     {
         $user_id = Session::get('user.id');
         $CasesPay = CasesPay::where(['user_id'=>$user_id,'status'=>1])->order('id desc')->select();
+        $Cases = Cases::where(['user_id'=>$user_id])->order('id desc')->select();
+
         $this->assign('casespay',$CasesPay);
+        $this->assign('cases',$Cases);
 
         return $this->fetch();
     }

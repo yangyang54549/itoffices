@@ -648,7 +648,7 @@ ol, ul {
 </div>
 
 		<div id="page-content">
-			<!-- <div class="content-status-pos content-bg-fff{$demand.schedule}">
+			<div class="content-status-pos content-bg-fff{$demand.schedule}">
 					{if condition="$demand.schedule eq 1"}
 					招募中
 					{elseif condition="$demand.schedule eq 2" /}
@@ -658,7 +658,7 @@ ol, ul {
 					{else /}
 					已完成
 					{/if}
-			</div> -->
+			</div>
 			<div class="page-content">
 				<h2>{$demand.name}</h2>
 				<div class="content-info">
@@ -717,13 +717,12 @@ ol, ul {
 					<span><img src="__INDEX__/img/icon/xi04.png"/><span>联系方式</span></span>
 
 					<span>
-							<!-- {if condition="$exist eq 1"}
+							{if condition="$exist eq 1"}
 								<span id="xinxi"><a><img src="__INDEX__/img/hua.png" style="height: 16px;" /><span>：</span> <span>{$demand.mobile}</span></a></span>
 							{else /}
 								<span id="xinxi" style="display:none"><a><img src="__INDEX__/img/hua.png" style="height: 16px;" /><span>：</span> <span>{$demand.mobile}</span></a></span>
 								<span id="xinxi1"><a><span>{if condition="$demand.schedule eq 1"}申请干活后才能看到联系方式哦{else /}招募已经结束，联系信息已被隐藏{/if}</span></a></span>
-							{/if} -->
-								<span id="xinxi"><a><img src="__INDEX__/img/hua.png" style="height: 16px;" /><span>：</span> <span>{$demand.mobile}</span></a></span>
+							{/if}
 
 					</span>
 
@@ -737,8 +736,8 @@ ol, ul {
 				</div>-->
 			</div>
 			<div class="content-info-right">
-				<!-- <p class="content-info-right-p">交付日期</p>
-				<h3>{if condition="$demand.delivery_time eq 0"}待协商{else/}{$demand.delivery_time|date="Y-m-d",###}{/if}</h3> -->
+				<p class="content-info-right-p">交付日期</p>
+				<h3>{if condition="$demand.delivery_time eq 0"}待协商{else/}{$demand.delivery_time|date="Y-m-d",###}{/if}</h3>
 				<p class="content-info-right-p">项目预算</p>
 				<h3 class="content-info-right-red">{$demand.money}</h3>
 				<div class="count">
@@ -754,7 +753,7 @@ ol, ul {
 					</div>
 					<i class="clear"></i>
 				</div>
-				<!-- <div class="status_num status_num{$demand.schedule}">
+				<div class="status_num status_num{$demand.schedule}">
 					<span><i style="margin-right:-5px;" ><em>对接中</em></i><i ><em>招募中</em></i></span>
 					<span><i><em>执行中</em></i></span>
 					<span><i><em>已完成</em></i></span>
@@ -766,7 +765,7 @@ ol, ul {
 					{else/}
 						<button id="content-sq">申请干活</button>
 					{/if}
-				{/if} -->
+				{/if}
 				<i class="clear"></i>
 
 			</div>
