@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-06-06 09:08:53
+ * @Last Modified time: 2018-06-07 14:12:08
  */
 namespace app\bak\controller;
 use app\admin\Controller;
@@ -279,8 +279,6 @@ class Cases extends Yang
      */
     public function order()
     {
-
-        //return json('fjjj');
         $data = input();
         $result = CO::insert($data);
         if ($result) {
@@ -290,7 +288,13 @@ class Cases extends Yang
             $this->ret['msg']='提交失败,请重试';
             return json($this->ret);
         }
+    }
+    /*
+     * 案例添加
+     */
+    public function add()
+    {
+        return $this->fetch();
 
     }
-
 }
