@@ -460,14 +460,12 @@ $("#yan").click(function () {
 
                             $("#yan").addClass("disabled");
                             $.post("{:url('login/codemsg')}",{mobile:$("#phones").val()},function(data) {
-                                if (data.code==1) {
-                                	 
+                                if (data.code==1) {                              	 
                                     var s = 60;
                                     var j = setInterval(function() {
                                         s = s - 1;
                                         $("#yan").html(s + "秒后重新获取");
                                         if(s == 0) {
-
                                             clearInterval(j);
                                             $("#yan").remove("disabled");
                                             $("#yan").html("请重新获取");
