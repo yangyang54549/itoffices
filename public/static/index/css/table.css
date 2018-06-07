@@ -31,16 +31,24 @@
 				color: #61affc;
 			}
 			.columns h3{
-				padding: 30px 0px 40px 0px;
+				height: 90px;
+				line-height: 100px;
 				text-align: center;
 				font-size: 24px;
 			}
 
 #column>p{
 	display: block;
-	line-height: 60px;
+	line-height: 100px;
 	font-weight: bold;
-	height: auto;
+	
+}
+#column p span,#column p strong,#column p span strong{
+	display: block;
+	height: 90px;
+	line-height: 100px;
+	font-weight: bold;
+	overflow: hidden;
 }
 
 #column table:nth-child(1) .firstRow {
