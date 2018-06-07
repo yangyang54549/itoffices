@@ -205,7 +205,7 @@ function bths(){
 
 function selects(){
 	if($("#select select:nth-child(1)").val()!= 0){
-			if($("#select select:nth-child(2)").val()!= 0){
+			if($("#zy .selected").length>0){
 				selected();
 			}else{
 				overtop("请选择案例功能");
@@ -258,11 +258,14 @@ function vals(){
 	var proje = $("#project").val();
 	/*项目金额*/
 	var budget = $("#budget").val();
-	/*案例类型/案例功能*/
-	var sele1 = $("#select select:nth-child(1)").find("option:selected").text();
-	var sele2 = $("#select select:nth-child(1)").find("option:selected").text();
-	/*案例系统类型 多选*/
-	$("#xt .selected").length
+	/*案例类型*/
+	var sele1 = $("#select select").val();
+	/*案例功能*/	
+	var zy = new Array();
+	for(var n=0;n<$("#zy .selected").length;n++){
+		zy[n] = $("#zy .selected").eq(n).data("id");
+	}
+	/*案例系统类型 多选*/	
 	var selected = new Array();
 	for(var n=0;n<$("#xt .selected").length;n++){
 		selected[n] = $("#xt .selected").eq(n).text();
