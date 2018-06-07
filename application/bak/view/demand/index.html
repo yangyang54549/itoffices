@@ -34,9 +34,9 @@
 			cursor: pointer;
     position: relative;
     float: left;
-
+    
     width: 30%;
-
+   
     box-shadow: 0 4px 12px 0 rgba(28,57,81,0.1);
     margin-bottom: 50px;
 		}
@@ -125,7 +125,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 						<i class="is">案例</i>
 						<i class="is">人才</i>-->
 						<!--<a href="{:url('index/one')}" class="is" >首页</a>-->
-				<a href="{:url('demand/index')}" class="is actives" >需求</a>
+		<a href="{:url('demand/index')}" class="is actives" >需求</a>
 				<a  href="{:url('cases/index')}" class="is"  >案例</a>
 				<!--<a  href="javascript:void(0)" class="is">人工</a>-->
 				{if condition="session('user')"}<a  id="personage" href="{:url('user/index')}"  titile="" ><img src="__INDEX__/img/icon/geren.png"/></a>{else/}<a href="javascript:void(0)" style="float: right;" class="is denglu" >登录/注册</a>{/if}
@@ -242,7 +242,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				</div>
 			</div>
 		</div>
-
+		
 		<div class="login_background" style="display:none" onclick="loginNone();">
 
 		</div>
@@ -364,15 +364,15 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
                 if($("#phones").val() == "") {
                     block("请输入手机号码"); $("#yan").remove("disabled");
                 }  else {
-
+             
                 	if(!(/^1[3456789]\d{9}$/.test($("#phones").val()))) {
 						block("手机号码有误，请重填"); $("#yan").remove("disabled");
 					} else {
 
-
+                           
                             $.post("{:url('login/codemsg')}",{mobile:$("#phones").val()},function(data) {
                                 if (data.code==1) {
-
+                                	 
                                     var s = 60;
                                     var j = setInterval(function() {
                                         s = s - 1;
@@ -435,9 +435,9 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				}
 			})
 
+			
 
-
-
+			
 			$("#qd").click(function() {
 				$(".beijin").css("display", "none");
 			})
@@ -445,7 +445,7 @@ $(".beijin").click(function() {
 				$(".beijin").css("display", "none");
 			})
 
-
+			 
 			$('.choice_kind li').click(function() {
 				$("#page-box .now").text('1')
 				$(this).parents(".choice_kind").find("li").removeClass("active").end().find(".freeman_none").css("display", 'none');
@@ -652,13 +652,6 @@ $("#demandlist-ul1 .page-div").height($(".demandBox").height());
 				}
 
 				$.post("{:url('demand/index')}",{type:type,industry:industry,schedule:schedule,page:page},function(data) {
-
-					if (data.page.num<data.page.page) {
-						var xiayiye = '<div class="demandBox page-div" onclick="xia();"><h3>下一页</h3></div>';
-						//var xiayiye = '<div class="page-div" onclick="xia();" style="background-color: rgba(0, 0, 0, 0.1);box-shadow: 0 4px 20px 2px rgba(28, 57, 81, 0.18);"><h3 style="width: 100%;height: 100px;font-size: 40px;line-height: 100px;position: absolute;top: 50%;left: 0;margin-top: -50px;text-align: center;">下一页</h3></div>';
-
-						data.data += xiayiye;
-					}
 
 					$("#demandlist-ul1").html(data.data);
 					$("#demandlist-ul1 .page-div").height($(".demandBox").height());

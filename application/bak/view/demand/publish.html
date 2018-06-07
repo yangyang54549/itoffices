@@ -194,6 +194,11 @@
 	color: #fff;
 	font-size: 14px;
 }
+
+.disabled{
+	  pointer-events: none;
+    cursor: default;
+}
 	</style>
 <script>
 (function(b,a,e,h,f,c,g,s){b[h]=b[h]||function(){(b[h].c=b[h].c||[]).push(arguments)};
@@ -313,9 +318,6 @@ ol, ul {
 }
 .nav li.on a {
     border-bottom: 4px solid #0368bd;
-}
-.disabled{
-	pointer-events: none;
 }
 </style>
 <div class="header">
@@ -481,7 +483,7 @@ ol, ul {
 
 								<div class="item-input">
 									<input type="number" id="phone" class="infos" placeholder="请输入手机" maxlength="11" oninput="if(value.length>11)value=value.slice(0,11)"/><span class="with"></span>
-									<a href="javascript:void(0)" class="send1" onclick="yans();">发送验证码</a>
+									<a href="javascript:void(0)" class="send1" >发送验证码</a>
 								</div>
 
 							</li>
@@ -513,7 +515,7 @@ ol, ul {
 		<div class="beijin">
 			<div class="good">
 				<h5>申请成功！</h5>
-				<p class="texts">我们尽快与您联系，请保持手机通畅</p>
+				<p>我们尽快与您联系，请保持手机通畅</p>
 				<p class="qud" id="qd">确定</p>
 			</div>
 		</div>
@@ -530,39 +532,6 @@ ol, ul {
 自媒体营销、事件话题营销、软文发布、百科/问答、 SEO/快照、微信微博代运营、新闻撰稿/专访、危机公关、-->
 			<script src="__INDEX__/js/form.js" type="text/javascript" charset="utf-8"></script>
 			<script type="text/javascript">
-				
-				function yans() {
-			  	 $("a.send1").addClass("disabled");
-                if($("#phone").val() == "") {
-                   $(".overtop").text("请输入手机号码"); 
-                
-																overtop();
-                    $("a.send1").remove("disabled");
-                }  else {            
-                	if(!(/^1[3456789]\d{9}$/.test($("#phone").val()))) {
-						$(".overtop").text("手机号码有误，请重填"); overtop();
-						$("a.send1").remove("disabled");
-					} else {                         
-                            $.post("{:url('login/codemsg')}",{mobile:$("#phone").val()},function(data) {
-                                if (data.code==1) {                               	 
-                                    var s = 60;
-                                    var j = setInterval(function() {
-                                        s = s - 1;
-                                        $("a.send1").html(s + "秒后重新获取");
-                                        if(s == 0) {
-                                            clearInterval(j);
-                                            $("a.send1").remove("disabled");
-                                            $("a.send1").html("请重新获取");
-                                        }
-                                    }, 1000)
-                                }else{
-                                   $(".overtop").text(data.msg); $("a.send1").remove("disabled");overtop();
-                                }
-                            })
-					}
-				}
-			}
-			
 				function overtop() {
 					$("#form>div:nth-child(1)").after($("body>p.overtop").clone(true));
 					$("#form .overtop").css("background-color", "rgba(0,0,0,0.7)");
@@ -572,6 +541,38 @@ ol, ul {
 						$("#form .overtop").remove();
 					}, 1000);
 				}
+				$(".send1").click(function(){
+					if($("#phone").val() == "") {
+                    $(".overtop").text("请输入手机号码"); 
+                   
+						overtop();
+                }  else {
+             
+                	if(!(/^1[3456789]\d{9}$/.test($("#phone").val()))) {
+						$(".overtop").text("手机号码有误，请重填"); overtop();
+					} else {
+
+                            $(".send1").addClass("disabled");
+                            $.post("{:url('login/codemsg')}",{mobile:$("#phone").val()},function(data) {
+                                if (data.code==1) {                              	 
+                                    var s = 60;
+                                    var j = setInterval(function() {
+                                        s = s - 1;
+                                       $(".send1").html(s + "s");
+                                        if(s == 0) {
+                                            clearInterval(j);
+                                            $(".send1").remove("disabled");
+                                            $(".send1").html("请重新获取");
+                                        }
+                                    }, 1000)
+                                }else{
+                                  $(".overtop").text(data.msg); $(".send1").remove("disabled");overtop();
+                                }
+                            })
+
+					}
+				}
+				})
 				/*项目类型*/
 				$(".publish-more").css("display", "none");
 
@@ -653,10 +654,7 @@ var hys;
 
 				$(".beijin").click(function() {
 					$(".beijin").css("display", "none");
-					if(){
-						window.location.href = "index.html";
-					}
-					
+					window.location.href = "index.html";
 				})
 
 				/*上一步*/
