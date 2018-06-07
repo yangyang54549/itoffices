@@ -3,13 +3,15 @@
  * @Author: Marte
  * @Date:   2018-06-04 10:59:16
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-06-05 18:57:17
+ * @Last Modified time: 2018-06-07 17:09:43
  */
 namespace app\bak\controller;
 use app\admin\Controller;
 use think\Session;
 
 use app\common\model\CasesPay;
+use app\common\model\Cases;
+use app\common\model\User;
 
 
 class Native extends Yang
@@ -19,6 +21,10 @@ class Native extends Yang
     {
 
         $data = input('post.');
+
+        $Cases = Cases::where('id',$data['cases_id'])->find();
+
+        $data['cases_user_id'] = $Cases['user_id'];
         $data['order_id'] = 'HG'.time();
         $data['user_id'] = Session::get('user.id');
 
@@ -45,9 +51,16 @@ class Native extends Yang
             $xml = file_get_contents('php://input');
 
             $arr = json_decode(json_encode((array) simplexml_load_string($xml,'SimpleXMLElement', LIBXML_NOCDATA)), true);
-            file_put_contents('wxpaylog.txt','开始记录===='.date("Y-m-d H:i:s",time()).'====='.$xml.'====='.PHP_EOL,FILE_APPEND);
+            //file_put_contents('wxpaylog.txt','开始记录===='.date("Y-m-d H:i:s",time()).'====='.$xml.'====='.PHP_EOL,FILE_APPEND);
 
-            CasesPay::where(['order_id'=>$arr['out_trade_no']])->update(['status'=>1]);
+            $casespay = CasesPay::where(['order_id'=>$arr['out_trade_no'],'status'=>1])->find();
+            if(!isset($casespay)){
+                CasesPay::where(['order_id'=>$arr['out_trade_no']])->update(['status'=>1]);
+                $casespay = CasesPay::where(['order_id'=>$arr['out_trade_no']])->find();
+                file_put_contents('wxpaylog.txt','开始增加金额===='.$casespay['money'].'用户id'.$casespay['cases_user_id'].date("Y-m-d H:i:s",time()).'====='.$xml.'====='.PHP_EOL,FILE_APPEND);
+                User::where('id',$casespay['cases_user_id'])->setInc('money', 555);
+            }
+
 
             //$notify = new \Wxpay\example\Notify;
             //return $notify->isorder();

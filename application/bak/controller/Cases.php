@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-06-07 14:12:08
+ * @Last Modified time: 2018-06-07 15:17:46
  */
 namespace app\bak\controller;
 use app\admin\Controller;
@@ -294,7 +294,22 @@ class Cases extends Yang
      */
     public function add()
     {
-        return $this->fetch();
+        if ($this->request->isAjax())
+        {
+            $data = input();
 
+
+            $result = C::insert($data);
+            if ($result) {
+                return json($this->ret);
+            }else{
+                $this->ret['code']=-200;
+                $this->ret['msg']='提交失败,请重试';
+                return json($this->ret);
+            }
+
+        }else{
+            return $this->fetch();
+        }
     }
 }

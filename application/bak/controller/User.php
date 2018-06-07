@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-06-07 14:49:10
+ * @Last Modified time: 2018-06-07 16:39:03
  */
 namespace app\bak\controller;
 use app\admin\Controller;
@@ -391,9 +391,11 @@ class User  extends Yang
     public function account()
     {
         $user_id = Session::get('user.id');
+        $user = U::where('id',$user_id)->find();
         $CasesPay = CasesPay::where(['user_id'=>$user_id,'status'=>1])->order('id desc')->select();
         $Cases = Cases::where(['user_id'=>$user_id])->order('id desc')->select();
 
+        $this->assign('user',$user);
         $this->assign('casespay',$CasesPay);
         $this->assign('cases',$Cases);
 
