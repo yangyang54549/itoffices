@@ -17,6 +17,11 @@
 						$(".good").css("display", "block");
 						$(".good .texts").text(s);
   					}
+  					function blockh(s){
+  						$(".beijin").css("display", "block");
+						$(".good").css("display", "block");
+						$(".good h5").text(s);
+  					}
 function loginNone(){
 				$(".login_background").css("display","none");
 				$(".login").css("display","none");

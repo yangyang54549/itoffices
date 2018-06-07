@@ -451,11 +451,11 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 $("#yan").click(function () {
 			  	 $("#yan").addClass("disabled");
                 if($("#phones").val() == "") {
-                    block("请输入手机号码"); $("#yan").remove("disabled");
+                    blockh("请输入手机号码"); $("#yan").remove("disabled");
                 }  else {
              
                 	if(!(/^1[3456789]\d{9}$/.test($("#phones").val()))) {
-						block("手机号码有误，请重填"); $("#yan").remove("disabled");
+						blockh("手机号码有误，请重填"); $("#yan").remove("disabled");
 					} else {
 
                            
@@ -474,7 +474,7 @@ $("#yan").click(function () {
                                         }
                                     }, 1000)
                                 }else{
-                                   block(data.msg); $("#yan").remove("disabled");
+                                   blockh(data.msg); $("#yan").remove("disabled");
                                 }
                             })
 
@@ -483,10 +483,10 @@ $("#yan").click(function () {
 			})
 			$("#login1s").click(function () {
                 if($("#phones").val() == "") {
-                    block("请输入手机号码");
+                    blockh("请输入手机号码");
                 }  else {
                 	if(!(/^1[3456789]\d{9}$/.test($("#phones").val()))) {
-						block("手机号码有误，请重填");
+						blockh("手机号码有误，请重填");
 					} else {
 						if($("#j_captcha").val()!=""){
 
@@ -494,14 +494,14 @@ $("#yan").click(function () {
 							var code = $("#j_captcha").val();
 							$.post("{:url('login/checkindex')}",{mobile:mobile,code:code},function(data) {
 								if (data.code==1) {
-									block("登录成功");
+									blockh("登录成功");
 									window.location.href='{:url("user/index")}';
 								}else{
-									block(data.msg);
+									blockh(data.msg);
 								}
 							})
 						}else{
-							block("请输入短信验证码");
+							blockh("请输入短信验证码");
 						}
 					}
 				}
@@ -564,7 +564,7 @@ $("#yan").click(function () {
 						},3000);
 
                     }else{
-                    	alert(data.msg);
+                    	blockh(data.msg);
                     }
                    }
                 )
@@ -576,13 +576,13 @@ $("#yan").click(function () {
                 "{:url('Native/inquire')}",
                 {order_id:order_id},
                 function(data){
-                	alert('定时器执行中');
+                	blockh('定时器执行中');
                     if (data.code==1) {
-                		alert('定时器终止');
+                		blockh('定时器终止');
 
                     	//二维码消失
 						clearInterval(j);
-						nos()
+						nos();
                     }else{
                     	//未支付
                     }
@@ -672,27 +672,27 @@ $(".tis").css("display","none");
 				yanz(phs, /^[\s\S]*.*[^\s][\s\S]*$/);
 				/*yanz(mail, /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/);*/
 				if(xname.value == "") {
-					alert("请输入项目名称")
+					blockh("请输入项目名称");
 				} else {
 					if(brief.value == "") {
-						alert("请输入补充说明")
+						blockh("请输入补充说明");
 					} else {
 						if(names.value == "") {
-							alert("请输入您的姓名")
+							blockh("请输入您的姓名");
 						} else {
 							/*if(weixin.value == "") {
-								alert("请输入微信号")
+								blockh("请输入微信号")
 							} else {*/
 								if(phs.value == "") {
-									alert("请输入手机号")
+									blockh("请输入手机号");
 								} else {
 									if(!(/^1[3456789]\d{9}$/.test(phs.value))) {
 
-										alert("手机号错误，请重新输入")
+										blockh("手机号错误，请重新输入");
 									} else {
 										if(mail.value != "") {
                                             if(!(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/.test(mail.value))) {
-                                                alert("邮箱错误，请重新输入");return false;
+                                                blockh("邮箱错误，请重新输入");return false;
                                             }
 										}
 
@@ -709,7 +709,7 @@ $(".tis").css("display","none");
                                                     function(data){
                                                         if (data.code==1) {
                                                             $(".forms").css("display", "none");
-                                                            $(".beijin").css("display", "block");
+                                                              blockh("提交项目需求成功！");
                                                             xname.value="";
                                                             brief.value="";
                                                             names.value="";
@@ -718,7 +718,7 @@ $(".tis").css("display","none");
                                                             mail.value="";
 
                                                         }else{
-                                                            alert(data.msg);
+                                                            blockh(data.msg);
                                                         }
                                                        }
                                                     )
