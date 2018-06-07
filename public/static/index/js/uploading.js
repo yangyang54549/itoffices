@@ -272,9 +272,15 @@ function vals(){
 	/*上传首页图*/	
 	var imgli1 = $(".img-list1 li:nth-child(1)").css("backgroundImage").replace('url(','').replace(')','');	
 	/*预览二维码*/	
-	var imgli2 = $(".img-list2 li:nth-child(1)").css("backgroundImage").replace('url(','').replace(')','');
-	/*预览url*/
-	var url = $("#budget-url").val();
+	if( $(".img-list2 li").length!=1){
+		/*预览url*/
+		var url = $("#budget-url").val();
+	}else{
+		var imgli2 = $(".img-list2 li:nth-child(1)").css("backgroundImage").replace('url(','').replace(')','');
+		if($("#budget-url").val()!=""){
+			var url = $("#budget-url").val();
+		}
+	}
 	/*图片集*/
 	
 	var aCity0 = new Array();
@@ -285,5 +291,5 @@ function vals(){
 	var brief = $("#brief").val();
 	/*案例详情*/
 	var str = ue.getContent();
-	/*alert(aCity0);*/
+	
 }
