@@ -214,7 +214,7 @@ function bths(){
 	}
 }
 function imglist(){
-	if($(".img-list li").length>1){
+						if($(".img-list li").length>1){
 							$("#list").css("color","white");
 							
 							$("#list").text("");
@@ -242,7 +242,7 @@ function imglist(){
 							}else{
 								$("#list2").css("color","red");
 							
-							$("#list2").html("请上传二维码或<br />添加预览网址");
+							$("#list2").text("请上传二维码或添加预览网址");
 							}
 							
 						}
