@@ -187,12 +187,7 @@ function overtop(s) {
 					}, 1000);
 				}
 
-var project = document.getElementById("project"); //手机号
-				var budget = document.getElementById("budget"); //手机号
-				var brief = document.getElementById("brief"); //手机号
-				yanZheng(project, /^[\s\S]*.*[^\s][\s\S]*$/);
-				yanZheng(budget, /^[\s\S]*.*[^\s][\s\S]*$/);
-				yanZheng(brief, /^[\s\S]*.*[^\s][\s\S]*$/);
+
 function bths(){
 
 	/*获取select 选中的 text :
@@ -203,17 +198,11 @@ function bths(){
 						kk(budget);							
 						kk(brief);
 						/*提示*/
-						if($("#selects").val()=="请选择"){
-							
-						$("#select_span").css("color","red");
-						$("#select_span").css("margin-left","15px");
-							$("#select_span").text("请选择");
-						}else{							
-						$("#select_span").css("color","white");
-						$("#select_span").css("margin-left","0px");
-						$("#select_span").text(" ");
-						}
-							
+						sele();
+						imglist();
+							zt();
+							zs();
+							zy();
 	if($("#project").val()!=""){
 		if($("#budget").val()!=""){
 			selects();
@@ -224,16 +213,96 @@ function bths(){
 		overtop("请输入项目名");
 	}
 }
+function imglist(){
+	if($(".img-list li").length>1){
+							$("#list").css("color","white");
+							
+							$("#list").text("");
+						}else{
+							$("#list").css("color","red");
+							
+							$("#list").text("请上传图集（轮播图）");
+						}
+						if($(".img-list1 li").length>1){
+							$("#list1").css("color","white");
+							
+							$("#list1").text("");
+						}else{
+							$("#list1").css("color","red");
+							
+							$("#list1").text("请上传首页");
+						}
+						if($(".img-list2 li").length>1){
+							$("#list2").css("color","white");
+							
+							$("#list2").text("");
+						}else{
+							if($("#budget-url").val()!=""&&$("#budget-url").val()!="http://"){
+								
+							}else{
+								$("#list2").css("color","red");
+							
+							$("#list2").html("请上传二维码或<br />添加预览网址");
+							}
+							
+						}
+}
+function sele(){
+	var se = $("#select select").val();
+	if(se==0){
+						$("#select_span").css("color","red");
+						
+							$("#select_span").text("请选择");
+						
+					}else{
+						$("#select_span").css("color","white");
+						
+						$("#select_span").text(" ");
+					}
+}
+function zt(){
+					if($("#zt .selected").length>0){						
+						$("#zt>span").css("color","white");
+						
+						$("#zt>span").text("");
+					}else{
+						$("#zt>span").css("color","red");
+						
+						$("#zt>span").text("请选择");
+					}
+				}
+				function zs(){
+					if($("#zs .selected").length>0){						
+						$("#zs>span").css("color","white");
+						
+						$("#zs>span").text("");
+					}else{
+						$("#zs>span").css("color","red");
+						
+						$("#zs>span").text("请选择");
+					}
+				}
+				function zy(){
+					if($("#zy .selected").length>0){						
+						$("#zy>span").css("color","white");
+						
+						$("#zy>span").text("");
+					}else{
+						$("#zy>span").css("color","red");
+						
+						$("#zy>span").text("请选择");
+					}
+				}
 
 function selects(){
-	if($("#select select:nth-child(1)").val()!= 0){
+	if($("#select select").val()!= 0){
 			if($("#zy .selected").length>0){
 
 				if($("#zs .selected").length>0){
 
 				selected();
 			}else{
-				overtop("请选择案例功能");
+				overtop("请选择展示类型");
 			}
 			}else{
 				overtop("请选择案例功能");
@@ -243,7 +312,7 @@ function selects(){
 			}
 }
 function selected(){
-	if($("#xt .selected").length>0){
+	if($("#zt .selected").length>0){
 		imgs();
 	}else{
 		overtop("请选择案例系统类型");
@@ -299,8 +368,8 @@ function vals(){
 	}
 	/*案例系统类型 多选*/
 	var selected = new Array();
-	for(var n=0;n<$("#xt .selected").length;n++){
-		selected[n] = $("#xt .selected").eq(n).data("id");
+	for(var n=0;n<$("#zt .selected").length;n++){
+		selected[n] = $("#zt .selected").eq(n).data("id");
 	}
 	/*案例展示类型*/
 	var zs = $("#zs .selected").data("id");

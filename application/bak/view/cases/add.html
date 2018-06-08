@@ -11,6 +11,7 @@
 
 
 		<link rel="stylesheet" type="text/css" href="__INDEX__/css/one.css" />
+		<link rel="stylesheet" type="text/css" href="__INDEX__/css/sub.css" />
 <link type="text/css" rel="stylesheet" href="__INDEX__/css/loading.css">
 		<script src="__INDEX__/js/jss/jquery.js" type="text/javascript" charset="utf-8"></script>
 	</head>
@@ -99,10 +100,13 @@
 		}
 
 		.form-more ul li .item-input span {
-			width: 24%;
+			width: 20%;
 			margin-left: 5%;
-			height: 50%;
+			height: 50px;
 			line-height: 50px;
+			box-sizing: border-box;
+			padding-left: 15px;
+			overflow: initial;
 		}
 
 		.form-more ul li .item-input .urgency {
@@ -172,9 +176,9 @@
 			border: 1px solid #000000;
 		}
 
-		#upload1,
+		#upload,#upload1,
 		#upload2 {
-			display: block;
+			float: left;
 			width: 70%;
 			margin: 5px 0px;
 			height: 40px;
@@ -185,18 +189,7 @@
 			cursor: pointer;
 		}
 
-		#upload {
-			display: block;
-			width: 70%;
-			margin: 10px 0px;
-			height: 50px;
-			text-align: center;
-			line-height: 50px;
-			border: 1px solid;
-			border-radius: 5px;
-			cursor: pointer;
-		}
-
+		
 		.touch {
 			background-color: #ddd;
 		}
@@ -313,49 +306,7 @@
     font-size: 14px;
 }
 /*成功提示*/
-.beijin {
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 200;
-  display: none;
-}
-.good {
-    margin: 30vh auto;
-    padding: 50px;
-    width: 400px;
-    background-color: white;
-    border-radius: 10px;
-}
-.good h5 {
-    font-size: 16px;
-    margin: 0;
-    margin-bottom: 20px;
-}
 
-.good h5, .good p {
-    width: 100%;
-    text-align: center;
-}
-.good p {
-    font-size: 15px;
-    font-weight: 600;
-}
-
-.good h5, .good p {
-    width: 100%;
-    text-align: center;
-}
-.qud {
-    border: 1px solid red;
-    color: red;
-    border-radius: 10px;
-    padding: 10px 0;
-    margin-top: 20px;
-}
 /*错误提示*/
 .overtop {
 			position: fixed;
@@ -376,8 +327,12 @@
 			transition: opacity 1s;
 			line-height:50px ;
 		}
-		#zy .icon-radio-active:before{
+		#zy .icon-radio-active:before,#zt .icon-radio-active:before{
 			    color: #f4370b;
+		}
+		/**/
+		.demand-block-hr span,.demand-block-hr span i {
+			width: 100%;
 		}
 	</style>
 
@@ -388,8 +343,15 @@
 			<div class="publish-type">
 
 				<div class="content">
+					<div class="demand-block-hr" style="margin-bottom: 20px;">
+						<span class="demand-block-hr-span active" id="x1">
+		       				<i>案例上传</i>
+		       				<em></em>
+		       			</span>
+						
 
-					<div class="title">案例上传</div>
+					</div>
+					<div class="title">提交一个案例项目</div>
 					<div class="box form-more">
 						<!--<form action="" method="post" name= "myform"   action = '' onsubmit = "return checkUser();" >-->
 						<ul>
@@ -438,7 +400,7 @@
 							</li>
 							<li class="item-li">
 								<div class="item-name"><strong>*</strong>案例系统类型：</div>
-								<div class="item-input" id="xt">
+								<div class="item-input" id="zt">
 					                {volist name="system" id="vosss"}
 										<div class="urgency" data-id="{$vosss.id}" ><i class="iconfont icon-radio-active icon-checked"></i> <i class="iconfont icon-radio-inactive"></i> {$vosss.name}
 										</div>
@@ -460,23 +422,23 @@
 								<div class="item-name"><strong>*</strong>首页图：</div>
 								<div class="item-input chuan"><input type="file" id="choose1" class="choose" accept="image/*" multiple>
 									<ul class="img-list1 img-none"></ul>
-									<a id="upload1">上传首页图</a><span></span></div>
+									<a id="upload1">上传首页图</a><span id="list1"></span></div>
 							</li>
 							<li class="item-li">
 								<div class="item-name">预览二维码：</div>
 								<div class="item-input chuan"><input type="file" id="choose2" class="choose" accept="image/*" multiple>
 									<ul class="img-list2 img-none"></ul>
-									<a id="upload2">上传预览二维码</a><span></span></div>
+									<a id="upload2">上传预览二维码（预览二维码和预览网址二者选填一种）</a><span id="list2"></span></div>
 							</li>
 							<li class="item-li">
-								<div class="item-name">预览url：</div>
-								<div class="item-input "><input type="text" name="" placeholder="预览url" class="" id="budget-url"><span></span></div>
+								<div class="item-name">预览网址：</div>
+								<div class="item-input "><input type="text" name="" placeholder="预览网址(预览网址会生二维码)" class="" value="http://" id="budget-url"><span></span></div>
 							</li>
 							<li class="item-li">
 								<div class="item-name"><strong>*</strong>图片集：</div>
 								<div class="item-input "><input type="file" id="choose" class="choose" accept="image/*" multiple>
 									<ul class="img-list  img-none"></ul>
-									<a id="upload">上传图片集</a>
+									<a id="upload">上传图片集</a><span id="list"></span>
 									<!--<span class="tips">只允许上传jpg、png及gif</span>--></div>
 							</li>
 							<li class="item-li">
@@ -599,17 +561,32 @@
 			<script type="text/javascript">
 				var urll = "{:url('cases/add')}";
 				/*项目类型*/
-				$("#xt .urgency").click(function(){
+				/*function seled(s){
+					
+					if($("#z"+s+" .selected").length>0){						
+						$("#z"+s+" span").css("color","white");
+						$("#z"+s+" span").css("margin-left","0px");
+						$("#z"+s+" span").text("");
+					}else{
+						$("#z"+s+" span").css("color","red");
+						$("#z"+s+" span").css("margin-left","15px");
+						$("#z"+s+" span").text("请选择");
+					}
+				}*/
+				
+				$("#zt .urgency").click(function(){
 					/*$(this).siblings().removeClass("selected");*/
-					$(this).toggleClass("selected");
+					$(this).toggleClass("selected");	
+						zt();				
 				})
 				$("#zy .urgency").click(function(){
-					$(this).toggleClass("selected");
-
+					$(this).toggleClass("selected");					
+					zy();
 				})
 				$("#zs .urgency").click(function(){
 					$(this).siblings().removeClass("selected");
-					$(this).addClass("selected");
+					$(this).addClass("selected");					
+					zs();
 				})
 				zys();
 				function zys(){
@@ -622,14 +599,19 @@
 					}else{
 						$("#zy .ur"+se).css("display","block");
 					}
-
-
 				}
+				var project = document.getElementById("project"); //手机号
+				var budget = document.getElementById("budget"); //手机号
+				var brief = document.getElementById("brief"); //手机号
+				yanZheng(project, /^[\s\S]*.*[^\s][\s\S]*$/);
+				yanZheng(budget, /^[\s\S]*.*[^\s][\s\S]*$/);
+				yanZheng(brief, /^[\s\S]*.*[^\s][\s\S]*$/);
 				$("#select select").change(function(){
-					var se = $("#select select").val();
+					var se = $("#select select").val();					
 					$("#zy .urgency").removeClass("selected");
 					$("#zy .urgency").css("display","none");
 					$("#zy .ur"+se).css("display","block");
+					sele();
 
 				})
 
