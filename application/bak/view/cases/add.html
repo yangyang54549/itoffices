@@ -612,6 +612,7 @@
 				}
 				$("#select select").change(function(){
 					var se = $("#select select").val();
+					$("#zy .urgency").removeClass("selected");
 					$("#zy .urgency").css("display","none");
 					$("#zy .ur"+se).css("display","block");
 					
