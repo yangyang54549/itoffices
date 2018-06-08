@@ -277,10 +277,10 @@ function vals(){
 	/*案例系统类型 多选*/	
 	var selected = new Array();
 	for(var n=0;n<$("#xt .selected").length;n++){
-		selected[n] = $("#xt .selected").eq(n).text();
+		selected[n] = $("#xt .selected").eq(n).data("id");
 	}
 	/*案例展示类型*/
-	var zs = $("#zs .selected").text();
+	var zs = $("#zs .selected").data("id");
 	/*上传首页图*/
 	var imgli1 = $(".img-list1 li:nth-child(1)").css("backgroundImage").replace('url(','').replace(')','');
 	/*预览二维码*/
