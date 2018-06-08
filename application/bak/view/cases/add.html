@@ -402,7 +402,8 @@
 
 							<li class="item-li">
 								<div class="item-name"><strong>*</strong>案例金额：</div>
-								<div class="item-input" style="position: relative;"><input type="number" name="" placeholder="案例金额" class="" id="budget"oninput="if(value.length>11)value=value.slice(0,11)" onkeyup="value=value.replace(/[^\d]/g,'') " ng-pattern="/[^a-zA-Z]/"/ ><span></span>
+								<div class="item-input" style="position: relative;">
+									<input type="number" name="" placeholder="案例金额" class="" id="budget"oninput="if(value.length>11)value=value.slice(0,11)" onkeyup="value=value.replace(/[^\d]/g,'') " ng-pattern="/[^a-zA-Z]/"/ ><span></span>
 									<div class="wan" style="position: absolute; top: 15px;left: 470px;">元</div>
 
 								</div>
@@ -417,8 +418,13 @@
 
 					                {/volist}
 								</select>
+<<<<<<< HEAD
 
 
+=======
+								<span></span>
+								
+>>>>>>> 4be19cc2e4a7d8ae3f4530cdf1156e7f176eef4c
 							</li>
 							<li class="item-li">
 								<div class="item-name"><strong>*</strong>主要功能：</div>
@@ -428,6 +434,7 @@
 											<i class="iconfont icon-radio-active icon-checked"></i> <i class="iconfont icon-radio-inactive"></i>{$voss.name}
 										</div>
 					               {/volist}
+					             <span></span>
 								</div>
 							</li>
 							<li class="item-li">
@@ -437,6 +444,7 @@
 										<div class="urgency" data-id="{$vosss.id}" ><i class="iconfont icon-radio-active icon-checked"></i> <i class="iconfont icon-radio-inactive"></i> {$vosss.name}
 										</div>
 					                {/volist}
+					                <span></span>
 								</div>
 							</li>
 							<li class="item-li">
@@ -446,7 +454,7 @@
 									</div>
 									<div class="urgency" data-id="2" ><i class="iconfont icon-radio-active"></i> <i class="iconfont icon-radio-inactive"></i> 电脑
 									</div>
-
+<span></span>
 								</div>
 							</li>
 							<li class="item-li">
@@ -574,6 +582,7 @@
 			<!-- 编辑器源码文件 -->
 			<script type="text/javascript" src="__INDEX__/ueditor/ueditor.all.js"></script>
 			<script src="__INDEX__/js/uploading.js" type="text/javascript" charset="utf-8"></script>
+			<script src="__INDEX__/js/form.js" type="text/javascript" charset="utf-8"></script>
 			<script type="text/javascript">
 				var ue = UE.getEditor('container');
 
@@ -612,7 +621,18 @@
 					$("#zy .ur"+se).css("display","block");
 
 				})
+<<<<<<< HEAD
 
+=======
+				
+				var project = document.getElementById("project"); //手机号
+				var budget = document.getElementById("budget"); //手机号
+				var brief = document.getElementById("brief"); //手机号
+				yanZheng(project, /^[\s\S]*.*[^\s][\s\S]*$/);
+				yanZheng(budget, /^[\s\S]*.*[^\s][\s\S]*$/);
+				yanZheng(brief, /^[\s\S]*.*[^\s][\s\S]*$/);
+				
+>>>>>>> 4be19cc2e4a7d8ae3f4530cdf1156e7f176eef4c
 //				$(".mg-none li").click(function(){
 //					/*$(this).parent().remove();*/
 //					alert("qwe");

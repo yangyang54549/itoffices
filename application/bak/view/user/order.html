@@ -296,7 +296,7 @@
 	display: none;
 }
 .cente_ul ul .li-block{
-	display: block !important;
+	display: block ;
 }
 .cente_ul ul .em_show{
 				display: block;
@@ -381,7 +381,7 @@
 					</div>
 					<div class="cente_b">
 						<div class="cente_ul">
-							<ul class="ul1">
+							<ul class="ul1 auto">
 								{volist name="demand" id="vo"}
 								<li class="li_one">
 									<div class="top relative">
@@ -1315,6 +1315,7 @@
 	margin: 0px ;
 	padding: 0px;
 	color: white;
+	
 }
 
 		</style>
@@ -1400,6 +1401,13 @@ $(".cente-head .p2").click(function() {
 		window.location.href = "{:url('user/orders')}";
 	} else {
 		$(".cente_ul").css("margin-left", "-" +(tt*100)+ "%");
+		$(".cente_ul ul").removeClass("auto");
+			
+		if(tt!=0){
+			$(".cente_ul ul.ul2").addClass("auto");
+		}else{
+			$(".cente_ul ul.ul1").addClass("auto");
+		}
 	}
 })
 $(function(){
@@ -1416,7 +1424,7 @@ $(function(){
 				if(sr1.hasClass('li_ones')) {
 					/*有 展开 删除 合并 */
 					sr1.removeClass("li_ones");
-					strs.css("display","block");
+					$(".ul1 .li-block").css("display","block");
 				} else {
 					/*无 合并 添加 展开 */
 					$(".ul1 .li_one").removeClass("li_ones");
@@ -1432,7 +1440,7 @@ $(function(){
 				if(sr1.hasClass('li_ones')) {
 					/*有 展开 删除 合并 */
 					sr1.removeClass("li_ones");
-					strs.css("display","block");
+					$(".ul2 .li-block").css("display","block");
 				} else {
 					/*无 合并 添加 展开 */
 					$(".ul2 .li_one").removeClass("li_ones");

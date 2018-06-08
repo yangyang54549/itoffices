@@ -192,6 +192,7 @@ function bths(){
     $("#ddlregtype").find("option:selected").text();
 获取select选中的 value:
     $("#ddlregtype ").val();*/
+   
 	if($("#project").val()!=""){
 		if($("#budget").val()!=""){
 			selects();
