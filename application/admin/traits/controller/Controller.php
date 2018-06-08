@@ -375,4 +375,32 @@ trait Controller
         return $data;
     }
 
+    /*
+     * 短信公共方法 根据不同model使用不同的模版
+     * image base64 字符串
+     * 成功:返回路径
+     * 失败:false
+     */
+    public function uploadimg($image)
+    {
+            $imageName = date("His",time())."_".rand(1111,9999).'.png';
+            if (strstr($image,",")){
+                $image = explode(',',$image);
+                $image = $image[1];
+            }
+
+            $path = "tmp/cases/".date("Ymd",time());
+            if (!is_dir($path)){ //判断目录是否存在 不存在就创建
+                mkdir($path,0777,true);
+            }
+            $imageSrc=  $path."/". $imageName;  //图片名字
+
+            $r = file_put_contents(ROOT_PATH ."public/".$imageSrc, base64_decode($image));//返回的是字节数
+            if (!$r) {
+                return false;
+            }else{
+                return $imageSrc;
+            }
+    }
+
 }

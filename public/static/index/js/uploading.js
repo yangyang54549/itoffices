@@ -192,7 +192,7 @@ function bths(){
     $("#ddlregtype").find("option:selected").text();
 获取select选中的 value:
     $("#ddlregtype ").val();*/
-   
+
 	if($("#project").val()!=""){
 		if($("#budget").val()!=""){
 			selects();
@@ -207,9 +207,9 @@ function bths(){
 function selects(){
 	if($("#select select:nth-child(1)").val()!= 0){
 			if($("#zy .selected").length>0){
-				
+
 				if($("#zs .selected").length>0){
-				
+
 				selected();
 			}else{
 				overtop("请选择案例功能");
@@ -261,20 +261,22 @@ function tuji(){
 	}
 }
 function vals(){
+
 	/*过度*/
 	$(".bgarea").css("display","block");
+
 	/*项目名*/
 	var proje = $("#project").val();
 	/*项目金额*/
 	var budget = $("#budget").val();
 	/*案例类型*/
 	var sele1 = $("#select select").val();
-	/*案例功能*/	
+	/*案例功能*/
 	var zy = new Array();
 	for(var n=0;n<$("#zy .selected").length;n++){
 		zy[n] = $("#zy .selected").eq(n).data("id");
 	}
-	/*案例系统类型 多选*/	
+	/*案例系统类型 多选*/
 	var selected = new Array();
 	for(var n=0;n<$("#xt .selected").length;n++){
 		selected[n] = $("#xt .selected").eq(n).data("id");
@@ -304,9 +306,24 @@ function vals(){
 	/*案例详情*/
 	var str = ue.getContent();
 
-				$.post("{:url('cases/add')}",{case_name:proje,money:budget,images:aCity0,brief:brief,img:imgli1,type:sele1,specific:sele2,system_type:selected,code:imgli2,preview:url,info:str,is_pp:zs},function(data) {
+	// console.log(proje);
+	// console.log(budget);
+	// console.log(aCity0);
+	// console.log(brief);
+	// console.log(imgli1);
+	// console.log(sele1);
+	// console.log(selected);
+	// console.log(imgli2);
+	// console.log(url);
+	// console.log(str);
+	// console.log(zs);
+	// return false;
 
-				})
-
-
+	$.post(urll,{case_name:proje,money:budget,images:aCity0,brief:brief,img:imgli1,type:sele1,specific:zy,system_type:selected,code:imgli2,preview:url,info:str,is_pp:zs},function(data) {
+		if (data.code == 1) {
+			aler(data.msg);
+		}else{
+			aler(data.msg);
+		}
+	})
 }

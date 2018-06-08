@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-06-07 18:03:32
+ * @Last Modified time: 2018-06-08 11:26:20
  */
 namespace app\bak\controller;
 use app\admin\Controller;
@@ -20,6 +20,7 @@ use app\common\model\CasesOrder as CO;
 */
 class Cases extends Yang
 {
+    use \app\admin\traits\controller\Controller;
     public function index()
     {
         $types = T::order('sort')->select();
@@ -299,6 +300,27 @@ class Cases extends Yang
             $data = input();
 
 
+            $code = $this->uploadimg($data['code']);
+            $data['code'] = $code;
+            $images = [];
+            foreach ($data['images'] as $k => $v) {
+                $images[] = $this->uploadimg($v);
+            }
+            $data['images'] = implode('@',$images);
+            $img = $this->uploadimg($data['img']);
+            $data['img'] = $img;
+            $specific = implode(',',$data['specific']);
+            $data['specific'] = $specific;
+            $system_type = implode(',',$data['system_type']);
+            $data['system_type'] = $system_type;
+
+
+            $info = $_POST['info'];
+            $data['info'] = $info;
+            $data['user_id'] = Session::get('user.id');
+            $data['create_time'] = time();
+            $data['system_type'] = implode(',',$data['system_type']);
+            $data['specific'] = implode(',',$data['specific']);
             $result = C::insert($data);
             if ($result) {
                 return json($this->ret);
