@@ -1,0 +1,51 @@
+{extend name="template/base" /}
+{block name="content"}
+<div class="page-container">
+
+    <table class="table table-border table-bordered table-hover table-bg mt-20">
+        <thead>
+        <tr class="text-c">
+            <th width="25"><input type="checkbox"></th>
+            <th width="">id</th>
+            <th width="">姓名</th>
+
+            <th width="">金额</th>
+            <th width="">冻结金额</th>
+            <th width="">提现金额</th>
+
+            <th width="">性别</th>
+            <th width="">工作状态</th>
+            <th width="">职业</th>
+            <th width="">工作年限</th>
+            <th width="">手机号码</th>
+            <th width="">微信号</th>
+            <th width="">日薪</th>
+            <th width="">注册时间</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr class="text-c">
+            <td><input type="checkbox" name="id[]" value="{$list.id}"></td>
+            <td  onclick="layer_open('用户详情', '/index/user/resumes/id/{$list.id}.html')">{$list.id|high_light=$Request.param.id}</td>
+            <td>{$list.user_name}</td>
+
+            <td>{$list.money}</td>
+            <td>{$list.dj_money}</td>
+            <td>{$list.tx_money}</td>
+
+            <td>{$list.gender}</td>
+            <td>{$list.user_status}</td>
+            <td>{$list.occupation}</td>
+            <td>{$list.years}</td>
+            <td>{$list.mobile|high_light=$Request.param.mobile}</td>
+            <td>{$list.wxchat}</td>
+            <td>{$list.daily_money}</td>
+            <td>{$list.create_time|date="Y-m-d H:i:s",###}</td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+{/block}
+

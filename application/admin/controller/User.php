@@ -4,6 +4,7 @@ namespace app\admin\controller;
 \think\Loader::import('controller/Controller', \think\Config::get('traits_path') , EXT);
 
 use app\admin\Controller;
+use app\common\model\User as U;
 
 class User extends Controller
 {
@@ -22,4 +23,14 @@ class User extends Controller
             $map['mobile'] = ["like", "%" . $this->request->param("mobile") . "%"];
         }
     }
+
+
+    public function info()
+    {
+        $id = input('id');
+        $user = U::where('id',$id)->find();
+        $this->view->assign('list',$user);
+        return $this->view->fetch();
+    }
+
 }
