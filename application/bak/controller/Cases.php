@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-06-08 11:26:20
+ * @Last Modified time: 2018-06-08 14:45:37
  */
 namespace app\bak\controller;
 use app\admin\Controller;
@@ -299,16 +299,31 @@ class Cases extends Yang
         {
             $data = input();
 
-
-            $code = $this->uploadimg($data['code']);
-            $data['code'] = $code;
-            $images = [];
-            foreach ($data['images'] as $k => $v) {
-                $images[] = $this->uploadimg($v);
+            if (isset($data['code'])) {
+                $code = $this->uploadimg($data['code']);
+                $data['code'] = $code;
             }
-            $data['images'] = implode('@',$images);
+            if (!isset($data['code']) && isset($data['preview'])) {
+                //生成二维码
+                $data['code'] = $this->qrcode($data['preview']);
+            }
+
+
+            $images = '';
+            foreach ($data['images'] as $k => $v) {
+
+                $images .= '@'.$this->uploadimg($v);
+
+            }
+            $data['images'] = $images;
             $img = $this->uploadimg($data['img']);
+            //return json($img);
+            //缩略图
             $data['img'] = $img;
+
+            $img = '.'.$img;
+
+            $this->image_png_size_add($img,$img);
             $specific = implode(',',$data['specific']);
             $data['specific'] = $specific;
             $system_type = implode(',',$data['system_type']);
@@ -319,8 +334,7 @@ class Cases extends Yang
             $data['info'] = $info;
             $data['user_id'] = Session::get('user.id');
             $data['create_time'] = time();
-            $data['system_type'] = implode(',',$data['system_type']);
-            $data['specific'] = implode(',',$data['specific']);
+
             $result = C::insert($data);
             if ($result) {
                 return json($this->ret);

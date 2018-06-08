@@ -399,7 +399,7 @@ trait Controller
             if (!$r) {
                 return false;
             }else{
-                return $imageSrc;
+                return '/'.$imageSrc;
             }
     }
 
