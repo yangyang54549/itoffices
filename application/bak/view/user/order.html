@@ -1425,6 +1425,9 @@ $(function(){
 					/*有 展开 删除 合并 */
 					sr1.removeClass("li_ones");
 					$(".ul1 .li-block").css("display","block");
+					if($(".ul1 .li_one").length>$(".ul1 .li-block").length){
+						$(".ul1 .em_show").css("display","block");
+					}
 				} else {
 					/*无 合并 添加 展开 */
 					$(".ul1 .li_one").removeClass("li_ones");
@@ -1441,6 +1444,9 @@ $(function(){
 					/*有 展开 删除 合并 */
 					sr1.removeClass("li_ones");
 					$(".ul2 .li-block").css("display","block");
+					if($(".ul2 .li_one").length>$(".ul2 .li-block").length){
+						$(".ul2 .em_show").css("display","block");
+					}
 				} else {
 					/*无 合并 添加 展开 */
 					$(".ul2 .li_one").removeClass("li_ones");

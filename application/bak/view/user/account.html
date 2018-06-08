@@ -286,13 +286,15 @@ min-height: 75vh;
 				height: 60px !important;
 				line-height: 60px !important;
 				border: 1px solid #F5F5F5;
+				border-radius:10px ;
 				box-sizing: border-box;
 				text-align: center;
 				padding: 0px;
 			}
 			#h4s  .opacity{
-				border: 1px solid red;
-				background-color: red;
+				border: 1px solid #f9f0f0;
+				background-color: #f9f0f0;
+				
 			}
 			/*weixin/zhifubao*/
 			.weizhi span{
@@ -316,6 +318,19 @@ height: auto;
 				text-align: center;
 				line-height: 30px;
 				height: 30px;
+			}
+			em.img_t{
+				display: block;
+				width: 100px;
+				margin: 10px auto;
+				display: none;
+			}
+			
+			em.img_t i{	
+				display: block;
+				    font-style: normal;
+				width: 100%;			
+				text-align: center;
 			}
 		</style>
 	</head>
@@ -366,6 +381,7 @@ height: auto;
 						<p><span class="bt0">{$vos.case_name}</span><span class="bt1">{$vos.money}</span><span class="bt2">{$vos.create_time|date="Y-m-d H:i:s",###}</span></p>
 						{/volist}
 						<em class="show" id="show1" onclick="showEm1();">显示更多</em>
+						<em class="img_t"><img src="__INDEX__/img/icon/t.png"/><i>暂无记录</i></em>
 
 					</div>
 					<div class="cente_b" id="cente2" style="display: none;">
@@ -376,7 +392,7 @@ height: auto;
 						<p><span class="bt0">{$vo.name}</span><span class="bt1">{$vo.money}</span><span class="bt2">{$vo.create_time|date="Y-m-d H:i:s",###}</span><span class="bt3">充值</span></p>
 						{/volist}
 						<em class="show" id="show2" onclick="showEm2();">显示更多</em>
-
+						<em class="img_t"><img src="__INDEX__/img/icon/t.png"/><i>暂无记录</i></em>
 					</div>
 					<div class="cente_b" id="cente3"style="display: none;" >
 
@@ -386,7 +402,7 @@ height: auto;
 						<p><span class="bt0">{$voss.name}</span><span class="bt1">{$voss.money}</span><span class="bt2">{$voss.create_time|date="Y-m-d H:i:s",###}</span><span class="bt3">充值</span></p>
 						{/volist}
 						<em class="show" id="show3" onclick="showEm3();">显示更多</em>
-
+						<em class="img_t"><img src="__INDEX__/img/icon/t.png"/><i>暂无记录</i></em>
 					</div>
 				</div>
 			</div>
@@ -471,6 +487,7 @@ height: auto;
 			}
 			shows1();
 			function shows1(){
+				
 				if($("#cente1>p").length>7){
 					$("#show1").css("display","block");
 					for(var i = 0;i<7;i++){
@@ -478,7 +495,12 @@ height: auto;
 					}
 				}else{
 					$("#show1").css("display","none");
-					$("#cente1>p").addClass("bls");
+					if($("#cente1>p").length<1){
+						$("#cente1 em.img_t").css("display","block");
+					}else{
+						$("#cente1>p").addClass("bls");
+					}
+					
 				}
 				if($("#cente2>p").length>7){
 					$("#show2").css("display","block");
@@ -487,7 +509,11 @@ height: auto;
 					}
 				}else{
 					$("#show2").css("display","none");
-					$("#cente2>p").addClass("bls");
+					if($("#cente2>p").length<1){
+						$("#cente2 em.img_t").css("display","block");
+					}else{
+						$("#cente2>p").addClass("bls");
+					}
 				}
 				if($("#cente3>p").length>7){
 					$("#show2").css("display","block");
@@ -496,7 +522,11 @@ height: auto;
 					}
 				}else{
 					$("#show3").css("display","none");
-					$("#cente3>p").addClass("bls");
+					if($("#cente3>p").length<1){
+						$("#cente3 em.img_t").css("display","block");
+					}else{
+						$("#cente3>p").addClass("bls");
+					}
 				}
 			}
 

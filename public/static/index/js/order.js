@@ -57,11 +57,13 @@ function showEm1(){
 				if(p1>p2s){					
 					for(var i = p2;i<p2s;i++){
 						$(".cente_ul .ul1 .li_one").eq(i).addClass("li-block");
+						$(".cente_ul .ul1 .li_one").eq(i).css("display","block");
 					}
 				}else{
 					$(".cente_ul .ul1 .em_show").css("display","none");
 					for(var i = p2;i<p1;i++){
 						$(".cente_ul .ul1 .li_one").eq(i).addClass("li-block");
+						$(".cente_ul .ul1 .li_one").eq(i).css("display","block");
 					}
 				}
 }
@@ -73,11 +75,13 @@ function showEm2(){
 				if(p1>p2s){					
 					for(var i = p2;i<p2s;i++){
 						$(".cente_ul .ul2 .li_one").eq(i).addClass("li-block");
+						$(".cente_ul .ul2 .li_one").eq(i).css("display","block");
 					}
 				}else{
 					$(".cente_ul .ul2 .em_show").css("display","none");
 					for(var i = p2;i<p1;i++){
 						$(".cente_ul .ul2 .li_one").eq(i).addClass("li-block");
+						$(".cente_ul .ul2 .li_one").eq(i).css("display","block");
 					}
 				}
 }
