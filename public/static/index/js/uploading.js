@@ -320,6 +320,7 @@ function vals(){
 	// return false;
 
 	$.post(urll,{case_name:proje,money:budget,images:aCity0,brief:brief,img:imgli1,type:sele1,specific:zy,system_type:selected,code:imgli2,preview:url,info:str,is_pp:zs},function(data) {
+		$(".bgarea").css("display","none");
 		if (data.code == 1) {
 			aler(data.msg);
 		}else{
