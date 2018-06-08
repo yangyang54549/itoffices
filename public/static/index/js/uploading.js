@@ -207,7 +207,13 @@ function bths(){
 function selects(){
 	if($("#select select:nth-child(1)").val()!= 0){
 			if($("#zy .selected").length>0){
+				
+				if($("#zs .selected").length>0){
+				
 				selected();
+			}else{
+				overtop("请选择案例功能");
+			}
 			}else{
 				overtop("请选择案例功能");
 			}
@@ -255,6 +261,8 @@ function tuji(){
 	}
 }
 function vals(){
+	/*过度*/
+	$(".bgarea").css("display","block");
 	/*项目名*/
 	var proje = $("#project").val();
 	/*项目金额*/
