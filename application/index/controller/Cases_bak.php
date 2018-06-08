@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-06-08 16:03:55
+ * @Last Modified time: 2018-05-31 10:39:24
  */
 namespace app\index\controller;
 use app\admin\Controller;
@@ -20,7 +20,6 @@ use app\common\model\CasesOrder as CO;
 */
 class Cases extends Yang
 {
-    use \app\admin\traits\controller\Controller;
     public function index()
     {
         $types = T::order('sort')->select();
@@ -110,7 +109,7 @@ class Cases extends Yang
                             <div class="picList">
                                 <div class="similarity-title">'.$v['case_name'].'</div>
                                 <div class="similarity_label">产品类型:<span>'.$v['type'].'</span></div>
-                                <div class="similarity_label">适用行业:<span>'.$specific.'</span></div>
+                                <div class="similarity_label">主要功能:<span>'.$specific.'</span></div>
                                 <div class="similarity_label functionNames">系统类型:
                                     <span>'.$system_type.'</span>
                                 </div>
@@ -280,6 +279,8 @@ class Cases extends Yang
      */
     public function order()
     {
+
+        //return json('fjjj');
         $data = input();
         $result = CO::insert($data);
         if ($result) {
@@ -289,71 +290,7 @@ class Cases extends Yang
             $this->ret['msg']='提交失败,请重试';
             return json($this->ret);
         }
+
     }
-    /*
-     * 案例添加
-     */
-    public function add()
-    {
-        if ($this->request->isAjax())
-        {
-            $data = input();
 
-            if (isset($data['code'])) {
-                $code = $this->uploadimg($data['code']);
-                $data['code'] = $code;
-            }
-            if (!isset($data['code']) && isset($data['preview'])) {
-                //生成二维码
-                $data['code'] = $this->qrcode($data['preview']);
-            }
-
-
-            $images = '';
-            foreach ($data['images'] as $k => $v) {
-
-                $images .= '@'.$this->uploadimg($v);
-
-            }
-            $data['images'] = $images;
-            $img = $this->uploadimg($data['img']);
-
-            //缩略图
-            $data['img'] = $img;
-
-            $img = '.'.$img;
-
-            $this->image_png_size_add($img,$img);
-            $specific = implode(',',$data['specific']);
-            $data['specific'] = $specific;
-            $system_type = implode(',',$data['system_type']);
-            $data['system_type'] = $system_type;
-
-
-            $info = $_POST['info'];
-            $data['info'] = $info;
-            $data['user_id'] = Session::get('user.id');
-            $data['create_time'] = time();
-
-            $result = C::insert($data);
-            if ($result) {
-                return json($this->ret);
-            }else{
-                $this->ret['code']=-200;
-                $this->ret['msg']='提交失败,请重试';
-                return json($this->ret);
-            }
-
-        }else{
-
-            $types = T::order('sort')->select();
-            $specifics = S::order('sort,father_id desc')->select();
-            $systems = SY::order('id desc')->select();
-
-            $this->view->assign("type", $types);
-            $this->view->assign("specific", $specifics);
-            $this->view->assign("system", $systems);
-            return $this->fetch();
-        }
-    }
 }

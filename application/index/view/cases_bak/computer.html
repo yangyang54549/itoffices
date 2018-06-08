@@ -4,14 +4,696 @@
     <head>
         <meta charset="UTF-8">
         <title>网站顾问</title>
-     <!--   <link rel="stylesheet" type="text/css" href="__INDEX__/css/header.css" />-->
+        <link rel="stylesheet" type="text/css" href="__INDEX__/css/header.css" />
 <link rel="stylesheet" type="text/css" href="__INDEX__/css/nav.css" />
-<link rel="stylesheet" type="text/css" href="__INDEX__/css/phone.computer.css"/>
-<link rel="stylesheet" type="text/css" href="__INDEX__/css/computer.css" />
- <script src="__INDEX__/js/jss/jquery.js" type="text/javascript" charset="utf-8"></script>
-<link rel="stylesheet" type="text/css" href="__INDEX__/css/table.css" />
-<link rel="stylesheet" type="text/css" href="__INDEX__/css/login.css"/>
+        <script src="__INDEX__/js/jss/jquery.js" type="text/javascript" charset="utf-8"></script>
+        <style type="text/css">
+            @font-face {
+                font-family: "微软雅黑";
+            }
 
+            input:not([type]),
+            input[type="email" i],
+            input[type="number" i],
+            input[type="password" i],
+            input[type="tel" i],
+            input[type="url" i],
+            input[type="text" i] {
+                padding: 1px 0px;
+            }
+
+
+            user agent stylesheet input {
+                -webkit-appearance: textfield;
+                background-color: white;
+                -webkit-rtl-ordering: logical;
+                cursor: auto;
+                padding: 1px;
+                border-width: 2px;
+                border-style: inset;
+                border-color: initial;
+                border-image: initial;
+            }
+
+            user agent stylesheet input,
+            textarea,
+            select,
+            button {
+                text-rendering: auto;
+                color: initial;
+                letter-spacing: normal;
+                word-spacing: normal;
+                text-transform: none;
+                text-indent: 0px;
+                text-shadow: none;
+                display: inline-block;
+                text-align: start;
+                margin: 0em;
+                font: 400 13.3333px Arial;
+            }
+
+            user agent stylesheet input,
+            textarea,
+            select,
+            button,
+            meter,
+            progress {
+                -webkit-writing-mode: horizontal-tb;
+            }
+
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none !important;
+                margin: 0;
+                text-align: right;
+                text-indent: 2em;
+            }
+
+            body,
+            div,
+            span,
+            p,
+            a,
+            img,
+            input,
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            button,
+            ul,
+            li,
+            iframe {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                -moz-user-select: none;
+                /*firefox私有属性*/
+                -webkit-user-select: none;
+                /*webkit内核私有属性*/
+                -ms-user-select: none;
+                /*ie 私有属性*/
+                -khtml-user-select: none;
+                /*khtml 内核私有属性*/
+                -o-user-select: none;
+                /*Opera 私有属性*/
+                user-select: none;
+                /*css3 属性*/
+            }
+
+            a {
+                display: block;
+                text-decoration: none;
+                color: #737373;
+            }
+
+            img {
+                display: block;
+            }
+
+            .container {
+                width: 100%;
+                background-color: #F2F2F2;
+            }
+            /*one*/
+
+            .container .current {
+                margin-bottom: 20px;
+                background-color: white;
+                padding: 20px 0;
+            }
+
+            .center {
+                width: 1200px;
+                margin: 0 auto;
+                overflow: hidden;
+            }
+
+            .center .left {
+                background-image: url(__INDEX__/img/display.png);
+                  filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+               -moz-background-size:100% 100%;
+               background-size:100% 100%;
+                width: 500px;
+                height: 414px;
+                margin: 0 auto;
+                float: left;
+                margin-top: 100px;
+
+            }
+
+            /*.left {
+                box-shadow: 0 4px 12px 0 rgba(28, 57, 81, 0.16);
+                border: none;
+            }
+
+            .left:hover {
+                box-shadow: 0 8px 20px 0 rgba(28, 57, 81, 0.24);
+            }*/
+
+            .center .right {
+                position: relative;
+                width: 565px;
+                color: #333;
+                float: right;
+            }
+
+            .right {
+                margin-top: 20px;
+                width: 600px;
+                overflow: hidden;
+            }
+            /*two*/
+
+            .submenu {
+                width: 1200px;
+                border-bottom: 1px solid #0368BD;
+                overflow: hidden;
+                height: 40px;
+                background-color: white;
+            }
+
+            .submenu2 {
+                position: fixed;
+                top: 0;
+                left: 50%;
+                margin-left: -600px;
+            }
+
+            .submenu a {
+                float: left;
+                width: 120px;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                color: black;
+                font-size: 16px;
+
+            }
+
+            .submenu .active {
+                background-color: #0368BD;
+                color: white;
+            }
+
+            #tables {
+
+                width: 100%;
+                border-collapse: collapse;
+                border: 1px solid black;
+                margin-bottom: 10px;
+            }
+
+            #tables>tr {
+                width: 100%;
+                border: 1px solid black;
+            }
+
+            #tables>tr>td {
+                width: 25%;
+                box-sizing: border-box;
+                border: 1px solid black;
+                height: 50px;
+            }
+
+            #tables tr td p {
+                width: 100%;
+                text-align: center;
+                padding: 30px 0;
+                font-size: 20px;
+            }
+            #tables tr:nth-child(1){
+                background-color: #CCCCCC;
+            }
+            #tables tr:nth-child(2) td p,#tables tr:nth-child(3) td p,#tables tr:nth-child(4) td p,#tables tr:nth-child(5) td p{
+                font-size: 22px;
+            }
+            #column h3 {
+                width: 100%;
+                text-align: center;
+                padding: 65px 0;
+                font-size: 26px;
+            }
+#column img {
+				width:100%;
+				margin: 40px auto 30px;
+			}
+
+
+            /*banner*/
+
+            li {
+                list-style: none;
+            }
+
+            .all {
+                margin-left: 20px;
+                margin-top: 20px;
+                width: 460px;
+                height: 260px;
+                border: 1px solid #ccc;
+                position: relative;
+            }
+
+            .screen {
+                width: 460px;
+                height: 260px;
+                overflow: hidden;
+                position: relative;
+            }
+
+            .screen li {
+                width: 460px;
+                height: 260px;
+                overflow: hidden;
+                float: left;
+            }
+
+            .screen li img {
+                width: 460px;
+                height: 260px;
+            }
+
+            .screen ul {
+                position: absolute;
+                left: 0;
+                top: 0px;
+                width: 3000px;
+            }
+
+            .all ol {
+                position: absolute;
+                right: 10px;
+                bottom: 10px;
+                line-height: 20px;
+                text-align: center;
+            }
+
+            .all ol li {
+                float: left;
+                width: 20px;
+                height: 20px;
+                background: #fff;
+                border: 1px solid #ccc;
+                margin-left: 10px;
+                cursor: pointer;
+            }
+
+            .all ol li.current {
+                background: yellow;
+            }
+
+            #arr {
+                display: none;
+            }
+
+            #arr span {
+                width: 60px;
+                height: 60px;
+                position: absolute;
+                left: 5px;
+                top: 50%;
+                margin-top: -20px;
+                background: #000;
+                cursor: pointer;
+                line-height: 60px;
+                text-align: center;
+                font-weight: bold;
+                font-family: '黑体';
+                font-size: 50px;
+                color: #fff;
+                opacity: 0.3;
+                border: 1px solid #fff;
+            }
+
+            #arr #right {
+                right: 5px;
+                left: auto;
+            }
+
+            .screen ol {
+                opacity: 0;
+            }
+            /**/
+
+            .right {
+                position: relative;
+            }
+
+            .right h4 {
+                font-size: 32px;
+                height: 70px;
+                line-height: 70px;
+            }
+
+            .right .money {
+                width: 100%;
+                height: 80px;
+                overflow: hidden;
+                margin: 20px 0;
+            }
+
+            .right .money span {
+                float: left;
+                color: #e51515;
+
+            }
+
+            .right .money span:nth-child(1) {
+                font-size: 18px;
+                margin-top: 30px;
+            }
+
+            .right .money span:nth-child(2) {
+                font-size: 48px;
+            }
+
+            .text {
+                background-color: #f3f3f3;
+            }
+
+            .text div {
+                width: 100%;
+                overflow: hidden;
+            }
+
+            .text div p {
+                float: left;
+                margin: 10px 0;
+            }
+
+            .text div p:nth-child(1) {
+                width: 20%;
+                line-height: 25px;
+                font-weight: 600;
+                font-size: 20px;
+                margin-left: 3%;
+            }
+
+            .text div p:nth-child(2) {
+                width: 73%;
+                line-height: 25px;
+                font-size: 16px;
+                font-weight: 500;
+                margin-left: 2%;
+            }
+            .text div p:nth-child(2) {
+				word-break: break-all;
+				display: -webkit-box;
+				-webkit-line-clamp: 1;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+			}
+			.text div:nth-child(1) p:nth-child(2) {
+				word-break: break-all;
+				display: -webkit-box;
+				-webkit-line-clamp: 9;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+			}
+
+
+            .submits {
+                width: 300px;
+                background-color: #0368bd;
+                height: 50px;
+                line-height: 50px;
+                border-radius: 5px;
+                text-align: center;
+                margin-top: 50px;
+                color: white;
+                font-size: 18px;
+            }
+
+            .code {
+                width: 100px;
+                position: absolute;
+                top: 20px;
+                right: 30px;
+            }
+
+            .code img {
+                width: 100px;
+            }
+
+            .code a{
+            	display: block;
+                width: 100px;
+                background-color: #0368bd;
+                height: 35px;
+                line-height: 35px;
+                border-radius: 5px;
+                text-align: center;
+                margin-top: 10px;
+                color: white;
+                font-size: 16px;
+            }
+            /*轮播弹出*/
+
+            .phone,
+            .forms {
+                width: 100vw;
+                height: 100vh;
+                background-color: rgba(0, 0, 0, 0.9);
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 500;
+                display: none;
+            }
+
+            .phone iframe {
+                width: 520px;
+                height: 434px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-left: -260px;
+                margin-top: -220px;
+                border: none;
+            }
+            /*表单*/
+
+            .forms form::-webkit-scrollbar {
+                display: none;
+
+            }
+
+            .forms form {
+                height: 80vh;
+                width: 1000px;
+                background-color: white;
+                padding: 10px;
+                overflow: auto;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                margin-left: -500px;
+                margin-top: -40vh;
+                border-radius:10px ;
+            }
+
+            .forms form ul li:nth-child(1) {
+                width: 900px;
+                position: fixed;
+                top: 10vh;
+                right: 50%;
+                margin-right: -450px;
+                background-color: white;
+            }
+
+            /*.forms form ul li:nth-child(1) p {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                background-color: white;
+                position: fixed;
+                top: 8vh;
+            }*/
+
+            .forms form ul {
+                width: 80%;
+                margin: 0 auto;
+            }
+
+            .forms form ul li {
+                width: 100%;
+                overflow: auto;
+                margin-bottom: 20px;
+                padding: 10px 0;
+            }
+            .forms form ul li .item-input span{
+                display: block;
+            }
+            .forms form ul .item-li:nth-child(1) {
+                font-size: 22px;
+                line-height: 80px;
+                height: 80px;
+            }
+
+            .forms form ul .item-li:nth-child(1) h3 {
+                float: left;
+            }
+
+            .forms form ul .item-li:nth-child(1) p {
+                float: right;
+            }
+
+            .forms form ul .item-li div {
+                float: left;
+            }
+
+            .item-li div.item-name {
+                width: 20%;
+                text-align: right;
+                line-height: 60px;
+                font-size: 18px;
+            }
+
+            .item-li div.item-input {
+                width: 70%;
+                margin-left: 5%;
+            }
+
+            .item-li div.item-input input {
+                width: 500px;
+                height: 60px;
+                line-height: 60px;
+                font-size: 16px;
+                padding: 0 5px;
+                border-color: #f5f5f5;
+                border: 2px solid #f5f5f5;
+            }
+
+            .item-li div.item-input textarea {
+                width: 500px;
+                height: 120px;
+                line-height: 60px;
+                font-size: 16px;
+                padding: 0 5px;
+                border: 2px solid #f5f5f5;
+            }
+
+            .item-li div.item-input span {
+                line-height: 25px;
+                font-size: 14px;
+            }
+
+            .item-input input:hover {
+                border: 2px solid #CCCCCC;
+            }
+
+            .item-li .item-input .btn {
+                height: 50px;
+                text-align: center;
+                line-height: 50px;
+                background-color: #0368bd;
+                border-radius: 10px;
+                color: white;
+                border: none;
+                margin-left: 30%;
+                font-size: 18px;
+            }
+
+            .beijin {
+                width: 100vw;
+                height: 100vh;
+                background-color: rgba(0, 0, 0, 0.5);
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 200;
+                display: none;
+            }
+
+            .good {
+                margin: 30vh auto;
+                padding: 50px;
+                width: 400px;
+                background-color: white;
+                border-radius: 10px;
+            }
+
+            .good h5,
+            .good p {
+                width: 100%;
+                text-align: center;
+            }
+
+            .good h5 {
+                font-size: 16px;
+                margin: 0;
+                margin-bottom: 20px;
+            }
+
+            .good p {
+                font-size: 15px;
+                font-weight: 600;
+            }
+
+            .qud {
+                border: 1px solid red;
+                color: red;
+                border-radius: 10px;
+                padding: 10px 0;
+                margin-top: 20px;
+
+            }
+            .navs{
+                width: 90%;
+                margin: 0 auto;
+                padding: 10px;
+             }
+             .navs li{
+                float: left;
+             }
+            .navs .is{
+                display: block;
+                width: 90px;
+                height: 38px;
+                text-align: center;
+                line-height: 40px;
+                font-size: 14px;
+                color: blacke;
+                z-index: 100;
+            }
+            .navs a:hover{
+                color: #fff !important;
+                background: url(__INDEX__/img/navBg.png);
+                background-size: 100%;
+                /*background-color: #ff5454;*/
+            }
+            .actives {
+                color: #fff !important;
+                background: url(__INDEX__/img/navBg.png);
+                background-size: 100%;
+                /*background-color: #ff5454;*/
+
+            }
+            #column img{
+                width:100%;
+            }
+            #nav2 {
+    margin-bottom: 40px;
+}
+
+.code p {
+    width: 100px;
+    background-color: #0368bd;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 10px;
+    color: white;
+    font-size: 16px;
+}
+        </style>
+        <link rel="stylesheet" type="text/css" href="__INDEX__/css/table.css" />
     </head>
 <script>
 (function(b,a,e,h,f,c,g,s){b[h]=b[h]||function(){(b[h].c=b[h].c||[]).push(arguments)};
@@ -49,69 +731,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
                 <div style="clear:both"></div>
             </div>
         </div>-->
-
-<div class="login_background" style="display:none" onclick="loginNone();">
-
-		</div>
-
-		<div class="login" style="display:none">
-				<div class="login_logo">
-					<span style="float: left;">登录</span>
-					<img src="__INDEX__/img/icon/cas.png" style="float: right;" id="login-none" onclick="loginNone();"/>
-				</div>
-
-				<div class="login1">
-					<p  style="width: 100%;text-align: right; font-size: 14px;">短信快捷登录</p>
-					<div class="form-group">
-							<input id="phones" value="" name="phone" type="text" placeholder="输入手机号" maxlength="11" class="form-control x319 in" autocomplete="off">
-						</div>
-						<div class="form-group">
-
-							<input id="j_captcha" name="j_captcha"  placeholder="输入短信验证码" type="text" maxlength="8" class="form-control x164 in">
-							<span id="yan" class="btn-primary" >
-								获取短信验证码
-							</span>
-						</div>
-						<div class="form-group">
-							<input type="reset" id="login1s"   value="&nbsp;登&nbsp;录&nbsp;" class="btn btn-default btn-lg">
-						</div>
-					<div class="login_logos">
-					<p class="one"><span id="">第三方登录</span></p>
-					<p class="two"><span></span> </p>
-					</div>
-				<span id="quehuan1" onclick="quehuan1();">
-
-				</span>
-				</div>
-
-				<div class="login2" style="display: none;">
-					<p  style="width: 100%;text-align: center; font-size: 16px;  font-weight: bold;">微信登录</p>
-					<img src="__INDEX__/img/saoma.png" style="width: 240px; height: auto; display: block;margin: 0px  auto;"/>
-					<p  style="width: 100%;text-align: center; font-size: 14px; line-height: 30px; font-weight: bold;">使用微信扫描二维码登录</p>
-
-				<span id="quehuan2" onclick="quehuan2();">
-
-				</span>
-				</div>
-
-			</div>
-<div class="header">
-	<div class="container">
-		<h1 class="logo fl"><a href="{:url('index/one')}"></a></h1>
-		<div class="nav fr">
-			<ul>
-		      <li id="choiceness" ><a href="{:url('demand/index')}">需求</a></li>
-		      <!-- <li id='mkBank'><a href="mkBank.do">代码银行</a></li> -->
-		      <li id="counselor" class="on"><a href="{:url('cases/index')}">案例</a></li>
-		     <!-- <li id="selecttype"><a href="javascript:void(0)">人才</a></li>-->
-		      <!-- <li id='findinvestor'><a href="findinvestor.do">找投资人</a></li>
-		      <li id='news'><a href="news.do">新闻资讯</a></li>
-		      <li id='contact'><a href="contact.do">洽谈合作</a></li> -->
-			</ul>
-		</div>
-	</div>
-</div>
-
+{include file="index/nav" /}
 
         <div class="container">
             <div class="current" id="phone_height">
@@ -159,7 +779,8 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
                             <div class="">
                                 <p>适用行业
                                 </p>
-                                <p>                                {volist name="specific" id='naa'}
+                                <p>
+                                {volist name="specific" id='naa'}
                                 {$naa}
                                 {/volist}
                                 </p>
@@ -174,14 +795,10 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
                                 </p>
                             </div>
                         </div>
-                        <div class="submit">
-                        	<p class="submits">提交项目需求</p>
-                        	<p class="gou">立即购买</p>
-                        </div>
-
+                        <p class="submits">提交项目需求</p>
                         <div class="code">
-                            <img id="right-img" title="点击弹出大图" src="{$cases.code}" />
-                            <a  id="right-a" href="{$cases.preview}"  target="_blank">预览</a>
+                            <img id="right-img" src="{$cases.code}" />
+                            <a  href="{$cases.preview}" id="right-a" target="_blank">预览</a>
 
                         </div>
                     </div>
@@ -272,133 +889,14 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
                         </div> -->
 
                     </div>
-                    <div class="columns">
-                    	<!--<h3 >网站代建服务</h3>
-						<table border="" cellspacing="" cellpadding="" id="table" style="" class="nan">
-							<tr >
-									<td colspan="5" style="font-size: 18px;">
-有专业建站师为您量身制作网站，您仅需联系客服、购买服务、传送资料，1~2个工作日就可“坐享其成”
-
-									</td>
-
-								</tr>
-
-								<tr>
-									<td>
-										套餐名称
-									</td>
-									<td>
-										微型网站代建
-									</td>
-									<td>
-										小型网站代建
-									</td>
-									<td>
-										中型网站代建
-									</td>
-									<td>
-										大型网站代建
-									</td>
-								</tr>
-								<tr>
-									<td>
-										页面数量
-									</td>
-									<td>
-										≤5个
-									</td>
-									<td>
-										≤10个
-									</td>
-									<td>
-										≤30个
-									</td>
-									<td>
-										大于30个
-									</td>
-								</tr>
-								<tr>
-									<td>
-										素材
-									</td>
-									<td>
-										您需要提供资料和图片
-									</td>
-									<td>
-										您需要提供资料和图片
-									</td>
-									<td>
-										您需要提供资料和图片
-									</td>
-									<td>
-										您需要提供资料和图片
-									</td>
-								</tr>
-								<tr>
-									<td>
-										代建
-									</td>
-									<td>
-										我们负责录入和设定
-									</td>
-									<td>
-										我们负责录入和设定
-									</td>
-									<td>
-										我们负责录入和设定
-									</td>
-									<td>
-										我们负责录入和设定
-									</td>
-								</tr>
-								<tr >
-									<td>
-										价格
-									</td>
-									<td class="red">
-										200元
-									</td>
-									<td class="red">
-										400元
-									</td>
-									<td class="red">
-										800元
-									</td>
-									<td class="red">
-										20元/每页
-									</td>
-								</tr>
-								<tr>
-									<td>
-										购买
-									</td>
-									<td class="blue">
-										购买服务
-									</td>
-									<td class="blue">
-										购买服务>
-									</td>
-									<td class="blue">
-										购买服务
-									</td>
-									<td class="blue">
-										购买服务
-									</td>
-								</tr>
-							</table>-->
-						<h3 id="three">开发顾问</h3>
-						<img src="__INDEX__/img/service-instructions_1.jpg"style="width: 100%;" />
-						</div>
-					</div>
-					</div>
                 </div>
 
             </div>
 
         </div>
-        <!--<div class="phone">
+        <div class="phone">
             <iframe src="{:url('cases/computers',['id'=>$cases.id])}" width="" height=""></iframe>
-        </div>-->
+        </div>
         <div class="forms">
             <form action="" method="post">
                 <ul>
@@ -461,56 +959,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
                 <p class="qud" id="qd">确定</p>
             </div>
         </div>
-        <div class="gous" onclick="nos();">
-
-		</div>
-		<div class="gou_bth" >
-			<p class="no"><input type="hidden" name="" id="hiddens" value="{$cases.money}" />
-					<span class="h5">购买须知！</span>
-					<span class="nos" id="" onclick="nos();"></span></p>
-
-
-				<p>购买后您将获得账户和密码，需联系客服进行交接，交接后，确认交易金额将直接打给卖家。</p>
-
-					<p class="money">￥<strong>{$cases.money}</strong>元</p>
-					<div class="radio">
-					<div class="on" data-type = "0">
-						全款
-					</div>
-					<div class="" data-type = "1">
-						首付60%
-					</div>
-					<div class="" data-type = "2">
-
-						<span>自定义</span>
-						<input type="number" name="money" id="money" value="" placeholder="自定义金额" style="outline:none ;" oninput="if(value.length>11)value=value.slice(0,11)" onkeyup="value=value.replace(/[^\d]/g,'') " ng-pattern="/[^a-zA-Z]/"/>
-					</div>
-
-				</div>
-
-
-
-
-				<p class="qud" >确定</p>
-			</div>
-		<div class="gou_er">
-			<p class="no"><span class="nos" id="" onclick="nos();"></span></p>
-				<h5>购买须知！</h5>
-				<div class="img">
-					<img src="__INDEX__/img/saoma.png" id="wxpayimg" />
-					<p>微信扫码，快捷支付</p>
-				</div>
-
-
-
-			</div>
-<div class="tis">
-			<p style="font-size: 20px; color: #e51515;">付款成功！</p>
-<p style="font-size: 14px;">购买记录请到个人账户中查询</p>
-
-
-			</div>
-        <div class="imgs" style="width: 100vw;height: 100vh;position: fixed;top: 0px ;left: 0px ;background-color: rgba(0,0,0,.2); display: none;">
+         <div class="imgs" style="width: 100vw;height: 100vh;position: fixed;top: 0px ;left: 0px ;background-color: rgba(0,0,0,.2); display: none;">
 			<img  id="imgs" src="{$cases.code}" style="width: 400px;height: 400px;display: block;position: absolute;top: 50%;left: 50%;margin-top: -200px;margin-left: -200px;" />
 		</div>
         <div class="footer" style="background-color: #1e2831;">
@@ -519,178 +968,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
             </div>
         </div>
         <script src="__INDEX__/js/form.js" type="text/javascript" charset="utf-8"></script>
-        <script src="__INDEX__/js/login.js" type="text/javascript" charset="utf-8"></script>
         <script type="text/javascript">
-        		/*登录 开始*/
-			var session = "{:session('user.id')}";
-			$("#yan").click(function () {
-
-                if($("#phones").val() == "") {
-                    blockh("请输入手机号码");
-                }  else {
-
-                	if(!(/^1[3456789]\d{9}$/.test($("#phones").val()))) {
-						blockh("手机号码有误，请重填");
-					} else {
-$("#yan").addClass("disabled");
-
-                            $.post("{:url('login/codemsg')}",{mobile:$("#phones").val()},function(data) {
-                                if (data.code==1) {
-
-                                    var s = 60;
-                                    var j = setInterval(function() {
-                                        s = s - 1;
-                                        $("#yan").html(s + "秒后重新获取");
-                                        if(s == 0) {
-
-                                            clearInterval(j);
-                                            $("#yan").remove("disabled");
-                                            $("#yan").html("请重新获取");
-                                        }
-                                    }, 1000)
-                                }else{
-                                   block(data.msg); $("#yan").remove("disabled");
-                                }
-                            })
-
-					}
-				}
-			})
-			$("#login1s").click(function () {
-                if($("#phones").val() == "") {
-                    blockh("请输入手机号码");
-                }  else {
-                	if(!(/^1[3456789]\d{9}$/.test($("#phones").val()))) {
-						blockh("手机号码有误，请重填");
-					} else {
-						if($("#j_captcha").val()!=""){
-
-							var mobile = $("#phones").val();
-							var code = $("#j_captcha").val();
-							$.post("{:url('login/checkindex')}",{mobile:mobile,code:code},function(data) {
-								if (data.code==1) {
-									blockh("登录成功");
-									location.reload();
-								}else{
-									blockh(data.msg);
-								}
-							})
-						}else{
-							blockh("请输入短信验证码");
-						}
-					}
-				}
-			})
-
-/*登录 结束*/
-
-			var cases_id = {$cases.id};
-$(".beijin")
-			/*购买-开始*/
-			$(".gou").click(function(){
-
-				if (session == ""){
-
-					$(".login_background").css("display","block");
-					$(".login").css("display","block");
-				}else{
-					$(".gous").css("display","block");
-					$(".gou_bth").css("display","block");
-				}
-
-			})
-            var order_id;
-
-            var j;
-
-			$(".gou_bth .qud").click(function(){
-				var moneys = parseInt($(".gou_bth .money strong").text());
-				var name = $("#right-h4").text();
-            $.post(
-                "{:url('Native/index')}",
-                {money:moneys,name:name,cases_id:cases_id},
-                function(data){
-                    if (data.code==1) {
-                        clearInterval(j);
-                        order_id = data.order_id;
-                    	$("#wxpayimg").attr("src",data.data);
-						$(".gou_bth").css("display","none");
-						$(".gou_er").css("display","block");
-
-                         var j = setInterval(function(){
-                        $.post(
-                            "{:url('Native/inquire')}",
-                            {order_id:order_id},
-                            function(data){
-
-                                if (data.code==1) {
-
-                                    //二维码消失
-                                    clearInterval(j);
-                                   $(".gou_bth").css("display","none");
-				$(".gou_er").css("display","none");
-									$(".tis").css("display","block");
-                                  window.load.href="http://keji.yingjisong.com/bak/user/index";
-                                }else{
-                                    //未支付
-                                }
-                               }
-                            )
-                        },3000);
-
-                    }else{
-                    	alert(data.msg);
-                    }
-                   }
-                )
-			})
-			function hrefs(){
-				setTimeout(function(){
-										window.load.href="http://keji.yingjisong.com/bak/user/index";
-									},2000);
-			}
-			$(".gou_bth .radio div").click(function(){
-				$(".gou_bth .radio div").removeClass("on");
-				$(this).addClass("on");
-				var datas = $(this).attr("data-type");
-				if(datas==1){
-					$(".gou_bth .money strong").text($("#hiddens").val()*0.6);
-				}else if(datas==2){
-					if($("#money").val()>0 &&$("#money").val()!=""){
-						$(".gou_bth .money strong").text($("#money").val());
-					}else{
-						$(".gou_bth .money strong").text($("#hiddens").val());
-					}
-				}else{
-					$(".gou_bth .money strong").text($("#hiddens").val());
-				}
-
-			})
-
-			$("#money").bind('input', function() {
-				if($(this).val() !="") {
-					if($(this).val()>0){
-						var inputs = $(this).val().toString();
-						var ins = inputs.replace('.','');
-						$(".gou_bth .money strong").text(ins);
-					}else{
-						$(".gou_bth .money strong").text($("#hiddens").val());
-					}
-				}else{
-					$(".gou_bth .money strong").text($("#hiddens").val());
-				}
-			})
-			function nos(){
-				$(".gous").css("display","none");
-				$(".gou_bth").css("display","none");
-				$(".gou_er").css("display","none");
-$(".tis").css("display","none");
-			}
-			function money(){
-				$(".beijin").css("display", "block");
-				$(".beijin .good .text").css("display", "block");
-			}
-			/*购买-结束*/
             $("#Xname").val($(".center .right h4").text());
 
             $(".submits").click(function() {
@@ -699,11 +977,9 @@ $(".tis").css("display","none");
             $(".forms form li:nth-child(1) p").click(function() {
                 $(".forms").css("display", "none");
             })
-           $(".beijin").click(function() {
-				$(".beijin").css("display", "none");
-
-
-			})
+            $(".beijin").click(function() {
+                $(".beijin").css("display", "none");
+            })
             /*表单*/
             var xname = document.getElementById("Xname");
             var brief = document.getElementById("brief");
@@ -718,7 +994,7 @@ $(".tis").css("display","none");
 			/*yanZheng(wei, /^[a-z_\d]+$/);*/
 			yanZheng(phs, /^[\s\S]*.*[^\s][\s\S]*$/);
 			/*yanZheng(mail, /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/);*/
-			$(".forms form ul li p.btn").click(function() {
+			$(".btn").click(function() {
 				yanz(xname, /^[\s\S]*.*[^\s][\s\S]*$/);
 				yanz(brief, /^[\s\S]*.*[^\s][\s\S]*$/);
 				yanz(names, /^[\s\S]*.*[^\s][\s\S]*$/);
@@ -750,6 +1026,7 @@ $(".tis").css("display","none");
                                             }
 										}
 
+                                                var cases_id = {$cases.id};
                                                 var name = xname.value;
                                                 var remark = brief.value;
                                                 var username = names.value;
@@ -763,7 +1040,7 @@ $(".tis").css("display","none");
                                                     function(data){
                                                         if (data.code==1) {
                                                             $(".forms").css("display", "none");
-                                                           blockh("提交项目需求成功！");
+                                                            $(".beijin").css("display", "block");
                                                             xname.value="";
                                                             brief.value="";
                                                             names.value="";
@@ -943,25 +1220,17 @@ $(".tis").css("display","none");
                 $(this).addClass("active");
             })
            quweinongchang();
-			function quweinongchang(){
+			function quweinongchang(){								
 				if($('#right-a').attr('href')!=""){}else{
-					$('#right-a').attr("href","javascript:void(0)");
+					$('#right-a').attr("href","javascript:void(0)"); 
 				}
-
+				
 			}
 			$("#right-img").click(function(){
 				$(".imgs").css("display", "block");
 			})
 			$(".imgs").click(function(){
 				$(this).css("display", "none");
-			})
-			$("#right-a").click(function(){
-				var hrefs = $(this).attr("href");
-				if(hrefs !="javascript:void(0)"){
-
-				}else{
-					$(".imgs").css("display", "block");
-				}
 			})
             /*var ph = document.getElementById("phone_height");
             var nav2 = document.getElementById("nav2");
@@ -1005,16 +1274,16 @@ $(".tis").css("display","none");
                 }
             };*/
         </script>
-      <script>
+   <script>
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?44df8059d678095fffc254927a44f54d";
+  hm.src = "https://hm.baidu.com/hm.js?ee653f1fbcc92a32249fd52f4789655c";
   var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-</body>
+ </body>
 
 </html>
 

@@ -195,7 +195,7 @@ function bths(){
 获取select选中的 value:
     $("#ddlregtype ").val();*/
 						kk(project);
-						kk(budget);							
+						kk(budget);
 						kk(brief);
 						/*提示*/
 						sele();
@@ -216,80 +216,80 @@ function bths(){
 function imglist(){
 	if($(".img-list li").length>1){
 							$("#list").css("color","white");
-							
+
 							$("#list").text("");
 						}else{
 							$("#list").css("color","red");
-							
+
 							$("#list").text("请上传图集（轮播图）");
 						}
 						if($(".img-list1 li").length>1){
 							$("#list1").css("color","white");
-							
+
 							$("#list1").text("");
 						}else{
 							$("#list1").css("color","red");
-							
+
 							$("#list1").text("请上传首页");
 						}
 						if($(".img-list2 li").length>1){
 							$("#list2").css("color","white");
-							
+
 							$("#list2").text("");
 						}else{
 							if($("#budget-url").val()!=""&&$("#budget-url").val()!="http://"){
-								
+
 							}else{
 								$("#list2").css("color","red");
-							
+
 							$("#list2").html("请上传二维码或<br />添加预览网址");
 							}
-							
+
 						}
 }
 function sele(){
 	var se = $("#select select").val();
 	if(se==0){
 						$("#select_span").css("color","red");
-						
+
 							$("#select_span").text("请选择");
-						
+
 					}else{
 						$("#select_span").css("color","white");
-						
+
 						$("#select_span").text(" ");
 					}
 }
 function zt(){
-					if($("#zt .selected").length>0){						
+					if($("#zt .selected").length>0){
 						$("#zt>span").css("color","white");
-						
+
 						$("#zt>span").text("");
 					}else{
 						$("#zt>span").css("color","red");
-						
+
 						$("#zt>span").text("请选择");
 					}
 				}
 				function zs(){
-					if($("#zs .selected").length>0){						
+					if($("#zs .selected").length>0){
 						$("#zs>span").css("color","white");
-						
+
 						$("#zs>span").text("");
 					}else{
 						$("#zs>span").css("color","red");
-						
+
 						$("#zs>span").text("请选择");
 					}
 				}
 				function zy(){
-					if($("#zy .selected").length>0){						
+					if($("#zy .selected").length>0){
 						$("#zy>span").css("color","white");
-						
+
 						$("#zy>span").text("");
 					}else{
 						$("#zy>span").css("color","red");
-						
+
 						$("#zy>span").text("请选择");
 					}
 				}
@@ -412,9 +412,9 @@ function vals(){
 	$.post(urll,{case_name:proje,money:budget,images:aCity0,brief:brief,img:imgli1,type:sele1,specific:zy,system_type:selected,code:imgli2,preview:url,info:str,is_pp:zs},function(data) {
 		$(".bgarea").css("display","none");
 		if (data.code == 1) {
-			aler(data.msg);
+			window.location.href=urlt;
 		}else{
-			aler(data.msg);
+			alert(data.msg);
 		}
 	})
 }

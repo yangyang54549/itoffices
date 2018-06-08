@@ -10,6 +10,8 @@
 		<link rel="stylesheet" href="__INDEX__/css/style.css" />
 		<link href="__INDEX__/css/index_style.css" rel="stylesheet" type="text/css">
 		<!--<link rel="shortcut icon" href="https://www.315pr.com:443/resources/bootstrap/__INDEX__/img/sdyk.ico">-->
+			<link rel="stylesheet" type="text/css" href="__INDEX__/css/nav.css" />
+
 		<script src="__INDEX__/js/jss/jquery-2.1.3.min.js"></script>
 
 		<style type="text/css">
@@ -196,6 +198,12 @@ min-width: 1200px;
 				background: url(__INDEX__/img/navBg.png);
 				background-size: 100%;
 			}
+
+			.activeccc {
+			    color: #CCC !important;
+			     pointer-events: none;
+			}
+
 			.page-content{width: 100%;}
 			 .demandlist{
 			 	width: 100%;
@@ -270,8 +278,7 @@ min-width: 1200px;
 
 	}
 		</style>
-
-</head>
+	</head>
 <script>
 (function(b,a,e,h,f,c,g,s){b[h]=b[h]||function(){(b[h].c=b[h].c||[]).push(arguments)};
 b[h].s=!!c;g=a.getElementsByTagName(e)[0];s=a.createElement(e);
@@ -279,11 +286,11 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 })(window,document,"script","_qha",224241,false);
 </script>
 	<body>
-		<div class="sou " >
+{include file="index/nav" /}
+		<!-- <div class="sou " style="display: none;">
 			<div class="search">
 				<div class="search1">
 					<div class="navs">
-						<!--<i class="is">IT联合办公</i>-->
 						<i class="is">首页</i>
 						<i class="is">需求</i>
 						<i class="actives is">案例</i>
@@ -292,12 +299,11 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 					<input type="text" name="" id="" value="" placeholder="搜索..." />
 					<img src="__INDEX__/img/icon/fda.png" />
 					<button onclick="one();">搜索</button>
-					<!-- <p>定制发需求</p> -->
 					<p onclick="window.location.href='{:url("demand/publish")}'">定制发需求</p>
 					<span>或者</span>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<div class="header" id="demo">
 	<!--<div class="top_logo"></div> -->
 
@@ -338,7 +344,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 			</div>
 <!--不限-->
 			<div class="choice_kind" style="border-bottom: 1px dashed rgba(0,0,0,0.14);">
-				<span text="主要功能：" class="hhh">主要功能：</span>
+				<span text="适用行业：" class="hhh">适用行业：</span>
 				<ul class="xiao">
 					<li class="active nuxian" data-id="0" id="fun">不限</li>
                     {volist name="specific" id="voss" key="n"}
@@ -360,9 +366,9 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 <!--全部-->	<div class="choice_kind system share">
 				<span text="系统类型：" data="">系统类型：</span>
 				<ul class="sys">
-					<li data-id="0" class="active">不限</li>
+					<li data-id="0" class="active nusys sss">不限</li>
                         {volist name="system" id="vosss"}
-                            <li data-id="{$vosss.id}">{$vosss.name}</li>
+                            <li data-id="{$vosss.id}"  class="sss sss{$vosss.id}">{$vosss.name}</li>
                         {/volist}
 					<i class="clear"></i>
 				</ul>
@@ -380,10 +386,9 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 							<img class="proImg" src="{$vo.img}" alt="">
 							<div class="picList">
 								<div class="similarity-title">{$vo.case_name}</div>
-								<div class="similarity_label">产品类型:<span>{$vo.type}</span></div>
-								<div class="similarity_label">主要功能:<span>{$vo.specific}</span></div>
-								<div class="similarity_label functionNames">系统类型:
-									<span>{$vo.system_type}</span>
+								<div class="similarity_label">产品类型:{$vo.type}</div>
+								<div class="similarity_label">适用行业:{$vo.specific}</div>
+								<div class="similarity_label functionNames">系统类型:{$vo.system_type}
 								</div>
 								<div class="similarity-intro">{$vo.brief}</div>
 								<div class="similarity-price"> ￥<span class="price">{$vo.money}</span> </div>
@@ -405,8 +410,8 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				</ul>
 				<div id="page-box" style="width: 1200px;margin: 0 auto;">
 					<div class="page">
-						{for start="1" end="$page.page+1" comparison="lt" step="1" name="n"}
-							{if condition = "$n eq $page.num"}
+						{for start="1" end="$page.xpage+1" comparison="lt" step="1" name="n"}
+							{if condition = "$n eq 1"}
 							<a  href="javascript:void(0)" class="atcives abc{$n}" onclick="pagess({$n});">{$n}</a>
 							{else /}
 							<a  href="javascript:void(0)" class="abc{$n}" onclick="pagess({$n});">{$n}</a>
@@ -473,7 +478,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 		</div>
 		<div class="footer" style="background-color: #1e2831;">
 			<div class="center">
-				<p>2011-2018 汇谷科技  版权所有：豫ICP备12027515号-1</p>
+				<p>2014-2017 汇谷电子科技有限公司 版权所有：ICP备12027515号-1</p>
 			</div>
 		</div>
 		<div class="fixedTop" style="position:relative">
@@ -487,8 +492,9 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 		<script>
 		var pagenum = {$page.page};
 $("#qd").click(function() {
-				$(".beijin").css("display", "none");				
+				$(".beijin").css("display", "none");
 			})
+
 			$('.choice_kind li').click(function(){
 				$("#page-box .now").text('1')
 				$(this).parents(".choice_kind").find("li").removeClass("active").end().find(".freeman_none").css("display",'none');
@@ -501,7 +507,6 @@ $("#qd").click(function() {
 				}else{
 					$(this).parents(".choice_kind").find("span:eq(0)").html($(this).parents(".choice_kind").find("span:eq(0)").attr("text")).css("color",'#333').attr("data",$(this).attr('data'));
 				}
-				$('#more_choice2').css('display','none');
 
 
 				var cla = $(this).parent().attr('class');
@@ -512,6 +517,8 @@ $("#qd").click(function() {
 				var page = 1;
 
 				if (cla=='ty') {
+				$('#more_choice2').css('display','none');
+
 					if (id==0) {
 						$('.xiao .ccc').css('display','none');
 						$('.xiao .nine1').css('display','block');
@@ -524,6 +531,7 @@ $("#qd").click(function() {
 						$('.xiao .nuxian').addClass("active");
 						$('#more_choice2').css('display','block');
 					}else{
+
 						var claa = 'ccc'+id;
 						$('.xiao .ccc').css('display','none');
 						$('.xiao .'+claa).css('display','block');
@@ -538,15 +546,19 @@ $("#qd").click(function() {
 								$('#more_choice2').css('display','block');
 							}
 						}
-
-						console.log($('.ccc'+type));
 					}
+					//点击一级分类,二级分类跳入不限,系统跳到不限
+					$('.sys .sss').removeClass("active");
+					$('.sys .nusys').addClass("active");
+
 					var specific = $('.xiao .active').attr('data-id');
 					var system_type = $('.sys .active').attr('data-id');
-					$(".hhh").text('主要功能：');
+					$(".hhh").text('适用行业：');
 					$('.hhh').css('color','');
 
 				}else if(cla=='xiao'){
+				$('#more_choice2').css('display','none');
+
 						if (type==0) {
 							//类型未选择
 							$('.ccc').css('display','block');
@@ -569,20 +581,29 @@ $("#qd").click(function() {
 								}
 							}
 						}
+					//点击一级分类,二级分类跳入不限,系统跳到不限
+					$('.sys .sss').removeClass("active");
+					$('.sys .nusys').addClass("active");
+
 				}
+
 				$.post("{:url('cases/index')}",{type:type,specific:specific,system_type:system_type,page:page},function(data) {
 					pagenum = data.page.page;
 					$("#project-list1").html(data.data);
+					var countsys = data.page.sys.length;
+
+					$('.sys li').removeClass("activeccc");
 
 					if (data.page.page<=1) {
 						$("#page-box").html('');
+
 					}else{
 						// $("#project-list1").append('<li class="page-div" onclick="xia();"><h3>下一页</h3></li>');
 
 						var st = '';
-						for (var i=1;i<data.page.page+1;i++)
+						for (var i=1;i<5;i++)
 						{
-							if (i==data.page.num) {
+							if (i==1) {
 								st +='<a  href="javascript:void(0)" class="atcives abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
 							}else{
 								st +='<a  href="javascript:void(0)" class="abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
@@ -594,7 +615,15 @@ $("#qd").click(function() {
 						'</span>/<span class="num">'+data.page.page+
 						'</span>页&nbsp;&nbsp;共<span class="total">'+data.page.count+'</span>条</em>';
 						$("#page-box").html(str);
+
 					}
+
+					for (var i=0;i<countsys;i++)
+					{
+						var clasy = "sss"+data.page.sys[i];
+						$('.sys .'+clasy).addClass("activeccc");
+					}
+
 				})
 
 			})
@@ -655,6 +684,59 @@ $("#qd").click(function() {
 				var specific = 0;
 				var system_type = $('.sys .active').attr('data-id');
 
+				var str = '';
+
+				if (num>6) {
+
+
+					if (page>2) {
+
+						qpage = page-2;
+
+						for (var n=qpage;n<page;n++)
+						{
+							str += '<a  href="javascript:void(0)" class="abc'+n+'" onclick="pagess('+n+');">'+n+'</a>';
+						}
+
+						str += '<a  href="javascript:void(0)" class="atcives abc'+page+'" onclick="pagess('+page+');">'+page+'</a>';
+
+					}else{
+						if (page==2) {
+							str += '<a  href="javascript:void(0)" class="abc1" onclick="pagess(1);">1</a>';
+							str += '<a  href="javascript:void(0)" class="atcives abc2" onclick="pagess(2);">2</a>';
+						}else{
+							str += '<a  href="javascript:void(0)" class="atcives abc1" onclick="pagess(1);">1</a>';
+						}
+					}
+
+					jpage = page+3;
+					var xpage = page+1;
+					var snum = parseInt(num)+1;
+
+					if (jpage<=num) {
+						//在页码之内,考虑增加几条
+						for (var i=xpage;i<xpage+3;i++)
+						{
+							str += '<a  href="javascript:void(0)" class="abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
+						}
+
+					}else{
+
+						//超出最大页码,显示剩下的
+						for (var i=xpage;i<snum;i++)
+						{
+							str += '<a  href="javascript:void(0)" class="abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
+						}
+
+					}
+
+					$("#page-box .page").html(str);
+				}
+
+
+
+
+
 				if (cla=='ty') {
 					if (id==0) {
 						$('.xiao .ccc').css('display','block');
@@ -688,6 +770,58 @@ $("#qd").click(function() {
 				var	clas = 'abc'+page;
 				$('.'+clas).addClass('atcives');
 				$('.now').text(page);
+
+
+				num = $('.num').text();//总页码数
+				var str = '';
+				if (num>6) {
+
+
+					if (page>2) {
+
+						qpage = page-2;
+
+						for (var n=qpage;n<page;n++)
+						{
+							str += '<a  href="javascript:void(0)" class="abc'+n+'" onclick="pagess('+n+');">'+n+'</a>';
+						}
+
+						str += '<a  href="javascript:void(0)" class="atcives abc'+page+'" onclick="pagess('+page+');">'+page+'</a>';
+
+					}else{
+						if (page==2) {
+							str += '<a  href="javascript:void(0)" class="abc1" onclick="pagess(1);">1</a>';
+							str += '<a  href="javascript:void(0)" class="atcives abc2" onclick="pagess(2);">2</a>';
+						}else{
+							str += '<a  href="javascript:void(0)" class="atcives abc1" onclick="pagess(1);">1</a>';
+						}
+					}
+
+					jpage = page+3;
+					var snum = parseInt(num)+1;
+					var xpage = page+1;
+
+					if (jpage<=num) {
+						//在页码之内,考虑增加几条
+						for (var i=xpage;i<xpage+3;i++)
+						{
+							str += '<a  href="javascript:void(0)" class="abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
+						}
+
+					}else{
+
+						//超出最大页码,显示剩下的
+						for (var i=xpage;i<snum;i++)
+						{
+							str += '<a  href="javascript:void(0)" class="abc'+i+'" onclick="pagess('+i+');">'+i+'</a>';
+						}
+
+					}
+
+					$("#page-box .page").html(str);
+				}
+
+
 				var type = 0;
 				var specific = 0;
 				var system_type = $('.sys .active').attr('data-id');
@@ -698,7 +832,6 @@ $("#qd").click(function() {
 					// if (data.page.num<data.page.page) {
 						// $("#project-list1").append('<li class="page-div" onclick="xia();"><h3>下一页</h3></li>');
 					// }
-
 				})
 			}
 
@@ -716,6 +849,15 @@ $("#qd").click(function() {
 				}
 			}
 		</script>
-	</body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ee653f1fbcc92a32249fd52f4789655c";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</body>
 
 </html>

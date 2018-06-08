@@ -3,10 +3,10 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:47:48
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-06-04 17:55:17
+ * @Last Modified time: 2018-06-07 14:34:46
  */
 
-namespace app\index\controller;
+namespace app\bak\controller;
 use think\Controller;
 use think\Session;
 use think\Cookie;
@@ -14,7 +14,7 @@ use app\common\model\User;
 
 class yang extends Controller
 {
-    protected $arr = ['Cases/index','Cases/inside','Cases/computers','Cases/phones','Cases/order','Demand/index','Demand/inside','Index/index','Index/index_bak','Login/codemsg','Login/login','Login/checkindex','Login/admin','Index/one','Index/lxwm'];
+    protected $arr = ['Cases/index','Cases/inside','Cases/computers','Cases/phones','Cases/order','Demand/index','Demand/inside','Index/index','Index/index_bak','Login/codemsg','Login/login','Login/checkindex','Login/admin','Index/one','Index/lxwm','Native/index','Native/notify','Login/codemsg'];
     protected $ret = ['code'=>1,'data'=>'','msg'=>'提交成功'];//1是成功 -200是失败
 
     public function __construct()
