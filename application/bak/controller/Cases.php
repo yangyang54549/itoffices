@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-06-08 15:09:20
+ * @Last Modified time: 2018-06-08 18:17:40
  */
 namespace app\bak\controller;
 use app\admin\Controller;
@@ -33,7 +33,8 @@ class Cases extends Yang
             $specific = input('specific');
             $types_id = input('system_type');
             $pages = input('page');
-            $where = [];
+            $where['status'] = 1;
+
 
             if (isset($type)) {
                 if ($type!=0) {
@@ -157,7 +158,7 @@ class Cases extends Yang
 
         }else{
 
-            $cases = C::order('create_time desc')->page('1,8')->select();
+            $cases = C::where(['status'=>1])->order('create_time desc')->page('1,8')->select();
             $arr = $cases;
             $page = [];
             $page['count'] = C::count();//总条数

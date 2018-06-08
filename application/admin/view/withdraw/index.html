@@ -28,7 +28,7 @@
         {volist name="list" id="vo"}
         <tr class="text-c">
             <td><input type="checkbox" name="id[]" value="{$vo.id}"></td>
-            <td>{$vo.user_id}</td>
+            <td onclick="layer_open('用户详情', '/admin/user/info/id/{$vo.user_id}.html')">{$vo.user_id}</td>
             <td>{$vo.money}</td>
             <td>{$vo.username}</td>
             <td>{$vo.card}</td>

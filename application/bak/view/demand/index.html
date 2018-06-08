@@ -652,7 +652,10 @@ $("#demandlist-ul1 .page-div").height($(".demandBox").height());
 				}
 
 				$.post("{:url('demand/index')}",{type:type,industry:industry,schedule:schedule,page:page},function(data) {
-
+					if (data.page.num<data.page.page) {
+						var xiayiye = '<div class="demandBox page-div" onclick="xia();"><h3>下一页</h3></div>';
+						data.data += xiayiye;
+					}
 					$("#demandlist-ul1").html(data.data);
 					$("#demandlist-ul1 .page-div").height($(".demandBox").height());
 				})

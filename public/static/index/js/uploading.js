@@ -241,13 +241,9 @@ function imglist(){
 
 							}else{
 								$("#list2").css("color","red");
-<<<<<<< HEAD
-							
-							$("#list2").text("请上传二维码或添加预览网址");
-=======
 
-							$("#list2").html("请上传二维码或<br />添加预览网址");
->>>>>>> 2b250416f0c0f4e7c9106ff0a8889c9f7f31a5ff
+							$("#list2").text("请上传二维码或添加预览网址");
+
 							}
 
 						}
