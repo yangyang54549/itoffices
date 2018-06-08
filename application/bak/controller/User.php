@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-04-17 15:05:19
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-06-07 18:47:53
+ * @Last Modified time: 2018-06-08 09:54:00
  */
 namespace app\bak\controller;
 use app\admin\Controller;
@@ -411,7 +411,8 @@ class User  extends Yang
                 if ($result) {
 
                 U::where(['id'=>Session::get('user.id')])->setDec('money',$data['money']);
-                U::where(['id'=>Session::get('user.id')])->setInc('dj_money',$data['money']);
+                $dj_money = $user['dj_money']+$data['money'];
+                $aaa = U::where(['id'=>Session::get('user.id')])->update(['dj_money'=>$dj_money]);
 
                 return json($this->ret);
 
@@ -424,10 +425,12 @@ class User  extends Yang
             $user_id = Session::get('user.id');
             $user = U::where('id',$user_id)->find();
             $CasesPay = CasesPay::where(['user_id'=>$user_id,'status'=>1])->order('id desc')->select();
+            $CasesPayCases = CasesPay::where(['cases_user_id'=>$user_id,'status'=>1])->order('id desc')->select();
             $Cases = Cases::where(['user_id'=>$user_id])->order('id desc')->select();
 
             $this->assign('user',$user);
             $this->assign('casespay',$CasesPay);
+            $this->assign('casespaycases',$CasesPayCases);
             $this->assign('cases',$Cases);
 
             return $this->fetch();

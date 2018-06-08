@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-12-08 10:07:44
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-06-07 10:02:59
+ * @Last Modified time: 2018-06-08 09:14:33
  */
 namespace app\bak\controller;
 use app\bak\controller\Yang;
@@ -240,7 +240,8 @@ class Login extends Yang
 
             $result = $this->message($mobile,$model);
             if ($result) {
-                return json(['code'=>1, 'msg'=>'发送成功']);
+
+                return json(['code'=>1,'data'=>$result, 'msg'=>'发送成功']);
             }
             return json(['code'=>-200, 'msg'=>'发送失败']);
         }
