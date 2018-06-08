@@ -51,7 +51,9 @@ a {
 				width: 80%;
 				margin: 0 auto;
 				padding-top: 50px;
-				min-width: 890px;
+				padding-bottom: 50px;
+				
+				min-height: 85vh;
 				display: flex;
 			}
 
@@ -117,7 +119,7 @@ a {
 
 			.cente_b {
 				width: 100%;
-				min-height: 80vh;
+				min-height: 40vh;
 				overflow: hidden;
 			}
 
@@ -130,6 +132,11 @@ a {
 
 			.cente_ul ul {
 				width: 25%;
+				height: 30vh;
+				
+			}
+			.cente_ul ul.auto{
+				height: auto !important; 
 			}
 			/*ul*/
 
