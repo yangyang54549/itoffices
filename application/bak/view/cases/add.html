@@ -71,7 +71,7 @@
 		}
 
 		.form-more ul li select {
-			width: 56%;
+			width: 70%;
 			padding: 0px 10px;
 			line-height: 40px;
 			height: 40px;
@@ -411,6 +411,7 @@
 
 							<li class="item-li" id="select">
 								<div class="item-name"><strong>*</strong>案例类型：</div>
+								<div class="item-input" >
 								<select id="selects">
 									<option value="0">请选择</option>
 					                {volist name="type" id="vos"}
@@ -418,7 +419,10 @@
 
 					                {/volist}
 								</select>
-
+								<span id="select_span">
+									
+								</span>
+</div>
 
 							</li>
 							<li class="item-li">
@@ -629,12 +633,7 @@
 
 				})
 
-				var project = document.getElementById("project"); //手机号
-				var budget = document.getElementById("budget"); //手机号
-				var brief = document.getElementById("brief"); //手机号
-				yanZheng(project, /^[\s\S]*.*[^\s][\s\S]*$/);
-				yanZheng(budget, /^[\s\S]*.*[^\s][\s\S]*$/);
-				yanZheng(brief, /^[\s\S]*.*[^\s][\s\S]*$/);
+				
 
 
 //				$(".mg-none li").click(function(){

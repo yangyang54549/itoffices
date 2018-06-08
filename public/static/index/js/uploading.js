@@ -186,13 +186,34 @@ function overtop(s) {
 						$("#app .overtop").remove();
 					}, 1000);
 				}
+
+var project = document.getElementById("project"); //手机号
+				var budget = document.getElementById("budget"); //手机号
+				var brief = document.getElementById("brief"); //手机号
+				yanZheng(project, /^[\s\S]*.*[^\s][\s\S]*$/);
+				yanZheng(budget, /^[\s\S]*.*[^\s][\s\S]*$/);
+				yanZheng(brief, /^[\s\S]*.*[^\s][\s\S]*$/);
 function bths(){
 
 	/*获取select 选中的 text :
     $("#ddlregtype").find("option:selected").text();
 获取select选中的 value:
     $("#ddlregtype ").val();*/
-
+						kk(project);
+						kk(budget);							
+						kk(brief);
+						/*提示*/
+						if($("#selects").val()=="请选择"){
+							
+						$("#select_span").css("color","red");
+						$("#select_span").css("margin-left","15px");
+							$("#select_span").text("请选择");
+						}else{							
+						$("#select_span").css("color","white");
+						$("#select_span").css("margin-left","0px");
+						$("#select_span").text(" ");
+						}
+							
 	if($("#project").val()!=""){
 		if($("#budget").val()!=""){
 			selects();
