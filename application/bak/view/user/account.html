@@ -398,7 +398,7 @@ height: auto;
 						<p class="bls"><span class="bt0">名称</span><span class="bt1">金额</span><span class="bt2">时间</span><span class="bt3">明细</span></p>
 
 						{volist name="casespay" id="vo"}
-						<p><span class="bt0">{$vo.name}</span><span class="bt1">{$vo.money}</span><span class="bt2">{$vo.create_time|date="Y-m-d H:i:s",###}</span><span class="bt3">充值</span></p>
+						<p><span class="bt0">{$vo.name}</span><span class="bt1">{$vo.money}</span><span class="bt2">{$vo.create_time|date="Y-m-d H:i:s",###}</span><span class="bt3">支付成功</span></p>
 						{/volist}
 						<em class="show" id="show2" onclick="showEm2();">显示更多</em>
 						<em class="img_t"><img src="__INDEX__/img/icon/t.png"/><i>暂无记录</i></em>
@@ -408,7 +408,7 @@ height: auto;
 						<p class="bls"><span class="bt0">名称</span><span class="bt1">金额</span><span class="bt2">时间</span><span class="bt3">明细</span></p>
 
 						{volist name="casespaycases" id="voss"}
-						<p><span class="bt0">{$voss.name}</span><span class="bt1">{$voss.money}</span><span class="bt2">{$voss.create_time|date="Y-m-d H:i:s",###}</span><span class="bt3">充值</span></p>
+						<p><span class="bt0">{$voss.name}</span><span class="bt1">{$voss.money}</span><span class="bt2">{$voss.create_time|date="Y-m-d H:i:s",###}</span><span class="bt3">支付成功</span></p>
 						{/volist}
 						<em class="show" id="show3" onclick="showEm3();">显示更多</em>
 						<em class="img_t"><img src="__INDEX__/img/icon/t.png"/><i>暂无记录</i></em>
@@ -505,7 +505,7 @@ height: auto;
 					}
 				}else{
 					$("#show1").css("display","none");
-					if($("#cente1>p").length<1){
+					if($("#cente1>p").length<2){
 						$("#cente1 em.img_t").css("display","block");
 					}else{
 						$("#cente1>p").addClass("bls");
@@ -519,7 +519,7 @@ height: auto;
 					}
 				}else{
 					$("#show2").css("display","none");
-					if($("#cente2>p").length<1){
+					if($("#cente2>p").length<2){
 						$("#cente2 em.img_t").css("display","block");
 					}else{
 						$("#cente2>p").addClass("bls");
@@ -532,7 +532,7 @@ height: auto;
 					}
 				}else{
 					$("#show3").css("display","none");
-					if($("#cente3>p").length<1){
+					if($("#cente3>p").length<2){
 						$("#cente3 em.img_t").css("display","block");
 					}else{
 						$("#cente3>p").addClass("bls");

@@ -494,7 +494,7 @@
 										<p><span>开始时间</span><span class="time-begin">{if condition="$vo.start_time eq 0"}待协商{else/}{$vo.start_time|date="Y-m-d",###}{/if}</span></p>
 										<p><span>交付时间</span><span class="time-finish">{if condition="$vo.delivery_time eq 0"}待协商{else/}{$vo.delivery_time|date="Y-m-d",###}{/if}</span></p>
 										<p><span>需求描述</span><span>{$vo.info}</span></p>
-										<p style="margin-top: 30px;width: auto;"><span>接单方</span>
+										<p style="margin-top: 30px;width: auto;height: 30px;"><span>接单方</span></p>
 											<div class="participations pt{$vo.id}" data-id="{$vo.id}">
 
 												{volist name="$vo.apply" id="ap"}
@@ -506,7 +506,7 @@
 												</div>
 												{/volist}
 									</div>
-										</p>
+										<!--</p>-->
 										<!-- <div {if condition="$vo.apply_id.xstatus eq 1"} class="bottom_bottom blue1" {elseif condition="$vo.apply_id.xstatus eq 4" /} class="bottom_bottom blue2"  {elseif condition="$vo.apply_id.xstatus eq 2" /} class="bottom_bottom blue3"  {elseif condition="$vo.apply_id.xstatus eq 3" /} class="bottom_bottom blue4" {else/} class="bottom_bottom blue0" {/if} style="border-top: 1px dotted #d3d0d0;border-bottom: 1px dotted #d3d0d0;">
 											<p>
 												<span class="sptext">发布需求</span>
