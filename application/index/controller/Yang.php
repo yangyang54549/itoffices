@@ -3,10 +3,10 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:47:48
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-06-07 14:34:46
+ * @Last Modified time: 2018-06-08 16:26:44
  */
 
-namespace app\bak\controller;
+namespace app\index\controller;
 use think\Controller;
 use think\Session;
 use think\Cookie;
