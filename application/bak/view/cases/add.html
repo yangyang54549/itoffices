@@ -413,13 +413,18 @@
 								<div class="item-name"><strong>*</strong>案例类型：</div>
 								<select id="selects">
 									<option value="0">请选择</option>
-					                {volist name="system" id="vos"}
+					                {volist name="type" id="vos"}
 									<option value="{$vos.id}">{$vos.name}</option>
 
 					                {/volist}
 								</select>
+<<<<<<< HEAD
+
+
+=======
 								<span></span>
 								
+>>>>>>> 4be19cc2e4a7d8ae3f4530cdf1156e7f176eef4c
 							</li>
 							<li class="item-li">
 								<div class="item-name"><strong>*</strong>主要功能：</div>
@@ -588,16 +593,16 @@
 					/*$(this).siblings().removeClass("selected");*/
 					$(this).toggleClass("selected");
 				})
-				$("#zy .urgency").click(function(){					
+				$("#zy .urgency").click(function(){
 					$(this).toggleClass("selected");
-					
+
 				})
 				$("#zs .urgency").click(function(){
 					$(this).siblings().removeClass("selected");
 					$(this).addClass("selected");
 				})
 				zys();
-				function zys(){		
+				function zys(){
 					var se = $("#select select").val();
 					$("#zy .urgency").css("display","none");
 					if($("#zy .ur"+se).length>10){
@@ -607,16 +612,19 @@
 					}else{
 						$("#zy .ur"+se).css("display","block");
 					}
-					
-					
+
+
 				}
 				$("#select select").change(function(){
 					var se = $("#select select").val();
 					$("#zy .urgency").removeClass("selected");
 					$("#zy .urgency").css("display","none");
 					$("#zy .ur"+se).css("display","block");
-					
+
 				})
+<<<<<<< HEAD
+
+=======
 				
 				var project = document.getElementById("project"); //手机号
 				var budget = document.getElementById("budget"); //手机号
@@ -625,6 +633,7 @@
 				yanZheng(budget, /^[\s\S]*.*[^\s][\s\S]*$/);
 				yanZheng(brief, /^[\s\S]*.*[^\s][\s\S]*$/);
 				
+>>>>>>> 4be19cc2e4a7d8ae3f4530cdf1156e7f176eef4c
 //				$(".mg-none li").click(function(){
 //					/*$(this).parent().remove();*/
 //					alert("qwe");

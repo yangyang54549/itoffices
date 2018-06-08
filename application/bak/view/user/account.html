@@ -382,8 +382,8 @@ height: auto;
 
 						<p class="bls"><span class="bt0">名称</span><span class="bt1">金额</span><span class="bt2">时间</span><span class="bt3">明细</span></p>
 
-						{volist name="casespay" id="vo"}
-						<p><span class="bt0">{$vo.name}</span><span class="bt1">{$vo.money}</span><span class="bt2">{$vo.create_time|date="Y-m-d H:i:s",###}</span><span class="bt3">充值</span></p>
+						{volist name="casespaycases" id="voss"}
+						<p><span class="bt0">{$voss.name}</span><span class="bt1">{$voss.money}</span><span class="bt2">{$voss.create_time|date="Y-m-d H:i:s",###}</span><span class="bt3">充值</span></p>
 						{/volist}
 						<em class="show" id="show3" onclick="showEm3();">显示更多</em>
 
@@ -441,7 +441,6 @@ height: auto;
 						alert("请输入提现帐号");
 					}else{
 						var dat = $(".weizhi .on").data('type');
-						$(".beijin").css("display","none");
 						money = $(".beijin input").val();
 
 						$.post("{:url('user/account')}",{
@@ -451,10 +450,12 @@ height: auto;
 						},function(data){
 
 							if (data.code==1) {
-								$(".beijin").css("display","none");
-								$(".beijin input").val("");
-								$("#card").val("");
+									location.reload();
+
+								//$("#card").val("");
 							}else{
+								//$(".beijin").css("display","none");
+								$(".beijin input").val("");
 								alert(data.msg)
 							}
 
