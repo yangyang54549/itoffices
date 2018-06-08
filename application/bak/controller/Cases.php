@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2018-01-25 17:46:09
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-06-08 14:45:37
+ * @Last Modified time: 2018-06-08 15:09:20
  */
 namespace app\bak\controller;
 use app\admin\Controller;
@@ -317,7 +317,7 @@ class Cases extends Yang
             }
             $data['images'] = $images;
             $img = $this->uploadimg($data['img']);
-            //return json($img);
+
             //缩略图
             $data['img'] = $img;
 
