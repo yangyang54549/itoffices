@@ -20,14 +20,17 @@
             <th width="25"><input type="checkbox"></th>
             <th width="">id</th>
             <th width="">姓名</th>
+
+            <th width="">金额</th>
+            <th width="">冻结金额</th>
+            <th width="">提现金额</th>
+
             <th width="">性别</th>
-            <th width="">地址</th>
             <th width="">工作状态</th>
             <th width="">职业</th>
             <th width="">工作年限</th>
             <th width="">手机号码</th>
             <th width="">微信号</th>
-            <th width="">邮箱</th>
             <th width="">日薪</th>
             <th width="">注册时间</th>
             <th width="70">操作</th>
@@ -39,14 +42,17 @@
             <td><input type="checkbox" name="id[]" value="{$vo.id}"></td>
             <td  onclick="layer_open('用户详情', '/index/user/resumes/id/{$vo.id}.html')">{$vo.id|high_light=$Request.param.id}</td>
             <td>{$vo.user_name}</td>
+
+            <td>{$vo.money}</td>
+            <td>{$vo.dj_money}</td>
+            <td>{$vo.tx_money}</td>
+
             <td>{$vo.gender}</td>
-            <td>{$vo.address}</td>
             <td>{$vo.user_status}</td>
             <td>{$vo.occupation}</td>
             <td>{$vo.years}</td>
             <td>{$vo.mobile|high_light=$Request.param.mobile}</td>
             <td>{$vo.wxchat}</td>
-            <td>{$vo.email}</td>
             <td>{$vo.daily_money}</td>
             <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
             <td class="f-14">
