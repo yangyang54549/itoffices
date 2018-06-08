@@ -150,43 +150,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 })(window,document,"script","_qha",224241,false);
 </script>
 	<body>
-<div class="sou " >
-			<div class="search">
-				<div class="search1">
-
-					<div class="navs">
-						<!--<i class="is">首页</i>
-						<i class="is">需求</i>
-						<i class="is actives">案例</i>
-						<i class="is">人才</i>-->
-						<!--<a href="{:url('index/one')}" class="is" >首页</a>-->
-				<a href="{:url('demand/index')}" class="is " >需求</a>
-				<a  href="{:url('cases/index')}" class="is actives"  >案例</a>
-				<!--<a  href="javascript:void(0)" class="is">人工</a>-->
-				{if condition="session('user')"}<a  id="personage" href="{:url('user/index')}"  titile="" ><img src="__INDEX__/img/icon/geren.png"/></a>{else/}<a  style="float: right;" class="is denglu" >登录/注册</a>{/if}
-
-					</div>
-					<input type="text" name="" id="" value="" placeholder="搜索..." />
-					<img src="__INDEX__/img/icon/fda.png" />
-					<button onclick="one();">搜索</button>
-					<p class="xuqiu">发案例</p>
-
-					<span>或者</span>
-				</div>
-			</div>
-		</div>
-
-
-
-
-		<!--	<div class="header" id="demo">
-
-
-  <div class="canvaszz"> </div>
-  <canvas id="canvas"></canvas>
-</div>
-
-<script src="__INDEX__/js/script.js" ></script>-->
+{include file="index/nav" /}		
 		<div id="choice">
 			<div class="choice_kind">
 				<span text="产品类型：">产品类型：</span>
