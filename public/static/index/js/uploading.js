@@ -324,7 +324,7 @@ function imgs(){
 		overtop("请上传首页图");
 	}else{
 		if($(".img-list2 li").length!=1){
-			if($("#budget-url").val()!=""){
+			if($("#budget-url").val()!=""&&$("#budget-url").val()!="http://"){
 				tuji();
 			}else{
 				overtop("预览二维码和预览url至少填一项");
@@ -381,7 +381,7 @@ function vals(){
 		var url = $("#budget-url").val();
 	}else{
 		var imgli2 = $(".img-list2 li:nth-child(1)").css("backgroundImage").replace('url(','').replace(')','');
-		if($("#budget-url").val()!=""){
+		if($("#budget-url").val()!=""&&$("#budget-url").val()!="http://"){
 			var url = $("#budget-url").val();
 		}
 	}
