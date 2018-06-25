@@ -429,7 +429,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 							<input type="reset" id="login1s"   value="&nbsp;登&nbsp;录&nbsp;" class="btn btn-default btn-lg">
 						</div>
 					<div class="login_logos">
-					<p class="one"><span id="">第三方登录</span></p>
+					<p class="one"><span id="">网站客服</span></p>
 					<p class="two"><span></span> </p>
 					</div>
 				<span id="quehuan1" onclick="quehuan1();">
@@ -438,9 +438,9 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				</div>
 
 				<div class="login2" style="display: none;">
-					<p  style="width: 100%;text-align: center; font-size: 16px;  font-weight: bold;">微信登录</p>
-					<img src="__INDEX__/img/saoma.png" style="width: 240px; height: auto; display: block;margin: 0px  auto;"/>
-					<p  style="width: 100%;text-align: center; font-size: 14px; line-height: 30px; font-weight: bold;">使用微信扫描二维码登录</p>
+					<p  style="width: 100%;text-align: center; font-size: 16px;  font-weight: bold;">添加客服</p>
+					<img src="__INDEX__/img/name.jpg" style="width: 240px; height: auto; display: block;margin: 0px  auto;"/>
+					<p  style="width: 100%;text-align: center; font-size: 14px; line-height: 30px; font-weight: bold;">使用微信扫描二维码添加</p>
 
 				<span id="quehuan2" onclick="quehuan2();">
 
@@ -1324,15 +1324,15 @@ ol, ul {
 			var id = {$demand.id};
 			var session = "{:session('user.id')}";
 				$("#yan").click(function () {
-			  	 $("#yan").addClass("disabled");
+			  	 
                 if($("#phones").val() == "") {
-                    block("请输入手机号码"); $("#yan").remove("disabled");
+                    block("请输入手机号码"); 
                 }  else {
 
                 	if(!(/^1[3456789]\d{9}$/.test($("#phones").val()))) {
-						block("手机号码有误，请重填"); $("#yan").remove("disabled");
+						block("手机号码有误，请重填"); 
 					} else {
-
+$("#yan").addClass("disabled");
 
                             $.post("{:url('login/codemsg')}",{mobile:$("#phones").val()},function(data) {
                                 if (data.code==1) {
@@ -1344,12 +1344,12 @@ ol, ul {
                                         if(s == 0) {
 
                                             clearInterval(j);
-                                            $("#yan").remove("disabled");
+                                            $("#yan").removeClass("disabled");
                                             $("#yan").html("请重新获取");
                                         }
                                     }, 1000)
                                 }else{
-                                   block(data.msg); $("#yan").remove("disabled");
+                                   block(data.msg); $("#yan").removeClass("disabled");
                                 }
                             })
 
@@ -1590,10 +1590,10 @@ ol, ul {
 				{$demand.info}
 			</div>
 			<div class="related-head" style="border-top: 1px dashed rgba(0,0,0,0.12); margin-top: 10px;border-bottom: none;">
-				<h1 style="height: 26px;font-size: 16px; line-height: 30px;padding-top: 10px;"><img src="__INDEX__/img/icon/xi11.png"class="img" /><span id="" style="font-size: 16px; line-height: 30px;">
+				<h1 style="height: 50px;font-size: 16px; padding-top: 10px; overflow: hidden; width: 100%;"><img src="__INDEX__/img/icon/xi11.png"class="img" style="float: left;" /><span id="" style="float: left; font-size: 16px; margin: 0px 10px; line-height: 30px;">
 			参考网址/产品
 		</span>
-				<span id="" style="font-size: 16px; line-height: 30px; margin-left: 30px;color: gray; font-weight: 500;" onclick="window.open('{$demand.reference}')">
+				<span id="" style="float: left; font-size: 16px; line-height: 30px; margin-left: 30px;color: gray; font-weight: 500;width:40%; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;" onclick="window.open('{$demand.reference}')">
 					{$demand.reference}
 				</span></h1>
 

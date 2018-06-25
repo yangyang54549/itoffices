@@ -560,13 +560,15 @@ ol, ul {
                                         s = s - 1;
                                        $(".send1").html(s + "s");
                                         if(s == 0) {
+                                        	  $(".send1").html("请重新获取");
+                                             $(".send1").removeClass("disabled");
                                             clearInterval(j);
-                                            $(".send1").remove("disabled");
-                                            $(".send1").html("请重新获取");
+                                          
+                                          
                                         }
                                     }, 1000)
                                 }else{
-                                  $(".overtop").text(data.msg); $(".send1").remove("disabled");overtop();
+                                  $(".overtop").text(data.msg); $(".send1").removeClass("disabled");overtop();
                                 }
                             })
 

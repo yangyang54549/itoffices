@@ -514,19 +514,35 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 						</div>
 					</div>
 				</div>
-				<div class="right_site">
+				<div class="right_site" id="wpe">
+					<!--{if condition="$vo.delivery_time eq 0"}
 					<div class="">
 						<img src="__INDEX__/img/icon/wei1.png" />
+						<p class="site_top">{$user.wxchat}</p>
+						<p class="sanjiao"></p>
+					</div>
+					{else/}
+					<div class="">
+						<img src="__INDEX__/img/icon/wei1.png" />
+						<p class="site_top">未验证微信号</p>
+						<p class="sanjiao"></p>
+					</div>
+					{/if}-->
+					<div class="yweixin">
+						<img src="__INDEX__/img/icon/wei1.png" class="on1"/>
+						<img src="__INDEX__/img/icon/wei2.png" class="on2"/>
 						<p class="site_top">{$user.wxchat ? $user.wxchat : '未验证微信号'}</p>
 						<p class="sanjiao"></p>
 					</div>
-					<div class="">
-						<img src="__INDEX__/img/icon/phone1.png" />
+					<div class="yphone">
+						<img src="__INDEX__/img/icon/phone1.png"class="on1" />
+						<img src="__INDEX__/img/icon/phone2.png" class="on2" />
 						<p class="site_top">{$user.mobile ? $user.mobile : '未验证电话号码'}</p>
 						<p class="sanjiao"></p>
 					</div>
-					<div class="">
-						<img src="__INDEX__/img/icon/y1.png" />
+					<div class="yemal">
+						<img src="__INDEX__/img/icon/y1.png" class="on1"/>
+						<img src="__INDEX__/img/icon/y2.png" class="on2"/>
 						<p class="site_top">{$user.email ? $user.email : '未验证邮箱地址'}</p>
 						<p class="sanjiao"></p>
 					</div>
@@ -536,6 +552,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 						<p class="sanjiao"></p>
 					</div> -->
 				</div>
+				
 				<div class="right_message">
 
 					<p>{$user.daily_money}元/天</p>
@@ -679,7 +696,44 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 						$(".introduce6").css("display", "none");
 			})
 
-
+		
 	</script>
-
+<script type="text/javascript">
+					wpe();
+					function wpe(){
+						if($("#wpe .yweixin .site_top").text()!="未验证微信号"){
+							$("#wpe .yweixin .on1").css("display","none");
+							$("#wpe .yweixin .on2").css("display","block");
+							$("#wpe .yweixin .site_top").css("background-color","#0D80DD");						
+							$("#wpe .yweixin .sanjiao").css("border-top-color","#0D80DD");
+						}else{
+							$("#wpe .yweixin .on2").css("display","none");
+							$("#wpe .yweixin .on1").css("display","block");
+							$("#wpe .yweixin .site_top").css("background-color","gray");							
+							$("#wpe .yweixin .sanjiao").css("border-top-color","gray");
+						}
+						if($("#wpe .yphone .site_top").text()!="未验证电话号码"){
+							$("#wpe .yphone .on1").css("display","none");
+							$("#wpe .yphone .on2").css("display","block");
+							$("#wpe .yphone .site_top").css("background-color","#0D80DD");							
+							$("#wpe .yphone .sanjiao").css("border-top-color","#0D80DD");
+						}else{
+							$("#wpe .yphone .on2").css("display","none");
+							$("#wpe .yphone .on1").css("display","block");
+							$("#wpe .yphone .site_top").css("background-color","gray");							
+							$("#wpe .yphone .sanjiao").css("border-top-color","gray");
+						}
+						if($("#wpe .yemal .site_top").text()!="未验证邮箱地址"){
+							$("#wpe .yemal .on1").css("display","none");
+							$("#wpe .yemal .on2").css("display","block");
+							$("#wpe .yemal .site_top").css("background-color","#0D80DD");							
+							$("#wpe .yemal .sanjiao").css("border-top-color","#0D80DD");
+						}else{
+							$("#wpe .yemal .on2").css("display","none");
+							$("#wpe .yemal .on1").css("display","block");
+							$("#wpe .yemal .site_top").css("background-color","gray");							
+							$("#wpe .yemal .sanjiao").css("border-top-color","gray");
+						}
+					}
+				</script>
 </html>

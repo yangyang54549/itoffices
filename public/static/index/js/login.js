@@ -1,12 +1,12 @@
 
 	function quehuan1(){
 				$(".login .login1").css("display","none");
-				$(".login .login2").css("display","block");
+				$(".login .login2").css("display","block");$(".login_logo span").text("客服");
 			}
 
 			function quehuan2(){
 				$(".login .login2").css("display","none");
-				$(".login .login1").css("display","block");
+				$(".login .login1").css("display","block");$(".login_logo span").text("登录");
 			}
 			function none(){
   						$(".beijin").css("display", "none");

@@ -288,7 +288,7 @@ min-height: 75vh;
 				
 				height: 40px !important;
 				line-height: 40px !important;
-				border: 1px solid #F5F5F5;
+				border: 1px dashed #ff5353;
 				border-radius:10px ;
 				box-sizing: border-box;
 				text-align: center;
@@ -325,7 +325,7 @@ height: auto;
 			em.img_t{
 				display: block;
 				width: 100px;
-				margin: 10px auto;
+				margin: 50px auto;
 				display: none;
 			}
 			
@@ -341,6 +341,10 @@ height: auto;
 				width: 20% !important;
 				margin: 0px 6.6% !important;
 			}
+			.disabled{
+	  pointer-events: none;
+    cursor: default;
+}
 		</style>
 	</head>
 
@@ -425,7 +429,7 @@ height: auto;
 				<input type="text" name="card" id="card" value=""  placeholder="请输入提现帐号" style="outline:none;height: 30px;line-height: 30px;width: 100%;" >
 					<p class="weizhi"><span class="on" data-type='1'><!--<img src="__INDEX__/img/icon/weixin.png"/>--><i>微信</i></span>
 				<span  data-type='0'><!--<img src="__INDEX__/img/icon/rengong.png"/>--><i>支付宝</i></span></p>
-				<p><span class="qud" id="qd1" onclick="none1();">确定</span>
+				<p><span class="qud" id="qd1" >确定</span>
 				<span class="qud" id="qd2"onclick="none();" >取消</span></p>
 			</div>
 		</div>
@@ -459,12 +463,14 @@ height: auto;
 				$(".beijin").css("display","none");
 
 			}
-			function none1(){
+			$("#qd1").click(function(){
+				
 				if($(".beijin input").val()>99 &&$(".beijin input").val()!=""){
 					//alert();
 					if ($("#card").val()=="") {
 						alert("请输入提现帐号");
 					}else{
+						$("#qd1").addClass("disabled");
 						var dat = $(".weizhi .on").data('type');
 						money = $(".beijin input").val();
 
@@ -473,7 +479,7 @@ height: auto;
 							card:$("#card").val(),
 							is_wx:dat
 						},function(data){
-
+						$("#qd1").removeClass("disabled");
 							if (data.code==1) {
 									location.reload();
 
@@ -493,7 +499,7 @@ height: auto;
 					alert("您输入的数值小于100或未输入数值");
 				}
 
-			}
+			})
 			/*初始化*/
 			shows1();
 			function shows1(){

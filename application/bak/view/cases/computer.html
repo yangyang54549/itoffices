@@ -76,7 +76,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 							<input type="reset" id="login1s"   value="&nbsp;登&nbsp;录&nbsp;" class="btn btn-default btn-lg">
 						</div>
 					<div class="login_logos">
-					<p class="one"><span id="">第三方登录</span></p>
+					<p class="one"><span id="">网站客服</span></p>
 					<p class="two"><span></span> </p>
 					</div>
 				<span id="quehuan1" onclick="quehuan1();">
@@ -85,9 +85,9 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 				</div>
 
 				<div class="login2" style="display: none;">
-					<p  style="width: 100%;text-align: center; font-size: 16px;  font-weight: bold;">微信登录</p>
-					<img src="__INDEX__/img/saoma.png" style="width: 240px; height: auto; display: block;margin: 0px  auto;"/>
-					<p  style="width: 100%;text-align: center; font-size: 14px; line-height: 30px; font-weight: bold;">使用微信扫描二维码登录</p>
+					<p  style="width: 100%;text-align: center; font-size: 16px;  font-weight: bold;">添加客服</p>
+					<img src="__INDEX__/img/name.jpg" style="width: 240px; height: auto; display: block;margin: 0px  auto;"/>
+					<p  style="width: 100%;text-align: center; font-size: 14px; line-height: 30px; font-weight: bold;">使用微信扫描二维码添加</p>
 
 				<span id="quehuan2" onclick="quehuan2();">
 
@@ -386,6 +386,9 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 									</td>
 								</tr>
 							</table>-->
+						<!--	<img src="__INDEX__/img/avatar/op3.jpg"style="width: 100%;" />
+							<img src="__INDEX__/img/avatar/op2.png"style="width: 100%;" />
+							<img src="__INDEX__/img/avatar/op1.png"style="width: 100%;" />-->
 						<h3 id="three">开发顾问</h3>
 						<img src="__INDEX__/img/service-instructions_1.jpg"style="width: 100%;" />
 						</div>
@@ -521,6 +524,30 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
         <script src="__INDEX__/js/form.js" type="text/javascript" charset="utf-8"></script>
         <script src="__INDEX__/js/login.js" type="text/javascript" charset="utf-8"></script>
         <script type="text/javascript">
+        	var mnp = $("#column p").length;
+			$("#column p").find('br').remove();
+			for(var i = 0;i<mnp; i++){
+				
+				if($("#column p").eq(i).text()!=""){
+					
+				}else{
+					var obj= $("#column p").eq(i);									
+					  if(obj.getElementsByTagName("img").length>0){ } else {
+					  		$("#column p").eq(i).css("display","none");
+					  }
+					    
+					
+				}
+			}
+			var mnspan = $("#column span").length;
+			$("#column span").find('br').remove();
+			for(var i = 0;i<mnspan; i++){
+				if($("#column span").eq(i).text()!=""){
+					
+				}else{
+					$("#column span").eq(i).css("display","none");
+				}
+			}
         		/*登录 开始*/
 			var session = "{:session('user.id')}";
 			$("#yan").click(function () {
@@ -544,12 +571,12 @@ $("#yan").addClass("disabled");
                                         if(s == 0) {
 
                                             clearInterval(j);
-                                            $("#yan").remove("disabled");
+                                            $("#yan").removeClass("disabled");
                                             $("#yan").html("请重新获取");
                                         }
                                     }, 1000)
                                 }else{
-                                   block(data.msg); $("#yan").remove("disabled");
+                                   block(data.msg); $("#yan").removeClass("disabled");
                                 }
                             })
 

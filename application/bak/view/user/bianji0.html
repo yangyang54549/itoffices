@@ -71,7 +71,7 @@
 				background-color: white;
 			}
 			h4.ui.header {
-	width: 100% !important;
+	width: 100% !important;height: auto;
 }
 		</style>
 	<script>
@@ -148,8 +148,8 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 							<label>职责</label> <input name="duty" class="duty" type="text" placeholder="例：PM/iOS 主程 (10字以内)" maxlength="10" style="width: 200px;" value="{$vo.position}">
 							<div class="ui label work-error J_WorkNameTip" style="display:none;"></div>
 						</div>
-						<div class="inline field" style="margin-bottom: 20px;"> <label>作品链接</label>
-							<input name="worksurl" class="worksurl" placeholder="例: http://www.example.com" type="text" style="width: 462px;" value="{$vo.url}">
+						<div class="inline field" style="margin-bottom: 20px;width: 100%;"> <label>作品链接</label>
+							<input name="worksurl" class="worksurl" placeholder="例: http://www.example.com" type="text" style="width: 800px;" value="{$vo.url}">
 							<div class="ui label work-error J_WorkUrlTip" style="display:none;"></div>
 						</div>
 						<div class="inline field" style="margin-bottom: 20px;">
@@ -172,7 +172,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 							<div class="ui label work-error J_WorkNameTip" style="display:none;"></div>
 						</div>
 						<div class="inline field" style="margin-bottom: 20px;"> <label>作品链接</label>
-							<input name="worksurl" class="worksurl" placeholder="例: http://www.example.com,若无法提供有效链接，请添加作品截图" type="text" style="width: 462px;">
+							<input name="worksurl" class="worksurl" placeholder="例: http://www.example.com" type="text" style="width: 800px;">
 							<div class="ui label work-error J_WorkUrlTip" style="display:none;"></div>
 						</div>
 						<div class="inline field" style="margin-bottom: 20px;">

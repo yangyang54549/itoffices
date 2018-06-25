@@ -332,6 +332,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 										<i class="clear"></i></div>
 									<div class="div1-info"><span>现在状态  </span><span>
 				        		<select placeholder="请选择现在状态" id="workingLife1"style="font-size: 16px;">
+				        			<option {if condition="$user.gender == ''"}selected="selected"{/if}>请选择</option>
 					        		<option {if condition="$user.gender == '自由工作'"}selected="selected"{/if}>自由工作</option>
 				                    <option {if condition="$user.gender == '在职'"}selected="selected"{/if}>在职</option>
 				                    <option {if condition="$user.gender == '离职'"}selected="selected"{/if}>离职</option>
@@ -354,6 +355,7 @@ s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefor
 
 									<div class="div1-info"><span>工作年限  </span><span>
 				        		<select placeholder="请选择您的工作年限" id="workingLife" style="font-size: 16px;">
+				        			<option {if condition="$user.gender == ''"}selected="selected"{/if}>请选择</option>
 					        		<option {if condition="$user.years == '1-3年'"}selected="selected"{/if}>1-3年</option>
 				                    <option {if condition="$user.years == '3-5年'"}selected="selected"{/if}>3-5年</option>
 				                    <option {if condition="$user.years == '5-8年'"}selected="selected"{/if}>5-8年</option>
